@@ -1,0 +1,71 @@
+Attribute VB_Name = "punto_singular"
+Sub sing1(ByRef h As Long, a As Long, k As Long)
+Dim z As Long
+Dim pk0 As Double
+' buscar en que fila de la hoja 4 se corresponde con el pk actual
+While Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 21).Value And Sheets(4).Cells(a, 23).Value <> "FINAL"
+    a = a + 1
+Wend
+' si es uno de estos PS corregir el vano
+' falta corregir los PS que tengan una longitud mayor a 9 metros
+If Sheets(4).Cells(a, 1).Value = ("Buse") Or Sheets(4).Cells(a, 1).Value = ("Pont") _
+Or Sheets(4).Cells(a, 1).Value = ("P.I.") Or Sheets(4).Cells(a, 1).Value = ("P.N.") _
+Or Sheets(4).Cells(a, 1).Value = ("Dalot") Then
+    z = h
+    pk0 = Sheets(1).Cells(z, 33).Value
+    While pk0 >= Sheets(4).Cells(a, 2).Value And pk0 <= Sheets(4).Cells(a, 21).Value
+        Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
+        pk0 = pk0 - inc_va
+        z = z - 2
+    Wend
+    While z <> h
+        Sheets(1).Cells(z + 2, 33).Value = Sheets(1).Cells(z + 1, 4) + Sheets(1).Cells(z, 33)
+        Call radio.radio1(z + 2, k - 1)
+        'Call reg(z, k, a)
+        z = z + 2
+    Wend
+End If
+End Sub
+
+Sub sing(ByRef h As Long, k As Long, ByRef a As Long, ByRef b As Long)
+Sheets(1).Cells(4, 1).Value = Sheets(1).Cells(h, 33).Value
+Sheets(1).Cells(5, 1).Value = Sheets(4).Cells(a, 2).Value
+' buscar en que fila de la hoja 4 se corresponde con el pk actual
+While Sheets(1).Cells(h - 6, 33).Value >= Sheets(4).Cells(a, 21).Value And Sheets(4).Cells(a, 23).Value <> "FINAL"
+    a = a + 1
+Wend
+
+If Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value _
+And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
+And Sheets(4).Cells(a, 1) = "Viaduc" Then
+    Call viaducto.viaduc(h, k, b, a)
+End If
+If (Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
+And (Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" Or Sheets(4).Cells(a, 1) = "PontXL")) Or (Sheets(1).Cells(h - 2, 33).Value < Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 2).Value And _
+(Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" Or Sheets(4).Cells(a, 1) = "PontXL")) Then
+    
+   If Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" And Sheets(4).Cells(a + 1, 1) = "Aiguillage" And Sheets(4).Cells(a + 1, 2) - Sheets(4).Cells(a, 2) < 63 Then
+        a = a + 1
+    Else
+    Call paso_superior.PS(h, k, a)
+    End If
+End If
+If (Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
+And Sheets(4).Cells(a, 1) = "Tunel") Then
+        Sheets(1).Cells(h, 25).Value = "Tunnel"
+        Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25)).MergeCells = True
+    If Sheets(1).Cells(h - 1, 4).Value > va_max_tunel Then
+        Sheets(1).Cells(h - 1, 4).Value = va_max_tunel
+        Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 2, 33) + Sheets(1).Cells(h - 1, 4)
+        Call radio.radio1(h, k - 1)
+    End If
+End If
+
+If (Sheets(1).Cells(h - 2, 33).Value <= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And _
+Sheets(4).Cells(a, 1) = "Aiguillage") Then
+
+Call aguja.aguja(h, k, b, a)
+End If
+
+End Sub
+

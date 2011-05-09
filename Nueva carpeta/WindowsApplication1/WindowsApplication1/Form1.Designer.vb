@@ -29,11 +29,23 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
-        Me.TabPage2 = New System.Windows.Forms.TabPage
-        Me.TabPage4 = New System.Windows.Forms.TabPage
+        Me.Label155 = New System.Windows.Forms.Label
+        Me.Label156 = New System.Windows.Forms.Label
+        Me.Label157 = New System.Windows.Forms.Label
+        Me.Label158 = New System.Windows.Forms.Label
+        Me.Label159 = New System.Windows.Forms.Label
+        Me.Label160 = New System.Windows.Forms.Label
+        Me.Label161 = New System.Windows.Forms.Label
+        Me.Label162 = New System.Windows.Forms.Label
+        Me.Label163 = New System.Windows.Forms.Label
+        Me.Label164 = New System.Windows.Forms.Label
+        Me.Label165 = New System.Windows.Forms.Label
+        Me.Label166 = New System.Windows.Forms.Label
+        Me.Label167 = New System.Windows.Forms.Label
+        Me.Label168 = New System.Windows.Forms.Label
+        Me.Label169 = New System.Windows.Forms.Label
         Me.Label107 = New System.Windows.Forms.Label
         Me.TextBox45 = New System.Windows.Forms.TextBox
         Me.Label108 = New System.Windows.Forms.Label
@@ -117,21 +129,25 @@ Partial Class Form1
         Me.Label152 = New System.Windows.Forms.Label
         Me.Label153 = New System.Windows.Forms.Label
         Me.Label154 = New System.Windows.Forms.Label
-        Me.Label155 = New System.Windows.Forms.Label
-        Me.Label156 = New System.Windows.Forms.Label
-        Me.Label157 = New System.Windows.Forms.Label
-        Me.Label158 = New System.Windows.Forms.Label
-        Me.Label159 = New System.Windows.Forms.Label
-        Me.Label160 = New System.Windows.Forms.Label
-        Me.Label161 = New System.Windows.Forms.Label
-        Me.Label162 = New System.Windows.Forms.Label
-        Me.Label163 = New System.Windows.Forms.Label
-        Me.Label164 = New System.Windows.Forms.Label
-        Me.Label165 = New System.Windows.Forms.Label
-        Me.Label166 = New System.Windows.Forms.Label
-        Me.Label167 = New System.Windows.Forms.Label
-        Me.Label168 = New System.Windows.Forms.Label
-        Me.Label169 = New System.Windows.Forms.Label
+        Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.ComboBox15 = New System.Windows.Forms.ComboBox
+        Me.Label48 = New System.Windows.Forms.Label
+        Me.Label46 = New System.Windows.Forms.Label
+        Me.Label47 = New System.Windows.Forms.Label
+        Me.ComboBox13 = New System.Windows.Forms.ComboBox
+        Me.ComboBox14 = New System.Windows.Forms.ComboBox
+        Me.Label44 = New System.Windows.Forms.Label
+        Me.TextBox15 = New System.Windows.Forms.TextBox
+        Me.Label45 = New System.Windows.Forms.Label
+        Me.Label38 = New System.Windows.Forms.Label
+        Me.Label39 = New System.Windows.Forms.Label
+        Me.Label40 = New System.Windows.Forms.Label
+        Me.TextBox12 = New System.Windows.Forms.TextBox
+        Me.TextBox13 = New System.Windows.Forms.TextBox
+        Me.TextBox14 = New System.Windows.Forms.TextBox
+        Me.Label41 = New System.Windows.Forms.Label
+        Me.Label42 = New System.Windows.Forms.Label
+        Me.Label43 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.ComboBox3 = New System.Windows.Forms.ComboBox
         Me.Label6 = New System.Windows.Forms.Label
@@ -178,52 +194,35 @@ Partial Class Form1
         Me.Label30 = New System.Windows.Forms.Label
         Me.Label31 = New System.Windows.Forms.Label
         Me.Label32 = New System.Windows.Forms.Label
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox
-        Me.Label33 = New System.Windows.Forms.Label
-        Me.Label34 = New System.Windows.Forms.Label
-        Me.Label35 = New System.Windows.Forms.Label
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox
-        Me.Label36 = New System.Windows.Forms.Label
-        Me.ComboBox9 = New System.Windows.Forms.ComboBox
-        Me.Label37 = New System.Windows.Forms.Label
-        Me.ComboBox10 = New System.Windows.Forms.ComboBox
-        Me.ComboBox12 = New System.Windows.Forms.ComboBox
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Label90 = New System.Windows.Forms.Label
-        Me.TextBox42 = New System.Windows.Forms.TextBox
-        Me.TextBox44 = New System.Windows.Forms.TextBox
-        Me.Label95 = New System.Windows.Forms.Label
-        Me.Label92 = New System.Windows.Forms.Label
-        Me.Label91 = New System.Windows.Forms.Label
-        Me.Label93 = New System.Windows.Forms.Label
-        Me.Label94 = New System.Windows.Forms.Label
-        Me.TextBox43 = New System.Windows.Forms.TextBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.TabPage4 = New System.Windows.Forms.TabPage
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.Label38 = New System.Windows.Forms.Label
-        Me.Label39 = New System.Windows.Forms.Label
-        Me.Label40 = New System.Windows.Forms.Label
-        Me.TextBox12 = New System.Windows.Forms.TextBox
-        Me.TextBox13 = New System.Windows.Forms.TextBox
-        Me.TextBox14 = New System.Windows.Forms.TextBox
-        Me.Label41 = New System.Windows.Forms.Label
-        Me.Label42 = New System.Windows.Forms.Label
-        Me.Label43 = New System.Windows.Forms.Label
-        Me.Label44 = New System.Windows.Forms.Label
-        Me.TextBox15 = New System.Windows.Forms.TextBox
-        Me.Label45 = New System.Windows.Forms.Label
-        Me.Label46 = New System.Windows.Forms.Label
-        Me.Label47 = New System.Windows.Forms.Label
-        Me.ComboBox13 = New System.Windows.Forms.ComboBox
-        Me.ComboBox14 = New System.Windows.Forms.ComboBox
-        Me.ComboBox15 = New System.Windows.Forms.ComboBox
-        Me.Label48 = New System.Windows.Forms.Label
+        Me.Label33 = New System.Windows.Forms.Label
+        Me.ComboBox12 = New System.Windows.Forms.ComboBox
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox
+        Me.ComboBox10 = New System.Windows.Forms.ComboBox
+        Me.Label37 = New System.Windows.Forms.Label
+        Me.Label34 = New System.Windows.Forms.Label
+        Me.ComboBox9 = New System.Windows.Forms.ComboBox
+        Me.Label35 = New System.Windows.Forms.Label
+        Me.Label36 = New System.Windows.Forms.Label
+        Me.ComboBox8 = New System.Windows.Forms.ComboBox
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label90 = New System.Windows.Forms.Label
+        Me.TextBox43 = New System.Windows.Forms.TextBox
+        Me.TextBox42 = New System.Windows.Forms.TextBox
+        Me.Label94 = New System.Windows.Forms.Label
+        Me.TextBox44 = New System.Windows.Forms.TextBox
+        Me.Label93 = New System.Windows.Forms.Label
+        Me.Label95 = New System.Windows.Forms.Label
+        Me.Label91 = New System.Windows.Forms.Label
+        Me.Label92 = New System.Windows.Forms.Label
+        Me.Button2 = New System.Windows.Forms.Button
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -292,19 +291,6 @@ Partial Class Form1
         Me.Label4.Size = New System.Drawing.Size(179, 18)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "DATOS NUEVA CATENARIA"
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Black
-        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Location = New System.Drawing.Point(791, 9)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(157, 38)
-        Me.Button1.TabIndex = 39
-        Me.Button1.Text = "GUARDAR DATOS"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'TabControl1
         '
@@ -425,91 +411,155 @@ Partial Class Form1
         Me.TabPage1.Text = "DATOS GENERALES"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'Label155
         '
-        Me.TabPage2.Controls.Add(Me.ComboBox15)
-        Me.TabPage2.Controls.Add(Me.Label48)
-        Me.TabPage2.Controls.Add(Me.Label46)
-        Me.TabPage2.Controls.Add(Me.Label47)
-        Me.TabPage2.Controls.Add(Me.ComboBox13)
-        Me.TabPage2.Controls.Add(Me.ComboBox14)
-        Me.TabPage2.Controls.Add(Me.Label44)
-        Me.TabPage2.Controls.Add(Me.TextBox15)
-        Me.TabPage2.Controls.Add(Me.Label45)
-        Me.TabPage2.Controls.Add(Me.Label38)
-        Me.TabPage2.Controls.Add(Me.Label39)
-        Me.TabPage2.Controls.Add(Me.Label40)
-        Me.TabPage2.Controls.Add(Me.TextBox12)
-        Me.TabPage2.Controls.Add(Me.TextBox13)
-        Me.TabPage2.Controls.Add(Me.TextBox14)
-        Me.TabPage2.Controls.Add(Me.Label41)
-        Me.TabPage2.Controls.Add(Me.Label42)
-        Me.TabPage2.Controls.Add(Me.Label43)
-        Me.TabPage2.Controls.Add(Me.Label5)
-        Me.TabPage2.Controls.Add(Me.ComboBox3)
-        Me.TabPage2.Controls.Add(Me.Label6)
-        Me.TabPage2.Controls.Add(Me.Label7)
-        Me.TabPage2.Controls.Add(Me.TextBox2)
-        Me.TabPage2.Controls.Add(Me.Label8)
-        Me.TabPage2.Controls.Add(Me.Label9)
-        Me.TabPage2.Controls.Add(Me.Label10)
-        Me.TabPage2.Controls.Add(Me.TextBox3)
-        Me.TabPage2.Controls.Add(Me.Label11)
-        Me.TabPage2.Controls.Add(Me.Label12)
-        Me.TabPage2.Controls.Add(Me.Label13)
-        Me.TabPage2.Controls.Add(Me.TextBox4)
-        Me.TabPage2.Controls.Add(Me.Label14)
-        Me.TabPage2.Controls.Add(Me.Label15)
-        Me.TabPage2.Controls.Add(Me.Label16)
-        Me.TabPage2.Controls.Add(Me.TextBox5)
-        Me.TabPage2.Controls.Add(Me.Label17)
-        Me.TabPage2.Controls.Add(Me.Label18)
-        Me.TabPage2.Controls.Add(Me.Label19)
-        Me.TabPage2.Controls.Add(Me.TextBox6)
-        Me.TabPage2.Controls.Add(Me.Label20)
-        Me.TabPage2.Controls.Add(Me.Label21)
-        Me.TabPage2.Controls.Add(Me.Label22)
-        Me.TabPage2.Controls.Add(Me.TextBox7)
-        Me.TabPage2.Controls.Add(Me.ComboBox4)
-        Me.TabPage2.Controls.Add(Me.Label23)
-        Me.TabPage2.Controls.Add(Me.ComboBox5)
-        Me.TabPage2.Controls.Add(Me.TextBox8)
-        Me.TabPage2.Controls.Add(Me.ComboBox6)
-        Me.TabPage2.Controls.Add(Me.Label24)
-        Me.TabPage2.Controls.Add(Me.ComboBox11)
-        Me.TabPage2.Controls.Add(Me.TextBox9)
-        Me.TabPage2.Controls.Add(Me.ComboBox26)
-        Me.TabPage2.Controls.Add(Me.Label25)
-        Me.TabPage2.Controls.Add(Me.ComboBox27)
-        Me.TabPage2.Controls.Add(Me.TextBox10)
-        Me.TabPage2.Controls.Add(Me.ComboBox28)
-        Me.TabPage2.Controls.Add(Me.Label26)
-        Me.TabPage2.Controls.Add(Me.Label27)
-        Me.TabPage2.Controls.Add(Me.TextBox11)
-        Me.TabPage2.Controls.Add(Me.Label28)
-        Me.TabPage2.Controls.Add(Me.Label29)
-        Me.TabPage2.Controls.Add(Me.Label30)
-        Me.TabPage2.Controls.Add(Me.Label31)
-        Me.TabPage2.Controls.Add(Me.Label32)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(637, 519)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "CONDUCTORES"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.Label155.AutoSize = True
+        Me.Label155.Location = New System.Drawing.Point(555, 126)
+        Me.Label155.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label155.Name = "Label155"
+        Me.Label155.Size = New System.Drawing.Size(16, 16)
+        Me.Label155.TabIndex = 208
+        Me.Label155.Text = "m"
         '
-        'TabPage4
+        'Label156
         '
-        Me.TabPage4.Controls.Add(Me.GroupBox2)
-        Me.TabPage4.Controls.Add(Me.GroupBox1)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(637, 519)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "AISLADORES Y PENDOLADO"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.Label156.AutoSize = True
+        Me.Label156.Location = New System.Drawing.Point(555, 393)
+        Me.Label156.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label156.Name = "Label156"
+        Me.Label156.Size = New System.Drawing.Size(16, 16)
+        Me.Label156.TabIndex = 207
+        Me.Label156.Text = "m"
+        '
+        'Label157
+        '
+        Me.Label157.AutoSize = True
+        Me.Label157.Location = New System.Drawing.Point(554, 366)
+        Me.Label157.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label157.Name = "Label157"
+        Me.Label157.Size = New System.Drawing.Size(16, 16)
+        Me.Label157.TabIndex = 206
+        Me.Label157.Text = "m"
+        '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.Location = New System.Drawing.Point(554, 340)
+        Me.Label158.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(16, 16)
+        Me.Label158.TabIndex = 205
+        Me.Label158.Text = "m"
+        '
+        'Label159
+        '
+        Me.Label159.AutoSize = True
+        Me.Label159.Location = New System.Drawing.Point(554, 313)
+        Me.Label159.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label159.Name = "Label159"
+        Me.Label159.Size = New System.Drawing.Size(16, 16)
+        Me.Label159.TabIndex = 204
+        Me.Label159.Text = "m"
+        '
+        'Label160
+        '
+        Me.Label160.AutoSize = True
+        Me.Label160.Location = New System.Drawing.Point(554, 286)
+        Me.Label160.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label160.Name = "Label160"
+        Me.Label160.Size = New System.Drawing.Size(16, 16)
+        Me.Label160.TabIndex = 203
+        Me.Label160.Text = "m"
+        '
+        'Label161
+        '
+        Me.Label161.AutoSize = True
+        Me.Label161.Location = New System.Drawing.Point(554, 260)
+        Me.Label161.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label161.Name = "Label161"
+        Me.Label161.Size = New System.Drawing.Size(16, 16)
+        Me.Label161.TabIndex = 202
+        Me.Label161.Text = "m"
+        '
+        'Label162
+        '
+        Me.Label162.AutoSize = True
+        Me.Label162.Location = New System.Drawing.Point(554, 233)
+        Me.Label162.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label162.Name = "Label162"
+        Me.Label162.Size = New System.Drawing.Size(16, 16)
+        Me.Label162.TabIndex = 201
+        Me.Label162.Text = "m"
+        '
+        'Label163
+        '
+        Me.Label163.AutoSize = True
+        Me.Label163.Location = New System.Drawing.Point(554, 206)
+        Me.Label163.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label163.Name = "Label163"
+        Me.Label163.Size = New System.Drawing.Size(16, 16)
+        Me.Label163.TabIndex = 200
+        Me.Label163.Text = "m"
+        '
+        'Label164
+        '
+        Me.Label164.AutoSize = True
+        Me.Label164.Location = New System.Drawing.Point(554, 180)
+        Me.Label164.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label164.Name = "Label164"
+        Me.Label164.Size = New System.Drawing.Size(16, 16)
+        Me.Label164.TabIndex = 199
+        Me.Label164.Text = "m"
+        '
+        'Label165
+        '
+        Me.Label165.AutoSize = True
+        Me.Label165.Location = New System.Drawing.Point(554, 153)
+        Me.Label165.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label165.Name = "Label165"
+        Me.Label165.Size = New System.Drawing.Size(27, 16)
+        Me.Label165.TabIndex = 198
+        Me.Label165.Text = "m/s"
+        '
+        'Label166
+        '
+        Me.Label166.AutoSize = True
+        Me.Label166.Location = New System.Drawing.Point(554, 99)
+        Me.Label166.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label166.Name = "Label166"
+        Me.Label166.Size = New System.Drawing.Size(16, 16)
+        Me.Label166.TabIndex = 197
+        Me.Label166.Text = "m"
+        '
+        'Label167
+        '
+        Me.Label167.AutoSize = True
+        Me.Label167.Location = New System.Drawing.Point(554, 19)
+        Me.Label167.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label167.Name = "Label167"
+        Me.Label167.Size = New System.Drawing.Size(16, 16)
+        Me.Label167.TabIndex = 194
+        Me.Label167.Text = "m"
+        '
+        'Label168
+        '
+        Me.Label168.AutoSize = True
+        Me.Label168.Location = New System.Drawing.Point(554, 73)
+        Me.Label168.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label168.Name = "Label168"
+        Me.Label168.Size = New System.Drawing.Size(16, 16)
+        Me.Label168.TabIndex = 196
+        Me.Label168.Text = "m"
+        '
+        'Label169
+        '
+        Me.Label169.AutoSize = True
+        Me.Label169.Location = New System.Drawing.Point(554, 46)
+        Me.Label169.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label169.Name = "Label169"
+        Me.Label169.Size = New System.Drawing.Size(16, 16)
+        Me.Label169.TabIndex = 195
+        Me.Label169.Text = "m"
         '
         'Label107
         '
@@ -1276,155 +1326,248 @@ Partial Class Form1
         Me.Label154.TabIndex = 186
         Me.Label154.Text = "‰"
         '
-        'Label155
+        'TabPage2
         '
-        Me.Label155.AutoSize = True
-        Me.Label155.Location = New System.Drawing.Point(555, 126)
-        Me.Label155.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(16, 16)
-        Me.Label155.TabIndex = 208
-        Me.Label155.Text = "m"
+        Me.TabPage2.Controls.Add(Me.ComboBox15)
+        Me.TabPage2.Controls.Add(Me.Label48)
+        Me.TabPage2.Controls.Add(Me.Label46)
+        Me.TabPage2.Controls.Add(Me.Label47)
+        Me.TabPage2.Controls.Add(Me.ComboBox13)
+        Me.TabPage2.Controls.Add(Me.ComboBox14)
+        Me.TabPage2.Controls.Add(Me.Label44)
+        Me.TabPage2.Controls.Add(Me.TextBox15)
+        Me.TabPage2.Controls.Add(Me.Label45)
+        Me.TabPage2.Controls.Add(Me.Label38)
+        Me.TabPage2.Controls.Add(Me.Label39)
+        Me.TabPage2.Controls.Add(Me.Label40)
+        Me.TabPage2.Controls.Add(Me.TextBox12)
+        Me.TabPage2.Controls.Add(Me.TextBox13)
+        Me.TabPage2.Controls.Add(Me.TextBox14)
+        Me.TabPage2.Controls.Add(Me.Label41)
+        Me.TabPage2.Controls.Add(Me.Label42)
+        Me.TabPage2.Controls.Add(Me.Label43)
+        Me.TabPage2.Controls.Add(Me.Label5)
+        Me.TabPage2.Controls.Add(Me.ComboBox3)
+        Me.TabPage2.Controls.Add(Me.Label6)
+        Me.TabPage2.Controls.Add(Me.Label7)
+        Me.TabPage2.Controls.Add(Me.TextBox2)
+        Me.TabPage2.Controls.Add(Me.Label8)
+        Me.TabPage2.Controls.Add(Me.Label9)
+        Me.TabPage2.Controls.Add(Me.Label10)
+        Me.TabPage2.Controls.Add(Me.TextBox3)
+        Me.TabPage2.Controls.Add(Me.Label11)
+        Me.TabPage2.Controls.Add(Me.Label12)
+        Me.TabPage2.Controls.Add(Me.Label13)
+        Me.TabPage2.Controls.Add(Me.TextBox4)
+        Me.TabPage2.Controls.Add(Me.Label14)
+        Me.TabPage2.Controls.Add(Me.Label15)
+        Me.TabPage2.Controls.Add(Me.Label16)
+        Me.TabPage2.Controls.Add(Me.TextBox5)
+        Me.TabPage2.Controls.Add(Me.Label17)
+        Me.TabPage2.Controls.Add(Me.Label18)
+        Me.TabPage2.Controls.Add(Me.Label19)
+        Me.TabPage2.Controls.Add(Me.TextBox6)
+        Me.TabPage2.Controls.Add(Me.Label20)
+        Me.TabPage2.Controls.Add(Me.Label21)
+        Me.TabPage2.Controls.Add(Me.Label22)
+        Me.TabPage2.Controls.Add(Me.TextBox7)
+        Me.TabPage2.Controls.Add(Me.ComboBox4)
+        Me.TabPage2.Controls.Add(Me.Label23)
+        Me.TabPage2.Controls.Add(Me.ComboBox5)
+        Me.TabPage2.Controls.Add(Me.TextBox8)
+        Me.TabPage2.Controls.Add(Me.ComboBox6)
+        Me.TabPage2.Controls.Add(Me.Label24)
+        Me.TabPage2.Controls.Add(Me.ComboBox11)
+        Me.TabPage2.Controls.Add(Me.TextBox9)
+        Me.TabPage2.Controls.Add(Me.ComboBox26)
+        Me.TabPage2.Controls.Add(Me.Label25)
+        Me.TabPage2.Controls.Add(Me.ComboBox27)
+        Me.TabPage2.Controls.Add(Me.TextBox10)
+        Me.TabPage2.Controls.Add(Me.ComboBox28)
+        Me.TabPage2.Controls.Add(Me.Label26)
+        Me.TabPage2.Controls.Add(Me.Label27)
+        Me.TabPage2.Controls.Add(Me.TextBox11)
+        Me.TabPage2.Controls.Add(Me.Label28)
+        Me.TabPage2.Controls.Add(Me.Label29)
+        Me.TabPage2.Controls.Add(Me.Label30)
+        Me.TabPage2.Controls.Add(Me.Label31)
+        Me.TabPage2.Controls.Add(Me.Label32)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(637, 519)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "CONDUCTORES"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'Label156
+        'ComboBox15
         '
-        Me.Label156.AutoSize = True
-        Me.Label156.Location = New System.Drawing.Point(555, 393)
-        Me.Label156.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label156.Name = "Label156"
-        Me.Label156.Size = New System.Drawing.Size(16, 16)
-        Me.Label156.TabIndex = 207
-        Me.Label156.Text = "m"
+        Me.ComboBox15.FormattingEnabled = True
+        Me.ComboBox15.Location = New System.Drawing.Point(205, 235)
+        Me.ComboBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox15.Name = "ComboBox15"
+        Me.ComboBox15.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox15.TabIndex = 235
         '
-        'Label157
+        'Label48
         '
-        Me.Label157.AutoSize = True
-        Me.Label157.Location = New System.Drawing.Point(554, 366)
-        Me.Label157.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label157.Name = "Label157"
-        Me.Label157.Size = New System.Drawing.Size(16, 16)
-        Me.Label157.TabIndex = 206
-        Me.Label157.Text = "m"
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(33, 238)
+        Me.Label48.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(44, 16)
+        Me.Label48.TabIndex = 234
+        Me.Label48.Text = "Anclaje"
         '
-        'Label158
+        'Label46
         '
-        Me.Label158.AutoSize = True
-        Me.Label158.Location = New System.Drawing.Point(554, 340)
-        Me.Label158.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label158.Name = "Label158"
-        Me.Label158.Size = New System.Drawing.Size(16, 16)
-        Me.Label158.TabIndex = 205
-        Me.Label158.Text = "m"
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(340, 158)
+        Me.Label46.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(96, 16)
+        Me.Label46.TabIndex = 230
+        Me.Label46.Text = "Posición Feeder +"
         '
-        'Label159
+        'Label47
         '
-        Me.Label159.AutoSize = True
-        Me.Label159.Location = New System.Drawing.Point(554, 313)
-        Me.Label159.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label159.Name = "Label159"
-        Me.Label159.Size = New System.Drawing.Size(16, 16)
-        Me.Label159.TabIndex = 204
-        Me.Label159.Text = "m"
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(340, 185)
+        Me.Label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(94, 16)
+        Me.Label47.TabIndex = 231
+        Me.Label47.Text = "Posición Feeder -"
         '
-        'Label160
+        'ComboBox13
         '
-        Me.Label160.AutoSize = True
-        Me.Label160.Location = New System.Drawing.Point(554, 286)
-        Me.Label160.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label160.Name = "Label160"
-        Me.Label160.Size = New System.Drawing.Size(16, 16)
-        Me.Label160.TabIndex = 203
-        Me.Label160.Text = "m"
+        Me.ComboBox13.FormattingEnabled = True
+        Me.ComboBox13.Location = New System.Drawing.Point(512, 182)
+        Me.ComboBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox13.Name = "ComboBox13"
+        Me.ComboBox13.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox13.TabIndex = 233
         '
-        'Label161
+        'ComboBox14
         '
-        Me.Label161.AutoSize = True
-        Me.Label161.Location = New System.Drawing.Point(554, 260)
-        Me.Label161.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label161.Name = "Label161"
-        Me.Label161.Size = New System.Drawing.Size(16, 16)
-        Me.Label161.TabIndex = 202
-        Me.Label161.Text = "m"
+        Me.ComboBox14.FormattingEnabled = True
+        Me.ComboBox14.Location = New System.Drawing.Point(512, 155)
+        Me.ComboBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox14.Name = "ComboBox14"
+        Me.ComboBox14.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox14.TabIndex = 232
         '
-        'Label162
+        'Label44
         '
-        Me.Label162.AutoSize = True
-        Me.Label162.Location = New System.Drawing.Point(554, 233)
-        Me.Label162.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label162.Name = "Label162"
-        Me.Label162.Size = New System.Drawing.Size(16, 16)
-        Me.Label162.TabIndex = 201
-        Me.Label162.Text = "m"
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(586, 129)
+        Me.Label44.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(16, 16)
+        Me.Label44.TabIndex = 229
+        Me.Label44.Text = "m"
         '
-        'Label163
+        'TextBox15
         '
-        Me.Label163.AutoSize = True
-        Me.Label163.Location = New System.Drawing.Point(554, 206)
-        Me.Label163.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label163.Name = "Label163"
-        Me.Label163.Size = New System.Drawing.Size(16, 16)
-        Me.Label163.TabIndex = 200
-        Me.Label163.Text = "m"
+        Me.TextBox15.Location = New System.Drawing.Point(513, 128)
+        Me.TextBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox15.TabIndex = 227
         '
-        'Label164
+        'Label45
         '
-        Me.Label164.AutoSize = True
-        Me.Label164.Location = New System.Drawing.Point(554, 180)
-        Me.Label164.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label164.Name = "Label164"
-        Me.Label164.Size = New System.Drawing.Size(16, 16)
-        Me.Label164.TabIndex = 199
-        Me.Label164.Text = "m"
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(341, 131)
+        Me.Label45.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(90, 16)
+        Me.Label45.TabIndex = 228
+        Me.Label45.Text = "Altura punto fijo"
         '
-        'Label165
+        'Label38
         '
-        Me.Label165.AutoSize = True
-        Me.Label165.Location = New System.Drawing.Point(554, 153)
-        Me.Label165.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label165.Name = "Label165"
-        Me.Label165.Size = New System.Drawing.Size(27, 16)
-        Me.Label165.TabIndex = 198
-        Me.Label165.Text = "m/s"
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(586, 102)
+        Me.Label38.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(16, 16)
+        Me.Label38.TabIndex = 226
+        Me.Label38.Text = "m"
         '
-        'Label166
+        'Label39
         '
-        Me.Label166.AutoSize = True
-        Me.Label166.Location = New System.Drawing.Point(554, 99)
-        Me.Label166.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label166.Name = "Label166"
-        Me.Label166.Size = New System.Drawing.Size(16, 16)
-        Me.Label166.TabIndex = 197
-        Me.Label166.Text = "m"
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(586, 77)
+        Me.Label39.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(16, 16)
+        Me.Label39.TabIndex = 225
+        Me.Label39.Text = "m"
         '
-        'Label167
+        'Label40
         '
-        Me.Label167.AutoSize = True
-        Me.Label167.Location = New System.Drawing.Point(554, 19)
-        Me.Label167.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label167.Name = "Label167"
-        Me.Label167.Size = New System.Drawing.Size(16, 16)
-        Me.Label167.TabIndex = 194
-        Me.Label167.Text = "m"
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(586, 51)
+        Me.Label40.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(16, 16)
+        Me.Label40.TabIndex = 224
+        Me.Label40.Text = "m"
         '
-        'Label168
+        'TextBox12
         '
-        Me.Label168.AutoSize = True
-        Me.Label168.Location = New System.Drawing.Point(554, 73)
-        Me.Label168.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label168.Name = "Label168"
-        Me.Label168.Size = New System.Drawing.Size(16, 16)
-        Me.Label168.TabIndex = 196
-        Me.Label168.Text = "m"
+        Me.TextBox12.Location = New System.Drawing.Point(513, 48)
+        Me.TextBox12.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox12.TabIndex = 218
         '
-        'Label169
+        'TextBox13
         '
-        Me.Label169.AutoSize = True
-        Me.Label169.Location = New System.Drawing.Point(554, 46)
-        Me.Label169.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label169.Name = "Label169"
-        Me.Label169.Size = New System.Drawing.Size(16, 16)
-        Me.Label169.TabIndex = 195
-        Me.Label169.Text = "m"
+        Me.TextBox13.Location = New System.Drawing.Point(513, 74)
+        Me.TextBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox13.TabIndex = 219
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(513, 101)
+        Me.TextBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox14.TabIndex = 220
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(341, 104)
+        Me.Label41.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(83, 16)
+        Me.Label41.TabIndex = 223
+        Me.Label41.Text = "Altura Feeder -"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(341, 77)
+        Me.Label42.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(85, 16)
+        Me.Label42.TabIndex = 222
+        Me.Label42.Text = "Altura Feeder +"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(341, 51)
+        Me.Label43.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(66, 16)
+        Me.Label43.TabIndex = 221
+        Me.Label43.Text = "Altura CdPA"
         '
         'Label5
         '
@@ -1858,214 +2001,17 @@ Partial Class Form1
         Me.Label32.TabIndex = 194
         Me.Label32.Text = "Tensión CdPA"
         '
-        'ComboBox7
+        'TabPage4
         '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(189, 133)
-        Me.ComboBox7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox7.TabIndex = 191
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(17, 29)
-        Me.Label33.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(89, 16)
-        Me.Label33.TabIndex = 182
-        Me.Label33.Text = "Tubo de ménsula"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(17, 136)
-        Me.Label34.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(50, 16)
-        Me.Label34.TabIndex = 190
-        Me.Label34.Text = "Feeder -"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(17, 109)
-        Me.Label35.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(52, 16)
-        Me.Label35.TabIndex = 185
-        Me.Label35.Text = "Feeder +"
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(189, 26)
-        Me.ComboBox8.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox8.TabIndex = 186
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(17, 56)
-        Me.Label36.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(102, 16)
-        Me.Label36.TabIndex = 183
-        Me.Label36.Text = "Tirante de ménsula"
-        '
-        'ComboBox9
-        '
-        Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Location = New System.Drawing.Point(189, 53)
-        Me.ComboBox9.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox9.Name = "ComboBox9"
-        Me.ComboBox9.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox9.TabIndex = 187
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(17, 83)
-        Me.Label37.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(44, 16)
-        Me.Label37.TabIndex = 184
-        Me.Label37.Text = "Anclaje"
-        '
-        'ComboBox10
-        '
-        Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Location = New System.Drawing.Point(189, 80)
-        Me.ComboBox10.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox10.TabIndex = 188
-        '
-        'ComboBox12
-        '
-        Me.ComboBox12.FormattingEnabled = True
-        Me.ComboBox12.Location = New System.Drawing.Point(189, 106)
-        Me.ComboBox12.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox12.Name = "ComboBox12"
-        Me.ComboBox12.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox12.TabIndex = 189
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Black
-        Me.Button2.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button2.Location = New System.Drawing.Point(572, 7)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(107, 47)
-        Me.Button2.TabIndex = 177
-        Me.Button2.Text = "GUARDAR DATOS"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(17, 29)
-        Me.Label90.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(151, 16)
-        Me.Label90.TabIndex = 192
-        Me.Label90.Text = "Distancia apoyo y 1ª péndola"
-        '
-        'TextBox42
-        '
-        Me.TextBox42.Location = New System.Drawing.Point(186, 27)
-        Me.TextBox42.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox42.Name = "TextBox42"
-        Me.TextBox42.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox42.TabIndex = 193
-        '
-        'TextBox44
-        '
-        Me.TextBox44.Location = New System.Drawing.Point(186, 80)
-        Me.TextBox44.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox44.Name = "TextBox44"
-        Me.TextBox44.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox44.TabIndex = 197
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Location = New System.Drawing.Point(261, 83)
-        Me.Label95.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(16, 16)
-        Me.Label95.TabIndex = 200
-        Me.Label95.Text = "m"
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(17, 83)
-        Me.Label92.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(164, 16)
-        Me.Label92.TabIndex = 196
-        Me.Label92.Text = "Distancia máx. entre pérndolas"
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(17, 56)
-        Me.Label91.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(131, 16)
-        Me.Label91.TabIndex = 194
-        Me.Label91.Text = "Distancia 1ª y 2ª péndola"
-        '
-        'Label93
-        '
-        Me.Label93.AutoSize = True
-        Me.Label93.Location = New System.Drawing.Point(261, 29)
-        Me.Label93.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(16, 16)
-        Me.Label93.TabIndex = 198
-        Me.Label93.Text = "m"
-        '
-        'Label94
-        '
-        Me.Label94.AutoSize = True
-        Me.Label94.Location = New System.Drawing.Point(261, 56)
-        Me.Label94.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(16, 16)
-        Me.Label94.TabIndex = 199
-        Me.Label94.Text = "m"
-        '
-        'TextBox43
-        '
-        Me.TextBox43.Location = New System.Drawing.Point(186, 53)
-        Me.TextBox43.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox43.Name = "TextBox43"
-        Me.TextBox43.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox43.TabIndex = 195
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Label90)
-        Me.GroupBox1.Controls.Add(Me.TextBox43)
-        Me.GroupBox1.Controls.Add(Me.TextBox42)
-        Me.GroupBox1.Controls.Add(Me.Label94)
-        Me.GroupBox1.Controls.Add(Me.TextBox44)
-        Me.GroupBox1.Controls.Add(Me.Label93)
-        Me.GroupBox1.Controls.Add(Me.Label95)
-        Me.GroupBox1.Controls.Add(Me.Label91)
-        Me.GroupBox1.Controls.Add(Me.Label92)
-        Me.GroupBox1.Location = New System.Drawing.Point(27, 210)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(331, 121)
-        Me.GroupBox1.TabIndex = 201
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "PENDOLADO"
+        Me.TabPage4.Controls.Add(Me.GroupBox2)
+        Me.TabPage4.Controls.Add(Me.GroupBox1)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(637, 519)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "AISLADORES Y PENDOLADO"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -2086,184 +2032,223 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "AISLADORES"
         '
-        'Label38
+        'Label33
         '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(586, 102)
-        Me.Label38.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(16, 16)
-        Me.Label38.TabIndex = 226
-        Me.Label38.Text = "m"
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(17, 29)
+        Me.Label33.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(89, 16)
+        Me.Label33.TabIndex = 182
+        Me.Label33.Text = "Tubo de ménsula"
         '
-        'Label39
+        'ComboBox12
         '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(586, 77)
-        Me.Label39.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(16, 16)
-        Me.Label39.TabIndex = 225
-        Me.Label39.Text = "m"
+        Me.ComboBox12.FormattingEnabled = True
+        Me.ComboBox12.Location = New System.Drawing.Point(189, 106)
+        Me.ComboBox12.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox12.Name = "ComboBox12"
+        Me.ComboBox12.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox12.TabIndex = 189
         '
-        'Label40
+        'ComboBox7
         '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(586, 51)
-        Me.Label40.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(16, 16)
-        Me.Label40.TabIndex = 224
-        Me.Label40.Text = "m"
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(189, 133)
+        Me.ComboBox7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox7.TabIndex = 191
         '
-        'TextBox12
+        'ComboBox10
         '
-        Me.TextBox12.Location = New System.Drawing.Point(513, 48)
-        Me.TextBox12.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox12.TabIndex = 218
+        Me.ComboBox10.FormattingEnabled = True
+        Me.ComboBox10.Location = New System.Drawing.Point(189, 80)
+        Me.ComboBox10.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox10.Name = "ComboBox10"
+        Me.ComboBox10.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox10.TabIndex = 188
         '
-        'TextBox13
+        'Label37
         '
-        Me.TextBox13.Location = New System.Drawing.Point(513, 74)
-        Me.TextBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox13.TabIndex = 219
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(17, 83)
+        Me.Label37.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(44, 16)
+        Me.Label37.TabIndex = 184
+        Me.Label37.Text = "Anclaje"
         '
-        'TextBox14
+        'Label34
         '
-        Me.TextBox14.Location = New System.Drawing.Point(513, 101)
-        Me.TextBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox14.TabIndex = 220
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(17, 136)
+        Me.Label34.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(50, 16)
+        Me.Label34.TabIndex = 190
+        Me.Label34.Text = "Feeder -"
         '
-        'Label41
+        'ComboBox9
         '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(341, 104)
-        Me.Label41.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(83, 16)
-        Me.Label41.TabIndex = 223
-        Me.Label41.Text = "Altura Feeder -"
+        Me.ComboBox9.FormattingEnabled = True
+        Me.ComboBox9.Location = New System.Drawing.Point(189, 53)
+        Me.ComboBox9.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox9.Name = "ComboBox9"
+        Me.ComboBox9.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox9.TabIndex = 187
         '
-        'Label42
+        'Label35
         '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(341, 77)
-        Me.Label42.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(85, 16)
-        Me.Label42.TabIndex = 222
-        Me.Label42.Text = "Altura Feeder +"
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(17, 109)
+        Me.Label35.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(52, 16)
+        Me.Label35.TabIndex = 185
+        Me.Label35.Text = "Feeder +"
         '
-        'Label43
+        'Label36
         '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(341, 51)
-        Me.Label43.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(66, 16)
-        Me.Label43.TabIndex = 221
-        Me.Label43.Text = "Altura CdPA"
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(17, 56)
+        Me.Label36.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(102, 16)
+        Me.Label36.TabIndex = 183
+        Me.Label36.Text = "Tirante de ménsula"
         '
-        'Label44
+        'ComboBox8
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(586, 129)
-        Me.Label44.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(16, 16)
-        Me.Label44.TabIndex = 229
-        Me.Label44.Text = "m"
+        Me.ComboBox8.FormattingEnabled = True
+        Me.ComboBox8.Location = New System.Drawing.Point(189, 26)
+        Me.ComboBox8.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ComboBox8.Name = "ComboBox8"
+        Me.ComboBox8.Size = New System.Drawing.Size(82, 24)
+        Me.ComboBox8.TabIndex = 186
         '
-        'TextBox15
+        'GroupBox1
         '
-        Me.TextBox15.Location = New System.Drawing.Point(513, 128)
-        Me.TextBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(69, 20)
-        Me.TextBox15.TabIndex = 227
+        Me.GroupBox1.Controls.Add(Me.Label90)
+        Me.GroupBox1.Controls.Add(Me.TextBox43)
+        Me.GroupBox1.Controls.Add(Me.TextBox42)
+        Me.GroupBox1.Controls.Add(Me.Label94)
+        Me.GroupBox1.Controls.Add(Me.TextBox44)
+        Me.GroupBox1.Controls.Add(Me.Label93)
+        Me.GroupBox1.Controls.Add(Me.Label95)
+        Me.GroupBox1.Controls.Add(Me.Label91)
+        Me.GroupBox1.Controls.Add(Me.Label92)
+        Me.GroupBox1.Location = New System.Drawing.Point(27, 210)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(331, 121)
+        Me.GroupBox1.TabIndex = 201
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "PENDOLADO"
         '
-        'Label45
+        'Label90
         '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(341, 131)
-        Me.Label45.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(90, 16)
-        Me.Label45.TabIndex = 228
-        Me.Label45.Text = "Altura punto fijo"
+        Me.Label90.AutoSize = True
+        Me.Label90.Location = New System.Drawing.Point(17, 29)
+        Me.Label90.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(151, 16)
+        Me.Label90.TabIndex = 192
+        Me.Label90.Text = "Distancia apoyo y 1ª péndola"
         '
-        'Label46
+        'TextBox43
         '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(340, 158)
-        Me.Label46.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(96, 16)
-        Me.Label46.TabIndex = 230
-        Me.Label46.Text = "Posición Feeder +"
+        Me.TextBox43.Location = New System.Drawing.Point(186, 53)
+        Me.TextBox43.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox43.Name = "TextBox43"
+        Me.TextBox43.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox43.TabIndex = 195
         '
-        'Label47
+        'TextBox42
         '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(340, 185)
-        Me.Label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(94, 16)
-        Me.Label47.TabIndex = 231
-        Me.Label47.Text = "Posición Feeder -"
+        Me.TextBox42.Location = New System.Drawing.Point(186, 27)
+        Me.TextBox42.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox42.Name = "TextBox42"
+        Me.TextBox42.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox42.TabIndex = 193
         '
-        'ComboBox13
+        'Label94
         '
-        Me.ComboBox13.FormattingEnabled = True
-        Me.ComboBox13.Location = New System.Drawing.Point(512, 182)
-        Me.ComboBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox13.Name = "ComboBox13"
-        Me.ComboBox13.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox13.TabIndex = 233
+        Me.Label94.AutoSize = True
+        Me.Label94.Location = New System.Drawing.Point(261, 56)
+        Me.Label94.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(16, 16)
+        Me.Label94.TabIndex = 199
+        Me.Label94.Text = "m"
         '
-        'ComboBox14
+        'TextBox44
         '
-        Me.ComboBox14.FormattingEnabled = True
-        Me.ComboBox14.Location = New System.Drawing.Point(512, 155)
-        Me.ComboBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox14.Name = "ComboBox14"
-        Me.ComboBox14.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox14.TabIndex = 232
+        Me.TextBox44.Location = New System.Drawing.Point(186, 80)
+        Me.TextBox44.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TextBox44.Name = "TextBox44"
+        Me.TextBox44.Size = New System.Drawing.Size(69, 20)
+        Me.TextBox44.TabIndex = 197
         '
-        'ComboBox15
+        'Label93
         '
-        Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Location = New System.Drawing.Point(205, 235)
-        Me.ComboBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ComboBox15.Name = "ComboBox15"
-        Me.ComboBox15.Size = New System.Drawing.Size(82, 24)
-        Me.ComboBox15.TabIndex = 235
+        Me.Label93.AutoSize = True
+        Me.Label93.Location = New System.Drawing.Point(261, 29)
+        Me.Label93.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(16, 16)
+        Me.Label93.TabIndex = 198
+        Me.Label93.Text = "m"
         '
-        'Label48
+        'Label95
         '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(33, 238)
-        Me.Label48.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(44, 16)
-        Me.Label48.TabIndex = 234
-        Me.Label48.Text = "Anclaje"
+        Me.Label95.AutoSize = True
+        Me.Label95.Location = New System.Drawing.Point(261, 83)
+        Me.Label95.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(16, 16)
+        Me.Label95.TabIndex = 200
+        Me.Label95.Text = "m"
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Location = New System.Drawing.Point(17, 56)
+        Me.Label91.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(131, 16)
+        Me.Label91.TabIndex = 194
+        Me.Label91.Text = "Distancia 1ª y 2ª péndola"
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Location = New System.Drawing.Point(17, 83)
+        Me.Label92.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(164, 16)
+        Me.Label92.TabIndex = 196
+        Me.Label92.Text = "Distancia máx. entre pérndolas"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Black
+        Me.Button2.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button2.Location = New System.Drawing.Point(572, 7)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(107, 47)
+        Me.Button2.TabIndex = 177
+        Me.Button2.Text = "GUARDAR DATOS"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGray
-        Me.ClientSize = New System.Drawing.Size(712, 638)
+        Me.ClientSize = New System.Drawing.Size(721, 638)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label3)
@@ -2281,10 +2266,10 @@ Partial Class Form1
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2296,7 +2281,6 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 

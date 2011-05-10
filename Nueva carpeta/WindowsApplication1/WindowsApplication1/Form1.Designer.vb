@@ -2709,4 +2709,12 @@ Partial Class Form1
     Private Sub Label6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label6.Click
 
     End Sub
+
+    Private Sub TextBox48_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox48.TextChanged
+
+    End Sub
+
+    Private Sub ComboBox25_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox25.SelectedIndexChanged
+
+    End Sub
 End Class

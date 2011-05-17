@@ -1,0 +1,55 @@
+Attribute VB_Name = "num_postes"
+Sub postes()
+Dim w As Integer, bis As Integer
+Dim z As Integer
+w = 1
+bis = 1
+z = 10
+While Sheets(1).Cells(z, 33).Value < fin
+
+
+'If necesario para corregir los PK BIS
+If (55403.6631 <= Sheets(1).Cells(z, 33).Value And Sheets(1).Cells(z, 33).Value < 56453.5677) Then
+    If Not (55453.6631 <= Sheets(1).Cells(z, 33).Value And Sheets(1).Cells(z, 33).Value < 56453.5677) Then
+    Sheets(1).Cells(z, 1) = (Sheets(1).Cells(z, 3).Value \ 1000) & "-" & w
+    Sheets(1).Cells(z, 32) = w
+    Sheets(1).Cells(z, 31) = (Sheets(1).Cells(z, 3).Value \ 1000)
+    w = 1
+    Else
+    Sheets(1).Cells(z, 32).Value = bis
+    Sheets(1).Cells(z, 1).Value = "55bis" & "-" & bis
+    Sheets(1).Cells(z, 31).Value = "55bis"
+    bis = bis + 1
+    End If
+Else
+' se comparan PK para saber si se debe contar o empezar el  numero del poste
+' w es el numero de poste
+If (Sheets(1).Cells(z + 2, 3).Value \ 1000) <= (Sheets(1).Cells(z, 3).Value \ 1000) Then
+    Sheets(1).Cells(z, 1).Value = (Sheets(1).Cells(z, 3).Value \ 1000) & "-" & w
+    Sheets(1).Cells(z, 32).Value = w
+    Sheets(1).Cells(z, 31).Value = (Sheets(1).Cells(z, 3).Value \ 1000)
+    w = w + 1
+Else
+    Sheets(1).Cells(z, 1).Value = (Sheets(1).Cells(z, 3).Value \ 1000) & "-" & w
+    Sheets(1).Cells(z, 32).Value = w
+    Sheets(1).Cells(z, 31).Value = (Sheets(1).Cells(z, 3).Value \ 1000)
+    w = 1
+End If
+End If
+
+'relleno de la columna de altura y distancia poste carril
+Sheets(1).Cells(z, 10).Value = alt_nom
+Sheets(1).Cells(z, 5).Value = dist_carril_poste
+'formato del excel
+For i = 1 To 3
+    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+Next i
+For i = 5 To 24
+    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+Next i
+
+Sheets(1).Range(Sheets(1).Cells(z + 1, 4), Sheets(1).Cells(z + 2, 4)).MergeCells = True
+
+z = z + 2
+Wend
+End Sub

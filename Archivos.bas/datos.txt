@@ -1,0 +1,22 @@
+Attribute VB_Name = "datos"
+Sub datos_excel()
+alt_nom = Sheets(2).Cells(24, 4).Value
+alt_min = Sheets(2).Cells(25, 4).Value
+alt_max = Sheets(2).Cells(26, 4).Value
+alt_cat = Sheets(2).Cells(27, 4).Value
+dist_va_max = Sheets(2).Cells(28, 4).Value
+canton_max = Sheets(2).Cells(29, 4).Value
+va_max_sec_comp = Sheets(2).Cells(30, 4).Value
+va_max_sec_aire = Sheets(2).Cells(31, 4).Value
+va_max_tunel = Sheets(2).Cells(32, 4).Value
+inc_va = Sheets(2).Cells(36, 4).Value
+dist_carril_poste = Sheets(2).Cells(37, 4).Value
+va_max = Sheets(2).Cells(3, 8).Value
+inc_alt_hc = Sheets(2).Cells(37, 4).Value
+radio_recta = Sheets(2).Cells(39, 4).Value
+uno = 1
+cadena = ActiveWorkbook.Path                            ' dirección de este archivo
+start = inicio
+l_canton = 0
+End Sub
+

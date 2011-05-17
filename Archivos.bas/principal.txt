@@ -1,0 +1,59 @@
+Attribute VB_Name = "principal"
+' variables publicas para tabla de replanteo
+Public caso As String, tip_mac As String, tip_poste As String, num_poste As String
+Public uno As Integer
+Public alt_nom As Double, alt_max As Double, alt_min As Double, dist_va_max As Double
+Public canton_max As Double, va_max_comp As Double, va_max_aire As Double, va_max_tunel As Double
+Public inc_va As Double, dist_carril_poste As Double, va_max As Double, inc_alt_hc As Double
+Public fin As Double, inicio As Double, start As Double, l_canton As Double
+Public radio_recta As Double
+Public Error As Long, n_canton2 As Long
+Sub principal(inicioVB, finVB)
+Dim w As Integer, h As Integer, k As Integer, a As Integer, b As Integer
+Dim c As Integer
+
+'recolección de datos e inicialización
+inicio = inicioVB
+fin = finVB
+Call datos.datos_excel
+'inicializar todos los contadores
+Sheets(1).Cells(10, 33) = inicio
+a = 3
+b = 3
+c = 3
+h = 10
+k = 3
+w = 1
+                        ' inicializamos 3 vanos para poder corregirlos
+While 16 > h
+
+    
+    Call radio.radio(h, k)                                    ' calculamos el radio para el pk
+    Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
+    h = h + 2                                           ' avanzamos una fila y calculamos un nuevo pk
+    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
+Wend
+                        ' se comprueba que el poste cae en un punto singular o
+                        ' se tiene que corregir su vano. se actua en consecuencia
+While Sheets(1).Cells(h, 33).Value < fin
+    Call radio.radio(h, k)                                    ' calculamos el radio para el pk
+    Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
+    Call regulacion.regulacion(h, k, a)                                   ' comprobamos que los incrementos de vano
+    Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
+    Call punto_singular.sing1(h, a, k)                                 ' comprobamos que el poste no cae en un PS
+    'Call cantones(h, c, k, a)
+    h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
+    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
+
+Wend
+Call pk_real.convertir_LT                                      ' convertir el PK lineal a PK de trazado
+Call num_postes.postes                                            ' numerar los postes segun PK trazado
+Call altura.altura                                            ' calcula la altura del hilo de contacto
+Call cad.esfuerzo
+'Call canton                                            ' distribución de los cantones de catenaria
+Call descentramiento.desc                                              ' elige el descentramiento de cada poste
+Call cad.posicion                                          ' muestra la posición del poste (para autocad)
+Call comentarios.comentarios                                       ' muestra todos los puntos singulares del trazado
+'Call im_pend(fin)
+Call revision.revision
+End Sub

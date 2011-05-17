@@ -1,0 +1,43 @@
+Attribute VB_Name = "comentarios"
+Sub comentarios()
+Dim z As Integer, aloc As Integer
+Dim valor As String, guardar As String
+z = 10
+aloc = 3
+While Sheets(1).Cells(z, 33).Value < fin
+    While Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc, 21).Value And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
+    aloc = aloc + 1
+    Wend
+    If Sheets(1).Cells(z + 2, 33).Value > Sheets(4).Cells(aloc, 21).Value Then
+    If Sheets(4).Cells(aloc, 1).Value = "Buse" Or Sheets(4).Cells(aloc, 1).Value = "Dalot" _
+    Or Sheets(4).Cells(aloc, 1).Value = "Pont" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
+    Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then
+    If Sheets(4).Cells(aloc, 1).Value = "P.I." Then
+        valor = "Passage inférieur"
+    ElseIf Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then
+        valor = Sheets(4).Cells(aloc, 3).Value
+    Else
+        valor = Sheets(4).Cells(aloc, 1).Value
+    End If
+    
+    If IsEmpty(Sheets(1).Cells(z + 2, 25).Value) Then
+        Sheets(1).Cells(z + 2, 25).Value = valor
+    Else
+        Sheets(1).Cells(z + 2, 25).Value = Sheets(1).Cells(z + 2, 25).Value & " " & valor
+    End If
+    If Not IsEmpty(Sheets(1).Cells(z + 1, 25).Value) Then
+        guardar = Sheets(1).Cells(z + 1, 25).Value
+        Sheets(1).Cells(z + 1, 25).Value = ""
+        Sheets(1).Range(Sheets(1).Cells(z + 1, 25), Sheets(1).Cells(z + 2, 25)).MergeCells = True
+        Sheets(1).Cells(z + 1, 25).Value = guardar & " - " & valor
+    Else
+        Sheets(1).Range(Sheets(1).Cells(z + 1, 25), Sheets(1).Cells(z + 2, 25)).MergeCells = True
+    End If
+
+    
+    End If
+    End If
+    z = z + 2
+Wend
+End Sub
+

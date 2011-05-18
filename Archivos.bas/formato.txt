@@ -1,0 +1,35 @@
+Attribute VB_Name = "formato"
+Sub formato(fin)
+Dim w As Integer, bis As Integer
+Dim z As Integer
+z = 10
+'agrupar celdas
+While Sheets(1).Cells(z, 33).Value < fin
+
+For i = 1 To 3
+    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+Next i
+For i = 5 To 24
+    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+Next i
+
+Sheets(1).Range(Sheets(1).Cells(z + 1, 4), Sheets(1).Cells(z + 2, 4)).MergeCells = True
+
+z = z + 2
+
+Wend
+'formato del contenido de las celdas
+Sheets(1).Columns(1).NumberFormat = "@"
+Sheets(1).Columns(3).NumberFormat = "0+000.0"
+
+Sheets(1).Columns(6).NumberFormat = "0.00"
+Sheets(1).Columns(7).NumberFormat = "0.00"
+Sheets(1).Columns(10).NumberFormat = "0.00"
+Sheets(1).Columns(19).NumberFormat = "0.00"
+Sheets(1).Columns(23).NumberFormat = "0.00"
+'centrar el texto
+Sheets(1).Range("A1", "AH10001").HorizontalAlignment = xlHAlignCenter
+Sheets(1).Range("A1", "AH10001").VerticalAlignment = xlHAlignCenter
+'ocultar columnas
+Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
+End Sub

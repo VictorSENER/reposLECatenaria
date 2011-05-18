@@ -8,22 +8,26 @@ Public inc_va As Double, dist_carril_poste As Double, va_max As Double, inc_alt_
 Public fin As Double, inicio As Double, start As Double, l_canton As Double
 Public radio_recta As Double
 Public Error As Long, n_canton2 As Long
-Sub principal(inicioVB, finVB)
+Function principal(inicioVB, hVB, wVB, kVB, aVB, bVB, cVB) As Long()
 Dim w As Integer, h As Integer, k As Integer, a As Integer, b As Integer
 Dim c As Integer
 
 'recolección de datos e inicialización
+
 inicio = inicioVB
-fin = finVB
+
+If hVB = 10 Then
 Call datos.datos_excel
 'inicializar todos los contadores
+
 Sheets(1).Cells(10, 33) = inicio
-a = 3
-b = 3
-c = 3
-h = 10
-k = 3
-w = 1
+End If
+a = aVB
+b = bVB
+c = cVB
+h = hVB
+k = kVB
+w = wVB
                         ' inicializamos 3 vanos para poder corregirlos
 While 16 > h
 
@@ -35,7 +39,7 @@ While 16 > h
 Wend
                         ' se comprueba que el poste cae en un punto singular o
                         ' se tiene que corregir su vano. se actua en consecuencia
-While Sheets(1).Cells(h, 33).Value < fin
+'While Sheets(1).Cells(h, 33).Value < fin
     Call radio.radio(h, k)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
     Call regulacion.regulacion(h, k, a)                                   ' comprobamos que los incrementos de vano
@@ -44,16 +48,33 @@ While Sheets(1).Cells(h, 33).Value < fin
     'Call cantones(h, c, k, a)
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
+    Dim x(7) As Long
+        x(0) = inicio
+        x(1) = h
+        x(2) = w
+        x(3) = k
+        x(4) = a
+        x(5) = b
+        x(6) = c
+        x(7) = Sheets(1).Cells(h, 33).Value
 
-Wend
-Call pk_real.convertir_LT                                      ' convertir el PK lineal a PK de trazado
-Call num_postes.postes                                            ' numerar los postes segun PK trazado
-Call altura.altura                                            ' calcula la altura del hilo de contacto
-Call cad.esfuerzo
+    principal = x
+    
+    
+    'principal = Sheets(1).Cells(h, 33).Value
+'Wend
+'Call formato.formato
+'Call pk_real.convertir_LT                                      ' convertir el PK lineal a PK de trazado
+'Call num_postes.postes                                            ' numerar los postes segun PK trazado
+'Call altura.altura                                            ' calcula la altura del hilo de contacto
+'Call cad.esfuerzo
 'Call canton                                            ' distribución de los cantones de catenaria
-Call descentramiento.desc                                              ' elige el descentramiento de cada poste
-Call cad.posicion                                          ' muestra la posición del poste (para autocad)
-Call comentarios.comentarios                                       ' muestra todos los puntos singulares del trazado
+'Call descentramiento.desc                                              ' elige el descentramiento de cada poste
+'Call cad.posicion                                          ' muestra la posición del poste (para autocad)
+'Call comentarios.comentarios                                       ' muestra todos los puntos singulares del trazado
 'Call im_pend(fin)
-Call revision.revision
-End Sub
+'Call revision.revision
+
+End Function
+
+

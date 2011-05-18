@@ -1,10 +1,11 @@
 Attribute VB_Name = "num_postes"
-Sub postes()
+Sub postes(fin)
 Dim w As Integer, bis As Integer
 Dim z As Integer
 w = 1
 bis = 1
 z = 10
+Call datos.datos_excel
 While Sheets(1).Cells(z, 33).Value < fin
 
 
@@ -40,15 +41,7 @@ End If
 'relleno de la columna de altura y distancia poste carril
 Sheets(1).Cells(z, 10).Value = alt_nom
 Sheets(1).Cells(z, 5).Value = dist_carril_poste
-'formato del excel
-For i = 1 To 3
-    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
-Next i
-For i = 5 To 24
-    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
-Next i
 
-Sheets(1).Range(Sheets(1).Cells(z + 1, 4), Sheets(1).Cells(z + 2, 4)).MergeCells = True
 
 z = z + 2
 Wend

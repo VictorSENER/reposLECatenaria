@@ -1,10 +1,10 @@
 Attribute VB_Name = "altura"
-Sub altura()
+Sub altura(fin)
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
 z = 10
 aloc = 3
-
+Call datos.datos_excel
 While Sheets(1).Cells(z, 33).Value < fin
     While (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value) And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
         aloc = aloc + 1

@@ -1,5 +1,5 @@
 Attribute VB_Name = "comentarios"
-Sub comentarios()
+Sub comentarios(fin)
 Dim z As Integer, aloc As Integer
 Dim valor As String, guardar As String
 z = 10

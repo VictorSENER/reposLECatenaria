@@ -28,7 +28,7 @@ End If
 End Sub
 
 Sub sing(ByRef h As Integer, k As Integer, ByRef a As Integer, ByRef b As Integer)
-Sheets(1).Cells(4, 1).Value = Sheets(1).Cells(h, 33).Value
+
 Sheets(1).Cells(5, 1).Value = Sheets(4).Cells(a, 2).Value
 ' buscar en que fila de la hoja 4 se corresponde con el pk actual
 While Sheets(1).Cells(h - 6, 33).Value >= Sheets(4).Cells(a, 21).Value And Sheets(4).Cells(a, 23).Value <> "FINAL"

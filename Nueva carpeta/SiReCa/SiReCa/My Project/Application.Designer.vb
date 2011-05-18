@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.SiReCa.Form1
+            Me.MainForm = Global.SiReCa.Pantalla_inicial
         End Sub
     End Class
 End Namespace

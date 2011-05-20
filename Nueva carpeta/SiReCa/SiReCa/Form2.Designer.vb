@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Pantalla_inicial
+Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,32 +22,16 @@ Partial Class Pantalla_inicial
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
-        'Button1
+        'Form2
         '
-        Me.Button1.Location = New System.Drawing.Point(82, 90)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(137, 113)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "A ENLAZAR DESPUES"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Pantalla_inicial
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 336)
-        Me.Controls.Add(Me.Button1)
-        Me.Font = New System.Drawing.Font("Trebuchet MS", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "Pantalla_inicial"
-        Me.Text = "Form1"
+        Me.ClientSize = New System.Drawing.Size(542, 252)
+        Me.Name = "Form2"
+        Me.Text = "Form2"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-
 End Class

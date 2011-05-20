@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="buscar.vb" />
     <Compile Include="cargar_lac.vb" />
-    <Compile Include="datos.vb" />
+    <Compile Include="run.vb" />
     <Compile Include="Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
@@ -173,6 +173,14 @@
     </COMReference>
     <COMReference Include="AutoCAD">
       <Guid>{851A4561-F4EC-4631-9B0C-E7DC407512C9}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AXDBLib">
+      <Guid>{9F83C3E8-AAA3-4B0B-A256-F0DF98DA74BC}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

@@ -6,7 +6,7 @@ w = 1
 bis = 1
 z = 10
 Call datos.datos_excel
-While Sheets(1).Cells(z, 33).Value < fin
+While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
 
 
 'If necesario para corregir los PK BIS

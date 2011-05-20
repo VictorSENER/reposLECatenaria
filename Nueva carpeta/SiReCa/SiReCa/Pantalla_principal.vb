@@ -161,7 +161,7 @@
             fin = Me.TextBox3.Text
             nombre_excel = Me.TextBox4.Text
             'llamar a la rutina de acceso al excel
-            Call datos.datos_excel(inicio, fin, ruta_replanteo, nombre_excel, ruta_trazado)
+            Call run.run_excel(inicio, fin, ruta_replanteo, nombre_excel, ruta_trazado)
             Me.GroupBox3.Text = "Replanteo realizado correctamente"
             Me.GroupBox4.ForeColor = Color.Green
             Me.ProgressBar1.Hide()
@@ -185,4 +185,7 @@
 
 
 
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        Call run.run_autocad(ruta_autocad)
+    End Sub
 End Class

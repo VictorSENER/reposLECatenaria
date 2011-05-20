@@ -2,9 +2,53 @@ Attribute VB_Name = "formato"
 Sub formato(fin)
 Dim w As Integer, bis As Integer
 Dim z As Integer
-z = 10
+z = 8
+'títulos de las filas
+If Sheets(2).Cells(41, 4).Value = "frances" Then
+Sheets(1).Cells(z, 1).Value = "Nº du pylône"
+Sheets(1).Cells(z, 2).Value = ""
+Sheets(1).Cells(z, 3).Value = "PK (m)"
+Sheets(1).Cells(z, 4).Value = "Portée aval (m)"
+Sheets(1).Cells(z, 5).Value = "Implantation (m)"
+Sheets(1).Cells(z, 6).Value = "Rayon (m)"
+Sheets(1).Cells(z, 7).Value = "Devers (mm)"
+Sheets(1).Cells(z, 8).Value = "Desax. 1 (m)"
+Sheets(1).Cells(z, 9).Value = "Desax. 2 (m)"
+Sheets(1).Cells(z, 10).Value = "Hauteur (m)"
+Sheets(1).Cells(z, 11).Value = "Pendulage aval 1"
+Sheets(1).Cells(z, 12).Value = "Pendulage aval 2"
+Sheets(1).Cells(z, 13).Value = "Connection électrique"
+Sheets(1).Cells(z, 14).Value = "Mise au rail"
+Sheets(1).Cells(z, 15).Value = "Parafoudres"
+Sheets(1).Cells(z, 16).Value = "Axe.Chevau."
+Sheets(1).Cells(z, 17).Value = "Repère poutrelle H"
+Sheets(1).Cells(z, 18).Value = "Type de poutrelle H"
+Sheets(1).Cells(z, 19).Value = "Moment en tête pytône (daN/m)"
+Sheets(1).Cells(z, 20).Value = "Arasement fondation (m)"
+Sheets(1).Cells(z, 21).Value = "Type du terrain"
+Sheets(1).Cells(z, 22).Value = "Type de massif"
+Sheets(1).Cells(z, 23).Value = "Volume du massif (m3)"
+Sheets(1).Cells(z, 24).Value = "Massif d'ancrage"
+Sheets(1).Cells(z, 25).Value = "Observations"
+Sheets(1).Cells(z, 26).Value = "Lg. 1/2 tir anc. à axe antich. (m)"
+Sheets(1).Cells(z, 27).Value = "Lg. de tir anc. à anc. (m)"
+ElseIf Sheets(2).Cells(41, 4).Value = "español" Then
+'para el dia que se necesiten los encabezados en español
+ElseIf Sheets(2).Cells(41, 4).Value = "catalan" Then
+'para el dia que se necesiten los encabezados en catalan
+ElseIf Sheets(2).Cells(41, 4).Value = "ingles" Then
+'para el dia que se necesiten los encabezados en ingles
+End If
+
+Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 26)).Interior.ColorIndex = 15
+For i = 1 To 26
+    Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+Next i
+
+z = z + 2
+
 'agrupar celdas
-While Sheets(1).Cells(z, 33).Value < fin
+While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
 
 For i = 1 To 3
     Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
@@ -30,6 +74,8 @@ Sheets(1).Columns(23).NumberFormat = "0.00"
 'centrar el texto
 Sheets(1).Range("A1", "AH10001").HorizontalAlignment = xlHAlignCenter
 Sheets(1).Range("A1", "AH10001").VerticalAlignment = xlHAlignCenter
+Sheets(1).Range("A8", "Z9").WrapText = True
+
 'ocultar columnas
 Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
 End Sub

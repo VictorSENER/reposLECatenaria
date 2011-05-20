@@ -26,6 +26,7 @@ Partial Class Pantalla_principal
         Me.RadioButton1 = New System.Windows.Forms.RadioButton
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.Label1 = New System.Windows.Forms.Label
@@ -64,7 +65,6 @@ Partial Class Pantalla_principal
         Me.Label9 = New System.Windows.Forms.Label
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -123,6 +123,14 @@ Partial Class Pantalla_principal
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "PASO 1: Datos catenaria"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(268, 53)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(207, 33)
+        Me.ComboBox1.TabIndex = 5
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -138,6 +146,7 @@ Partial Class Pantalla_principal
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Button1.Location = New System.Drawing.Point(200, 239)
@@ -145,7 +154,7 @@ Partial Class Pantalla_principal
         Me.Button1.Size = New System.Drawing.Size(133, 48)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "IR"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         Me.Button1.Visible = False
         '
         'Label1
@@ -189,6 +198,7 @@ Partial Class Pantalla_principal
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -197,7 +207,7 @@ Partial Class Pantalla_principal
         Me.Button2.Size = New System.Drawing.Size(133, 37)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "IR"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         Me.Button2.Visible = False
         '
         'Label3
@@ -291,6 +301,7 @@ Partial Class Pantalla_principal
         '
         'Button5
         '
+        Me.Button5.BackColor = System.Drawing.SystemColors.Control
         Me.Button5.ForeColor = System.Drawing.Color.Black
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -299,7 +310,7 @@ Partial Class Pantalla_principal
         Me.Button5.Size = New System.Drawing.Size(174, 42)
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "REPLANTEAR"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button5.UseVisualStyleBackColor = False
         Me.Button5.Visible = False
         '
         'Button4
@@ -410,6 +421,7 @@ Partial Class Pantalla_principal
         '
         'Button7
         '
+        Me.Button7.BackColor = System.Drawing.SystemColors.Control
         Me.Button7.ForeColor = System.Drawing.Color.Black
         Me.Button7.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Button7.Location = New System.Drawing.Point(184, 302)
@@ -417,8 +429,7 @@ Partial Class Pantalla_principal
         Me.Button7.Size = New System.Drawing.Size(174, 42)
         Me.Button7.TabIndex = 10
         Me.Button7.Text = "DIBUJAR"
-        Me.Button7.UseVisualStyleBackColor = True
-        Me.Button7.Visible = False
+        Me.Button7.UseVisualStyleBackColor = False
         '
         'Button6
         '
@@ -431,7 +442,6 @@ Partial Class Pantalla_principal
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "..."
         Me.Button6.UseVisualStyleBackColor = True
-        Me.Button6.Visible = False
         '
         'Label7
         '
@@ -443,7 +453,6 @@ Partial Class Pantalla_principal
         Me.Label7.Size = New System.Drawing.Size(208, 25)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Captar datos eje de:"
-        Me.Label7.Visible = False
         '
         'CheckBox8
         '
@@ -551,6 +560,7 @@ Partial Class Pantalla_principal
         '
         'Button3
         '
+        Me.Button3.BackColor = System.Drawing.SystemColors.Control
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -559,7 +569,7 @@ Partial Class Pantalla_principal
         Me.Button3.Size = New System.Drawing.Size(201, 51)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "SALIR"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -606,14 +616,6 @@ Partial Class Pantalla_principal
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1292, 74)
         Me.Panel2.TabIndex = 9
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(268, 53)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(207, 33)
-        Me.ComboBox1.TabIndex = 5
         '
         'Pantalla_principal
         '

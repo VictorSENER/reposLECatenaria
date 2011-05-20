@@ -1,7 +1,7 @@
 Attribute VB_Name = "cad"
 Sub posicion(fin)
 h = 10
-While Sheets(1).Cells(h, 33).Value < fin
+While Not IsEmpty(Sheets(1).Cells(h, 33).Value)
     a = 3
     While a < 10
         If Sheets(1).Cells(h, 33).Value < Sheets(5).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value > Sheets(5).Cells(a, 1).Value Then
@@ -21,7 +21,7 @@ tres = 2328
 'fin = 65550
 cont = -1
 j = 34
-While Sheets(1).Cells(h, 33).Value < fin
+While Not IsEmpty(Sheets(1).Cells(h + 2, 33).Value)
 If Sheets(1).Cells(h, 16).Value = "Axe.Antich." Then
     tres = 2328
 End If

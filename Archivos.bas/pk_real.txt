@@ -13,7 +13,7 @@ With .Sheets(6)
 End With
 h = 10
 
-While Sheets(1).Cells(h, 33).Value < fin
+While Not IsEmpty(Sheets(1).Cells(h, 33).Value)
 ipk = 0
     If 55453.6631 <= Sheets(1).Cells(h, 33).Value And Sheets(1).Cells(h, 33).Value < 56453.5677 Then
         If Round((Sheets(1).Cells(h, 33).Value - 55453.6631), 2) < 100 Then

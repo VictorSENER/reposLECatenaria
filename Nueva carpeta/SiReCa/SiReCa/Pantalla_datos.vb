@@ -6,6 +6,9 @@ Public Class Pantalla_datos
 
     Private Sub Pantalla_datos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        TextNombrecatenaria.Hide()
+        Label2.Hide()
+
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Anclaje' Puede moverla o quitarla según sea necesario.
         Me.Conductor_AnclajeTableAdapter.Fill(Me.Base_de_datosDataSet.Conductor_Anclaje)
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Pendola' Puede moverla o quitarla según sea necesario.

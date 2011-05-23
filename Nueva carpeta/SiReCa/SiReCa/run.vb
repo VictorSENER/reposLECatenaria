@@ -16,7 +16,7 @@ Module run
     Public datos_trazado(1000, 9) As Short
     Public c As Long, h As Long, w As Long, k As Long, a As Long, b As Long
     Public tiempo As System.Int32()
-    Public WithEvents objCAD As Autodesk.AutoCAD.Interop.AcadApplication
+    'Public WithEvents objCAD As Autodesk.AutoCAD.Interop.AcadApplication
 
     Public Sub run_excel(ByVal inicio, ByVal fin, ByVal ruta_replanteo, ByVal nombre_excel, ByVal ruta_trazado)
         'generar un objeto excel
@@ -149,12 +149,12 @@ Module run
         objExcel = Nothing
 
     End Sub
-    Sub run_autocad(ByVal ruta_autocad)
-        objCAD = New Autodesk.AutoCAD.Interop.AcadApplication
-        objCAD.Visible = True
-        objCAD.Application.Documents.Open(ruta_autocad)
-        objCAD.VBE.ActiveVBProject.VBComponents.Import()
-    End Sub
+    'Sub run_autocad(ByVal ruta_autocad)
+    'objCAD = New Autodesk.AutoCAD.Interop.AcadApplication
+    'objCAD.Visible = True
+    'objCAD.Application.Documents.Open(ruta_autocad)
+    'objCAD.VBE.ActiveVBProject.VBComponents.Import()
+    'End Sub
 
 End Module
 

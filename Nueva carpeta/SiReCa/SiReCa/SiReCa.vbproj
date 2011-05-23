@@ -73,13 +73,13 @@
     </Compile>
     <Compile Include="buscar.vb" />
     <Compile Include="cargar_lac.vb" />
-    <Compile Include="run.vb" />
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="Pantalla_aviso.Designer.vb">
+      <DependentUpon>Pantalla_aviso.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="Pantalla_aviso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="run.vb" />
     <Compile Include="nueva_lac.vb" />
     <Compile Include="Pantalla_datos.Designer.vb">
       <DependentUpon>Pantalla_datos.vb</DependentUpon>
@@ -110,8 +110,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="Pantalla_aviso.resx">
+      <DependentUpon>Pantalla_aviso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantalla_datos.resx">
       <DependentUpon>Pantalla_datos.vb</DependentUpon>

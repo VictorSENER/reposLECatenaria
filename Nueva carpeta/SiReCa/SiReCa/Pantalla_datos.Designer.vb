@@ -265,7 +265,7 @@ Partial Class Pantalla_datos
         AlimentaciónLabel.AutoSize = True
         AlimentaciónLabel.Location = New System.Drawing.Point(287, 57)
         AlimentaciónLabel.Name = "AlimentaciónLabel"
-        AlimentaciónLabel.Size = New System.Drawing.Size(96, 18)
+        AlimentaciónLabel.Size = New System.Drawing.Size(75, 16)
         AlimentaciónLabel.TabIndex = 6
         AlimentaciónLabel.Text = "Alimentación:"
         '
@@ -274,7 +274,7 @@ Partial Class Pantalla_datos
         SistemaLabel.AutoSize = True
         SistemaLabel.Location = New System.Drawing.Point(72, 52)
         SistemaLabel.Name = "SistemaLabel"
-        SistemaLabel.Size = New System.Drawing.Size(62, 18)
+        SistemaLabel.Size = New System.Drawing.Size(50, 16)
         SistemaLabel.TabIndex = 7
         SistemaLabel.Text = "Sistema:"
         '
@@ -379,10 +379,10 @@ Partial Class Pantalla_datos
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.TextAlturanominal)
         Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(853, 542)
+        Me.TabPage1.Size = New System.Drawing.Size(853, 544)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "DATOS GENERALES"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -392,7 +392,7 @@ Partial Class Pantalla_datos
         Me.Label34.AutoSize = True
         Me.Label34.Location = New System.Drawing.Point(746, 399)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(19, 18)
+        Me.Label34.Size = New System.Drawing.Size(16, 16)
         Me.Label34.TabIndex = 89
         Me.Label34.Text = "m"
         '
@@ -401,7 +401,7 @@ Partial Class Pantalla_datos
         Me.Label35.AutoSize = True
         Me.Label35.Location = New System.Drawing.Point(746, 373)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(19, 18)
+        Me.Label35.Size = New System.Drawing.Size(16, 16)
         Me.Label35.TabIndex = 88
         Me.Label35.Text = "m"
         '
@@ -410,7 +410,7 @@ Partial Class Pantalla_datos
         Me.Label36.AutoSize = True
         Me.Label36.Location = New System.Drawing.Point(746, 346)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(19, 18)
+        Me.Label36.Size = New System.Drawing.Size(16, 16)
         Me.Label36.TabIndex = 87
         Me.Label36.Text = "m"
         '
@@ -419,7 +419,7 @@ Partial Class Pantalla_datos
         Me.Label37.AutoSize = True
         Me.Label37.Location = New System.Drawing.Point(746, 320)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(19, 18)
+        Me.Label37.Size = New System.Drawing.Size(16, 16)
         Me.Label37.TabIndex = 86
         Me.Label37.Text = "m"
         '
@@ -428,7 +428,7 @@ Partial Class Pantalla_datos
         Me.Label38.AutoSize = True
         Me.Label38.Location = New System.Drawing.Point(746, 294)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(19, 18)
+        Me.Label38.Size = New System.Drawing.Size(16, 16)
         Me.Label38.TabIndex = 85
         Me.Label38.Text = "m"
         '
@@ -437,7 +437,7 @@ Partial Class Pantalla_datos
         Me.Label39.AutoSize = True
         Me.Label39.Location = New System.Drawing.Point(351, 425)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(19, 18)
+        Me.Label39.Size = New System.Drawing.Size(16, 16)
         Me.Label39.TabIndex = 84
         Me.Label39.Text = "m"
         '
@@ -446,7 +446,7 @@ Partial Class Pantalla_datos
         Me.Label40.AutoSize = True
         Me.Label40.Location = New System.Drawing.Point(746, 267)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(19, 18)
+        Me.Label40.Size = New System.Drawing.Size(16, 16)
         Me.Label40.TabIndex = 83
         Me.Label40.Text = "m"
         '
@@ -455,7 +455,7 @@ Partial Class Pantalla_datos
         Me.Label41.AutoSize = True
         Me.Label41.Location = New System.Drawing.Point(746, 241)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(19, 18)
+        Me.Label41.Size = New System.Drawing.Size(16, 16)
         Me.Label41.TabIndex = 82
         Me.Label41.Text = "m"
         '
@@ -464,7 +464,7 @@ Partial Class Pantalla_datos
         Me.Label42.AutoSize = True
         Me.Label42.Location = New System.Drawing.Point(746, 214)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(19, 18)
+        Me.Label42.Size = New System.Drawing.Size(16, 16)
         Me.Label42.TabIndex = 81
         Me.Label42.Text = "m"
         '
@@ -473,7 +473,7 @@ Partial Class Pantalla_datos
         Me.Label43.AutoSize = True
         Me.Label43.Location = New System.Drawing.Point(746, 188)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(32, 18)
+        Me.Label43.Size = New System.Drawing.Size(27, 16)
         Me.Label43.TabIndex = 80
         Me.Label43.Text = "m/s"
         '
@@ -482,7 +482,7 @@ Partial Class Pantalla_datos
         Me.Label44.AutoSize = True
         Me.Label44.Location = New System.Drawing.Point(746, 162)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(19, 18)
+        Me.Label44.Size = New System.Drawing.Size(16, 16)
         Me.Label44.TabIndex = 79
         Me.Label44.Text = "m"
         '
@@ -491,7 +491,7 @@ Partial Class Pantalla_datos
         Me.Label45.AutoSize = True
         Me.Label45.Location = New System.Drawing.Point(746, 135)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(19, 18)
+        Me.Label45.Size = New System.Drawing.Size(16, 16)
         Me.Label45.TabIndex = 78
         Me.Label45.Text = "m"
         '
@@ -500,7 +500,7 @@ Partial Class Pantalla_datos
         Me.Label46.AutoSize = True
         Me.Label46.Location = New System.Drawing.Point(746, 108)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(19, 18)
+        Me.Label46.Size = New System.Drawing.Size(16, 16)
         Me.Label46.TabIndex = 77
         Me.Label46.Text = "m"
         '
@@ -509,7 +509,7 @@ Partial Class Pantalla_datos
         Me.Label47.AutoSize = True
         Me.Label47.Location = New System.Drawing.Point(746, 82)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(19, 18)
+        Me.Label47.Size = New System.Drawing.Size(16, 16)
         Me.Label47.TabIndex = 76
         Me.Label47.Text = "m"
         '
@@ -518,7 +518,7 @@ Partial Class Pantalla_datos
         Me.Label48.AutoSize = True
         Me.Label48.Location = New System.Drawing.Point(746, 55)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(19, 18)
+        Me.Label48.Size = New System.Drawing.Size(16, 16)
         Me.Label48.TabIndex = 75
         Me.Label48.Text = "m"
         '
@@ -526,7 +526,7 @@ Partial Class Pantalla_datos
         '
         Me.TextLongzonaneutra.Location = New System.Drawing.Point(640, 396)
         Me.TextLongzonaneutra.Name = "TextLongzonaneutra"
-        Me.TextLongzonaneutra.Size = New System.Drawing.Size(100, 23)
+        Me.TextLongzonaneutra.Size = New System.Drawing.Size(100, 20)
         Me.TextLongzonaneutra.TabIndex = 74
         '
         'Label49
@@ -534,7 +534,7 @@ Partial Class Pantalla_datos
         Me.Label49.AutoSize = True
         Me.Label49.Location = New System.Drawing.Point(462, 399)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(125, 18)
+        Me.Label49.Size = New System.Drawing.Size(101, 16)
         Me.Label49.TabIndex = 73
         Me.Label49.Text = "Long. Zona Neutra"
         '
@@ -542,7 +542,7 @@ Partial Class Pantalla_datos
         '
         Me.TextLongzonacomunmin.Location = New System.Drawing.Point(640, 370)
         Me.TextLongzonacomunmin.Name = "TextLongzonacomunmin"
-        Me.TextLongzonacomunmin.Size = New System.Drawing.Size(100, 23)
+        Me.TextLongzonacomunmin.Size = New System.Drawing.Size(100, 20)
         Me.TextLongzonacomunmin.TabIndex = 72
         '
         'Label50
@@ -550,7 +550,7 @@ Partial Class Pantalla_datos
         Me.Label50.AutoSize = True
         Me.Label50.Location = New System.Drawing.Point(462, 373)
         Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(155, 18)
+        Me.Label50.Size = New System.Drawing.Size(122, 16)
         Me.Label50.TabIndex = 71
         Me.Label50.Text = "Long. zona común mín."
         '
@@ -558,7 +558,7 @@ Partial Class Pantalla_datos
         '
         Me.TextLongzonacomunmax.Location = New System.Drawing.Point(640, 343)
         Me.TextLongzonacomunmax.Name = "TextLongzonacomunmax"
-        Me.TextLongzonacomunmax.Size = New System.Drawing.Size(100, 23)
+        Me.TextLongzonacomunmax.Size = New System.Drawing.Size(100, 20)
         Me.TextLongzonacomunmax.TabIndex = 70
         '
         'Label51
@@ -566,7 +566,7 @@ Partial Class Pantalla_datos
         Me.Label51.AutoSize = True
         Me.Label51.Location = New System.Drawing.Point(462, 346)
         Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(157, 18)
+        Me.Label51.Size = New System.Drawing.Size(125, 16)
         Me.Label51.TabIndex = 69
         Me.Label51.Text = "Long. zona común máx."
         '
@@ -574,7 +574,7 @@ Partial Class Pantalla_datos
         '
         Me.TextDistanciaelectsecelectrico.Location = New System.Drawing.Point(640, 317)
         Me.TextDistanciaelectsecelectrico.Name = "TextDistanciaelectsecelectrico"
-        Me.TextDistanciaelectsecelectrico.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciaelectsecelectrico.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciaelectsecelectrico.TabIndex = 68
         '
         'Label52
@@ -582,7 +582,7 @@ Partial Class Pantalla_datos
         Me.Label52.AutoSize = True
         Me.Label52.Location = New System.Drawing.Point(462, 320)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(197, 18)
+        Me.Label52.Size = New System.Drawing.Size(159, 16)
         Me.Label52.TabIndex = 67
         Me.Label52.Text = "Distancia eléct. sec. eléctrico"
         '
@@ -590,7 +590,7 @@ Partial Class Pantalla_datos
         '
         Me.TextDistanciaelectsecmecanico.Location = New System.Drawing.Point(640, 290)
         Me.TextDistanciaelectsecmecanico.Name = "TextDistanciaelectsecmecanico"
-        Me.TextDistanciaelectsecmecanico.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciaelectsecmecanico.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciaelectsecmecanico.TabIndex = 66
         '
         'Label53
@@ -598,15 +598,15 @@ Partial Class Pantalla_datos
         Me.Label53.AutoSize = True
         Me.Label53.Location = New System.Drawing.Point(462, 293)
         Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(201, 18)
+        Me.Label53.Size = New System.Drawing.Size(161, 16)
         Me.Label53.TabIndex = 65
         Me.Label53.Text = "Distancia eléct. sec. mecánico"
         '
         'TextAnchovia
         '
-        Me.TextAnchovia.Location = New System.Drawing.Point(245, 422)
+        Me.TextAnchovia.Location = New System.Drawing.Point(640, 264)
         Me.TextAnchovia.Name = "TextAnchovia"
-        Me.TextAnchovia.Size = New System.Drawing.Size(100, 23)
+        Me.TextAnchovia.Size = New System.Drawing.Size(100, 20)
         Me.TextAnchovia.TabIndex = 64
         '
         'Label54
@@ -614,15 +614,15 @@ Partial Class Pantalla_datos
         Me.Label54.AutoSize = True
         Me.Label54.Location = New System.Drawing.Point(67, 425)
         Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(70, 18)
+        Me.Label54.Size = New System.Drawing.Size(56, 16)
         Me.Label54.TabIndex = 63
         Me.Label54.Text = "Ancho vía"
         '
         'TextDistanciabasepostepmr
         '
-        Me.TextDistanciabasepostepmr.Location = New System.Drawing.Point(640, 264)
+        Me.TextDistanciabasepostepmr.Location = New System.Drawing.Point(640, 238)
         Me.TextDistanciabasepostepmr.Name = "TextDistanciabasepostepmr"
-        Me.TextDistanciabasepostepmr.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciabasepostepmr.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciabasepostepmr.TabIndex = 62
         '
         'Label55
@@ -630,15 +630,15 @@ Partial Class Pantalla_datos
         Me.Label55.AutoSize = True
         Me.Label55.Location = New System.Drawing.Point(462, 267)
         Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(179, 18)
+        Me.Label55.Size = New System.Drawing.Size(142, 16)
         Me.Label55.TabIndex = 61
         Me.Label55.Text = "Distancia base poste - PMR"
         '
         'TextDistanciacarrilposte
         '
-        Me.TextDistanciacarrilposte.Location = New System.Drawing.Point(640, 238)
+        Me.TextDistanciacarrilposte.Location = New System.Drawing.Point(640, 211)
         Me.TextDistanciacarrilposte.Name = "TextDistanciacarrilposte"
-        Me.TextDistanciacarrilposte.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciacarrilposte.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciacarrilposte.TabIndex = 60
         '
         'Label56
@@ -646,15 +646,15 @@ Partial Class Pantalla_datos
         Me.Label56.AutoSize = True
         Me.Label56.Location = New System.Drawing.Point(462, 241)
         Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(150, 18)
+        Me.Label56.Size = New System.Drawing.Size(123, 16)
         Me.Label56.TabIndex = 59
         Me.Label56.Text = "Distancia carril - poste"
         '
         'TextFlechamaxcentrovano
         '
-        Me.TextFlechamaxcentrovano.Location = New System.Drawing.Point(640, 211)
+        Me.TextFlechamaxcentrovano.Location = New System.Drawing.Point(640, 184)
         Me.TextFlechamaxcentrovano.Name = "TextFlechamaxcentrovano"
-        Me.TextFlechamaxcentrovano.Size = New System.Drawing.Size(100, 23)
+        Me.TextFlechamaxcentrovano.Size = New System.Drawing.Size(100, 20)
         Me.TextFlechamaxcentrovano.TabIndex = 58
         '
         'Label57
@@ -662,15 +662,15 @@ Partial Class Pantalla_datos
         Me.Label57.AutoSize = True
         Me.Label57.Location = New System.Drawing.Point(462, 214)
         Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(162, 18)
+        Me.Label57.Size = New System.Drawing.Size(131, 16)
         Me.Label57.TabIndex = 57
         Me.Label57.Text = "Flecha máx. centro vano"
         '
         'TextVelocidadviento
         '
-        Me.TextVelocidadviento.Location = New System.Drawing.Point(640, 185)
+        Me.TextVelocidadviento.Location = New System.Drawing.Point(640, 158)
         Me.TextVelocidadviento.Name = "TextVelocidadviento"
-        Me.TextVelocidadviento.Size = New System.Drawing.Size(100, 23)
+        Me.TextVelocidadviento.Size = New System.Drawing.Size(100, 20)
         Me.TextVelocidadviento.TabIndex = 56
         '
         'Label58
@@ -678,15 +678,15 @@ Partial Class Pantalla_datos
         Me.Label58.AutoSize = True
         Me.Label58.Location = New System.Drawing.Point(462, 188)
         Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(115, 18)
+        Me.Label58.Size = New System.Drawing.Size(91, 16)
         Me.Label58.TabIndex = 55
         Me.Label58.Text = "Velocidad viento"
         '
         'TextElevacionmaxpantografo
         '
-        Me.TextElevacionmaxpantografo.Location = New System.Drawing.Point(640, 158)
+        Me.TextElevacionmaxpantografo.Location = New System.Drawing.Point(640, 131)
         Me.TextElevacionmaxpantografo.Name = "TextElevacionmaxpantografo"
-        Me.TextElevacionmaxpantografo.Size = New System.Drawing.Size(100, 23)
+        Me.TextElevacionmaxpantografo.Size = New System.Drawing.Size(100, 20)
         Me.TextElevacionmaxpantografo.TabIndex = 54
         '
         'Label59
@@ -694,15 +694,15 @@ Partial Class Pantalla_datos
         Me.Label59.AutoSize = True
         Me.Label59.Location = New System.Drawing.Point(462, 161)
         Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(175, 18)
+        Me.Label59.Size = New System.Drawing.Size(141, 16)
         Me.Label59.TabIndex = 53
         Me.Label59.Text = "Elevación máx. pantógrafo"
         '
         'TextZonatrabajopantografo
         '
-        Me.TextZonatrabajopantografo.Location = New System.Drawing.Point(640, 132)
+        Me.TextZonatrabajopantografo.Location = New System.Drawing.Point(640, 105)
         Me.TextZonatrabajopantografo.Name = "TextZonatrabajopantografo"
-        Me.TextZonatrabajopantografo.Size = New System.Drawing.Size(100, 23)
+        Me.TextZonatrabajopantografo.Size = New System.Drawing.Size(100, 20)
         Me.TextZonatrabajopantografo.TabIndex = 52
         '
         'Label60
@@ -710,15 +710,15 @@ Partial Class Pantalla_datos
         Me.Label60.AutoSize = True
         Me.Label60.Location = New System.Drawing.Point(462, 135)
         Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(162, 18)
+        Me.Label60.Size = New System.Drawing.Size(132, 16)
         Me.Label60.TabIndex = 51
         Me.Label60.Text = "Zona trabajo pantógrafo"
         '
         'TextRadioconsiderablecomorecta
         '
-        Me.TextRadioconsiderablecomorecta.Location = New System.Drawing.Point(640, 105)
+        Me.TextRadioconsiderablecomorecta.Location = New System.Drawing.Point(640, 78)
         Me.TextRadioconsiderablecomorecta.Name = "TextRadioconsiderablecomorecta"
-        Me.TextRadioconsiderablecomorecta.Size = New System.Drawing.Size(100, 23)
+        Me.TextRadioconsiderablecomorecta.Size = New System.Drawing.Size(100, 20)
         Me.TextRadioconsiderablecomorecta.TabIndex = 50
         '
         'Label61
@@ -726,15 +726,15 @@ Partial Class Pantalla_datos
         Me.Label61.AutoSize = True
         Me.Label61.Location = New System.Drawing.Point(462, 108)
         Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(202, 18)
+        Me.Label61.Size = New System.Drawing.Size(161, 16)
         Me.Label61.TabIndex = 49
         Me.Label61.Text = "Radio considerable como recta"
         '
         'TextDescentramientomaxcurva
         '
-        Me.TextDescentramientomaxcurva.Location = New System.Drawing.Point(640, 79)
+        Me.TextDescentramientomaxcurva.Location = New System.Drawing.Point(640, 52)
         Me.TextDescentramientomaxcurva.Name = "TextDescentramientomaxcurva"
-        Me.TextDescentramientomaxcurva.Size = New System.Drawing.Size(100, 23)
+        Me.TextDescentramientomaxcurva.Size = New System.Drawing.Size(100, 20)
         Me.TextDescentramientomaxcurva.TabIndex = 48
         '
         'Label62
@@ -742,23 +742,23 @@ Partial Class Pantalla_datos
         Me.Label62.AutoSize = True
         Me.Label62.Location = New System.Drawing.Point(462, 82)
         Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(189, 18)
+        Me.Label62.Size = New System.Drawing.Size(153, 16)
         Me.Label62.TabIndex = 47
         Me.Label62.Text = "Descentramiento máx. curva"
         '
         'TextDescentramientomaxrecta
         '
-        Me.TextDescentramientomaxrecta.Location = New System.Drawing.Point(640, 52)
+        Me.TextDescentramientomaxrecta.Location = New System.Drawing.Point(245, 422)
         Me.TextDescentramientomaxrecta.Name = "TextDescentramientomaxrecta"
-        Me.TextDescentramientomaxrecta.Size = New System.Drawing.Size(100, 23)
-        Me.TextDescentramientomaxrecta.TabIndex = 46
+        Me.TextDescentramientomaxrecta.Size = New System.Drawing.Size(100, 20)
+        Me.TextDescentramientomaxrecta.TabIndex = 31
         '
         'Label63
         '
         Me.Label63.AutoSize = True
         Me.Label63.Location = New System.Drawing.Point(462, 55)
         Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(188, 18)
+        Me.Label63.Size = New System.Drawing.Size(152, 16)
         Me.Label63.TabIndex = 45
         Me.Label63.Text = "Descentramiento máx. recta"
         '
@@ -767,7 +767,7 @@ Partial Class Pantalla_datos
         Me.Label32.AutoSize = True
         Me.Label32.Location = New System.Drawing.Point(351, 400)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(25, 18)
+        Me.Label32.Size = New System.Drawing.Size(21, 16)
         Me.Label32.TabIndex = 43
         Me.Label32.Text = "Ud"
         '
@@ -776,7 +776,7 @@ Partial Class Pantalla_datos
         Me.Label33.AutoSize = True
         Me.Label33.Location = New System.Drawing.Point(351, 373)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(25, 18)
+        Me.Label33.Size = New System.Drawing.Size(21, 16)
         Me.Label33.TabIndex = 42
         Me.Label33.Text = "Ud"
         '
@@ -785,7 +785,7 @@ Partial Class Pantalla_datos
         Me.Label28.AutoSize = True
         Me.Label28.Location = New System.Drawing.Point(351, 347)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(16, 18)
+        Me.Label28.Size = New System.Drawing.Size(15, 16)
         Me.Label28.TabIndex = 41
         Me.Label28.Text = "%"
         '
@@ -794,7 +794,7 @@ Partial Class Pantalla_datos
         Me.Label29.AutoSize = True
         Me.Label29.Location = New System.Drawing.Point(351, 321)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(19, 18)
+        Me.Label29.Size = New System.Drawing.Size(16, 16)
         Me.Label29.TabIndex = 40
         Me.Label29.Text = "m"
         '
@@ -803,7 +803,7 @@ Partial Class Pantalla_datos
         Me.Label30.AutoSize = True
         Me.Label30.Location = New System.Drawing.Point(351, 294)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(19, 18)
+        Me.Label30.Size = New System.Drawing.Size(16, 16)
         Me.Label30.TabIndex = 39
         Me.Label30.Text = "m"
         '
@@ -812,7 +812,7 @@ Partial Class Pantalla_datos
         Me.Label25.AutoSize = True
         Me.Label25.Location = New System.Drawing.Point(351, 267)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(19, 18)
+        Me.Label25.Size = New System.Drawing.Size(16, 16)
         Me.Label25.TabIndex = 38
         Me.Label25.Text = "m"
         '
@@ -821,7 +821,7 @@ Partial Class Pantalla_datos
         Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(351, 241)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(19, 18)
+        Me.Label26.Size = New System.Drawing.Size(16, 16)
         Me.Label26.TabIndex = 37
         Me.Label26.Text = "m"
         '
@@ -830,7 +830,7 @@ Partial Class Pantalla_datos
         Me.Label27.AutoSize = True
         Me.Label27.Location = New System.Drawing.Point(351, 214)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(19, 18)
+        Me.Label27.Size = New System.Drawing.Size(16, 16)
         Me.Label27.TabIndex = 36
         Me.Label27.Text = "m"
         '
@@ -839,7 +839,7 @@ Partial Class Pantalla_datos
         Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(351, 188)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(19, 18)
+        Me.Label22.Size = New System.Drawing.Size(16, 16)
         Me.Label22.TabIndex = 35
         Me.Label22.Text = "m"
         '
@@ -848,7 +848,7 @@ Partial Class Pantalla_datos
         Me.Label23.AutoSize = True
         Me.Label23.Location = New System.Drawing.Point(351, 162)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(19, 18)
+        Me.Label23.Size = New System.Drawing.Size(16, 16)
         Me.Label23.TabIndex = 34
         Me.Label23.Text = "m"
         '
@@ -857,7 +857,7 @@ Partial Class Pantalla_datos
         Me.Label24.AutoSize = True
         Me.Label24.Location = New System.Drawing.Point(351, 135)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(19, 18)
+        Me.Label24.Size = New System.Drawing.Size(16, 16)
         Me.Label24.TabIndex = 33
         Me.Label24.Text = "m"
         '
@@ -866,7 +866,7 @@ Partial Class Pantalla_datos
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(351, 108)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(19, 18)
+        Me.Label21.Size = New System.Drawing.Size(16, 16)
         Me.Label21.TabIndex = 32
         Me.Label21.Text = "m"
         '
@@ -875,7 +875,7 @@ Partial Class Pantalla_datos
         Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(351, 82)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(19, 18)
+        Me.Label20.Size = New System.Drawing.Size(16, 16)
         Me.Label20.TabIndex = 31
         Me.Label20.Text = "m"
         '
@@ -884,7 +884,7 @@ Partial Class Pantalla_datos
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(351, 55)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(19, 18)
+        Me.Label12.Size = New System.Drawing.Size(16, 16)
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "m"
         '
@@ -892,7 +892,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumminvanosensecelect.Location = New System.Drawing.Point(245, 397)
         Me.TextNumminvanosensecelect.Name = "TextNumminvanosensecelect"
-        Me.TextNumminvanosensecelect.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumminvanosensecelect.Size = New System.Drawing.Size(100, 20)
         Me.TextNumminvanosensecelect.TabIndex = 27
         '
         'Label14
@@ -900,7 +900,7 @@ Partial Class Pantalla_datos
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(67, 400)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(204, 18)
+        Me.Label14.Size = New System.Drawing.Size(160, 16)
         Me.Label14.TabIndex = 26
         Me.Label14.Text = "Núm. mín. vanos en sec. eléct."
         '
@@ -908,7 +908,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumminvanosensecmec.Location = New System.Drawing.Point(245, 370)
         Me.TextNumminvanosensecmec.Name = "TextNumminvanosensecmec"
-        Me.TextNumminvanosensecmec.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumminvanosensecmec.Size = New System.Drawing.Size(100, 20)
         Me.TextNumminvanosensecmec.TabIndex = 25
         '
         'Label15
@@ -916,7 +916,7 @@ Partial Class Pantalla_datos
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(67, 373)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(198, 18)
+        Me.Label15.Size = New System.Drawing.Size(155, 16)
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Núm. mín. vanos en sec. mec."
         '
@@ -924,7 +924,7 @@ Partial Class Pantalla_datos
         '
         Me.TextIncrmaxalturahc.Location = New System.Drawing.Point(245, 344)
         Me.TextIncrmaxalturahc.Name = "TextIncrmaxalturahc"
-        Me.TextIncrmaxalturahc.Size = New System.Drawing.Size(100, 23)
+        Me.TextIncrmaxalturahc.Size = New System.Drawing.Size(100, 20)
         Me.TextIncrmaxalturahc.TabIndex = 23
         '
         'Label16
@@ -932,7 +932,7 @@ Partial Class Pantalla_datos
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(67, 347)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(142, 18)
+        Me.Label16.Size = New System.Drawing.Size(118, 16)
         Me.Label16.TabIndex = 22
         Me.Label16.Text = "Incr. máx. altura H.C."
         '
@@ -940,7 +940,7 @@ Partial Class Pantalla_datos
         '
         Me.TextIncrnormalizadodevano.Location = New System.Drawing.Point(245, 317)
         Me.TextIncrnormalizadodevano.Name = "TextIncrnormalizadodevano"
-        Me.TextIncrnormalizadodevano.Size = New System.Drawing.Size(100, 23)
+        Me.TextIncrnormalizadodevano.Size = New System.Drawing.Size(100, 20)
         Me.TextIncrnormalizadodevano.TabIndex = 21
         '
         'Label17
@@ -948,7 +948,7 @@ Partial Class Pantalla_datos
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(67, 320)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(171, 18)
+        Me.Label17.Size = New System.Drawing.Size(138, 16)
         Me.Label17.TabIndex = 20
         Me.Label17.Text = "Incr. normalizado de vano"
         '
@@ -956,7 +956,7 @@ Partial Class Pantalla_datos
         '
         Me.TextVanomaxentunel.Location = New System.Drawing.Point(245, 291)
         Me.TextVanomaxentunel.Name = "TextVanomaxentunel"
-        Me.TextVanomaxentunel.Size = New System.Drawing.Size(100, 23)
+        Me.TextVanomaxentunel.Size = New System.Drawing.Size(100, 20)
         Me.TextVanomaxentunel.TabIndex = 19
         '
         'Label18
@@ -964,7 +964,7 @@ Partial Class Pantalla_datos
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(67, 294)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(131, 18)
+        Me.Label18.Size = New System.Drawing.Size(103, 16)
         Me.Label18.TabIndex = 18
         Me.Label18.Text = "Vano máx. en túnel"
         '
@@ -972,7 +972,7 @@ Partial Class Pantalla_datos
         '
         Me.TextVanomaxensecelectrico.Location = New System.Drawing.Point(245, 264)
         Me.TextVanomaxensecelectrico.Name = "TextVanomaxensecelectrico"
-        Me.TextVanomaxensecelectrico.Size = New System.Drawing.Size(100, 23)
+        Me.TextVanomaxensecelectrico.Size = New System.Drawing.Size(100, 20)
         Me.TextVanomaxensecelectrico.TabIndex = 17
         '
         'Label19
@@ -980,7 +980,7 @@ Partial Class Pantalla_datos
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(67, 267)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(184, 18)
+        Me.Label19.Size = New System.Drawing.Size(147, 16)
         Me.Label19.TabIndex = 16
         Me.Label19.Text = "Vano máx. en sec. eléctrico"
         '
@@ -988,7 +988,7 @@ Partial Class Pantalla_datos
         '
         Me.TextVanomaxensecmecanico.Location = New System.Drawing.Point(245, 238)
         Me.TextVanomaxensecmecanico.Name = "TextVanomaxensecmecanico"
-        Me.TextVanomaxensecmecanico.Size = New System.Drawing.Size(100, 23)
+        Me.TextVanomaxensecmecanico.Size = New System.Drawing.Size(100, 20)
         Me.TextVanomaxensecmecanico.TabIndex = 15
         '
         'Label8
@@ -996,7 +996,7 @@ Partial Class Pantalla_datos
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(67, 241)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(188, 18)
+        Me.Label8.Size = New System.Drawing.Size(149, 16)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Vano máx. en sec. mecánico"
         '
@@ -1004,7 +1004,7 @@ Partial Class Pantalla_datos
         '
         Me.TextVanomaximo.Location = New System.Drawing.Point(245, 211)
         Me.TextVanomaximo.Name = "TextVanomaximo"
-        Me.TextVanomaximo.Size = New System.Drawing.Size(100, 23)
+        Me.TextVanomaximo.Size = New System.Drawing.Size(100, 20)
         Me.TextVanomaximo.TabIndex = 13
         '
         'Label9
@@ -1012,7 +1012,7 @@ Partial Class Pantalla_datos
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(67, 214)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(92, 18)
+        Me.Label9.Size = New System.Drawing.Size(73, 16)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "Vano máximo"
         '
@@ -1020,7 +1020,7 @@ Partial Class Pantalla_datos
         '
         Me.TextDistanciamaxdelcanton.Location = New System.Drawing.Point(245, 185)
         Me.TextDistanciamaxdelcanton.Name = "TextDistanciamaxdelcanton"
-        Me.TextDistanciamaxdelcanton.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciamaxdelcanton.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciamaxdelcanton.TabIndex = 11
         '
         'Label10
@@ -1028,7 +1028,7 @@ Partial Class Pantalla_datos
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(67, 188)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(171, 18)
+        Me.Label10.Size = New System.Drawing.Size(137, 16)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Distancia máx. del cantón"
         '
@@ -1036,7 +1036,7 @@ Partial Class Pantalla_datos
         '
         Me.TextDistanciamaxentrevanos.Location = New System.Drawing.Point(245, 158)
         Me.TextDistanciamaxentrevanos.Name = "TextDistanciamaxentrevanos"
-        Me.TextDistanciamaxentrevanos.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciamaxentrevanos.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciamaxentrevanos.TabIndex = 9
         '
         'Label11
@@ -1044,7 +1044,7 @@ Partial Class Pantalla_datos
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(67, 161)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(179, 18)
+        Me.Label11.Size = New System.Drawing.Size(145, 16)
         Me.Label11.TabIndex = 8
         Me.Label11.Text = "Distancia máx. entre vanos"
         '
@@ -1052,7 +1052,7 @@ Partial Class Pantalla_datos
         '
         Me.TextAlturacatenaria.Location = New System.Drawing.Point(245, 132)
         Me.TextAlturacatenaria.Name = "TextAlturacatenaria"
-        Me.TextAlturacatenaria.Size = New System.Drawing.Size(100, 23)
+        Me.TextAlturacatenaria.Size = New System.Drawing.Size(100, 20)
         Me.TextAlturacatenaria.TabIndex = 7
         '
         'Label6
@@ -1060,7 +1060,7 @@ Partial Class Pantalla_datos
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(67, 135)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(109, 18)
+        Me.Label6.Size = New System.Drawing.Size(90, 16)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Altura catenaria"
         '
@@ -1068,7 +1068,7 @@ Partial Class Pantalla_datos
         '
         Me.TextAlturamaxima.Location = New System.Drawing.Point(245, 105)
         Me.TextAlturamaxima.Name = "TextAlturamaxima"
-        Me.TextAlturamaxima.Size = New System.Drawing.Size(100, 23)
+        Me.TextAlturamaxima.Size = New System.Drawing.Size(100, 20)
         Me.TextAlturamaxima.TabIndex = 5
         '
         'Label7
@@ -1076,7 +1076,7 @@ Partial Class Pantalla_datos
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(67, 108)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(97, 18)
+        Me.Label7.Size = New System.Drawing.Size(78, 16)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Altura máxima"
         '
@@ -1084,7 +1084,7 @@ Partial Class Pantalla_datos
         '
         Me.TextAlturaminima.Location = New System.Drawing.Point(245, 79)
         Me.TextAlturaminima.Name = "TextAlturaminima"
-        Me.TextAlturaminima.Size = New System.Drawing.Size(100, 23)
+        Me.TextAlturaminima.Size = New System.Drawing.Size(100, 20)
         Me.TextAlturaminima.TabIndex = 3
         '
         'Label5
@@ -1092,7 +1092,7 @@ Partial Class Pantalla_datos
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(67, 82)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(95, 18)
+        Me.Label5.Size = New System.Drawing.Size(75, 16)
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "Altura mínima"
         '
@@ -1100,7 +1100,7 @@ Partial Class Pantalla_datos
         '
         Me.TextAlturanominal.Location = New System.Drawing.Point(245, 52)
         Me.TextAlturanominal.Name = "TextAlturanominal"
-        Me.TextAlturanominal.Size = New System.Drawing.Size(100, 23)
+        Me.TextAlturanominal.Size = New System.Drawing.Size(100, 20)
         Me.TextAlturanominal.TabIndex = 1
         '
         'Label4
@@ -1108,7 +1108,7 @@ Partial Class Pantalla_datos
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(67, 55)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(99, 18)
+        Me.Label4.Size = New System.Drawing.Size(78, 16)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Altura nominal"
         '
@@ -1166,10 +1166,10 @@ Partial Class Pantalla_datos
         Me.TabPage2.Controls.Add(Me.Label65)
         Me.TabPage2.Controls.Add(Me.ComboHilodecontacto)
         Me.TabPage2.Controls.Add(Me.Label64)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(853, 542)
+        Me.TabPage2.Size = New System.Drawing.Size(853, 544)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "CONDUCTORES"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1180,7 +1180,7 @@ Partial Class Pantalla_datos
         Me.ComboPosicionfeedernegativo.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
         Me.ComboPosicionfeedernegativo.Location = New System.Drawing.Point(244, 362)
         Me.ComboPosicionfeedernegativo.Name = "ComboPosicionfeedernegativo"
-        Me.ComboPosicionfeedernegativo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboPosicionfeedernegativo.Size = New System.Drawing.Size(121, 24)
         Me.ComboPosicionfeedernegativo.TabIndex = 59
         '
         'Label93
@@ -1188,7 +1188,7 @@ Partial Class Pantalla_datos
         Me.Label93.AutoSize = True
         Me.Label93.Location = New System.Drawing.Point(102, 368)
         Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(118, 18)
+        Me.Label93.Size = New System.Drawing.Size(94, 16)
         Me.Label93.TabIndex = 58
         Me.Label93.Text = "Posición Feeder -"
         '
@@ -1198,7 +1198,7 @@ Partial Class Pantalla_datos
         Me.ComboPosicionfeederpositivo.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
         Me.ComboPosicionfeederpositivo.Location = New System.Drawing.Point(244, 332)
         Me.ComboPosicionfeederpositivo.Name = "ComboPosicionfeederpositivo"
-        Me.ComboPosicionfeederpositivo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboPosicionfeederpositivo.Size = New System.Drawing.Size(121, 24)
         Me.ComboPosicionfeederpositivo.TabIndex = 57
         '
         'Label94
@@ -1206,7 +1206,7 @@ Partial Class Pantalla_datos
         Me.Label94.AutoSize = True
         Me.Label94.Location = New System.Drawing.Point(102, 335)
         Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(120, 18)
+        Me.Label94.Size = New System.Drawing.Size(96, 16)
         Me.Label94.TabIndex = 56
         Me.Label94.Text = "Posición Feeder +"
         '
@@ -1215,7 +1215,7 @@ Partial Class Pantalla_datos
         Me.Label87.AutoSize = True
         Me.Label87.Location = New System.Drawing.Point(718, 302)
         Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(23, 18)
+        Me.Label87.Size = New System.Drawing.Size(20, 16)
         Me.Label87.TabIndex = 55
         Me.Label87.Text = "Kg"
         '
@@ -1223,7 +1223,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensionpuntofijo.Location = New System.Drawing.Point(612, 299)
         Me.TextTensionpuntofijo.Name = "TextTensionpuntofijo"
-        Me.TextTensionpuntofijo.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensionpuntofijo.Size = New System.Drawing.Size(100, 20)
         Me.TextTensionpuntofijo.TabIndex = 54
         '
         'Label88
@@ -1231,7 +1231,7 @@ Partial Class Pantalla_datos
         Me.Label88.AutoSize = True
         Me.Label88.Location = New System.Drawing.Point(470, 302)
         Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(126, 18)
+        Me.Label88.Size = New System.Drawing.Size(98, 16)
         Me.Label88.TabIndex = 53
         Me.Label88.Text = "Tensión punto fijo"
         '
@@ -1240,7 +1240,7 @@ Partial Class Pantalla_datos
         Me.Label91.AutoSize = True
         Me.Label91.Location = New System.Drawing.Point(718, 276)
         Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(23, 18)
+        Me.Label91.Size = New System.Drawing.Size(20, 16)
         Me.Label91.TabIndex = 52
         Me.Label91.Text = "Kg"
         '
@@ -1248,7 +1248,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensionfeedernegativo.Location = New System.Drawing.Point(612, 273)
         Me.TextTensionfeedernegativo.Name = "TextTensionfeedernegativo"
-        Me.TextTensionfeedernegativo.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensionfeedernegativo.Size = New System.Drawing.Size(100, 20)
         Me.TextTensionfeedernegativo.TabIndex = 51
         '
         'Label92
@@ -1256,7 +1256,7 @@ Partial Class Pantalla_datos
         Me.Label92.AutoSize = True
         Me.Label92.Location = New System.Drawing.Point(470, 276)
         Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(115, 18)
+        Me.Label92.Size = New System.Drawing.Size(91, 16)
         Me.Label92.TabIndex = 50
         Me.Label92.Text = "Tensión Feeder -"
         '
@@ -1265,7 +1265,7 @@ Partial Class Pantalla_datos
         Me.Label85.AutoSize = True
         Me.Label85.Location = New System.Drawing.Point(718, 250)
         Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(23, 18)
+        Me.Label85.Size = New System.Drawing.Size(20, 16)
         Me.Label85.TabIndex = 49
         Me.Label85.Text = "Kg"
         '
@@ -1273,7 +1273,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensionfeederpositivo.Location = New System.Drawing.Point(612, 247)
         Me.TextTensionfeederpositivo.Name = "TextTensionfeederpositivo"
-        Me.TextTensionfeederpositivo.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensionfeederpositivo.Size = New System.Drawing.Size(100, 20)
         Me.TextTensionfeederpositivo.TabIndex = 48
         '
         'Label86
@@ -1281,7 +1281,7 @@ Partial Class Pantalla_datos
         Me.Label86.AutoSize = True
         Me.Label86.Location = New System.Drawing.Point(470, 250)
         Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(117, 18)
+        Me.Label86.Size = New System.Drawing.Size(93, 16)
         Me.Label86.TabIndex = 47
         Me.Label86.Text = "Tensión Feeder +"
         '
@@ -1290,7 +1290,7 @@ Partial Class Pantalla_datos
         Me.Label89.AutoSize = True
         Me.Label89.Location = New System.Drawing.Point(718, 224)
         Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(23, 18)
+        Me.Label89.Size = New System.Drawing.Size(20, 16)
         Me.Label89.TabIndex = 46
         Me.Label89.Text = "Kg"
         '
@@ -1298,7 +1298,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensioncdpa.Location = New System.Drawing.Point(612, 221)
         Me.TextTensioncdpa.Name = "TextTensioncdpa"
-        Me.TextTensioncdpa.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensioncdpa.Size = New System.Drawing.Size(100, 20)
         Me.TextTensioncdpa.TabIndex = 45
         '
         'Label90
@@ -1306,7 +1306,7 @@ Partial Class Pantalla_datos
         Me.Label90.AutoSize = True
         Me.Label90.Location = New System.Drawing.Point(470, 224)
         Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(95, 18)
+        Me.Label90.Size = New System.Drawing.Size(74, 16)
         Me.Label90.TabIndex = 44
         Me.Label90.Text = "Tensión CdPA"
         '
@@ -1315,7 +1315,7 @@ Partial Class Pantalla_datos
         Me.Label77.AutoSize = True
         Me.Label77.Location = New System.Drawing.Point(718, 198)
         Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(23, 18)
+        Me.Label77.Size = New System.Drawing.Size(20, 16)
         Me.Label77.TabIndex = 43
         Me.Label77.Text = "Kg"
         '
@@ -1323,7 +1323,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensionsustentador.Location = New System.Drawing.Point(612, 195)
         Me.TextTensionsustentador.Name = "TextTensionsustentador"
-        Me.TextTensionsustentador.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensionsustentador.Size = New System.Drawing.Size(100, 20)
         Me.TextTensionsustentador.TabIndex = 42
         '
         'Label80
@@ -1331,7 +1331,7 @@ Partial Class Pantalla_datos
         Me.Label80.AutoSize = True
         Me.Label80.Location = New System.Drawing.Point(470, 198)
         Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(138, 18)
+        Me.Label80.Size = New System.Drawing.Size(110, 16)
         Me.Label80.TabIndex = 41
         Me.Label80.Text = "Tensión sustentador"
         '
@@ -1340,7 +1340,7 @@ Partial Class Pantalla_datos
         Me.Label81.AutoSize = True
         Me.Label81.Location = New System.Drawing.Point(718, 172)
         Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(23, 18)
+        Me.Label81.Size = New System.Drawing.Size(20, 16)
         Me.Label81.TabIndex = 40
         Me.Label81.Text = "Kg"
         '
@@ -1348,7 +1348,7 @@ Partial Class Pantalla_datos
         '
         Me.TextTensionhc.Location = New System.Drawing.Point(612, 169)
         Me.TextTensionhc.Name = "TextTensionhc"
-        Me.TextTensionhc.Size = New System.Drawing.Size(100, 23)
+        Me.TextTensionhc.Size = New System.Drawing.Size(100, 20)
         Me.TextTensionhc.TabIndex = 39
         '
         'Label82
@@ -1356,7 +1356,7 @@ Partial Class Pantalla_datos
         Me.Label82.AutoSize = True
         Me.Label82.Location = New System.Drawing.Point(470, 172)
         Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(89, 18)
+        Me.Label82.Size = New System.Drawing.Size(71, 16)
         Me.Label82.TabIndex = 38
         Me.Label82.Text = "Tensión H.C."
         '
@@ -1365,7 +1365,7 @@ Partial Class Pantalla_datos
         Me.Label83.AutoSize = True
         Me.Label83.Location = New System.Drawing.Point(718, 146)
         Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(25, 18)
+        Me.Label83.Size = New System.Drawing.Size(21, 16)
         Me.Label83.TabIndex = 37
         Me.Label83.Text = "Ud"
         '
@@ -1373,7 +1373,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumfeedernegativo.Location = New System.Drawing.Point(612, 143)
         Me.TextNumfeedernegativo.Name = "TextNumfeedernegativo"
-        Me.TextNumfeedernegativo.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumfeedernegativo.Size = New System.Drawing.Size(100, 20)
         Me.TextNumfeedernegativo.TabIndex = 36
         '
         'Label84
@@ -1381,7 +1381,7 @@ Partial Class Pantalla_datos
         Me.Label84.AutoSize = True
         Me.Label84.Location = New System.Drawing.Point(470, 146)
         Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(93, 18)
+        Me.Label84.Size = New System.Drawing.Size(74, 16)
         Me.Label84.TabIndex = 35
         Me.Label84.Text = "Núm Feeder -"
         '
@@ -1390,7 +1390,7 @@ Partial Class Pantalla_datos
         Me.Label75.AutoSize = True
         Me.Label75.Location = New System.Drawing.Point(718, 120)
         Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(25, 18)
+        Me.Label75.Size = New System.Drawing.Size(21, 16)
         Me.Label75.TabIndex = 34
         Me.Label75.Text = "Ud"
         '
@@ -1398,7 +1398,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumfeederpositivo.Location = New System.Drawing.Point(612, 117)
         Me.TextNumfeederpositivo.Name = "TextNumfeederpositivo"
-        Me.TextNumfeederpositivo.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumfeederpositivo.Size = New System.Drawing.Size(100, 20)
         Me.TextNumfeederpositivo.TabIndex = 33
         '
         'Label76
@@ -1406,7 +1406,7 @@ Partial Class Pantalla_datos
         Me.Label76.AutoSize = True
         Me.Label76.Location = New System.Drawing.Point(470, 120)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(95, 18)
+        Me.Label76.Size = New System.Drawing.Size(76, 16)
         Me.Label76.TabIndex = 32
         Me.Label76.Text = "Núm Feeder +"
         '
@@ -1415,7 +1415,7 @@ Partial Class Pantalla_datos
         Me.Label73.AutoSize = True
         Me.Label73.Location = New System.Drawing.Point(718, 94)
         Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(25, 18)
+        Me.Label73.Size = New System.Drawing.Size(21, 16)
         Me.Label73.TabIndex = 31
         Me.Label73.Text = "Ud"
         '
@@ -1423,7 +1423,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumcdpa.Location = New System.Drawing.Point(612, 91)
         Me.TextNumcdpa.Name = "TextNumcdpa"
-        Me.TextNumcdpa.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumcdpa.Size = New System.Drawing.Size(100, 20)
         Me.TextNumcdpa.TabIndex = 30
         '
         'Label74
@@ -1431,7 +1431,7 @@ Partial Class Pantalla_datos
         Me.Label74.AutoSize = True
         Me.Label74.Location = New System.Drawing.Point(470, 94)
         Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(73, 18)
+        Me.Label74.Size = New System.Drawing.Size(57, 16)
         Me.Label74.TabIndex = 29
         Me.Label74.Text = "Núm CdPA"
         '
@@ -1440,7 +1440,7 @@ Partial Class Pantalla_datos
         Me.Label72.AutoSize = True
         Me.Label72.Location = New System.Drawing.Point(718, 68)
         Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(25, 18)
+        Me.Label72.Size = New System.Drawing.Size(21, 16)
         Me.Label72.TabIndex = 28
         Me.Label72.Text = "Ud"
         '
@@ -1448,7 +1448,7 @@ Partial Class Pantalla_datos
         '
         Me.TextNumhc.Location = New System.Drawing.Point(612, 65)
         Me.TextNumhc.Name = "TextNumhc"
-        Me.TextNumhc.Size = New System.Drawing.Size(100, 23)
+        Me.TextNumhc.Size = New System.Drawing.Size(100, 20)
         Me.TextNumhc.TabIndex = 27
         '
         'Label78
@@ -1456,7 +1456,7 @@ Partial Class Pantalla_datos
         Me.Label78.AutoSize = True
         Me.Label78.Location = New System.Drawing.Point(470, 68)
         Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(67, 18)
+        Me.Label78.Size = New System.Drawing.Size(54, 16)
         Me.Label78.TabIndex = 18
         Me.Label78.Text = "Núm H.C."
         '
@@ -1467,7 +1467,7 @@ Partial Class Pantalla_datos
         Me.ComboAnclaje.FormattingEnabled = True
         Me.ComboAnclaje.Location = New System.Drawing.Point(244, 302)
         Me.ComboAnclaje.Name = "ComboAnclaje"
-        Me.ComboAnclaje.Size = New System.Drawing.Size(121, 26)
+        Me.ComboAnclaje.Size = New System.Drawing.Size(121, 24)
         Me.ComboAnclaje.TabIndex = 17
         '
         'ConductorAnclajeBindingSource
@@ -1485,7 +1485,7 @@ Partial Class Pantalla_datos
         Me.Label79.AutoSize = True
         Me.Label79.Location = New System.Drawing.Point(102, 308)
         Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(55, 18)
+        Me.Label79.Size = New System.Drawing.Size(44, 16)
         Me.Label79.TabIndex = 16
         Me.Label79.Text = "Anclaje"
         '
@@ -1496,7 +1496,7 @@ Partial Class Pantalla_datos
         Me.ComboPendola.FormattingEnabled = True
         Me.ComboPendola.Location = New System.Drawing.Point(244, 272)
         Me.ComboPendola.Name = "ComboPendola"
-        Me.ComboPendola.Size = New System.Drawing.Size(121, 26)
+        Me.ComboPendola.Size = New System.Drawing.Size(121, 24)
         Me.ComboPendola.TabIndex = 15
         '
         'ConductorPendolaBindingSource
@@ -1509,7 +1509,7 @@ Partial Class Pantalla_datos
         Me.Label68.AutoSize = True
         Me.Label68.Location = New System.Drawing.Point(102, 275)
         Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(58, 18)
+        Me.Label68.Size = New System.Drawing.Size(46, 16)
         Me.Label68.TabIndex = 14
         Me.Label68.Text = "Péndola"
         '
@@ -1520,7 +1520,7 @@ Partial Class Pantalla_datos
         Me.ComboPuntofijo.FormattingEnabled = True
         Me.ComboPuntofijo.Location = New System.Drawing.Point(244, 242)
         Me.ComboPuntofijo.Name = "ComboPuntofijo"
-        Me.ComboPuntofijo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboPuntofijo.Size = New System.Drawing.Size(121, 24)
         Me.ComboPuntofijo.TabIndex = 13
         '
         'ConductorPuntoFijoBindingSource
@@ -1533,7 +1533,7 @@ Partial Class Pantalla_datos
         Me.Label69.AutoSize = True
         Me.Label69.Location = New System.Drawing.Point(102, 245)
         Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(72, 18)
+        Me.Label69.Size = New System.Drawing.Size(57, 16)
         Me.Label69.TabIndex = 12
         Me.Label69.Text = "Punto fijo"
         '
@@ -1544,7 +1544,7 @@ Partial Class Pantalla_datos
         Me.ComboFeedernegativo.FormattingEnabled = True
         Me.ComboFeedernegativo.Location = New System.Drawing.Point(244, 212)
         Me.ComboFeedernegativo.Name = "ComboFeedernegativo"
-        Me.ComboFeedernegativo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboFeedernegativo.Size = New System.Drawing.Size(121, 24)
         Me.ComboFeedernegativo.TabIndex = 11
         '
         'ConductorFeederBindingSource1
@@ -1557,7 +1557,7 @@ Partial Class Pantalla_datos
         Me.Label70.AutoSize = True
         Me.Label70.Location = New System.Drawing.Point(102, 215)
         Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(61, 18)
+        Me.Label70.Size = New System.Drawing.Size(50, 16)
         Me.Label70.TabIndex = 10
         Me.Label70.Text = "Feeder -"
         '
@@ -1568,7 +1568,7 @@ Partial Class Pantalla_datos
         Me.ComboFeederpositivo.FormattingEnabled = True
         Me.ComboFeederpositivo.Location = New System.Drawing.Point(244, 182)
         Me.ComboFeederpositivo.Name = "ComboFeederpositivo"
-        Me.ComboFeederpositivo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboFeederpositivo.Size = New System.Drawing.Size(121, 24)
         Me.ComboFeederpositivo.TabIndex = 9
         '
         'ConductorFeederBindingSource
@@ -1581,7 +1581,7 @@ Partial Class Pantalla_datos
         Me.Label71.AutoSize = True
         Me.Label71.Location = New System.Drawing.Point(102, 188)
         Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(63, 18)
+        Me.Label71.Size = New System.Drawing.Size(52, 16)
         Me.Label71.TabIndex = 8
         Me.Label71.Text = "Feeder +"
         '
@@ -1592,7 +1592,7 @@ Partial Class Pantalla_datos
         Me.ComboCabledetierra.FormattingEnabled = True
         Me.ComboCabledetierra.Location = New System.Drawing.Point(244, 152)
         Me.ComboCabledetierra.Name = "ComboCabledetierra"
-        Me.ComboCabledetierra.Size = New System.Drawing.Size(121, 26)
+        Me.ComboCabledetierra.Size = New System.Drawing.Size(121, 24)
         Me.ComboCabledetierra.TabIndex = 7
         '
         'ConductorCableDeTierraBindingSource
@@ -1605,7 +1605,7 @@ Partial Class Pantalla_datos
         Me.Label66.AutoSize = True
         Me.Label66.Location = New System.Drawing.Point(102, 155)
         Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(103, 18)
+        Me.Label66.Size = New System.Drawing.Size(84, 16)
         Me.Label66.TabIndex = 6
         Me.Label66.Text = "Cable de Tierra"
         '
@@ -1616,7 +1616,7 @@ Partial Class Pantalla_datos
         Me.ComboCdeproteccionaerea.FormattingEnabled = True
         Me.ComboCdeproteccionaerea.Location = New System.Drawing.Point(244, 122)
         Me.ComboCdeproteccionaerea.Name = "ComboCdeproteccionaerea"
-        Me.ComboCdeproteccionaerea.Size = New System.Drawing.Size(121, 26)
+        Me.ComboCdeproteccionaerea.Size = New System.Drawing.Size(121, 24)
         Me.ComboCdeproteccionaerea.TabIndex = 5
         '
         'ConductorCDPABindingSource
@@ -1629,7 +1629,7 @@ Partial Class Pantalla_datos
         Me.Label67.AutoSize = True
         Me.Label67.Location = New System.Drawing.Point(102, 128)
         Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(155, 18)
+        Me.Label67.Size = New System.Drawing.Size(124, 16)
         Me.Label67.TabIndex = 4
         Me.Label67.Text = "C. de Protección Aérea"
         '
@@ -1640,7 +1640,7 @@ Partial Class Pantalla_datos
         Me.ComboSustentador.FormattingEnabled = True
         Me.ComboSustentador.Location = New System.Drawing.Point(244, 92)
         Me.ComboSustentador.Name = "ComboSustentador"
-        Me.ComboSustentador.Size = New System.Drawing.Size(121, 26)
+        Me.ComboSustentador.Size = New System.Drawing.Size(121, 24)
         Me.ComboSustentador.TabIndex = 3
         '
         'ConductorSustentadorBindingSource
@@ -1653,7 +1653,7 @@ Partial Class Pantalla_datos
         Me.Label65.AutoSize = True
         Me.Label65.Location = New System.Drawing.Point(102, 95)
         Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(85, 18)
+        Me.Label65.Size = New System.Drawing.Size(69, 16)
         Me.Label65.TabIndex = 2
         Me.Label65.Text = "Sustentador"
         '
@@ -1664,7 +1664,7 @@ Partial Class Pantalla_datos
         Me.ComboHilodecontacto.FormattingEnabled = True
         Me.ComboHilodecontacto.Location = New System.Drawing.Point(244, 62)
         Me.ComboHilodecontacto.Name = "ComboHilodecontacto"
-        Me.ComboHilodecontacto.Size = New System.Drawing.Size(121, 26)
+        Me.ComboHilodecontacto.Size = New System.Drawing.Size(121, 24)
         Me.ComboHilodecontacto.TabIndex = 1
         '
         'ConductorHCBindingSource
@@ -1677,7 +1677,7 @@ Partial Class Pantalla_datos
         Me.Label64.AutoSize = True
         Me.Label64.Location = New System.Drawing.Point(102, 68)
         Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(114, 18)
+        Me.Label64.Size = New System.Drawing.Size(91, 16)
         Me.Label64.TabIndex = 0
         Me.Label64.Text = "Hilo de Contacto"
         '
@@ -1685,10 +1685,10 @@ Partial Class Pantalla_datos
         '
         Me.TabPage3.Controls.Add(Me.GroupBox2)
         Me.TabPage3.Controls.Add(Me.GroupBox1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(853, 542)
+        Me.TabPage3.Size = New System.Drawing.Size(853, 544)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "POSTES Y MACIZOS"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1714,7 +1714,7 @@ Partial Class Pantalla_datos
         Me.ComboNumeración.Items.AddRange(New Object() {"pk + poste", "añadir..."})
         Me.ComboNumeración.Location = New System.Drawing.Point(142, 102)
         Me.ComboNumeración.Name = "ComboNumeración"
-        Me.ComboNumeración.Size = New System.Drawing.Size(121, 26)
+        Me.ComboNumeración.Size = New System.Drawing.Size(121, 24)
         Me.ComboNumeración.TabIndex = 6
         '
         'Label1
@@ -1722,7 +1722,7 @@ Partial Class Pantalla_datos
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(29, 105)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 18)
+        Me.Label1.Size = New System.Drawing.Size(67, 16)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Numeración"
         '
@@ -1732,7 +1732,7 @@ Partial Class Pantalla_datos
         Me.TextTipo.Location = New System.Drawing.Point(142, 76)
         Me.TextTipo.Name = "TextTipo"
         Me.TextTipo.ReadOnly = True
-        Me.TextTipo.Size = New System.Drawing.Size(100, 23)
+        Me.TextTipo.Size = New System.Drawing.Size(100, 20)
         Me.TextTipo.TabIndex = 4
         '
         'PostesConsultaBindingSource
@@ -1745,7 +1745,7 @@ Partial Class Pantalla_datos
         Me.Label97.AutoSize = True
         Me.Label97.Location = New System.Drawing.Point(29, 77)
         Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(36, 18)
+        Me.Label97.Size = New System.Drawing.Size(29, 16)
         Me.Label97.TabIndex = 2
         Me.Label97.Text = "Tipo"
         '
@@ -1756,7 +1756,7 @@ Partial Class Pantalla_datos
         Me.ComboAdmlinea.FormattingEnabled = True
         Me.ComboAdmlinea.Location = New System.Drawing.Point(142, 46)
         Me.ComboAdmlinea.Name = "ComboAdmlinea"
-        Me.ComboAdmlinea.Size = New System.Drawing.Size(121, 26)
+        Me.ComboAdmlinea.Size = New System.Drawing.Size(121, 24)
         Me.ComboAdmlinea.TabIndex = 1
         Me.ComboAdmlinea.ValueMember = "Poste"
         '
@@ -1765,7 +1765,7 @@ Partial Class Pantalla_datos
         Me.Label98.AutoSize = True
         Me.Label98.Location = New System.Drawing.Point(29, 49)
         Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(82, 18)
+        Me.Label98.Size = New System.Drawing.Size(65, 16)
         Me.Label98.TabIndex = 0
         Me.Label98.Text = "Adm./Línea"
         '
@@ -1788,7 +1788,7 @@ Partial Class Pantalla_datos
         Me.TextTipomacizo.Location = New System.Drawing.Point(149, 73)
         Me.TextTipomacizo.Name = "TextTipomacizo"
         Me.TextTipomacizo.ReadOnly = True
-        Me.TextTipomacizo.Size = New System.Drawing.Size(100, 23)
+        Me.TextTipomacizo.Size = New System.Drawing.Size(100, 20)
         Me.TextTipomacizo.TabIndex = 4
         '
         'Macizos_ConsultaBindingSource
@@ -1801,7 +1801,7 @@ Partial Class Pantalla_datos
         Me.Label96.AutoSize = True
         Me.Label96.Location = New System.Drawing.Point(36, 46)
         Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(82, 18)
+        Me.Label96.Size = New System.Drawing.Size(65, 16)
         Me.Label96.TabIndex = 2
         Me.Label96.Text = "Adm./Línea"
         '
@@ -1812,7 +1812,7 @@ Partial Class Pantalla_datos
         Me.ComboAdmlineamacizo.FormattingEnabled = True
         Me.ComboAdmlineamacizo.Location = New System.Drawing.Point(149, 43)
         Me.ComboAdmlineamacizo.Name = "ComboAdmlineamacizo"
-        Me.ComboAdmlineamacizo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboAdmlineamacizo.Size = New System.Drawing.Size(121, 24)
         Me.ComboAdmlineamacizo.TabIndex = 1
         Me.ComboAdmlineamacizo.ValueMember = "Macizo"
         '
@@ -1821,7 +1821,7 @@ Partial Class Pantalla_datos
         Me.Label95.AutoSize = True
         Me.Label95.Location = New System.Drawing.Point(36, 76)
         Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(36, 18)
+        Me.Label95.Size = New System.Drawing.Size(29, 16)
         Me.Label95.TabIndex = 0
         Me.Label95.Text = "Tipo"
         '
@@ -1829,9 +1829,9 @@ Partial Class Pantalla_datos
         '
         Me.TabPage4.Controls.Add(Me.GroupBox4)
         Me.TabPage4.Controls.Add(Me.GroupBox3)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 27)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(853, 542)
+        Me.TabPage4.Size = New System.Drawing.Size(853, 544)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "AISLADORES Y PENDOLADO"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1859,7 +1859,7 @@ Partial Class Pantalla_datos
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(332, 95)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(19, 18)
+        Me.Label13.Size = New System.Drawing.Size(16, 16)
         Me.Label13.TabIndex = 40
         Me.Label13.Text = "m"
         '
@@ -1868,7 +1868,7 @@ Partial Class Pantalla_datos
         Me.Label31.AutoSize = True
         Me.Label31.Location = New System.Drawing.Point(332, 69)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(19, 18)
+        Me.Label31.Size = New System.Drawing.Size(16, 16)
         Me.Label31.TabIndex = 39
         Me.Label31.Text = "m"
         '
@@ -1877,7 +1877,7 @@ Partial Class Pantalla_datos
         Me.Label99.AutoSize = True
         Me.Label99.Location = New System.Drawing.Point(332, 43)
         Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(19, 18)
+        Me.Label99.Size = New System.Drawing.Size(16, 16)
         Me.Label99.TabIndex = 38
         Me.Label99.Text = "m"
         '
@@ -1885,21 +1885,21 @@ Partial Class Pantalla_datos
         '
         Me.TextDistanciamaxentrependolas.Location = New System.Drawing.Point(226, 92)
         Me.TextDistanciamaxentrependolas.Name = "TextDistanciamaxentrependolas"
-        Me.TextDistanciamaxentrependolas.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciamaxentrependolas.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciamaxentrependolas.TabIndex = 7
         '
         'TextDistanciaprimeraysegundapendola
         '
         Me.TextDistanciaprimeraysegundapendola.Location = New System.Drawing.Point(226, 66)
         Me.TextDistanciaprimeraysegundapendola.Name = "TextDistanciaprimeraysegundapendola"
-        Me.TextDistanciaprimeraysegundapendola.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciaprimeraysegundapendola.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciaprimeraysegundapendola.TabIndex = 6
         '
         'TextDistanciaapoyoyprimerapendola
         '
         Me.TextDistanciaapoyoyprimerapendola.Location = New System.Drawing.Point(226, 40)
         Me.TextDistanciaapoyoyprimerapendola.Name = "TextDistanciaapoyoyprimerapendola"
-        Me.TextDistanciaapoyoyprimerapendola.Size = New System.Drawing.Size(100, 23)
+        Me.TextDistanciaapoyoyprimerapendola.Size = New System.Drawing.Size(100, 20)
         Me.TextDistanciaapoyoyprimerapendola.TabIndex = 5
         '
         'Label107
@@ -1907,7 +1907,7 @@ Partial Class Pantalla_datos
         Me.Label107.AutoSize = True
         Me.Label107.Location = New System.Drawing.Point(38, 95)
         Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(199, 18)
+        Me.Label107.Size = New System.Drawing.Size(159, 16)
         Me.Label107.TabIndex = 4
         Me.Label107.Text = "Distancia máx. entre péndolas"
         '
@@ -1916,7 +1916,7 @@ Partial Class Pantalla_datos
         Me.Label108.AutoSize = True
         Me.Label108.Location = New System.Drawing.Point(38, 69)
         Me.Label108.Name = "Label108"
-        Me.Label108.Size = New System.Drawing.Size(163, 18)
+        Me.Label108.Size = New System.Drawing.Size(131, 16)
         Me.Label108.TabIndex = 2
         Me.Label108.Text = "Distancia 1ª y 2ª péndola"
         '
@@ -1925,7 +1925,7 @@ Partial Class Pantalla_datos
         Me.Label109.AutoSize = True
         Me.Label109.Location = New System.Drawing.Point(38, 43)
         Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(189, 18)
+        Me.Label109.Size = New System.Drawing.Size(151, 16)
         Me.Label109.TabIndex = 0
         Me.Label109.Text = "Distancia apoyo y 1ª péndola"
         '
@@ -1954,7 +1954,7 @@ Partial Class Pantalla_datos
         Me.ComboAisladorfeedernegativo.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
         Me.ComboAisladorfeedernegativo.Location = New System.Drawing.Point(168, 160)
         Me.ComboAisladorfeedernegativo.Name = "ComboAisladorfeedernegativo"
-        Me.ComboAisladorfeedernegativo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboAisladorfeedernegativo.Size = New System.Drawing.Size(121, 24)
         Me.ComboAisladorfeedernegativo.TabIndex = 9
         '
         'Label104
@@ -1962,7 +1962,7 @@ Partial Class Pantalla_datos
         Me.Label104.AutoSize = True
         Me.Label104.Location = New System.Drawing.Point(39, 163)
         Me.Label104.Name = "Label104"
-        Me.Label104.Size = New System.Drawing.Size(61, 18)
+        Me.Label104.Size = New System.Drawing.Size(50, 16)
         Me.Label104.TabIndex = 8
         Me.Label104.Text = "Feeder -"
         '
@@ -1972,7 +1972,7 @@ Partial Class Pantalla_datos
         Me.ComboAisladorfeederpositivo.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
         Me.ComboAisladorfeederpositivo.Location = New System.Drawing.Point(168, 130)
         Me.ComboAisladorfeederpositivo.Name = "ComboAisladorfeederpositivo"
-        Me.ComboAisladorfeederpositivo.Size = New System.Drawing.Size(121, 26)
+        Me.ComboAisladorfeederpositivo.Size = New System.Drawing.Size(121, 24)
         Me.ComboAisladorfeederpositivo.TabIndex = 7
         '
         'Label102
@@ -1980,7 +1980,7 @@ Partial Class Pantalla_datos
         Me.Label102.AutoSize = True
         Me.Label102.Location = New System.Drawing.Point(39, 133)
         Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(63, 18)
+        Me.Label102.Size = New System.Drawing.Size(52, 16)
         Me.Label102.TabIndex = 6
         Me.Label102.Text = "Feeder +"
         '
@@ -1990,7 +1990,7 @@ Partial Class Pantalla_datos
         Me.ComboColadeanclaje.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
         Me.ComboColadeanclaje.Location = New System.Drawing.Point(168, 100)
         Me.ComboColadeanclaje.Name = "ComboColadeanclaje"
-        Me.ComboColadeanclaje.Size = New System.Drawing.Size(121, 26)
+        Me.ComboColadeanclaje.Size = New System.Drawing.Size(121, 24)
         Me.ComboColadeanclaje.TabIndex = 5
         '
         'Label103
@@ -1998,7 +1998,7 @@ Partial Class Pantalla_datos
         Me.Label103.AutoSize = True
         Me.Label103.Location = New System.Drawing.Point(39, 103)
         Me.Label103.Name = "Label103"
-        Me.Label103.Size = New System.Drawing.Size(103, 18)
+        Me.Label103.Size = New System.Drawing.Size(83, 16)
         Me.Label103.TabIndex = 4
         Me.Label103.Text = "Cola de anclaje"
         '
@@ -2008,7 +2008,7 @@ Partial Class Pantalla_datos
         Me.ComboTubotirante.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
         Me.ComboTubotirante.Location = New System.Drawing.Point(168, 70)
         Me.ComboTubotirante.Name = "ComboTubotirante"
-        Me.ComboTubotirante.Size = New System.Drawing.Size(121, 26)
+        Me.ComboTubotirante.Size = New System.Drawing.Size(121, 24)
         Me.ComboTubotirante.TabIndex = 3
         '
         'Label101
@@ -2016,7 +2016,7 @@ Partial Class Pantalla_datos
         Me.Label101.AutoSize = True
         Me.Label101.Location = New System.Drawing.Point(39, 73)
         Me.Label101.Name = "Label101"
-        Me.Label101.Size = New System.Drawing.Size(88, 18)
+        Me.Label101.Size = New System.Drawing.Size(71, 16)
         Me.Label101.TabIndex = 2
         Me.Label101.Text = "Tubo tirante"
         '
@@ -2026,7 +2026,7 @@ Partial Class Pantalla_datos
         Me.ComboTubodemensula.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
         Me.ComboTubodemensula.Location = New System.Drawing.Point(168, 40)
         Me.ComboTubodemensula.Name = "ComboTubodemensula"
-        Me.ComboTubodemensula.Size = New System.Drawing.Size(121, 26)
+        Me.ComboTubodemensula.Size = New System.Drawing.Size(121, 24)
         Me.ComboTubodemensula.TabIndex = 1
         '
         'Label100
@@ -2034,7 +2034,7 @@ Partial Class Pantalla_datos
         Me.Label100.AutoSize = True
         Me.Label100.Location = New System.Drawing.Point(39, 43)
         Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(115, 18)
+        Me.Label100.Size = New System.Drawing.Size(89, 16)
         Me.Label100.TabIndex = 0
         Me.Label100.Text = "Tubo de ménsula"
         '
@@ -2044,7 +2044,7 @@ Partial Class Pantalla_datos
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(68, 94)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(218, 23)
+        Me.Label3.Size = New System.Drawing.Size(165, 18)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "DATOS NUEVA CATENARIA"
         '
@@ -2074,7 +2074,7 @@ Partial Class Pantalla_datos
         Me.TextAlimentacion.Location = New System.Drawing.Point(368, 53)
         Me.TextAlimentacion.Name = "TextAlimentacion"
         Me.TextAlimentacion.ReadOnly = True
-        Me.TextAlimentacion.Size = New System.Drawing.Size(100, 23)
+        Me.TextAlimentacion.Size = New System.Drawing.Size(100, 20)
         Me.TextAlimentacion.TabIndex = 7
         '
         'ComboSistema
@@ -2086,7 +2086,7 @@ Partial Class Pantalla_datos
         Me.ComboSistema.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.ComboSistema.Location = New System.Drawing.Point(128, 49)
         Me.ComboSistema.Name = "ComboSistema"
-        Me.ComboSistema.Size = New System.Drawing.Size(121, 26)
+        Me.ComboSistema.Size = New System.Drawing.Size(121, 24)
         Me.ComboSistema.TabIndex = 8
         Me.ComboSistema.ValueMember = "Alimentación"
         '
@@ -2145,9 +2145,9 @@ Partial Class Pantalla_datos
         '
         'TextNombrecatenaria
         '
-        Me.TextNombrecatenaria.Location = New System.Drawing.Point(190, 16)
+        Me.TextNombrecatenaria.Location = New System.Drawing.Point(227, 16)
         Me.TextNombrecatenaria.Name = "TextNombrecatenaria"
-        Me.TextNombrecatenaria.Size = New System.Drawing.Size(100, 23)
+        Me.TextNombrecatenaria.Size = New System.Drawing.Size(100, 20)
         Me.TextNombrecatenaria.TabIndex = 11
         '
         'Label2
@@ -2155,15 +2155,15 @@ Partial Class Pantalla_datos
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(72, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(126, 18)
+        Me.Label2.Size = New System.Drawing.Size(135, 16)
         Me.Label2.TabIndex = 12
-        Me.Label2.Text = "Nombre Catenaria:"
+        Me.Label2.Text = "Nuevo nombre catenaria:"
         '
         'Pantalla_datos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1284, 988)
+        Me.ClientSize = New System.Drawing.Size(1028, 753)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextNombrecatenaria)
         Me.Controls.Add(Me.Button2)

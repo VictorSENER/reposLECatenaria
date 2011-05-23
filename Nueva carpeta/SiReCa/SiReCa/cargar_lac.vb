@@ -5,7 +5,7 @@ Module cargar_lac
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
         'LEER NOMBRE CATENARIA Y CARGAR
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\Nueva carpeta\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
@@ -14,7 +14,7 @@ Module cargar_lac
 
             'El DataReader se situa sobre el registro
 
-            If (Pantalla_principal.ComboBox1.Text = oRead("Nombre_Catenaria")) Then
+            If (Pantalla_principal.nueva_lac = oRead("Nombre_Catenaria")) Then
 
                 Pantalla_datos.ComboSistema.Text = oRead("sistema") 'Lee los campos que se requieran ya situado sobre el registro correspondiente
                 Pantalla_datos.TextAlimentacion.Text = oRead("Alimentación")
@@ -76,8 +76,8 @@ Module cargar_lac
                 Pantalla_datos.ComboTubodemensula.Text = oRead("Tubo_de_ménsula")
                 Pantalla_datos.ComboTubotirante.Text = oRead("Tubo_tirante")
                 Pantalla_datos.ComboColadeanclaje.Text = oRead("Cola_de_anclaje")
-                Pantalla_datos.ComboFeederpositivo.Text = oRead("Feeder_positivo")
-                Pantalla_datos.ComboFeedernegativo.Text = oRead("Feeder_negativo")
+                Pantalla_datos.ComboAisladorfeederpositivo.Text = oRead("Feeder_positivo")
+                Pantalla_datos.ComboAisladorfeedernegativo.Text = oRead("Feeder_negativo")
                 Pantalla_datos.TextDistanciaapoyoyprimerapendola.Text = oRead("Distancia_apoyo_y_1ª_péndola")
                 Pantalla_datos.TextDistanciaprimeraysegundapendola.Text = oRead("Distancia_1ª_y_2ª_péndola")
                 Pantalla_datos.TextDistanciamaxentrependolas.Text = oRead("Distancia_máx_entre_péndolas")
@@ -91,6 +91,15 @@ Module cargar_lac
         oRead.Close()
         oConn.Close()
         Pantalla_datos.Show()
+        Pantalla_principal.Label1.Hide()
+        Pantalla_principal.Label2.Hide()
+        Pantalla_principal.TextBox1.Hide()
+        Pantalla_principal.ComboBox1.Hide()
+        Pantalla_principal.Button1.Hide()
+        Pantalla_principal.RadioButton1.Hide()
+        Pantalla_principal.RadioButton2.Hide()
+        Pantalla_principal.GroupBox1.Text = "Datos de catenaria introducidos"
+        Pantalla_principal.GroupBox2.ForeColor = Color.Green
 
 
     End Sub

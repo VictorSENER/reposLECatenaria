@@ -1,4 +1,5 @@
-﻿Public Class Pantalla_principal
+﻿Imports System.Data.OleDb
+Public Class Pantalla_principal
     Public nueva_lac As String
     Public ruta_trazado As String
     Public ruta_replanteo As String
@@ -7,10 +8,10 @@
     Public fin As Long
     Public nombre_excel As String
     Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.NOMBRE_CATENARIA' Puede moverla o quitarla según sea necesario.
+        Me.NOMBRE_CATENARIATableAdapter.Fill(Me.Base_de_datosDataSet.NOMBRE_CATENARIA)
 
     End Sub
-
-
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
         Me.TextBox1.Hide()
         Me.Label1.Hide()
@@ -18,50 +19,77 @@
         Me.Button1.Show()
         Me.Label2.Show()
     End Sub
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Me.Label1.ForeColor = Color.White
+        Me.TextBox1.BackColor = Color.White
+        If Me.RadioButton1.Checked = True Then
+            If Me.ComboBox1.Text = "" Then
+                Me.Label2.ForeColor = Color.Red
+                Me.ComboBox1.BackColor = Color.Red
+                MsgBox("Rellenar la celda", 48)
+            Else
+                nueva_lac = ComboBox1.Text
+                Pantalla_aviso.Show()
+                Me.Label3.Show()
+                Me.Button2.Show()
+                Me.GroupBox2.Show()
+                'Me.Label2.Hide()
+                'Me.ComboBox1.Hide()
+                'Me.Button1.Hide()
+                'Me.RadioButton1.Hide()
+                'Me.RadioButton2.Hide()
+                'Me.GroupBox1.Text = "Datos de catenaria introducidos"
+                'Me.GroupBox2.ForeColor = Color.Green
+            End If
 
+        ElseIf Me.RadioButton2.Checked = True Then
+
+            If Me.TextBox1.Text = "" Then
+                Me.Label1.ForeColor = Color.Red
+                Me.TextBox1.BackColor = Color.Red
+                MsgBox("RELLENAR LA CELDA", 48)
+            Else
+                nueva_lac = TextBox1.Text
+                Dim oConn As OleDbConnection
+                Dim oComm As OleDbCommand
+                Dim oRead As OleDbDataReader
+
+                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                oConn.Open()
+                oComm = New OleDbCommand("select * from Datos", oConn)
+                oRead = oComm.ExecuteReader
+
+                While oRead.Read
+                    If oRead("Nombre_Catenaria") = nueva_lac Then
+                        Me.Label1.ForeColor = Color.Red
+                        Me.TextBox1.BackColor = Color.Red
+                        MsgBox("NOMBRE REPETIDO", 48)
+                    End If
+                End While
+
+                If (Me.Label1.ForeColor = Color.Red) = False Then
+                    nueva_lac = TextBox1.Text
+                    Pantalla_datos.Show()
+                    Me.Label3.Show()
+                    Me.Button2.Show()
+                    Me.GroupBox2.Show()
+                    'Me.Label1.Hide()
+                    'Me.TextBox1.Hide()
+                    'Me.Button1.Hide()
+                    'Me.RadioButton1.Hide()
+                    'Me.RadioButton2.Hide()
+                    'Me.GroupBox1.Text = "Datos de catenaria introducidos"
+                    'Me.GroupBox2.ForeColor = Color.Green
+                End If
+            End If
+        End If
+    End Sub
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
         Me.Label2.Hide()
         Me.ComboBox1.Hide()
         Me.Button1.Show()
         Me.TextBox1.Show()
         Me.Label1.Show()
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Me.Label1.ForeColor = Color.White
-        Me.TextBox1.BackColor = Color.White
-        If Me.RadioButton1.Checked = True Then
-            Me.Label3.Show()
-            Me.Button2.Show()
-            Me.GroupBox2.Show()
-            Me.Label2.Hide()
-            Me.ComboBox1.Hide()
-            Me.Button1.Hide()
-            Me.RadioButton1.Hide()
-            Me.RadioButton2.Hide()
-            'Call cargar_lac.cargar_lac()
-            Me.GroupBox1.Text = "Datos de catenaria introducidos"
-            Me.GroupBox2.ForeColor = Color.Green
-        ElseIf Me.RadioButton2.Checked = True Then
-            If Me.TextBox1.Text = "" Then
-                Me.Label1.ForeColor = Color.Red
-                Me.TextBox1.BackColor = Color.Red
-                MsgBox("Rellenar la celda", 48)
-            Else
-                nueva_lac = TextBox1.Text
-                Pantalla_datos.Show()
-                Me.Label3.Show()
-                Me.Button2.Show()
-                Me.GroupBox2.Show()
-                Me.Label1.Hide()
-                Me.TextBox1.Hide()
-                Me.Button1.Hide()
-                Me.RadioButton1.Hide()
-                Me.RadioButton2.Hide()
-                Me.GroupBox1.Text = "Datos de catenaria introducidos"
-                Me.GroupBox2.ForeColor = Color.Green
-            End If
-        End If
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -99,8 +127,6 @@
         ruta_replanteo = buscar.buscar_carpeta
 
     End Sub
-
-
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
         Dim tipo As String
         tipo = "dxf files (*.dxf)|*dxf | dwg files (*.dwg)|*.dwg"
@@ -110,15 +136,11 @@
             Me.Label3.Text = "Archivo encontrado"
         End If
     End Sub
-
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        End
+        Close()
     End Sub
-
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         'actualizar el progressbar
-
-
         Me.TextBox2.BackColor = Color.White
         Me.TextBox3.BackColor = Color.White
         Me.TextBox4.BackColor = Color.White
@@ -182,10 +204,9 @@
         End If
 
     End Sub
-
-
-
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Call run.run_autocad(ruta_autocad)
+        'Call run.run_autocad(ruta_autocad)
     End Sub
+
+
 End Class

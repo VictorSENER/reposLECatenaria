@@ -3,14 +3,40 @@ Module nueva_lac
 Sub introducir 
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
+        Dim oComm2 As OleDbCommand
         Dim oRead As OleDbDataReader
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\Nueva carpeta\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         'INTRODUCIR NUEVA CATENARIA FALTA VER QUE EL NOMBRE ESCRITO NO COINCIDA
 
         oComm = New OleDbCommand("insert into Datos(Nombre_Catenaria, Sistema, Alimentación, Altura_nominal, Altura_mínima, Altura_máxima, Altura_catenaria, Distancia_máx_entre_vanos, Distancia_máx_del_cantón, Vano_máximo, Vano_máx_en_sec_mecánico, Vano_máx_en_sec_eléctrico, Vano_máx_en_túnel, Incr_normalizado_de_vano, Incr_máx_altura_HC, Núm_mín_vanos_en_sec_mec, Núm_mín_vanos_en_sec_eléct, Ancho_vía, Descentramiento_máx_recta, Descentramiento_máx_curva, Radio_considerable_como_recta, Zona_trabajo_pantógrafo, Elevación_máx_pantógrafo, Velocidad_viento, Flecha_máx_centro_vano, Distancia_carril_poste, Distancia_base_poste_PMR, Distancia_eléct_sec_mecánico, Distancia_eléct_sec_eléctrico, Long_zona_común_máx, Long_zona_común_mín, Long_Zona_Neutra, Hilo_de_Contacto, Sustentador, C_de_Protección_Aérea, Cable_de_Tierra, Feeder_positivo, Feeder_negativo, Punto_fijo, Péndola, Anclaje, Posición_Feeder_positivo, Posición_Feeder_negativo, Núm_HC, Núm_CdPA, Núm_Feeder_positivo, Núm_Feeder_negativo, Tensión_HC, Tensión_sustentador, Tensión_CdPA, Tensión_Feeder_positivo, Tensión_Feeder_negativo, Tensión_punto_fijo, Adm_Línea, Tipo, Numeración, Adm_Línea_macizo, Tipo_macizo, Tubo_de_ménsula, Tubo_tirante, Cola_de_anclaje, Aislador_Feeder_positivo, Aislador_Feeder_negativo, Distancia_apoyo_y_1ª_péndola, Distancia_1ª_y_2ª_péndola, Distancia_máx_entre_péndolas) values(@Nombre_Catenaria, @Sistema, @Alimentación, @Altura_nominal, @Altura_mínima, @Altura_máxima, @Altura_catenaria, @Distancia_máx_entre_vanos, @Distancia_máx_del_cantón, @Vano_máximo, @Vano_máx_en_sec_mecánico, @Vano_máx_en_sec_eléctrico, @Vano_máx_en_túnel, Incr_normalizado_de_vano, @Incr_máx_altura_HC, @Núm_mín_vanos_en_sec_mec, @Núm_mín_vanos_en_sec_eléct, @Ancho_vía, @Descentramiento_máx_recta, @Descentramiento_máx_curva, @Radio_considerable_como_recta, @Zona_trabajo_pantógrafo, @Elevación_máx_pantógrafo, @Velocidad_viento, @Flecha_máx_centro_vano, @Distancia_carril_poste, @Distancia_base_poste_PMR, @Distancia_eléct_sec_mecánico, @Distancia_eléct_sec_eléctrico, @Long_zona_común_máx, @Long_zona_común_mín, @Long_Zona_Neutra, @Hilo_de_Contacto, @Sustentador, @C_de_Protección_Aérea, @Cable_de_Tierra, @Feeder_positivo, Feeder_negativo, @Punto_fijo, @Péndola, @Anclaje, @Posición_Feeder_positivo, @Posición_Feeder_negativo, @Núm_HC, @Núm_CdPA, @Núm_Feeder_positivo, @Núm_Feeder_negativo, @Tensión_HC, @Tensión_sustentador, @Tensión_CdPA, @Tensión_Feeder_positivo, @Tensión_Feeder_negativo, @Tensión_punto_fijo, @Adm_Línea, @Tipo, @Numeración, @Adm_Línea_macizo, @Tipo_macizo, @Tubo_de_ménsula, @Tubo_tirante, @Cola_de_anclaje, @Aislador_Feeder_positivo, @Aislador_Feeder_negativo, @Distancia_apoyo_y_1ª_péndola, @Distancia_1ª_y_2ª_péndola, @Distancia_máx_entre_péndolas)", oConn)
+        oComm2 = New OleDbCommand("select * from Datos", oConn)
+        oConn.Open()
 
-        oComm.Parameters.Add(New OleDbParameter("@Nombre_Catenaria", OleDbType.VarChar))
-        oComm.Parameters("@Nombre_Catenaria").Value = Pantalla_principal.TextBox1.Text
+        oRead = oComm2.ExecuteReader
+
+        If Pantalla_datos.TextNombrecatenaria.Visible Then
+
+            While oRead.Read
+                If (oRead("Nombre_Catenaria") = Pantalla_datos.TextNombrecatenaria.Text) Then
+                    Pantalla_datos.TextNombrecatenaria.BackColor = Color.Red
+                    Pantalla_datos.Label2.ForeColor = Color.Red
+                    Pantalla_datos.TextNombrecatenaria.SelectAll()
+                    MsgBox("NOMBRE REPETIDO", 48)
+                    GoTo x
+                End If
+
+            End While
+
+            oComm.Parameters.Add(New OleDbParameter("@Nombre_Catenaria", OleDbType.VarChar))
+            oComm.Parameters("@Nombre_Catenaria").Value = Pantalla_datos.TextNombrecatenaria.Text
+
+        Else
+
+            oComm.Parameters.Add(New OleDbParameter("@Nombre_Catenaria", OleDbType.VarChar))
+            oComm.Parameters("@Nombre_Catenaria").Value = Pantalla_principal.nueva_lac
+
+        End If
+
 
         oComm.Parameters.Add(New OleDbParameter("@Sistema", OleDbType.VarChar))
         oComm.Parameters("@Sistema").Value = Pantalla_datos.ComboSistema.Text
@@ -207,18 +233,29 @@ Sub introducir
         oComm.Parameters.Add(New OleDbParameter("@Distancia_máx_entre_péndolas", OleDbType.VarChar))
         oComm.Parameters("@Distancia_máx_entre_péndolas").Value = Pantalla_datos.TextDistanciamaxentrependolas.Text
 
+        oComm2.Connection.Close()
         oComm.Connection.Open()
         On Error GoTo mserror
         oComm.ExecuteNonQuery()
         oComm.Connection.Close()
-        MsgBox("Resgistro añadido")
-
+        MsgBox("RESGITRO AÑADIDO")
+        Pantalla_datos.Close()
+        Pantalla_principal.Label1.Hide()
+        Pantalla_principal.Label2.Hide()
+        Pantalla_principal.TextBox1.Hide()
+        Pantalla_principal.ComboBox1.Hide()
+        Pantalla_principal.Button1.Hide()
+        Pantalla_principal.RadioButton1.Hide()
+        Pantalla_principal.RadioButton2.Hide()
+        Pantalla_principal.GroupBox1.Text = "Datos de catenaria introducidos"
+        Pantalla_principal.GroupBox2.ForeColor = Color.Green
 
         Exit Sub
 mserror:
         oComm.Connection.Close()
-        MsgBox("Usuario repetido")
-        'falta el textNombrecatenaria.Focus()
-        'falta textnombrecatenaria.SelectAll()
+        MsgBox("FALTAN CAMPOS POR COMPLETAR")
+x:
+
     End Sub
+
 End Module

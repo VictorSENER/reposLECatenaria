@@ -8,230 +8,233 @@ Sub introducir
         oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         'INTRODUCIR NUEVA CATENARIA FALTA VER QUE EL NOMBRE ESCRITO NO COINCIDA
 
-        oComm = New OleDbCommand("insert into Datos(Nombre_Catenaria, Sistema, Alimentación, Altura_nominal, Altura_mínima, Altura_máxima, Altura_catenaria, Distancia_máx_entre_vanos, Distancia_máx_del_cantón, Vano_máximo, Vano_máx_en_sec_mecánico, Vano_máx_en_sec_eléctrico, Vano_máx_en_túnel, Incr_normalizado_de_vano, Incr_máx_altura_HC, Núm_mín_vanos_en_sec_mec, Núm_mín_vanos_en_sec_eléct, Ancho_vía, Descentramiento_máx_recta, Descentramiento_máx_curva, Radio_considerable_como_recta, Zona_trabajo_pantógrafo, Elevación_máx_pantógrafo, Velocidad_viento, Flecha_máx_centro_vano, Distancia_carril_poste, Distancia_base_poste_PMR, Distancia_eléct_sec_mecánico, Distancia_eléct_sec_eléctrico, Long_zona_común_máx, Long_zona_común_mín, Long_Zona_Neutra, Hilo_de_Contacto, Sustentador, C_de_Protección_Aérea, Cable_de_Tierra, Feeder_positivo, Feeder_negativo, Punto_fijo, Péndola, Anclaje, Posición_Feeder_positivo, Posición_Feeder_negativo, Núm_HC, Núm_CdPA, Núm_Feeder_positivo, Núm_Feeder_negativo, Tensión_HC, Tensión_sustentador, Tensión_CdPA, Tensión_Feeder_positivo, Tensión_Feeder_negativo, Tensión_punto_fijo, Adm_Línea, Tipo, Numeración, Adm_Línea_macizo, Tipo_macizo, Tubo_de_ménsula, Tubo_tirante, Cola_de_anclaje, Aislador_Feeder_positivo, Aislador_Feeder_negativo, Distancia_apoyo_y_1ª_péndola, Distancia_1ª_y_2ª_péndola, Distancia_máx_entre_péndolas) values(@Nombre_Catenaria, @Sistema, @Alimentación, @Altura_nominal, @Altura_mínima, @Altura_máxima, @Altura_catenaria, @Distancia_máx_entre_vanos, @Distancia_máx_del_cantón, @Vano_máximo, @Vano_máx_en_sec_mecánico, @Vano_máx_en_sec_eléctrico, @Vano_máx_en_túnel, Incr_normalizado_de_vano, @Incr_máx_altura_HC, @Núm_mín_vanos_en_sec_mec, @Núm_mín_vanos_en_sec_eléct, @Ancho_vía, @Descentramiento_máx_recta, @Descentramiento_máx_curva, @Radio_considerable_como_recta, @Zona_trabajo_pantógrafo, @Elevación_máx_pantógrafo, @Velocidad_viento, @Flecha_máx_centro_vano, @Distancia_carril_poste, @Distancia_base_poste_PMR, @Distancia_eléct_sec_mecánico, @Distancia_eléct_sec_eléctrico, @Long_zona_común_máx, @Long_zona_común_mín, @Long_Zona_Neutra, @Hilo_de_Contacto, @Sustentador, @C_de_Protección_Aérea, @Cable_de_Tierra, @Feeder_positivo, Feeder_negativo, @Punto_fijo, @Péndola, @Anclaje, @Posición_Feeder_positivo, @Posición_Feeder_negativo, @Núm_HC, @Núm_CdPA, @Núm_Feeder_positivo, @Núm_Feeder_negativo, @Tensión_HC, @Tensión_sustentador, @Tensión_CdPA, @Tensión_Feeder_positivo, @Tensión_Feeder_negativo, @Tensión_punto_fijo, @Adm_Línea, @Tipo, @Numeración, @Adm_Línea_macizo, @Tipo_macizo, @Tubo_de_ménsula, @Tubo_tirante, @Cola_de_anclaje, @Aislador_Feeder_positivo, @Aislador_Feeder_negativo, @Distancia_apoyo_y_1ª_péndola, @Distancia_1ª_y_2ª_péndola, @Distancia_máx_entre_péndolas)", oConn)
+        oComm = New OleDbCommand("insert into Datos(nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend) values(@nombre_cat, @sist, @al, @alt_nom, @alt_min, @alt_max, @alt_cat, @dist_max_va, @dist_max_canton, @va_max, @va_max_sm, @va_max_sla, @va_max_tunel, @inc_norm_va, @inc_max_alt_hc, @n_min_va_sm, @n_min_va_sla, @ancho_via, @d_max_re, @d_max_cu, @r_re, @zona_trab_pant, @el_max_pant, @vw, @fl_max_centro_va, @dist_carril_poste, @dist_base_poste_pmr, @dist_elect_sm, @dist_elect_sla, @l_zc_max, @l_zc_min, @l_zn, @hc, @sust, @cdpa, @cdte, @feed_pos, @feed_neg, @pto_fijo, @pend, @anc, @posicion_feed_pos, @posicion_feed_neg, @n_hc, @n_cdpa, @n_feed_pos, @n_feed_neg, @t_hc, @t_sust, @t_cdpa, @t_feed_pos, @t_feed_neg, @t_pto_fijo, @adm_lin_poste, @tip_poste, @num_poste, @adm_lin_mac, @tip_mac, @tubo_men, @tubo_tir, @cola_anc, @aisl_feed_pos, @aisl_feed_neg, @dist_ap_prim_pend, @dist_prim_seg_pend, @dist_max_pend)", oConn)
+
+        'oComm = New OleDbCommand("insert into Datos(nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elec_sla, l_zc_max, l_zc_min, l_zn, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, as, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_as, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend) values(@nombre_cat, @sist, @al, @alt_nom, @alt_min, @alt_max, @alt_cat, @dist_max_va, @dist_max_canton, @va_max, @va_max_sm, @va_max_sla, @va_max_tunel, @inc_norm_va, @inc_max_alt_hc, @n_min_va_sm, @n_min_va_sla, @ancho_via, @d_max_re, @d_max_cu, @r_re, @Zona_trab_pant, @el_max_pant, @vw, @fl_max_centro_va, @dist_carril_poste, @dist_base_poste_pmr, @dist_elect_sm, @dist_elec_sla, @l_zc_max, @l_zc_min, @l_zn, @hc, @sust, @cdpa, @cdte, @feed_pos, @feed_neg, @pto_fijo, @pend, @as, @posicion_feed_pos, @posicion_feed_neg, @n_hc, @n_cdpa, @n_feed_pos, @n_feed_neg, @t_hc, @t_sust, @t_cdpa, @t_feed_pos, @t_feed_neg, @t_pto_fijo, @adm_lin_poste, @tip_poste, @num_poste, @adm_lin_mac, @tip_mac, @tubo_men, @tubo_tir, @cola_as, @aisl_feed_pos, @aisl_feed_neg, @dist_ap_prim_pend, @dist_prim_seg_pend, @dist_max_pend)", oConn)
+
         oComm2 = New OleDbCommand("select * from Datos", oConn)
         oConn.Open()
 
         oRead = oComm2.ExecuteReader
 
-        If Pantalla_datos.TextNombrecatenaria.Visible Then
+        If Pantalla_datos.Text_nombre_cat.Visible Then
 
             While oRead.Read
-                If (oRead("Nombre_Catenaria") = Pantalla_datos.TextNombrecatenaria.Text) Then
-                    Pantalla_datos.TextNombrecatenaria.BackColor = Color.Red
+                If (oRead("nombre_cat") = Pantalla_datos.Text_nombre_cat.Text) Then
+                    Pantalla_datos.Text_nombre_cat.BackColor = Color.Red
                     Pantalla_datos.Label2.ForeColor = Color.Red
-                    Pantalla_datos.TextNombrecatenaria.SelectAll()
+                    Pantalla_datos.Text_nombre_cat.SelectAll()
                     MsgBox("NOMBRE REPETIDO", 48)
                     GoTo x
                 End If
 
             End While
 
-            oComm.Parameters.Add(New OleDbParameter("@Nombre_Catenaria", OleDbType.VarChar))
-            oComm.Parameters("@Nombre_Catenaria").Value = Pantalla_datos.TextNombrecatenaria.Text
+            oComm.Parameters.Add(New OleDbParameter("@nombre_cat", OleDbType.VarChar))
+            oComm.Parameters("@nombre_cat").Value = Pantalla_datos.Text_nombre_cat.Text
 
         Else
 
-            oComm.Parameters.Add(New OleDbParameter("@Nombre_Catenaria", OleDbType.VarChar))
-            oComm.Parameters("@Nombre_Catenaria").Value = Pantalla_principal.nueva_lac
+            oComm.Parameters.Add(New OleDbParameter("@nombre_cat", OleDbType.VarChar))
+            oComm.Parameters("@nombre_cat").Value = Pantalla_principal.nueva_lac
 
         End If
 
 
-        oComm.Parameters.Add(New OleDbParameter("@Sistema", OleDbType.VarChar))
-        oComm.Parameters("@Sistema").Value = Pantalla_datos.ComboSistema.Text
+        oComm.Parameters.Add(New OleDbParameter("@sist", OleDbType.VarChar))
+        oComm.Parameters("@sist").Value = Pantalla_datos.Combo_sist.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Alimentación", OleDbType.VarChar))
-        oComm.Parameters("@Alimentación").Value = Pantalla_datos.TextAlimentacion.Text
+        oComm.Parameters.Add(New OleDbParameter("@al", OleDbType.VarChar))
+        oComm.Parameters("@al").Value = Pantalla_datos.Text_al.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Altura_nominal", OleDbType.VarChar))
-        oComm.Parameters("@Altura_nominal").Value = Pantalla_datos.TextAlturanominal.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_nom", OleDbType.VarChar))
+        oComm.Parameters("@alt_nom").Value = Pantalla_datos.Text_alt_nom.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Altura_mínima", OleDbType.VarChar))
-        oComm.Parameters("@Altura_mínima").Value = Pantalla_datos.TextAlturaminima.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_min", OleDbType.VarChar))
+        oComm.Parameters("@alt_min").Value = Pantalla_datos.Text_alt_min.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Altura_máxima", OleDbType.VarChar))
-        oComm.Parameters("@Altura_máxima").Value = Pantalla_datos.TextAlturamaxima.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_max", OleDbType.VarChar))
+        oComm.Parameters("@alt_max").Value = Pantalla_datos.Text_alt_max.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Altura_catenaria", OleDbType.VarChar))
-        oComm.Parameters("@Altura_catenaria").Value = Pantalla_datos.TextAlturacatenaria.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat").Value = Pantalla_datos.Text_alt_cat.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_máx_entre_vanos", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_máx_entre_vanos").Value = Pantalla_datos.TextDistanciamaxentrevanos.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_max_va", OleDbType.VarChar))
+        oComm.Parameters("@dist_max_va").Value = Pantalla_datos.Text_dist_max_va.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_máx_del_cantón", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_máx_del_cantón").Value = Pantalla_datos.TextDistanciamaxdelcanton.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_max_canton", OleDbType.VarChar))
+        oComm.Parameters("@dist_max_canton").Value = Pantalla_datos.Text_dist_max_canton.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Vano_máximo", OleDbType.VarChar))
-        oComm.Parameters("@Vano_máximo").Value = Pantalla_datos.TextVanomaximo.Text
+        oComm.Parameters.Add(New OleDbParameter("@va_max", OleDbType.VarChar))
+        oComm.Parameters("@va_max").Value = Pantalla_datos.Text_va_max.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Vano_máx_en_sec_mecánico", OleDbType.VarChar))
-        oComm.Parameters("@Vano_máx_en_sec_mecánico").Value = Pantalla_datos.TextVanomaxensecmecanico.Text
+        oComm.Parameters.Add(New OleDbParameter("@va_max_sm", OleDbType.VarChar))
+        oComm.Parameters("@va_max_sm").Value = Pantalla_datos.Text_va_max_sm.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Vano_máx_en_sec_eléctrico", OleDbType.VarChar))
-        oComm.Parameters("@Vano_máx_en_sec_eléctrico").Value = Pantalla_datos.TextVanomaxensecelectrico.Text
+        oComm.Parameters.Add(New OleDbParameter("@va_max_sla", OleDbType.VarChar))
+        oComm.Parameters("@va_max_sla").Value = Pantalla_datos.Text_va_max_sla.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Vano_máx_en_túnel", OleDbType.VarChar))
-        oComm.Parameters("@Vano_máx_en_túnel").Value = Pantalla_datos.TextVanomaxentunel.Text
+        oComm.Parameters.Add(New OleDbParameter("@va_max_tunel", OleDbType.VarChar))
+        oComm.Parameters("@va_max_tunel").Value = Pantalla_datos.Text_va_max_tunel.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Incr_normalizado_de_vano", OleDbType.VarChar))
-        oComm.Parameters("@Incr_normalizado_de_vano").Value = Pantalla_datos.TextIncrnormalizadodevano.Text
+        oComm.Parameters.Add(New OleDbParameter("@inc_norm_va", OleDbType.VarChar))
+        oComm.Parameters("@inc_norm_va").Value = Pantalla_datos.Text_inc_norm_va.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Incr_máx_altura_HC", OleDbType.VarChar))
-        oComm.Parameters("@Incr_máx_altura_HC").Value = Pantalla_datos.TextIncrmaxalturahc.Text
+        oComm.Parameters.Add(New OleDbParameter("@inc_max_alt_hc", OleDbType.VarChar))
+        oComm.Parameters("@inc_max_alt_hc").Value = Pantalla_datos.Text_inc_max_alt_hc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_mín_vanos_en_sec_mec", OleDbType.VarChar))
-        oComm.Parameters("@Núm_mín_vanos_en_sec_mec").Value = Pantalla_datos.TextNumminvanosensecmec.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_min_va_sm", OleDbType.VarChar))
+        oComm.Parameters("@n_min_va_sm").Value = Pantalla_datos.Text_n_min_va_sm.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_mín_vanos_en_sec_eléct", OleDbType.VarChar))
-        oComm.Parameters("@Núm_mín_vanos_en_sec_eléct").Value = Pantalla_datos.TextNumminvanosensecelect.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_min_va_sla", OleDbType.VarChar))
+        oComm.Parameters("@n_min_va_sla").Value = Pantalla_datos.Text_n_min_va_sla.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Ancho_vía", OleDbType.VarChar))
-        oComm.Parameters("@Ancho_vía").Value = Pantalla_datos.TextAnchovia.Text
+        oComm.Parameters.Add(New OleDbParameter("@ancho_via", OleDbType.VarChar))
+        oComm.Parameters("@ancho_via").Value = Pantalla_datos.Text_ancho_via.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Descentramiento_máx_recta", OleDbType.VarChar))
-        oComm.Parameters("@Descentramiento_máx_recta").Value = Pantalla_datos.TextDescentramientomaxrecta.Text
+        oComm.Parameters.Add(New OleDbParameter("@d_max_re", OleDbType.VarChar))
+        oComm.Parameters("@d_max_re").Value = Pantalla_datos.Text_d_max_re.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Descentramiento_máx_curva", OleDbType.VarChar))
-        oComm.Parameters("@Descentramiento_máx_curva").Value = Pantalla_datos.TextDescentramientomaxcurva.Text
+        oComm.Parameters.Add(New OleDbParameter("@d_max_cu", OleDbType.VarChar))
+        oComm.Parameters("@d_max_cu").Value = Pantalla_datos.Text_d_max_cu.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Radio_considerable_como_recta", OleDbType.VarChar))
-        oComm.Parameters("@Radio_considerable_como_recta").Value = Pantalla_datos.TextRadioconsiderablecomorecta.Text
+        oComm.Parameters.Add(New OleDbParameter("@r_re", OleDbType.VarChar))
+        oComm.Parameters("@r_re").Value = Pantalla_datos.Text_r_re.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Zona_trabajo_pantógrafo", OleDbType.VarChar))
-        oComm.Parameters("@Zona_trabajo_pantógrafo").Value = Pantalla_datos.TextZonatrabajopantografo.Text
+        oComm.Parameters.Add(New OleDbParameter("@zona_trab_pant", OleDbType.VarChar))
+        oComm.Parameters("@zona_trab_pant").Value = Pantalla_datos.Text_zona_trab_pant.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Elevación_máx_pantógrafo", OleDbType.VarChar))
-        oComm.Parameters("@Elevación_máx_pantógrafo").Value = Pantalla_datos.TextElevacionmaxpantografo.Text
+        oComm.Parameters.Add(New OleDbParameter("@el_max_pant", OleDbType.VarChar))
+        oComm.Parameters("@el_max_pant").Value = Pantalla_datos.Text_el_max_pant.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Velocidad_viento", OleDbType.VarChar))
-        oComm.Parameters("@Velocidad_viento").Value = Pantalla_datos.TextVelocidadviento.Text
+        oComm.Parameters.Add(New OleDbParameter("@vw", OleDbType.VarChar))
+        oComm.Parameters("@vw").Value = Pantalla_datos.Text_vw.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Flecha_máx_centro_vano", OleDbType.VarChar))
-        oComm.Parameters("@Flecha_máx_centro_vano").Value = Pantalla_datos.TextFlechamaxcentrovano.Text
+        oComm.Parameters.Add(New OleDbParameter("@fl_max_centro_va", OleDbType.VarChar))
+        oComm.Parameters("@fl_max_centro_va").Value = Pantalla_datos.Text_fl_max_centro_va.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_carril_poste", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_carril_poste").Value = Pantalla_datos.TextDistanciacarrilposte.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_carril_poste", OleDbType.VarChar))
+        oComm.Parameters("@dist_carril_poste").Value = Pantalla_datos.Text_dist_carril_poste.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_base_poste_PMR", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_base_poste_PMR").Value = Pantalla_datos.TextDistanciabasepostepmr.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_base_poste_pmr", OleDbType.VarChar))
+        oComm.Parameters("@dist_base_poste_pmr").Value = Pantalla_datos.Text_dist_base_poste_pmr.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_eléct_sec_mecánico", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_eléct_sec_mecánico").Value = Pantalla_datos.TextDistanciaelectsecmecanico.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_elect_sm", OleDbType.VarChar))
+        oComm.Parameters("@dist_elect_sm").Value = Pantalla_datos.Text_dist_elect_sm.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_eléct_sec_eléctrico", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_eléct_sec_eléctrico").Value = Pantalla_datos.TextDistanciaelectsecelectrico.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_elect_sla", OleDbType.VarChar))
+        oComm.Parameters("@dist_elect_sla").Value = Pantalla_datos.Text_dist_elect_sla.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Long_zona_común_máx", OleDbType.VarChar))
-        oComm.Parameters("@Long_zona_común_máx").Value = Pantalla_datos.TextLongzonacomunmax.Text
+        oComm.Parameters.Add(New OleDbParameter("@l_zc_max", OleDbType.VarChar))
+        oComm.Parameters("@l_zc_max").Value = Pantalla_datos.Text_l_zc_max.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Long_zona_común_mín", OleDbType.VarChar))
-        oComm.Parameters("@Long_zona_común_mín").Value = Pantalla_datos.TextLongzonacomunmin.Text
+        oComm.Parameters.Add(New OleDbParameter("@l_zc_min", OleDbType.VarChar))
+        oComm.Parameters("@l_zc_min").Value = Pantalla_datos.Text_l_zc_min.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Long_Zona_Neutra", OleDbType.VarChar))
-        oComm.Parameters("@Long_Zona_Neutra").Value = Pantalla_datos.TextLongzonaneutra.Text
+        oComm.Parameters.Add(New OleDbParameter("@l_zn", OleDbType.VarChar))
+        oComm.Parameters("@l_zn").Value = Pantalla_datos.Text_l_zn.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Hilo_de_contacto", OleDbType.VarChar))
-        oComm.Parameters("@Hilo_de_contacto").Value = Pantalla_datos.ComboHilodecontacto.Text
+        oComm.Parameters.Add(New OleDbParameter("@hc", OleDbType.VarChar))
+        oComm.Parameters("@hc").Value = Pantalla_datos.Combo_hc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Sustentador", OleDbType.VarChar))
-        oComm.Parameters("@Sustentador").Value = Pantalla_datos.ComboSustentador.Text
+        oComm.Parameters.Add(New OleDbParameter("@sust", OleDbType.VarChar))
+        oComm.Parameters("@sust").Value = Pantalla_datos.Combo_sust.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@C_de_Protección_Aérea", OleDbType.VarChar))
-        oComm.Parameters("@C_de_Protección_Aérea").Value = Pantalla_datos.ComboCdeproteccionaerea.Text
+        oComm.Parameters.Add(New OleDbParameter("@cdpa", OleDbType.VarChar))
+        oComm.Parameters("@cdpa").Value = Pantalla_datos.Combo_cdpa.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Cable_de_Tierra", OleDbType.VarChar))
-        oComm.Parameters("@Cable_de_Tierra").Value = Pantalla_datos.ComboCabledetierra.Text
+        oComm.Parameters.Add(New OleDbParameter("@cdte", OleDbType.VarChar))
+        oComm.Parameters("@cdte").Value = Pantalla_datos.Combo_cdte.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Feeder_positivo", OleDbType.VarChar))
-        oComm.Parameters("@Feeder_positivo").Value = Pantalla_datos.ComboFeederpositivo.Text
+        oComm.Parameters.Add(New OleDbParameter("@feed_pos", OleDbType.VarChar))
+        oComm.Parameters("@feed_pos").Value = Pantalla_datos.Combo_feed_pos.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Feeder_negativo", OleDbType.VarChar))
-        oComm.Parameters("@Feeder_negativo").Value = Pantalla_datos.ComboFeedernegativo.Text
+        oComm.Parameters.Add(New OleDbParameter("@feed_neg", OleDbType.VarChar))
+        oComm.Parameters("@feed_neg").Value = Pantalla_datos.Combo_feed_neg.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Punto_fijo", OleDbType.VarChar))
-        oComm.Parameters("@Punto_fijo").Value = Pantalla_datos.ComboPuntofijo.Text
+        oComm.Parameters.Add(New OleDbParameter("@pto_fijo", OleDbType.VarChar))
+        oComm.Parameters("@pto_fijo").Value = Pantalla_datos.Combo_pto_fijo.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Péndola", OleDbType.VarChar))
-        oComm.Parameters("@Péndola").Value = Pantalla_datos.ComboPendola.Text
+        oComm.Parameters.Add(New OleDbParameter("@pend", OleDbType.VarChar))
+        oComm.Parameters("@pend").Value = Pantalla_datos.Combo_pend.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Anclaje", OleDbType.VarChar))
-        oComm.Parameters("@Anclaje").Value = Pantalla_datos.ComboAnclaje.Text
+        oComm.Parameters.Add(New OleDbParameter("@anc", OleDbType.VarChar))
+        oComm.Parameters("@anc").Value = Pantalla_datos.Combo_anc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Posición_Feeder_positivo", OleDbType.VarChar))
-        oComm.Parameters("@Posición_Feeder_positivo").Value = Pantalla_datos.ComboPosicionfeederpositivo.Text
+        oComm.Parameters.Add(New OleDbParameter("@posicion_feed_pos", OleDbType.VarChar))
+        oComm.Parameters("@posicion_feed_pos").Value = Pantalla_datos.Combo_posicion_feed_pos.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Posición_Feeder_negativo", OleDbType.VarChar))
-        oComm.Parameters("@Posición_Feeder_negativo").Value = Pantalla_datos.ComboPosicionfeedernegativo.Text
+        oComm.Parameters.Add(New OleDbParameter("@posicion_feed_neg", OleDbType.VarChar))
+        oComm.Parameters("@posicion_feed_neg").Value = Pantalla_datos.Combo_posicion_feed_neg.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_HC", OleDbType.VarChar))
-        oComm.Parameters("@Núm_HC").Value = Pantalla_datos.TextNumhc.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_hc", OleDbType.VarChar))
+        oComm.Parameters("@n_hc").Value = Pantalla_datos.Text_n_hc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_CdPA", OleDbType.VarChar))
-        oComm.Parameters("@Núm_CdPA").Value = Pantalla_datos.TextNumcdpa.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_cdpa", OleDbType.VarChar))
+        oComm.Parameters("@n_cdpa").Value = Pantalla_datos.Text_n_cdpa.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_Feeder_positivo", OleDbType.VarChar))
-        oComm.Parameters("@Núm_Feeder_positivo").Value = Pantalla_datos.TextNumfeederpositivo.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_feed_pos", OleDbType.VarChar))
+        oComm.Parameters("@n_feed_pos").Value = Pantalla_datos.Text_n_feed_pos.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Núm_Feeder_negativo", OleDbType.VarChar))
-        oComm.Parameters("@Núm_Feeder_negativo").Value = Pantalla_datos.TextNumfeedernegativo.Text
+        oComm.Parameters.Add(New OleDbParameter("@n_feed_neg", OleDbType.VarChar))
+        oComm.Parameters("@n_feed_neg").Value = Pantalla_datos.Text_n_feed_neg.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_HC", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_HC").Value = Pantalla_datos.TextTensionhc.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_hc", OleDbType.VarChar))
+        oComm.Parameters("@t_hc").Value = Pantalla_datos.Text_t_hc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_sustentador", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_sustentador").Value = Pantalla_datos.TextTensionsustentador.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_sust", OleDbType.VarChar))
+        oComm.Parameters("@t_sust").Value = Pantalla_datos.Text_t_sust.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_CdPA", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_CdPA").Value = Pantalla_datos.TextTensioncdpa.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_cdpa", OleDbType.VarChar))
+        oComm.Parameters("@t_cdpa").Value = Pantalla_datos.Text_t_cdpa.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_Feeder_positivo", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_Feeder_positivo").Value = Pantalla_datos.TextTensionfeederpositivo.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_feed_pos", OleDbType.VarChar))
+        oComm.Parameters("@t_feed_pos").Value = Pantalla_datos.Text_t_feed_pos.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_Feeder_negativo", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_Feeder_negativo").Value = Pantalla_datos.TextTensionfeedernegativo.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_feed_neg", OleDbType.VarChar))
+        oComm.Parameters("@t_feed_neg").Value = Pantalla_datos.Text_t_feed_neg.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tensión_punto_fijo", OleDbType.VarChar))
-        oComm.Parameters("@Tensión_punto_fijo").Value = Pantalla_datos.TextTensionpuntofijo.Text
+        oComm.Parameters.Add(New OleDbParameter("@t_pto_fijo", OleDbType.VarChar))
+        oComm.Parameters("@t_pto_fijo").Value = Pantalla_datos.Text_t_pto_fijo.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Adm_Línea", OleDbType.VarChar))
-        oComm.Parameters("@Adm_Línea").Value = Pantalla_datos.ComboAdmlinea.Text
+        oComm.Parameters.Add(New OleDbParameter("@adm_lin_poste", OleDbType.VarChar))
+        oComm.Parameters("@adm_lin_poste").Value = Pantalla_datos.Combo_adm_lin_poste.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tipo", OleDbType.VarChar))
-        oComm.Parameters("@Tipo").Value = Pantalla_datos.TextTipo.Text
+        oComm.Parameters.Add(New OleDbParameter("@tip_poste", OleDbType.VarChar))
+        oComm.Parameters("@tip_poste").Value = Pantalla_datos.Text_tip_poste.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Numeración", OleDbType.VarChar))
-        oComm.Parameters("@Numeración").Value = Pantalla_datos.ComboNumeración.Text
+        oComm.Parameters.Add(New OleDbParameter("@num_poste", OleDbType.VarChar))
+        oComm.Parameters("@num_poste").Value = Pantalla_datos.Combo_num_poste.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Adm_Línea_macizo", OleDbType.VarChar))
-        oComm.Parameters("@Adm_Línea_macizo").Value = Pantalla_datos.ComboAdmlineamacizo.Text
+        oComm.Parameters.Add(New OleDbParameter("@adm_lin_mac", OleDbType.VarChar))
+        oComm.Parameters("@adm_lin_mac").Value = Pantalla_datos.Combo_adm_lin_mac.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tipo_macizo", OleDbType.VarChar))
-        oComm.Parameters("@Tipo_macizo").Value = Pantalla_datos.TextTipomacizo.Text
+        oComm.Parameters.Add(New OleDbParameter("@tip_mac", OleDbType.VarChar))
+        oComm.Parameters("@tip_mac").Value = Pantalla_datos.Text_tip_mac.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tubo_de_ménsula", OleDbType.VarChar))
-        oComm.Parameters("@Tubo_de_ménsula").Value = Pantalla_datos.ComboTubodemensula.Text
+        oComm.Parameters.Add(New OleDbParameter("@tubo_men", OleDbType.VarChar))
+        oComm.Parameters("@tubo_men").Value = Pantalla_datos.Combo_tubo_men.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Tubo_tirante", OleDbType.VarChar))
-        oComm.Parameters("@Tubo_tirante").Value = Pantalla_datos.ComboTubotirante.Text
+        oComm.Parameters.Add(New OleDbParameter("@tubo_tir", OleDbType.VarChar))
+        oComm.Parameters("@tubo_tir").Value = Pantalla_datos.Combo_tubo_tir.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Cola_de_anclaje", OleDbType.VarChar))
-        oComm.Parameters("@Cola_de_anclaje").Value = Pantalla_datos.ComboColadeanclaje.Text
+        oComm.Parameters.Add(New OleDbParameter("@cola_anc", OleDbType.VarChar))
+        oComm.Parameters("@cola_anc").Value = Pantalla_datos.Combo_cola_anc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Aislador_Feeder_positivo", OleDbType.VarChar))
-        oComm.Parameters("@Aislador_Feeder_positivo").Value = Pantalla_datos.ComboAisladorfeederpositivo.Text
+        oComm.Parameters.Add(New OleDbParameter("@aisl_feed_pos", OleDbType.VarChar))
+        oComm.Parameters("@aisl_feed_pos").Value = Pantalla_datos.Combo_aisl_feed_pos.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Aislador_Feeder_negativo", OleDbType.VarChar))
-        oComm.Parameters("@Aislador_Feeder_negativo").Value = Pantalla_datos.ComboAisladorfeedernegativo.Text
+        oComm.Parameters.Add(New OleDbParameter("@aisl_feed_neg", OleDbType.VarChar))
+        oComm.Parameters("@aisl_feed_neg").Value = Pantalla_datos.Combo_aisl_feed_neg.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_apoyo_y_1ª_péndola", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_apoyo_y_1ª_péndola").Value = Pantalla_datos.TextDistanciaapoyoyprimerapendola.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_ap_prim_pend", OleDbType.VarChar))
+        oComm.Parameters("@dist_ap_prim_pend").Value = Pantalla_datos.Text_dist_ap_prim_pend.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_1ª_y_2ª_péndola", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_1ª_y_2ª_péndola").Value = Pantalla_datos.TextDistanciaprimeraysegundapendola.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_prim_seg_pend", OleDbType.VarChar))
+        oComm.Parameters("@dist_prim_seg_pend").Value = Pantalla_datos.Text_dist_prim_seg_pend.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@Distancia_máx_entre_péndolas", OleDbType.VarChar))
-        oComm.Parameters("@Distancia_máx_entre_péndolas").Value = Pantalla_datos.TextDistanciamaxentrependolas.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_max_pend", OleDbType.VarChar))
+        oComm.Parameters("@dist_max_pend").Value = Pantalla_datos.Text_dist_max_pend.Text
 
         oComm2.Connection.Close()
         oComm.Connection.Open()

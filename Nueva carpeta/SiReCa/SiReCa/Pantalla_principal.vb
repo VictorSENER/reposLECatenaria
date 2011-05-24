@@ -8,8 +8,9 @@ Public Class Pantalla_principal
     Public fin As Long
     Public nombre_excel As String
     Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.NOMBRE_CATENARIA' Puede moverla o quitarla según sea necesario.
-        Me.NOMBRE_CATENARIATableAdapter.Fill(Me.Base_de_datosDataSet.NOMBRE_CATENARIA)
+        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
+        Me.Nombre_CatenariaTableAdapter.Fill(Me.Base_de_datosDataSet.Nombre_Catenaria)
+
 
     End Sub
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
@@ -60,7 +61,7 @@ Public Class Pantalla_principal
                 oRead = oComm.ExecuteReader
 
                 While oRead.Read
-                    If oRead("Nombre_Catenaria") = nueva_lac Then
+                    If oRead("nombre_cat") = nueva_lac Then
                         Me.Label1.ForeColor = Color.Red
                         Me.TextBox1.BackColor = Color.Red
                         MsgBox("NOMBRE REPETIDO", 48)

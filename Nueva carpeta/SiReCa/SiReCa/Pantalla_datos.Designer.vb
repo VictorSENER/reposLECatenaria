@@ -42,35 +42,35 @@ Partial Class Pantalla_datos
         Me.Label46 = New System.Windows.Forms.Label
         Me.Label47 = New System.Windows.Forms.Label
         Me.Label48 = New System.Windows.Forms.Label
-        Me.TextLongzonaneutra = New System.Windows.Forms.TextBox
+        Me.Text_l_zn = New System.Windows.Forms.TextBox
         Me.Label49 = New System.Windows.Forms.Label
-        Me.TextLongzonacomunmin = New System.Windows.Forms.TextBox
+        Me.Text_l_zc_min = New System.Windows.Forms.TextBox
         Me.Label50 = New System.Windows.Forms.Label
-        Me.TextLongzonacomunmax = New System.Windows.Forms.TextBox
+        Me.Text_l_zc_max = New System.Windows.Forms.TextBox
         Me.Label51 = New System.Windows.Forms.Label
-        Me.TextDistanciaelectsecelectrico = New System.Windows.Forms.TextBox
+        Me.Text_dist_elect_sla = New System.Windows.Forms.TextBox
         Me.Label52 = New System.Windows.Forms.Label
-        Me.TextDistanciaelectsecmecanico = New System.Windows.Forms.TextBox
+        Me.Text_dist_elect_sm = New System.Windows.Forms.TextBox
         Me.Label53 = New System.Windows.Forms.Label
-        Me.TextAnchovia = New System.Windows.Forms.TextBox
+        Me.Text_dist_base_poste_pmr = New System.Windows.Forms.TextBox
         Me.Label54 = New System.Windows.Forms.Label
-        Me.TextDistanciabasepostepmr = New System.Windows.Forms.TextBox
+        Me.Text_dist_carril_poste = New System.Windows.Forms.TextBox
         Me.Label55 = New System.Windows.Forms.Label
-        Me.TextDistanciacarrilposte = New System.Windows.Forms.TextBox
+        Me.Text_fl_max_centro_va = New System.Windows.Forms.TextBox
         Me.Label56 = New System.Windows.Forms.Label
-        Me.TextFlechamaxcentrovano = New System.Windows.Forms.TextBox
+        Me.Text_vw = New System.Windows.Forms.TextBox
         Me.Label57 = New System.Windows.Forms.Label
-        Me.TextVelocidadviento = New System.Windows.Forms.TextBox
+        Me.Text_el_max_pant = New System.Windows.Forms.TextBox
         Me.Label58 = New System.Windows.Forms.Label
-        Me.TextElevacionmaxpantografo = New System.Windows.Forms.TextBox
+        Me.Text_zona_trab_pant = New System.Windows.Forms.TextBox
         Me.Label59 = New System.Windows.Forms.Label
-        Me.TextZonatrabajopantografo = New System.Windows.Forms.TextBox
+        Me.Text_r_re = New System.Windows.Forms.TextBox
         Me.Label60 = New System.Windows.Forms.Label
-        Me.TextRadioconsiderablecomorecta = New System.Windows.Forms.TextBox
+        Me.Text_d_max_cu = New System.Windows.Forms.TextBox
         Me.Label61 = New System.Windows.Forms.Label
-        Me.TextDescentramientomaxcurva = New System.Windows.Forms.TextBox
+        Me.Text_d_max_re = New System.Windows.Forms.TextBox
         Me.Label62 = New System.Windows.Forms.Label
-        Me.TextDescentramientomaxrecta = New System.Windows.Forms.TextBox
+        Me.Text_ancho_via = New System.Windows.Forms.TextBox
         Me.Label63 = New System.Windows.Forms.Label
         Me.Label32 = New System.Windows.Forms.Label
         Me.Label33 = New System.Windows.Forms.Label
@@ -86,140 +86,140 @@ Partial Class Pantalla_datos
         Me.Label21 = New System.Windows.Forms.Label
         Me.Label20 = New System.Windows.Forms.Label
         Me.Label12 = New System.Windows.Forms.Label
-        Me.TextNumminvanosensecelect = New System.Windows.Forms.TextBox
+        Me.Text_n_min_va_sla = New System.Windows.Forms.TextBox
         Me.Label14 = New System.Windows.Forms.Label
-        Me.TextNumminvanosensecmec = New System.Windows.Forms.TextBox
+        Me.Text_n_min_va_sm = New System.Windows.Forms.TextBox
         Me.Label15 = New System.Windows.Forms.Label
-        Me.TextIncrmaxalturahc = New System.Windows.Forms.TextBox
+        Me.Text_inc_max_alt_hc = New System.Windows.Forms.TextBox
         Me.Label16 = New System.Windows.Forms.Label
-        Me.TextIncrnormalizadodevano = New System.Windows.Forms.TextBox
+        Me.Text_inc_norm_va = New System.Windows.Forms.TextBox
         Me.Label17 = New System.Windows.Forms.Label
-        Me.TextVanomaxentunel = New System.Windows.Forms.TextBox
+        Me.Text_va_max_tunel = New System.Windows.Forms.TextBox
         Me.Label18 = New System.Windows.Forms.Label
-        Me.TextVanomaxensecelectrico = New System.Windows.Forms.TextBox
+        Me.Text_va_max_sla = New System.Windows.Forms.TextBox
         Me.Label19 = New System.Windows.Forms.Label
-        Me.TextVanomaxensecmecanico = New System.Windows.Forms.TextBox
+        Me.Text_va_max_sm = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
-        Me.TextVanomaximo = New System.Windows.Forms.TextBox
+        Me.Text_va_max = New System.Windows.Forms.TextBox
         Me.Label9 = New System.Windows.Forms.Label
-        Me.TextDistanciamaxdelcanton = New System.Windows.Forms.TextBox
+        Me.Text_dist_max_canton = New System.Windows.Forms.TextBox
         Me.Label10 = New System.Windows.Forms.Label
-        Me.TextDistanciamaxentrevanos = New System.Windows.Forms.TextBox
+        Me.Text_dist_max_va = New System.Windows.Forms.TextBox
         Me.Label11 = New System.Windows.Forms.Label
-        Me.TextAlturacatenaria = New System.Windows.Forms.TextBox
+        Me.Text_alt_cat = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
-        Me.TextAlturamaxima = New System.Windows.Forms.TextBox
+        Me.Text_alt_max = New System.Windows.Forms.TextBox
         Me.Label7 = New System.Windows.Forms.Label
-        Me.TextAlturaminima = New System.Windows.Forms.TextBox
+        Me.Text_alt_min = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
-        Me.TextAlturanominal = New System.Windows.Forms.TextBox
+        Me.Text_alt_nom = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.TabPage2 = New System.Windows.Forms.TabPage
-        Me.ComboPosicionfeedernegativo = New System.Windows.Forms.ComboBox
+        Me.Combo_posicion_feed_neg = New System.Windows.Forms.ComboBox
         Me.Label93 = New System.Windows.Forms.Label
-        Me.ComboPosicionfeederpositivo = New System.Windows.Forms.ComboBox
+        Me.Combo_posicion_feed_pos = New System.Windows.Forms.ComboBox
         Me.Label94 = New System.Windows.Forms.Label
         Me.Label87 = New System.Windows.Forms.Label
-        Me.TextTensionpuntofijo = New System.Windows.Forms.TextBox
+        Me.Text_t_pto_fijo = New System.Windows.Forms.TextBox
         Me.Label88 = New System.Windows.Forms.Label
         Me.Label91 = New System.Windows.Forms.Label
-        Me.TextTensionfeedernegativo = New System.Windows.Forms.TextBox
+        Me.Text_t_feed_neg = New System.Windows.Forms.TextBox
         Me.Label92 = New System.Windows.Forms.Label
         Me.Label85 = New System.Windows.Forms.Label
-        Me.TextTensionfeederpositivo = New System.Windows.Forms.TextBox
+        Me.Text_t_feed_pos = New System.Windows.Forms.TextBox
         Me.Label86 = New System.Windows.Forms.Label
         Me.Label89 = New System.Windows.Forms.Label
-        Me.TextTensioncdpa = New System.Windows.Forms.TextBox
+        Me.Text_t_cdpa = New System.Windows.Forms.TextBox
         Me.Label90 = New System.Windows.Forms.Label
         Me.Label77 = New System.Windows.Forms.Label
-        Me.TextTensionsustentador = New System.Windows.Forms.TextBox
+        Me.Text_t_sust = New System.Windows.Forms.TextBox
         Me.Label80 = New System.Windows.Forms.Label
         Me.Label81 = New System.Windows.Forms.Label
-        Me.TextTensionhc = New System.Windows.Forms.TextBox
+        Me.Text_t_hc = New System.Windows.Forms.TextBox
         Me.Label82 = New System.Windows.Forms.Label
         Me.Label83 = New System.Windows.Forms.Label
-        Me.TextNumfeedernegativo = New System.Windows.Forms.TextBox
+        Me.Text_n_feed_neg = New System.Windows.Forms.TextBox
         Me.Label84 = New System.Windows.Forms.Label
         Me.Label75 = New System.Windows.Forms.Label
-        Me.TextNumfeederpositivo = New System.Windows.Forms.TextBox
+        Me.Text_n_feed_pos = New System.Windows.Forms.TextBox
         Me.Label76 = New System.Windows.Forms.Label
         Me.Label73 = New System.Windows.Forms.Label
-        Me.TextNumcdpa = New System.Windows.Forms.TextBox
+        Me.Text_n_cdpa = New System.Windows.Forms.TextBox
         Me.Label74 = New System.Windows.Forms.Label
         Me.Label72 = New System.Windows.Forms.Label
-        Me.TextNumhc = New System.Windows.Forms.TextBox
+        Me.Text_n_hc = New System.Windows.Forms.TextBox
         Me.Label78 = New System.Windows.Forms.Label
-        Me.ComboAnclaje = New System.Windows.Forms.ComboBox
+        Me.Combo_anc = New System.Windows.Forms.ComboBox
         Me.ConductorAnclajeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Base_de_datosDataSet = New SiReCa.Base_de_datosDataSet
         Me.Label79 = New System.Windows.Forms.Label
-        Me.ComboPendola = New System.Windows.Forms.ComboBox
+        Me.Combo_pend = New System.Windows.Forms.ComboBox
         Me.ConductorPendolaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label68 = New System.Windows.Forms.Label
-        Me.ComboPuntofijo = New System.Windows.Forms.ComboBox
+        Me.Combo_pto_fijo = New System.Windows.Forms.ComboBox
         Me.ConductorPuntoFijoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label69 = New System.Windows.Forms.Label
-        Me.ComboFeedernegativo = New System.Windows.Forms.ComboBox
+        Me.Combo_feed_neg = New System.Windows.Forms.ComboBox
         Me.ConductorFeederBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label70 = New System.Windows.Forms.Label
-        Me.ComboFeederpositivo = New System.Windows.Forms.ComboBox
+        Me.Combo_feed_pos = New System.Windows.Forms.ComboBox
         Me.ConductorFeederBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label71 = New System.Windows.Forms.Label
-        Me.ComboCabledetierra = New System.Windows.Forms.ComboBox
+        Me.Combo_cdte = New System.Windows.Forms.ComboBox
         Me.ConductorCableDeTierraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label66 = New System.Windows.Forms.Label
-        Me.ComboCdeproteccionaerea = New System.Windows.Forms.ComboBox
+        Me.Combo_cdpa = New System.Windows.Forms.ComboBox
         Me.ConductorCDPABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label67 = New System.Windows.Forms.Label
-        Me.ComboSustentador = New System.Windows.Forms.ComboBox
+        Me.Combo_sust = New System.Windows.Forms.ComboBox
         Me.ConductorSustentadorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label65 = New System.Windows.Forms.Label
-        Me.ComboHilodecontacto = New System.Windows.Forms.ComboBox
+        Me.Combo_hc = New System.Windows.Forms.ComboBox
         Me.ConductorHCBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label64 = New System.Windows.Forms.Label
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.ComboNumeración = New System.Windows.Forms.ComboBox
+        Me.Combo_num_poste = New System.Windows.Forms.ComboBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.TextTipo = New System.Windows.Forms.TextBox
+        Me.Text_tip_poste = New System.Windows.Forms.TextBox
         Me.PostesConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label97 = New System.Windows.Forms.Label
-        Me.ComboAdmlinea = New System.Windows.Forms.ComboBox
+        Me.Combo_adm_lin_poste = New System.Windows.Forms.ComboBox
         Me.Label98 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.TextTipomacizo = New System.Windows.Forms.TextBox
+        Me.Text_tip_mac = New System.Windows.Forms.TextBox
         Me.Macizos_ConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label96 = New System.Windows.Forms.Label
-        Me.ComboAdmlineamacizo = New System.Windows.Forms.ComboBox
+        Me.Combo_adm_lin_mac = New System.Windows.Forms.ComboBox
         Me.Label95 = New System.Windows.Forms.Label
         Me.TabPage4 = New System.Windows.Forms.TabPage
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.Label13 = New System.Windows.Forms.Label
         Me.Label31 = New System.Windows.Forms.Label
         Me.Label99 = New System.Windows.Forms.Label
-        Me.TextDistanciamaxentrependolas = New System.Windows.Forms.TextBox
-        Me.TextDistanciaprimeraysegundapendola = New System.Windows.Forms.TextBox
-        Me.TextDistanciaapoyoyprimerapendola = New System.Windows.Forms.TextBox
+        Me.Text_dist_max_pend = New System.Windows.Forms.TextBox
+        Me.Text_dist_prim_seg_pend = New System.Windows.Forms.TextBox
+        Me.Text_dist_ap_prim_pend = New System.Windows.Forms.TextBox
         Me.Label107 = New System.Windows.Forms.Label
         Me.Label108 = New System.Windows.Forms.Label
         Me.Label109 = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.ComboAisladorfeedernegativo = New System.Windows.Forms.ComboBox
+        Me.Combo_aisl_feed_neg = New System.Windows.Forms.ComboBox
         Me.Label104 = New System.Windows.Forms.Label
-        Me.ComboAisladorfeederpositivo = New System.Windows.Forms.ComboBox
+        Me.Combo_aisl_feed_pos = New System.Windows.Forms.ComboBox
         Me.Label102 = New System.Windows.Forms.Label
-        Me.ComboColadeanclaje = New System.Windows.Forms.ComboBox
+        Me.Combo_cola_anc = New System.Windows.Forms.ComboBox
         Me.Label103 = New System.Windows.Forms.Label
-        Me.ComboTubotirante = New System.Windows.Forms.ComboBox
+        Me.Combo_tubo_tir = New System.Windows.Forms.ComboBox
         Me.Label101 = New System.Windows.Forms.Label
-        Me.ComboTubodemensula = New System.Windows.Forms.ComboBox
+        Me.Combo_tubo_men = New System.Windows.Forms.ComboBox
         Me.Label100 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Electrificación_ConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Electrificación_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
         Me.TableAdapterManager = New SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager
-        Me.TextAlimentacion = New System.Windows.Forms.TextBox
-        Me.ComboSistema = New System.Windows.Forms.ComboBox
+        Me.Text_al = New System.Windows.Forms.TextBox
+        Me.Combo_sist = New System.Windows.Forms.ComboBox
         Me.Macizos_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
         Me.Postes_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
         Me.Conductor_HCTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter
@@ -232,7 +232,7 @@ Partial Class Pantalla_datos
         Me.Conductor_PendolaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_PendolaTableAdapter
         Me.Conductor_AnclajeTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_AnclajeTableAdapter
         Me.Button2 = New System.Windows.Forms.Button
-        Me.TextNombrecatenaria = New System.Windows.Forms.TextBox
+        Me.Text_nombre_cat = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
         AlimentaciónLabel = New System.Windows.Forms.Label
         SistemaLabel = New System.Windows.Forms.Label
@@ -307,35 +307,35 @@ Partial Class Pantalla_datos
         Me.TabPage1.Controls.Add(Me.Label46)
         Me.TabPage1.Controls.Add(Me.Label47)
         Me.TabPage1.Controls.Add(Me.Label48)
-        Me.TabPage1.Controls.Add(Me.TextLongzonaneutra)
+        Me.TabPage1.Controls.Add(Me.Text_l_zn)
         Me.TabPage1.Controls.Add(Me.Label49)
-        Me.TabPage1.Controls.Add(Me.TextLongzonacomunmin)
+        Me.TabPage1.Controls.Add(Me.Text_l_zc_min)
         Me.TabPage1.Controls.Add(Me.Label50)
-        Me.TabPage1.Controls.Add(Me.TextLongzonacomunmax)
+        Me.TabPage1.Controls.Add(Me.Text_l_zc_max)
         Me.TabPage1.Controls.Add(Me.Label51)
-        Me.TabPage1.Controls.Add(Me.TextDistanciaelectsecelectrico)
+        Me.TabPage1.Controls.Add(Me.Text_dist_elect_sla)
         Me.TabPage1.Controls.Add(Me.Label52)
-        Me.TabPage1.Controls.Add(Me.TextDistanciaelectsecmecanico)
+        Me.TabPage1.Controls.Add(Me.Text_dist_elect_sm)
         Me.TabPage1.Controls.Add(Me.Label53)
-        Me.TabPage1.Controls.Add(Me.TextAnchovia)
+        Me.TabPage1.Controls.Add(Me.Text_dist_base_poste_pmr)
         Me.TabPage1.Controls.Add(Me.Label54)
-        Me.TabPage1.Controls.Add(Me.TextDistanciabasepostepmr)
+        Me.TabPage1.Controls.Add(Me.Text_dist_carril_poste)
         Me.TabPage1.Controls.Add(Me.Label55)
-        Me.TabPage1.Controls.Add(Me.TextDistanciacarrilposte)
+        Me.TabPage1.Controls.Add(Me.Text_fl_max_centro_va)
         Me.TabPage1.Controls.Add(Me.Label56)
-        Me.TabPage1.Controls.Add(Me.TextFlechamaxcentrovano)
+        Me.TabPage1.Controls.Add(Me.Text_vw)
         Me.TabPage1.Controls.Add(Me.Label57)
-        Me.TabPage1.Controls.Add(Me.TextVelocidadviento)
+        Me.TabPage1.Controls.Add(Me.Text_el_max_pant)
         Me.TabPage1.Controls.Add(Me.Label58)
-        Me.TabPage1.Controls.Add(Me.TextElevacionmaxpantografo)
+        Me.TabPage1.Controls.Add(Me.Text_zona_trab_pant)
         Me.TabPage1.Controls.Add(Me.Label59)
-        Me.TabPage1.Controls.Add(Me.TextZonatrabajopantografo)
+        Me.TabPage1.Controls.Add(Me.Text_r_re)
         Me.TabPage1.Controls.Add(Me.Label60)
-        Me.TabPage1.Controls.Add(Me.TextRadioconsiderablecomorecta)
+        Me.TabPage1.Controls.Add(Me.Text_d_max_cu)
         Me.TabPage1.Controls.Add(Me.Label61)
-        Me.TabPage1.Controls.Add(Me.TextDescentramientomaxcurva)
+        Me.TabPage1.Controls.Add(Me.Text_d_max_re)
         Me.TabPage1.Controls.Add(Me.Label62)
-        Me.TabPage1.Controls.Add(Me.TextDescentramientomaxrecta)
+        Me.TabPage1.Controls.Add(Me.Text_ancho_via)
         Me.TabPage1.Controls.Add(Me.Label63)
         Me.TabPage1.Controls.Add(Me.Label32)
         Me.TabPage1.Controls.Add(Me.Label33)
@@ -351,33 +351,33 @@ Partial Class Pantalla_datos
         Me.TabPage1.Controls.Add(Me.Label21)
         Me.TabPage1.Controls.Add(Me.Label20)
         Me.TabPage1.Controls.Add(Me.Label12)
-        Me.TabPage1.Controls.Add(Me.TextNumminvanosensecelect)
+        Me.TabPage1.Controls.Add(Me.Text_n_min_va_sla)
         Me.TabPage1.Controls.Add(Me.Label14)
-        Me.TabPage1.Controls.Add(Me.TextNumminvanosensecmec)
+        Me.TabPage1.Controls.Add(Me.Text_n_min_va_sm)
         Me.TabPage1.Controls.Add(Me.Label15)
-        Me.TabPage1.Controls.Add(Me.TextIncrmaxalturahc)
+        Me.TabPage1.Controls.Add(Me.Text_inc_max_alt_hc)
         Me.TabPage1.Controls.Add(Me.Label16)
-        Me.TabPage1.Controls.Add(Me.TextIncrnormalizadodevano)
+        Me.TabPage1.Controls.Add(Me.Text_inc_norm_va)
         Me.TabPage1.Controls.Add(Me.Label17)
-        Me.TabPage1.Controls.Add(Me.TextVanomaxentunel)
+        Me.TabPage1.Controls.Add(Me.Text_va_max_tunel)
         Me.TabPage1.Controls.Add(Me.Label18)
-        Me.TabPage1.Controls.Add(Me.TextVanomaxensecelectrico)
+        Me.TabPage1.Controls.Add(Me.Text_va_max_sla)
         Me.TabPage1.Controls.Add(Me.Label19)
-        Me.TabPage1.Controls.Add(Me.TextVanomaxensecmecanico)
+        Me.TabPage1.Controls.Add(Me.Text_va_max_sm)
         Me.TabPage1.Controls.Add(Me.Label8)
-        Me.TabPage1.Controls.Add(Me.TextVanomaximo)
+        Me.TabPage1.Controls.Add(Me.Text_va_max)
         Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Controls.Add(Me.TextDistanciamaxdelcanton)
+        Me.TabPage1.Controls.Add(Me.Text_dist_max_canton)
         Me.TabPage1.Controls.Add(Me.Label10)
-        Me.TabPage1.Controls.Add(Me.TextDistanciamaxentrevanos)
+        Me.TabPage1.Controls.Add(Me.Text_dist_max_va)
         Me.TabPage1.Controls.Add(Me.Label11)
-        Me.TabPage1.Controls.Add(Me.TextAlturacatenaria)
+        Me.TabPage1.Controls.Add(Me.Text_alt_cat)
         Me.TabPage1.Controls.Add(Me.Label6)
-        Me.TabPage1.Controls.Add(Me.TextAlturamaxima)
+        Me.TabPage1.Controls.Add(Me.Text_alt_max)
         Me.TabPage1.Controls.Add(Me.Label7)
-        Me.TabPage1.Controls.Add(Me.TextAlturaminima)
+        Me.TabPage1.Controls.Add(Me.Text_alt_min)
         Me.TabPage1.Controls.Add(Me.Label5)
-        Me.TabPage1.Controls.Add(Me.TextAlturanominal)
+        Me.TabPage1.Controls.Add(Me.Text_alt_nom)
         Me.TabPage1.Controls.Add(Me.Label4)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
@@ -522,12 +522,12 @@ Partial Class Pantalla_datos
         Me.Label48.TabIndex = 75
         Me.Label48.Text = "m"
         '
-        'TextLongzonaneutra
+        'Text_l_zn
         '
-        Me.TextLongzonaneutra.Location = New System.Drawing.Point(640, 396)
-        Me.TextLongzonaneutra.Name = "TextLongzonaneutra"
-        Me.TextLongzonaneutra.Size = New System.Drawing.Size(100, 20)
-        Me.TextLongzonaneutra.TabIndex = 74
+        Me.Text_l_zn.Location = New System.Drawing.Point(640, 396)
+        Me.Text_l_zn.Name = "Text_l_zn"
+        Me.Text_l_zn.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zn.TabIndex = 74
         '
         'Label49
         '
@@ -538,12 +538,12 @@ Partial Class Pantalla_datos
         Me.Label49.TabIndex = 73
         Me.Label49.Text = "Long. Zona Neutra"
         '
-        'TextLongzonacomunmin
+        'Text_l_zc_min
         '
-        Me.TextLongzonacomunmin.Location = New System.Drawing.Point(640, 370)
-        Me.TextLongzonacomunmin.Name = "TextLongzonacomunmin"
-        Me.TextLongzonacomunmin.Size = New System.Drawing.Size(100, 20)
-        Me.TextLongzonacomunmin.TabIndex = 72
+        Me.Text_l_zc_min.Location = New System.Drawing.Point(640, 370)
+        Me.Text_l_zc_min.Name = "Text_l_zc_min"
+        Me.Text_l_zc_min.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zc_min.TabIndex = 72
         '
         'Label50
         '
@@ -554,12 +554,12 @@ Partial Class Pantalla_datos
         Me.Label50.TabIndex = 71
         Me.Label50.Text = "Long. zona común mín."
         '
-        'TextLongzonacomunmax
+        'Text_l_zc_max
         '
-        Me.TextLongzonacomunmax.Location = New System.Drawing.Point(640, 343)
-        Me.TextLongzonacomunmax.Name = "TextLongzonacomunmax"
-        Me.TextLongzonacomunmax.Size = New System.Drawing.Size(100, 20)
-        Me.TextLongzonacomunmax.TabIndex = 70
+        Me.Text_l_zc_max.Location = New System.Drawing.Point(640, 343)
+        Me.Text_l_zc_max.Name = "Text_l_zc_max"
+        Me.Text_l_zc_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zc_max.TabIndex = 70
         '
         'Label51
         '
@@ -570,12 +570,12 @@ Partial Class Pantalla_datos
         Me.Label51.TabIndex = 69
         Me.Label51.Text = "Long. zona común máx."
         '
-        'TextDistanciaelectsecelectrico
+        'Text_dist_elect_sla
         '
-        Me.TextDistanciaelectsecelectrico.Location = New System.Drawing.Point(640, 317)
-        Me.TextDistanciaelectsecelectrico.Name = "TextDistanciaelectsecelectrico"
-        Me.TextDistanciaelectsecelectrico.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciaelectsecelectrico.TabIndex = 68
+        Me.Text_dist_elect_sla.Location = New System.Drawing.Point(640, 317)
+        Me.Text_dist_elect_sla.Name = "Text_dist_elect_sla"
+        Me.Text_dist_elect_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_elect_sla.TabIndex = 68
         '
         'Label52
         '
@@ -586,12 +586,12 @@ Partial Class Pantalla_datos
         Me.Label52.TabIndex = 67
         Me.Label52.Text = "Distancia eléct. sec. eléctrico"
         '
-        'TextDistanciaelectsecmecanico
+        'Text_dist_elect_sm
         '
-        Me.TextDistanciaelectsecmecanico.Location = New System.Drawing.Point(640, 290)
-        Me.TextDistanciaelectsecmecanico.Name = "TextDistanciaelectsecmecanico"
-        Me.TextDistanciaelectsecmecanico.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciaelectsecmecanico.TabIndex = 66
+        Me.Text_dist_elect_sm.Location = New System.Drawing.Point(640, 290)
+        Me.Text_dist_elect_sm.Name = "Text_dist_elect_sm"
+        Me.Text_dist_elect_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_elect_sm.TabIndex = 66
         '
         'Label53
         '
@@ -602,12 +602,12 @@ Partial Class Pantalla_datos
         Me.Label53.TabIndex = 65
         Me.Label53.Text = "Distancia eléct. sec. mecánico"
         '
-        'TextAnchovia
+        'Text_dist_base_poste_pmr
         '
-        Me.TextAnchovia.Location = New System.Drawing.Point(640, 264)
-        Me.TextAnchovia.Name = "TextAnchovia"
-        Me.TextAnchovia.Size = New System.Drawing.Size(100, 20)
-        Me.TextAnchovia.TabIndex = 64
+        Me.Text_dist_base_poste_pmr.Location = New System.Drawing.Point(640, 264)
+        Me.Text_dist_base_poste_pmr.Name = "Text_dist_base_poste_pmr"
+        Me.Text_dist_base_poste_pmr.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_base_poste_pmr.TabIndex = 64
         '
         'Label54
         '
@@ -618,12 +618,12 @@ Partial Class Pantalla_datos
         Me.Label54.TabIndex = 63
         Me.Label54.Text = "Ancho vía"
         '
-        'TextDistanciabasepostepmr
+        'Text_dist_carril_poste
         '
-        Me.TextDistanciabasepostepmr.Location = New System.Drawing.Point(640, 238)
-        Me.TextDistanciabasepostepmr.Name = "TextDistanciabasepostepmr"
-        Me.TextDistanciabasepostepmr.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciabasepostepmr.TabIndex = 62
+        Me.Text_dist_carril_poste.Location = New System.Drawing.Point(640, 238)
+        Me.Text_dist_carril_poste.Name = "Text_dist_carril_poste"
+        Me.Text_dist_carril_poste.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_carril_poste.TabIndex = 62
         '
         'Label55
         '
@@ -634,12 +634,12 @@ Partial Class Pantalla_datos
         Me.Label55.TabIndex = 61
         Me.Label55.Text = "Distancia base poste - PMR"
         '
-        'TextDistanciacarrilposte
+        'Text_fl_max_centro_va
         '
-        Me.TextDistanciacarrilposte.Location = New System.Drawing.Point(640, 211)
-        Me.TextDistanciacarrilposte.Name = "TextDistanciacarrilposte"
-        Me.TextDistanciacarrilposte.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciacarrilposte.TabIndex = 60
+        Me.Text_fl_max_centro_va.Location = New System.Drawing.Point(640, 211)
+        Me.Text_fl_max_centro_va.Name = "Text_fl_max_centro_va"
+        Me.Text_fl_max_centro_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_fl_max_centro_va.TabIndex = 60
         '
         'Label56
         '
@@ -650,12 +650,12 @@ Partial Class Pantalla_datos
         Me.Label56.TabIndex = 59
         Me.Label56.Text = "Distancia carril - poste"
         '
-        'TextFlechamaxcentrovano
+        'Text_vw
         '
-        Me.TextFlechamaxcentrovano.Location = New System.Drawing.Point(640, 184)
-        Me.TextFlechamaxcentrovano.Name = "TextFlechamaxcentrovano"
-        Me.TextFlechamaxcentrovano.Size = New System.Drawing.Size(100, 20)
-        Me.TextFlechamaxcentrovano.TabIndex = 58
+        Me.Text_vw.Location = New System.Drawing.Point(640, 184)
+        Me.Text_vw.Name = "Text_vw"
+        Me.Text_vw.Size = New System.Drawing.Size(100, 20)
+        Me.Text_vw.TabIndex = 58
         '
         'Label57
         '
@@ -666,12 +666,12 @@ Partial Class Pantalla_datos
         Me.Label57.TabIndex = 57
         Me.Label57.Text = "Flecha máx. centro vano"
         '
-        'TextVelocidadviento
+        'Text_el_max_pant
         '
-        Me.TextVelocidadviento.Location = New System.Drawing.Point(640, 158)
-        Me.TextVelocidadviento.Name = "TextVelocidadviento"
-        Me.TextVelocidadviento.Size = New System.Drawing.Size(100, 20)
-        Me.TextVelocidadviento.TabIndex = 56
+        Me.Text_el_max_pant.Location = New System.Drawing.Point(640, 158)
+        Me.Text_el_max_pant.Name = "Text_el_max_pant"
+        Me.Text_el_max_pant.Size = New System.Drawing.Size(100, 20)
+        Me.Text_el_max_pant.TabIndex = 56
         '
         'Label58
         '
@@ -682,12 +682,12 @@ Partial Class Pantalla_datos
         Me.Label58.TabIndex = 55
         Me.Label58.Text = "Velocidad viento"
         '
-        'TextElevacionmaxpantografo
+        'Text_zona_trab_pant
         '
-        Me.TextElevacionmaxpantografo.Location = New System.Drawing.Point(640, 131)
-        Me.TextElevacionmaxpantografo.Name = "TextElevacionmaxpantografo"
-        Me.TextElevacionmaxpantografo.Size = New System.Drawing.Size(100, 20)
-        Me.TextElevacionmaxpantografo.TabIndex = 54
+        Me.Text_zona_trab_pant.Location = New System.Drawing.Point(640, 131)
+        Me.Text_zona_trab_pant.Name = "Text_zona_trab_pant"
+        Me.Text_zona_trab_pant.Size = New System.Drawing.Size(100, 20)
+        Me.Text_zona_trab_pant.TabIndex = 54
         '
         'Label59
         '
@@ -698,12 +698,12 @@ Partial Class Pantalla_datos
         Me.Label59.TabIndex = 53
         Me.Label59.Text = "Elevación máx. pantógrafo"
         '
-        'TextZonatrabajopantografo
+        'Text_r_re
         '
-        Me.TextZonatrabajopantografo.Location = New System.Drawing.Point(640, 105)
-        Me.TextZonatrabajopantografo.Name = "TextZonatrabajopantografo"
-        Me.TextZonatrabajopantografo.Size = New System.Drawing.Size(100, 20)
-        Me.TextZonatrabajopantografo.TabIndex = 52
+        Me.Text_r_re.Location = New System.Drawing.Point(640, 105)
+        Me.Text_r_re.Name = "Text_r_re"
+        Me.Text_r_re.Size = New System.Drawing.Size(100, 20)
+        Me.Text_r_re.TabIndex = 52
         '
         'Label60
         '
@@ -714,12 +714,12 @@ Partial Class Pantalla_datos
         Me.Label60.TabIndex = 51
         Me.Label60.Text = "Zona trabajo pantógrafo"
         '
-        'TextRadioconsiderablecomorecta
+        'Text_d_max_cu
         '
-        Me.TextRadioconsiderablecomorecta.Location = New System.Drawing.Point(640, 78)
-        Me.TextRadioconsiderablecomorecta.Name = "TextRadioconsiderablecomorecta"
-        Me.TextRadioconsiderablecomorecta.Size = New System.Drawing.Size(100, 20)
-        Me.TextRadioconsiderablecomorecta.TabIndex = 50
+        Me.Text_d_max_cu.Location = New System.Drawing.Point(640, 78)
+        Me.Text_d_max_cu.Name = "Text_d_max_cu"
+        Me.Text_d_max_cu.Size = New System.Drawing.Size(100, 20)
+        Me.Text_d_max_cu.TabIndex = 50
         '
         'Label61
         '
@@ -730,12 +730,12 @@ Partial Class Pantalla_datos
         Me.Label61.TabIndex = 49
         Me.Label61.Text = "Radio considerable como recta"
         '
-        'TextDescentramientomaxcurva
+        'Text_d_max_re
         '
-        Me.TextDescentramientomaxcurva.Location = New System.Drawing.Point(640, 52)
-        Me.TextDescentramientomaxcurva.Name = "TextDescentramientomaxcurva"
-        Me.TextDescentramientomaxcurva.Size = New System.Drawing.Size(100, 20)
-        Me.TextDescentramientomaxcurva.TabIndex = 48
+        Me.Text_d_max_re.Location = New System.Drawing.Point(640, 52)
+        Me.Text_d_max_re.Name = "Text_d_max_re"
+        Me.Text_d_max_re.Size = New System.Drawing.Size(100, 20)
+        Me.Text_d_max_re.TabIndex = 48
         '
         'Label62
         '
@@ -746,12 +746,12 @@ Partial Class Pantalla_datos
         Me.Label62.TabIndex = 47
         Me.Label62.Text = "Descentramiento máx. curva"
         '
-        'TextDescentramientomaxrecta
+        'Text_ancho_via
         '
-        Me.TextDescentramientomaxrecta.Location = New System.Drawing.Point(245, 422)
-        Me.TextDescentramientomaxrecta.Name = "TextDescentramientomaxrecta"
-        Me.TextDescentramientomaxrecta.Size = New System.Drawing.Size(100, 20)
-        Me.TextDescentramientomaxrecta.TabIndex = 31
+        Me.Text_ancho_via.Location = New System.Drawing.Point(245, 422)
+        Me.Text_ancho_via.Name = "Text_ancho_via"
+        Me.Text_ancho_via.Size = New System.Drawing.Size(100, 20)
+        Me.Text_ancho_via.TabIndex = 31
         '
         'Label63
         '
@@ -888,12 +888,12 @@ Partial Class Pantalla_datos
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "m"
         '
-        'TextNumminvanosensecelect
+        'Text_n_min_va_sla
         '
-        Me.TextNumminvanosensecelect.Location = New System.Drawing.Point(245, 397)
-        Me.TextNumminvanosensecelect.Name = "TextNumminvanosensecelect"
-        Me.TextNumminvanosensecelect.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumminvanosensecelect.TabIndex = 27
+        Me.Text_n_min_va_sla.Location = New System.Drawing.Point(245, 397)
+        Me.Text_n_min_va_sla.Name = "Text_n_min_va_sla"
+        Me.Text_n_min_va_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_min_va_sla.TabIndex = 27
         '
         'Label14
         '
@@ -904,12 +904,12 @@ Partial Class Pantalla_datos
         Me.Label14.TabIndex = 26
         Me.Label14.Text = "Núm. mín. vanos en sec. eléct."
         '
-        'TextNumminvanosensecmec
+        'Text_n_min_va_sm
         '
-        Me.TextNumminvanosensecmec.Location = New System.Drawing.Point(245, 370)
-        Me.TextNumminvanosensecmec.Name = "TextNumminvanosensecmec"
-        Me.TextNumminvanosensecmec.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumminvanosensecmec.TabIndex = 25
+        Me.Text_n_min_va_sm.Location = New System.Drawing.Point(245, 370)
+        Me.Text_n_min_va_sm.Name = "Text_n_min_va_sm"
+        Me.Text_n_min_va_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_min_va_sm.TabIndex = 25
         '
         'Label15
         '
@@ -920,12 +920,12 @@ Partial Class Pantalla_datos
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Núm. mín. vanos en sec. mec."
         '
-        'TextIncrmaxalturahc
+        'Text_inc_max_alt_hc
         '
-        Me.TextIncrmaxalturahc.Location = New System.Drawing.Point(245, 344)
-        Me.TextIncrmaxalturahc.Name = "TextIncrmaxalturahc"
-        Me.TextIncrmaxalturahc.Size = New System.Drawing.Size(100, 20)
-        Me.TextIncrmaxalturahc.TabIndex = 23
+        Me.Text_inc_max_alt_hc.Location = New System.Drawing.Point(245, 344)
+        Me.Text_inc_max_alt_hc.Name = "Text_inc_max_alt_hc"
+        Me.Text_inc_max_alt_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_inc_max_alt_hc.TabIndex = 23
         '
         'Label16
         '
@@ -936,12 +936,12 @@ Partial Class Pantalla_datos
         Me.Label16.TabIndex = 22
         Me.Label16.Text = "Incr. máx. altura H.C."
         '
-        'TextIncrnormalizadodevano
+        'Text_inc_norm_va
         '
-        Me.TextIncrnormalizadodevano.Location = New System.Drawing.Point(245, 317)
-        Me.TextIncrnormalizadodevano.Name = "TextIncrnormalizadodevano"
-        Me.TextIncrnormalizadodevano.Size = New System.Drawing.Size(100, 20)
-        Me.TextIncrnormalizadodevano.TabIndex = 21
+        Me.Text_inc_norm_va.Location = New System.Drawing.Point(245, 317)
+        Me.Text_inc_norm_va.Name = "Text_inc_norm_va"
+        Me.Text_inc_norm_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_inc_norm_va.TabIndex = 21
         '
         'Label17
         '
@@ -952,12 +952,12 @@ Partial Class Pantalla_datos
         Me.Label17.TabIndex = 20
         Me.Label17.Text = "Incr. normalizado de vano"
         '
-        'TextVanomaxentunel
+        'Text_va_max_tunel
         '
-        Me.TextVanomaxentunel.Location = New System.Drawing.Point(245, 291)
-        Me.TextVanomaxentunel.Name = "TextVanomaxentunel"
-        Me.TextVanomaxentunel.Size = New System.Drawing.Size(100, 20)
-        Me.TextVanomaxentunel.TabIndex = 19
+        Me.Text_va_max_tunel.Location = New System.Drawing.Point(245, 291)
+        Me.Text_va_max_tunel.Name = "Text_va_max_tunel"
+        Me.Text_va_max_tunel.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_tunel.TabIndex = 19
         '
         'Label18
         '
@@ -968,12 +968,12 @@ Partial Class Pantalla_datos
         Me.Label18.TabIndex = 18
         Me.Label18.Text = "Vano máx. en túnel"
         '
-        'TextVanomaxensecelectrico
+        'Text_va_max_sla
         '
-        Me.TextVanomaxensecelectrico.Location = New System.Drawing.Point(245, 264)
-        Me.TextVanomaxensecelectrico.Name = "TextVanomaxensecelectrico"
-        Me.TextVanomaxensecelectrico.Size = New System.Drawing.Size(100, 20)
-        Me.TextVanomaxensecelectrico.TabIndex = 17
+        Me.Text_va_max_sla.Location = New System.Drawing.Point(245, 264)
+        Me.Text_va_max_sla.Name = "Text_va_max_sla"
+        Me.Text_va_max_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_sla.TabIndex = 17
         '
         'Label19
         '
@@ -984,12 +984,12 @@ Partial Class Pantalla_datos
         Me.Label19.TabIndex = 16
         Me.Label19.Text = "Vano máx. en sec. eléctrico"
         '
-        'TextVanomaxensecmecanico
+        'Text_va_max_sm
         '
-        Me.TextVanomaxensecmecanico.Location = New System.Drawing.Point(245, 238)
-        Me.TextVanomaxensecmecanico.Name = "TextVanomaxensecmecanico"
-        Me.TextVanomaxensecmecanico.Size = New System.Drawing.Size(100, 20)
-        Me.TextVanomaxensecmecanico.TabIndex = 15
+        Me.Text_va_max_sm.Location = New System.Drawing.Point(245, 238)
+        Me.Text_va_max_sm.Name = "Text_va_max_sm"
+        Me.Text_va_max_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_sm.TabIndex = 15
         '
         'Label8
         '
@@ -1000,12 +1000,12 @@ Partial Class Pantalla_datos
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Vano máx. en sec. mecánico"
         '
-        'TextVanomaximo
+        'Text_va_max
         '
-        Me.TextVanomaximo.Location = New System.Drawing.Point(245, 211)
-        Me.TextVanomaximo.Name = "TextVanomaximo"
-        Me.TextVanomaximo.Size = New System.Drawing.Size(100, 20)
-        Me.TextVanomaximo.TabIndex = 13
+        Me.Text_va_max.Location = New System.Drawing.Point(245, 211)
+        Me.Text_va_max.Name = "Text_va_max"
+        Me.Text_va_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max.TabIndex = 13
         '
         'Label9
         '
@@ -1016,12 +1016,12 @@ Partial Class Pantalla_datos
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "Vano máximo"
         '
-        'TextDistanciamaxdelcanton
+        'Text_dist_max_canton
         '
-        Me.TextDistanciamaxdelcanton.Location = New System.Drawing.Point(245, 185)
-        Me.TextDistanciamaxdelcanton.Name = "TextDistanciamaxdelcanton"
-        Me.TextDistanciamaxdelcanton.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciamaxdelcanton.TabIndex = 11
+        Me.Text_dist_max_canton.Location = New System.Drawing.Point(245, 185)
+        Me.Text_dist_max_canton.Name = "Text_dist_max_canton"
+        Me.Text_dist_max_canton.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_canton.TabIndex = 11
         '
         'Label10
         '
@@ -1032,12 +1032,12 @@ Partial Class Pantalla_datos
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Distancia máx. del cantón"
         '
-        'TextDistanciamaxentrevanos
+        'Text_dist_max_va
         '
-        Me.TextDistanciamaxentrevanos.Location = New System.Drawing.Point(245, 158)
-        Me.TextDistanciamaxentrevanos.Name = "TextDistanciamaxentrevanos"
-        Me.TextDistanciamaxentrevanos.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciamaxentrevanos.TabIndex = 9
+        Me.Text_dist_max_va.Location = New System.Drawing.Point(245, 158)
+        Me.Text_dist_max_va.Name = "Text_dist_max_va"
+        Me.Text_dist_max_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_va.TabIndex = 9
         '
         'Label11
         '
@@ -1048,12 +1048,12 @@ Partial Class Pantalla_datos
         Me.Label11.TabIndex = 8
         Me.Label11.Text = "Distancia máx. entre vanos"
         '
-        'TextAlturacatenaria
+        'Text_alt_cat
         '
-        Me.TextAlturacatenaria.Location = New System.Drawing.Point(245, 132)
-        Me.TextAlturacatenaria.Name = "TextAlturacatenaria"
-        Me.TextAlturacatenaria.Size = New System.Drawing.Size(100, 20)
-        Me.TextAlturacatenaria.TabIndex = 7
+        Me.Text_alt_cat.Location = New System.Drawing.Point(245, 132)
+        Me.Text_alt_cat.Name = "Text_alt_cat"
+        Me.Text_alt_cat.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_cat.TabIndex = 7
         '
         'Label6
         '
@@ -1064,12 +1064,12 @@ Partial Class Pantalla_datos
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Altura catenaria"
         '
-        'TextAlturamaxima
+        'Text_alt_max
         '
-        Me.TextAlturamaxima.Location = New System.Drawing.Point(245, 105)
-        Me.TextAlturamaxima.Name = "TextAlturamaxima"
-        Me.TextAlturamaxima.Size = New System.Drawing.Size(100, 20)
-        Me.TextAlturamaxima.TabIndex = 5
+        Me.Text_alt_max.Location = New System.Drawing.Point(245, 105)
+        Me.Text_alt_max.Name = "Text_alt_max"
+        Me.Text_alt_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_max.TabIndex = 5
         '
         'Label7
         '
@@ -1080,12 +1080,12 @@ Partial Class Pantalla_datos
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Altura máxima"
         '
-        'TextAlturaminima
+        'Text_alt_min
         '
-        Me.TextAlturaminima.Location = New System.Drawing.Point(245, 79)
-        Me.TextAlturaminima.Name = "TextAlturaminima"
-        Me.TextAlturaminima.Size = New System.Drawing.Size(100, 20)
-        Me.TextAlturaminima.TabIndex = 3
+        Me.Text_alt_min.Location = New System.Drawing.Point(245, 79)
+        Me.Text_alt_min.Name = "Text_alt_min"
+        Me.Text_alt_min.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_min.TabIndex = 3
         '
         'Label5
         '
@@ -1096,12 +1096,12 @@ Partial Class Pantalla_datos
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "Altura mínima"
         '
-        'TextAlturanominal
+        'Text_alt_nom
         '
-        Me.TextAlturanominal.Location = New System.Drawing.Point(245, 52)
-        Me.TextAlturanominal.Name = "TextAlturanominal"
-        Me.TextAlturanominal.Size = New System.Drawing.Size(100, 20)
-        Me.TextAlturanominal.TabIndex = 1
+        Me.Text_alt_nom.Location = New System.Drawing.Point(245, 52)
+        Me.Text_alt_nom.Name = "Text_alt_nom"
+        Me.Text_alt_nom.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_nom.TabIndex = 1
         '
         'Label4
         '
@@ -1114,57 +1114,57 @@ Partial Class Pantalla_datos
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.ComboPosicionfeedernegativo)
+        Me.TabPage2.Controls.Add(Me.Combo_posicion_feed_neg)
         Me.TabPage2.Controls.Add(Me.Label93)
-        Me.TabPage2.Controls.Add(Me.ComboPosicionfeederpositivo)
+        Me.TabPage2.Controls.Add(Me.Combo_posicion_feed_pos)
         Me.TabPage2.Controls.Add(Me.Label94)
         Me.TabPage2.Controls.Add(Me.Label87)
-        Me.TabPage2.Controls.Add(Me.TextTensionpuntofijo)
+        Me.TabPage2.Controls.Add(Me.Text_t_pto_fijo)
         Me.TabPage2.Controls.Add(Me.Label88)
         Me.TabPage2.Controls.Add(Me.Label91)
-        Me.TabPage2.Controls.Add(Me.TextTensionfeedernegativo)
+        Me.TabPage2.Controls.Add(Me.Text_t_feed_neg)
         Me.TabPage2.Controls.Add(Me.Label92)
         Me.TabPage2.Controls.Add(Me.Label85)
-        Me.TabPage2.Controls.Add(Me.TextTensionfeederpositivo)
+        Me.TabPage2.Controls.Add(Me.Text_t_feed_pos)
         Me.TabPage2.Controls.Add(Me.Label86)
         Me.TabPage2.Controls.Add(Me.Label89)
-        Me.TabPage2.Controls.Add(Me.TextTensioncdpa)
+        Me.TabPage2.Controls.Add(Me.Text_t_cdpa)
         Me.TabPage2.Controls.Add(Me.Label90)
         Me.TabPage2.Controls.Add(Me.Label77)
-        Me.TabPage2.Controls.Add(Me.TextTensionsustentador)
+        Me.TabPage2.Controls.Add(Me.Text_t_sust)
         Me.TabPage2.Controls.Add(Me.Label80)
         Me.TabPage2.Controls.Add(Me.Label81)
-        Me.TabPage2.Controls.Add(Me.TextTensionhc)
+        Me.TabPage2.Controls.Add(Me.Text_t_hc)
         Me.TabPage2.Controls.Add(Me.Label82)
         Me.TabPage2.Controls.Add(Me.Label83)
-        Me.TabPage2.Controls.Add(Me.TextNumfeedernegativo)
+        Me.TabPage2.Controls.Add(Me.Text_n_feed_neg)
         Me.TabPage2.Controls.Add(Me.Label84)
         Me.TabPage2.Controls.Add(Me.Label75)
-        Me.TabPage2.Controls.Add(Me.TextNumfeederpositivo)
+        Me.TabPage2.Controls.Add(Me.Text_n_feed_pos)
         Me.TabPage2.Controls.Add(Me.Label76)
         Me.TabPage2.Controls.Add(Me.Label73)
-        Me.TabPage2.Controls.Add(Me.TextNumcdpa)
+        Me.TabPage2.Controls.Add(Me.Text_n_cdpa)
         Me.TabPage2.Controls.Add(Me.Label74)
         Me.TabPage2.Controls.Add(Me.Label72)
-        Me.TabPage2.Controls.Add(Me.TextNumhc)
+        Me.TabPage2.Controls.Add(Me.Text_n_hc)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Controls.Add(Me.ComboAnclaje)
+        Me.TabPage2.Controls.Add(Me.Combo_anc)
         Me.TabPage2.Controls.Add(Me.Label79)
-        Me.TabPage2.Controls.Add(Me.ComboPendola)
+        Me.TabPage2.Controls.Add(Me.Combo_pend)
         Me.TabPage2.Controls.Add(Me.Label68)
-        Me.TabPage2.Controls.Add(Me.ComboPuntofijo)
+        Me.TabPage2.Controls.Add(Me.Combo_pto_fijo)
         Me.TabPage2.Controls.Add(Me.Label69)
-        Me.TabPage2.Controls.Add(Me.ComboFeedernegativo)
+        Me.TabPage2.Controls.Add(Me.Combo_feed_neg)
         Me.TabPage2.Controls.Add(Me.Label70)
-        Me.TabPage2.Controls.Add(Me.ComboFeederpositivo)
+        Me.TabPage2.Controls.Add(Me.Combo_feed_pos)
         Me.TabPage2.Controls.Add(Me.Label71)
-        Me.TabPage2.Controls.Add(Me.ComboCabledetierra)
+        Me.TabPage2.Controls.Add(Me.Combo_cdte)
         Me.TabPage2.Controls.Add(Me.Label66)
-        Me.TabPage2.Controls.Add(Me.ComboCdeproteccionaerea)
+        Me.TabPage2.Controls.Add(Me.Combo_cdpa)
         Me.TabPage2.Controls.Add(Me.Label67)
-        Me.TabPage2.Controls.Add(Me.ComboSustentador)
+        Me.TabPage2.Controls.Add(Me.Combo_sust)
         Me.TabPage2.Controls.Add(Me.Label65)
-        Me.TabPage2.Controls.Add(Me.ComboHilodecontacto)
+        Me.TabPage2.Controls.Add(Me.Combo_hc)
         Me.TabPage2.Controls.Add(Me.Label64)
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
@@ -1174,14 +1174,14 @@ Partial Class Pantalla_datos
         Me.TabPage2.Text = "CONDUCTORES"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'ComboPosicionfeedernegativo
+        'Combo_posicion_feed_neg
         '
-        Me.ComboPosicionfeedernegativo.FormattingEnabled = True
-        Me.ComboPosicionfeedernegativo.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
-        Me.ComboPosicionfeedernegativo.Location = New System.Drawing.Point(244, 362)
-        Me.ComboPosicionfeedernegativo.Name = "ComboPosicionfeedernegativo"
-        Me.ComboPosicionfeedernegativo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboPosicionfeedernegativo.TabIndex = 59
+        Me.Combo_posicion_feed_neg.FormattingEnabled = True
+        Me.Combo_posicion_feed_neg.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
+        Me.Combo_posicion_feed_neg.Location = New System.Drawing.Point(244, 362)
+        Me.Combo_posicion_feed_neg.Name = "Combo_posicion_feed_neg"
+        Me.Combo_posicion_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_posicion_feed_neg.TabIndex = 59
         '
         'Label93
         '
@@ -1192,14 +1192,14 @@ Partial Class Pantalla_datos
         Me.Label93.TabIndex = 58
         Me.Label93.Text = "Posición Feeder -"
         '
-        'ComboPosicionfeederpositivo
+        'Combo_posicion_feed_pos
         '
-        Me.ComboPosicionfeederpositivo.FormattingEnabled = True
-        Me.ComboPosicionfeederpositivo.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
-        Me.ComboPosicionfeederpositivo.Location = New System.Drawing.Point(244, 332)
-        Me.ComboPosicionfeederpositivo.Name = "ComboPosicionfeederpositivo"
-        Me.ComboPosicionfeederpositivo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboPosicionfeederpositivo.TabIndex = 57
+        Me.Combo_posicion_feed_pos.FormattingEnabled = True
+        Me.Combo_posicion_feed_pos.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
+        Me.Combo_posicion_feed_pos.Location = New System.Drawing.Point(244, 332)
+        Me.Combo_posicion_feed_pos.Name = "Combo_posicion_feed_pos"
+        Me.Combo_posicion_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_posicion_feed_pos.TabIndex = 57
         '
         'Label94
         '
@@ -1219,12 +1219,12 @@ Partial Class Pantalla_datos
         Me.Label87.TabIndex = 55
         Me.Label87.Text = "Kg"
         '
-        'TextTensionpuntofijo
+        'Text_t_pto_fijo
         '
-        Me.TextTensionpuntofijo.Location = New System.Drawing.Point(612, 299)
-        Me.TextTensionpuntofijo.Name = "TextTensionpuntofijo"
-        Me.TextTensionpuntofijo.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensionpuntofijo.TabIndex = 54
+        Me.Text_t_pto_fijo.Location = New System.Drawing.Point(612, 299)
+        Me.Text_t_pto_fijo.Name = "Text_t_pto_fijo"
+        Me.Text_t_pto_fijo.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_pto_fijo.TabIndex = 54
         '
         'Label88
         '
@@ -1244,12 +1244,12 @@ Partial Class Pantalla_datos
         Me.Label91.TabIndex = 52
         Me.Label91.Text = "Kg"
         '
-        'TextTensionfeedernegativo
+        'Text_t_feed_neg
         '
-        Me.TextTensionfeedernegativo.Location = New System.Drawing.Point(612, 273)
-        Me.TextTensionfeedernegativo.Name = "TextTensionfeedernegativo"
-        Me.TextTensionfeedernegativo.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensionfeedernegativo.TabIndex = 51
+        Me.Text_t_feed_neg.Location = New System.Drawing.Point(612, 273)
+        Me.Text_t_feed_neg.Name = "Text_t_feed_neg"
+        Me.Text_t_feed_neg.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_feed_neg.TabIndex = 51
         '
         'Label92
         '
@@ -1269,12 +1269,12 @@ Partial Class Pantalla_datos
         Me.Label85.TabIndex = 49
         Me.Label85.Text = "Kg"
         '
-        'TextTensionfeederpositivo
+        'Text_t_feed_pos
         '
-        Me.TextTensionfeederpositivo.Location = New System.Drawing.Point(612, 247)
-        Me.TextTensionfeederpositivo.Name = "TextTensionfeederpositivo"
-        Me.TextTensionfeederpositivo.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensionfeederpositivo.TabIndex = 48
+        Me.Text_t_feed_pos.Location = New System.Drawing.Point(612, 247)
+        Me.Text_t_feed_pos.Name = "Text_t_feed_pos"
+        Me.Text_t_feed_pos.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_feed_pos.TabIndex = 48
         '
         'Label86
         '
@@ -1294,12 +1294,12 @@ Partial Class Pantalla_datos
         Me.Label89.TabIndex = 46
         Me.Label89.Text = "Kg"
         '
-        'TextTensioncdpa
+        'Text_t_cdpa
         '
-        Me.TextTensioncdpa.Location = New System.Drawing.Point(612, 221)
-        Me.TextTensioncdpa.Name = "TextTensioncdpa"
-        Me.TextTensioncdpa.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensioncdpa.TabIndex = 45
+        Me.Text_t_cdpa.Location = New System.Drawing.Point(612, 221)
+        Me.Text_t_cdpa.Name = "Text_t_cdpa"
+        Me.Text_t_cdpa.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_cdpa.TabIndex = 45
         '
         'Label90
         '
@@ -1319,12 +1319,12 @@ Partial Class Pantalla_datos
         Me.Label77.TabIndex = 43
         Me.Label77.Text = "Kg"
         '
-        'TextTensionsustentador
+        'Text_t_sust
         '
-        Me.TextTensionsustentador.Location = New System.Drawing.Point(612, 195)
-        Me.TextTensionsustentador.Name = "TextTensionsustentador"
-        Me.TextTensionsustentador.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensionsustentador.TabIndex = 42
+        Me.Text_t_sust.Location = New System.Drawing.Point(612, 195)
+        Me.Text_t_sust.Name = "Text_t_sust"
+        Me.Text_t_sust.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_sust.TabIndex = 42
         '
         'Label80
         '
@@ -1344,12 +1344,12 @@ Partial Class Pantalla_datos
         Me.Label81.TabIndex = 40
         Me.Label81.Text = "Kg"
         '
-        'TextTensionhc
+        'Text_t_hc
         '
-        Me.TextTensionhc.Location = New System.Drawing.Point(612, 169)
-        Me.TextTensionhc.Name = "TextTensionhc"
-        Me.TextTensionhc.Size = New System.Drawing.Size(100, 20)
-        Me.TextTensionhc.TabIndex = 39
+        Me.Text_t_hc.Location = New System.Drawing.Point(612, 169)
+        Me.Text_t_hc.Name = "Text_t_hc"
+        Me.Text_t_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_hc.TabIndex = 39
         '
         'Label82
         '
@@ -1369,12 +1369,12 @@ Partial Class Pantalla_datos
         Me.Label83.TabIndex = 37
         Me.Label83.Text = "Ud"
         '
-        'TextNumfeedernegativo
+        'Text_n_feed_neg
         '
-        Me.TextNumfeedernegativo.Location = New System.Drawing.Point(612, 143)
-        Me.TextNumfeedernegativo.Name = "TextNumfeedernegativo"
-        Me.TextNumfeedernegativo.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumfeedernegativo.TabIndex = 36
+        Me.Text_n_feed_neg.Location = New System.Drawing.Point(612, 143)
+        Me.Text_n_feed_neg.Name = "Text_n_feed_neg"
+        Me.Text_n_feed_neg.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_feed_neg.TabIndex = 36
         '
         'Label84
         '
@@ -1394,12 +1394,12 @@ Partial Class Pantalla_datos
         Me.Label75.TabIndex = 34
         Me.Label75.Text = "Ud"
         '
-        'TextNumfeederpositivo
+        'Text_n_feed_pos
         '
-        Me.TextNumfeederpositivo.Location = New System.Drawing.Point(612, 117)
-        Me.TextNumfeederpositivo.Name = "TextNumfeederpositivo"
-        Me.TextNumfeederpositivo.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumfeederpositivo.TabIndex = 33
+        Me.Text_n_feed_pos.Location = New System.Drawing.Point(612, 117)
+        Me.Text_n_feed_pos.Name = "Text_n_feed_pos"
+        Me.Text_n_feed_pos.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_feed_pos.TabIndex = 33
         '
         'Label76
         '
@@ -1419,12 +1419,12 @@ Partial Class Pantalla_datos
         Me.Label73.TabIndex = 31
         Me.Label73.Text = "Ud"
         '
-        'TextNumcdpa
+        'Text_n_cdpa
         '
-        Me.TextNumcdpa.Location = New System.Drawing.Point(612, 91)
-        Me.TextNumcdpa.Name = "TextNumcdpa"
-        Me.TextNumcdpa.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumcdpa.TabIndex = 30
+        Me.Text_n_cdpa.Location = New System.Drawing.Point(612, 91)
+        Me.Text_n_cdpa.Name = "Text_n_cdpa"
+        Me.Text_n_cdpa.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_cdpa.TabIndex = 30
         '
         'Label74
         '
@@ -1444,12 +1444,12 @@ Partial Class Pantalla_datos
         Me.Label72.TabIndex = 28
         Me.Label72.Text = "Ud"
         '
-        'TextNumhc
+        'Text_n_hc
         '
-        Me.TextNumhc.Location = New System.Drawing.Point(612, 65)
-        Me.TextNumhc.Name = "TextNumhc"
-        Me.TextNumhc.Size = New System.Drawing.Size(100, 20)
-        Me.TextNumhc.TabIndex = 27
+        Me.Text_n_hc.Location = New System.Drawing.Point(612, 65)
+        Me.Text_n_hc.Name = "Text_n_hc"
+        Me.Text_n_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_hc.TabIndex = 27
         '
         'Label78
         '
@@ -1460,15 +1460,15 @@ Partial Class Pantalla_datos
         Me.Label78.TabIndex = 18
         Me.Label78.Text = "Núm H.C."
         '
-        'ComboAnclaje
+        'Combo_anc
         '
-        Me.ComboAnclaje.DataSource = Me.ConductorAnclajeBindingSource
-        Me.ComboAnclaje.DisplayMember = "Material"
-        Me.ComboAnclaje.FormattingEnabled = True
-        Me.ComboAnclaje.Location = New System.Drawing.Point(244, 302)
-        Me.ComboAnclaje.Name = "ComboAnclaje"
-        Me.ComboAnclaje.Size = New System.Drawing.Size(121, 24)
-        Me.ComboAnclaje.TabIndex = 17
+        Me.Combo_anc.DataSource = Me.ConductorAnclajeBindingSource
+        Me.Combo_anc.DisplayMember = "Material"
+        Me.Combo_anc.FormattingEnabled = True
+        Me.Combo_anc.Location = New System.Drawing.Point(244, 302)
+        Me.Combo_anc.Name = "Combo_anc"
+        Me.Combo_anc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_anc.TabIndex = 17
         '
         'ConductorAnclajeBindingSource
         '
@@ -1489,15 +1489,15 @@ Partial Class Pantalla_datos
         Me.Label79.TabIndex = 16
         Me.Label79.Text = "Anclaje"
         '
-        'ComboPendola
+        'Combo_pend
         '
-        Me.ComboPendola.DataSource = Me.ConductorPendolaBindingSource
-        Me.ComboPendola.DisplayMember = "Material"
-        Me.ComboPendola.FormattingEnabled = True
-        Me.ComboPendola.Location = New System.Drawing.Point(244, 272)
-        Me.ComboPendola.Name = "ComboPendola"
-        Me.ComboPendola.Size = New System.Drawing.Size(121, 24)
-        Me.ComboPendola.TabIndex = 15
+        Me.Combo_pend.DataSource = Me.ConductorPendolaBindingSource
+        Me.Combo_pend.DisplayMember = "Material"
+        Me.Combo_pend.FormattingEnabled = True
+        Me.Combo_pend.Location = New System.Drawing.Point(244, 272)
+        Me.Combo_pend.Name = "Combo_pend"
+        Me.Combo_pend.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_pend.TabIndex = 15
         '
         'ConductorPendolaBindingSource
         '
@@ -1513,15 +1513,15 @@ Partial Class Pantalla_datos
         Me.Label68.TabIndex = 14
         Me.Label68.Text = "Péndola"
         '
-        'ComboPuntofijo
+        'Combo_pto_fijo
         '
-        Me.ComboPuntofijo.DataSource = Me.ConductorPuntoFijoBindingSource
-        Me.ComboPuntofijo.DisplayMember = "Material"
-        Me.ComboPuntofijo.FormattingEnabled = True
-        Me.ComboPuntofijo.Location = New System.Drawing.Point(244, 242)
-        Me.ComboPuntofijo.Name = "ComboPuntofijo"
-        Me.ComboPuntofijo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboPuntofijo.TabIndex = 13
+        Me.Combo_pto_fijo.DataSource = Me.ConductorPuntoFijoBindingSource
+        Me.Combo_pto_fijo.DisplayMember = "Material"
+        Me.Combo_pto_fijo.FormattingEnabled = True
+        Me.Combo_pto_fijo.Location = New System.Drawing.Point(244, 242)
+        Me.Combo_pto_fijo.Name = "Combo_pto_fijo"
+        Me.Combo_pto_fijo.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_pto_fijo.TabIndex = 13
         '
         'ConductorPuntoFijoBindingSource
         '
@@ -1537,15 +1537,15 @@ Partial Class Pantalla_datos
         Me.Label69.TabIndex = 12
         Me.Label69.Text = "Punto fijo"
         '
-        'ComboFeedernegativo
+        'Combo_feed_neg
         '
-        Me.ComboFeedernegativo.DataSource = Me.ConductorFeederBindingSource1
-        Me.ComboFeedernegativo.DisplayMember = "Material"
-        Me.ComboFeedernegativo.FormattingEnabled = True
-        Me.ComboFeedernegativo.Location = New System.Drawing.Point(244, 212)
-        Me.ComboFeedernegativo.Name = "ComboFeedernegativo"
-        Me.ComboFeedernegativo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboFeedernegativo.TabIndex = 11
+        Me.Combo_feed_neg.DataSource = Me.ConductorFeederBindingSource1
+        Me.Combo_feed_neg.DisplayMember = "Material"
+        Me.Combo_feed_neg.FormattingEnabled = True
+        Me.Combo_feed_neg.Location = New System.Drawing.Point(244, 212)
+        Me.Combo_feed_neg.Name = "Combo_feed_neg"
+        Me.Combo_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_feed_neg.TabIndex = 11
         '
         'ConductorFeederBindingSource1
         '
@@ -1561,15 +1561,15 @@ Partial Class Pantalla_datos
         Me.Label70.TabIndex = 10
         Me.Label70.Text = "Feeder -"
         '
-        'ComboFeederpositivo
+        'Combo_feed_pos
         '
-        Me.ComboFeederpositivo.DataSource = Me.ConductorFeederBindingSource
-        Me.ComboFeederpositivo.DisplayMember = "Material"
-        Me.ComboFeederpositivo.FormattingEnabled = True
-        Me.ComboFeederpositivo.Location = New System.Drawing.Point(244, 182)
-        Me.ComboFeederpositivo.Name = "ComboFeederpositivo"
-        Me.ComboFeederpositivo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboFeederpositivo.TabIndex = 9
+        Me.Combo_feed_pos.DataSource = Me.ConductorFeederBindingSource
+        Me.Combo_feed_pos.DisplayMember = "Material"
+        Me.Combo_feed_pos.FormattingEnabled = True
+        Me.Combo_feed_pos.Location = New System.Drawing.Point(244, 182)
+        Me.Combo_feed_pos.Name = "Combo_feed_pos"
+        Me.Combo_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_feed_pos.TabIndex = 9
         '
         'ConductorFeederBindingSource
         '
@@ -1585,15 +1585,15 @@ Partial Class Pantalla_datos
         Me.Label71.TabIndex = 8
         Me.Label71.Text = "Feeder +"
         '
-        'ComboCabledetierra
+        'Combo_cdte
         '
-        Me.ComboCabledetierra.DataSource = Me.ConductorCableDeTierraBindingSource
-        Me.ComboCabledetierra.DisplayMember = "Material"
-        Me.ComboCabledetierra.FormattingEnabled = True
-        Me.ComboCabledetierra.Location = New System.Drawing.Point(244, 152)
-        Me.ComboCabledetierra.Name = "ComboCabledetierra"
-        Me.ComboCabledetierra.Size = New System.Drawing.Size(121, 24)
-        Me.ComboCabledetierra.TabIndex = 7
+        Me.Combo_cdte.DataSource = Me.ConductorCableDeTierraBindingSource
+        Me.Combo_cdte.DisplayMember = "Material"
+        Me.Combo_cdte.FormattingEnabled = True
+        Me.Combo_cdte.Location = New System.Drawing.Point(244, 152)
+        Me.Combo_cdte.Name = "Combo_cdte"
+        Me.Combo_cdte.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cdte.TabIndex = 7
         '
         'ConductorCableDeTierraBindingSource
         '
@@ -1609,15 +1609,15 @@ Partial Class Pantalla_datos
         Me.Label66.TabIndex = 6
         Me.Label66.Text = "Cable de Tierra"
         '
-        'ComboCdeproteccionaerea
+        'Combo_cdpa
         '
-        Me.ComboCdeproteccionaerea.DataSource = Me.ConductorCDPABindingSource
-        Me.ComboCdeproteccionaerea.DisplayMember = "Material"
-        Me.ComboCdeproteccionaerea.FormattingEnabled = True
-        Me.ComboCdeproteccionaerea.Location = New System.Drawing.Point(244, 122)
-        Me.ComboCdeproteccionaerea.Name = "ComboCdeproteccionaerea"
-        Me.ComboCdeproteccionaerea.Size = New System.Drawing.Size(121, 24)
-        Me.ComboCdeproteccionaerea.TabIndex = 5
+        Me.Combo_cdpa.DataSource = Me.ConductorCDPABindingSource
+        Me.Combo_cdpa.DisplayMember = "Material"
+        Me.Combo_cdpa.FormattingEnabled = True
+        Me.Combo_cdpa.Location = New System.Drawing.Point(244, 122)
+        Me.Combo_cdpa.Name = "Combo_cdpa"
+        Me.Combo_cdpa.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cdpa.TabIndex = 5
         '
         'ConductorCDPABindingSource
         '
@@ -1633,15 +1633,15 @@ Partial Class Pantalla_datos
         Me.Label67.TabIndex = 4
         Me.Label67.Text = "C. de Protección Aérea"
         '
-        'ComboSustentador
+        'Combo_sust
         '
-        Me.ComboSustentador.DataSource = Me.ConductorSustentadorBindingSource
-        Me.ComboSustentador.DisplayMember = "Material"
-        Me.ComboSustentador.FormattingEnabled = True
-        Me.ComboSustentador.Location = New System.Drawing.Point(244, 92)
-        Me.ComboSustentador.Name = "ComboSustentador"
-        Me.ComboSustentador.Size = New System.Drawing.Size(121, 24)
-        Me.ComboSustentador.TabIndex = 3
+        Me.Combo_sust.DataSource = Me.ConductorSustentadorBindingSource
+        Me.Combo_sust.DisplayMember = "Material"
+        Me.Combo_sust.FormattingEnabled = True
+        Me.Combo_sust.Location = New System.Drawing.Point(244, 92)
+        Me.Combo_sust.Name = "Combo_sust"
+        Me.Combo_sust.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_sust.TabIndex = 3
         '
         'ConductorSustentadorBindingSource
         '
@@ -1657,15 +1657,15 @@ Partial Class Pantalla_datos
         Me.Label65.TabIndex = 2
         Me.Label65.Text = "Sustentador"
         '
-        'ComboHilodecontacto
+        'Combo_hc
         '
-        Me.ComboHilodecontacto.DataSource = Me.ConductorHCBindingSource
-        Me.ComboHilodecontacto.DisplayMember = "Material"
-        Me.ComboHilodecontacto.FormattingEnabled = True
-        Me.ComboHilodecontacto.Location = New System.Drawing.Point(244, 62)
-        Me.ComboHilodecontacto.Name = "ComboHilodecontacto"
-        Me.ComboHilodecontacto.Size = New System.Drawing.Size(121, 24)
-        Me.ComboHilodecontacto.TabIndex = 1
+        Me.Combo_hc.DataSource = Me.ConductorHCBindingSource
+        Me.Combo_hc.DisplayMember = "Material"
+        Me.Combo_hc.FormattingEnabled = True
+        Me.Combo_hc.Location = New System.Drawing.Point(244, 62)
+        Me.Combo_hc.Name = "Combo_hc"
+        Me.Combo_hc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_hc.TabIndex = 1
         '
         'ConductorHCBindingSource
         '
@@ -1695,11 +1695,11 @@ Partial Class Pantalla_datos
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ComboNumeración)
+        Me.GroupBox2.Controls.Add(Me.Combo_num_poste)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.TextTipo)
+        Me.GroupBox2.Controls.Add(Me.Text_tip_poste)
         Me.GroupBox2.Controls.Add(Me.Label97)
-        Me.GroupBox2.Controls.Add(Me.ComboAdmlinea)
+        Me.GroupBox2.Controls.Add(Me.Combo_adm_lin_poste)
         Me.GroupBox2.Controls.Add(Me.Label98)
         Me.GroupBox2.Location = New System.Drawing.Point(84, 68)
         Me.GroupBox2.Name = "GroupBox2"
@@ -1708,14 +1708,14 @@ Partial Class Pantalla_datos
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "POSTES"
         '
-        'ComboNumeración
+        'Combo_num_poste
         '
-        Me.ComboNumeración.FormattingEnabled = True
-        Me.ComboNumeración.Items.AddRange(New Object() {"pk + poste", "añadir..."})
-        Me.ComboNumeración.Location = New System.Drawing.Point(142, 102)
-        Me.ComboNumeración.Name = "ComboNumeración"
-        Me.ComboNumeración.Size = New System.Drawing.Size(121, 24)
-        Me.ComboNumeración.TabIndex = 6
+        Me.Combo_num_poste.FormattingEnabled = True
+        Me.Combo_num_poste.Items.AddRange(New Object() {"pk + poste", "añadir..."})
+        Me.Combo_num_poste.Location = New System.Drawing.Point(142, 102)
+        Me.Combo_num_poste.Name = "Combo_num_poste"
+        Me.Combo_num_poste.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_num_poste.TabIndex = 6
         '
         'Label1
         '
@@ -1726,14 +1726,14 @@ Partial Class Pantalla_datos
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Numeración"
         '
-        'TextTipo
+        'Text_tip_poste
         '
-        Me.TextTipo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PostesConsultaBindingSource, "Poste", True))
-        Me.TextTipo.Location = New System.Drawing.Point(142, 76)
-        Me.TextTipo.Name = "TextTipo"
-        Me.TextTipo.ReadOnly = True
-        Me.TextTipo.Size = New System.Drawing.Size(100, 20)
-        Me.TextTipo.TabIndex = 4
+        Me.Text_tip_poste.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PostesConsultaBindingSource, "Poste", True))
+        Me.Text_tip_poste.Location = New System.Drawing.Point(142, 76)
+        Me.Text_tip_poste.Name = "Text_tip_poste"
+        Me.Text_tip_poste.ReadOnly = True
+        Me.Text_tip_poste.Size = New System.Drawing.Size(100, 20)
+        Me.Text_tip_poste.TabIndex = 4
         '
         'PostesConsultaBindingSource
         '
@@ -1749,16 +1749,16 @@ Partial Class Pantalla_datos
         Me.Label97.TabIndex = 2
         Me.Label97.Text = "Tipo"
         '
-        'ComboAdmlinea
+        'Combo_adm_lin_poste
         '
-        Me.ComboAdmlinea.DataSource = Me.PostesConsultaBindingSource
-        Me.ComboAdmlinea.DisplayMember = "Adm/Lín"
-        Me.ComboAdmlinea.FormattingEnabled = True
-        Me.ComboAdmlinea.Location = New System.Drawing.Point(142, 46)
-        Me.ComboAdmlinea.Name = "ComboAdmlinea"
-        Me.ComboAdmlinea.Size = New System.Drawing.Size(121, 24)
-        Me.ComboAdmlinea.TabIndex = 1
-        Me.ComboAdmlinea.ValueMember = "Poste"
+        Me.Combo_adm_lin_poste.DataSource = Me.PostesConsultaBindingSource
+        Me.Combo_adm_lin_poste.DisplayMember = "Adm/Lín"
+        Me.Combo_adm_lin_poste.FormattingEnabled = True
+        Me.Combo_adm_lin_poste.Location = New System.Drawing.Point(142, 46)
+        Me.Combo_adm_lin_poste.Name = "Combo_adm_lin_poste"
+        Me.Combo_adm_lin_poste.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_adm_lin_poste.TabIndex = 1
+        Me.Combo_adm_lin_poste.ValueMember = "Poste"
         '
         'Label98
         '
@@ -1771,9 +1771,9 @@ Partial Class Pantalla_datos
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextTipomacizo)
+        Me.GroupBox1.Controls.Add(Me.Text_tip_mac)
         Me.GroupBox1.Controls.Add(Me.Label96)
-        Me.GroupBox1.Controls.Add(Me.ComboAdmlineamacizo)
+        Me.GroupBox1.Controls.Add(Me.Combo_adm_lin_mac)
         Me.GroupBox1.Controls.Add(Me.Label95)
         Me.GroupBox1.Location = New System.Drawing.Point(468, 68)
         Me.GroupBox1.Name = "GroupBox1"
@@ -1782,14 +1782,14 @@ Partial Class Pantalla_datos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "MACIZOS"
         '
-        'TextTipomacizo
+        'Text_tip_mac
         '
-        Me.TextTipomacizo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Macizos_ConsultaBindingSource, "Macizo", True))
-        Me.TextTipomacizo.Location = New System.Drawing.Point(149, 73)
-        Me.TextTipomacizo.Name = "TextTipomacizo"
-        Me.TextTipomacizo.ReadOnly = True
-        Me.TextTipomacizo.Size = New System.Drawing.Size(100, 20)
-        Me.TextTipomacizo.TabIndex = 4
+        Me.Text_tip_mac.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Macizos_ConsultaBindingSource, "Macizo", True))
+        Me.Text_tip_mac.Location = New System.Drawing.Point(149, 73)
+        Me.Text_tip_mac.Name = "Text_tip_mac"
+        Me.Text_tip_mac.ReadOnly = True
+        Me.Text_tip_mac.Size = New System.Drawing.Size(100, 20)
+        Me.Text_tip_mac.TabIndex = 4
         '
         'Macizos_ConsultaBindingSource
         '
@@ -1805,16 +1805,16 @@ Partial Class Pantalla_datos
         Me.Label96.TabIndex = 2
         Me.Label96.Text = "Adm./Línea"
         '
-        'ComboAdmlineamacizo
+        'Combo_adm_lin_mac
         '
-        Me.ComboAdmlineamacizo.DataSource = Me.Macizos_ConsultaBindingSource
-        Me.ComboAdmlineamacizo.DisplayMember = "Adm/Lín"
-        Me.ComboAdmlineamacizo.FormattingEnabled = True
-        Me.ComboAdmlineamacizo.Location = New System.Drawing.Point(149, 43)
-        Me.ComboAdmlineamacizo.Name = "ComboAdmlineamacizo"
-        Me.ComboAdmlineamacizo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboAdmlineamacizo.TabIndex = 1
-        Me.ComboAdmlineamacizo.ValueMember = "Macizo"
+        Me.Combo_adm_lin_mac.DataSource = Me.Macizos_ConsultaBindingSource
+        Me.Combo_adm_lin_mac.DisplayMember = "Adm/Lín"
+        Me.Combo_adm_lin_mac.FormattingEnabled = True
+        Me.Combo_adm_lin_mac.Location = New System.Drawing.Point(149, 43)
+        Me.Combo_adm_lin_mac.Name = "Combo_adm_lin_mac"
+        Me.Combo_adm_lin_mac.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_adm_lin_mac.TabIndex = 1
+        Me.Combo_adm_lin_mac.ValueMember = "Macizo"
         '
         'Label95
         '
@@ -1841,9 +1841,9 @@ Partial Class Pantalla_datos
         Me.GroupBox4.Controls.Add(Me.Label13)
         Me.GroupBox4.Controls.Add(Me.Label31)
         Me.GroupBox4.Controls.Add(Me.Label99)
-        Me.GroupBox4.Controls.Add(Me.TextDistanciamaxentrependolas)
-        Me.GroupBox4.Controls.Add(Me.TextDistanciaprimeraysegundapendola)
-        Me.GroupBox4.Controls.Add(Me.TextDistanciaapoyoyprimerapendola)
+        Me.GroupBox4.Controls.Add(Me.Text_dist_max_pend)
+        Me.GroupBox4.Controls.Add(Me.Text_dist_prim_seg_pend)
+        Me.GroupBox4.Controls.Add(Me.Text_dist_ap_prim_pend)
         Me.GroupBox4.Controls.Add(Me.Label107)
         Me.GroupBox4.Controls.Add(Me.Label108)
         Me.GroupBox4.Controls.Add(Me.Label109)
@@ -1881,26 +1881,26 @@ Partial Class Pantalla_datos
         Me.Label99.TabIndex = 38
         Me.Label99.Text = "m"
         '
-        'TextDistanciamaxentrependolas
+        'Text_dist_max_pend
         '
-        Me.TextDistanciamaxentrependolas.Location = New System.Drawing.Point(226, 92)
-        Me.TextDistanciamaxentrependolas.Name = "TextDistanciamaxentrependolas"
-        Me.TextDistanciamaxentrependolas.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciamaxentrependolas.TabIndex = 7
+        Me.Text_dist_max_pend.Location = New System.Drawing.Point(226, 92)
+        Me.Text_dist_max_pend.Name = "Text_dist_max_pend"
+        Me.Text_dist_max_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_pend.TabIndex = 7
         '
-        'TextDistanciaprimeraysegundapendola
+        'Text_dist_prim_seg_pend
         '
-        Me.TextDistanciaprimeraysegundapendola.Location = New System.Drawing.Point(226, 66)
-        Me.TextDistanciaprimeraysegundapendola.Name = "TextDistanciaprimeraysegundapendola"
-        Me.TextDistanciaprimeraysegundapendola.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciaprimeraysegundapendola.TabIndex = 6
+        Me.Text_dist_prim_seg_pend.Location = New System.Drawing.Point(226, 66)
+        Me.Text_dist_prim_seg_pend.Name = "Text_dist_prim_seg_pend"
+        Me.Text_dist_prim_seg_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_prim_seg_pend.TabIndex = 6
         '
-        'TextDistanciaapoyoyprimerapendola
+        'Text_dist_ap_prim_pend
         '
-        Me.TextDistanciaapoyoyprimerapendola.Location = New System.Drawing.Point(226, 40)
-        Me.TextDistanciaapoyoyprimerapendola.Name = "TextDistanciaapoyoyprimerapendola"
-        Me.TextDistanciaapoyoyprimerapendola.Size = New System.Drawing.Size(100, 20)
-        Me.TextDistanciaapoyoyprimerapendola.TabIndex = 5
+        Me.Text_dist_ap_prim_pend.Location = New System.Drawing.Point(226, 40)
+        Me.Text_dist_ap_prim_pend.Name = "Text_dist_ap_prim_pend"
+        Me.Text_dist_ap_prim_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_ap_prim_pend.TabIndex = 5
         '
         'Label107
         '
@@ -1931,15 +1931,15 @@ Partial Class Pantalla_datos
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.ComboAisladorfeedernegativo)
+        Me.GroupBox3.Controls.Add(Me.Combo_aisl_feed_neg)
         Me.GroupBox3.Controls.Add(Me.Label104)
-        Me.GroupBox3.Controls.Add(Me.ComboAisladorfeederpositivo)
+        Me.GroupBox3.Controls.Add(Me.Combo_aisl_feed_pos)
         Me.GroupBox3.Controls.Add(Me.Label102)
-        Me.GroupBox3.Controls.Add(Me.ComboColadeanclaje)
+        Me.GroupBox3.Controls.Add(Me.Combo_cola_anc)
         Me.GroupBox3.Controls.Add(Me.Label103)
-        Me.GroupBox3.Controls.Add(Me.ComboTubotirante)
+        Me.GroupBox3.Controls.Add(Me.Combo_tubo_tir)
         Me.GroupBox3.Controls.Add(Me.Label101)
-        Me.GroupBox3.Controls.Add(Me.ComboTubodemensula)
+        Me.GroupBox3.Controls.Add(Me.Combo_tubo_men)
         Me.GroupBox3.Controls.Add(Me.Label100)
         Me.GroupBox3.Location = New System.Drawing.Point(57, 62)
         Me.GroupBox3.Name = "GroupBox3"
@@ -1948,14 +1948,14 @@ Partial Class Pantalla_datos
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "AISLADORES"
         '
-        'ComboAisladorfeedernegativo
+        'Combo_aisl_feed_neg
         '
-        Me.ComboAisladorfeedernegativo.FormattingEnabled = True
-        Me.ComboAisladorfeedernegativo.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.ComboAisladorfeedernegativo.Location = New System.Drawing.Point(168, 160)
-        Me.ComboAisladorfeedernegativo.Name = "ComboAisladorfeedernegativo"
-        Me.ComboAisladorfeedernegativo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboAisladorfeedernegativo.TabIndex = 9
+        Me.Combo_aisl_feed_neg.FormattingEnabled = True
+        Me.Combo_aisl_feed_neg.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
+        Me.Combo_aisl_feed_neg.Location = New System.Drawing.Point(168, 160)
+        Me.Combo_aisl_feed_neg.Name = "Combo_aisl_feed_neg"
+        Me.Combo_aisl_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_aisl_feed_neg.TabIndex = 9
         '
         'Label104
         '
@@ -1966,14 +1966,14 @@ Partial Class Pantalla_datos
         Me.Label104.TabIndex = 8
         Me.Label104.Text = "Feeder -"
         '
-        'ComboAisladorfeederpositivo
+        'Combo_aisl_feed_pos
         '
-        Me.ComboAisladorfeederpositivo.FormattingEnabled = True
-        Me.ComboAisladorfeederpositivo.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.ComboAisladorfeederpositivo.Location = New System.Drawing.Point(168, 130)
-        Me.ComboAisladorfeederpositivo.Name = "ComboAisladorfeederpositivo"
-        Me.ComboAisladorfeederpositivo.Size = New System.Drawing.Size(121, 24)
-        Me.ComboAisladorfeederpositivo.TabIndex = 7
+        Me.Combo_aisl_feed_pos.FormattingEnabled = True
+        Me.Combo_aisl_feed_pos.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
+        Me.Combo_aisl_feed_pos.Location = New System.Drawing.Point(168, 130)
+        Me.Combo_aisl_feed_pos.Name = "Combo_aisl_feed_pos"
+        Me.Combo_aisl_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_aisl_feed_pos.TabIndex = 7
         '
         'Label102
         '
@@ -1984,14 +1984,14 @@ Partial Class Pantalla_datos
         Me.Label102.TabIndex = 6
         Me.Label102.Text = "Feeder +"
         '
-        'ComboColadeanclaje
+        'Combo_cola_anc
         '
-        Me.ComboColadeanclaje.FormattingEnabled = True
-        Me.ComboColadeanclaje.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.ComboColadeanclaje.Location = New System.Drawing.Point(168, 100)
-        Me.ComboColadeanclaje.Name = "ComboColadeanclaje"
-        Me.ComboColadeanclaje.Size = New System.Drawing.Size(121, 24)
-        Me.ComboColadeanclaje.TabIndex = 5
+        Me.Combo_cola_anc.FormattingEnabled = True
+        Me.Combo_cola_anc.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
+        Me.Combo_cola_anc.Location = New System.Drawing.Point(168, 100)
+        Me.Combo_cola_anc.Name = "Combo_cola_anc"
+        Me.Combo_cola_anc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cola_anc.TabIndex = 5
         '
         'Label103
         '
@@ -2002,14 +2002,14 @@ Partial Class Pantalla_datos
         Me.Label103.TabIndex = 4
         Me.Label103.Text = "Cola de anclaje"
         '
-        'ComboTubotirante
+        'Combo_tubo_tir
         '
-        Me.ComboTubotirante.FormattingEnabled = True
-        Me.ComboTubotirante.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.ComboTubotirante.Location = New System.Drawing.Point(168, 70)
-        Me.ComboTubotirante.Name = "ComboTubotirante"
-        Me.ComboTubotirante.Size = New System.Drawing.Size(121, 24)
-        Me.ComboTubotirante.TabIndex = 3
+        Me.Combo_tubo_tir.FormattingEnabled = True
+        Me.Combo_tubo_tir.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
+        Me.Combo_tubo_tir.Location = New System.Drawing.Point(168, 70)
+        Me.Combo_tubo_tir.Name = "Combo_tubo_tir"
+        Me.Combo_tubo_tir.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_tubo_tir.TabIndex = 3
         '
         'Label101
         '
@@ -2020,14 +2020,14 @@ Partial Class Pantalla_datos
         Me.Label101.TabIndex = 2
         Me.Label101.Text = "Tubo tirante"
         '
-        'ComboTubodemensula
+        'Combo_tubo_men
         '
-        Me.ComboTubodemensula.FormattingEnabled = True
-        Me.ComboTubodemensula.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.ComboTubodemensula.Location = New System.Drawing.Point(168, 40)
-        Me.ComboTubodemensula.Name = "ComboTubodemensula"
-        Me.ComboTubodemensula.Size = New System.Drawing.Size(121, 24)
-        Me.ComboTubodemensula.TabIndex = 1
+        Me.Combo_tubo_men.FormattingEnabled = True
+        Me.Combo_tubo_men.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
+        Me.Combo_tubo_men.Location = New System.Drawing.Point(168, 40)
+        Me.Combo_tubo_men.Name = "Combo_tubo_men"
+        Me.Combo_tubo_men.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_tubo_men.TabIndex = 1
         '
         'Label100
         '
@@ -2062,33 +2062,34 @@ Partial Class Pantalla_datos
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.Conductores_y_cablesTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.ContraseñaTableAdapter = Nothing
         Me.TableAdapterManager.DatosTableAdapter = Nothing
         Me.TableAdapterManager.ElectrificaciónTableAdapter = Nothing
         Me.TableAdapterManager.MacizosTableAdapter = Nothing
         Me.TableAdapterManager.PostesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'TextAlimentacion
+        'Text_al
         '
-        Me.TextAlimentacion.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Alimentación", True))
-        Me.TextAlimentacion.Location = New System.Drawing.Point(368, 53)
-        Me.TextAlimentacion.Name = "TextAlimentacion"
-        Me.TextAlimentacion.ReadOnly = True
-        Me.TextAlimentacion.Size = New System.Drawing.Size(100, 20)
-        Me.TextAlimentacion.TabIndex = 7
+        Me.Text_al.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Alimentación", True))
+        Me.Text_al.Location = New System.Drawing.Point(368, 53)
+        Me.Text_al.Name = "Text_al"
+        Me.Text_al.ReadOnly = True
+        Me.Text_al.Size = New System.Drawing.Size(100, 20)
+        Me.Text_al.TabIndex = 7
         '
-        'ComboSistema
+        'Combo_sist
         '
-        Me.ComboSistema.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Sistema", True))
-        Me.ComboSistema.DataSource = Me.Electrificación_ConsultaBindingSource
-        Me.ComboSistema.DisplayMember = "Sistema"
-        Me.ComboSistema.FormattingEnabled = True
-        Me.ComboSistema.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.ComboSistema.Location = New System.Drawing.Point(128, 49)
-        Me.ComboSistema.Name = "ComboSistema"
-        Me.ComboSistema.Size = New System.Drawing.Size(121, 24)
-        Me.ComboSistema.TabIndex = 8
-        Me.ComboSistema.ValueMember = "Alimentación"
+        Me.Combo_sist.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Sistema", True))
+        Me.Combo_sist.DataSource = Me.Electrificación_ConsultaBindingSource
+        Me.Combo_sist.DisplayMember = "Sistema"
+        Me.Combo_sist.FormattingEnabled = True
+        Me.Combo_sist.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.Combo_sist.Location = New System.Drawing.Point(128, 49)
+        Me.Combo_sist.Name = "Combo_sist"
+        Me.Combo_sist.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_sist.TabIndex = 8
+        Me.Combo_sist.ValueMember = "Alimentación"
         '
         'Macizos_ConsultaTableAdapter
         '
@@ -2143,12 +2144,12 @@ Partial Class Pantalla_datos
         Me.Button2.Text = "GUARDAR DATOS"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'TextNombrecatenaria
+        'Text_nombre_cat
         '
-        Me.TextNombrecatenaria.Location = New System.Drawing.Point(227, 16)
-        Me.TextNombrecatenaria.Name = "TextNombrecatenaria"
-        Me.TextNombrecatenaria.Size = New System.Drawing.Size(100, 20)
-        Me.TextNombrecatenaria.TabIndex = 11
+        Me.Text_nombre_cat.Location = New System.Drawing.Point(227, 16)
+        Me.Text_nombre_cat.Name = "Text_nombre_cat"
+        Me.Text_nombre_cat.Size = New System.Drawing.Size(100, 20)
+        Me.Text_nombre_cat.TabIndex = 11
         '
         'Label2
         '
@@ -2165,12 +2166,12 @@ Partial Class Pantalla_datos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1028, 753)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextNombrecatenaria)
+        Me.Controls.Add(Me.Text_nombre_cat)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(SistemaLabel)
-        Me.Controls.Add(Me.ComboSistema)
+        Me.Controls.Add(Me.Combo_sist)
         Me.Controls.Add(AlimentaciónLabel)
-        Me.Controls.Add(Me.TextAlimentacion)
+        Me.Controls.Add(Me.Text_al)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("Trebuchet MS", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -2212,33 +2213,33 @@ Partial Class Pantalla_datos
     End Sub
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents TextNumminvanosensecelect As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_min_va_sla As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents TextNumminvanosensecmec As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_min_va_sm As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents TextIncrmaxalturahc As System.Windows.Forms.TextBox
+    Friend WithEvents Text_inc_max_alt_hc As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents TextIncrnormalizadodevano As System.Windows.Forms.TextBox
+    Friend WithEvents Text_inc_norm_va As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents TextVanomaxentunel As System.Windows.Forms.TextBox
+    Friend WithEvents Text_va_max_tunel As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents TextVanomaxensecelectrico As System.Windows.Forms.TextBox
+    Friend WithEvents Text_va_max_sla As System.Windows.Forms.TextBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents TextVanomaxensecmecanico As System.Windows.Forms.TextBox
+    Friend WithEvents Text_va_max_sm As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextVanomaximo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_va_max As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciamaxdelcanton As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_max_canton As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciamaxentrevanos As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_max_va As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents TextAlturacatenaria As System.Windows.Forms.TextBox
+    Friend WithEvents Text_alt_cat As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextAlturamaxima As System.Windows.Forms.TextBox
+    Friend WithEvents Text_alt_max As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextAlturaminima As System.Windows.Forms.TextBox
+    Friend WithEvents Text_alt_min As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents TextAlturanominal As System.Windows.Forms.TextBox
+    Friend WithEvents Text_alt_nom As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -2258,35 +2259,35 @@ Partial Class Pantalla_datos
     Friend WithEvents Label46 As System.Windows.Forms.Label
     Friend WithEvents Label47 As System.Windows.Forms.Label
     Friend WithEvents Label48 As System.Windows.Forms.Label
-    Friend WithEvents TextLongzonaneutra As System.Windows.Forms.TextBox
+    Friend WithEvents Text_l_zn As System.Windows.Forms.TextBox
     Friend WithEvents Label49 As System.Windows.Forms.Label
-    Friend WithEvents TextLongzonacomunmin As System.Windows.Forms.TextBox
+    Friend WithEvents Text_l_zc_min As System.Windows.Forms.TextBox
     Friend WithEvents Label50 As System.Windows.Forms.Label
-    Friend WithEvents TextLongzonacomunmax As System.Windows.Forms.TextBox
+    Friend WithEvents Text_l_zc_max As System.Windows.Forms.TextBox
     Friend WithEvents Label51 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciaelectsecelectrico As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_elect_sla As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciaelectsecmecanico As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_elect_sm As System.Windows.Forms.TextBox
     Friend WithEvents Label53 As System.Windows.Forms.Label
-    Friend WithEvents TextAnchovia As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_base_poste_pmr As System.Windows.Forms.TextBox
     Friend WithEvents Label54 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciabasepostepmr As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_carril_poste As System.Windows.Forms.TextBox
     Friend WithEvents Label55 As System.Windows.Forms.Label
-    Friend WithEvents TextDistanciacarrilposte As System.Windows.Forms.TextBox
+    Friend WithEvents Text_fl_max_centro_va As System.Windows.Forms.TextBox
     Friend WithEvents Label56 As System.Windows.Forms.Label
-    Friend WithEvents TextFlechamaxcentrovano As System.Windows.Forms.TextBox
+    Friend WithEvents Text_vw As System.Windows.Forms.TextBox
     Friend WithEvents Label57 As System.Windows.Forms.Label
-    Friend WithEvents TextVelocidadviento As System.Windows.Forms.TextBox
+    Friend WithEvents Text_el_max_pant As System.Windows.Forms.TextBox
     Friend WithEvents Label58 As System.Windows.Forms.Label
-    Friend WithEvents TextElevacionmaxpantografo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_zona_trab_pant As System.Windows.Forms.TextBox
     Friend WithEvents Label59 As System.Windows.Forms.Label
-    Friend WithEvents TextZonatrabajopantografo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_r_re As System.Windows.Forms.TextBox
     Friend WithEvents Label60 As System.Windows.Forms.Label
-    Friend WithEvents TextRadioconsiderablecomorecta As System.Windows.Forms.TextBox
+    Friend WithEvents Text_d_max_cu As System.Windows.Forms.TextBox
     Friend WithEvents Label61 As System.Windows.Forms.Label
-    Friend WithEvents TextDescentramientomaxcurva As System.Windows.Forms.TextBox
+    Friend WithEvents Text_d_max_re As System.Windows.Forms.TextBox
     Friend WithEvents Label62 As System.Windows.Forms.Label
-    Friend WithEvents TextDescentramientomaxrecta As System.Windows.Forms.TextBox
+    Friend WithEvents Text_ancho_via As System.Windows.Forms.TextBox
     Friend WithEvents Label63 As System.Windows.Forms.Label
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
@@ -2303,97 +2304,97 @@ Partial Class Pantalla_datos
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents Label89 As System.Windows.Forms.Label
-    Friend WithEvents TextTensioncdpa As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_cdpa As System.Windows.Forms.TextBox
     Friend WithEvents Label90 As System.Windows.Forms.Label
     Friend WithEvents Label77 As System.Windows.Forms.Label
-    Friend WithEvents TextTensionsustentador As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_sust As System.Windows.Forms.TextBox
     Friend WithEvents Label80 As System.Windows.Forms.Label
     Friend WithEvents Label81 As System.Windows.Forms.Label
-    Friend WithEvents TextTensionhc As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_hc As System.Windows.Forms.TextBox
     Friend WithEvents Label82 As System.Windows.Forms.Label
     Friend WithEvents Label83 As System.Windows.Forms.Label
-    Friend WithEvents TextNumfeedernegativo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_feed_neg As System.Windows.Forms.TextBox
     Friend WithEvents Label84 As System.Windows.Forms.Label
     Friend WithEvents Label75 As System.Windows.Forms.Label
-    Friend WithEvents TextNumfeederpositivo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_feed_pos As System.Windows.Forms.TextBox
     Friend WithEvents Label76 As System.Windows.Forms.Label
     Friend WithEvents Label73 As System.Windows.Forms.Label
-    Friend WithEvents TextNumcdpa As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_cdpa As System.Windows.Forms.TextBox
     Friend WithEvents Label74 As System.Windows.Forms.Label
     Friend WithEvents Label72 As System.Windows.Forms.Label
-    Friend WithEvents TextNumhc As System.Windows.Forms.TextBox
+    Friend WithEvents Text_n_hc As System.Windows.Forms.TextBox
     Friend WithEvents Label78 As System.Windows.Forms.Label
-    Friend WithEvents ComboAnclaje As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_anc As System.Windows.Forms.ComboBox
     Friend WithEvents Label79 As System.Windows.Forms.Label
-    Friend WithEvents ComboPendola As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_pend As System.Windows.Forms.ComboBox
     Friend WithEvents Label68 As System.Windows.Forms.Label
-    Friend WithEvents ComboPuntofijo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_pto_fijo As System.Windows.Forms.ComboBox
     Friend WithEvents Label69 As System.Windows.Forms.Label
-    Friend WithEvents ComboFeedernegativo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_feed_neg As System.Windows.Forms.ComboBox
     Friend WithEvents Label70 As System.Windows.Forms.Label
-    Friend WithEvents ComboFeederpositivo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_feed_pos As System.Windows.Forms.ComboBox
     Friend WithEvents Label71 As System.Windows.Forms.Label
-    Friend WithEvents ComboCabledetierra As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_cdte As System.Windows.Forms.ComboBox
     Friend WithEvents Label66 As System.Windows.Forms.Label
-    Friend WithEvents ComboCdeproteccionaerea As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_cdpa As System.Windows.Forms.ComboBox
     Friend WithEvents Label67 As System.Windows.Forms.Label
-    Friend WithEvents ComboSustentador As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_sust As System.Windows.Forms.ComboBox
     Friend WithEvents Label65 As System.Windows.Forms.Label
-    Friend WithEvents ComboHilodecontacto As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_hc As System.Windows.Forms.ComboBox
     Friend WithEvents Label64 As System.Windows.Forms.Label
-    Friend WithEvents ComboPosicionfeedernegativo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_posicion_feed_neg As System.Windows.Forms.ComboBox
     Friend WithEvents Label93 As System.Windows.Forms.Label
-    Friend WithEvents ComboPosicionfeederpositivo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_posicion_feed_pos As System.Windows.Forms.ComboBox
     Friend WithEvents Label94 As System.Windows.Forms.Label
     Friend WithEvents Label87 As System.Windows.Forms.Label
-    Friend WithEvents TextTensionpuntofijo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_pto_fijo As System.Windows.Forms.TextBox
     Friend WithEvents Label88 As System.Windows.Forms.Label
     Friend WithEvents Label91 As System.Windows.Forms.Label
-    Friend WithEvents TextTensionfeedernegativo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_feed_neg As System.Windows.Forms.TextBox
     Friend WithEvents Label92 As System.Windows.Forms.Label
     Friend WithEvents Label85 As System.Windows.Forms.Label
-    Friend WithEvents TextTensionfeederpositivo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_t_feed_pos As System.Windows.Forms.TextBox
     Friend WithEvents Label86 As System.Windows.Forms.Label
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label97 As System.Windows.Forms.Label
-    Friend WithEvents ComboAdmlinea As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_adm_lin_poste As System.Windows.Forms.ComboBox
     Friend WithEvents Label98 As System.Windows.Forms.Label
     Friend WithEvents Label96 As System.Windows.Forms.Label
-    Friend WithEvents ComboAdmlineamacizo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_adm_lin_mac As System.Windows.Forms.ComboBox
     Friend WithEvents Label95 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label101 As System.Windows.Forms.Label
-    Friend WithEvents ComboTubodemensula As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_tubo_men As System.Windows.Forms.ComboBox
     Friend WithEvents Label100 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Label107 As System.Windows.Forms.Label
     Friend WithEvents Label108 As System.Windows.Forms.Label
     Friend WithEvents Label109 As System.Windows.Forms.Label
-    Friend WithEvents ComboAisladorfeedernegativo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_aisl_feed_neg As System.Windows.Forms.ComboBox
     Friend WithEvents Label104 As System.Windows.Forms.Label
-    Friend WithEvents ComboAisladorfeederpositivo As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_aisl_feed_pos As System.Windows.Forms.ComboBox
     Friend WithEvents Label102 As System.Windows.Forms.Label
-    Friend WithEvents ComboColadeanclaje As System.Windows.Forms.ComboBox
+    Friend WithEvents Combo_cola_anc As System.Windows.Forms.ComboBox
     Friend WithEvents Label103 As System.Windows.Forms.Label
-    Friend WithEvents ComboTubotirante As System.Windows.Forms.ComboBox
-    Friend WithEvents TextDistanciamaxentrependolas As System.Windows.Forms.TextBox
-    Friend WithEvents TextDistanciaprimeraysegundapendola As System.Windows.Forms.TextBox
-    Friend WithEvents TextDistanciaapoyoyprimerapendola As System.Windows.Forms.TextBox
+    Friend WithEvents Combo_tubo_tir As System.Windows.Forms.ComboBox
+    Friend WithEvents Text_dist_max_pend As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_prim_seg_pend As System.Windows.Forms.TextBox
+    Friend WithEvents Text_dist_ap_prim_pend As System.Windows.Forms.TextBox
     Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
     Friend WithEvents Electrificación_ConsultaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Electrificación_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
     Friend WithEvents TableAdapterManager As SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents TextAlimentacion As System.Windows.Forms.TextBox
-    Friend WithEvents ComboSistema As System.Windows.Forms.ComboBox
+    Friend WithEvents Text_al As System.Windows.Forms.TextBox
+    Friend WithEvents Combo_sist As System.Windows.Forms.ComboBox
     Friend WithEvents Macizos_ConsultaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Macizos_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
-    Friend WithEvents TextTipomacizo As System.Windows.Forms.TextBox
+    Friend WithEvents Text_tip_mac As System.Windows.Forms.TextBox
     Friend WithEvents PostesConsultaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Postes_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
-    Friend WithEvents TextTipo As System.Windows.Forms.TextBox
-    Friend WithEvents ComboNumeración As System.Windows.Forms.ComboBox
+    Friend WithEvents Text_tip_poste As System.Windows.Forms.TextBox
+    Friend WithEvents Combo_num_poste As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ConductorHCBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Conductor_HCTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter
@@ -2417,6 +2418,6 @@ Partial Class Pantalla_datos
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label99 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents TextNombrecatenaria As System.Windows.Forms.TextBox
+    Friend WithEvents Text_nombre_cat As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

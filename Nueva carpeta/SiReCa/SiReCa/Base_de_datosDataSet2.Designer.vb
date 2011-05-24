@@ -28,8 +28,6 @@ Partial Public Class Base_de_datosDataSet
     
     Private tableConductores_y_cables As Conductores_y_cablesDataTable
     
-    Private tableDatos As DatosDataTable
-    
     Private tableElectrificación As ElectrificaciónDataTable
     
     Private tableMacizos As MacizosDataTable
@@ -60,11 +58,11 @@ Partial Public Class Base_de_datosDataSet
     
     Private tablePostes_Consulta As Postes_ConsultaDataTable
     
-    Private tableNOMBRE_CATENARIA As NOMBRE_CATENARIADataTable
-    
     Private tableContraseña As ContraseñaDataTable
     
-    Private _tableNombre_Catenaria As _Nombre_CatenariaDataTable
+    Private tableDatos As DatosDataTable
+    
+    Private tableNombre_Catenaria As Nombre_CatenariaDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -95,9 +93,6 @@ Partial Public Class Base_de_datosDataSet
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
             If (Not (ds.Tables("Conductores y cables")) Is Nothing) Then
                 MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores y cables")))
-            End If
-            If (Not (ds.Tables("Datos")) Is Nothing) Then
-                MyBase.Tables.Add(New DatosDataTable(ds.Tables("Datos")))
             End If
             If (Not (ds.Tables("Electrificación")) Is Nothing) Then
                 MyBase.Tables.Add(New ElectrificaciónDataTable(ds.Tables("Electrificación")))
@@ -144,14 +139,14 @@ Partial Public Class Base_de_datosDataSet
             If (Not (ds.Tables("Postes Consulta")) Is Nothing) Then
                 MyBase.Tables.Add(New Postes_ConsultaDataTable(ds.Tables("Postes Consulta")))
             End If
-            If (Not (ds.Tables("NOMBRE CATENARIA")) Is Nothing) Then
-                MyBase.Tables.Add(New NOMBRE_CATENARIADataTable(ds.Tables("NOMBRE CATENARIA")))
-            End If
             If (Not (ds.Tables("Contraseña")) Is Nothing) Then
                 MyBase.Tables.Add(New ContraseñaDataTable(ds.Tables("Contraseña")))
             End If
+            If (Not (ds.Tables("Datos")) Is Nothing) Then
+                MyBase.Tables.Add(New DatosDataTable(ds.Tables("Datos")))
+            End If
             If (Not (ds.Tables("Nombre Catenaria")) Is Nothing) Then
-                MyBase.Tables.Add(New _Nombre_CatenariaDataTable(ds.Tables("Nombre Catenaria")))
+                MyBase.Tables.Add(New Nombre_CatenariaDataTable(ds.Tables("Nombre Catenaria")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -176,15 +171,6 @@ Partial Public Class Base_de_datosDataSet
     Public ReadOnly Property Conductores_y_cables() As Conductores_y_cablesDataTable
         Get
             Return Me.tableConductores_y_cables
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Datos() As DatosDataTable
-        Get
-            Return Me.tableDatos
         End Get
     End Property
     
@@ -326,15 +312,6 @@ Partial Public Class Base_de_datosDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property NOMBRE_CATENARIA() As NOMBRE_CATENARIADataTable
-        Get
-            Return Me.tableNOMBRE_CATENARIA
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property Contraseña() As ContraseñaDataTable
         Get
             Return Me.tableContraseña
@@ -344,9 +321,18 @@ Partial Public Class Base_de_datosDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property _Nombre_Catenaria() As _Nombre_CatenariaDataTable
+    Public ReadOnly Property Datos() As DatosDataTable
         Get
-            Return Me._tableNombre_Catenaria
+            Return Me.tableDatos
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Nombre_Catenaria() As Nombre_CatenariaDataTable
+        Get
+            Return Me.tableNombre_Catenaria
         End Get
     End Property
     
@@ -412,9 +398,6 @@ Partial Public Class Base_de_datosDataSet
             If (Not (ds.Tables("Conductores y cables")) Is Nothing) Then
                 MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores y cables")))
             End If
-            If (Not (ds.Tables("Datos")) Is Nothing) Then
-                MyBase.Tables.Add(New DatosDataTable(ds.Tables("Datos")))
-            End If
             If (Not (ds.Tables("Electrificación")) Is Nothing) Then
                 MyBase.Tables.Add(New ElectrificaciónDataTable(ds.Tables("Electrificación")))
             End If
@@ -460,14 +443,14 @@ Partial Public Class Base_de_datosDataSet
             If (Not (ds.Tables("Postes Consulta")) Is Nothing) Then
                 MyBase.Tables.Add(New Postes_ConsultaDataTable(ds.Tables("Postes Consulta")))
             End If
-            If (Not (ds.Tables("NOMBRE CATENARIA")) Is Nothing) Then
-                MyBase.Tables.Add(New NOMBRE_CATENARIADataTable(ds.Tables("NOMBRE CATENARIA")))
-            End If
             If (Not (ds.Tables("Contraseña")) Is Nothing) Then
                 MyBase.Tables.Add(New ContraseñaDataTable(ds.Tables("Contraseña")))
             End If
+            If (Not (ds.Tables("Datos")) Is Nothing) Then
+                MyBase.Tables.Add(New DatosDataTable(ds.Tables("Datos")))
+            End If
             If (Not (ds.Tables("Nombre Catenaria")) Is Nothing) Then
-                MyBase.Tables.Add(New _Nombre_CatenariaDataTable(ds.Tables("Nombre Catenaria")))
+                MyBase.Tables.Add(New Nombre_CatenariaDataTable(ds.Tables("Nombre Catenaria")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -502,12 +485,6 @@ Partial Public Class Base_de_datosDataSet
         If (initTable = true) Then
             If (Not (Me.tableConductores_y_cables) Is Nothing) Then
                 Me.tableConductores_y_cables.InitVars
-            End If
-        End If
-        Me.tableDatos = CType(MyBase.Tables("Datos"),DatosDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableDatos) Is Nothing) Then
-                Me.tableDatos.InitVars
             End If
         End If
         Me.tableElectrificación = CType(MyBase.Tables("Electrificación"),ElectrificaciónDataTable)
@@ -600,22 +577,22 @@ Partial Public Class Base_de_datosDataSet
                 Me.tablePostes_Consulta.InitVars
             End If
         End If
-        Me.tableNOMBRE_CATENARIA = CType(MyBase.Tables("NOMBRE CATENARIA"),NOMBRE_CATENARIADataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableNOMBRE_CATENARIA) Is Nothing) Then
-                Me.tableNOMBRE_CATENARIA.InitVars
-            End If
-        End If
         Me.tableContraseña = CType(MyBase.Tables("Contraseña"),ContraseñaDataTable)
         If (initTable = true) Then
             If (Not (Me.tableContraseña) Is Nothing) Then
                 Me.tableContraseña.InitVars
             End If
         End If
-        Me._tableNombre_Catenaria = CType(MyBase.Tables("Nombre Catenaria"),_Nombre_CatenariaDataTable)
+        Me.tableDatos = CType(MyBase.Tables("Datos"),DatosDataTable)
         If (initTable = true) Then
-            If (Not (Me._tableNombre_Catenaria) Is Nothing) Then
-                Me._tableNombre_Catenaria.InitVars
+            If (Not (Me.tableDatos) Is Nothing) Then
+                Me.tableDatos.InitVars
+            End If
+        End If
+        Me.tableNombre_Catenaria = CType(MyBase.Tables("Nombre Catenaria"),Nombre_CatenariaDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableNombre_Catenaria) Is Nothing) Then
+                Me.tableNombre_Catenaria.InitVars
             End If
         End If
     End Sub
@@ -629,8 +606,6 @@ Partial Public Class Base_de_datosDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableConductores_y_cables = New Conductores_y_cablesDataTable
         MyBase.Tables.Add(Me.tableConductores_y_cables)
-        Me.tableDatos = New DatosDataTable
-        MyBase.Tables.Add(Me.tableDatos)
         Me.tableElectrificación = New ElectrificaciónDataTable
         MyBase.Tables.Add(Me.tableElectrificación)
         Me.tableMacizos = New MacizosDataTable
@@ -661,21 +636,16 @@ Partial Public Class Base_de_datosDataSet
         MyBase.Tables.Add(Me.tableMacizos_Consulta)
         Me.tablePostes_Consulta = New Postes_ConsultaDataTable
         MyBase.Tables.Add(Me.tablePostes_Consulta)
-        Me.tableNOMBRE_CATENARIA = New NOMBRE_CATENARIADataTable
-        MyBase.Tables.Add(Me.tableNOMBRE_CATENARIA)
         Me.tableContraseña = New ContraseñaDataTable
         MyBase.Tables.Add(Me.tableContraseña)
-        Me._tableNombre_Catenaria = New _Nombre_CatenariaDataTable
-        MyBase.Tables.Add(Me._tableNombre_Catenaria)
+        Me.tableDatos = New DatosDataTable
+        MyBase.Tables.Add(Me.tableDatos)
+        Me.tableNombre_Catenaria = New Nombre_CatenariaDataTable
+        MyBase.Tables.Add(Me.tableNombre_Catenaria)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeConductores_y_cables() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeDatos() As Boolean
         Return false
     End Function
     
@@ -755,17 +725,17 @@ Partial Public Class Base_de_datosDataSet
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeNOMBRE_CATENARIA() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeContraseña() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerialize_Nombre_Catenaria() As Boolean
+    Private Function ShouldSerializeDatos() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeNombre_Catenaria() As Boolean
         Return false
     End Function
     
@@ -827,8 +797,6 @@ Partial Public Class Base_de_datosDataSet
     
     Public Delegate Sub Conductores_y_cablesRowChangeEventHandler(ByVal sender As Object, ByVal e As Conductores_y_cablesRowChangeEvent)
     
-    Public Delegate Sub DatosRowChangeEventHandler(ByVal sender As Object, ByVal e As DatosRowChangeEvent)
-    
     Public Delegate Sub ElectrificaciónRowChangeEventHandler(ByVal sender As Object, ByVal e As ElectrificaciónRowChangeEvent)
     
     Public Delegate Sub MacizosRowChangeEventHandler(ByVal sender As Object, ByVal e As MacizosRowChangeEvent)
@@ -859,11 +827,11 @@ Partial Public Class Base_de_datosDataSet
     
     Public Delegate Sub Postes_ConsultaRowChangeEventHandler(ByVal sender As Object, ByVal e As Postes_ConsultaRowChangeEvent)
     
-    Public Delegate Sub NOMBRE_CATENARIARowChangeEventHandler(ByVal sender As Object, ByVal e As NOMBRE_CATENARIARowChangeEvent)
-    
     Public Delegate Sub ContraseñaRowChangeEventHandler(ByVal sender As Object, ByVal e As ContraseñaRowChangeEvent)
     
-    Public Delegate Sub _Nombre_CatenariaRowChangeEventHandler(ByVal sender As Object, ByVal e As _Nombre_CatenariaRowChangeEvent)
+    Public Delegate Sub DatosRowChangeEventHandler(ByVal sender As Object, ByVal e As DatosRowChangeEvent)
+    
+    Public Delegate Sub Nombre_CatenariaRowChangeEventHandler(ByVal sender As Object, ByVal e As Nombre_CatenariaRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1199,1141 +1167,6 @@ Partial Public Class Base_de_datosDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "Conductores_y_cablesDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DatosDataTable
-        Inherits Global.System.Data.TypedTableBase(Of DatosRow)
-        
-        Private columnNombre_catenaria As Global.System.Data.DataColumn
-        
-        Private columnSistema As Global.System.Data.DataColumn
-        
-        Private columnAltura_nominal As Global.System.Data.DataColumn
-        
-        Private columnAltura_mínima As Global.System.Data.DataColumn
-        
-        Private columnAltura_máxima As Global.System.Data.DataColumn
-        
-        Private columnAltura_catenaria As Global.System.Data.DataColumn
-        
-        Private columnDistancia_máx_entre_vanos As Global.System.Data.DataColumn
-        
-        Private columnDistancia_máx_del_cantón As Global.System.Data.DataColumn
-        
-        Private columnVano_máximo As Global.System.Data.DataColumn
-        
-        Private columnVano_máx_en_sec_mecánico As Global.System.Data.DataColumn
-        
-        Private columnVano_máx_en_sec_eléctrico As Global.System.Data.DataColumn
-        
-        Private columnVano_máx_en_túnel As Global.System.Data.DataColumn
-        
-        Private columnIncr_normalizado_de_vano As Global.System.Data.DataColumn
-        
-        Private columnIncr_máx_altura_HC As Global.System.Data.DataColumn
-        
-        Private columnNúm_mín__vanos_en_sec_mec As Global.System.Data.DataColumn
-        
-        Private columnNúm_mín_vanos_en_sec_eléct As Global.System.Data.DataColumn
-        
-        Private columnAncho_vía As Global.System.Data.DataColumn
-        
-        Private columnDescentramiento_máx_recta As Global.System.Data.DataColumn
-        
-        Private columnDescentramiento_máx_curva As Global.System.Data.DataColumn
-        
-        Private columnRadio_considerable_como_recta As Global.System.Data.DataColumn
-        
-        Private columnZona_trabajo_pantógrafo As Global.System.Data.DataColumn
-        
-        Private columnElevación_máx_pantógrafo As Global.System.Data.DataColumn
-        
-        Private columnVelocidad_viento As Global.System.Data.DataColumn
-        
-        Private columnFlecha_máx_centro_vano As Global.System.Data.DataColumn
-        
-        Private _columnDistancia_carril___poste As Global.System.Data.DataColumn
-        
-        Private _columnDistancia_base_poste___PMR As Global.System.Data.DataColumn
-        
-        Private columnDistancia_eléct_sec_mecánico As Global.System.Data.DataColumn
-        
-        Private columnDistancia_eléct_sec_eléctrico As Global.System.Data.DataColumn
-        
-        Private columnLong_zona_común_máx As Global.System.Data.DataColumn
-        
-        Private columnLong_zona_común_mín As Global.System.Data.DataColumn
-        
-        Private columnLong_Zona_Neutra As Global.System.Data.DataColumn
-        
-        Private columnHilo_de_Contacto As Global.System.Data.DataColumn
-        
-        Private columnSustentador As Global.System.Data.DataColumn
-        
-        Private columnC_de_Protección_Aérea As Global.System.Data.DataColumn
-        
-        Private columnCable_de_Tierra As Global.System.Data.DataColumn
-        
-        Private _columnFeeder__ As Global.System.Data.DataColumn
-        
-        Private __columnFeeder__ As Global.System.Data.DataColumn
-        
-        Private columnPunto_fijo As Global.System.Data.DataColumn
-        
-        Private columnPéndola As Global.System.Data.DataColumn
-        
-        Private columnAnclaje As Global.System.Data.DataColumn
-        
-        Private _columnPosición_Feeder__ As Global.System.Data.DataColumn
-        
-        Private __columnPosición_Feeder__ As Global.System.Data.DataColumn
-        
-        Private columnNúm_HC As Global.System.Data.DataColumn
-        
-        Private columnNúm_CdPA As Global.System.Data.DataColumn
-        
-        Private _columnNúm_Feeder__ As Global.System.Data.DataColumn
-        
-        Private __columnNúm_Feeder__ As Global.System.Data.DataColumn
-        
-        Private columnTensión_HC As Global.System.Data.DataColumn
-        
-        Private columnTensión_sustentador As Global.System.Data.DataColumn
-        
-        Private columnTensión_CdPA As Global.System.Data.DataColumn
-        
-        Private _columnTensión_Feeder__ As Global.System.Data.DataColumn
-        
-        Private __columnTensión_Feeder__ As Global.System.Data.DataColumn
-        
-        Private columnTensión_punto_fijo As Global.System.Data.DataColumn
-        
-        Private columnTipo As Global.System.Data.DataColumn
-        
-        Private _columnAdm_Línea As Global.System.Data.DataColumn
-        
-        Private columnCódigo As Global.System.Data.DataColumn
-        
-        Private columnNumeración As Global.System.Data.DataColumn
-        
-        Private columnTipo_macizo As Global.System.Data.DataColumn
-        
-        Private _columnAdm_Línea_postes As Global.System.Data.DataColumn
-        
-        Private columnTubo_de_ménsula As Global.System.Data.DataColumn
-        
-        Private columnTubo_tirante As Global.System.Data.DataColumn
-        
-        Private columnCola_de_anclaje As Global.System.Data.DataColumn
-        
-        Private _columnAislador_Feeder__ As Global.System.Data.DataColumn
-        
-        Private __columnAislador_Feeder__ As Global.System.Data.DataColumn
-        
-        Private columnDistancia_apoyo_y_1ª_péndola As Global.System.Data.DataColumn
-        
-        Private columnDistancia_1ª_y_2ª_péndola As Global.System.Data.DataColumn
-        
-        Private columnDistancia_máx_entre_péndolas As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "Datos"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Nombre_catenariaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNombre_catenaria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property SistemaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSistema
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Altura_nominalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAltura_nominal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Altura_mínimaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAltura_mínima
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Altura_máximaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAltura_máxima
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Altura_catenariaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAltura_catenaria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_máx_entre_vanosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_máx_entre_vanos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_máx_del_cantónColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_máx_del_cantón
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Vano_máximoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVano_máximo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Vano_máx_en_sec_mecánicoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVano_máx_en_sec_mecánico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Vano_máx_en_sec_eléctricoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVano_máx_en_sec_eléctrico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Vano_máx_en_túnelColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVano_máx_en_túnel
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Incr_normalizado_de_vanoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIncr_normalizado_de_vano
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Incr_máx_altura_HCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIncr_máx_altura_HC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Núm_mín__vanos_en_sec_mecColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNúm_mín__vanos_en_sec_mec
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Núm_mín_vanos_en_sec_eléctColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNúm_mín_vanos_en_sec_eléct
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Ancho_víaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAncho_vía
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Descentramiento_máx_rectaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescentramiento_máx_recta
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Descentramiento_máx_curvaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescentramiento_máx_curva
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Radio_considerable_como_rectaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRadio_considerable_como_recta
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Zona_trabajo_pantógrafoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnZona_trabajo_pantógrafo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Elevación_máx_pantógrafoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnElevación_máx_pantógrafo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Velocidad_vientoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnVelocidad_viento
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Flecha_máx_centro_vanoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFlecha_máx_centro_vano
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Distancia_carril___posteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnDistancia_carril___poste
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Distancia_base_poste___PMRColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnDistancia_base_poste___PMR
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_eléct_sec_mecánicoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_eléct_sec_mecánico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_eléct_sec_eléctricoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_eléct_sec_eléctrico
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Long_zona_común_máxColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLong_zona_común_máx
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Long_zona_común_mínColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLong_zona_común_mín
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Long_Zona_NeutraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLong_Zona_Neutra
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Hilo_de_ContactoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnHilo_de_Contacto
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property SustentadorColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSustentador
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property C_de_Protección_AéreaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnC_de_Protección_Aérea
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Cable_de_TierraColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCable_de_Tierra
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnFeeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property __Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.__columnFeeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Punto_fijoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPunto_fijo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PéndolaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPéndola
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property AnclajeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAnclaje
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Posición_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnPosición_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property __Posición_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.__columnPosición_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Núm_HCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNúm_HC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Núm_CdPAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNúm_CdPA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Núm_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnNúm_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property __Núm_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.__columnNúm_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tensión_HCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTensión_HC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tensión_sustentadorColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTensión_sustentador
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tensión_CdPAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTensión_CdPA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Tensión_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnTensión_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property __Tensión_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.__columnTensión_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tensión_punto_fijoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTensión_punto_fijo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property TipoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTipo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Adm_LíneaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnAdm_Línea
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CódigoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCódigo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property NumeraciónColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNumeración
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tipo_macizoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTipo_macizo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Adm_Línea_postesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnAdm_Línea_postes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tubo_de_ménsulaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTubo_de_ménsula
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Tubo_tiranteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTubo_tirante
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Cola_de_anclajeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCola_de_anclaje
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property _Aislador_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnAislador_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property __Aislador_Feeder__Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.__columnAislador_Feeder__
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_apoyo_y_1ª_péndolaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_apoyo_y_1ª_péndola
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_1ª_y_2ª_péndolaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_1ª_y_2ª_péndola
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Distancia_máx_entre_péndolasColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDistancia_máx_entre_péndolas
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DatosRow
-            Get
-                Return CType(Me.Rows(index),DatosRow)
-            End Get
-        End Property
-        
-        Public Event DatosRowChanging As DatosRowChangeEventHandler
-        
-        Public Event DatosRowChanged As DatosRowChangeEventHandler
-        
-        Public Event DatosRowDeleting As DatosRowChangeEventHandler
-        
-        Public Event DatosRowDeleted As DatosRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddDatosRow(ByVal row As DatosRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddDatosRow( _
-                    ByVal Nombre_catenaria As String,  _
-                    ByVal Sistema As String,  _
-                    ByVal Altura_nominal As Double,  _
-                    ByVal Altura_mínima As Double,  _
-                    ByVal Altura_máxima As Double,  _
-                    ByVal Altura_catenaria As Double,  _
-                    ByVal Distancia_máx_entre_vanos As Double,  _
-                    ByVal Distancia_máx_del_cantón As Double,  _
-                    ByVal Vano_máximo As Double,  _
-                    ByVal Vano_máx_en_sec_mecánico As Double,  _
-                    ByVal Vano_máx_en_sec_eléctrico As Double,  _
-                    ByVal Vano_máx_en_túnel As Double,  _
-                    ByVal Incr_normalizado_de_vano As Double,  _
-                    ByVal Incr_máx_altura_HC As Double,  _
-                    ByVal Núm_mín__vanos_en_sec_mec As Double,  _
-                    ByVal Núm_mín_vanos_en_sec_eléct As Double,  _
-                    ByVal Ancho_vía As Double,  _
-                    ByVal Descentramiento_máx_recta As Double,  _
-                    ByVal Descentramiento_máx_curva As Double,  _
-                    ByVal Radio_considerable_como_recta As Double,  _
-                    ByVal Zona_trabajo_pantógrafo As Double,  _
-                    ByVal Elevación_máx_pantógrafo As String,  _
-                    ByVal Velocidad_viento As Double,  _
-                    ByVal Flecha_máx_centro_vano As Double,  _
-                    ByVal _Distancia_carril___poste As Double,  _
-                    ByVal _Distancia_base_poste___PMR As Double,  _
-                    ByVal Distancia_eléct_sec_mecánico As Double,  _
-                    ByVal Distancia_eléct_sec_eléctrico As Double,  _
-                    ByVal Long_zona_común_máx As Double,  _
-                    ByVal Long_zona_común_mín As Double,  _
-                    ByVal Long_Zona_Neutra As Double,  _
-                    ByVal Hilo_de_Contacto As String,  _
-                    ByVal Sustentador As String,  _
-                    ByVal C_de_Protección_Aérea As String,  _
-                    ByVal Cable_de_Tierra As String,  _
-                    ByVal _Feeder__ As String,  _
-                    ByVal __Feeder__ As String,  _
-                    ByVal Punto_fijo As String,  _
-                    ByVal Péndola As String,  _
-                    ByVal Anclaje As String,  _
-                    ByVal _Posición_Feeder__ As String,  _
-                    ByVal __Posición_Feeder__ As String,  _
-                    ByVal Núm_HC As Integer,  _
-                    ByVal Núm_CdPA As Integer,  _
-                    ByVal _Núm_Feeder__ As Integer,  _
-                    ByVal __Núm_Feeder__ As Integer,  _
-                    ByVal Tensión_HC As Double,  _
-                    ByVal Tensión_sustentador As Double,  _
-                    ByVal Tensión_CdPA As Double,  _
-                    ByVal _Tensión_Feeder__ As Double,  _
-                    ByVal __Tensión_Feeder__ As Double,  _
-                    ByVal Tensión_punto_fijo As Double,  _
-                    ByVal Tipo As String,  _
-                    ByVal _Adm_Línea As String,  _
-                    ByVal Código As String,  _
-                    ByVal Numeración As String,  _
-                    ByVal Tipo_macizo As String,  _
-                    ByVal _Adm_Línea_postes As String,  _
-                    ByVal Tubo_de_ménsula As String,  _
-                    ByVal Tubo_tirante As String,  _
-                    ByVal Cola_de_anclaje As String,  _
-                    ByVal _Aislador_Feeder__ As String,  _
-                    ByVal __Aislador_Feeder__ As String,  _
-                    ByVal Distancia_apoyo_y_1ª_péndola As Double,  _
-                    ByVal Distancia_1ª_y_2ª_péndola As Double,  _
-                    ByVal Distancia_máx_entre_péndolas As Double) As DatosRow
-            Dim rowDatosRow As DatosRow = CType(Me.NewRow,DatosRow)
-            Dim columnValuesArray() As Object = New Object() {Nombre_catenaria, Sistema, Altura_nominal, Altura_mínima, Altura_máxima, Altura_catenaria, Distancia_máx_entre_vanos, Distancia_máx_del_cantón, Vano_máximo, Vano_máx_en_sec_mecánico, Vano_máx_en_sec_eléctrico, Vano_máx_en_túnel, Incr_normalizado_de_vano, Incr_máx_altura_HC, Núm_mín__vanos_en_sec_mec, Núm_mín_vanos_en_sec_eléct, Ancho_vía, Descentramiento_máx_recta, Descentramiento_máx_curva, Radio_considerable_como_recta, Zona_trabajo_pantógrafo, Elevación_máx_pantógrafo, Velocidad_viento, Flecha_máx_centro_vano, _Distancia_carril___poste, _Distancia_base_poste___PMR, Distancia_eléct_sec_mecánico, Distancia_eléct_sec_eléctrico, Long_zona_común_máx, Long_zona_común_mín, Long_Zona_Neutra, Hilo_de_Contacto, Sustentador, C_de_Protección_Aérea, Cable_de_Tierra, _Feeder__, __Feeder__, Punto_fijo, Péndola, Anclaje, _Posición_Feeder__, __Posición_Feeder__, Núm_HC, Núm_CdPA, _Núm_Feeder__, __Núm_Feeder__, Tensión_HC, Tensión_sustentador, Tensión_CdPA, _Tensión_Feeder__, __Tensión_Feeder__, Tensión_punto_fijo, Tipo, _Adm_Línea, Código, Numeración, Tipo_macizo, _Adm_Línea_postes, Tubo_de_ménsula, Tubo_tirante, Cola_de_anclaje, _Aislador_Feeder__, __Aislador_Feeder__, Distancia_apoyo_y_1ª_péndola, Distancia_1ª_y_2ª_péndola, Distancia_máx_entre_péndolas}
-            rowDatosRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDatosRow)
-            Return rowDatosRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByNombre_catenaria(ByVal Nombre_catenaria As String) As DatosRow
-            Return CType(Me.Rows.Find(New Object() {Nombre_catenaria}),DatosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DatosDataTable = CType(MyBase.Clone,DatosDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New DatosDataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub InitVars()
-            Me.columnNombre_catenaria = MyBase.Columns("Nombre catenaria")
-            Me.columnSistema = MyBase.Columns("Sistema")
-            Me.columnAltura_nominal = MyBase.Columns("Altura nominal")
-            Me.columnAltura_mínima = MyBase.Columns("Altura mínima")
-            Me.columnAltura_máxima = MyBase.Columns("Altura máxima")
-            Me.columnAltura_catenaria = MyBase.Columns("Altura catenaria")
-            Me.columnDistancia_máx_entre_vanos = MyBase.Columns("Distancia máx entre vanos")
-            Me.columnDistancia_máx_del_cantón = MyBase.Columns("Distancia máx del cantón")
-            Me.columnVano_máximo = MyBase.Columns("Vano máximo")
-            Me.columnVano_máx_en_sec_mecánico = MyBase.Columns("Vano máx en sec mecánico")
-            Me.columnVano_máx_en_sec_eléctrico = MyBase.Columns("Vano máx en sec eléctrico")
-            Me.columnVano_máx_en_túnel = MyBase.Columns("Vano máx en túnel")
-            Me.columnIncr_normalizado_de_vano = MyBase.Columns("Incr normalizado de vano")
-            Me.columnIncr_máx_altura_HC = MyBase.Columns("Incr máx altura HC")
-            Me.columnNúm_mín__vanos_en_sec_mec = MyBase.Columns("Núm mín  vanos en sec mec")
-            Me.columnNúm_mín_vanos_en_sec_eléct = MyBase.Columns("Núm mín vanos en sec eléct")
-            Me.columnAncho_vía = MyBase.Columns("Ancho vía")
-            Me.columnDescentramiento_máx_recta = MyBase.Columns("Descentramiento máx recta")
-            Me.columnDescentramiento_máx_curva = MyBase.Columns("Descentramiento máx curva")
-            Me.columnRadio_considerable_como_recta = MyBase.Columns("Radio considerable como recta")
-            Me.columnZona_trabajo_pantógrafo = MyBase.Columns("Zona trabajo pantógrafo")
-            Me.columnElevación_máx_pantógrafo = MyBase.Columns("Elevación máx pantógrafo")
-            Me.columnVelocidad_viento = MyBase.Columns("Velocidad viento")
-            Me.columnFlecha_máx_centro_vano = MyBase.Columns("Flecha máx centro vano")
-            Me._columnDistancia_carril___poste = MyBase.Columns("Distancia carril - poste")
-            Me._columnDistancia_base_poste___PMR = MyBase.Columns("Distancia base poste - PMR")
-            Me.columnDistancia_eléct_sec_mecánico = MyBase.Columns("Distancia eléct sec mecánico")
-            Me.columnDistancia_eléct_sec_eléctrico = MyBase.Columns("Distancia eléct sec eléctrico")
-            Me.columnLong_zona_común_máx = MyBase.Columns("Long zona común máx")
-            Me.columnLong_zona_común_mín = MyBase.Columns("Long zona común mín")
-            Me.columnLong_Zona_Neutra = MyBase.Columns("Long Zona Neutra")
-            Me.columnHilo_de_Contacto = MyBase.Columns("Hilo de Contacto")
-            Me.columnSustentador = MyBase.Columns("Sustentador")
-            Me.columnC_de_Protección_Aérea = MyBase.Columns("C de Protección Aérea")
-            Me.columnCable_de_Tierra = MyBase.Columns("Cable de Tierra")
-            Me._columnFeeder__ = MyBase.Columns("Feeder +")
-            Me.__columnFeeder__ = MyBase.Columns("Feeder -")
-            Me.columnPunto_fijo = MyBase.Columns("Punto fijo")
-            Me.columnPéndola = MyBase.Columns("Péndola")
-            Me.columnAnclaje = MyBase.Columns("Anclaje")
-            Me._columnPosición_Feeder__ = MyBase.Columns("Posición Feeder +")
-            Me.__columnPosición_Feeder__ = MyBase.Columns("Posición Feeder -")
-            Me.columnNúm_HC = MyBase.Columns("Núm HC")
-            Me.columnNúm_CdPA = MyBase.Columns("Núm CdPA")
-            Me._columnNúm_Feeder__ = MyBase.Columns("Núm Feeder +")
-            Me.__columnNúm_Feeder__ = MyBase.Columns("Núm Feeder -")
-            Me.columnTensión_HC = MyBase.Columns("Tensión HC")
-            Me.columnTensión_sustentador = MyBase.Columns("Tensión sustentador")
-            Me.columnTensión_CdPA = MyBase.Columns("Tensión CdPA")
-            Me._columnTensión_Feeder__ = MyBase.Columns("Tensión Feeder +")
-            Me.__columnTensión_Feeder__ = MyBase.Columns("Tensión Feeder -")
-            Me.columnTensión_punto_fijo = MyBase.Columns("Tensión punto fijo")
-            Me.columnTipo = MyBase.Columns("Tipo")
-            Me._columnAdm_Línea = MyBase.Columns("Adm/Línea")
-            Me.columnCódigo = MyBase.Columns("Código")
-            Me.columnNumeración = MyBase.Columns("Numeración")
-            Me.columnTipo_macizo = MyBase.Columns("Tipo macizo")
-            Me._columnAdm_Línea_postes = MyBase.Columns("Adm/Línea postes")
-            Me.columnTubo_de_ménsula = MyBase.Columns("Tubo de ménsula")
-            Me.columnTubo_tirante = MyBase.Columns("Tubo tirante")
-            Me.columnCola_de_anclaje = MyBase.Columns("Cola de anclaje")
-            Me._columnAislador_Feeder__ = MyBase.Columns("Aislador Feeder +")
-            Me.__columnAislador_Feeder__ = MyBase.Columns("Aislador Feeder -")
-            Me.columnDistancia_apoyo_y_1ª_péndola = MyBase.Columns("Distancia apoyo y 1ª péndola")
-            Me.columnDistancia_1ª_y_2ª_péndola = MyBase.Columns("Distancia 1ª y 2ª péndola")
-            Me.columnDistancia_máx_entre_péndolas = MyBase.Columns("Distancia máx entre péndolas")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitClass()
-            Me.columnNombre_catenaria = New Global.System.Data.DataColumn("Nombre catenaria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNombre_catenaria)
-            Me.columnSistema = New Global.System.Data.DataColumn("Sistema", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSistema)
-            Me.columnAltura_nominal = New Global.System.Data.DataColumn("Altura nominal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAltura_nominal)
-            Me.columnAltura_mínima = New Global.System.Data.DataColumn("Altura mínima", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAltura_mínima)
-            Me.columnAltura_máxima = New Global.System.Data.DataColumn("Altura máxima", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAltura_máxima)
-            Me.columnAltura_catenaria = New Global.System.Data.DataColumn("Altura catenaria", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAltura_catenaria)
-            Me.columnDistancia_máx_entre_vanos = New Global.System.Data.DataColumn("Distancia máx entre vanos", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_máx_entre_vanos)
-            Me.columnDistancia_máx_del_cantón = New Global.System.Data.DataColumn("Distancia máx del cantón", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_máx_del_cantón)
-            Me.columnVano_máximo = New Global.System.Data.DataColumn("Vano máximo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVano_máximo)
-            Me.columnVano_máx_en_sec_mecánico = New Global.System.Data.DataColumn("Vano máx en sec mecánico", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVano_máx_en_sec_mecánico)
-            Me.columnVano_máx_en_sec_eléctrico = New Global.System.Data.DataColumn("Vano máx en sec eléctrico", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVano_máx_en_sec_eléctrico)
-            Me.columnVano_máx_en_túnel = New Global.System.Data.DataColumn("Vano máx en túnel", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVano_máx_en_túnel)
-            Me.columnIncr_normalizado_de_vano = New Global.System.Data.DataColumn("Incr normalizado de vano", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIncr_normalizado_de_vano)
-            Me.columnIncr_máx_altura_HC = New Global.System.Data.DataColumn("Incr máx altura HC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIncr_máx_altura_HC)
-            Me.columnNúm_mín__vanos_en_sec_mec = New Global.System.Data.DataColumn("Núm mín  vanos en sec mec", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNúm_mín__vanos_en_sec_mec)
-            Me.columnNúm_mín_vanos_en_sec_eléct = New Global.System.Data.DataColumn("Núm mín vanos en sec eléct", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNúm_mín_vanos_en_sec_eléct)
-            Me.columnAncho_vía = New Global.System.Data.DataColumn("Ancho vía", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAncho_vía)
-            Me.columnDescentramiento_máx_recta = New Global.System.Data.DataColumn("Descentramiento máx recta", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescentramiento_máx_recta)
-            Me.columnDescentramiento_máx_curva = New Global.System.Data.DataColumn("Descentramiento máx curva", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescentramiento_máx_curva)
-            Me.columnRadio_considerable_como_recta = New Global.System.Data.DataColumn("Radio considerable como recta", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRadio_considerable_como_recta)
-            Me.columnZona_trabajo_pantógrafo = New Global.System.Data.DataColumn("Zona trabajo pantógrafo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnZona_trabajo_pantógrafo)
-            Me.columnElevación_máx_pantógrafo = New Global.System.Data.DataColumn("Elevación máx pantógrafo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnElevación_máx_pantógrafo)
-            Me.columnVelocidad_viento = New Global.System.Data.DataColumn("Velocidad viento", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnVelocidad_viento)
-            Me.columnFlecha_máx_centro_vano = New Global.System.Data.DataColumn("Flecha máx centro vano", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFlecha_máx_centro_vano)
-            Me._columnDistancia_carril___poste = New Global.System.Data.DataColumn("Distancia carril - poste", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnDistancia_carril___poste.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnDistancia_carril___poste")
-            Me._columnDistancia_carril___poste.ExtendedProperties.Add("Generator_UserColumnName", "Distancia carril - poste")
-            MyBase.Columns.Add(Me._columnDistancia_carril___poste)
-            Me._columnDistancia_base_poste___PMR = New Global.System.Data.DataColumn("Distancia base poste - PMR", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnDistancia_base_poste___PMR.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnDistancia_base_poste___PMR")
-            Me._columnDistancia_base_poste___PMR.ExtendedProperties.Add("Generator_UserColumnName", "Distancia base poste - PMR")
-            MyBase.Columns.Add(Me._columnDistancia_base_poste___PMR)
-            Me.columnDistancia_eléct_sec_mecánico = New Global.System.Data.DataColumn("Distancia eléct sec mecánico", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_eléct_sec_mecánico)
-            Me.columnDistancia_eléct_sec_eléctrico = New Global.System.Data.DataColumn("Distancia eléct sec eléctrico", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_eléct_sec_eléctrico)
-            Me.columnLong_zona_común_máx = New Global.System.Data.DataColumn("Long zona común máx", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLong_zona_común_máx)
-            Me.columnLong_zona_común_mín = New Global.System.Data.DataColumn("Long zona común mín", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLong_zona_común_mín)
-            Me.columnLong_Zona_Neutra = New Global.System.Data.DataColumn("Long Zona Neutra", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLong_Zona_Neutra)
-            Me.columnHilo_de_Contacto = New Global.System.Data.DataColumn("Hilo de Contacto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnHilo_de_Contacto)
-            Me.columnSustentador = New Global.System.Data.DataColumn("Sustentador", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSustentador)
-            Me.columnC_de_Protección_Aérea = New Global.System.Data.DataColumn("C de Protección Aérea", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnC_de_Protección_Aérea)
-            Me.columnCable_de_Tierra = New Global.System.Data.DataColumn("Cable de Tierra", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCable_de_Tierra)
-            Me._columnFeeder__ = New Global.System.Data.DataColumn("Feeder +", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnFeeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFeeder__")
-            Me._columnFeeder__.ExtendedProperties.Add("Generator_UserColumnName", "Feeder +")
-            MyBase.Columns.Add(Me._columnFeeder__)
-            Me.__columnFeeder__ = New Global.System.Data.DataColumn("Feeder -", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.__columnFeeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "__columnFeeder__")
-            Me.__columnFeeder__.ExtendedProperties.Add("Generator_UserColumnName", "Feeder -")
-            MyBase.Columns.Add(Me.__columnFeeder__)
-            Me.columnPunto_fijo = New Global.System.Data.DataColumn("Punto fijo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPunto_fijo)
-            Me.columnPéndola = New Global.System.Data.DataColumn("Péndola", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPéndola)
-            Me.columnAnclaje = New Global.System.Data.DataColumn("Anclaje", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAnclaje)
-            Me._columnPosición_Feeder__ = New Global.System.Data.DataColumn("Posición Feeder +", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnPosición_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnPosición_Feeder__")
-            Me._columnPosición_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Posición Feeder +")
-            MyBase.Columns.Add(Me._columnPosición_Feeder__)
-            Me.__columnPosición_Feeder__ = New Global.System.Data.DataColumn("Posición Feeder -", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.__columnPosición_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "__columnPosición_Feeder__")
-            Me.__columnPosición_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Posición Feeder -")
-            MyBase.Columns.Add(Me.__columnPosición_Feeder__)
-            Me.columnNúm_HC = New Global.System.Data.DataColumn("Núm HC", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNúm_HC)
-            Me.columnNúm_CdPA = New Global.System.Data.DataColumn("Núm CdPA", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNúm_CdPA)
-            Me._columnNúm_Feeder__ = New Global.System.Data.DataColumn("Núm Feeder +", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnNúm_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnNúm_Feeder__")
-            Me._columnNúm_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Núm Feeder +")
-            MyBase.Columns.Add(Me._columnNúm_Feeder__)
-            Me.__columnNúm_Feeder__ = New Global.System.Data.DataColumn("Núm Feeder -", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            Me.__columnNúm_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "__columnNúm_Feeder__")
-            Me.__columnNúm_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Núm Feeder -")
-            MyBase.Columns.Add(Me.__columnNúm_Feeder__)
-            Me.columnTensión_HC = New Global.System.Data.DataColumn("Tensión HC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTensión_HC)
-            Me.columnTensión_sustentador = New Global.System.Data.DataColumn("Tensión sustentador", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTensión_sustentador)
-            Me.columnTensión_CdPA = New Global.System.Data.DataColumn("Tensión CdPA", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTensión_CdPA)
-            Me._columnTensión_Feeder__ = New Global.System.Data.DataColumn("Tensión Feeder +", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnTensión_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnTensión_Feeder__")
-            Me._columnTensión_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Tensión Feeder +")
-            MyBase.Columns.Add(Me._columnTensión_Feeder__)
-            Me.__columnTensión_Feeder__ = New Global.System.Data.DataColumn("Tensión Feeder -", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            Me.__columnTensión_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "__columnTensión_Feeder__")
-            Me.__columnTensión_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Tensión Feeder -")
-            MyBase.Columns.Add(Me.__columnTensión_Feeder__)
-            Me.columnTensión_punto_fijo = New Global.System.Data.DataColumn("Tensión punto fijo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTensión_punto_fijo)
-            Me.columnTipo = New Global.System.Data.DataColumn("Tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTipo)
-            Me._columnAdm_Línea = New Global.System.Data.DataColumn("Adm/Línea", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnAdm_Línea.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnAdm_Línea")
-            Me._columnAdm_Línea.ExtendedProperties.Add("Generator_UserColumnName", "Adm/Línea")
-            MyBase.Columns.Add(Me._columnAdm_Línea)
-            Me.columnCódigo = New Global.System.Data.DataColumn("Código", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCódigo)
-            Me.columnNumeración = New Global.System.Data.DataColumn("Numeración", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNumeración)
-            Me.columnTipo_macizo = New Global.System.Data.DataColumn("Tipo macizo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTipo_macizo)
-            Me._columnAdm_Línea_postes = New Global.System.Data.DataColumn("Adm/Línea postes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnAdm_Línea_postes.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnAdm_Línea_postes")
-            Me._columnAdm_Línea_postes.ExtendedProperties.Add("Generator_UserColumnName", "Adm/Línea postes")
-            MyBase.Columns.Add(Me._columnAdm_Línea_postes)
-            Me.columnTubo_de_ménsula = New Global.System.Data.DataColumn("Tubo de ménsula", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTubo_de_ménsula)
-            Me.columnTubo_tirante = New Global.System.Data.DataColumn("Tubo tirante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTubo_tirante)
-            Me.columnCola_de_anclaje = New Global.System.Data.DataColumn("Cola de anclaje", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCola_de_anclaje)
-            Me._columnAislador_Feeder__ = New Global.System.Data.DataColumn("Aislador Feeder +", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnAislador_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnAislador_Feeder__")
-            Me._columnAislador_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Aislador Feeder +")
-            MyBase.Columns.Add(Me._columnAislador_Feeder__)
-            Me.__columnAislador_Feeder__ = New Global.System.Data.DataColumn("Aislador Feeder -", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.__columnAislador_Feeder__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "__columnAislador_Feeder__")
-            Me.__columnAislador_Feeder__.ExtendedProperties.Add("Generator_UserColumnName", "Aislador Feeder -")
-            MyBase.Columns.Add(Me.__columnAislador_Feeder__)
-            Me.columnDistancia_apoyo_y_1ª_péndola = New Global.System.Data.DataColumn("Distancia apoyo y 1ª péndola", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_apoyo_y_1ª_péndola)
-            Me.columnDistancia_1ª_y_2ª_péndola = New Global.System.Data.DataColumn("Distancia 1ª y 2ª péndola", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_1ª_y_2ª_péndola)
-            Me.columnDistancia_máx_entre_péndolas = New Global.System.Data.DataColumn("Distancia máx entre péndolas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDistancia_máx_entre_péndolas)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNombre_catenaria}, true))
-            Me.columnNombre_catenaria.AllowDBNull = false
-            Me.columnNombre_catenaria.Unique = true
-            Me.columnNombre_catenaria.MaxLength = 255
-            Me.columnSistema.MaxLength = 255
-            Me.columnElevación_máx_pantógrafo.MaxLength = 255
-            Me.columnHilo_de_Contacto.MaxLength = 255
-            Me.columnSustentador.MaxLength = 255
-            Me.columnC_de_Protección_Aérea.MaxLength = 255
-            Me.columnCable_de_Tierra.MaxLength = 255
-            Me._columnFeeder__.MaxLength = 255
-            Me.__columnFeeder__.MaxLength = 255
-            Me.columnPunto_fijo.MaxLength = 255
-            Me.columnPéndola.MaxLength = 255
-            Me.columnAnclaje.MaxLength = 255
-            Me._columnPosición_Feeder__.MaxLength = 255
-            Me.__columnPosición_Feeder__.MaxLength = 255
-            Me.columnTipo.MaxLength = 255
-            Me._columnAdm_Línea.MaxLength = 255
-            Me.columnCódigo.MaxLength = 255
-            Me.columnNumeración.MaxLength = 255
-            Me.columnTipo_macizo.MaxLength = 255
-            Me._columnAdm_Línea_postes.MaxLength = 255
-            Me.columnTubo_de_ménsula.MaxLength = 255
-            Me.columnTubo_tirante.MaxLength = 255
-            Me.columnCola_de_anclaje.MaxLength = 255
-            Me._columnAislador_Feeder__.MaxLength = 255
-            Me.__columnAislador_Feeder__.MaxLength = 255
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewDatosRow() As DatosRow
-            Return CType(Me.NewRow,DatosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New DatosRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(DatosRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.DatosRowChangedEvent) Is Nothing) Then
-                RaiseEvent DatosRowChanged(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.DatosRowChangingEvent) Is Nothing) Then
-                RaiseEvent DatosRowChanging(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.DatosRowDeletedEvent) Is Nothing) Then
-                RaiseEvent DatosRowDeleted(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.DatosRowDeletingEvent) Is Nothing) Then
-                RaiseEvent DatosRowDeleting(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveDatosRow(ByVal row As DatosRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
-            Dim ds As Base_de_datosDataSet = New Base_de_datosDataSet
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DatosDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -6423,239 +5256,6 @@ Partial Public Class Base_de_datosDataSet
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class NOMBRE_CATENARIADataTable
-        Inherits Global.System.Data.TypedTableBase(Of NOMBRE_CATENARIARow)
-        
-        Private columnNombre_Catenaria As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "NOMBRE CATENARIA"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Nombre_CatenariaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNombre_Catenaria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As NOMBRE_CATENARIARow
-            Get
-                Return CType(Me.Rows(index),NOMBRE_CATENARIARow)
-            End Get
-        End Property
-        
-        Public Event NOMBRE_CATENARIARowChanging As NOMBRE_CATENARIARowChangeEventHandler
-        
-        Public Event NOMBRE_CATENARIARowChanged As NOMBRE_CATENARIARowChangeEventHandler
-        
-        Public Event NOMBRE_CATENARIARowDeleting As NOMBRE_CATENARIARowChangeEventHandler
-        
-        Public Event NOMBRE_CATENARIARowDeleted As NOMBRE_CATENARIARowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddNOMBRE_CATENARIARow(ByVal row As NOMBRE_CATENARIARow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddNOMBRE_CATENARIARow(ByVal Nombre_Catenaria As String) As NOMBRE_CATENARIARow
-            Dim rowNOMBRE_CATENARIARow As NOMBRE_CATENARIARow = CType(Me.NewRow,NOMBRE_CATENARIARow)
-            Dim columnValuesArray() As Object = New Object() {Nombre_Catenaria}
-            rowNOMBRE_CATENARIARow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowNOMBRE_CATENARIARow)
-            Return rowNOMBRE_CATENARIARow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As NOMBRE_CATENARIADataTable = CType(MyBase.Clone,NOMBRE_CATENARIADataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New NOMBRE_CATENARIADataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub InitVars()
-            Me.columnNombre_Catenaria = MyBase.Columns("Nombre_Catenaria")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitClass()
-            Me.columnNombre_Catenaria = New Global.System.Data.DataColumn("Nombre_Catenaria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Nombre_Catenaria")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "Nombre_CatenariaColumn")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnNombre_Catenaria")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_UserColumnName", "Nombre_Catenaria")
-            MyBase.Columns.Add(Me.columnNombre_Catenaria)
-            Me.columnNombre_Catenaria.MaxLength = 255
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewNOMBRE_CATENARIARow() As NOMBRE_CATENARIARow
-            Return CType(Me.NewRow,NOMBRE_CATENARIARow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New NOMBRE_CATENARIARow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(NOMBRE_CATENARIARow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.NOMBRE_CATENARIARowChangedEvent) Is Nothing) Then
-                RaiseEvent NOMBRE_CATENARIARowChanged(Me, New NOMBRE_CATENARIARowChangeEvent(CType(e.Row,NOMBRE_CATENARIARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.NOMBRE_CATENARIARowChangingEvent) Is Nothing) Then
-                RaiseEvent NOMBRE_CATENARIARowChanging(Me, New NOMBRE_CATENARIARowChangeEvent(CType(e.Row,NOMBRE_CATENARIARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.NOMBRE_CATENARIARowDeletedEvent) Is Nothing) Then
-                RaiseEvent NOMBRE_CATENARIARowDeleted(Me, New NOMBRE_CATENARIARowChangeEvent(CType(e.Row,NOMBRE_CATENARIARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.NOMBRE_CATENARIARowDeletingEvent) Is Nothing) Then
-                RaiseEvent NOMBRE_CATENARIARowDeleting(Me, New NOMBRE_CATENARIARowChangeEvent(CType(e.Row,NOMBRE_CATENARIARow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveNOMBRE_CATENARIARow(ByVal row As NOMBRE_CATENARIARow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
-            Dim ds As Base_de_datosDataSet = New Base_de_datosDataSet
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "NOMBRE_CATENARIADataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class ContraseñaDataTable
         Inherits Global.System.Data.TypedTableBase(Of ContraseñaRow)
         
@@ -6898,10 +5498,1119 @@ Partial Public Class Base_de_datosDataSet
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class _Nombre_CatenariaDataTable
-        Inherits Global.System.Data.TypedTableBase(Of _Nombre_CatenariaRow)
+    Partial Public Class DatosDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DatosRow)
         
-        Private columnNombre_Catenaria As Global.System.Data.DataColumn
+        Private columnnombre_cat As Global.System.Data.DataColumn
+        
+        Private columnsist As Global.System.Data.DataColumn
+        
+        Private columnal As Global.System.Data.DataColumn
+        
+        Private columnalt_nom As Global.System.Data.DataColumn
+        
+        Private columnalt_min As Global.System.Data.DataColumn
+        
+        Private columnalt_max As Global.System.Data.DataColumn
+        
+        Private columnalt_cat As Global.System.Data.DataColumn
+        
+        Private columndist_max_va As Global.System.Data.DataColumn
+        
+        Private columndist_max_canton As Global.System.Data.DataColumn
+        
+        Private columnva_max As Global.System.Data.DataColumn
+        
+        Private columnva_max_sm As Global.System.Data.DataColumn
+        
+        Private columnva_max_sla As Global.System.Data.DataColumn
+        
+        Private columnva_max_tunel As Global.System.Data.DataColumn
+        
+        Private columninc_norm_va As Global.System.Data.DataColumn
+        
+        Private columninc_max_alt_hc As Global.System.Data.DataColumn
+        
+        Private columnn_min_va_sm As Global.System.Data.DataColumn
+        
+        Private columnn_min_va_sla As Global.System.Data.DataColumn
+        
+        Private columnancho_via As Global.System.Data.DataColumn
+        
+        Private columnd_max_re As Global.System.Data.DataColumn
+        
+        Private columnd_max_cu As Global.System.Data.DataColumn
+        
+        Private columnr_re As Global.System.Data.DataColumn
+        
+        Private columnZona_trab_pant As Global.System.Data.DataColumn
+        
+        Private columnel_max_pant As Global.System.Data.DataColumn
+        
+        Private columnvw As Global.System.Data.DataColumn
+        
+        Private columnfl_max_centro_va As Global.System.Data.DataColumn
+        
+        Private columndist_carril_poste As Global.System.Data.DataColumn
+        
+        Private columndist_base_poste_pmr As Global.System.Data.DataColumn
+        
+        Private columndist_elect_sm As Global.System.Data.DataColumn
+        
+        Private columndist_elect_sla As Global.System.Data.DataColumn
+        
+        Private columnl_zc_max As Global.System.Data.DataColumn
+        
+        Private columnl_zc_min As Global.System.Data.DataColumn
+        
+        Private columnl_zn As Global.System.Data.DataColumn
+        
+        Private columnhc As Global.System.Data.DataColumn
+        
+        Private columnsust As Global.System.Data.DataColumn
+        
+        Private columncdpa As Global.System.Data.DataColumn
+        
+        Private columncdte As Global.System.Data.DataColumn
+        
+        Private columnfeed_pos As Global.System.Data.DataColumn
+        
+        Private columnfeed_neg As Global.System.Data.DataColumn
+        
+        Private columnpto_fijo As Global.System.Data.DataColumn
+        
+        Private columnpend As Global.System.Data.DataColumn
+        
+        Private columnas As Global.System.Data.DataColumn
+        
+        Private columnpos_feed_pos As Global.System.Data.DataColumn
+        
+        Private columnpos_feed_neg As Global.System.Data.DataColumn
+        
+        Private columnn_hc As Global.System.Data.DataColumn
+        
+        Private columnn_cdpa As Global.System.Data.DataColumn
+        
+        Private columnn_feed_pos As Global.System.Data.DataColumn
+        
+        Private columnn_feed_neg As Global.System.Data.DataColumn
+        
+        Private columnt_hc As Global.System.Data.DataColumn
+        
+        Private columnt_sust As Global.System.Data.DataColumn
+        
+        Private columnt_cdpa As Global.System.Data.DataColumn
+        
+        Private columnt_feed_pos As Global.System.Data.DataColumn
+        
+        Private columnt_feed_neg As Global.System.Data.DataColumn
+        
+        Private columnt_pto_fijo As Global.System.Data.DataColumn
+        
+        Private columnadm_lin_poste As Global.System.Data.DataColumn
+        
+        Private columntip_poste As Global.System.Data.DataColumn
+        
+        Private columnnum_poste As Global.System.Data.DataColumn
+        
+        Private columnadm_lin_mac As Global.System.Data.DataColumn
+        
+        Private columntip_mac As Global.System.Data.DataColumn
+        
+        Private columntubo_men As Global.System.Data.DataColumn
+        
+        Private columntubo_tir As Global.System.Data.DataColumn
+        
+        Private columncola_as As Global.System.Data.DataColumn
+        
+        Private columnaisl_feed_pos As Global.System.Data.DataColumn
+        
+        Private columnaisl_feed_neg As Global.System.Data.DataColumn
+        
+        Private columndist_ap_prim_pend As Global.System.Data.DataColumn
+        
+        Private columndist_prim_seg_pend As Global.System.Data.DataColumn
+        
+        Private columndist_max_pend As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Datos"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombre_catColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre_cat
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property sistColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsist
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property alColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property alt_nomColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalt_nom
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property alt_minColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalt_min
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property alt_maxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalt_max
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property alt_catColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalt_cat
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_max_vaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_max_va
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_max_cantonColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_max_canton
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property va_maxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnva_max
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property va_max_smColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnva_max_sm
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property va_max_slaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnva_max_sla
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property va_max_tunelColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnva_max_tunel
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property inc_norm_vaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columninc_norm_va
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property inc_max_alt_hcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columninc_max_alt_hc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_min_va_smColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_min_va_sm
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_min_va_slaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_min_va_sla
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ancho_viaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnancho_via
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property d_max_reColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnd_max_re
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property d_max_cuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnd_max_cu
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property r_reColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnr_re
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Zona_trab_pantColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZona_trab_pant
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property el_max_pantColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnel_max_pant
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property vwColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvw
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fl_max_centro_vaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfl_max_centro_va
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_carril_posteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_carril_poste
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_base_poste_pmrColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_base_poste_pmr
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_elect_smColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_elect_sm
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_elect_slaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_elect_sla
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property l_zc_maxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnl_zc_max
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property l_zc_minColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnl_zc_min
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property l_znColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnl_zn
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property hcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property sustColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsust
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property cdpaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncdpa
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property cdteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncdte
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property feed_posColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfeed_pos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property feed_negColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfeed_neg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property pto_fijoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpto_fijo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property pendColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpend
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property asColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnas
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property pos_feed_posColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpos_feed_pos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property pos_feed_negColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpos_feed_neg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_hcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_hc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_cdpaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_cdpa
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_feed_posColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_feed_pos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property n_feed_negColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnn_feed_neg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_hcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_hc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_sustColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_sust
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_cdpaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_cdpa
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_feed_posColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_feed_pos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_feed_negColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_feed_neg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property t_pto_fijoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnt_pto_fijo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property adm_lin_posteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnadm_lin_poste
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tip_posteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntip_poste
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property num_posteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnum_poste
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property adm_lin_macColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnadm_lin_mac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tip_macColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntip_mac
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tubo_menColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntubo_men
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tubo_tirColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntubo_tir
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property cola_asColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncola_as
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property aisl_feed_posColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaisl_feed_pos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property aisl_feed_negColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaisl_feed_neg
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_ap_prim_pendColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_ap_prim_pend
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_prim_seg_pendColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_prim_seg_pend
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dist_max_pendColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndist_max_pend
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DatosRow
+            Get
+                Return CType(Me.Rows(index),DatosRow)
+            End Get
+        End Property
+        
+        Public Event DatosRowChanging As DatosRowChangeEventHandler
+        
+        Public Event DatosRowChanged As DatosRowChangeEventHandler
+        
+        Public Event DatosRowDeleting As DatosRowChangeEventHandler
+        
+        Public Event DatosRowDeleted As DatosRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddDatosRow(ByVal row As DatosRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddDatosRow( _
+                    ByVal nombre_cat As String,  _
+                    ByVal sist As String,  _
+                    ByVal al As String,  _
+                    ByVal alt_nom As Double,  _
+                    ByVal alt_min As Double,  _
+                    ByVal alt_max As Double,  _
+                    ByVal alt_cat As Double,  _
+                    ByVal dist_max_va As Double,  _
+                    ByVal dist_max_canton As Double,  _
+                    ByVal va_max As Double,  _
+                    ByVal va_max_sm As Double,  _
+                    ByVal va_max_sla As Double,  _
+                    ByVal va_max_tunel As Double,  _
+                    ByVal inc_norm_va As Double,  _
+                    ByVal inc_max_alt_hc As Double,  _
+                    ByVal n_min_va_sm As Double,  _
+                    ByVal n_min_va_sla As Double,  _
+                    ByVal ancho_via As Double,  _
+                    ByVal d_max_re As Double,  _
+                    ByVal d_max_cu As Double,  _
+                    ByVal r_re As Double,  _
+                    ByVal Zona_trab_pant As Double,  _
+                    ByVal el_max_pant As Double,  _
+                    ByVal vw As Double,  _
+                    ByVal fl_max_centro_va As Double,  _
+                    ByVal dist_carril_poste As Double,  _
+                    ByVal dist_base_poste_pmr As Double,  _
+                    ByVal dist_elect_sm As Double,  _
+                    ByVal dist_elect_sla As Double,  _
+                    ByVal l_zc_max As Double,  _
+                    ByVal l_zc_min As Double,  _
+                    ByVal l_zn As Double,  _
+                    ByVal hc As String,  _
+                    ByVal sust As String,  _
+                    ByVal cdpa As String,  _
+                    ByVal cdte As String,  _
+                    ByVal feed_pos As String,  _
+                    ByVal feed_neg As String,  _
+                    ByVal pto_fijo As String,  _
+                    ByVal pend As String,  _
+                    ByVal _as As String,  _
+                    ByVal pos_feed_pos As String,  _
+                    ByVal pos_feed_neg As String,  _
+                    ByVal n_hc As Integer,  _
+                    ByVal n_cdpa As Integer,  _
+                    ByVal n_feed_pos As Integer,  _
+                    ByVal n_feed_neg As Integer,  _
+                    ByVal t_hc As Double,  _
+                    ByVal t_sust As Double,  _
+                    ByVal t_cdpa As Double,  _
+                    ByVal t_feed_pos As Double,  _
+                    ByVal t_feed_neg As Double,  _
+                    ByVal t_pto_fijo As Double,  _
+                    ByVal adm_lin_poste As String,  _
+                    ByVal tip_poste As String,  _
+                    ByVal num_poste As String,  _
+                    ByVal adm_lin_mac As String,  _
+                    ByVal tip_mac As String,  _
+                    ByVal tubo_men As String,  _
+                    ByVal tubo_tir As String,  _
+                    ByVal cola_as As String,  _
+                    ByVal aisl_feed_pos As String,  _
+                    ByVal aisl_feed_neg As String,  _
+                    ByVal dist_ap_prim_pend As Double,  _
+                    ByVal dist_prim_seg_pend As Double,  _
+                    ByVal dist_max_pend As Double) As DatosRow
+            Dim rowDatosRow As DatosRow = CType(Me.NewRow,DatosRow)
+            Dim columnValuesArray() As Object = New Object() {nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, _as, pos_feed_pos, pos_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_as, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend}
+            rowDatosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDatosRow)
+            Return rowDatosRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindBynombre_cat(ByVal nombre_cat As String) As DatosRow
+            Return CType(Me.Rows.Find(New Object() {nombre_cat}),DatosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DatosDataTable = CType(MyBase.Clone,DatosDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DatosDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnnombre_cat = MyBase.Columns("nombre_cat")
+            Me.columnsist = MyBase.Columns("sist")
+            Me.columnal = MyBase.Columns("al")
+            Me.columnalt_nom = MyBase.Columns("alt_nom")
+            Me.columnalt_min = MyBase.Columns("alt_min")
+            Me.columnalt_max = MyBase.Columns("alt_max")
+            Me.columnalt_cat = MyBase.Columns("alt_cat")
+            Me.columndist_max_va = MyBase.Columns("dist_max_va")
+            Me.columndist_max_canton = MyBase.Columns("dist_max_canton")
+            Me.columnva_max = MyBase.Columns("va_max")
+            Me.columnva_max_sm = MyBase.Columns("va_max_sm")
+            Me.columnva_max_sla = MyBase.Columns("va_max_sla")
+            Me.columnva_max_tunel = MyBase.Columns("va_max_tunel")
+            Me.columninc_norm_va = MyBase.Columns("inc_norm_va")
+            Me.columninc_max_alt_hc = MyBase.Columns("inc_max_alt_hc")
+            Me.columnn_min_va_sm = MyBase.Columns("n_min_va_sm")
+            Me.columnn_min_va_sla = MyBase.Columns("n_min_va_sla")
+            Me.columnancho_via = MyBase.Columns("ancho_via")
+            Me.columnd_max_re = MyBase.Columns("d_max_re")
+            Me.columnd_max_cu = MyBase.Columns("d_max_cu")
+            Me.columnr_re = MyBase.Columns("r_re")
+            Me.columnZona_trab_pant = MyBase.Columns("Zona_trab_pant")
+            Me.columnel_max_pant = MyBase.Columns("el_max_pant")
+            Me.columnvw = MyBase.Columns("vw")
+            Me.columnfl_max_centro_va = MyBase.Columns("fl_max_centro_va")
+            Me.columndist_carril_poste = MyBase.Columns("dist_carril_poste")
+            Me.columndist_base_poste_pmr = MyBase.Columns("dist_base_poste_pmr")
+            Me.columndist_elect_sm = MyBase.Columns("dist_elect_sm")
+            Me.columndist_elect_sla = MyBase.Columns("dist_elect_sla")
+            Me.columnl_zc_max = MyBase.Columns("l_zc_max")
+            Me.columnl_zc_min = MyBase.Columns("l_zc_min")
+            Me.columnl_zn = MyBase.Columns("l_zn")
+            Me.columnhc = MyBase.Columns("hc")
+            Me.columnsust = MyBase.Columns("sust")
+            Me.columncdpa = MyBase.Columns("cdpa")
+            Me.columncdte = MyBase.Columns("cdte")
+            Me.columnfeed_pos = MyBase.Columns("feed_pos")
+            Me.columnfeed_neg = MyBase.Columns("feed_neg")
+            Me.columnpto_fijo = MyBase.Columns("pto_fijo")
+            Me.columnpend = MyBase.Columns("pend")
+            Me.columnas = MyBase.Columns("as")
+            Me.columnpos_feed_pos = MyBase.Columns("pos_feed_pos")
+            Me.columnpos_feed_neg = MyBase.Columns("pos_feed_neg")
+            Me.columnn_hc = MyBase.Columns("n_hc")
+            Me.columnn_cdpa = MyBase.Columns("n_cdpa")
+            Me.columnn_feed_pos = MyBase.Columns("n_feed_pos")
+            Me.columnn_feed_neg = MyBase.Columns("n_feed_neg")
+            Me.columnt_hc = MyBase.Columns("t_hc")
+            Me.columnt_sust = MyBase.Columns("t_sust")
+            Me.columnt_cdpa = MyBase.Columns("t_cdpa")
+            Me.columnt_feed_pos = MyBase.Columns("t_feed_pos")
+            Me.columnt_feed_neg = MyBase.Columns("t_feed_neg")
+            Me.columnt_pto_fijo = MyBase.Columns("t_pto_fijo")
+            Me.columnadm_lin_poste = MyBase.Columns("adm_lin_poste")
+            Me.columntip_poste = MyBase.Columns("tip_poste")
+            Me.columnnum_poste = MyBase.Columns("num_poste")
+            Me.columnadm_lin_mac = MyBase.Columns("adm_lin_mac")
+            Me.columntip_mac = MyBase.Columns("tip_mac")
+            Me.columntubo_men = MyBase.Columns("tubo_men")
+            Me.columntubo_tir = MyBase.Columns("tubo_tir")
+            Me.columncola_as = MyBase.Columns("cola_as")
+            Me.columnaisl_feed_pos = MyBase.Columns("aisl_feed_pos")
+            Me.columnaisl_feed_neg = MyBase.Columns("aisl_feed_neg")
+            Me.columndist_ap_prim_pend = MyBase.Columns("dist_ap_prim_pend")
+            Me.columndist_prim_seg_pend = MyBase.Columns("dist_prim_seg_pend")
+            Me.columndist_max_pend = MyBase.Columns("dist_max_pend")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnnombre_cat = New Global.System.Data.DataColumn("nombre_cat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_cat)
+            Me.columnsist = New Global.System.Data.DataColumn("sist", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsist)
+            Me.columnal = New Global.System.Data.DataColumn("al", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnal)
+            Me.columnalt_nom = New Global.System.Data.DataColumn("alt_nom", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalt_nom)
+            Me.columnalt_min = New Global.System.Data.DataColumn("alt_min", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalt_min)
+            Me.columnalt_max = New Global.System.Data.DataColumn("alt_max", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalt_max)
+            Me.columnalt_cat = New Global.System.Data.DataColumn("alt_cat", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalt_cat)
+            Me.columndist_max_va = New Global.System.Data.DataColumn("dist_max_va", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_max_va)
+            Me.columndist_max_canton = New Global.System.Data.DataColumn("dist_max_canton", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_max_canton)
+            Me.columnva_max = New Global.System.Data.DataColumn("va_max", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnva_max)
+            Me.columnva_max_sm = New Global.System.Data.DataColumn("va_max_sm", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnva_max_sm)
+            Me.columnva_max_sla = New Global.System.Data.DataColumn("va_max_sla", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnva_max_sla)
+            Me.columnva_max_tunel = New Global.System.Data.DataColumn("va_max_tunel", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnva_max_tunel)
+            Me.columninc_norm_va = New Global.System.Data.DataColumn("inc_norm_va", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columninc_norm_va)
+            Me.columninc_max_alt_hc = New Global.System.Data.DataColumn("inc_max_alt_hc", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columninc_max_alt_hc)
+            Me.columnn_min_va_sm = New Global.System.Data.DataColumn("n_min_va_sm", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_min_va_sm)
+            Me.columnn_min_va_sla = New Global.System.Data.DataColumn("n_min_va_sla", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_min_va_sla)
+            Me.columnancho_via = New Global.System.Data.DataColumn("ancho_via", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnancho_via)
+            Me.columnd_max_re = New Global.System.Data.DataColumn("d_max_re", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnd_max_re)
+            Me.columnd_max_cu = New Global.System.Data.DataColumn("d_max_cu", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnd_max_cu)
+            Me.columnr_re = New Global.System.Data.DataColumn("r_re", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnr_re)
+            Me.columnZona_trab_pant = New Global.System.Data.DataColumn("Zona_trab_pant", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZona_trab_pant)
+            Me.columnel_max_pant = New Global.System.Data.DataColumn("el_max_pant", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnel_max_pant)
+            Me.columnvw = New Global.System.Data.DataColumn("vw", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvw)
+            Me.columnfl_max_centro_va = New Global.System.Data.DataColumn("fl_max_centro_va", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfl_max_centro_va)
+            Me.columndist_carril_poste = New Global.System.Data.DataColumn("dist_carril_poste", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_carril_poste)
+            Me.columndist_base_poste_pmr = New Global.System.Data.DataColumn("dist_base_poste_pmr", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_base_poste_pmr)
+            Me.columndist_elect_sm = New Global.System.Data.DataColumn("dist_elect_sm", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_elect_sm)
+            Me.columndist_elect_sla = New Global.System.Data.DataColumn("dist_elect_sla", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_elect_sla)
+            Me.columnl_zc_max = New Global.System.Data.DataColumn("l_zc_max", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnl_zc_max)
+            Me.columnl_zc_min = New Global.System.Data.DataColumn("l_zc_min", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnl_zc_min)
+            Me.columnl_zn = New Global.System.Data.DataColumn("l_zn", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnl_zn)
+            Me.columnhc = New Global.System.Data.DataColumn("hc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhc)
+            Me.columnsust = New Global.System.Data.DataColumn("sust", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsust)
+            Me.columncdpa = New Global.System.Data.DataColumn("cdpa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncdpa)
+            Me.columncdte = New Global.System.Data.DataColumn("cdte", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncdte)
+            Me.columnfeed_pos = New Global.System.Data.DataColumn("feed_pos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfeed_pos)
+            Me.columnfeed_neg = New Global.System.Data.DataColumn("feed_neg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfeed_neg)
+            Me.columnpto_fijo = New Global.System.Data.DataColumn("pto_fijo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpto_fijo)
+            Me.columnpend = New Global.System.Data.DataColumn("pend", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpend)
+            Me.columnas = New Global.System.Data.DataColumn("as", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnas.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "asColumn")
+            Me.columnas.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnas")
+            Me.columnas.ExtendedProperties.Add("Generator_UserColumnName", "as")
+            MyBase.Columns.Add(Me.columnas)
+            Me.columnpos_feed_pos = New Global.System.Data.DataColumn("pos_feed_pos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpos_feed_pos)
+            Me.columnpos_feed_neg = New Global.System.Data.DataColumn("pos_feed_neg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpos_feed_neg)
+            Me.columnn_hc = New Global.System.Data.DataColumn("n_hc", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_hc)
+            Me.columnn_cdpa = New Global.System.Data.DataColumn("n_cdpa", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_cdpa)
+            Me.columnn_feed_pos = New Global.System.Data.DataColumn("n_feed_pos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_feed_pos)
+            Me.columnn_feed_neg = New Global.System.Data.DataColumn("n_feed_neg", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnn_feed_neg)
+            Me.columnt_hc = New Global.System.Data.DataColumn("t_hc", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_hc)
+            Me.columnt_sust = New Global.System.Data.DataColumn("t_sust", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_sust)
+            Me.columnt_cdpa = New Global.System.Data.DataColumn("t_cdpa", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_cdpa)
+            Me.columnt_feed_pos = New Global.System.Data.DataColumn("t_feed_pos", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_feed_pos)
+            Me.columnt_feed_neg = New Global.System.Data.DataColumn("t_feed_neg", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_feed_neg)
+            Me.columnt_pto_fijo = New Global.System.Data.DataColumn("t_pto_fijo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnt_pto_fijo)
+            Me.columnadm_lin_poste = New Global.System.Data.DataColumn("adm_lin_poste", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnadm_lin_poste)
+            Me.columntip_poste = New Global.System.Data.DataColumn("tip_poste", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntip_poste)
+            Me.columnnum_poste = New Global.System.Data.DataColumn("num_poste", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnum_poste)
+            Me.columnadm_lin_mac = New Global.System.Data.DataColumn("adm_lin_mac", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnadm_lin_mac)
+            Me.columntip_mac = New Global.System.Data.DataColumn("tip_mac", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntip_mac)
+            Me.columntubo_men = New Global.System.Data.DataColumn("tubo_men", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntubo_men)
+            Me.columntubo_tir = New Global.System.Data.DataColumn("tubo_tir", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntubo_tir)
+            Me.columncola_as = New Global.System.Data.DataColumn("cola_as", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncola_as)
+            Me.columnaisl_feed_pos = New Global.System.Data.DataColumn("aisl_feed_pos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaisl_feed_pos)
+            Me.columnaisl_feed_neg = New Global.System.Data.DataColumn("aisl_feed_neg", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaisl_feed_neg)
+            Me.columndist_ap_prim_pend = New Global.System.Data.DataColumn("dist_ap_prim_pend", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_ap_prim_pend)
+            Me.columndist_prim_seg_pend = New Global.System.Data.DataColumn("dist_prim_seg_pend", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_prim_seg_pend)
+            Me.columndist_max_pend = New Global.System.Data.DataColumn("dist_max_pend", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndist_max_pend)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnnombre_cat}, true))
+            Me.columnnombre_cat.AllowDBNull = false
+            Me.columnnombre_cat.Unique = true
+            Me.columnnombre_cat.MaxLength = 255
+            Me.columnsist.MaxLength = 255
+            Me.columnal.MaxLength = 255
+            Me.columnhc.MaxLength = 255
+            Me.columnsust.MaxLength = 255
+            Me.columncdpa.MaxLength = 255
+            Me.columncdte.MaxLength = 255
+            Me.columnfeed_pos.MaxLength = 255
+            Me.columnfeed_neg.MaxLength = 255
+            Me.columnpto_fijo.MaxLength = 255
+            Me.columnpend.MaxLength = 255
+            Me.columnas.MaxLength = 255
+            Me.columnpos_feed_pos.MaxLength = 255
+            Me.columnpos_feed_neg.MaxLength = 255
+            Me.columnadm_lin_poste.MaxLength = 255
+            Me.columntip_poste.MaxLength = 255
+            Me.columnnum_poste.MaxLength = 255
+            Me.columnadm_lin_mac.MaxLength = 255
+            Me.columntip_mac.MaxLength = 255
+            Me.columntubo_men.MaxLength = 255
+            Me.columntubo_tir.MaxLength = 255
+            Me.columncola_as.MaxLength = 255
+            Me.columnaisl_feed_pos.MaxLength = 255
+            Me.columnaisl_feed_neg.MaxLength = 255
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewDatosRow() As DatosRow
+            Return CType(Me.NewRow,DatosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DatosRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DatosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DatosRowChangedEvent) Is Nothing) Then
+                RaiseEvent DatosRowChanged(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DatosRowChangingEvent) Is Nothing) Then
+                RaiseEvent DatosRowChanging(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DatosRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DatosRowDeleted(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DatosRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DatosRowDeleting(Me, New DatosRowChangeEvent(CType(e.Row,DatosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveDatosRow(ByVal row As DatosRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As Base_de_datosDataSet = New Base_de_datosDataSet
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DatosDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class Nombre_CatenariaDataTable
+        Inherits Global.System.Data.TypedTableBase(Of Nombre_CatenariaRow)
+        
+        Private columnnombre_cat As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -6936,9 +6645,9 @@ Partial Public Class Base_de_datosDataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Nombre_CatenariaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property nombre_catColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNombre_Catenaria
+                Return Me.columnnombre_cat
             End Get
         End Property
         
@@ -6951,118 +6660,115 @@ Partial Public Class Base_de_datosDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As _Nombre_CatenariaRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Nombre_CatenariaRow
             Get
-                Return CType(Me.Rows(index),_Nombre_CatenariaRow)
+                Return CType(Me.Rows(index),Nombre_CatenariaRow)
             End Get
         End Property
         
-        Public Event _Nombre_CatenariaRowChanging As _Nombre_CatenariaRowChangeEventHandler
+        Public Event Nombre_CatenariaRowChanging As Nombre_CatenariaRowChangeEventHandler
         
-        Public Event _Nombre_CatenariaRowChanged As _Nombre_CatenariaRowChangeEventHandler
+        Public Event Nombre_CatenariaRowChanged As Nombre_CatenariaRowChangeEventHandler
         
-        Public Event _Nombre_CatenariaRowDeleting As _Nombre_CatenariaRowChangeEventHandler
+        Public Event Nombre_CatenariaRowDeleting As Nombre_CatenariaRowChangeEventHandler
         
-        Public Event _Nombre_CatenariaRowDeleted As _Nombre_CatenariaRowChangeEventHandler
+        Public Event Nombre_CatenariaRowDeleted As Nombre_CatenariaRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub Add_Nombre_CatenariaRow(ByVal row As _Nombre_CatenariaRow)
+        Public Overloads Sub AddNombre_CatenariaRow(ByVal row As Nombre_CatenariaRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function Add_Nombre_CatenariaRow(ByVal Nombre_Catenaria As String) As _Nombre_CatenariaRow
-            Dim row_Nombre_CatenariaRow As _Nombre_CatenariaRow = CType(Me.NewRow,_Nombre_CatenariaRow)
-            Dim columnValuesArray() As Object = New Object() {Nombre_Catenaria}
-            row_Nombre_CatenariaRow.ItemArray = columnValuesArray
-            Me.Rows.Add(row_Nombre_CatenariaRow)
-            Return row_Nombre_CatenariaRow
+        Public Overloads Function AddNombre_CatenariaRow(ByVal nombre_cat As String) As Nombre_CatenariaRow
+            Dim rowNombre_CatenariaRow As Nombre_CatenariaRow = CType(Me.NewRow,Nombre_CatenariaRow)
+            Dim columnValuesArray() As Object = New Object() {nombre_cat}
+            rowNombre_CatenariaRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowNombre_CatenariaRow)
+            Return rowNombre_CatenariaRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindBynombre_cat(ByVal nombre_cat As String) As Nombre_CatenariaRow
+            Return CType(Me.Rows.Find(New Object() {nombre_cat}),Nombre_CatenariaRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As _Nombre_CatenariaDataTable = CType(MyBase.Clone,_Nombre_CatenariaDataTable)
+            Dim cln As Nombre_CatenariaDataTable = CType(MyBase.Clone,Nombre_CatenariaDataTable)
             cln.InitVars
             Return cln
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New _Nombre_CatenariaDataTable
+            Return New Nombre_CatenariaDataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnNombre_Catenaria = MyBase.Columns("Nombre_Catenaria")
+            Me.columnnombre_cat = MyBase.Columns("nombre_cat")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnNombre_Catenaria = New Global.System.Data.DataColumn("Nombre_Catenaria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Nombre_Catenaria")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "Nombre_CatenariaColumn")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnNombre_Catenaria")
-            Me.columnNombre_Catenaria.ExtendedProperties.Add("Generator_UserColumnName", "Nombre_Catenaria")
-            MyBase.Columns.Add(Me.columnNombre_Catenaria)
-            Me.columnNombre_Catenaria.MaxLength = 255
-            Me.ExtendedProperties.Add("Generator_RowClassName", "_Nombre_CatenariaRow")
-            Me.ExtendedProperties.Add("Generator_RowEvArgName", "_Nombre_CatenariaRowChangeEvent")
-            Me.ExtendedProperties.Add("Generator_RowEvHandlerName", "_Nombre_CatenariaRowChangeEventHandler")
-            Me.ExtendedProperties.Add("Generator_TableClassName", "_Nombre_CatenariaDataTable")
-            Me.ExtendedProperties.Add("Generator_TablePropName", "_Nombre_Catenaria")
-            Me.ExtendedProperties.Add("Generator_TableVarName", "_tableNombre_Catenaria")
-            Me.ExtendedProperties.Add("Generator_UserTableName", "Nombre Catenaria")
+            Me.columnnombre_cat = New Global.System.Data.DataColumn("nombre_cat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre_cat)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnnombre_cat}, true))
+            Me.columnnombre_cat.AllowDBNull = false
+            Me.columnnombre_cat.Unique = true
+            Me.columnnombre_cat.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function New_Nombre_CatenariaRow() As _Nombre_CatenariaRow
-            Return CType(Me.NewRow,_Nombre_CatenariaRow)
+        Public Function NewNombre_CatenariaRow() As Nombre_CatenariaRow
+            Return CType(Me.NewRow,Nombre_CatenariaRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New _Nombre_CatenariaRow(builder)
+            Return New Nombre_CatenariaRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(_Nombre_CatenariaRow)
+            Return GetType(Nombre_CatenariaRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me._Nombre_CatenariaRowChangedEvent) Is Nothing) Then
-                RaiseEvent _Nombre_CatenariaRowChanged(Me, New _Nombre_CatenariaRowChangeEvent(CType(e.Row,_Nombre_CatenariaRow), e.Action))
+            If (Not (Me.Nombre_CatenariaRowChangedEvent) Is Nothing) Then
+                RaiseEvent Nombre_CatenariaRowChanged(Me, New Nombre_CatenariaRowChangeEvent(CType(e.Row,Nombre_CatenariaRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me._Nombre_CatenariaRowChangingEvent) Is Nothing) Then
-                RaiseEvent _Nombre_CatenariaRowChanging(Me, New _Nombre_CatenariaRowChangeEvent(CType(e.Row,_Nombre_CatenariaRow), e.Action))
+            If (Not (Me.Nombre_CatenariaRowChangingEvent) Is Nothing) Then
+                RaiseEvent Nombre_CatenariaRowChanging(Me, New Nombre_CatenariaRowChangeEvent(CType(e.Row,Nombre_CatenariaRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me._Nombre_CatenariaRowDeletedEvent) Is Nothing) Then
-                RaiseEvent _Nombre_CatenariaRowDeleted(Me, New _Nombre_CatenariaRowChangeEvent(CType(e.Row,_Nombre_CatenariaRow), e.Action))
+            If (Not (Me.Nombre_CatenariaRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Nombre_CatenariaRowDeleted(Me, New Nombre_CatenariaRowChangeEvent(CType(e.Row,Nombre_CatenariaRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me._Nombre_CatenariaRowDeletingEvent) Is Nothing) Then
-                RaiseEvent _Nombre_CatenariaRowDeleting(Me, New _Nombre_CatenariaRowChangeEvent(CType(e.Row,_Nombre_CatenariaRow), e.Action))
+            If (Not (Me.Nombre_CatenariaRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Nombre_CatenariaRowDeleting(Me, New Nombre_CatenariaRowChangeEvent(CType(e.Row,Nombre_CatenariaRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Remove_Nombre_CatenariaRow(ByVal row As _Nombre_CatenariaRow)
+        Public Sub RemoveNombre_CatenariaRow(ByVal row As Nombre_CatenariaRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -7088,7 +6794,7 @@ Partial Public Class Base_de_datosDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "_Nombre_CatenariaDataTable"
+            attribute2.FixedValue = "Nombre_CatenariaDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -7440,1605 +7146,6 @@ Partial Public Class Base_de_datosDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetOrígen_2Null()
             Me(Me.tableConductores_y_cables.Orígen_2Column) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class DatosRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableDatos As DatosDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableDatos = CType(Me.Table,DatosDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Nombre_catenaria() As String
-            Get
-                Return CType(Me(Me.tableDatos.Nombre_catenariaColumn),String)
-            End Get
-            Set
-                Me(Me.tableDatos.Nombre_catenariaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Sistema() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.SistemaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Sistema' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.SistemaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Altura_nominal() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Altura_nominalColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Altura nominal' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Altura_nominalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Altura_mínima() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Altura_mínimaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Altura mínima' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Altura_mínimaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Altura_máxima() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Altura_máximaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Altura máxima' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Altura_máximaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Altura_catenaria() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Altura_catenariaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Altura catenaria' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Altura_catenariaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_máx_entre_vanos() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_máx_entre_vanosColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia máx entre vanos' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_máx_entre_vanosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_máx_del_cantón() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_máx_del_cantónColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia máx del cantón' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_máx_del_cantónColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Vano_máximo() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Vano_máximoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Vano máximo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Vano_máximoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Vano_máx_en_sec_mecánico() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Vano_máx_en_sec_mecánicoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Vano máx en sec mecánico' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Vano_máx_en_sec_mecánicoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Vano_máx_en_sec_eléctrico() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Vano_máx_en_sec_eléctricoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Vano máx en sec eléctrico' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Vano_máx_en_sec_eléctricoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Vano_máx_en_túnel() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Vano_máx_en_túnelColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Vano máx en túnel' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Vano_máx_en_túnelColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Incr_normalizado_de_vano() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Incr_normalizado_de_vanoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Incr normalizado de vano' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Incr_normalizado_de_vanoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Incr_máx_altura_HC() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Incr_máx_altura_HCColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Incr máx altura HC' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Incr_máx_altura_HCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Núm_mín__vanos_en_sec_mec() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Núm_mín__vanos_en_sec_mecColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm mín  vanos en sec mec' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Núm_mín__vanos_en_sec_mecColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Núm_mín_vanos_en_sec_eléct() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Núm_mín_vanos_en_sec_eléctColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm mín vanos en sec eléct' de la tabla 'Datos' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Núm_mín_vanos_en_sec_eléctColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Ancho_vía() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Ancho_víaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Ancho vía' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Ancho_víaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Descentramiento_máx_recta() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Descentramiento_máx_rectaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descentramiento máx recta' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Descentramiento_máx_rectaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Descentramiento_máx_curva() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Descentramiento_máx_curvaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descentramiento máx curva' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Descentramiento_máx_curvaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Radio_considerable_como_recta() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Radio_considerable_como_rectaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Radio considerable como recta' de la tabla 'Datos' es DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Radio_considerable_como_rectaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Zona_trabajo_pantógrafo() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Zona_trabajo_pantógrafoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Zona trabajo pantógrafo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Zona_trabajo_pantógrafoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Elevación_máx_pantógrafo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Elevación_máx_pantógrafoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Elevación máx pantógrafo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Elevación_máx_pantógrafoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Velocidad_viento() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Velocidad_vientoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Velocidad viento' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Velocidad_vientoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Flecha_máx_centro_vano() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Flecha_máx_centro_vanoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Flecha máx centro vano' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Flecha_máx_centro_vanoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Distancia_carril___poste() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Distancia_carril___posteColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia carril - poste' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Distancia_carril___posteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Distancia_base_poste___PMR() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Distancia_base_poste___PMRColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia base poste - PMR' de la tabla 'Datos' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Distancia_base_poste___PMRColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_eléct_sec_mecánico() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_eléct_sec_mecánicoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia eléct sec mecánico' de la tabla 'Datos' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_eléct_sec_mecánicoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_eléct_sec_eléctrico() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_eléct_sec_eléctricoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia eléct sec eléctrico' de la tabla 'Datos' es DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_eléct_sec_eléctricoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Long_zona_común_máx() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Long_zona_común_máxColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Long zona común máx' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Long_zona_común_máxColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Long_zona_común_mín() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Long_zona_común_mínColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Long zona común mín' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Long_zona_común_mínColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Long_Zona_Neutra() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Long_Zona_NeutraColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Long Zona Neutra' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Long_Zona_NeutraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Hilo_de_Contacto() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Hilo_de_ContactoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Hilo de Contacto' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Hilo_de_ContactoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Sustentador() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.SustentadorColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Sustentador' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.SustentadorColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property C_de_Protección_Aérea() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.C_de_Protección_AéreaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'C de Protección Aérea' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.C_de_Protección_AéreaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Cable_de_Tierra() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Cable_de_TierraColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cable de Tierra' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Cable_de_TierraColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Feeder +' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property __Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.__Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Feeder -' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.__Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Punto_fijo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Punto_fijoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Punto fijo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Punto_fijoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Péndola() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.PéndolaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Péndola' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.PéndolaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Anclaje() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.AnclajeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Anclaje' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.AnclajeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Posición_Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Posición_Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Posición Feeder +' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Posición_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property __Posición_Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.__Posición_Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Posición Feeder -' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.__Posición_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Núm_HC() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Núm_HCColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm HC' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Núm_HCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Núm_CdPA() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Núm_CdPAColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm CdPA' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Núm_CdPAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Núm_Feeder__() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Núm_Feeder__Column),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm Feeder +' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Núm_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property __Núm_Feeder__() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.__Núm_Feeder__Column),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Núm Feeder -' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.__Núm_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tensión_HC() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tensión_HCColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión HC' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tensión_HCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tensión_sustentador() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tensión_sustentadorColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión sustentador' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tensión_sustentadorColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tensión_CdPA() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tensión_CdPAColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión CdPA' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tensión_CdPAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Tensión_Feeder__() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Tensión_Feeder__Column),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión Feeder +' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Tensión_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property __Tensión_Feeder__() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.__Tensión_Feeder__Column),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión Feeder -' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.__Tensión_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tensión_punto_fijo() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tensión_punto_fijoColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tensión punto fijo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tensión_punto_fijoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tipo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.TipoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.TipoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Adm_Línea() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Adm_LíneaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Adm/Línea' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Adm_LíneaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Código() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.CódigoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Código' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.CódigoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Numeración() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.NumeraciónColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Numeración' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.NumeraciónColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tipo_macizo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tipo_macizoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo macizo' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tipo_macizoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Adm_Línea_postes() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Adm_Línea_postesColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Adm/Línea postes' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Adm_Línea_postesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tubo_de_ménsula() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tubo_de_ménsulaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tubo de ménsula' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tubo_de_ménsulaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Tubo_tirante() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Tubo_tiranteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tubo tirante' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Tubo_tiranteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Cola_de_anclaje() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Cola_de_anclajeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cola de anclaje' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Cola_de_anclajeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property _Aislador_Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos._Aislador_Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Aislador Feeder +' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos._Aislador_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property __Aislador_Feeder__() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.__Aislador_Feeder__Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Aislador Feeder -' de la tabla 'Datos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.__Aislador_Feeder__Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_apoyo_y_1ª_péndola() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_apoyo_y_1ª_péndolaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia apoyo y 1ª péndola' de la tabla 'Datos' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_apoyo_y_1ª_péndolaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_1ª_y_2ª_péndola() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_1ª_y_2ª_péndolaColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia 1ª y 2ª péndola' de la tabla 'Datos' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_1ª_y_2ª_péndolaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Distancia_máx_entre_péndolas() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableDatos.Distancia_máx_entre_péndolasColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Distancia máx entre péndolas' de la tabla 'Datos' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDatos.Distancia_máx_entre_péndolasColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsSistemaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.SistemaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetSistemaNull()
-            Me(Me.tableDatos.SistemaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAltura_nominalNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Altura_nominalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAltura_nominalNull()
-            Me(Me.tableDatos.Altura_nominalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAltura_mínimaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Altura_mínimaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAltura_mínimaNull()
-            Me(Me.tableDatos.Altura_mínimaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAltura_máximaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Altura_máximaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAltura_máximaNull()
-            Me(Me.tableDatos.Altura_máximaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAltura_catenariaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Altura_catenariaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAltura_catenariaNull()
-            Me(Me.tableDatos.Altura_catenariaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_máx_entre_vanosNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_máx_entre_vanosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_máx_entre_vanosNull()
-            Me(Me.tableDatos.Distancia_máx_entre_vanosColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_máx_del_cantónNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_máx_del_cantónColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_máx_del_cantónNull()
-            Me(Me.tableDatos.Distancia_máx_del_cantónColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsVano_máximoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Vano_máximoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetVano_máximoNull()
-            Me(Me.tableDatos.Vano_máximoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsVano_máx_en_sec_mecánicoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Vano_máx_en_sec_mecánicoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetVano_máx_en_sec_mecánicoNull()
-            Me(Me.tableDatos.Vano_máx_en_sec_mecánicoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsVano_máx_en_sec_eléctricoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Vano_máx_en_sec_eléctricoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetVano_máx_en_sec_eléctricoNull()
-            Me(Me.tableDatos.Vano_máx_en_sec_eléctricoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsVano_máx_en_túnelNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Vano_máx_en_túnelColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetVano_máx_en_túnelNull()
-            Me(Me.tableDatos.Vano_máx_en_túnelColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsIncr_normalizado_de_vanoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Incr_normalizado_de_vanoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetIncr_normalizado_de_vanoNull()
-            Me(Me.tableDatos.Incr_normalizado_de_vanoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsIncr_máx_altura_HCNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Incr_máx_altura_HCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetIncr_máx_altura_HCNull()
-            Me(Me.tableDatos.Incr_máx_altura_HCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNúm_mín__vanos_en_sec_mecNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Núm_mín__vanos_en_sec_mecColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNúm_mín__vanos_en_sec_mecNull()
-            Me(Me.tableDatos.Núm_mín__vanos_en_sec_mecColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNúm_mín_vanos_en_sec_eléctNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Núm_mín_vanos_en_sec_eléctColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNúm_mín_vanos_en_sec_eléctNull()
-            Me(Me.tableDatos.Núm_mín_vanos_en_sec_eléctColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAncho_víaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Ancho_víaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAncho_víaNull()
-            Me(Me.tableDatos.Ancho_víaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDescentramiento_máx_rectaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Descentramiento_máx_rectaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDescentramiento_máx_rectaNull()
-            Me(Me.tableDatos.Descentramiento_máx_rectaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDescentramiento_máx_curvaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Descentramiento_máx_curvaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDescentramiento_máx_curvaNull()
-            Me(Me.tableDatos.Descentramiento_máx_curvaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsRadio_considerable_como_rectaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Radio_considerable_como_rectaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetRadio_considerable_como_rectaNull()
-            Me(Me.tableDatos.Radio_considerable_como_rectaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsZona_trabajo_pantógrafoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Zona_trabajo_pantógrafoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetZona_trabajo_pantógrafoNull()
-            Me(Me.tableDatos.Zona_trabajo_pantógrafoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsElevación_máx_pantógrafoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Elevación_máx_pantógrafoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetElevación_máx_pantógrafoNull()
-            Me(Me.tableDatos.Elevación_máx_pantógrafoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsVelocidad_vientoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Velocidad_vientoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetVelocidad_vientoNull()
-            Me(Me.tableDatos.Velocidad_vientoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFlecha_máx_centro_vanoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Flecha_máx_centro_vanoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFlecha_máx_centro_vanoNull()
-            Me(Me.tableDatos.Flecha_máx_centro_vanoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Distancia_carril___posteNull() As Boolean
-            Return Me.IsNull(Me.tableDatos._Distancia_carril___posteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Distancia_carril___posteNull()
-            Me(Me.tableDatos._Distancia_carril___posteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Distancia_base_poste___PMRNull() As Boolean
-            Return Me.IsNull(Me.tableDatos._Distancia_base_poste___PMRColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Distancia_base_poste___PMRNull()
-            Me(Me.tableDatos._Distancia_base_poste___PMRColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_eléct_sec_mecánicoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_eléct_sec_mecánicoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_eléct_sec_mecánicoNull()
-            Me(Me.tableDatos.Distancia_eléct_sec_mecánicoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_eléct_sec_eléctricoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_eléct_sec_eléctricoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_eléct_sec_eléctricoNull()
-            Me(Me.tableDatos.Distancia_eléct_sec_eléctricoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsLong_zona_común_máxNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Long_zona_común_máxColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetLong_zona_común_máxNull()
-            Me(Me.tableDatos.Long_zona_común_máxColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsLong_zona_común_mínNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Long_zona_común_mínColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetLong_zona_común_mínNull()
-            Me(Me.tableDatos.Long_zona_común_mínColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsLong_Zona_NeutraNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Long_Zona_NeutraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetLong_Zona_NeutraNull()
-            Me(Me.tableDatos.Long_Zona_NeutraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsHilo_de_ContactoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Hilo_de_ContactoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetHilo_de_ContactoNull()
-            Me(Me.tableDatos.Hilo_de_ContactoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsSustentadorNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.SustentadorColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetSustentadorNull()
-            Me(Me.tableDatos.SustentadorColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsC_de_Protección_AéreaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.C_de_Protección_AéreaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetC_de_Protección_AéreaNull()
-            Me(Me.tableDatos.C_de_Protección_AéreaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCable_de_TierraNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Cable_de_TierraColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCable_de_TierraNull()
-            Me(Me.tableDatos.Cable_de_TierraColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos._Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Feeder__Null()
-            Me(Me.tableDatos._Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is__Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos.__Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set__Feeder__Null()
-            Me(Me.tableDatos.__Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsPunto_fijoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Punto_fijoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetPunto_fijoNull()
-            Me(Me.tableDatos.Punto_fijoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsPéndolaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.PéndolaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetPéndolaNull()
-            Me(Me.tableDatos.PéndolaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsAnclajeNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.AnclajeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetAnclajeNull()
-            Me(Me.tableDatos.AnclajeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Posición_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos._Posición_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Posición_Feeder__Null()
-            Me(Me.tableDatos._Posición_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is__Posición_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos.__Posición_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set__Posición_Feeder__Null()
-            Me(Me.tableDatos.__Posición_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNúm_HCNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Núm_HCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNúm_HCNull()
-            Me(Me.tableDatos.Núm_HCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNúm_CdPANull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Núm_CdPAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNúm_CdPANull()
-            Me(Me.tableDatos.Núm_CdPAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Núm_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos._Núm_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Núm_Feeder__Null()
-            Me(Me.tableDatos._Núm_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is__Núm_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos.__Núm_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set__Núm_Feeder__Null()
-            Me(Me.tableDatos.__Núm_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTensión_HCNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tensión_HCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTensión_HCNull()
-            Me(Me.tableDatos.Tensión_HCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTensión_sustentadorNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tensión_sustentadorColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTensión_sustentadorNull()
-            Me(Me.tableDatos.Tensión_sustentadorColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTensión_CdPANull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tensión_CdPAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTensión_CdPANull()
-            Me(Me.tableDatos.Tensión_CdPAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Tensión_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos._Tensión_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Tensión_Feeder__Null()
-            Me(Me.tableDatos._Tensión_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is__Tensión_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos.__Tensión_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set__Tensión_Feeder__Null()
-            Me(Me.tableDatos.__Tensión_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTensión_punto_fijoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tensión_punto_fijoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTensión_punto_fijoNull()
-            Me(Me.tableDatos.Tensión_punto_fijoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTipoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.TipoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTipoNull()
-            Me(Me.tableDatos.TipoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Adm_LíneaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos._Adm_LíneaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Adm_LíneaNull()
-            Me(Me.tableDatos._Adm_LíneaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCódigoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.CódigoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCódigoNull()
-            Me(Me.tableDatos.CódigoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNumeraciónNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.NumeraciónColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNumeraciónNull()
-            Me(Me.tableDatos.NumeraciónColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTipo_macizoNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tipo_macizoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTipo_macizoNull()
-            Me(Me.tableDatos.Tipo_macizoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Adm_Línea_postesNull() As Boolean
-            Return Me.IsNull(Me.tableDatos._Adm_Línea_postesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Adm_Línea_postesNull()
-            Me(Me.tableDatos._Adm_Línea_postesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTubo_de_ménsulaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tubo_de_ménsulaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTubo_de_ménsulaNull()
-            Me(Me.tableDatos.Tubo_de_ménsulaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTubo_tiranteNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Tubo_tiranteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTubo_tiranteNull()
-            Me(Me.tableDatos.Tubo_tiranteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCola_de_anclajeNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Cola_de_anclajeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCola_de_anclajeNull()
-            Me(Me.tableDatos.Cola_de_anclajeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is_Aislador_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos._Aislador_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set_Aislador_Feeder__Null()
-            Me(Me.tableDatos._Aislador_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function Is__Aislador_Feeder__Null() As Boolean
-            Return Me.IsNull(Me.tableDatos.__Aislador_Feeder__Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub Set__Aislador_Feeder__Null()
-            Me(Me.tableDatos.__Aislador_Feeder__Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_apoyo_y_1ª_péndolaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_apoyo_y_1ª_péndolaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_apoyo_y_1ª_péndolaNull()
-            Me(Me.tableDatos.Distancia_apoyo_y_1ª_péndolaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_1ª_y_2ª_péndolaNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_1ª_y_2ª_péndolaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_1ª_y_2ª_péndolaNull()
-            Me(Me.tableDatos.Distancia_1ª_y_2ª_péndolaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDistancia_máx_entre_péndolasNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Distancia_máx_entre_péndolasColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDistancia_máx_entre_péndolasNull()
-            Me(Me.tableDatos.Distancia_máx_entre_péndolasColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10681,47 +8788,6 @@ Partial Public Class Base_de_datosDataSet
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class NOMBRE_CATENARIARow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableNOMBRE_CATENARIA As NOMBRE_CATENARIADataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableNOMBRE_CATENARIA = CType(Me.Table,NOMBRE_CATENARIADataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Nombre_Catenaria() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableNOMBRE_CATENARIA.Nombre_CatenariaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre_Catenaria' de la tabla 'NOMBRE CATENARIA' es DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableNOMBRE_CATENARIA.Nombre_CatenariaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNombre_CatenariaNull() As Boolean
-            Return Me.IsNull(Me.tableNOMBRE_CATENARIA.Nombre_CatenariaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNombre_CatenariaNull()
-            Me(Me.tableNOMBRE_CATENARIA.Nombre_CatenariaColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Partial Public Class ContraseñaRow
         Inherits Global.System.Data.DataRow
         
@@ -10786,41 +8852,1612 @@ Partial Public Class Base_de_datosDataSet
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class _Nombre_CatenariaRow
+    Partial Public Class DatosRow
         Inherits Global.System.Data.DataRow
         
-        Private _tableNombre_Catenaria As _Nombre_CatenariaDataTable
+        Private tableDatos As DatosDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me._tableNombre_Catenaria = CType(Me.Table,_Nombre_CatenariaDataTable)
+            Me.tableDatos = CType(Me.Table,DatosDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Nombre_Catenaria() As String
+        Public Property nombre_cat() As String
             Get
-                Try 
-                    Return CType(Me(Me._tableNombre_Catenaria.Nombre_CatenariaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre_Catenaria' de la tabla 'Nombre Catenaria' es DBNul"& _ 
-                            "l.", e)
-                End Try
+                Return CType(Me(Me.tableDatos.nombre_catColumn),String)
             End Get
             Set
-                Me(Me._tableNombre_Catenaria.Nombre_CatenariaColumn) = value
+                Me(Me.tableDatos.nombre_catColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNombre_CatenariaNull() As Boolean
-            Return Me.IsNull(Me._tableNombre_Catenaria.Nombre_CatenariaColumn)
+        Public Property sist() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.sistColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sist' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.sistColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property al() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.alColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'al' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.alColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property alt_nom() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.alt_nomColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'alt_nom' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.alt_nomColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property alt_min() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.alt_minColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'alt_min' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.alt_minColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property alt_max() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.alt_maxColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'alt_max' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.alt_maxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property alt_cat() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.alt_catColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'alt_cat' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.alt_catColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_max_va() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_max_vaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_max_va' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_max_vaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_max_canton() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_max_cantonColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_max_canton' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_max_cantonColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property va_max() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.va_maxColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'va_max' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.va_maxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property va_max_sm() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.va_max_smColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'va_max_sm' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.va_max_smColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property va_max_sla() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.va_max_slaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'va_max_sla' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.va_max_slaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property va_max_tunel() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.va_max_tunelColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'va_max_tunel' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.va_max_tunelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property inc_norm_va() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.inc_norm_vaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'inc_norm_va' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.inc_norm_vaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property inc_max_alt_hc() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.inc_max_alt_hcColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'inc_max_alt_hc' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.inc_max_alt_hcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_min_va_sm() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_min_va_smColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_min_va_sm' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_min_va_smColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_min_va_sla() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_min_va_slaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_min_va_sla' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_min_va_slaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ancho_via() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.ancho_viaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ancho_via' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.ancho_viaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property d_max_re() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.d_max_reColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'd_max_re' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.d_max_reColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property d_max_cu() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.d_max_cuColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'd_max_cu' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.d_max_cuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property r_re() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.r_reColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'r_re' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.r_reColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Zona_trab_pant() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.Zona_trab_pantColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Zona_trab_pant' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.Zona_trab_pantColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property el_max_pant() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.el_max_pantColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'el_max_pant' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.el_max_pantColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property vw() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.vwColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'vw' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.vwColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fl_max_centro_va() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.fl_max_centro_vaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fl_max_centro_va' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.fl_max_centro_vaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_carril_poste() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_carril_posteColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_carril_poste' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_carril_posteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_base_poste_pmr() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_base_poste_pmrColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_base_poste_pmr' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_base_poste_pmrColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_elect_sm() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_elect_smColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_elect_sm' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_elect_smColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_elect_sla() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_elect_slaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_elect_sla' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_elect_slaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property l_zc_max() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.l_zc_maxColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'l_zc_max' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.l_zc_maxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property l_zc_min() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.l_zc_minColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'l_zc_min' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.l_zc_minColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property l_zn() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.l_znColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'l_zn' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.l_znColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property hc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.hcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'hc' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.hcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property sust() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.sustColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sust' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.sustColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property cdpa() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.cdpaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cdpa' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.cdpaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property cdte() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.cdteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cdte' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.cdteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property feed_pos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.feed_posColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'feed_pos' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.feed_posColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property feed_neg() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.feed_negColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'feed_neg' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.feed_negColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property pto_fijo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.pto_fijoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pto_fijo' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.pto_fijoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property pend() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.pendColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pend' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.pendColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property _as() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.asColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'as' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.asColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property pos_feed_pos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.pos_feed_posColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pos_feed_pos' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.pos_feed_posColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property pos_feed_neg() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.pos_feed_negColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pos_feed_neg' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.pos_feed_negColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_hc() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_hcColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_hc' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_hcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_cdpa() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_cdpaColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_cdpa' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_cdpaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_feed_pos() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_feed_posColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_feed_pos' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_feed_posColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property n_feed_neg() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.n_feed_negColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'n_feed_neg' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.n_feed_negColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_hc() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_hcColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_hc' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_hcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_sust() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_sustColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_sust' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_sustColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_cdpa() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_cdpaColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_cdpa' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_cdpaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_feed_pos() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_feed_posColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_feed_pos' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_feed_posColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_feed_neg() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_feed_negColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_feed_neg' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_feed_negColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property t_pto_fijo() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.t_pto_fijoColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 't_pto_fijo' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.t_pto_fijoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property adm_lin_poste() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.adm_lin_posteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'adm_lin_poste' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.adm_lin_posteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tip_poste() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.tip_posteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tip_poste' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.tip_posteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property num_poste() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.num_posteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'num_poste' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.num_posteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property adm_lin_mac() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.adm_lin_macColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'adm_lin_mac' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.adm_lin_macColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tip_mac() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.tip_macColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tip_mac' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.tip_macColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tubo_men() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.tubo_menColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tubo_men' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.tubo_menColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tubo_tir() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.tubo_tirColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tubo_tir' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.tubo_tirColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property cola_as() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.cola_asColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cola_as' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.cola_asColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property aisl_feed_pos() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.aisl_feed_posColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'aisl_feed_pos' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.aisl_feed_posColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property aisl_feed_neg() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.aisl_feed_negColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'aisl_feed_neg' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.aisl_feed_negColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_ap_prim_pend() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_ap_prim_pendColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_ap_prim_pend' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_ap_prim_pendColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_prim_seg_pend() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_prim_seg_pendColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_prim_seg_pend' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_prim_seg_pendColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dist_max_pend() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatos.dist_max_pendColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dist_max_pend' de la tabla 'Datos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatos.dist_max_pendColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IssistNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.sistColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNombre_CatenariaNull()
-            Me(Me._tableNombre_Catenaria.Nombre_CatenariaColumn) = Global.System.Convert.DBNull
+        Public Sub SetsistNull()
+            Me(Me.tableDatos.sistColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsalNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.alColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetalNull()
+            Me(Me.tableDatos.alColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isalt_nomNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.alt_nomColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setalt_nomNull()
+            Me(Me.tableDatos.alt_nomColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isalt_minNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.alt_minColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setalt_minNull()
+            Me(Me.tableDatos.alt_minColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isalt_maxNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.alt_maxColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setalt_maxNull()
+            Me(Me.tableDatos.alt_maxColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isalt_catNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.alt_catColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setalt_catNull()
+            Me(Me.tableDatos.alt_catColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_max_vaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_max_vaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_max_vaNull()
+            Me(Me.tableDatos.dist_max_vaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_max_cantonNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_max_cantonColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_max_cantonNull()
+            Me(Me.tableDatos.dist_max_cantonColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isva_maxNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.va_maxColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setva_maxNull()
+            Me(Me.tableDatos.va_maxColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isva_max_smNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.va_max_smColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setva_max_smNull()
+            Me(Me.tableDatos.va_max_smColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isva_max_slaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.va_max_slaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setva_max_slaNull()
+            Me(Me.tableDatos.va_max_slaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isva_max_tunelNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.va_max_tunelColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setva_max_tunelNull()
+            Me(Me.tableDatos.va_max_tunelColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isinc_norm_vaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.inc_norm_vaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setinc_norm_vaNull()
+            Me(Me.tableDatos.inc_norm_vaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isinc_max_alt_hcNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.inc_max_alt_hcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setinc_max_alt_hcNull()
+            Me(Me.tableDatos.inc_max_alt_hcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_min_va_smNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_min_va_smColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_min_va_smNull()
+            Me(Me.tableDatos.n_min_va_smColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_min_va_slaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_min_va_slaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_min_va_slaNull()
+            Me(Me.tableDatos.n_min_va_slaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isancho_viaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.ancho_viaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setancho_viaNull()
+            Me(Me.tableDatos.ancho_viaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isd_max_reNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.d_max_reColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setd_max_reNull()
+            Me(Me.tableDatos.d_max_reColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isd_max_cuNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.d_max_cuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setd_max_cuNull()
+            Me(Me.tableDatos.d_max_cuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isr_reNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.r_reColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setr_reNull()
+            Me(Me.tableDatos.r_reColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsZona_trab_pantNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.Zona_trab_pantColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetZona_trab_pantNull()
+            Me(Me.tableDatos.Zona_trab_pantColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isel_max_pantNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.el_max_pantColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setel_max_pantNull()
+            Me(Me.tableDatos.el_max_pantColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsvwNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.vwColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetvwNull()
+            Me(Me.tableDatos.vwColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfl_max_centro_vaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.fl_max_centro_vaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfl_max_centro_vaNull()
+            Me(Me.tableDatos.fl_max_centro_vaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_carril_posteNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_carril_posteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_carril_posteNull()
+            Me(Me.tableDatos.dist_carril_posteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_base_poste_pmrNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_base_poste_pmrColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_base_poste_pmrNull()
+            Me(Me.tableDatos.dist_base_poste_pmrColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_elect_smNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_elect_smColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_elect_smNull()
+            Me(Me.tableDatos.dist_elect_smColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_elect_slaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_elect_slaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_elect_slaNull()
+            Me(Me.tableDatos.dist_elect_slaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isl_zc_maxNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.l_zc_maxColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setl_zc_maxNull()
+            Me(Me.tableDatos.l_zc_maxColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isl_zc_minNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.l_zc_minColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setl_zc_minNull()
+            Me(Me.tableDatos.l_zc_minColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isl_znNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.l_znColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setl_znNull()
+            Me(Me.tableDatos.l_znColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IshcNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.hcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SethcNull()
+            Me(Me.tableDatos.hcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IssustNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.sustColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetsustNull()
+            Me(Me.tableDatos.sustColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IscdpaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.cdpaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetcdpaNull()
+            Me(Me.tableDatos.cdpaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IscdteNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.cdteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetcdteNull()
+            Me(Me.tableDatos.cdteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfeed_posNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.feed_posColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfeed_posNull()
+            Me(Me.tableDatos.feed_posColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isfeed_negNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.feed_negColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setfeed_negNull()
+            Me(Me.tableDatos.feed_negColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ispto_fijoNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.pto_fijoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setpto_fijoNull()
+            Me(Me.tableDatos.pto_fijoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IspendNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.pendColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetpendNull()
+            Me(Me.tableDatos.pendColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Is_asNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.asColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Set_asNull()
+            Me(Me.tableDatos.asColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ispos_feed_posNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.pos_feed_posColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setpos_feed_posNull()
+            Me(Me.tableDatos.pos_feed_posColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ispos_feed_negNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.pos_feed_negColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setpos_feed_negNull()
+            Me(Me.tableDatos.pos_feed_negColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_hcNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_hcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_hcNull()
+            Me(Me.tableDatos.n_hcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_cdpaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_cdpaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_cdpaNull()
+            Me(Me.tableDatos.n_cdpaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_feed_posNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_feed_posColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_feed_posNull()
+            Me(Me.tableDatos.n_feed_posColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isn_feed_negNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.n_feed_negColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setn_feed_negNull()
+            Me(Me.tableDatos.n_feed_negColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_hcNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_hcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_hcNull()
+            Me(Me.tableDatos.t_hcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_sustNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_sustColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_sustNull()
+            Me(Me.tableDatos.t_sustColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_cdpaNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_cdpaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_cdpaNull()
+            Me(Me.tableDatos.t_cdpaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_feed_posNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_feed_posColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_feed_posNull()
+            Me(Me.tableDatos.t_feed_posColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_feed_negNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_feed_negColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_feed_negNull()
+            Me(Me.tableDatos.t_feed_negColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Ist_pto_fijoNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.t_pto_fijoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Sett_pto_fijoNull()
+            Me(Me.tableDatos.t_pto_fijoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isadm_lin_posteNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.adm_lin_posteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setadm_lin_posteNull()
+            Me(Me.tableDatos.adm_lin_posteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istip_posteNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.tip_posteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settip_posteNull()
+            Me(Me.tableDatos.tip_posteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isnum_posteNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.num_posteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setnum_posteNull()
+            Me(Me.tableDatos.num_posteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isadm_lin_macNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.adm_lin_macColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setadm_lin_macNull()
+            Me(Me.tableDatos.adm_lin_macColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istip_macNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.tip_macColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settip_macNull()
+            Me(Me.tableDatos.tip_macColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istubo_menNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.tubo_menColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settubo_menNull()
+            Me(Me.tableDatos.tubo_menColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Istubo_tirNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.tubo_tirColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Settubo_tirNull()
+            Me(Me.tableDatos.tubo_tirColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Iscola_asNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.cola_asColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setcola_asNull()
+            Me(Me.tableDatos.cola_asColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isaisl_feed_posNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.aisl_feed_posColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setaisl_feed_posNull()
+            Me(Me.tableDatos.aisl_feed_posColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isaisl_feed_negNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.aisl_feed_negColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setaisl_feed_negNull()
+            Me(Me.tableDatos.aisl_feed_negColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_ap_prim_pendNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_ap_prim_pendColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_ap_prim_pendNull()
+            Me(Me.tableDatos.dist_ap_prim_pendColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_prim_seg_pendNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_prim_seg_pendColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_prim_seg_pendNull()
+            Me(Me.tableDatos.dist_prim_seg_pendColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isdist_max_pendNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.dist_max_pendColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setdist_max_pendNull()
+            Me(Me.tableDatos.dist_max_pendColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class Nombre_CatenariaRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableNombre_Catenaria As Nombre_CatenariaDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableNombre_Catenaria = CType(Me.Table,Nombre_CatenariaDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombre_cat() As String
+            Get
+                Return CType(Me(Me.tableNombre_Catenaria.nombre_catColumn),String)
+            End Get
+            Set
+                Me(Me.tableNombre_Catenaria.nombre_catColumn) = value
+            End Set
+        End Property
     End Class
     
     '''<summary>
@@ -10843,39 +10480,6 @@ Partial Public Class Base_de_datosDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As Conductores_y_cablesRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class DatosRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As DatosRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As DatosRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As DatosRow
             Get
                 Return Me.eventRow
             End Get
@@ -11388,39 +10992,6 @@ Partial Public Class Base_de_datosDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class NOMBRE_CATENARIARowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As NOMBRE_CATENARIARow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As NOMBRE_CATENARIARow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As NOMBRE_CATENARIARow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Public Class ContraseñaRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -11454,22 +11025,55 @@ Partial Public Class Base_de_datosDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class _Nombre_CatenariaRowChangeEvent
+    Public Class DatosRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As _Nombre_CatenariaRow
+        Private eventRow As DatosRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As _Nombre_CatenariaRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As DatosRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As _Nombre_CatenariaRow
+        Public ReadOnly Property Row() As DatosRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class Nombre_CatenariaRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As Nombre_CatenariaRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As Nombre_CatenariaRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As Nombre_CatenariaRow
             Get
                 Return Me.eventRow
             End Get
@@ -11781,2882 +11385,6 @@ Namespace Base_de_datosDataSetTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class DatosTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
-        
-        Private _connection As Global.System.Data.OleDb.OleDbConnection
-        
-        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
-        
-        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Datos"
-            tableMapping.ColumnMappings.Add("Nombre catenaria", "Nombre catenaria")
-            tableMapping.ColumnMappings.Add("Sistema", "Sistema")
-            tableMapping.ColumnMappings.Add("Altura nominal", "Altura nominal")
-            tableMapping.ColumnMappings.Add("Altura mínima", "Altura mínima")
-            tableMapping.ColumnMappings.Add("Altura máxima", "Altura máxima")
-            tableMapping.ColumnMappings.Add("Altura catenaria", "Altura catenaria")
-            tableMapping.ColumnMappings.Add("Distancia máx entre vanos", "Distancia máx entre vanos")
-            tableMapping.ColumnMappings.Add("Distancia máx del cantón", "Distancia máx del cantón")
-            tableMapping.ColumnMappings.Add("Vano máximo", "Vano máximo")
-            tableMapping.ColumnMappings.Add("Vano máx en sec mecánico", "Vano máx en sec mecánico")
-            tableMapping.ColumnMappings.Add("Vano máx en sec eléctrico", "Vano máx en sec eléctrico")
-            tableMapping.ColumnMappings.Add("Vano máx en túnel", "Vano máx en túnel")
-            tableMapping.ColumnMappings.Add("Incr normalizado de vano", "Incr normalizado de vano")
-            tableMapping.ColumnMappings.Add("Incr máx altura HC", "Incr máx altura HC")
-            tableMapping.ColumnMappings.Add("Núm mín  vanos en sec mec", "Núm mín  vanos en sec mec")
-            tableMapping.ColumnMappings.Add("Núm mín vanos en sec eléct", "Núm mín vanos en sec eléct")
-            tableMapping.ColumnMappings.Add("Ancho vía", "Ancho vía")
-            tableMapping.ColumnMappings.Add("Descentramiento máx recta", "Descentramiento máx recta")
-            tableMapping.ColumnMappings.Add("Descentramiento máx curva", "Descentramiento máx curva")
-            tableMapping.ColumnMappings.Add("Radio considerable como recta", "Radio considerable como recta")
-            tableMapping.ColumnMappings.Add("Zona trabajo pantógrafo", "Zona trabajo pantógrafo")
-            tableMapping.ColumnMappings.Add("Elevación máx pantógrafo", "Elevación máx pantógrafo")
-            tableMapping.ColumnMappings.Add("Velocidad viento", "Velocidad viento")
-            tableMapping.ColumnMappings.Add("Flecha máx centro vano", "Flecha máx centro vano")
-            tableMapping.ColumnMappings.Add("Distancia carril - poste", "Distancia carril - poste")
-            tableMapping.ColumnMappings.Add("Distancia base poste - PMR", "Distancia base poste - PMR")
-            tableMapping.ColumnMappings.Add("Distancia eléct sec mecánico", "Distancia eléct sec mecánico")
-            tableMapping.ColumnMappings.Add("Distancia eléct sec eléctrico", "Distancia eléct sec eléctrico")
-            tableMapping.ColumnMappings.Add("Long zona común máx", "Long zona común máx")
-            tableMapping.ColumnMappings.Add("Long zona común mín", "Long zona común mín")
-            tableMapping.ColumnMappings.Add("Long Zona Neutra", "Long Zona Neutra")
-            tableMapping.ColumnMappings.Add("Hilo de Contacto", "Hilo de Contacto")
-            tableMapping.ColumnMappings.Add("Sustentador", "Sustentador")
-            tableMapping.ColumnMappings.Add("C de Protección Aérea", "C de Protección Aérea")
-            tableMapping.ColumnMappings.Add("Cable de Tierra", "Cable de Tierra")
-            tableMapping.ColumnMappings.Add("Feeder +", "Feeder +")
-            tableMapping.ColumnMappings.Add("Feeder -", "Feeder -")
-            tableMapping.ColumnMappings.Add("Punto fijo", "Punto fijo")
-            tableMapping.ColumnMappings.Add("Péndola", "Péndola")
-            tableMapping.ColumnMappings.Add("Anclaje", "Anclaje")
-            tableMapping.ColumnMappings.Add("Posición Feeder +", "Posición Feeder +")
-            tableMapping.ColumnMappings.Add("Posición Feeder -", "Posición Feeder -")
-            tableMapping.ColumnMappings.Add("Núm HC", "Núm HC")
-            tableMapping.ColumnMappings.Add("Núm CdPA", "Núm CdPA")
-            tableMapping.ColumnMappings.Add("Núm Feeder +", "Núm Feeder +")
-            tableMapping.ColumnMappings.Add("Núm Feeder -", "Núm Feeder -")
-            tableMapping.ColumnMappings.Add("Tensión HC", "Tensión HC")
-            tableMapping.ColumnMappings.Add("Tensión sustentador", "Tensión sustentador")
-            tableMapping.ColumnMappings.Add("Tensión CdPA", "Tensión CdPA")
-            tableMapping.ColumnMappings.Add("Tensión Feeder +", "Tensión Feeder +")
-            tableMapping.ColumnMappings.Add("Tensión Feeder -", "Tensión Feeder -")
-            tableMapping.ColumnMappings.Add("Tensión punto fijo", "Tensión punto fijo")
-            tableMapping.ColumnMappings.Add("Tipo", "Tipo")
-            tableMapping.ColumnMappings.Add("Adm/Línea", "Adm/Línea")
-            tableMapping.ColumnMappings.Add("Código", "Código")
-            tableMapping.ColumnMappings.Add("Numeración", "Numeración")
-            tableMapping.ColumnMappings.Add("Tipo macizo", "Tipo macizo")
-            tableMapping.ColumnMappings.Add("Adm/Línea postes", "Adm/Línea postes")
-            tableMapping.ColumnMappings.Add("Tubo de ménsula", "Tubo de ménsula")
-            tableMapping.ColumnMappings.Add("Tubo tirante", "Tubo tirante")
-            tableMapping.ColumnMappings.Add("Cola de anclaje", "Cola de anclaje")
-            tableMapping.ColumnMappings.Add("Aislador Feeder +", "Aislador Feeder +")
-            tableMapping.ColumnMappings.Add("Aislador Feeder -", "Aislador Feeder -")
-            tableMapping.ColumnMappings.Add("Distancia apoyo y 1ª péndola", "Distancia apoyo y 1ª péndola")
-            tableMapping.ColumnMappings.Add("Distancia 1ª y 2ª péndola", "Distancia 1ª y 2ª péndola")
-            tableMapping.ColumnMappings.Add("Distancia máx entre péndolas", "Distancia máx entre péndolas")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Datos` WHERE ((`Nombre catenaria` = ?) AND ((? = 1 AND `Sistema` IS "& _ 
-                "NULL) OR (`Sistema` = ?)) AND ((? = 1 AND `Altura nominal` IS NULL) OR (`Altura "& _ 
-                "nominal` = ?)) AND ((? = 1 AND `Altura mínima` IS NULL) OR (`Altura mínima` = ?)"& _ 
-                ") AND ((? = 1 AND `Altura máxima` IS NULL) OR (`Altura máxima` = ?)) AND ((? = 1"& _ 
-                " AND `Altura catenaria` IS NULL) OR (`Altura catenaria` = ?)) AND ((? = 1 AND `D"& _ 
-                "istancia máx entre vanos` IS NULL) OR (`Distancia máx entre vanos` = ?)) AND ((?"& _ 
-                " = 1 AND `Distancia máx del cantón` IS NULL) OR (`Distancia máx del cantón` = ?)"& _ 
-                ") AND ((? = 1 AND `Vano máximo` IS NULL) OR (`Vano máximo` = ?)) AND ((? = 1 AND"& _ 
-                " `Vano máx en sec mecánico` IS NULL) OR (`Vano máx en sec mecánico` = ?)) AND (("& _ 
-                "? = 1 AND `Vano máx en sec eléctrico` IS NULL) OR (`Vano máx en sec eléctrico` ="& _ 
-                " ?)) AND ((? = 1 AND `Vano máx en túnel` IS NULL) OR (`Vano máx en túnel` = ?)) "& _ 
-                "AND ((? = 1 AND `Incr normalizado de vano` IS NULL) OR (`Incr normalizado de van"& _ 
-                "o` = ?)) AND ((? = 1 AND `Incr máx altura HC` IS NULL) OR (`Incr máx altura HC` "& _ 
-                "= ?)) AND ((? = 1 AND `Núm mín  vanos en sec mec` IS NULL) OR (`Núm mín  vanos e"& _ 
-                "n sec mec` = ?)) AND ((? = 1 AND `Núm mín vanos en sec eléct` IS NULL) OR (`Núm "& _ 
-                "mín vanos en sec eléct` = ?)) AND ((? = 1 AND `Ancho vía` IS NULL) OR (`Ancho ví"& _ 
-                "a` = ?)) AND ((? = 1 AND `Descentramiento máx recta` IS NULL) OR (`Descentramien"& _ 
-                "to máx recta` = ?)) AND ((? = 1 AND `Descentramiento máx curva` IS NULL) OR (`De"& _ 
-                "scentramiento máx curva` = ?)) AND ((? = 1 AND `Radio considerable como recta` I"& _ 
-                "S NULL) OR (`Radio considerable como recta` = ?)) AND ((? = 1 AND `Zona trabajo "& _ 
-                "pantógrafo` IS NULL) OR (`Zona trabajo pantógrafo` = ?)) AND ((? = 1 AND `Elevac"& _ 
-                "ión máx pantógrafo` IS NULL) OR (`Elevación máx pantógrafo` = ?)) AND ((? = 1 AN"& _ 
-                "D `Velocidad viento` IS NULL) OR (`Velocidad viento` = ?)) AND ((? = 1 AND `Flec"& _ 
-                "ha máx centro vano` IS NULL) OR (`Flecha máx centro vano` = ?)) AND ((? = 1 AND "& _ 
-                "`Distancia carril - poste` IS NULL) OR (`Distancia carril - poste` = ?)) AND ((?"& _ 
-                " = 1 AND `Distancia base poste - PMR` IS NULL) OR (`Distancia base poste - PMR` "& _ 
-                "= ?)) AND ((? = 1 AND `Distancia eléct sec mecánico` IS NULL) OR (`Distancia elé"& _ 
-                "ct sec mecánico` = ?)) AND ((? = 1 AND `Distancia eléct sec eléctrico` IS NULL) "& _ 
-                "OR (`Distancia eléct sec eléctrico` = ?)) AND ((? = 1 AND `Long zona común máx` "& _ 
-                "IS NULL) OR (`Long zona común máx` = ?)) AND ((? = 1 AND `Long zona común mín` I"& _ 
-                "S NULL) OR (`Long zona común mín` = ?)) AND ((? = 1 AND `Long Zona Neutra` IS NU"& _ 
-                "LL) OR (`Long Zona Neutra` = ?)) AND ((? = 1 AND `Hilo de Contacto` IS NULL) OR "& _ 
-                "(`Hilo de Contacto` = ?)) AND ((? = 1 AND `Sustentador` IS NULL) OR (`Sustentado"& _ 
-                "r` = ?)) AND ((? = 1 AND `C de Protección Aérea` IS NULL) OR (`C de Protección A"& _ 
-                "érea` = ?)) AND ((? = 1 AND `Cable de Tierra` IS NULL) OR (`Cable de Tierra` = ?"& _ 
-                ")) AND ((? = 1 AND `Feeder +` IS NULL) OR (`Feeder +` = ?)) AND ((? = 1 AND `Fee"& _ 
-                "der -` IS NULL) OR (`Feeder -` = ?)) AND ((? = 1 AND `Punto fijo` IS NULL) OR (`"& _ 
-                "Punto fijo` = ?)) AND ((? = 1 AND `Péndola` IS NULL) OR (`Péndola` = ?)) AND ((?"& _ 
-                " = 1 AND `Anclaje` IS NULL) OR (`Anclaje` = ?)) AND ((? = 1 AND `Posición Feeder"& _ 
-                " +` IS NULL) OR (`Posición Feeder +` = ?)) AND ((? = 1 AND `Posición Feeder -` I"& _ 
-                "S NULL) OR (`Posición Feeder -` = ?)) AND ((? = 1 AND `Núm HC` IS NULL) OR (`Núm"& _ 
-                " HC` = ?)) AND ((? = 1 AND `Núm CdPA` IS NULL) OR (`Núm CdPA` = ?)) AND ((? = 1 "& _ 
-                "AND `Núm Feeder +` IS NULL) OR (`Núm Feeder +` = ?)) AND ((? = 1 AND `Núm Feeder"& _ 
-                " -` IS NULL) OR (`Núm Feeder -` = ?)) AND ((? = 1 AND `Tensión HC` IS NULL) OR ("& _ 
-                "`Tensión HC` = ?)) AND ((? = 1 AND `Tensión sustentador` IS NULL) OR (`Tensión s"& _ 
-                "ustentador` = ?)) AND ((? = 1 AND `Tensión CdPA` IS NULL) OR (`Tensión CdPA` = ?"& _ 
-                ")) AND ((? = 1 AND `Tensión Feeder +` IS NULL) OR (`Tensión Feeder +` = ?)) AND "& _ 
-                "((? = 1 AND `Tensión Feeder -` IS NULL) OR (`Tensión Feeder -` = ?)) AND ((? = 1"& _ 
-                " AND `Tensión punto fijo` IS NULL) OR (`Tensión punto fijo` = ?)) AND ((? = 1 AN"& _ 
-                "D `Tipo` IS NULL) OR (`Tipo` = ?)) AND ((? = 1 AND `Adm/Línea` IS NULL) OR (`Adm"& _ 
-                "/Línea` = ?)) AND ((? = 1 AND `Código` IS NULL) OR (`Código` = ?)) AND ((? = 1 A"& _ 
-                "ND `Numeración` IS NULL) OR (`Numeración` = ?)) AND ((? = 1 AND `Tipo macizo` IS"& _ 
-                " NULL) OR (`Tipo macizo` = ?)) AND ((? = 1 AND `Adm/Línea postes` IS NULL) OR (`"& _ 
-                "Adm/Línea postes` = ?)) AND ((? = 1 AND `Tubo de ménsula` IS NULL) OR (`Tubo de "& _ 
-                "ménsula` = ?)) AND ((? = 1 AND `Tubo tirante` IS NULL) OR (`Tubo tirante` = ?)) "& _ 
-                "AND ((? = 1 AND `Cola de anclaje` IS NULL) OR (`Cola de anclaje` = ?)) AND ((? ="& _ 
-                " 1 AND `Aislador Feeder +` IS NULL) OR (`Aislador Feeder +` = ?)) AND ((? = 1 AN"& _ 
-                "D `Aislador Feeder -` IS NULL) OR (`Aislador Feeder -` = ?)) AND ((? = 1 AND `Di"& _ 
-                "stancia apoyo y 1ª péndola` IS NULL) OR (`Distancia apoyo y 1ª péndola` = ?)) AN"& _ 
-                "D ((? = 1 AND `Distancia 1ª y 2ª péndola` IS NULL) OR (`Distancia 1ª y 2ª péndol"& _ 
-                "a` = ?)) AND ((? = 1 AND `Distancia máx entre péndolas` IS NULL) OR (`Distancia "& _ 
-                "máx entre péndolas` = ?)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre_catenaria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre catenaria", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Sistema", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Sistema", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_nominal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_nominal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_mínima", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_mínima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_máxima", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_máxima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máximo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máximo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Ancho_vía", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Ancho_vía", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Sustentador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Sustentador", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Punto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Punto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Péndola", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Anclaje", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Adm/Línea", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Adm/Línea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Código", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Código", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Numeración", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Numeración", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tipo_macizo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tipo_macizo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tubo_tirante", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tubo_tirante", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Datos` (`Nombre catenaria`, `Sistema`, `Altura nominal`, `Altura mín"& _ 
-                "ima`, `Altura máxima`, `Altura catenaria`, `Distancia máx entre vanos`, `Distanc"& _ 
-                "ia máx del cantón`, `Vano máximo`, `Vano máx en sec mecánico`, `Vano máx en sec "& _ 
-                "eléctrico`, `Vano máx en túnel`, `Incr normalizado de vano`, `Incr máx altura HC"& _ 
-                "`, `Núm mín  vanos en sec mec`, `Núm mín vanos en sec eléct`, `Ancho vía`, `Desc"& _ 
-                "entramiento máx recta`, `Descentramiento máx curva`, `Radio considerable como re"& _ 
-                "cta`, `Zona trabajo pantógrafo`, `Elevación máx pantógrafo`, `Velocidad viento`,"& _ 
-                " `Flecha máx centro vano`, `Distancia carril - poste`, `Distancia base poste - P"& _ 
-                "MR`, `Distancia eléct sec mecánico`, `Distancia eléct sec eléctrico`, `Long zona"& _ 
-                " común máx`, `Long zona común mín`, `Long Zona Neutra`, `Hilo de Contacto`, `Sus"& _ 
-                "tentador`, `C de Protección Aérea`, `Cable de Tierra`, `Feeder +`, `Feeder -`, `"& _ 
-                "Punto fijo`, `Péndola`, `Anclaje`, `Posición Feeder +`, `Posición Feeder -`, `Nú"& _ 
-                "m HC`, `Núm CdPA`, `Núm Feeder +`, `Núm Feeder -`, `Tensión HC`, `Tensión susten"& _ 
-                "tador`, `Tensión CdPA`, `Tensión Feeder +`, `Tensión Feeder -`, `Tensión punto f"& _ 
-                "ijo`, `Tipo`, `Adm/Línea`, `Código`, `Numeración`, `Tipo macizo`, `Adm/Línea pos"& _ 
-                "tes`, `Tubo de ménsula`, `Tubo tirante`, `Cola de anclaje`, `Aislador Feeder +`,"& _ 
-                " `Aislador Feeder -`, `Distancia apoyo y 1ª péndola`, `Distancia 1ª y 2ª péndola"& _ 
-                "`, `Distancia máx entre péndolas`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
-                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"& _ 
-                ""
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre_catenaria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre catenaria", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Sistema", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_nominal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_mínima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_máxima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máximo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ancho_vía", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Sustentador", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Punto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Péndola", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Adm/Línea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Código", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Numeración", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tipo_macizo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tubo_tirante", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Datos` SET `Nombre catenaria` = ?, `Sistema` = ?, `Altura nominal` = ?, `"& _ 
-                "Altura mínima` = ?, `Altura máxima` = ?, `Altura catenaria` = ?, `Distancia máx "& _ 
-                "entre vanos` = ?, `Distancia máx del cantón` = ?, `Vano máximo` = ?, `Vano máx e"& _ 
-                "n sec mecánico` = ?, `Vano máx en sec eléctrico` = ?, `Vano máx en túnel` = ?, `"& _ 
-                "Incr normalizado de vano` = ?, `Incr máx altura HC` = ?, `Núm mín  vanos en sec "& _ 
-                "mec` = ?, `Núm mín vanos en sec eléct` = ?, `Ancho vía` = ?, `Descentramiento má"& _ 
-                "x recta` = ?, `Descentramiento máx curva` = ?, `Radio considerable como recta` ="& _ 
-                " ?, `Zona trabajo pantógrafo` = ?, `Elevación máx pantógrafo` = ?, `Velocidad vi"& _ 
-                "ento` = ?, `Flecha máx centro vano` = ?, `Distancia carril - poste` = ?, `Distan"& _ 
-                "cia base poste - PMR` = ?, `Distancia eléct sec mecánico` = ?, `Distancia eléct "& _ 
-                "sec eléctrico` = ?, `Long zona común máx` = ?, `Long zona común mín` = ?, `Long "& _ 
-                "Zona Neutra` = ?, `Hilo de Contacto` = ?, `Sustentador` = ?, `C de Protección Aé"& _ 
-                "rea` = ?, `Cable de Tierra` = ?, `Feeder +` = ?, `Feeder -` = ?, `Punto fijo` = "& _ 
-                "?, `Péndola` = ?, `Anclaje` = ?, `Posición Feeder +` = ?, `Posición Feeder -` = "& _ 
-                "?, `Núm HC` = ?, `Núm CdPA` = ?, `Núm Feeder +` = ?, `Núm Feeder -` = ?, `Tensió"& _ 
-                "n HC` = ?, `Tensión sustentador` = ?, `Tensión CdPA` = ?, `Tensión Feeder +` = ?"& _ 
-                ", `Tensión Feeder -` = ?, `Tensión punto fijo` = ?, `Tipo` = ?, `Adm/Línea` = ?,"& _ 
-                " `Código` = ?, `Numeración` = ?, `Tipo macizo` = ?, `Adm/Línea postes` = ?, `Tub"& _ 
-                "o de ménsula` = ?, `Tubo tirante` = ?, `Cola de anclaje` = ?, `Aislador Feeder +"& _ 
-                "` = ?, `Aislador Feeder -` = ?, `Distancia apoyo y 1ª péndola` = ?, `Distancia 1"& _ 
-                "ª y 2ª péndola` = ?, `Distancia máx entre péndolas` = ? WHERE ((`Nombre catenari"& _ 
-                "a` = ?) AND ((? = 1 AND `Sistema` IS NULL) OR (`Sistema` = ?)) AND ((? = 1 AND `"& _ 
-                "Altura nominal` IS NULL) OR (`Altura nominal` = ?)) AND ((? = 1 AND `Altura míni"& _ 
-                "ma` IS NULL) OR (`Altura mínima` = ?)) AND ((? = 1 AND `Altura máxima` IS NULL) "& _ 
-                "OR (`Altura máxima` = ?)) AND ((? = 1 AND `Altura catenaria` IS NULL) OR (`Altur"& _ 
-                "a catenaria` = ?)) AND ((? = 1 AND `Distancia máx entre vanos` IS NULL) OR (`Dis"& _ 
-                "tancia máx entre vanos` = ?)) AND ((? = 1 AND `Distancia máx del cantón` IS NULL"& _ 
-                ") OR (`Distancia máx del cantón` = ?)) AND ((? = 1 AND `Vano máximo` IS NULL) OR"& _ 
-                " (`Vano máximo` = ?)) AND ((? = 1 AND `Vano máx en sec mecánico` IS NULL) OR (`V"& _ 
-                "ano máx en sec mecánico` = ?)) AND ((? = 1 AND `Vano máx en sec eléctrico` IS NU"& _ 
-                "LL) OR (`Vano máx en sec eléctrico` = ?)) AND ((? = 1 AND `Vano máx en túnel` IS"& _ 
-                " NULL) OR (`Vano máx en túnel` = ?)) AND ((? = 1 AND `Incr normalizado de vano` "& _ 
-                "IS NULL) OR (`Incr normalizado de vano` = ?)) AND ((? = 1 AND `Incr máx altura H"& _ 
-                "C` IS NULL) OR (`Incr máx altura HC` = ?)) AND ((? = 1 AND `Núm mín  vanos en se"& _ 
-                "c mec` IS NULL) OR (`Núm mín  vanos en sec mec` = ?)) AND ((? = 1 AND `Núm mín v"& _ 
-                "anos en sec eléct` IS NULL) OR (`Núm mín vanos en sec eléct` = ?)) AND ((? = 1 A"& _ 
-                "ND `Ancho vía` IS NULL) OR (`Ancho vía` = ?)) AND ((? = 1 AND `Descentramiento m"& _ 
-                "áx recta` IS NULL) OR (`Descentramiento máx recta` = ?)) AND ((? = 1 AND `Descen"& _ 
-                "tramiento máx curva` IS NULL) OR (`Descentramiento máx curva` = ?)) AND ((? = 1 "& _ 
-                "AND `Radio considerable como recta` IS NULL) OR (`Radio considerable como recta`"& _ 
-                " = ?)) AND ((? = 1 AND `Zona trabajo pantógrafo` IS NULL) OR (`Zona trabajo pant"& _ 
-                "ógrafo` = ?)) AND ((? = 1 AND `Elevación máx pantógrafo` IS NULL) OR (`Elevación"& _ 
-                " máx pantógrafo` = ?)) AND ((? = 1 AND `Velocidad viento` IS NULL) OR (`Velocida"& _ 
-                "d viento` = ?)) AND ((? = 1 AND `Flecha máx centro vano` IS NULL) OR (`Flecha má"& _ 
-                "x centro vano` = ?)) AND ((? = 1 AND `Distancia carril - poste` IS NULL) OR (`Di"& _ 
-                "stancia carril - poste` = ?)) AND ((? = 1 AND `Distancia base poste - PMR` IS NU"& _ 
-                "LL) OR (`Distancia base poste - PMR` = ?)) AND ((? = 1 AND `Distancia eléct sec "& _ 
-                "mecánico` IS NULL) OR (`Distancia eléct sec mecánico` = ?)) AND ((? = 1 AND `Dis"& _ 
-                "tancia eléct sec eléctrico` IS NULL) OR (`Distancia eléct sec eléctrico` = ?)) A"& _ 
-                "ND ((? = 1 AND `Long zona común máx` IS NULL) OR (`Long zona común máx` = ?)) AN"& _ 
-                "D ((? = 1 AND `Long zona común mín` IS NULL) OR (`Long zona común mín` = ?)) AND"& _ 
-                " ((? = 1 AND `Long Zona Neutra` IS NULL) OR (`Long Zona Neutra` = ?)) AND ((? = "& _ 
-                "1 AND `Hilo de Contacto` IS NULL) OR (`Hilo de Contacto` = ?)) AND ((? = 1 AND `"& _ 
-                "Sustentador` IS NULL) OR (`Sustentador` = ?)) AND ((? = 1 AND `C de Protección A"& _ 
-                "érea` IS NULL) OR (`C de Protección Aérea` = ?)) AND ((? = 1 AND `Cable de Tierr"& _ 
-                "a` IS NULL) OR (`Cable de Tierra` = ?)) AND ((? = 1 AND `Feeder +` IS NULL) OR ("& _ 
-                "`Feeder +` = ?)) AND ((? = 1 AND `Feeder -` IS NULL) OR (`Feeder -` = ?)) AND (("& _ 
-                "? = 1 AND `Punto fijo` IS NULL) OR (`Punto fijo` = ?)) AND ((? = 1 AND `Péndola`"& _ 
-                " IS NULL) OR (`Péndola` = ?)) AND ((? = 1 AND `Anclaje` IS NULL) OR (`Anclaje` ="& _ 
-                " ?)) AND ((? = 1 AND `Posición Feeder +` IS NULL) OR (`Posición Feeder +` = ?)) "& _ 
-                "AND ((? = 1 AND `Posición Feeder -` IS NULL) OR (`Posición Feeder -` = ?)) AND ("& _ 
-                "(? = 1 AND `Núm HC` IS NULL) OR (`Núm HC` = ?)) AND ((? = 1 AND `Núm CdPA` IS NU"& _ 
-                "LL) OR (`Núm CdPA` = ?)) AND ((? = 1 AND `Núm Feeder +` IS NULL) OR (`Núm Feeder"& _ 
-                " +` = ?)) AND ((? = 1 AND `Núm Feeder -` IS NULL) OR (`Núm Feeder -` = ?)) AND ("& _ 
-                "(? = 1 AND `Tensión HC` IS NULL) OR (`Tensión HC` = ?)) AND ((? = 1 AND `Tensión"& _ 
-                " sustentador` IS NULL) OR (`Tensión sustentador` = ?)) AND ((? = 1 AND `Tensión "& _ 
-                "CdPA` IS NULL) OR (`Tensión CdPA` = ?)) AND ((? = 1 AND `Tensión Feeder +` IS NU"& _ 
-                "LL) OR (`Tensión Feeder +` = ?)) AND ((? = 1 AND `Tensión Feeder -` IS NULL) OR "& _ 
-                "(`Tensión Feeder -` = ?)) AND ((? = 1 AND `Tensión punto fijo` IS NULL) OR (`Ten"& _ 
-                "sión punto fijo` = ?)) AND ((? = 1 AND `Tipo` IS NULL) OR (`Tipo` = ?)) AND ((? "& _ 
-                "= 1 AND `Adm/Línea` IS NULL) OR (`Adm/Línea` = ?)) AND ((? = 1 AND `Código` IS N"& _ 
-                "ULL) OR (`Código` = ?)) AND ((? = 1 AND `Numeración` IS NULL) OR (`Numeración` ="& _ 
-                " ?)) AND ((? = 1 AND `Tipo macizo` IS NULL) OR (`Tipo macizo` = ?)) AND ((? = 1 "& _ 
-                "AND `Adm/Línea postes` IS NULL) OR (`Adm/Línea postes` = ?)) AND ((? = 1 AND `Tu"& _ 
-                "bo de ménsula` IS NULL) OR (`Tubo de ménsula` = ?)) AND ((? = 1 AND `Tubo tirant"& _ 
-                "e` IS NULL) OR (`Tubo tirante` = ?)) AND ((? = 1 AND `Cola de anclaje` IS NULL) "& _ 
-                "OR (`Cola de anclaje` = ?)) AND ((? = 1 AND `Aislador Feeder +` IS NULL) OR (`Ai"& _ 
-                "slador Feeder +` = ?)) AND ((? = 1 AND `Aislador Feeder -` IS NULL) OR (`Aislado"& _ 
-                "r Feeder -` = ?)) AND ((? = 1 AND `Distancia apoyo y 1ª péndola` IS NULL) OR (`D"& _ 
-                "istancia apoyo y 1ª péndola` = ?)) AND ((? = 1 AND `Distancia 1ª y 2ª péndola` I"& _ 
-                "S NULL) OR (`Distancia 1ª y 2ª péndola` = ?)) AND ((? = 1 AND `Distancia máx ent"& _ 
-                "re péndolas` IS NULL) OR (`Distancia máx entre péndolas` = ?)))"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre_catenaria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre catenaria", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Sistema", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_nominal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_mínima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_máxima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máximo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ancho_vía", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Sustentador", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Punto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Péndola", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Adm/Línea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Código", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Numeración", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tipo_macizo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tubo_tirante", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre_catenaria", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre catenaria", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Sistema", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Sistema", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sistema", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_nominal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_nominal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura nominal", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_mínima", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_mínima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura mínima", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_máxima", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_máxima", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura máxima", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Altura_catenaria", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Altura catenaria", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_entre_vanos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre vanos", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_del_cantón", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx del cantón", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máximo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máximo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máximo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec mecánico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en sec eléctrico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Vano_máx_en_túnel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Vano máx en túnel", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Incr_normalizado_de_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr normalizado de vano", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Incr_máx_altura_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Incr máx altura HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_mín__vanos_en_sec_mec", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín  vanos en sec mec", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_mín_vanos_en_sec_eléct", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm mín vanos en sec eléct", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Ancho_vía", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Ancho_vía", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ancho vía", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Descentramiento_máx_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx recta", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Descentramiento_máx_curva", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Descentramiento máx curva", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Radio_considerable_como_recta", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Radio considerable como recta", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trabajo_pantógrafo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona trabajo pantógrafo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Elevación_máx_pantógrafo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Elevación máx pantógrafo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Velocidad_viento", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Velocidad viento", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Flecha_máx_centro_vano", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Flecha máx centro vano", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_carril_-_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia carril - poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_base_poste_-_PMR", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia base poste - PMR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_eléct_sec_mecánico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec mecánico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_eléct_sec_eléctrico", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia eléct sec eléctrico", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_zona_común_máx", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común máx", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_zona_común_mín", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long zona común mín", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Long_Zona_Neutra", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Long Zona Neutra", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Hilo_de_Contacto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Hilo de Contacto", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Sustentador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Sustentador", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Sustentador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_C_de_Protección_Aérea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "C de Protección Aérea", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Cable_de_Tierra", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cable de Tierra", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Punto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Punto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Punto fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Péndola", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Anclaje", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anclaje", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Posición_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Posición_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Posición Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm CdPA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Núm_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Núm Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_HC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_HC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión HC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_sustentador", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión sustentador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_CdPA", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión CdPA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_Feeder_+", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_Feeder_-", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tensión_punto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tensión punto fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Adm/Línea", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Adm/Línea", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Código", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Código", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Código", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Numeración", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Numeración", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Numeración", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tipo_macizo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tipo_macizo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tipo macizo", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Adm/Línea_postes", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Adm/Línea postes", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tubo_de_ménsula", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo de ménsula", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Tubo_tirante", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Tubo_tirante", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tubo tirante", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Cola_de_anclaje", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cola de anclaje", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Aislador_Feeder_+", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder +", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Aislador_Feeder_-", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Aislador Feeder -", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_apoyo_y_1ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia apoyo y 1ª péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_1ª_y_2ª_péndola", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia 1ª y 2ª péndola", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Distancia_máx_entre_péndolas", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Distancia máx entre péndolas", Global.System.Data.DataRowVersion.Original, false, Nothing))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.OleDb.OleDbConnection
-            Me._connection.ConnectionString = Global.SiReCa.My.MySettings.Default.Base_de_datos
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [Nombre catenaria], Sistema, [Altura nominal], [Altura mínima], [Altura má"& _ 
-                "xima], [Altura catenaria], [Distancia máx entre vanos], [Distancia máx del cantó"& _ 
-                "n], [Vano máximo], [Vano máx en sec mecánico], [Vano máx en sec eléctrico], [Van"& _ 
-                "o máx en túnel], [Incr normalizado de vano], [Incr máx altura HC], [Núm mín  van"& _ 
-                "os en sec mec], [Núm mín vanos en sec eléct], [Ancho vía], [Descentramiento máx "& _ 
-                "recta], [Descentramiento máx curva], [Radio considerable como recta], [Zona trab"& _ 
-                "ajo pantógrafo], [Elevación máx pantógrafo], [Velocidad viento], [Flecha máx cen"& _ 
-                "tro vano], [Distancia carril - poste], [Distancia base poste - PMR], [Distancia "& _ 
-                "eléct sec mecánico], [Distancia eléct sec eléctrico], [Long zona común máx], [Lo"& _ 
-                "ng zona común mín], [Long Zona Neutra], [Hilo de Contacto], Sustentador, [C de P"& _ 
-                "rotección Aérea], [Cable de Tierra], [Feeder +], [Feeder -], [Punto fijo], Péndo"& _ 
-                "la, Anclaje, [Posición Feeder +], [Posición Feeder -], [Núm HC], [Núm CdPA], [Nú"& _ 
-                "m Feeder +], [Núm Feeder -], [Tensión HC], [Tensión sustentador], [Tensión CdPA]"& _ 
-                ", [Tensión Feeder +], [Tensión Feeder -], [Tensión punto fijo], Tipo, [Adm/Línea"& _ 
-                "], Código, Numeración, [Tipo macizo], [Adm/Línea postes], [Tubo de ménsula], [Tu"& _ 
-                "bo tirante], [Cola de anclaje], [Aislador Feeder +], [Aislador Feeder -], [Dista"& _ 
-                "ncia apoyo y 1ª péndola], [Distancia 1ª y 2ª péndola], [Distancia máx entre pénd"& _ 
-                "olas] FROM Datos"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Base_de_datosDataSet.DatosDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Base_de_datosDataSet.DatosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Base_de_datosDataSet.DatosDataTable = New Base_de_datosDataSet.DatosDataTable
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Base_de_datosDataSet.DatosDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Base_de_datosDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Datos")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_Nombre_catenaria As String,  _
-                    ByVal Original_Sistema As String,  _
-                    ByVal Original_Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Elevación_máx_pantógrafo As String,  _
-                    ByVal Original_Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Hilo_de_Contacto As String,  _
-                    ByVal Original_Sustentador As String,  _
-                    ByVal Original_C_de_Protección_Aérea As String,  _
-                    ByVal Original_Cable_de_Tierra As String,  _
-                    ByVal _Original_Feeder__ As String,  _
-                    ByVal _Original_Feeder__1 As String,  _
-                    ByVal Original_Punto_fijo As String,  _
-                    ByVal Original_Péndola As String,  _
-                    ByVal Original_Anclaje As String,  _
-                    ByVal _Original_Posición_Feeder__ As String,  _
-                    ByVal _Original_Posición_Feeder__1 As String,  _
-                    ByVal Original_Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tipo As String,  _
-                    ByVal _Original_Adm_Línea As String,  _
-                    ByVal Original_Código As String,  _
-                    ByVal Original_Numeración As String,  _
-                    ByVal Original_Tipo_macizo As String,  _
-                    ByVal _Original_Adm_Línea_postes As String,  _
-                    ByVal Original_Tubo_de_ménsula As String,  _
-                    ByVal Original_Tubo_tirante As String,  _
-                    ByVal Original_Cola_de_anclaje As String,  _
-                    ByVal _Original_Aislador_Feeder__ As String,  _
-                    ByVal _Original_Aislador_Feeder__1 As String,  _
-                    ByVal Original_Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double)) As Integer
-            If (Original_Nombre_catenaria Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Nombre_catenaria,String)
-            End If
-            If (Original_Sistema Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Sistema,String)
-            End If
-            If (Original_Altura_nominal.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Altura_nominal.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_mínima.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Altura_mínima.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_máxima.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Altura_máxima.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_catenaria.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Altura_catenaria.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_entre_vanos.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Distancia_máx_entre_vanos.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_del_cantón.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Distancia_máx_del_cantón.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máximo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Vano_máximo.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_sec_mecánico.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Vano_máx_en_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Vano_máx_en_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_túnel.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Vano_máx_en_túnel.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Incr_normalizado_de_vano.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Incr_normalizado_de_vano.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Incr_máx_altura_HC.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Incr_máx_altura_HC.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_mín__vanos_en_sec_mec.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Núm_mín__vanos_en_sec_mec.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_mín_vanos_en_sec_eléct.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_Núm_mín_vanos_en_sec_eléct.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Ancho_vía.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_Ancho_vía.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Descentramiento_máx_recta.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Descentramiento_máx_recta.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Descentramiento_máx_curva.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_Descentramiento_máx_curva.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Radio_considerable_como_recta.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_Radio_considerable_como_recta.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Zona_trabajo_pantógrafo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Zona_trabajo_pantógrafo.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Elevación_máx_pantógrafo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_Elevación_máx_pantógrafo,String)
-            End If
-            If (Original_Velocidad_viento.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_Velocidad_viento.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Flecha_máx_centro_vano.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_Flecha_máx_centro_vano.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Distancia_carril___poste.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(_Original_Distancia_carril___poste.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Distancia_base_poste___PMR.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(_Original_Distancia_base_poste___PMR.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(50).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_eléct_sec_mecánico.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_Distancia_eléct_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(52).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_eléct_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_Distancia_eléct_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_zona_común_máx.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_Long_zona_común_máx.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_zona_común_mín.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_Long_zona_común_mín.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_Zona_Neutra.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_Long_Zona_Neutra.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(60).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Hilo_de_Contacto Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_Hilo_de_Contacto,String)
-            End If
-            If (Original_Sustentador Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_Sustentador,String)
-            End If
-            If (Original_C_de_Protección_Aérea Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_C_de_Protección_Aérea,String)
-            End If
-            If (Original_Cable_de_Tierra Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_Cable_de_Tierra,String)
-            End If
-            If (_Original_Feeder__ Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(_Original_Feeder__,String)
-            End If
-            If (_Original_Feeder__1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(_Original_Feeder__1,String)
-            End If
-            If (Original_Punto_fijo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_Punto_fijo,String)
-            End If
-            If (Original_Péndola Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_Péndola,String)
-            End If
-            If (Original_Anclaje Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(Original_Anclaje,String)
-            End If
-            If (_Original_Posición_Feeder__ Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(80).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(_Original_Posición_Feeder__,String)
-            End If
-            If (_Original_Posición_Feeder__1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(_Original_Posición_Feeder__1,String)
-            End If
-            If (Original_Núm_HC.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_Núm_HC.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(84).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_CdPA.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_Núm_CdPA.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(86).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Núm_Feeder__.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(_Original_Núm_Feeder__.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(88).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Núm_Feeder__1.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(_Original_Núm_Feeder__1.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(90).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_HC.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(Original_Tensión_HC.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(92).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_sustentador.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(Original_Tensión_sustentador.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(94).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_CdPA.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(Original_Tensión_CdPA.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(96).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Tensión_Feeder__.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(_Original_Tensión_Feeder__.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(98).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Tensión_Feeder__1.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(_Original_Tensión_Feeder__1.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(100).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_punto_fijo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(Original_Tensión_punto_fijo.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(102).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tipo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(104).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(Original_Tipo,String)
-            End If
-            If (_Original_Adm_Línea Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(106).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(_Original_Adm_Línea,String)
-            End If
-            If (Original_Código Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(108).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(108).Value = CType(Original_Código,String)
-            End If
-            If (Original_Numeración Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(110).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(Original_Numeración,String)
-            End If
-            If (Original_Tipo_macizo Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(112).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(Original_Tipo_macizo,String)
-            End If
-            If (_Original_Adm_Línea_postes Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(114).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(_Original_Adm_Línea_postes,String)
-            End If
-            If (Original_Tubo_de_ménsula Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(116).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(Original_Tubo_de_ménsula,String)
-            End If
-            If (Original_Tubo_tirante Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(118).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(118).Value = CType(Original_Tubo_tirante,String)
-            End If
-            If (Original_Cola_de_anclaje Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(119).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(120).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(120).Value = CType(Original_Cola_de_anclaje,String)
-            End If
-            If (_Original_Aislador_Feeder__ Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(121).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(122).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(122).Value = CType(_Original_Aislador_Feeder__,String)
-            End If
-            If (_Original_Aislador_Feeder__1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(123).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(124).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(124).Value = CType(_Original_Aislador_Feeder__1,String)
-            End If
-            If (Original_Distancia_apoyo_y_1ª_péndola.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(126).Value = CType(Original_Distancia_apoyo_y_1ª_péndola.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(125).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(126).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_1ª_y_2ª_péndola.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(128).Value = CType(Original_Distancia_1ª_y_2ª_péndola.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(127).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(128).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_entre_péndolas.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(130).Value = CType(Original_Distancia_máx_entre_péndolas.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(129).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(130).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal Nombre_catenaria As String,  _
-                    ByVal Sistema As String,  _
-                    ByVal Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Elevación_máx_pantógrafo As String,  _
-                    ByVal Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Hilo_de_Contacto As String,  _
-                    ByVal Sustentador As String,  _
-                    ByVal C_de_Protección_Aérea As String,  _
-                    ByVal Cable_de_Tierra As String,  _
-                    ByVal _Feeder__ As String,  _
-                    ByVal _Feeder__1 As String,  _
-                    ByVal Punto_fijo As String,  _
-                    ByVal Péndola As String,  _
-                    ByVal Anclaje As String,  _
-                    ByVal _Posición_Feeder__ As String,  _
-                    ByVal _Posición_Feeder__1 As String,  _
-                    ByVal Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Tipo As String,  _
-                    ByVal _Adm_Línea As String,  _
-                    ByVal Código As String,  _
-                    ByVal Numeración As String,  _
-                    ByVal Tipo_macizo As String,  _
-                    ByVal _Adm_Línea_postes As String,  _
-                    ByVal Tubo_de_ménsula As String,  _
-                    ByVal Tubo_tirante As String,  _
-                    ByVal Cola_de_anclaje As String,  _
-                    ByVal _Aislador_Feeder__ As String,  _
-                    ByVal _Aislador_Feeder__1 As String,  _
-                    ByVal Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double)) As Integer
-            If (Nombre_catenaria Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nombre_catenaria,String)
-            End If
-            If (Sistema Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Sistema,String)
-            End If
-            If (Altura_nominal.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Altura_nominal.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_mínima.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Altura_mínima.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_máxima.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Altura_máxima.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_catenaria.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Altura_catenaria.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_entre_vanos.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Distancia_máx_entre_vanos.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_del_cantón.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Distancia_máx_del_cantón.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máximo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Vano_máximo.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_sec_mecánico.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Vano_máx_en_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Vano_máx_en_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_túnel.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Vano_máx_en_túnel.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Incr_normalizado_de_vano.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Incr_normalizado_de_vano.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Incr_máx_altura_HC.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Incr_máx_altura_HC.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_mín__vanos_en_sec_mec.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Núm_mín__vanos_en_sec_mec.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_mín_vanos_en_sec_eléct.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(Núm_mín_vanos_en_sec_eléct.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            End If
-            If (Ancho_vía.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(Ancho_vía.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Descentramiento_máx_recta.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(Descentramiento_máx_recta.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (Descentramiento_máx_curva.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(Descentramiento_máx_curva.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Radio_considerable_como_recta.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(Radio_considerable_como_recta.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Zona_trabajo_pantógrafo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(Zona_trabajo_pantógrafo.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Elevación_máx_pantógrafo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Elevación_máx_pantógrafo,String)
-            End If
-            If (Velocidad_viento.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(Velocidad_viento.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
-            If (Flecha_máx_centro_vano.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(Flecha_máx_centro_vano.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
-            End If
-            If (_Distancia_carril___poste.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(_Distancia_carril___poste.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (_Distancia_base_poste___PMR.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(_Distancia_base_poste___PMR.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_eléct_sec_mecánico.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(Distancia_eléct_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_eléct_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(Distancia_eléct_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Long_zona_común_máx.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(Long_zona_común_máx.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
-            End If
-            If (Long_zona_común_mín.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(Long_zona_común_mín.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Long_Zona_Neutra.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(Long_Zona_Neutra.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
-            End If
-            If (Hilo_de_Contacto Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(Hilo_de_Contacto,String)
-            End If
-            If (Sustentador Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(Sustentador,String)
-            End If
-            If (C_de_Protección_Aérea Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(33).Value = CType(C_de_Protección_Aérea,String)
-            End If
-            If (Cable_de_Tierra Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(34).Value = CType(Cable_de_Tierra,String)
-            End If
-            If (_Feeder__ Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(35).Value = CType(_Feeder__,String)
-            End If
-            If (_Feeder__1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(36).Value = CType(_Feeder__1,String)
-            End If
-            If (Punto_fijo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(37).Value = CType(Punto_fijo,String)
-            End If
-            If (Péndola Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(38).Value = CType(Péndola,String)
-            End If
-            If (Anclaje Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(39).Value = CType(Anclaje,String)
-            End If
-            If (_Posición_Feeder__ Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(40).Value = CType(_Posición_Feeder__,String)
-            End If
-            If (_Posición_Feeder__1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(41).Value = CType(_Posición_Feeder__1,String)
-            End If
-            If (Núm_HC.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(42).Value = CType(Núm_HC.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_CdPA.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(43).Value = CType(Núm_CdPA.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (_Núm_Feeder__.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(44).Value = CType(_Núm_Feeder__.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (_Núm_Feeder__1.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(45).Value = CType(_Núm_Feeder__1.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_HC.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(46).Value = CType(Tensión_HC.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_sustentador.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(47).Value = CType(Tensión_sustentador.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_CdPA.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(48).Value = CType(Tensión_CdPA.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
-            End If
-            If (_Tensión_Feeder__.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(49).Value = CType(_Tensión_Feeder__.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
-            End If
-            If (_Tensión_Feeder__1.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(50).Value = CType(_Tensión_Feeder__1.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_punto_fijo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(51).Value = CType(Tensión_punto_fijo.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
-            End If
-            If (Tipo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(52).Value = CType(Tipo,String)
-            End If
-            If (_Adm_Línea Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(53).Value = CType(_Adm_Línea,String)
-            End If
-            If (Código Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(54).Value = CType(Código,String)
-            End If
-            If (Numeración Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(55).Value = CType(Numeración,String)
-            End If
-            If (Tipo_macizo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(56).Value = CType(Tipo_macizo,String)
-            End If
-            If (_Adm_Línea_postes Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(57).Value = CType(_Adm_Línea_postes,String)
-            End If
-            If (Tubo_de_ménsula Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(58).Value = CType(Tubo_de_ménsula,String)
-            End If
-            If (Tubo_tirante Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(59).Value = CType(Tubo_tirante,String)
-            End If
-            If (Cola_de_anclaje Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(60).Value = CType(Cola_de_anclaje,String)
-            End If
-            If (_Aislador_Feeder__ Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(61).Value = CType(_Aislador_Feeder__,String)
-            End If
-            If (_Aislador_Feeder__1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(62).Value = CType(_Aislador_Feeder__1,String)
-            End If
-            If (Distancia_apoyo_y_1ª_péndola.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(63).Value = CType(Distancia_apoyo_y_1ª_péndola.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_1ª_y_2ª_péndola.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(64).Value = CType(Distancia_1ª_y_2ª_péndola.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_entre_péndolas.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(65).Value = CType(Distancia_máx_entre_péndolas.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Nombre_catenaria As String,  _
-                    ByVal Sistema As String,  _
-                    ByVal Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Elevación_máx_pantógrafo As String,  _
-                    ByVal Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Hilo_de_Contacto As String,  _
-                    ByVal Sustentador As String,  _
-                    ByVal C_de_Protección_Aérea As String,  _
-                    ByVal Cable_de_Tierra As String,  _
-                    ByVal _Feeder__ As String,  _
-                    ByVal _Feeder__1 As String,  _
-                    ByVal Punto_fijo As String,  _
-                    ByVal Péndola As String,  _
-                    ByVal Anclaje As String,  _
-                    ByVal _Posición_Feeder__ As String,  _
-                    ByVal _Posición_Feeder__1 As String,  _
-                    ByVal Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Tipo As String,  _
-                    ByVal _Adm_Línea As String,  _
-                    ByVal Código As String,  _
-                    ByVal Numeración As String,  _
-                    ByVal Tipo_macizo As String,  _
-                    ByVal _Adm_Línea_postes As String,  _
-                    ByVal Tubo_de_ménsula As String,  _
-                    ByVal Tubo_tirante As String,  _
-                    ByVal Cola_de_anclaje As String,  _
-                    ByVal _Aislador_Feeder__ As String,  _
-                    ByVal _Aislador_Feeder__1 As String,  _
-                    ByVal Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Nombre_catenaria As String,  _
-                    ByVal Original_Sistema As String,  _
-                    ByVal Original_Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Elevación_máx_pantógrafo As String,  _
-                    ByVal Original_Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Hilo_de_Contacto As String,  _
-                    ByVal Original_Sustentador As String,  _
-                    ByVal Original_C_de_Protección_Aérea As String,  _
-                    ByVal Original_Cable_de_Tierra As String,  _
-                    ByVal _Original_Feeder__ As String,  _
-                    ByVal _Original_Feeder__1 As String,  _
-                    ByVal Original_Punto_fijo As String,  _
-                    ByVal Original_Péndola As String,  _
-                    ByVal Original_Anclaje As String,  _
-                    ByVal _Original_Posición_Feeder__ As String,  _
-                    ByVal _Original_Posición_Feeder__1 As String,  _
-                    ByVal Original_Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tipo As String,  _
-                    ByVal _Original_Adm_Línea As String,  _
-                    ByVal Original_Código As String,  _
-                    ByVal Original_Numeración As String,  _
-                    ByVal Original_Tipo_macizo As String,  _
-                    ByVal _Original_Adm_Línea_postes As String,  _
-                    ByVal Original_Tubo_de_ménsula As String,  _
-                    ByVal Original_Tubo_tirante As String,  _
-                    ByVal Original_Cola_de_anclaje As String,  _
-                    ByVal _Original_Aislador_Feeder__ As String,  _
-                    ByVal _Original_Aislador_Feeder__1 As String,  _
-                    ByVal Original_Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double)) As Integer
-            If (Nombre_catenaria Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nombre_catenaria,String)
-            End If
-            If (Sistema Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Sistema,String)
-            End If
-            If (Altura_nominal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Altura_nominal.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_mínima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Altura_mínima.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_máxima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Altura_máxima.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Altura_catenaria.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Altura_catenaria.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_entre_vanos.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Distancia_máx_entre_vanos.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_del_cantón.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Distancia_máx_del_cantón.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máximo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Vano_máximo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_sec_mecánico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Vano_máx_en_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Vano_máx_en_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Vano_máx_en_túnel.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Vano_máx_en_túnel.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Incr_normalizado_de_vano.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Incr_normalizado_de_vano.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Incr_máx_altura_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Incr_máx_altura_HC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_mín__vanos_en_sec_mec.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Núm_mín__vanos_en_sec_mec.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_mín_vanos_en_sec_eléct.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Núm_mín_vanos_en_sec_eléct.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            End If
-            If (Ancho_vía.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Ancho_vía.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Descentramiento_máx_recta.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Descentramiento_máx_recta.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (Descentramiento_máx_curva.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Descentramiento_máx_curva.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Radio_considerable_como_recta.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Radio_considerable_como_recta.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Zona_trabajo_pantógrafo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Zona_trabajo_pantógrafo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Elevación_máx_pantógrafo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Elevación_máx_pantógrafo,String)
-            End If
-            If (Velocidad_viento.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Velocidad_viento.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
-            If (Flecha_máx_centro_vano.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Flecha_máx_centro_vano.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            End If
-            If (_Distancia_carril___poste.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(_Distancia_carril___poste.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (_Distancia_base_poste___PMR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(_Distancia_base_poste___PMR.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_eléct_sec_mecánico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Distancia_eléct_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_eléct_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Distancia_eléct_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Long_zona_común_máx.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Long_zona_común_máx.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
-            End If
-            If (Long_zona_común_mín.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Long_zona_común_mín.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Long_Zona_Neutra.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Long_Zona_Neutra.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
-            End If
-            If (Hilo_de_Contacto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Hilo_de_Contacto,String)
-            End If
-            If (Sustentador Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Sustentador,String)
-            End If
-            If (C_de_Protección_Aérea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(C_de_Protección_Aérea,String)
-            End If
-            If (Cable_de_Tierra Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Cable_de_Tierra,String)
-            End If
-            If (_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(_Feeder__,String)
-            End If
-            If (_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(_Feeder__1,String)
-            End If
-            If (Punto_fijo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Punto_fijo,String)
-            End If
-            If (Péndola Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Péndola,String)
-            End If
-            If (Anclaje Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Anclaje,String)
-            End If
-            If (_Posición_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(_Posición_Feeder__,String)
-            End If
-            If (_Posición_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(_Posición_Feeder__1,String)
-            End If
-            If (Núm_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Núm_HC.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            If (Núm_CdPA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Núm_CdPA.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (_Núm_Feeder__.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(_Núm_Feeder__.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (_Núm_Feeder__1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(_Núm_Feeder__1.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Tensión_HC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_sustentador.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Tensión_sustentador.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_CdPA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Tensión_CdPA.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
-            End If
-            If (_Tensión_Feeder__.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(_Tensión_Feeder__.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
-            End If
-            If (_Tensión_Feeder__1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(_Tensión_Feeder__1.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
-            End If
-            If (Tensión_punto_fijo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Tensión_punto_fijo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
-            End If
-            If (Tipo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Tipo,String)
-            End If
-            If (_Adm_Línea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(_Adm_Línea,String)
-            End If
-            If (Código Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Código,String)
-            End If
-            If (Numeración Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Numeración,String)
-            End If
-            If (Tipo_macizo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Tipo_macizo,String)
-            End If
-            If (_Adm_Línea_postes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(_Adm_Línea_postes,String)
-            End If
-            If (Tubo_de_ménsula Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Tubo_de_ménsula,String)
-            End If
-            If (Tubo_tirante Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Tubo_tirante,String)
-            End If
-            If (Cola_de_anclaje Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Cola_de_anclaje,String)
-            End If
-            If (_Aislador_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(_Aislador_Feeder__,String)
-            End If
-            If (_Aislador_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(_Aislador_Feeder__1,String)
-            End If
-            If (Distancia_apoyo_y_1ª_péndola.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Distancia_apoyo_y_1ª_péndola.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_1ª_y_2ª_péndola.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Distancia_1ª_y_2ª_péndola.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
-            End If
-            If (Distancia_máx_entre_péndolas.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Distancia_máx_entre_péndolas.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Nombre_catenaria Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_Nombre_catenaria,String)
-            End If
-            If (Original_Sistema Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_Sistema,String)
-            End If
-            If (Original_Altura_nominal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_Altura_nominal.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_mínima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Altura_mínima.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_máxima.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_Altura_máxima.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Altura_catenaria.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_Altura_catenaria.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_entre_vanos.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_Distancia_máx_entre_vanos.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_del_cantón.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_Distancia_máx_del_cantón.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máximo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_Vano_máximo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_sec_mecánico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_Vano_máx_en_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_Vano_máx_en_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Vano_máx_en_túnel.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_Vano_máx_en_túnel.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Incr_normalizado_de_vano.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_Incr_normalizado_de_vano.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Incr_máx_altura_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_Incr_máx_altura_HC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_mín__vanos_en_sec_mec.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_Núm_mín__vanos_en_sec_mec.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_mín_vanos_en_sec_eléct.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Núm_mín_vanos_en_sec_eléct.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Ancho_vía.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_Ancho_vía.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Descentramiento_máx_recta.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_Descentramiento_máx_recta.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Descentramiento_máx_curva.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_Descentramiento_máx_curva.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Radio_considerable_como_recta.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_Radio_considerable_como_recta.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Zona_trabajo_pantógrafo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_Zona_trabajo_pantógrafo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Elevación_máx_pantógrafo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_Elevación_máx_pantógrafo,String)
-            End If
-            If (Original_Velocidad_viento.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_Velocidad_viento.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Flecha_máx_centro_vano.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_Flecha_máx_centro_vano.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Distancia_carril___poste.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(_Original_Distancia_carril___poste.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Distancia_base_poste___PMR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(_Original_Distancia_base_poste___PMR.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_eléct_sec_mecánico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_Distancia_eléct_sec_mecánico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_eléct_sec_eléctrico.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_Distancia_eléct_sec_eléctrico.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_zona_común_máx.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_Long_zona_común_máx.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_zona_común_mín.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_Long_zona_común_mín.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Long_Zona_Neutra.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_Long_Zona_Neutra.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Hilo_de_Contacto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_Hilo_de_Contacto,String)
-            End If
-            If (Original_Sustentador Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_Sustentador,String)
-            End If
-            If (Original_C_de_Protección_Aérea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_C_de_Protección_Aérea,String)
-            End If
-            If (Original_Cable_de_Tierra Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_Cable_de_Tierra,String)
-            End If
-            If (_Original_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(_Original_Feeder__,String)
-            End If
-            If (_Original_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(_Original_Feeder__1,String)
-            End If
-            If (Original_Punto_fijo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_Punto_fijo,String)
-            End If
-            If (Original_Péndola Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_Péndola,String)
-            End If
-            If (Original_Anclaje Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_Anclaje,String)
-            End If
-            If (_Original_Posición_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(_Original_Posición_Feeder__,String)
-            End If
-            If (_Original_Posición_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(_Original_Posición_Feeder__1,String)
-            End If
-            If (Original_Núm_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_Núm_HC.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Núm_CdPA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_Núm_CdPA.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Núm_Feeder__.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(_Original_Núm_Feeder__.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Núm_Feeder__1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(_Original_Núm_Feeder__1.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_HC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_Tensión_HC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_sustentador.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_Tensión_sustentador.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_CdPA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_Tensión_CdPA.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Tensión_Feeder__.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(_Original_Tensión_Feeder__.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
-            End If
-            If (_Original_Tensión_Feeder__1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(_Original_Tensión_Feeder__1.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tensión_punto_fijo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_Tensión_punto_fijo.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Tipo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_Tipo,String)
-            End If
-            If (_Original_Adm_Línea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(_Original_Adm_Línea,String)
-            End If
-            If (Original_Código Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_Código,String)
-            End If
-            If (Original_Numeración Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_Numeración,String)
-            End If
-            If (Original_Tipo_macizo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_Tipo_macizo,String)
-            End If
-            If (_Original_Adm_Línea_postes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(_Original_Adm_Línea_postes,String)
-            End If
-            If (Original_Tubo_de_ménsula Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_Tubo_de_ménsula,String)
-            End If
-            If (Original_Tubo_tirante Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_Tubo_tirante,String)
-            End If
-            If (Original_Cola_de_anclaje Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_Cola_de_anclaje,String)
-            End If
-            If (_Original_Aislador_Feeder__ Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(_Original_Aislador_Feeder__,String)
-            End If
-            If (_Original_Aislador_Feeder__1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(_Original_Aislador_Feeder__1,String)
-            End If
-            If (Original_Distancia_apoyo_y_1ª_péndola.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_Distancia_apoyo_y_1ª_péndola.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_1ª_y_2ª_péndola.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(Original_Distancia_1ª_y_2ª_péndola.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Distancia_máx_entre_péndolas.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(Original_Distancia_máx_entre_péndolas.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Sistema As String,  _
-                    ByVal Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Elevación_máx_pantógrafo As String,  _
-                    ByVal Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Hilo_de_Contacto As String,  _
-                    ByVal Sustentador As String,  _
-                    ByVal C_de_Protección_Aérea As String,  _
-                    ByVal Cable_de_Tierra As String,  _
-                    ByVal _Feeder__ As String,  _
-                    ByVal _Feeder__1 As String,  _
-                    ByVal Punto_fijo As String,  _
-                    ByVal Péndola As String,  _
-                    ByVal Anclaje As String,  _
-                    ByVal _Posición_Feeder__ As String,  _
-                    ByVal _Posición_Feeder__1 As String,  _
-                    ByVal Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Tipo As String,  _
-                    ByVal _Adm_Línea As String,  _
-                    ByVal Código As String,  _
-                    ByVal Numeración As String,  _
-                    ByVal Tipo_macizo As String,  _
-                    ByVal _Adm_Línea_postes As String,  _
-                    ByVal Tubo_de_ménsula As String,  _
-                    ByVal Tubo_tirante As String,  _
-                    ByVal Cola_de_anclaje As String,  _
-                    ByVal _Aislador_Feeder__ As String,  _
-                    ByVal _Aislador_Feeder__1 As String,  _
-                    ByVal Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Nombre_catenaria As String,  _
-                    ByVal Original_Sistema As String,  _
-                    ByVal Original_Altura_nominal As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_mínima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_máxima As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Altura_catenaria As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_vanos As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_del_cantón As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máximo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Vano_máx_en_túnel As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_normalizado_de_vano As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Incr_máx_altura_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín__vanos_en_sec_mec As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Núm_mín_vanos_en_sec_eléct As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Ancho_vía As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Descentramiento_máx_curva As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Radio_considerable_como_recta As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trabajo_pantógrafo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Elevación_máx_pantógrafo As String,  _
-                    ByVal Original_Velocidad_viento As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Flecha_máx_centro_vano As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_carril___poste As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Distancia_base_poste___PMR As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_mecánico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_eléct_sec_eléctrico As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_máx As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_zona_común_mín As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Long_Zona_Neutra As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Hilo_de_Contacto As String,  _
-                    ByVal Original_Sustentador As String,  _
-                    ByVal Original_C_de_Protección_Aérea As String,  _
-                    ByVal Original_Cable_de_Tierra As String,  _
-                    ByVal _Original_Feeder__ As String,  _
-                    ByVal _Original_Feeder__1 As String,  _
-                    ByVal Original_Punto_fijo As String,  _
-                    ByVal Original_Péndola As String,  _
-                    ByVal Original_Anclaje As String,  _
-                    ByVal _Original_Posición_Feeder__ As String,  _
-                    ByVal _Original_Posición_Feeder__1 As String,  _
-                    ByVal Original_Núm_HC As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Núm_CdPA As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__ As Global.System.Nullable(Of Integer),  _
-                    ByVal _Original_Núm_Feeder__1 As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Tensión_HC As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_sustentador As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_CdPA As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__ As Global.System.Nullable(Of Double),  _
-                    ByVal _Original_Tensión_Feeder__1 As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tensión_punto_fijo As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Tipo As String,  _
-                    ByVal _Original_Adm_Línea As String,  _
-                    ByVal Original_Código As String,  _
-                    ByVal Original_Numeración As String,  _
-                    ByVal Original_Tipo_macizo As String,  _
-                    ByVal _Original_Adm_Línea_postes As String,  _
-                    ByVal Original_Tubo_de_ménsula As String,  _
-                    ByVal Original_Tubo_tirante As String,  _
-                    ByVal Original_Cola_de_anclaje As String,  _
-                    ByVal _Original_Aislador_Feeder__ As String,  _
-                    ByVal _Original_Aislador_Feeder__1 As String,  _
-                    ByVal Original_Distancia_apoyo_y_1ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_1ª_y_2ª_péndola As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Distancia_máx_entre_péndolas As Global.System.Nullable(Of Double)) As Integer
-            Return Me.Update(Original_Nombre_catenaria, Sistema, Altura_nominal, Altura_mínima, Altura_máxima, Altura_catenaria, Distancia_máx_entre_vanos, Distancia_máx_del_cantón, Vano_máximo, Vano_máx_en_sec_mecánico, Vano_máx_en_sec_eléctrico, Vano_máx_en_túnel, Incr_normalizado_de_vano, Incr_máx_altura_HC, Núm_mín__vanos_en_sec_mec, Núm_mín_vanos_en_sec_eléct, Ancho_vía, Descentramiento_máx_recta, Descentramiento_máx_curva, Radio_considerable_como_recta, Zona_trabajo_pantógrafo, Elevación_máx_pantógrafo, Velocidad_viento, Flecha_máx_centro_vano, _Distancia_carril___poste, _Distancia_base_poste___PMR, Distancia_eléct_sec_mecánico, Distancia_eléct_sec_eléctrico, Long_zona_común_máx, Long_zona_común_mín, Long_Zona_Neutra, Hilo_de_Contacto, Sustentador, C_de_Protección_Aérea, Cable_de_Tierra, _Feeder__, _Feeder__1, Punto_fijo, Péndola, Anclaje, _Posición_Feeder__, _Posición_Feeder__1, Núm_HC, Núm_CdPA, _Núm_Feeder__, _Núm_Feeder__1, Tensión_HC, Tensión_sustentador, Tensión_CdPA, _Tensión_Feeder__, _Tensión_Feeder__1, Tensión_punto_fijo, Tipo, _Adm_Línea, Código, Numeración, Tipo_macizo, _Adm_Línea_postes, Tubo_de_ménsula, Tubo_tirante, Cola_de_anclaje, _Aislador_Feeder__, _Aislador_Feeder__1, Distancia_apoyo_y_1ª_péndola, Distancia_1ª_y_2ª_péndola, Distancia_máx_entre_péndolas, Original_Nombre_catenaria, Original_Sistema, Original_Altura_nominal, Original_Altura_mínima, Original_Altura_máxima, Original_Altura_catenaria, Original_Distancia_máx_entre_vanos, Original_Distancia_máx_del_cantón, Original_Vano_máximo, Original_Vano_máx_en_sec_mecánico, Original_Vano_máx_en_sec_eléctrico, Original_Vano_máx_en_túnel, Original_Incr_normalizado_de_vano, Original_Incr_máx_altura_HC, Original_Núm_mín__vanos_en_sec_mec, Original_Núm_mín_vanos_en_sec_eléct, Original_Ancho_vía, Original_Descentramiento_máx_recta, Original_Descentramiento_máx_curva, Original_Radio_considerable_como_recta, Original_Zona_trabajo_pantógrafo, Original_Elevación_máx_pantógrafo, Original_Velocidad_viento, Original_Flecha_máx_centro_vano, _Original_Distancia_carril___poste, _Original_Distancia_base_poste___PMR, Original_Distancia_eléct_sec_mecánico, Original_Distancia_eléct_sec_eléctrico, Original_Long_zona_común_máx, Original_Long_zona_común_mín, Original_Long_Zona_Neutra, Original_Hilo_de_Contacto, Original_Sustentador, Original_C_de_Protección_Aérea, Original_Cable_de_Tierra, _Original_Feeder__, _Original_Feeder__1, Original_Punto_fijo, Original_Péndola, Original_Anclaje, _Original_Posición_Feeder__, _Original_Posición_Feeder__1, Original_Núm_HC, Original_Núm_CdPA, _Original_Núm_Feeder__, _Original_Núm_Feeder__1, Original_Tensión_HC, Original_Tensión_sustentador, Original_Tensión_CdPA, _Original_Tensión_Feeder__, _Original_Tensión_Feeder__1, Original_Tensión_punto_fijo, Original_Tipo, _Original_Adm_Línea, Original_Código, Original_Numeración, Original_Tipo_macizo, _Original_Adm_Línea_postes, Original_Tubo_de_ménsula, Original_Tubo_tirante, Original_Cola_de_anclaje, _Original_Aislador_Feeder__, _Original_Aislador_Feeder__1, Original_Distancia_apoyo_y_1ª_péndola, Original_Distancia_1ª_y_2ª_péndola, Original_Distancia_máx_entre_péndolas)
         End Function
     End Class
     
@@ -17528,169 +14256,6 @@ Namespace Base_de_datosDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class NOMBRE_CATENARIATableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
-        
-        Private _connection As Global.System.Data.OleDb.OleDbConnection
-        
-        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
-        
-        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "NOMBRE CATENARIA"
-            tableMapping.ColumnMappings.Add("Nombre_Catenaria", "Nombre_Catenaria")
-            Me._adapter.TableMappings.Add(tableMapping)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.OleDb.OleDbConnection
-            Me._connection.ConnectionString = Global.SiReCa.My.MySettings.Default.Base_de_datos
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Nombre_Catenaria FROM [NOMBRE CATENARIA]"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Base_de_datosDataSet.NOMBRE_CATENARIADataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Base_de_datosDataSet.NOMBRE_CATENARIADataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Base_de_datosDataSet.NOMBRE_CATENARIADataTable = New Base_de_datosDataSet.NOMBRE_CATENARIADataTable
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ContraseñaTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -17914,7 +14479,2836 @@ Namespace Base_de_datosDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Nombre_CatenariaTableAdapter1
+    Partial Public Class DatosTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Datos"
+            tableMapping.ColumnMappings.Add("nombre_cat", "nombre_cat")
+            tableMapping.ColumnMappings.Add("sist", "sist")
+            tableMapping.ColumnMappings.Add("al", "al")
+            tableMapping.ColumnMappings.Add("alt_nom", "alt_nom")
+            tableMapping.ColumnMappings.Add("alt_min", "alt_min")
+            tableMapping.ColumnMappings.Add("alt_max", "alt_max")
+            tableMapping.ColumnMappings.Add("alt_cat", "alt_cat")
+            tableMapping.ColumnMappings.Add("dist_max_va", "dist_max_va")
+            tableMapping.ColumnMappings.Add("dist_max_canton", "dist_max_canton")
+            tableMapping.ColumnMappings.Add("va_max", "va_max")
+            tableMapping.ColumnMappings.Add("va_max_sm", "va_max_sm")
+            tableMapping.ColumnMappings.Add("va_max_sla", "va_max_sla")
+            tableMapping.ColumnMappings.Add("va_max_tunel", "va_max_tunel")
+            tableMapping.ColumnMappings.Add("inc_norm_va", "inc_norm_va")
+            tableMapping.ColumnMappings.Add("inc_max_alt_hc", "inc_max_alt_hc")
+            tableMapping.ColumnMappings.Add("n_min_va_sm", "n_min_va_sm")
+            tableMapping.ColumnMappings.Add("n_min_va_sla", "n_min_va_sla")
+            tableMapping.ColumnMappings.Add("ancho_via", "ancho_via")
+            tableMapping.ColumnMappings.Add("d_max_re", "d_max_re")
+            tableMapping.ColumnMappings.Add("d_max_cu", "d_max_cu")
+            tableMapping.ColumnMappings.Add("r_re", "r_re")
+            tableMapping.ColumnMappings.Add("Zona_trab_pant", "Zona_trab_pant")
+            tableMapping.ColumnMappings.Add("el_max_pant", "el_max_pant")
+            tableMapping.ColumnMappings.Add("vw", "vw")
+            tableMapping.ColumnMappings.Add("fl_max_centro_va", "fl_max_centro_va")
+            tableMapping.ColumnMappings.Add("dist_carril_poste", "dist_carril_poste")
+            tableMapping.ColumnMappings.Add("dist_base_poste_pmr", "dist_base_poste_pmr")
+            tableMapping.ColumnMappings.Add("dist_elect_sm", "dist_elect_sm")
+            tableMapping.ColumnMappings.Add("dist_elect_sla", "dist_elect_sla")
+            tableMapping.ColumnMappings.Add("l_zc_max", "l_zc_max")
+            tableMapping.ColumnMappings.Add("l_zc_min", "l_zc_min")
+            tableMapping.ColumnMappings.Add("l_zn", "l_zn")
+            tableMapping.ColumnMappings.Add("hc", "hc")
+            tableMapping.ColumnMappings.Add("sust", "sust")
+            tableMapping.ColumnMappings.Add("cdpa", "cdpa")
+            tableMapping.ColumnMappings.Add("cdte", "cdte")
+            tableMapping.ColumnMappings.Add("feed_pos", "feed_pos")
+            tableMapping.ColumnMappings.Add("feed_neg", "feed_neg")
+            tableMapping.ColumnMappings.Add("pto_fijo", "pto_fijo")
+            tableMapping.ColumnMappings.Add("pend", "pend")
+            tableMapping.ColumnMappings.Add("as", "as")
+            tableMapping.ColumnMappings.Add("pos_feed_pos", "pos_feed_pos")
+            tableMapping.ColumnMappings.Add("pos_feed_neg", "pos_feed_neg")
+            tableMapping.ColumnMappings.Add("n_hc", "n_hc")
+            tableMapping.ColumnMappings.Add("n_cdpa", "n_cdpa")
+            tableMapping.ColumnMappings.Add("n_feed_pos", "n_feed_pos")
+            tableMapping.ColumnMappings.Add("n_feed_neg", "n_feed_neg")
+            tableMapping.ColumnMappings.Add("t_hc", "t_hc")
+            tableMapping.ColumnMappings.Add("t_sust", "t_sust")
+            tableMapping.ColumnMappings.Add("t_cdpa", "t_cdpa")
+            tableMapping.ColumnMappings.Add("t_feed_pos", "t_feed_pos")
+            tableMapping.ColumnMappings.Add("t_feed_neg", "t_feed_neg")
+            tableMapping.ColumnMappings.Add("t_pto_fijo", "t_pto_fijo")
+            tableMapping.ColumnMappings.Add("adm_lin_poste", "adm_lin_poste")
+            tableMapping.ColumnMappings.Add("tip_poste", "tip_poste")
+            tableMapping.ColumnMappings.Add("num_poste", "num_poste")
+            tableMapping.ColumnMappings.Add("adm_lin_mac", "adm_lin_mac")
+            tableMapping.ColumnMappings.Add("tip_mac", "tip_mac")
+            tableMapping.ColumnMappings.Add("tubo_men", "tubo_men")
+            tableMapping.ColumnMappings.Add("tubo_tir", "tubo_tir")
+            tableMapping.ColumnMappings.Add("cola_as", "cola_as")
+            tableMapping.ColumnMappings.Add("aisl_feed_pos", "aisl_feed_pos")
+            tableMapping.ColumnMappings.Add("aisl_feed_neg", "aisl_feed_neg")
+            tableMapping.ColumnMappings.Add("dist_ap_prim_pend", "dist_ap_prim_pend")
+            tableMapping.ColumnMappings.Add("dist_prim_seg_pend", "dist_prim_seg_pend")
+            tableMapping.ColumnMappings.Add("dist_max_pend", "dist_max_pend")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Datos` WHERE ((`nombre_cat` = ?) AND ((? = 1 AND `sist` IS NULL) OR "& _ 
+                "(`sist` = ?)) AND ((? = 1 AND `al` IS NULL) OR (`al` = ?)) AND ((? = 1 AND `alt_"& _ 
+                "nom` IS NULL) OR (`alt_nom` = ?)) AND ((? = 1 AND `alt_min` IS NULL) OR (`alt_mi"& _ 
+                "n` = ?)) AND ((? = 1 AND `alt_max` IS NULL) OR (`alt_max` = ?)) AND ((? = 1 AND "& _ 
+                "`alt_cat` IS NULL) OR (`alt_cat` = ?)) AND ((? = 1 AND `dist_max_va` IS NULL) OR"& _ 
+                " (`dist_max_va` = ?)) AND ((? = 1 AND `dist_max_canton` IS NULL) OR (`dist_max_c"& _ 
+                "anton` = ?)) AND ((? = 1 AND `va_max` IS NULL) OR (`va_max` = ?)) AND ((? = 1 AN"& _ 
+                "D `va_max_sm` IS NULL) OR (`va_max_sm` = ?)) AND ((? = 1 AND `va_max_sla` IS NUL"& _ 
+                "L) OR (`va_max_sla` = ?)) AND ((? = 1 AND `va_max_tunel` IS NULL) OR (`va_max_tu"& _ 
+                "nel` = ?)) AND ((? = 1 AND `inc_norm_va` IS NULL) OR (`inc_norm_va` = ?)) AND (("& _ 
+                "? = 1 AND `inc_max_alt_hc` IS NULL) OR (`inc_max_alt_hc` = ?)) AND ((? = 1 AND `"& _ 
+                "n_min_va_sm` IS NULL) OR (`n_min_va_sm` = ?)) AND ((? = 1 AND `n_min_va_sla` IS "& _ 
+                "NULL) OR (`n_min_va_sla` = ?)) AND ((? = 1 AND `ancho_via` IS NULL) OR (`ancho_v"& _ 
+                "ia` = ?)) AND ((? = 1 AND `d_max_re` IS NULL) OR (`d_max_re` = ?)) AND ((? = 1 A"& _ 
+                "ND `d_max_cu` IS NULL) OR (`d_max_cu` = ?)) AND ((? = 1 AND `r_re` IS NULL) OR ("& _ 
+                "`r_re` = ?)) AND ((? = 1 AND `Zona_trab_pant` IS NULL) OR (`Zona_trab_pant` = ?)"& _ 
+                ") AND ((? = 1 AND `el_max_pant` IS NULL) OR (`el_max_pant` = ?)) AND ((? = 1 AND"& _ 
+                " `vw` IS NULL) OR (`vw` = ?)) AND ((? = 1 AND `fl_max_centro_va` IS NULL) OR (`f"& _ 
+                "l_max_centro_va` = ?)) AND ((? = 1 AND `dist_carril_poste` IS NULL) OR (`dist_ca"& _ 
+                "rril_poste` = ?)) AND ((? = 1 AND `dist_base_poste_pmr` IS NULL) OR (`dist_base_"& _ 
+                "poste_pmr` = ?)) AND ((? = 1 AND `dist_elect_sm` IS NULL) OR (`dist_elect_sm` = "& _ 
+                "?)) AND ((? = 1 AND `dist_elect_sla` IS NULL) OR (`dist_elect_sla` = ?)) AND ((?"& _ 
+                " = 1 AND `l_zc_max` IS NULL) OR (`l_zc_max` = ?)) AND ((? = 1 AND `l_zc_min` IS "& _ 
+                "NULL) OR (`l_zc_min` = ?)) AND ((? = 1 AND `l_zn` IS NULL) OR (`l_zn` = ?)) AND "& _ 
+                "((? = 1 AND `hc` IS NULL) OR (`hc` = ?)) AND ((? = 1 AND `sust` IS NULL) OR (`su"& _ 
+                "st` = ?)) AND ((? = 1 AND `cdpa` IS NULL) OR (`cdpa` = ?)) AND ((? = 1 AND `cdte"& _ 
+                "` IS NULL) OR (`cdte` = ?)) AND ((? = 1 AND `feed_pos` IS NULL) OR (`feed_pos` ="& _ 
+                " ?)) AND ((? = 1 AND `feed_neg` IS NULL) OR (`feed_neg` = ?)) AND ((? = 1 AND `p"& _ 
+                "to_fijo` IS NULL) OR (`pto_fijo` = ?)) AND ((? = 1 AND `pend` IS NULL) OR (`pend"& _ 
+                "` = ?)) AND ((? = 1 AND `as` IS NULL) OR (`as` = ?)) AND ((? = 1 AND `pos_feed_p"& _ 
+                "os` IS NULL) OR (`pos_feed_pos` = ?)) AND ((? = 1 AND `pos_feed_neg` IS NULL) OR"& _ 
+                " (`pos_feed_neg` = ?)) AND ((? = 1 AND `n_hc` IS NULL) OR (`n_hc` = ?)) AND ((? "& _ 
+                "= 1 AND `n_cdpa` IS NULL) OR (`n_cdpa` = ?)) AND ((? = 1 AND `n_feed_pos` IS NUL"& _ 
+                "L) OR (`n_feed_pos` = ?)) AND ((? = 1 AND `n_feed_neg` IS NULL) OR (`n_feed_neg`"& _ 
+                " = ?)) AND ((? = 1 AND `t_hc` IS NULL) OR (`t_hc` = ?)) AND ((? = 1 AND `t_sust`"& _ 
+                " IS NULL) OR (`t_sust` = ?)) AND ((? = 1 AND `t_cdpa` IS NULL) OR (`t_cdpa` = ?)"& _ 
+                ") AND ((? = 1 AND `t_feed_pos` IS NULL) OR (`t_feed_pos` = ?)) AND ((? = 1 AND `"& _ 
+                "t_feed_neg` IS NULL) OR (`t_feed_neg` = ?)) AND ((? = 1 AND `t_pto_fijo` IS NULL"& _ 
+                ") OR (`t_pto_fijo` = ?)) AND ((? = 1 AND `adm_lin_poste` IS NULL) OR (`adm_lin_p"& _ 
+                "oste` = ?)) AND ((? = 1 AND `tip_poste` IS NULL) OR (`tip_poste` = ?)) AND ((? ="& _ 
+                " 1 AND `num_poste` IS NULL) OR (`num_poste` = ?)) AND ((? = 1 AND `adm_lin_mac` "& _ 
+                "IS NULL) OR (`adm_lin_mac` = ?)) AND ((? = 1 AND `tip_mac` IS NULL) OR (`tip_mac"& _ 
+                "` = ?)) AND ((? = 1 AND `tubo_men` IS NULL) OR (`tubo_men` = ?)) AND ((? = 1 AND"& _ 
+                " `tubo_tir` IS NULL) OR (`tubo_tir` = ?)) AND ((? = 1 AND `cola_as` IS NULL) OR "& _ 
+                "(`cola_as` = ?)) AND ((? = 1 AND `aisl_feed_pos` IS NULL) OR (`aisl_feed_pos` = "& _ 
+                "?)) AND ((? = 1 AND `aisl_feed_neg` IS NULL) OR (`aisl_feed_neg` = ?)) AND ((? ="& _ 
+                " 1 AND `dist_ap_prim_pend` IS NULL) OR (`dist_ap_prim_pend` = ?)) AND ((? = 1 AN"& _ 
+                "D `dist_prim_seg_pend` IS NULL) OR (`dist_prim_seg_pend` = ?)) AND ((? = 1 AND `"& _ 
+                "dist_max_pend` IS NULL) OR (`dist_max_pend` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sist", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_al", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_al", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_nom", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_nom", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_min", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_cat", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_cat", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_canton", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_canton", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_tunel", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_tunel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_inc_norm_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_inc_norm_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ancho_via", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ancho_via", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_cu", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_r_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_el_max_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_vw", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zc_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zc_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zc_min", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zc_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zn", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zn", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_hc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sust", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sust", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cdpa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cdte", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cdte", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pend", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_as", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pos_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pos_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pos_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pos_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_sust", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_sust", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_cdpa", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_feed_pos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_feed_neg", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_adm_lin_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_adm_lin_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tip_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tip_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_num_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_num_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_adm_lin_mac", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_adm_lin_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tip_mac", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tip_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tubo_men", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tubo_men", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tubo_tir", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tubo_tir", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cola_as", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cola_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_aisl_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_aisl_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_aisl_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_aisl_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Datos` (`nombre_cat`, `sist`, `al`, `alt_nom`, `alt_min`, `alt_max`,"& _ 
+                " `alt_cat`, `dist_max_va`, `dist_max_canton`, `va_max`, `va_max_sm`, `va_max_sla"& _ 
+                "`, `va_max_tunel`, `inc_norm_va`, `inc_max_alt_hc`, `n_min_va_sm`, `n_min_va_sla"& _ 
+                "`, `ancho_via`, `d_max_re`, `d_max_cu`, `r_re`, `Zona_trab_pant`, `el_max_pant`,"& _ 
+                " `vw`, `fl_max_centro_va`, `dist_carril_poste`, `dist_base_poste_pmr`, `dist_ele"& _ 
+                "ct_sm`, `dist_elect_sla`, `l_zc_max`, `l_zc_min`, `l_zn`, `hc`, `sust`, `cdpa`, "& _ 
+                "`cdte`, `feed_pos`, `feed_neg`, `pto_fijo`, `pend`, `as`, `pos_feed_pos`, `pos_f"& _ 
+                "eed_neg`, `n_hc`, `n_cdpa`, `n_feed_pos`, `n_feed_neg`, `t_hc`, `t_sust`, `t_cdp"& _ 
+                "a`, `t_feed_pos`, `t_feed_neg`, `t_pto_fijo`, `adm_lin_poste`, `tip_poste`, `num"& _ 
+                "_poste`, `adm_lin_mac`, `tip_mac`, `tubo_men`, `tubo_tir`, `cola_as`, `aisl_feed"& _ 
+                "_pos`, `aisl_feed_neg`, `dist_ap_prim_pend`, `dist_prim_seg_pend`, `dist_max_pen"& _ 
+                "d`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
+                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("al", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_nom", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_cat", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_canton", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_tunel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("inc_norm_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ancho_via", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zc_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zc_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zn", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("hc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sust", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cdpa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cdte", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pend", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pos_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pos_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_sust", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_cdpa", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_feed_pos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_feed_neg", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("adm_lin_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tip_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("adm_lin_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tip_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tubo_men", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tubo_tir", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cola_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aisl_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aisl_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Datos` SET `nombre_cat` = ?, `sist` = ?, `al` = ?, `alt_nom` = ?, `alt_mi"& _ 
+                "n` = ?, `alt_max` = ?, `alt_cat` = ?, `dist_max_va` = ?, `dist_max_canton` = ?, "& _ 
+                "`va_max` = ?, `va_max_sm` = ?, `va_max_sla` = ?, `va_max_tunel` = ?, `inc_norm_v"& _ 
+                "a` = ?, `inc_max_alt_hc` = ?, `n_min_va_sm` = ?, `n_min_va_sla` = ?, `ancho_via`"& _ 
+                " = ?, `d_max_re` = ?, `d_max_cu` = ?, `r_re` = ?, `Zona_trab_pant` = ?, `el_max_"& _ 
+                "pant` = ?, `vw` = ?, `fl_max_centro_va` = ?, `dist_carril_poste` = ?, `dist_base"& _ 
+                "_poste_pmr` = ?, `dist_elect_sm` = ?, `dist_elect_sla` = ?, `l_zc_max` = ?, `l_z"& _ 
+                "c_min` = ?, `l_zn` = ?, `hc` = ?, `sust` = ?, `cdpa` = ?, `cdte` = ?, `feed_pos`"& _ 
+                " = ?, `feed_neg` = ?, `pto_fijo` = ?, `pend` = ?, `as` = ?, `pos_feed_pos` = ?, "& _ 
+                "`pos_feed_neg` = ?, `n_hc` = ?, `n_cdpa` = ?, `n_feed_pos` = ?, `n_feed_neg` = ?"& _ 
+                ", `t_hc` = ?, `t_sust` = ?, `t_cdpa` = ?, `t_feed_pos` = ?, `t_feed_neg` = ?, `t"& _ 
+                "_pto_fijo` = ?, `adm_lin_poste` = ?, `tip_poste` = ?, `num_poste` = ?, `adm_lin_"& _ 
+                "mac` = ?, `tip_mac` = ?, `tubo_men` = ?, `tubo_tir` = ?, `cola_as` = ?, `aisl_fe"& _ 
+                "ed_pos` = ?, `aisl_feed_neg` = ?, `dist_ap_prim_pend` = ?, `dist_prim_seg_pend` "& _ 
+                "= ?, `dist_max_pend` = ? WHERE ((`nombre_cat` = ?) AND ((? = 1 AND `sist` IS NUL"& _ 
+                "L) OR (`sist` = ?)) AND ((? = 1 AND `al` IS NULL) OR (`al` = ?)) AND ((? = 1 AND"& _ 
+                " `alt_nom` IS NULL) OR (`alt_nom` = ?)) AND ((? = 1 AND `alt_min` IS NULL) OR (`"& _ 
+                "alt_min` = ?)) AND ((? = 1 AND `alt_max` IS NULL) OR (`alt_max` = ?)) AND ((? = "& _ 
+                "1 AND `alt_cat` IS NULL) OR (`alt_cat` = ?)) AND ((? = 1 AND `dist_max_va` IS NU"& _ 
+                "LL) OR (`dist_max_va` = ?)) AND ((? = 1 AND `dist_max_canton` IS NULL) OR (`dist"& _ 
+                "_max_canton` = ?)) AND ((? = 1 AND `va_max` IS NULL) OR (`va_max` = ?)) AND ((? "& _ 
+                "= 1 AND `va_max_sm` IS NULL) OR (`va_max_sm` = ?)) AND ((? = 1 AND `va_max_sla` "& _ 
+                "IS NULL) OR (`va_max_sla` = ?)) AND ((? = 1 AND `va_max_tunel` IS NULL) OR (`va_"& _ 
+                "max_tunel` = ?)) AND ((? = 1 AND `inc_norm_va` IS NULL) OR (`inc_norm_va` = ?)) "& _ 
+                "AND ((? = 1 AND `inc_max_alt_hc` IS NULL) OR (`inc_max_alt_hc` = ?)) AND ((? = 1"& _ 
+                " AND `n_min_va_sm` IS NULL) OR (`n_min_va_sm` = ?)) AND ((? = 1 AND `n_min_va_sl"& _ 
+                "a` IS NULL) OR (`n_min_va_sla` = ?)) AND ((? = 1 AND `ancho_via` IS NULL) OR (`a"& _ 
+                "ncho_via` = ?)) AND ((? = 1 AND `d_max_re` IS NULL) OR (`d_max_re` = ?)) AND ((?"& _ 
+                " = 1 AND `d_max_cu` IS NULL) OR (`d_max_cu` = ?)) AND ((? = 1 AND `r_re` IS NULL"& _ 
+                ") OR (`r_re` = ?)) AND ((? = 1 AND `Zona_trab_pant` IS NULL) OR (`Zona_trab_pant"& _ 
+                "` = ?)) AND ((? = 1 AND `el_max_pant` IS NULL) OR (`el_max_pant` = ?)) AND ((? ="& _ 
+                " 1 AND `vw` IS NULL) OR (`vw` = ?)) AND ((? = 1 AND `fl_max_centro_va` IS NULL) "& _ 
+                "OR (`fl_max_centro_va` = ?)) AND ((? = 1 AND `dist_carril_poste` IS NULL) OR (`d"& _ 
+                "ist_carril_poste` = ?)) AND ((? = 1 AND `dist_base_poste_pmr` IS NULL) OR (`dist"& _ 
+                "_base_poste_pmr` = ?)) AND ((? = 1 AND `dist_elect_sm` IS NULL) OR (`dist_elect_"& _ 
+                "sm` = ?)) AND ((? = 1 AND `dist_elect_sla` IS NULL) OR (`dist_elect_sla` = ?)) A"& _ 
+                "ND ((? = 1 AND `l_zc_max` IS NULL) OR (`l_zc_max` = ?)) AND ((? = 1 AND `l_zc_mi"& _ 
+                "n` IS NULL) OR (`l_zc_min` = ?)) AND ((? = 1 AND `l_zn` IS NULL) OR (`l_zn` = ?)"& _ 
+                ") AND ((? = 1 AND `hc` IS NULL) OR (`hc` = ?)) AND ((? = 1 AND `sust` IS NULL) O"& _ 
+                "R (`sust` = ?)) AND ((? = 1 AND `cdpa` IS NULL) OR (`cdpa` = ?)) AND ((? = 1 AND"& _ 
+                " `cdte` IS NULL) OR (`cdte` = ?)) AND ((? = 1 AND `feed_pos` IS NULL) OR (`feed_"& _ 
+                "pos` = ?)) AND ((? = 1 AND `feed_neg` IS NULL) OR (`feed_neg` = ?)) AND ((? = 1 "& _ 
+                "AND `pto_fijo` IS NULL) OR (`pto_fijo` = ?)) AND ((? = 1 AND `pend` IS NULL) OR "& _ 
+                "(`pend` = ?)) AND ((? = 1 AND `as` IS NULL) OR (`as` = ?)) AND ((? = 1 AND `pos_"& _ 
+                "feed_pos` IS NULL) OR (`pos_feed_pos` = ?)) AND ((? = 1 AND `pos_feed_neg` IS NU"& _ 
+                "LL) OR (`pos_feed_neg` = ?)) AND ((? = 1 AND `n_hc` IS NULL) OR (`n_hc` = ?)) AN"& _ 
+                "D ((? = 1 AND `n_cdpa` IS NULL) OR (`n_cdpa` = ?)) AND ((? = 1 AND `n_feed_pos` "& _ 
+                "IS NULL) OR (`n_feed_pos` = ?)) AND ((? = 1 AND `n_feed_neg` IS NULL) OR (`n_fee"& _ 
+                "d_neg` = ?)) AND ((? = 1 AND `t_hc` IS NULL) OR (`t_hc` = ?)) AND ((? = 1 AND `t"& _ 
+                "_sust` IS NULL) OR (`t_sust` = ?)) AND ((? = 1 AND `t_cdpa` IS NULL) OR (`t_cdpa"& _ 
+                "` = ?)) AND ((? = 1 AND `t_feed_pos` IS NULL) OR (`t_feed_pos` = ?)) AND ((? = 1"& _ 
+                " AND `t_feed_neg` IS NULL) OR (`t_feed_neg` = ?)) AND ((? = 1 AND `t_pto_fijo` I"& _ 
+                "S NULL) OR (`t_pto_fijo` = ?)) AND ((? = 1 AND `adm_lin_poste` IS NULL) OR (`adm"& _ 
+                "_lin_poste` = ?)) AND ((? = 1 AND `tip_poste` IS NULL) OR (`tip_poste` = ?)) AND"& _ 
+                " ((? = 1 AND `num_poste` IS NULL) OR (`num_poste` = ?)) AND ((? = 1 AND `adm_lin"& _ 
+                "_mac` IS NULL) OR (`adm_lin_mac` = ?)) AND ((? = 1 AND `tip_mac` IS NULL) OR (`t"& _ 
+                "ip_mac` = ?)) AND ((? = 1 AND `tubo_men` IS NULL) OR (`tubo_men` = ?)) AND ((? ="& _ 
+                " 1 AND `tubo_tir` IS NULL) OR (`tubo_tir` = ?)) AND ((? = 1 AND `cola_as` IS NUL"& _ 
+                "L) OR (`cola_as` = ?)) AND ((? = 1 AND `aisl_feed_pos` IS NULL) OR (`aisl_feed_p"& _ 
+                "os` = ?)) AND ((? = 1 AND `aisl_feed_neg` IS NULL) OR (`aisl_feed_neg` = ?)) AND"& _ 
+                " ((? = 1 AND `dist_ap_prim_pend` IS NULL) OR (`dist_ap_prim_pend` = ?)) AND ((? "& _ 
+                "= 1 AND `dist_prim_seg_pend` IS NULL) OR (`dist_prim_seg_pend` = ?)) AND ((? = 1"& _ 
+                " AND `dist_max_pend` IS NULL) OR (`dist_max_pend` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("al", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_nom", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("alt_cat", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_canton", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("va_max_tunel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("inc_norm_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ancho_via", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zc_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zc_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("l_zn", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("hc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sust", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cdpa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cdte", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pend", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pos_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pos_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_sust", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_cdpa", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_feed_pos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_feed_neg", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("adm_lin_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tip_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("adm_lin_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tip_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tubo_men", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tubo_tir", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cola_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aisl_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aisl_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dist_max_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sist", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_al", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_al", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "al", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_nom", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_nom", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_nom", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_min", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_min", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_alt_cat", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_alt_cat", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "alt_cat", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_canton", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_canton", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_canton", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_va_max_tunel", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_va_max_tunel", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "va_max_tunel", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_inc_norm_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_inc_norm_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_norm_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_inc_max_alt_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "inc_max_alt_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_min_va_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_min_va_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_min_va_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ancho_via", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ancho_via", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ancho_via", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_cu", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_r_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_el_max_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_vw", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_carril_poste", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_carril_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_base_poste_pmr", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_base_poste_pmr", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_elect_sm", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sm", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_elect_sla", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_elect_sla", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zc_max", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zc_max", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_max", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zc_min", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zc_min", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zc_min", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_l_zn", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_l_zn", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "l_zn", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_hc", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sust", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sust", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sust", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cdpa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cdte", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cdte", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cdte", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pto_fijo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pto_fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pend", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_as", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "as", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pos_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pos_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_pos_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_pos_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "pos_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_n_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "n_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_hc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_hc", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_hc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_sust", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_sust", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_sust", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_cdpa", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_cdpa", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_cdpa", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_feed_pos", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_feed_neg", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_t_pto_fijo", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "t_pto_fijo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_adm_lin_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_adm_lin_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tip_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tip_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_num_poste", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_num_poste", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_poste", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_adm_lin_mac", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_adm_lin_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "adm_lin_mac", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tip_mac", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tip_mac", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tip_mac", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tubo_men", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tubo_men", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_men", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tubo_tir", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tubo_tir", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tubo_tir", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cola_as", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cola_as", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cola_as", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_aisl_feed_pos", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_aisl_feed_pos", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_pos", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_aisl_feed_neg", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_aisl_feed_neg", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "aisl_feed_neg", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_ap_prim_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_ap_prim_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_prim_seg_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_prim_seg_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_dist_max_pend", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dist_max_pend", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dist_max_pend", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection
+            Me._connection.ConnectionString = Global.SiReCa.My.MySettings.Default.Base_de_datos
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dis"& _ 
+                "t_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_"& _ 
+                "alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_tra"& _ 
+                "b_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pm"& _ 
+                "r, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, hc, sust, cdpa, cdte"& _ 
+                ", feed_pos, feed_neg, pto_fijo, pend, [as], pos_feed_pos, pos_feed_neg, n_hc, n_"& _ 
+                "cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pt"& _ 
+                "o_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tub"& _ 
+                "o_tir, cola_as, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_p"& _ 
+                "end, dist_max_pend FROM Datos"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As Base_de_datosDataSet.DatosDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As Base_de_datosDataSet.DatosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As Base_de_datosDataSet.DatosDataTable = New Base_de_datosDataSet.DatosDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As Base_de_datosDataSet.DatosDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As Base_de_datosDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Datos")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete( _
+                    ByVal Original_nombre_cat As String,  _
+                    ByVal Original_sist As String,  _
+                    ByVal Original_al As String,  _
+                    ByVal Original_alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal Original_r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_vw As Global.System.Nullable(Of Double),  _
+                    ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal Original_hc As String,  _
+                    ByVal Original_sust As String,  _
+                    ByVal Original_cdpa As String,  _
+                    ByVal Original_cdte As String,  _
+                    ByVal Original_feed_pos As String,  _
+                    ByVal Original_feed_neg As String,  _
+                    ByVal Original_pto_fijo As String,  _
+                    ByVal Original_pend As String,  _
+                    ByVal Original_as As String,  _
+                    ByVal Original_pos_feed_pos As String,  _
+                    ByVal Original_pos_feed_neg As String,  _
+                    ByVal Original_n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal Original_adm_lin_poste As String,  _
+                    ByVal Original_tip_poste As String,  _
+                    ByVal Original_num_poste As String,  _
+                    ByVal Original_adm_lin_mac As String,  _
+                    ByVal Original_tip_mac As String,  _
+                    ByVal Original_tubo_men As String,  _
+                    ByVal Original_tubo_tir As String,  _
+                    ByVal Original_cola_as As String,  _
+                    ByVal Original_aisl_feed_pos As String,  _
+                    ByVal Original_aisl_feed_neg As String,  _
+                    ByVal Original_dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_pend As Global.System.Nullable(Of Double)) As Integer
+            If (Original_nombre_cat Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_nombre_cat,String)
+            End If
+            If (Original_sist Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_sist,String)
+            End If
+            If (Original_al Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_al,String)
+            End If
+            If (Original_alt_nom.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_alt_nom.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_min.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_alt_min.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_max.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_alt_max.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_cat.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_alt_cat.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_va.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_dist_max_va.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_canton.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_dist_max_canton.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_va_max.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_sm.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_va_max_sm.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_sla.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_va_max_sla.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_tunel.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_va_max_tunel.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (Original_inc_norm_va.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_inc_norm_va.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (Original_inc_max_alt_hc.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_inc_max_alt_hc.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_min_va_sm.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_n_min_va_sm.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_min_va_sla.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_n_min_va_sla.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ancho_via.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_ancho_via.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
+            End If
+            If (Original_d_max_re.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_d_max_re.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            If (Original_d_max_cu.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_d_max_cu.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (Original_r_re.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_r_re.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Zona_trab_pant.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_Zona_trab_pant.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
+            End If
+            If (Original_el_max_pant.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_el_max_pant.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
+            End If
+            If (Original_vw.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_vw.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
+            End If
+            If (Original_fl_max_centro_va.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_fl_max_centro_va.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_carril_poste.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(Original_dist_carril_poste.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_base_poste_pmr.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_dist_base_poste_pmr.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(52).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_elect_sm.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_dist_elect_sm.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_elect_sla.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_dist_elect_sla.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zc_max.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_l_zc_max.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zc_min.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_l_zc_min.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(60).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zn.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_l_zn.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(62).Value = Global.System.DBNull.Value
+            End If
+            If (Original_hc Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_hc,String)
+            End If
+            If (Original_sust Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_sust,String)
+            End If
+            If (Original_cdpa Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_cdpa,String)
+            End If
+            If (Original_cdte Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_cdte,String)
+            End If
+            If (Original_feed_pos Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_feed_pos,String)
+            End If
+            If (Original_feed_neg Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_feed_neg,String)
+            End If
+            If (Original_pto_fijo Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(76).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_pto_fijo,String)
+            End If
+            If (Original_pend Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(78).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(Original_pend,String)
+            End If
+            If (Original_as Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(80).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(Original_as,String)
+            End If
+            If (Original_pos_feed_pos Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(Original_pos_feed_pos,String)
+            End If
+            If (Original_pos_feed_neg Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(84).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_pos_feed_neg,String)
+            End If
+            If (Original_n_hc.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_n_hc.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(86).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_cdpa.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(Original_n_cdpa.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(88).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_feed_pos.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(Original_n_feed_pos.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(90).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_feed_neg.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(Original_n_feed_neg.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(92).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_hc.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(Original_t_hc.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(94).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_sust.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(Original_t_sust.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(96).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_cdpa.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(Original_t_cdpa.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_feed_pos.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(Original_t_feed_pos.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_feed_neg.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(Original_t_feed_neg.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_pto_fijo.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(Original_t_pto_fijo.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = Global.System.DBNull.Value
+            End If
+            If (Original_adm_lin_poste Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(Original_adm_lin_poste,String)
+            End If
+            If (Original_tip_poste Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(108).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(108).Value = CType(Original_tip_poste,String)
+            End If
+            If (Original_num_poste Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(110).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(Original_num_poste,String)
+            End If
+            If (Original_adm_lin_mac Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(112).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(Original_adm_lin_mac,String)
+            End If
+            If (Original_tip_mac Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(114).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(Original_tip_mac,String)
+            End If
+            If (Original_tubo_men Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(116).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(Original_tubo_men,String)
+            End If
+            If (Original_tubo_tir Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(118).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(118).Value = CType(Original_tubo_tir,String)
+            End If
+            If (Original_cola_as Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(119).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(120).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(119).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(120).Value = CType(Original_cola_as,String)
+            End If
+            If (Original_aisl_feed_pos Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(121).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(122).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(121).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(122).Value = CType(Original_aisl_feed_pos,String)
+            End If
+            If (Original_aisl_feed_neg Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(123).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(124).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(123).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(124).Value = CType(Original_aisl_feed_neg,String)
+            End If
+            If (Original_dist_ap_prim_pend.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(125).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(126).Value = CType(Original_dist_ap_prim_pend.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(125).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(126).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_prim_seg_pend.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(127).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(128).Value = CType(Original_dist_prim_seg_pend.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(127).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(128).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_pend.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(129).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(130).Value = CType(Original_dist_max_pend.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(129).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(130).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal nombre_cat As String,  _
+                    ByVal sist As String,  _
+                    ByVal al As String,  _
+                    ByVal alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal va_max As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal vw As Global.System.Nullable(Of Double),  _
+                    ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal hc As String,  _
+                    ByVal sust As String,  _
+                    ByVal cdpa As String,  _
+                    ByVal cdte As String,  _
+                    ByVal feed_pos As String,  _
+                    ByVal feed_neg As String,  _
+                    ByVal pto_fijo As String,  _
+                    ByVal pend As String,  _
+                    ByVal _as As String,  _
+                    ByVal pos_feed_pos As String,  _
+                    ByVal pos_feed_neg As String,  _
+                    ByVal n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal adm_lin_poste As String,  _
+                    ByVal tip_poste As String,  _
+                    ByVal num_poste As String,  _
+                    ByVal adm_lin_mac As String,  _
+                    ByVal tip_mac As String,  _
+                    ByVal tubo_men As String,  _
+                    ByVal tubo_tir As String,  _
+                    ByVal cola_as As String,  _
+                    ByVal aisl_feed_pos As String,  _
+                    ByVal aisl_feed_neg As String,  _
+                    ByVal dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_pend As Global.System.Nullable(Of Double)) As Integer
+            If (nombre_cat Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(nombre_cat,String)
+            End If
+            If (sist Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(sist,String)
+            End If
+            If (al Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(al,String)
+            End If
+            If (alt_nom.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(alt_nom.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (alt_min.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(alt_min.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (alt_max.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(alt_max.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (alt_cat.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(alt_cat.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_va.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(dist_max_va.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_canton.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(dist_max_canton.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (va_max.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(va_max.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_sm.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(va_max_sm.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_sla.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(va_max_sla.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_tunel.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(va_max_tunel.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (inc_norm_va.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(inc_norm_va.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (inc_max_alt_hc.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(inc_max_alt_hc.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (n_min_va_sm.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(n_min_va_sm.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (n_min_va_sla.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(n_min_va_sla.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (ancho_via.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(ancho_via.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (d_max_re.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(d_max_re.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (d_max_cu.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(d_max_cu.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (r_re.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(r_re.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Zona_trab_pant.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Zona_trab_pant.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            End If
+            If (el_max_pant.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(el_max_pant.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (vw.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(vw.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (fl_max_centro_va.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(fl_max_centro_va.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (dist_carril_poste.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(dist_carril_poste.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (dist_base_poste_pmr.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(dist_base_poste_pmr.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (dist_elect_sm.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(dist_elect_sm.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+            End If
+            If (dist_elect_sla.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(dist_elect_sla.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (l_zc_max.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(l_zc_max.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
+            If (l_zc_min.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(l_zc_min.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (l_zn.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(l_zn.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            If (hc Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(hc,String)
+            End If
+            If (sust Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(33).Value = CType(sust,String)
+            End If
+            If (cdpa Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(cdpa,String)
+            End If
+            If (cdte Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(cdte,String)
+            End If
+            If (feed_pos Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(feed_pos,String)
+            End If
+            If (feed_neg Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(feed_neg,String)
+            End If
+            If (pto_fijo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(pto_fijo,String)
+            End If
+            If (pend Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(39).Value = CType(pend,String)
+            End If
+            If (_as Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(40).Value = CType(_as,String)
+            End If
+            If (pos_feed_pos Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(41).Value = CType(pos_feed_pos,String)
+            End If
+            If (pos_feed_neg Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(pos_feed_neg,String)
+            End If
+            If (n_hc.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(43).Value = CType(n_hc.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
+            End If
+            If (n_cdpa.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(44).Value = CType(n_cdpa.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
+            End If
+            If (n_feed_pos.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(45).Value = CType(n_feed_pos.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
+            End If
+            If (n_feed_neg.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(46).Value = CType(n_feed_neg.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
+            End If
+            If (t_hc.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(47).Value = CType(t_hc.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
+            End If
+            If (t_sust.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(48).Value = CType(t_sust.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
+            End If
+            If (t_cdpa.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(49).Value = CType(t_cdpa.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
+            End If
+            If (t_feed_pos.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(50).Value = CType(t_feed_pos.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (t_feed_neg.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(51).Value = CType(t_feed_neg.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (t_pto_fijo.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(52).Value = CType(t_pto_fijo.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
+            End If
+            If (adm_lin_poste Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(53).Value = CType(adm_lin_poste,String)
+            End If
+            If (tip_poste Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(54).Value = CType(tip_poste,String)
+            End If
+            If (num_poste Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(55).Value = CType(num_poste,String)
+            End If
+            If (adm_lin_mac Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(56).Value = CType(adm_lin_mac,String)
+            End If
+            If (tip_mac Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(57).Value = CType(tip_mac,String)
+            End If
+            If (tubo_men Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(58).Value = CType(tubo_men,String)
+            End If
+            If (tubo_tir Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(tubo_tir,String)
+            End If
+            If (cola_as Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(60).Value = CType(cola_as,String)
+            End If
+            If (aisl_feed_pos Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(61).Value = CType(aisl_feed_pos,String)
+            End If
+            If (aisl_feed_neg Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(62).Value = CType(aisl_feed_neg,String)
+            End If
+            If (dist_ap_prim_pend.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(63).Value = CType(dist_ap_prim_pend.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
+            End If
+            If (dist_prim_seg_pend.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(64).Value = CType(dist_prim_seg_pend.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_pend.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(65).Value = CType(dist_max_pend.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal nombre_cat As String,  _
+                    ByVal sist As String,  _
+                    ByVal al As String,  _
+                    ByVal alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal va_max As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal vw As Global.System.Nullable(Of Double),  _
+                    ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal hc As String,  _
+                    ByVal sust As String,  _
+                    ByVal cdpa As String,  _
+                    ByVal cdte As String,  _
+                    ByVal feed_pos As String,  _
+                    ByVal feed_neg As String,  _
+                    ByVal pto_fijo As String,  _
+                    ByVal pend As String,  _
+                    ByVal _as As String,  _
+                    ByVal pos_feed_pos As String,  _
+                    ByVal pos_feed_neg As String,  _
+                    ByVal n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal adm_lin_poste As String,  _
+                    ByVal tip_poste As String,  _
+                    ByVal num_poste As String,  _
+                    ByVal adm_lin_mac As String,  _
+                    ByVal tip_mac As String,  _
+                    ByVal tubo_men As String,  _
+                    ByVal tubo_tir As String,  _
+                    ByVal cola_as As String,  _
+                    ByVal aisl_feed_pos As String,  _
+                    ByVal aisl_feed_neg As String,  _
+                    ByVal dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_nombre_cat As String,  _
+                    ByVal Original_sist As String,  _
+                    ByVal Original_al As String,  _
+                    ByVal Original_alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal Original_r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_vw As Global.System.Nullable(Of Double),  _
+                    ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal Original_hc As String,  _
+                    ByVal Original_sust As String,  _
+                    ByVal Original_cdpa As String,  _
+                    ByVal Original_cdte As String,  _
+                    ByVal Original_feed_pos As String,  _
+                    ByVal Original_feed_neg As String,  _
+                    ByVal Original_pto_fijo As String,  _
+                    ByVal Original_pend As String,  _
+                    ByVal Original_as As String,  _
+                    ByVal Original_pos_feed_pos As String,  _
+                    ByVal Original_pos_feed_neg As String,  _
+                    ByVal Original_n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal Original_adm_lin_poste As String,  _
+                    ByVal Original_tip_poste As String,  _
+                    ByVal Original_num_poste As String,  _
+                    ByVal Original_adm_lin_mac As String,  _
+                    ByVal Original_tip_mac As String,  _
+                    ByVal Original_tubo_men As String,  _
+                    ByVal Original_tubo_tir As String,  _
+                    ByVal Original_cola_as As String,  _
+                    ByVal Original_aisl_feed_pos As String,  _
+                    ByVal Original_aisl_feed_neg As String,  _
+                    ByVal Original_dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_pend As Global.System.Nullable(Of Double)) As Integer
+            If (nombre_cat Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(nombre_cat,String)
+            End If
+            If (sist Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(sist,String)
+            End If
+            If (al Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(al,String)
+            End If
+            If (alt_nom.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(alt_nom.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (alt_min.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(alt_min.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (alt_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(alt_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (alt_cat.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(alt_cat.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(dist_max_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_canton.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(dist_max_canton.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (va_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(va_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(va_max_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(va_max_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (va_max_tunel.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(va_max_tunel.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (inc_norm_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(inc_norm_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (inc_max_alt_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(inc_max_alt_hc.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (n_min_va_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(n_min_va_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (n_min_va_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(n_min_va_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (ancho_via.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(ancho_via.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (d_max_re.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(d_max_re.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (d_max_cu.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(d_max_cu.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (r_re.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(r_re.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Zona_trab_pant.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Zona_trab_pant.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            End If
+            If (el_max_pant.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(el_max_pant.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (vw.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(vw.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (fl_max_centro_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(fl_max_centro_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (dist_carril_poste.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(dist_carril_poste.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (dist_base_poste_pmr.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(dist_base_poste_pmr.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (dist_elect_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(dist_elect_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            End If
+            If (dist_elect_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(dist_elect_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (l_zc_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(l_zc_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
+            If (l_zc_min.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(l_zc_min.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (l_zn.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(l_zn.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            If (hc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(hc,String)
+            End If
+            If (sust Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(sust,String)
+            End If
+            If (cdpa Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(cdpa,String)
+            End If
+            If (cdte Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(cdte,String)
+            End If
+            If (feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(feed_pos,String)
+            End If
+            If (feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(feed_neg,String)
+            End If
+            If (pto_fijo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(pto_fijo,String)
+            End If
+            If (pend Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(pend,String)
+            End If
+            If (_as Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(_as,String)
+            End If
+            If (pos_feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(pos_feed_pos,String)
+            End If
+            If (pos_feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(pos_feed_neg,String)
+            End If
+            If (n_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(n_hc.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+            End If
+            If (n_cdpa.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(n_cdpa.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+            End If
+            If (n_feed_pos.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(n_feed_pos.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+            End If
+            If (n_feed_neg.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(n_feed_neg.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+            End If
+            If (t_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(t_hc.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+            End If
+            If (t_sust.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(t_sust.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+            End If
+            If (t_cdpa.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(t_cdpa.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+            End If
+            If (t_feed_pos.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(t_feed_pos.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (t_feed_neg.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(t_feed_neg.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (t_pto_fijo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(t_pto_fijo.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+            End If
+            If (adm_lin_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(adm_lin_poste,String)
+            End If
+            If (tip_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(tip_poste,String)
+            End If
+            If (num_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(num_poste,String)
+            End If
+            If (adm_lin_mac Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(adm_lin_mac,String)
+            End If
+            If (tip_mac Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(tip_mac,String)
+            End If
+            If (tubo_men Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(tubo_men,String)
+            End If
+            If (tubo_tir Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(tubo_tir,String)
+            End If
+            If (cola_as Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(cola_as,String)
+            End If
+            If (aisl_feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(aisl_feed_pos,String)
+            End If
+            If (aisl_feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(aisl_feed_neg,String)
+            End If
+            If (dist_ap_prim_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(dist_ap_prim_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+            End If
+            If (dist_prim_seg_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(dist_prim_seg_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+            End If
+            If (dist_max_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(dist_max_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
+            End If
+            If (Original_nombre_cat Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_nombre_cat,String)
+            End If
+            If (Original_sist Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_sist,String)
+            End If
+            If (Original_al Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_al,String)
+            End If
+            If (Original_alt_nom.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_alt_nom.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_min.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_alt_min.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_alt_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+            End If
+            If (Original_alt_cat.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_alt_cat.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_dist_max_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_canton.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_dist_max_canton.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_va_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_va_max_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_va_max_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+            End If
+            If (Original_va_max_tunel.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_va_max_tunel.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+            End If
+            If (Original_inc_norm_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_inc_norm_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+            End If
+            If (Original_inc_max_alt_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_inc_max_alt_hc.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_min_va_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_n_min_va_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_min_va_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_n_min_va_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ancho_via.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_ancho_via.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+            End If
+            If (Original_d_max_re.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_d_max_re.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
+            End If
+            If (Original_d_max_cu.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_d_max_cu.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
+            End If
+            If (Original_r_re.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_r_re.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Zona_trab_pant.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_Zona_trab_pant.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
+            End If
+            If (Original_el_max_pant.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_el_max_pant.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
+            End If
+            If (Original_vw.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_vw.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+            End If
+            If (Original_fl_max_centro_va.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_fl_max_centro_va.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_carril_poste.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_dist_carril_poste.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_base_poste_pmr.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_dist_base_poste_pmr.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_elect_sm.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_dist_elect_sm.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_elect_sla.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_dist_elect_sla.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zc_max.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_l_zc_max.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zc_min.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_l_zc_min.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
+            End If
+            If (Original_l_zn.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_l_zn.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
+            End If
+            If (Original_hc Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_hc,String)
+            End If
+            If (Original_sust Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_sust,String)
+            End If
+            If (Original_cdpa Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_cdpa,String)
+            End If
+            If (Original_cdte Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_cdte,String)
+            End If
+            If (Original_feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_feed_pos,String)
+            End If
+            If (Original_feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_feed_neg,String)
+            End If
+            If (Original_pto_fijo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_pto_fijo,String)
+            End If
+            If (Original_pend Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_pend,String)
+            End If
+            If (Original_as Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_as,String)
+            End If
+            If (Original_pos_feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_pos_feed_pos,String)
+            End If
+            If (Original_pos_feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_pos_feed_neg,String)
+            End If
+            If (Original_n_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_n_hc.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_cdpa.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_n_cdpa.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_feed_pos.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_n_feed_pos.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
+            End If
+            If (Original_n_feed_neg.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_n_feed_neg.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_hc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_t_hc.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_sust.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_t_sust.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_cdpa.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_t_cdpa.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_feed_pos.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_t_feed_pos.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_feed_neg.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_t_feed_neg.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
+            End If
+            If (Original_t_pto_fijo.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_t_pto_fijo.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
+            End If
+            If (Original_adm_lin_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_adm_lin_poste,String)
+            End If
+            If (Original_tip_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_tip_poste,String)
+            End If
+            If (Original_num_poste Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_num_poste,String)
+            End If
+            If (Original_adm_lin_mac Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_adm_lin_mac,String)
+            End If
+            If (Original_tip_mac Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(Original_tip_mac,String)
+            End If
+            If (Original_tubo_men Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_tubo_men,String)
+            End If
+            If (Original_tubo_tir Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_tubo_tir,String)
+            End If
+            If (Original_cola_as Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_cola_as,String)
+            End If
+            If (Original_aisl_feed_pos Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(Original_aisl_feed_pos,String)
+            End If
+            If (Original_aisl_feed_neg Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(Original_aisl_feed_neg,String)
+            End If
+            If (Original_dist_ap_prim_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_dist_ap_prim_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_prim_seg_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(Original_dist_prim_seg_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(194).Value = Global.System.DBNull.Value
+            End If
+            If (Original_dist_max_pend.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(Original_dist_max_pend.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(196).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal sist As String,  _
+                    ByVal al As String,  _
+                    ByVal alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal va_max As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal vw As Global.System.Nullable(Of Double),  _
+                    ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal hc As String,  _
+                    ByVal sust As String,  _
+                    ByVal cdpa As String,  _
+                    ByVal cdte As String,  _
+                    ByVal feed_pos As String,  _
+                    ByVal feed_neg As String,  _
+                    ByVal pto_fijo As String,  _
+                    ByVal pend As String,  _
+                    ByVal _as As String,  _
+                    ByVal pos_feed_pos As String,  _
+                    ByVal pos_feed_neg As String,  _
+                    ByVal n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal adm_lin_poste As String,  _
+                    ByVal tip_poste As String,  _
+                    ByVal num_poste As String,  _
+                    ByVal adm_lin_mac As String,  _
+                    ByVal tip_mac As String,  _
+                    ByVal tubo_men As String,  _
+                    ByVal tubo_tir As String,  _
+                    ByVal cola_as As String,  _
+                    ByVal aisl_feed_pos As String,  _
+                    ByVal aisl_feed_neg As String,  _
+                    ByVal dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal dist_max_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_nombre_cat As String,  _
+                    ByVal Original_sist As String,  _
+                    ByVal Original_al As String,  _
+                    ByVal Original_alt_nom As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_alt_cat As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_canton As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_va_max_tunel As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_norm_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_inc_max_alt_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_n_min_va_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_ancho_via As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
+                    ByVal Original_r_re As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_vw As Global.System.Nullable(Of Double),  _
+                    ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_carril_poste As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_base_poste_pmr As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sm As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_elect_sla As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_max As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zc_min As Global.System.Nullable(Of Double),  _
+                    ByVal Original_l_zn As Global.System.Nullable(Of Double),  _
+                    ByVal Original_hc As String,  _
+                    ByVal Original_sust As String,  _
+                    ByVal Original_cdpa As String,  _
+                    ByVal Original_cdte As String,  _
+                    ByVal Original_feed_pos As String,  _
+                    ByVal Original_feed_neg As String,  _
+                    ByVal Original_pto_fijo As String,  _
+                    ByVal Original_pend As String,  _
+                    ByVal Original_as As String,  _
+                    ByVal Original_pos_feed_pos As String,  _
+                    ByVal Original_pos_feed_neg As String,  _
+                    ByVal Original_n_hc As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_cdpa As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_pos As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_n_feed_neg As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_t_hc As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_sust As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_cdpa As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_pos As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_feed_neg As Global.System.Nullable(Of Double),  _
+                    ByVal Original_t_pto_fijo As Global.System.Nullable(Of Double),  _
+                    ByVal Original_adm_lin_poste As String,  _
+                    ByVal Original_tip_poste As String,  _
+                    ByVal Original_num_poste As String,  _
+                    ByVal Original_adm_lin_mac As String,  _
+                    ByVal Original_tip_mac As String,  _
+                    ByVal Original_tubo_men As String,  _
+                    ByVal Original_tubo_tir As String,  _
+                    ByVal Original_cola_as As String,  _
+                    ByVal Original_aisl_feed_pos As String,  _
+                    ByVal Original_aisl_feed_neg As String,  _
+                    ByVal Original_dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
+                    ByVal Original_dist_max_pend As Global.System.Nullable(Of Double)) As Integer
+            Return Me.Update(Original_nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, _as, pos_feed_pos, pos_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_as, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, Original_nombre_cat, Original_sist, Original_al, Original_alt_nom, Original_alt_min, Original_alt_max, Original_alt_cat, Original_dist_max_va, Original_dist_max_canton, Original_va_max, Original_va_max_sm, Original_va_max_sla, Original_va_max_tunel, Original_inc_norm_va, Original_inc_max_alt_hc, Original_n_min_va_sm, Original_n_min_va_sla, Original_ancho_via, Original_d_max_re, Original_d_max_cu, Original_r_re, Original_Zona_trab_pant, Original_el_max_pant, Original_vw, Original_fl_max_centro_va, Original_dist_carril_poste, Original_dist_base_poste_pmr, Original_dist_elect_sm, Original_dist_elect_sla, Original_l_zc_max, Original_l_zc_min, Original_l_zn, Original_hc, Original_sust, Original_cdpa, Original_cdte, Original_feed_pos, Original_feed_neg, Original_pto_fijo, Original_pend, Original_as, Original_pos_feed_pos, Original_pos_feed_neg, Original_n_hc, Original_n_cdpa, Original_n_feed_pos, Original_n_feed_neg, Original_t_hc, Original_t_sust, Original_t_cdpa, Original_t_feed_pos, Original_t_feed_neg, Original_t_pto_fijo, Original_adm_lin_poste, Original_tip_poste, Original_num_poste, Original_adm_lin_mac, Original_tip_mac, Original_tubo_men, Original_tubo_tir, Original_cola_as, Original_aisl_feed_pos, Original_aisl_feed_neg, Original_dist_ap_prim_pend, Original_dist_prim_seg_pend, Original_dist_max_pend)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class Nombre_CatenariaTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -18025,7 +17419,7 @@ Namespace Base_de_datosDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Nombre Catenaria"
-            tableMapping.ColumnMappings.Add("Nombre_Catenaria", "Nombre_Catenaria")
+            tableMapping.ColumnMappings.Add("nombre_cat", "nombre_cat")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18040,14 +17434,14 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Nombre_Catenaria FROM [Nombre Catenaria]"
+            Me._commandCollection(0).CommandText = "SELECT nombre_cat FROM [Nombre Catenaria]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Base_de_datosDataSet._Nombre_CatenariaDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As Base_de_datosDataSet.Nombre_CatenariaDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -18059,9 +17453,9 @@ Namespace Base_de_datosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Base_de_datosDataSet._Nombre_CatenariaDataTable
+        Public Overloads Overridable Function GetData() As Base_de_datosDataSet.Nombre_CatenariaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Base_de_datosDataSet._Nombre_CatenariaDataTable = New Base_de_datosDataSet._Nombre_CatenariaDataTable
+            Dim dataTable As Base_de_datosDataSet.Nombre_CatenariaDataTable = New Base_de_datosDataSet.Nombre_CatenariaDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -18083,8 +17477,6 @@ Namespace Base_de_datosDataSetTableAdapters
         
         Private _conductores_y_cablesTableAdapter As Conductores_y_cablesTableAdapter
         
-        Private _datosTableAdapter As DatosTableAdapter
-        
         Private _electrificaciónTableAdapter As ElectrificaciónTableAdapter
         
         Private _macizosTableAdapter As MacizosTableAdapter
@@ -18092,6 +17484,8 @@ Namespace Base_de_datosDataSetTableAdapters
         Private _postesTableAdapter As PostesTableAdapter
         
         Private _contraseñaTableAdapter As ContraseñaTableAdapter
+        
+        Private _datosTableAdapter As DatosTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -18117,19 +17511,6 @@ Namespace Base_de_datosDataSetTableAdapters
             End Get
             Set
                 Me._conductores_y_cablesTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
-            "", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property DatosTableAdapter() As DatosTableAdapter
-            Get
-                Return Me._datosTableAdapter
-            End Get
-            Set
-                Me._datosTableAdapter = value
             End Set
         End Property
         
@@ -18185,6 +17566,19 @@ Namespace Base_de_datosDataSetTableAdapters
             End Set
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
+            "", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property DatosTableAdapter() As DatosTableAdapter
+            Get
+                Return Me._datosTableAdapter
+            End Get
+            Set
+                Me._datosTableAdapter = value
+            End Set
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -18206,10 +17600,6 @@ Namespace Base_de_datosDataSetTableAdapters
                             AndAlso (Not (Me._conductores_y_cablesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._conductores_y_cablesTableAdapter.Connection
                 End If
-                If ((Not (Me._datosTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._datosTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._datosTableAdapter.Connection
-                End If
                 If ((Not (Me._electrificaciónTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._electrificaciónTableAdapter.Connection) Is Nothing)) Then
                     Return Me._electrificaciónTableAdapter.Connection
@@ -18226,6 +17616,10 @@ Namespace Base_de_datosDataSetTableAdapters
                             AndAlso (Not (Me._contraseñaTableAdapter.Connection) Is Nothing)) Then
                     Return Me._contraseñaTableAdapter.Connection
                 End If
+                If ((Not (Me._datosTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._datosTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._datosTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -18241,9 +17635,6 @@ Namespace Base_de_datosDataSetTableAdapters
                 If (Not (Me._conductores_y_cablesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._datosTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -18256,6 +17647,9 @@ Namespace Base_de_datosDataSetTableAdapters
                 If (Not (Me._contraseñaTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._datosTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -18266,6 +17660,15 @@ Namespace Base_de_datosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As Base_de_datosDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._datosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._datosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._contraseñaTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Contraseña.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -18293,15 +17696,6 @@ Namespace Base_de_datosDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._electrificaciónTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._conductores_y_cablesTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Conductores_y_cables.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -18311,12 +17705,12 @@ Namespace Base_de_datosDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._datosTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._datosTableAdapter.Update(updatedRows))
+                    result = (result + Me._electrificaciónTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -18329,6 +17723,14 @@ Namespace Base_de_datosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateInsertedRows(ByVal dataSet As Base_de_datosDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._datosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._datosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._contraseñaTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Contraseña.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -18353,14 +17755,6 @@ Namespace Base_de_datosDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._electrificaciónTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._conductores_y_cablesTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Conductores_y_cables.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -18369,11 +17763,11 @@ Namespace Base_de_datosDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._datosTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._datosTableAdapter.Update(addedRows))
+                    result = (result + Me._electrificaciónTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -18386,11 +17780,11 @@ Namespace Base_de_datosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateDeletedRows(ByVal dataSet As Base_de_datosDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._datosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._datosTableAdapter.Update(deletedRows))
+                    result = (result + Me._electrificaciónTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -18399,14 +17793,6 @@ Namespace Base_de_datosDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._conductores_y_cablesTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Electrificación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._electrificaciónTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -18431,6 +17817,14 @@ Namespace Base_de_datosDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._contraseñaTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._datosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Datos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._datosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -18478,11 +17872,6 @@ Namespace Base_de_datosDataSetTableAdapters
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
-            If ((Not (Me._datosTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._datosTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
-                        "sma cadena de conexión.")
-            End If
             If ((Not (Me._electrificaciónTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._electrificaciónTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
@@ -18500,6 +17889,11 @@ Namespace Base_de_datosDataSetTableAdapters
             End If
             If ((Not (Me._contraseñaTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._contraseñaTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
+                        "sma cadena de conexión.")
+            End If
+            If ((Not (Me._datosTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._datosTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -18544,15 +17938,6 @@ Namespace Base_de_datosDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._conductores_y_cablesTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._datosTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._datosTableAdapter, Me._datosTableAdapter.Connection)
-                    Me._datosTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._datosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._datosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._datosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._datosTableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._electrificaciónTableAdapter, Me._electrificaciónTableAdapter.Connection)
                     Me._electrificaciónTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
@@ -18587,6 +17972,15 @@ Namespace Base_de_datosDataSetTableAdapters
                     If Me._contraseñaTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._contraseñaTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._contraseñaTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._datosTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._datosTableAdapter, Me._datosTableAdapter.Connection)
+                    Me._datosTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._datosTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._datosTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._datosTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._datosTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -18653,10 +18047,6 @@ Namespace Base_de_datosDataSetTableAdapters
                     Me._conductores_y_cablesTableAdapter.Connection = CType(revertConnections(Me._conductores_y_cablesTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._conductores_y_cablesTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._datosTableAdapter) Is Nothing) Then
-                    Me._datosTableAdapter.Connection = CType(revertConnections(Me._datosTableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._datosTableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._electrificaciónTableAdapter) Is Nothing) Then
                     Me._electrificaciónTableAdapter.Connection = CType(revertConnections(Me._electrificaciónTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._electrificaciónTableAdapter.Transaction = Nothing
@@ -18672,6 +18062,10 @@ Namespace Base_de_datosDataSetTableAdapters
                 If (Not (Me._contraseñaTableAdapter) Is Nothing) Then
                     Me._contraseñaTableAdapter.Connection = CType(revertConnections(Me._contraseñaTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._contraseñaTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._datosTableAdapter) Is Nothing) Then
+                    Me._datosTableAdapter.Connection = CType(revertConnections(Me._datosTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._datosTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

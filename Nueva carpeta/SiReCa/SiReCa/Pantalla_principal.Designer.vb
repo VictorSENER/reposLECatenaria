@@ -28,6 +28,8 @@ Partial Class Pantalla_principal
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
+        Me.NombreCatenariaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Base_de_datosDataSet = New SiReCa.Base_de_datosDataSet
         Me.Label2 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.Label1 = New System.Windows.Forms.Label
@@ -66,18 +68,17 @@ Partial Class Pantalla_principal
         Me.Label9 = New System.Windows.Forms.Label
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Base_de_datosDataSet = New SiReCa.Base_de_datosDataSet
-        Me.NombreCatenariaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Nombre_CatenariaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
+        Me.Button8 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
+        CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RadioButton1
@@ -114,6 +115,7 @@ Partial Class Pantalla_principal
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.GroupBox1.Controls.Add(Me.Button8)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -143,6 +145,16 @@ Partial Class Pantalla_principal
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(156, 28)
         Me.ComboBox1.TabIndex = 5
+        '
+        'NombreCatenariaBindingSource
+        '
+        Me.NombreCatenariaBindingSource.DataMember = "Nombre Catenaria"
+        Me.NombreCatenariaBindingSource.DataSource = Me.Base_de_datosDataSet
+        '
+        'Base_de_datosDataSet
+        '
+        Me.Base_de_datosDataSet.DataSetName = "Base_de_datosDataSet"
+        Me.Base_de_datosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -672,19 +684,24 @@ Partial Class Pantalla_principal
         Me.Panel2.Size = New System.Drawing.Size(1036, 60)
         Me.Panel2.TabIndex = 9
         '
-        'Base_de_datosDataSet
-        '
-        Me.Base_de_datosDataSet.DataSetName = "Base_de_datosDataSet"
-        Me.Base_de_datosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'NombreCatenariaBindingSource
-        '
-        Me.NombreCatenariaBindingSource.DataMember = "Nombre Catenaria"
-        Me.NombreCatenariaBindingSource.DataSource = Me.Base_de_datosDataSet
-        '
         'Nombre_CatenariaTableAdapter
         '
         Me.Nombre_CatenariaTableAdapter.ClearBeforeFill = True
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.SystemColors.Control
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Button8.Location = New System.Drawing.Point(269, 194)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(100, 30)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "TABLA"
+        Me.Button8.UseVisualStyleBackColor = False
+        Me.Button8.Visible = False
         '
         'Pantalla_principal
         '
@@ -711,6 +728,8 @@ Partial Class Pantalla_principal
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -721,8 +740,6 @@ Partial Class Pantalla_principal
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -771,4 +788,5 @@ Partial Class Pantalla_principal
     Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
     Friend WithEvents NombreCatenariaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Nombre_CatenariaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

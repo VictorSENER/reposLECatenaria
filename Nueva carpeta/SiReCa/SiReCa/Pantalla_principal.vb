@@ -89,6 +89,7 @@ Public Class Pantalla_principal
         Me.Label2.Hide()
         Me.ComboBox1.Hide()
         Me.Button1.Show()
+        Me.Button8.Show()
         Me.TextBox1.Show()
         Me.Label1.Show()
     End Sub
@@ -208,6 +209,8 @@ Public Class Pantalla_principal
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
         'Call run.run_autocad(ruta_autocad)
     End Sub
-
-
+    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+        Call tabla_r.tabla_r()
+        nueva_lac = "cat"
+    End Sub
 End Class

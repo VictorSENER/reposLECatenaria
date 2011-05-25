@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 Module nueva_lac
-Sub introducir 
+    Sub nueva_lac()
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oComm2 As OleDbCommand

@@ -234,6 +234,9 @@ Partial Class Pantalla_datos
         Me.Button2 = New System.Windows.Forms.Button
         Me.Text_nombre_cat = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
+        Me.Label105 = New System.Windows.Forms.Label
+        Me.Text_r_min_traz = New System.Windows.Forms.TextBox
+        Me.Label106 = New System.Windows.Forms.Label
         AlimentaciónLabel = New System.Windows.Forms.Label
         SistemaLabel = New System.Windows.Forms.Label
         Me.TabControl1.SuspendLayout()
@@ -292,6 +295,9 @@ Partial Class Pantalla_datos
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label106)
+        Me.TabPage1.Controls.Add(Me.Text_r_min_traz)
+        Me.TabPage1.Controls.Add(Me.Label105)
         Me.TabPage1.Controls.Add(Me.Label34)
         Me.TabPage1.Controls.Add(Me.Label35)
         Me.TabPage1.Controls.Add(Me.Label36)
@@ -2160,6 +2166,31 @@ Partial Class Pantalla_datos
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Nuevo nombre catenaria:"
         '
+        'Label105
+        '
+        Me.Label105.AutoSize = True
+        Me.Label105.Location = New System.Drawing.Point(462, 425)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(115, 16)
+        Me.Label105.TabIndex = 90
+        Me.Label105.Text = "Radio mínimo trazado"
+        '
+        'Text_r_min_traz
+        '
+        Me.Text_r_min_traz.Location = New System.Drawing.Point(640, 422)
+        Me.Text_r_min_traz.Name = "Text_r_min_traz"
+        Me.Text_r_min_traz.Size = New System.Drawing.Size(100, 20)
+        Me.Text_r_min_traz.TabIndex = 91
+        '
+        'Label106
+        '
+        Me.Label106.AutoSize = True
+        Me.Label106.Location = New System.Drawing.Point(746, 425)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(16, 16)
+        Me.Label106.TabIndex = 92
+        Me.Label106.Text = "m"
+        '
         'Pantalla_datos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
@@ -2420,4 +2451,7 @@ Partial Class Pantalla_datos
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Text_nombre_cat As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label106 As System.Windows.Forms.Label
+    Friend WithEvents Text_r_min_traz As System.Windows.Forms.TextBox
+    Friend WithEvents Label105 As System.Windows.Forms.Label
 End Class

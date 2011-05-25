@@ -49,6 +49,7 @@ Module cargar_lac
                 Pantalla_datos.Text_l_zc_max.Text = oRead("l_zc_max")
                 Pantalla_datos.Text_l_zc_min.Text = oRead("l_zc_min")
                 Pantalla_datos.Text_l_zn.Text = oRead("l_zn")
+                Pantalla_datos.Text_r_min_traz.Text = oRead("r_min_traz")
                 Pantalla_datos.Combo_hc.Text = oRead("hc")
                 Pantalla_datos.Combo_sust.Text = oRead("sust")
                 Pantalla_datos.Combo_cdpa.Text = oRead("cdpa")

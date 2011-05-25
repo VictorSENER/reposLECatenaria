@@ -42,6 +42,7 @@ Public Class Pantalla_aviso
         Pantalla_datos.Text_l_zc_max.Enabled = False
         Pantalla_datos.Text_l_zc_min.Enabled = False
         Pantalla_datos.Text_l_zn.Enabled = False
+        Pantalla_datos.Text_r_min_traz.Enabled = False
         Pantalla_datos.Combo_hc.Enabled = False
         Pantalla_datos.Combo_sust.Enabled = False
         Pantalla_datos.Combo_cdpa.Enabled = False

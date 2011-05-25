@@ -1,5 +1,5 @@
 Attribute VB_Name = "pk_real"
-Sub convertir_LT(fin)          ' función que convierte los PK lineales a los de trazado
+Sub convertir_LT()       ' función que convierte los PK lineales a los de trazado
 Dim ipk As Integer
 Dim ceros As String
 Dim beta As Double

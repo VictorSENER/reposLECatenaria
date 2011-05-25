@@ -37,14 +37,12 @@ While 16 > h
     h = h + 2                                           ' avanzamos una fila y calculamos un nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
 Wend
-                        ' se comprueba que el poste cae en un punto singular o
-                        ' se tiene que corregir su vano. se actua en consecuencia
-'While Sheets(1).Cells(h, 33).Value < fin
+
     Call radio.radio(h, k)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
-    Call regulacion.regulacion(h, k, a)                                   ' comprobamos que los incrementos de vano
+    Call regulacion.regulacion(h, k, a, b)                                  ' comprobamos que los incrementos de vano
     Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
-    Call punto_singular.sing1(h, a, k)                                 ' comprobamos que el poste no cae en un PS
+    Call punto_singular.sing1(h, a, k)                                ' comprobamos que el poste no cae en un PS
     'Call cantones(h, c, k, a)
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
@@ -61,20 +59,6 @@ Wend
     principal = x
 
     
-    'principal = Sheets(1).Cells(h, 33).Value
-'Wend
-'Call formato.formato
-'Call pk_real.convertir_LT                                      ' convertir el PK lineal a PK de trazado
-'Call num_postes.postes                                            ' numerar los postes segun PK trazado
-'Call altura.altura                                            ' calcula la altura del hilo de contacto
-'Call cad.esfuerzo
-'Call canton                                            ' distribución de los cantones de catenaria
-'Call descentramiento.desc                                              ' elige el descentramiento de cada poste
-'Call cad.posicion                                          ' muestra la posición del poste (para autocad)
-'Call comentarios.comentarios                                       ' muestra todos los puntos singulares del trazado
-'Call im_pend(fin)
-'Call revision.revision
-
 End Function
 
 

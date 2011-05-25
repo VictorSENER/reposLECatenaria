@@ -1,5 +1,5 @@
 Attribute VB_Name = "num_postes"
-Sub postes(fin)
+Sub postes()
 Dim w As Integer, bis As Integer
 Dim z As Integer
 w = 1

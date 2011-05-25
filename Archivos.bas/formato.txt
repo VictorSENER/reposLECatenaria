@@ -1,5 +1,5 @@
 Attribute VB_Name = "formato"
-Sub formato(fin)
+Sub formato()
 Dim w As Integer, bis As Integer
 Dim z As Integer
 z = 8

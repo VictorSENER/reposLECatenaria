@@ -1,5 +1,5 @@
 Attribute VB_Name = "comentarios"
-Sub comentarios(fin)
+Sub comentarios()
 Dim z As Integer, aloc As Integer
 Dim valor As String, guardar As String
 z = 10
@@ -11,7 +11,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     If Sheets(1).Cells(z + 2, 33).Value > Sheets(4).Cells(aloc, 21).Value Then
     If Sheets(4).Cells(aloc, 1).Value = "Buse" Or Sheets(4).Cells(aloc, 1).Value = "Dalot" _
     Or Sheets(4).Cells(aloc, 1).Value = "Pont" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
-    Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then
+    Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" _
+    Or Sheets(4).Cells(aloc, 1).Value = "PontXL" Then
     If Sheets(4).Cells(aloc, 1).Value = "P.I." Then
         valor = "Passage inférieur"
     ElseIf Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then

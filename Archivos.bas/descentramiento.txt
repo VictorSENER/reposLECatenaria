@@ -1,5 +1,5 @@
 Attribute VB_Name = "descentramiento"
-Sub desc(fin)
+Sub desc()
 Dim z As Integer, m As Integer
 Dim descentramiento As Double, rady As Double
 z = 10

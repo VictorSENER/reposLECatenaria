@@ -1,5 +1,5 @@
 Attribute VB_Name = "cad"
-Sub posicion(fin)
+Sub posicion()
 h = 10
 While Not IsEmpty(Sheets(1).Cells(h, 33).Value)
     a = 3
@@ -12,7 +12,7 @@ While Not IsEmpty(Sheets(1).Cells(h, 33).Value)
     h = h + 2
 Wend
 End Sub
-Sub esfuerzo(fin)
+Sub esfuerzo()
 Dim Ry As Double, T As Double, V0 As Double, V As Double, tres As Double, res As Double
 Dim cont As Double, j As Integer
 h = 12

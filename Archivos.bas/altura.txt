@@ -1,5 +1,5 @@
 Attribute VB_Name = "altura"
-Sub altura(fin)
+Sub altura()
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
 z = 10

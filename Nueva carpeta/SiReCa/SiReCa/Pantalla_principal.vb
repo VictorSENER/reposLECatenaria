@@ -4,8 +4,6 @@ Public Class Pantalla_principal
     Public ruta_trazado As String
     Public ruta_replanteo As String
     Public ruta_autocad As String
-    Public inicio As Long
-    Public fin As Long
     Public nombre_excel As String
     Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
@@ -55,7 +53,7 @@ Public Class Pantalla_principal
                 Dim oComm As OleDbCommand
                 Dim oRead As OleDbDataReader
 
-                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
                 oConn.Open()
                 oComm = New OleDbCommand("select * from Datos", oConn)
                 oRead = oComm.ExecuteReader
@@ -174,11 +172,13 @@ Public Class Pantalla_principal
             Me.Button4.ForeColor = Color.Red
             MsgBox("Elegir ruta de destino", 48)
         End If
-        If TextBox2.Text > TextBox3.Text Then
+        inicio = Me.TextBox2.Text
+        fin = Me.TextBox3.Text
+        If inicio > fin Then
             MsgBox("PK final debe ser mayor al PK inicial", 48)
         End If
         If Me.TextBox2.Text <> "" And Me.TextBox3.Text <> "" And Me.TextBox4.Text <> "" And Not IsNothing(ruta_replanteo) _
-        And TextBox2.Text < TextBox3.Text Then
+        And inicio < fin Then
 
             'recogemos las variables necesarias para excel
             inicio = Me.TextBox2.Text
@@ -210,7 +210,7 @@ Public Class Pantalla_principal
         'Call run.run_autocad(ruta_autocad)
     End Sub
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
-        Call tabla_r.tabla_r()
+        'Call tabla_r.tabla_r()
         nueva_lac = "cat"
     End Sub
 End Class

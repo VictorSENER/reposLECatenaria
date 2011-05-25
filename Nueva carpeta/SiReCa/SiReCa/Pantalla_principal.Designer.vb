@@ -27,6 +27,7 @@ Partial Class Pantalla_principal
         Me.RadioButton1 = New System.Windows.Forms.RadioButton
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Button8 = New System.Windows.Forms.Button
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.NombreCatenariaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Base_de_datosDataSet = New SiReCa.Base_de_datosDataSet
@@ -69,7 +70,6 @@ Partial Class Pantalla_principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.Nombre_CatenariaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
-        Me.Button8 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,10 +87,10 @@ Partial Class Pantalla_principal
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.RadioButton1.ForeColor = System.Drawing.Color.White
         Me.RadioButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton1.Location = New System.Drawing.Point(26, 32)
-        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(2)
+        Me.RadioButton1.Location = New System.Drawing.Point(35, 39)
+        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(183, 24)
+        Me.RadioButton1.Size = New System.Drawing.Size(220, 29)
         Me.RadioButton1.TabIndex = 0
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Catenaria existente"
@@ -102,10 +102,10 @@ Partial Class Pantalla_principal
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.RadioButton2.ForeColor = System.Drawing.Color.White
         Me.RadioButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton2.Location = New System.Drawing.Point(28, 112)
-        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(2)
+        Me.RadioButton2.Location = New System.Drawing.Point(37, 138)
+        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(157, 24)
+        Me.RadioButton2.Size = New System.Drawing.Size(190, 29)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Nueva catenaria"
@@ -125,25 +125,40 @@ Partial Class Pantalla_principal
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.ForeColor = System.Drawing.Color.Green
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 107)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Location = New System.Drawing.Point(21, 132)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.GroupBox1.Size = New System.Drawing.Size(394, 252)
+        Me.GroupBox1.Size = New System.Drawing.Size(525, 310)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "PASO 1: Datos catenaria"
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.SystemColors.Control
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Button8.Location = New System.Drawing.Point(359, 239)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(133, 37)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "TABLA"
+        Me.Button8.UseVisualStyleBackColor = False
+        Me.Button8.Visible = False
         '
         'ComboBox1
         '
         Me.ComboBox1.DataSource = Me.NombreCatenariaBindingSource
         Me.ComboBox1.DisplayMember = "nombre_cat"
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(201, 43)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.ComboBox1.Location = New System.Drawing.Point(268, 53)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(156, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(207, 33)
         Me.ComboBox1.TabIndex = 5
         '
         'NombreCatenariaBindingSource
@@ -162,10 +177,9 @@ Partial Class Pantalla_principal
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label2.Location = New System.Drawing.Point(32, 69)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(43, 85)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 20)
+        Me.Label2.Size = New System.Drawing.Size(67, 25)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Elegir"
         Me.Label2.Visible = False
@@ -175,10 +189,10 @@ Partial Class Pantalla_principal
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button1.Location = New System.Drawing.Point(150, 194)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Location = New System.Drawing.Point(200, 239)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 39)
+        Me.Button1.Size = New System.Drawing.Size(133, 48)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "IR"
         Me.Button1.UseVisualStyleBackColor = False
@@ -190,10 +204,9 @@ Partial Class Pantalla_principal
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label1.Location = New System.Drawing.Point(32, 150)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(43, 185)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(144, 20)
+        Me.Label1.Size = New System.Drawing.Size(176, 25)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Nueva catenaria:"
         Me.Label1.Visible = False
@@ -202,10 +215,10 @@ Partial Class Pantalla_principal
         '
         Me.TextBox1.BackColor = System.Drawing.Color.White
         Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(169, 146)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox1.Location = New System.Drawing.Point(225, 180)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(188, 26)
+        Me.TextBox1.Size = New System.Drawing.Size(249, 30)
         Me.TextBox1.TabIndex = 1
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox1.Visible = False
@@ -218,11 +231,11 @@ Partial Class Pantalla_principal
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox2.Location = New System.Drawing.Point(484, 107)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Location = New System.Drawing.Point(645, 132)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(424, 115)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(565, 142)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PASO 2: Datos trazado"
@@ -233,10 +246,10 @@ Partial Class Pantalla_principal
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button2.Location = New System.Drawing.Point(216, 43)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button2.Location = New System.Drawing.Point(288, 53)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 30)
+        Me.Button2.Size = New System.Drawing.Size(133, 37)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "IR"
         Me.Button2.UseVisualStyleBackColor = False
@@ -248,10 +261,9 @@ Partial Class Pantalla_principal
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label3.Location = New System.Drawing.Point(26, 53)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(35, 65)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(173, 20)
+        Me.Label3.Size = New System.Drawing.Size(212, 25)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Buscar archivo excel"
         Me.Label3.Visible = False
@@ -275,11 +287,11 @@ Partial Class Pantalla_principal
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox3.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox3.Location = New System.Drawing.Point(16, 402)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Location = New System.Drawing.Point(21, 495)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox3.Size = New System.Drawing.Size(394, 310)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox3.Size = New System.Drawing.Size(525, 382)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "PASO 3: Replanteo"
@@ -288,20 +300,19 @@ Partial Class Pantalla_principal
         '
         Me.Label11.AutoSize = True
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(92, 140)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Location = New System.Drawing.Point(123, 172)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(175, 20)
+        Me.Label11.Size = New System.Drawing.Size(212, 25)
         Me.Label11.TabIndex = 12
         Me.Label11.Text = "Evolución subrutinas"
         Me.Label11.Visible = False
         '
         'ProgressBar2
         '
-        Me.ProgressBar2.Location = New System.Drawing.Point(18, 179)
-        Me.ProgressBar2.Margin = New System.Windows.Forms.Padding(2)
+        Me.ProgressBar2.Location = New System.Drawing.Point(24, 220)
+        Me.ProgressBar2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ProgressBar2.Name = "ProgressBar2"
-        Me.ProgressBar2.Size = New System.Drawing.Size(361, 26)
+        Me.ProgressBar2.Size = New System.Drawing.Size(481, 32)
         Me.ProgressBar2.TabIndex = 11
         Me.ProgressBar2.Visible = False
         '
@@ -309,20 +320,19 @@ Partial Class Pantalla_principal
         '
         Me.Label10.AutoSize = True
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(92, 36)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Location = New System.Drawing.Point(123, 44)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(239, 20)
+        Me.Label10.Size = New System.Drawing.Size(290, 25)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Evolución programa principal"
         Me.Label10.Visible = False
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(18, 72)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(2)
+        Me.ProgressBar1.Location = New System.Drawing.Point(24, 89)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(361, 24)
+        Me.ProgressBar1.Size = New System.Drawing.Size(481, 30)
         Me.ProgressBar1.TabIndex = 9
         Me.ProgressBar1.Visible = False
         '
@@ -331,10 +341,9 @@ Partial Class Pantalla_principal
         Me.Label8.AutoSize = True
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label8.Location = New System.Drawing.Point(82, 197)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Location = New System.Drawing.Point(109, 242)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(100, 20)
+        Me.Label8.Size = New System.Drawing.Size(120, 25)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Guardar en"
         Me.Label8.Visible = False
@@ -345,10 +354,10 @@ Partial Class Pantalla_principal
         Me.Button5.ForeColor = System.Drawing.Color.Black
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button5.Location = New System.Drawing.Point(108, 255)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button5.Location = New System.Drawing.Point(144, 314)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(130, 34)
+        Me.Button5.Size = New System.Drawing.Size(173, 42)
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "REPLANTEAR"
         Me.Button5.UseVisualStyleBackColor = False
@@ -359,10 +368,10 @@ Partial Class Pantalla_principal
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Button4.ForeColor = System.Drawing.Color.Blue
         Me.Button4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button4.Location = New System.Drawing.Point(201, 197)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button4.Location = New System.Drawing.Point(268, 242)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(38, 20)
+        Me.Button4.Size = New System.Drawing.Size(51, 25)
         Me.Button4.TabIndex = 6
         Me.Button4.Text = "..."
         Me.Button4.UseVisualStyleBackColor = True
@@ -372,10 +381,10 @@ Partial Class Pantalla_principal
         '
         Me.TextBox4.BackColor = System.Drawing.Color.White
         Me.TextBox4.ForeColor = System.Drawing.Color.Black
-        Me.TextBox4.Location = New System.Drawing.Point(201, 150)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox4.Location = New System.Drawing.Point(268, 185)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(127, 26)
+        Me.TextBox4.Size = New System.Drawing.Size(168, 30)
         Me.TextBox4.TabIndex = 5
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox4.Visible = False
@@ -385,10 +394,9 @@ Partial Class Pantalla_principal
         Me.Label6.AutoSize = True
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(22, 152)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Location = New System.Drawing.Point(29, 187)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(136, 20)
+        Me.Label6.Size = New System.Drawing.Size(165, 25)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Nombre fichero:"
         Me.Label6.Visible = False
@@ -397,10 +405,10 @@ Partial Class Pantalla_principal
         '
         Me.TextBox3.BackColor = System.Drawing.Color.White
         Me.TextBox3.ForeColor = System.Drawing.Color.Black
-        Me.TextBox3.Location = New System.Drawing.Point(201, 104)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox3.Location = New System.Drawing.Point(268, 128)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(127, 26)
+        Me.TextBox3.Size = New System.Drawing.Size(168, 30)
         Me.TextBox3.TabIndex = 3
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox3.Visible = False
@@ -409,10 +417,10 @@ Partial Class Pantalla_principal
         '
         Me.TextBox2.BackColor = System.Drawing.Color.White
         Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(201, 56)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox2.Location = New System.Drawing.Point(268, 69)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(127, 26)
+        Me.TextBox2.Size = New System.Drawing.Size(168, 30)
         Me.TextBox2.TabIndex = 2
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox2.Visible = False
@@ -422,10 +430,9 @@ Partial Class Pantalla_principal
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label5.Location = New System.Drawing.Point(22, 104)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Location = New System.Drawing.Point(29, 128)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(116, 20)
+        Me.Label5.Size = New System.Drawing.Size(145, 25)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "P.K. Final (m)"
         Me.Label5.Visible = False
@@ -435,10 +442,9 @@ Partial Class Pantalla_principal
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label4.Location = New System.Drawing.Point(22, 56)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Location = New System.Drawing.Point(29, 69)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 20)
+        Me.Label4.Size = New System.Drawing.Size(148, 25)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "PK. Inicial (m)"
         Me.Label4.Visible = False
@@ -460,11 +466,11 @@ Partial Class Pantalla_principal
         Me.GroupBox4.Controls.Add(Me.CheckBox1)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox4.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox4.Location = New System.Drawing.Point(484, 402)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox4.Location = New System.Drawing.Point(645, 495)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox4.Size = New System.Drawing.Size(424, 310)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox4.Size = New System.Drawing.Size(565, 382)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "PASO 4: Dibujar"
@@ -474,24 +480,24 @@ Partial Class Pantalla_principal
         Me.Button7.BackColor = System.Drawing.SystemColors.Control
         Me.Button7.ForeColor = System.Drawing.Color.Black
         Me.Button7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button7.Location = New System.Drawing.Point(138, 245)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button7.Location = New System.Drawing.Point(184, 302)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(130, 34)
+        Me.Button7.Size = New System.Drawing.Size(173, 42)
         Me.Button7.TabIndex = 10
         Me.Button7.Text = "DIBUJAR"
         Me.Button7.UseVisualStyleBackColor = False
         '
         'Button6
         '
-        Me.Button6.BackColor = System.Drawing.Color.Gainsboro
+        Me.Button6.BackColor = System.Drawing.SystemColors.Control
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Button6.ForeColor = System.Drawing.Color.Blue
         Me.Button6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button6.Location = New System.Drawing.Point(204, 186)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button6.Location = New System.Drawing.Point(272, 229)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(38, 20)
+        Me.Button6.Size = New System.Drawing.Size(51, 25)
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "..."
         Me.Button6.UseVisualStyleBackColor = False
@@ -501,10 +507,9 @@ Partial Class Pantalla_principal
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label7.Location = New System.Drawing.Point(45, 186)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Location = New System.Drawing.Point(60, 229)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(172, 20)
+        Me.Label7.Size = New System.Drawing.Size(208, 25)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Captar datos eje de:"
         '
@@ -513,10 +518,10 @@ Partial Class Pantalla_principal
         Me.CheckBox8.AutoSize = True
         Me.CheckBox8.ForeColor = System.Drawing.Color.White
         Me.CheckBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox8.Location = New System.Drawing.Point(216, 129)
-        Me.CheckBox8.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox8.Location = New System.Drawing.Point(288, 159)
+        Me.CheckBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(150, 24)
+        Me.CheckBox8.Size = New System.Drawing.Size(180, 29)
         Me.CheckBox8.TabIndex = 7
         Me.CheckBox8.Text = "Cantonamiento"
         Me.CheckBox8.UseVisualStyleBackColor = True
@@ -527,10 +532,10 @@ Partial Class Pantalla_principal
         Me.CheckBox7.AutoSize = True
         Me.CheckBox7.ForeColor = System.Drawing.Color.White
         Me.CheckBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox7.Location = New System.Drawing.Point(216, 101)
-        Me.CheckBox7.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox7.Location = New System.Drawing.Point(288, 124)
+        Me.CheckBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(106, 24)
+        Me.CheckBox7.Size = New System.Drawing.Size(128, 29)
         Me.CheckBox7.TabIndex = 6
         Me.CheckBox7.Text = "Altura HC"
         Me.CheckBox7.UseVisualStyleBackColor = True
@@ -541,10 +546,10 @@ Partial Class Pantalla_principal
         Me.CheckBox6.AutoSize = True
         Me.CheckBox6.ForeColor = System.Drawing.Color.White
         Me.CheckBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox6.Location = New System.Drawing.Point(216, 72)
-        Me.CheckBox6.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox6.Location = New System.Drawing.Point(288, 89)
+        Me.CheckBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(131, 24)
+        Me.CheckBox6.Size = New System.Drawing.Size(156, 29)
         Me.CheckBox6.TabIndex = 5
         Me.CheckBox6.Text = "Implantación"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -555,10 +560,10 @@ Partial Class Pantalla_principal
         Me.CheckBox5.AutoSize = True
         Me.CheckBox5.ForeColor = System.Drawing.Color.White
         Me.CheckBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox5.Location = New System.Drawing.Point(216, 44)
-        Me.CheckBox5.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox5.Location = New System.Drawing.Point(288, 54)
+        Me.CheckBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(174, 24)
+        Me.CheckBox5.Size = New System.Drawing.Size(207, 29)
         Me.CheckBox5.TabIndex = 4
         Me.CheckBox5.Text = "Descentramientos"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -569,10 +574,10 @@ Partial Class Pantalla_principal
         Me.CheckBox4.AutoSize = True
         Me.CheckBox4.ForeColor = System.Drawing.Color.White
         Me.CheckBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox4.Location = New System.Drawing.Point(49, 129)
-        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox4.Location = New System.Drawing.Point(65, 159)
+        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(91, 24)
+        Me.CheckBox4.Size = New System.Drawing.Size(110, 29)
         Me.CheckBox4.TabIndex = 3
         Me.CheckBox4.Text = "Flechas"
         Me.CheckBox4.UseVisualStyleBackColor = True
@@ -583,10 +588,10 @@ Partial Class Pantalla_principal
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.ForeColor = System.Drawing.Color.White
         Me.CheckBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox3.Location = New System.Drawing.Point(49, 101)
-        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox3.Location = New System.Drawing.Point(65, 124)
+        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(79, 24)
+        Me.CheckBox3.Size = New System.Drawing.Size(96, 29)
         Me.CheckBox3.TabIndex = 2
         Me.CheckBox3.Text = "Vanos"
         Me.CheckBox3.UseVisualStyleBackColor = True
@@ -597,10 +602,10 @@ Partial Class Pantalla_principal
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.ForeColor = System.Drawing.Color.White
         Me.CheckBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox2.Location = New System.Drawing.Point(49, 72)
-        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox2.Location = New System.Drawing.Point(65, 89)
+        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(105, 24)
+        Me.CheckBox2.Size = New System.Drawing.Size(124, 29)
         Me.CheckBox2.TabIndex = 1
         Me.CheckBox2.Text = "Etiquetas"
         Me.CheckBox2.UseVisualStyleBackColor = True
@@ -611,10 +616,10 @@ Partial Class Pantalla_principal
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
         Me.CheckBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox1.Location = New System.Drawing.Point(49, 44)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBox1.Location = New System.Drawing.Point(65, 54)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(83, 24)
+        Me.CheckBox1.Size = New System.Drawing.Size(100, 29)
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Postes"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -626,23 +631,23 @@ Partial Class Pantalla_principal
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button3.Location = New System.Drawing.Point(752, 8)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button3.Location = New System.Drawing.Point(1003, 10)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(151, 41)
+        Me.Button3.Size = New System.Drawing.Size(201, 50)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "SALIR"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Panel1
         '
-        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Panel1.BackColor = System.Drawing.Color.Navy
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(970, 72)
+        Me.Panel1.Size = New System.Drawing.Size(1293, 89)
         Me.Panel1.TabIndex = 8
         '
         'Label9
@@ -652,10 +657,9 @@ Partial Class Pantalla_principal
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Label9.Location = New System.Drawing.Point(134, 20)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Location = New System.Drawing.Point(179, 25)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(773, 31)
+        Me.Label9.Size = New System.Drawing.Size(963, 39)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "SIMULADOR DE REPLANTEO DE CATENARIA (SIRECA)"
         '
@@ -663,10 +667,10 @@ Partial Class Pantalla_principal
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(34, 8)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Location = New System.Drawing.Point(45, 10)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(160, 41)
+        Me.PictureBox1.Size = New System.Drawing.Size(213, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -678,39 +682,24 @@ Partial Class Pantalla_principal
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 720)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel2.Location = New System.Drawing.Point(0, 886)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1036, 60)
+        Me.Panel2.Size = New System.Drawing.Size(1292, 74)
         Me.Panel2.TabIndex = 9
         '
         'Nombre_CatenariaTableAdapter
         '
         Me.Nombre_CatenariaTableAdapter.ClearBeforeFill = True
         '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.SystemColors.Control
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button8.Location = New System.Drawing.Point(269, 194)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(100, 30)
-        Me.Button8.TabIndex = 2
-        Me.Button8.Text = "TABLA"
-        Me.Button8.UseVisualStyleBackColor = False
-        Me.Button8.Visible = False
-        '
         'Pantalla_principal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1036, 780)
+        Me.ClientSize = New System.Drawing.Size(1292, 960)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -720,7 +709,7 @@ Partial Class Pantalla_principal
         Me.Controls.Add(Me.GroupBox1)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Pantalla_principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Simulador de Replanteos de Catenaria (SIRECA)"

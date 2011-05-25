@@ -1,20 +1,20 @@
 Attribute VB_Name = "regulacion"
-Sub regulacion(ByRef h As Integer, ByRef k As Integer, ByRef a As Integer, ByRef b As Integer)
+Sub regulacion(ByRef h, ByRef k, ByRef a, ByRef b)
 ' comprobar los incrementos de los últimos 3 vanos y actuar en consecuencia
 While (Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h + 1, 4).Value) > dist_va_max
-    Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h - 1, 4).Value - inc_va
+    Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h - 1, 4).Value - inc_norm_va
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
     Call radio.radio1(h, k)
     Call punto_singular.sing1(h, a - 1, k)
 Wend
 While (Sheets(1).Cells(h + 1, 4).Value - Sheets(1).Cells(h - 1, 4).Value) > dist_va_max
-    Sheets(1).Cells(h + 1, 4).Value = Sheets(1).Cells(h + 1, 4).Value - inc_va
+    Sheets(1).Cells(h + 1, 4).Value = Sheets(1).Cells(h + 1, 4).Value - inc_norm_va
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
     Call radio.radio1(h, k)
     Call punto_singular.sing1(h, a - 1, k)
 Wend
 While (Sheets(1).Cells(h - 3, 4).Value - Sheets(1).Cells(h - 1, 4).Value) > dist_va_max
-    Sheets(1).Cells(h - 3, 4).Value = Sheets(1).Cells(h - 3, 4).Value - inc_va
+    Sheets(1).Cells(h - 3, 4).Value = Sheets(1).Cells(h - 3, 4).Value - inc_norm_va
     Sheets(1).Cells(h - 2, 33).Value = Sheets(1).Cells(h - 3, 4).Value + Sheets(1).Cells(h - 4, 33).Value
     Call radio.radio1(h - 2, k - 1)
     Call punto_singular.sing1(h - 2, a - 1, k)
@@ -23,7 +23,7 @@ While (Sheets(1).Cells(h - 3, 4).Value - Sheets(1).Cells(h - 1, 4).Value) > dist
     Call punto_singular.sing1(h, a - 1, k)
 Wend
 While (Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist_va_max
-    Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h - 1, 4).Value - inc_va
+    Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h - 1, 4).Value - inc_norm_va
     Sheets(1).Cells(h - 2, 33).Value = Sheets(1).Cells(h - 3, 4).Value + Sheets(1).Cells(h - 4, 33).Value
     Call radio.radio1(h - 2, k - 1)
     If vano.vano(Sheets(1).Cells(h - 2, 6).Value) < Sheets(1).Cells(h - 1, 4).Value Then
@@ -35,7 +35,7 @@ While (Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist
     Call punto_singular.sing1(h, a - 1, k)
 Wend
 While (Sheets(1).Cells(h - 5, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist_va_max
-    Sheets(1).Cells(h - 5, 4).Value = Sheets(1).Cells(h - 5, 4).Value - inc_va
+    Sheets(1).Cells(h - 5, 4).Value = Sheets(1).Cells(h - 5, 4).Value - inc_norm_va
     Sheets(1).Cells(h - 4, 33).Value = Sheets(1).Cells(h - 5, 4).Value + Sheets(1).Cells(h - 6, 33).Value
     Call radio.radio1(h - 4, k - 2)
     If vano.vano(Sheets(1).Cells(h - 4, 6).Value) < Sheets(1).Cells(h - 3, 4).Value Then
@@ -53,7 +53,7 @@ While (Sheets(1).Cells(h - 5, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist
     Call punto_singular.sing1(h, a - 1, k)
 Wend
 While (Sheets(1).Cells(h - 3, 4).Value - Sheets(1).Cells(h - 5, 4).Value) > dist_va_max
-    Sheets(1).Cells(h - 3, 4).Value = Sheets(1).Cells(h - 3, 4).Value - inc_va
+    Sheets(1).Cells(h - 3, 4).Value = Sheets(1).Cells(h - 3, 4).Value - inc_norm_va
     Sheets(1).Cells(h - 4, 33).Value = Sheets(1).Cells(h - 5, 4).Value + Sheets(1).Cells(h - 6, 33).Value
     Call radio.radio1(h - 4, k - 2)
     If vano.vano(Sheets(1).Cells(h - 4, 6).Value) < Sheets(1).Cells(h - 3, 4).Value Then

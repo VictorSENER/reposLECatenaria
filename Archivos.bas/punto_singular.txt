@@ -1,5 +1,5 @@
 Attribute VB_Name = "punto_singular"
-Sub sing1(ByRef h As Integer, a As Integer, k As Integer)
+Sub sing1(ByRef h, ByRef a, ByRef k)
 Dim z As Integer
 Dim pk0 As Double
 ' buscar en que fila de la hoja 4 se corresponde con el pk actual
@@ -13,16 +13,16 @@ And (Sheets(4).Cells(a, 1).Value = "Pont" Or Sheets(4).Cells(a, 1).Value = "Buse
 
     While dist_restar > 0
        
-        If dist_restar <= 2 * inc_va And Sheets(1).Cells(z - 3, 4).Value - (Sheets(1).Cells(z - 1, 4).Value) = dist_va_max Then
+        If dist_restar <= 2 * inc_norm_va And Sheets(1).Cells(z - 3, 4).Value - (Sheets(1).Cells(z - 1, 4).Value) = dist_va_max Then
             z = z - 2
 
-        ElseIf dist_restar <= inc_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
-            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
-            dist_restar = dist_restar - inc_va
+        ElseIf dist_restar <= inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
+            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+            dist_restar = dist_restar - inc_norm_va
             z = z - 2
-        ElseIf dist_restar > inc_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
-            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
-            dist_restar = dist_restar - inc_va
+        ElseIf dist_restar > inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
+            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+            dist_restar = dist_restar - inc_norm_va
             z = z - 2
         Else
             z = z - 2
@@ -45,7 +45,7 @@ While Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 21).Value And Sheets(4).
 Wend
 End Sub
 
-Sub sing(ByRef h As Integer, k As Integer, ByRef a As Integer, ByRef b As Integer)
+Sub sing(ByRef h, ByRef k, ByRef a, ByRef b)
 
 Sheets(1).Cells(5, 1).Value = Sheets(4).Cells(a, 2).Value
 ' buscar en que fila de la hoja 4 se corresponde con el pk actual

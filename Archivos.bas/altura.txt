@@ -1,10 +1,14 @@
 Attribute VB_Name = "altura"
-Sub altura()
+Sub altura(alt_max1, alt_nom1, alt_min1, inc_max_alt_hc1)
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
+alt_max = alt_max1
+alt_nom = alt_nom1
+alt_min = alt_min1
+inc_max_alt_hc = inc_max_alt_hc1
 z = 10
 aloc = 3
-Call datos.datos_excel
+
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     While (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value) And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
         aloc = aloc + 1
@@ -17,32 +21,32 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         Amx = alt_max
         s = s - 2
         Sheets(1).Cells(s, 10).Value = alt_max
-        Amx = alt_max - (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_max - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
         While Amx >= alt_nom
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx - ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                 If Amx < alt_nom Then
-                    Amx1 = Amx + ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
-                        If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                        If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 - (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
         Wend
         s = z
         Sheets(1).Cells(s, 10).Value = alt_max
-        Amx = alt_max - (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_max - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
         While Amx >= alt_nom
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx - ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                 If Amx < alt_nom Then
-                    Amx1 = Amx + ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
-                        If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                        If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 - (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -54,32 +58,32 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         s = z
         s = s - 2
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
         While Amx <= alt_nom
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
-                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 + (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
         Wend
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
         While Amx <= alt_nom
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
-                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 + (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -92,16 +96,16 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     And Sheets(4).Cells(aloc - 1, 1) = "Tunel") Then
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
         While Amx <= alt_nom
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
-                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 + (((inc_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -111,16 +115,16 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     And Sheets(4).Cells(aloc, 1) = "Tunel") Then
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
         While Amx <= alt_nom
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
-                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_alt_hc / 2) Then
+                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                        If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 + (((inc_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If

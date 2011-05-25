@@ -4,7 +4,7 @@ Dim pk1 As Double, vano0 As Double, vano1 As Double, vanox As Double
 Dim z As Long, aloc As Long, bloc As Long, d As Long
 Dim l1 As Double, l2 As Double, rady As Double, inicio1 As Double, inicio2 As Double
 Dim radioC As Double, dev As Double, pk0 As Double, final As Double, radioC1 As Double
-Dim radioC2 As Double, rady2 As Double, A1 As Double, A12 As Double, A2 As Double, c As Double
+Dim radioC2 As Double, rady2 As Double, a1 As Double, A12 As Double, A2 As Double, c As Double
 Dim contador As Integer
 z = 10
 aloc = 3
@@ -43,14 +43,14 @@ While Not IsEmpty(Sheets(1).Cells(z + 1, 4).Value)
         rady2 = Sheets(3).Cells(kloc - 1, 2).Value
         inicio1 = Sheets(3).Cells(kloc, 3).Value
         inicio2 = Sheets(3).Cells(kloc, 5).Value
-        A1 = Sheets(3).Cells(kloc, 9).Value
+        a1 = Sheets(3).Cells(kloc, 9).Value
         A12 = Sheets(3).Cells(kloc - 1, 9).Value
         A2 = Sheets(3).Cells(kloc, 10).Value
         c = Sheets(3).Cells(kloc, 7).Value
 
 ' calculo del radio correspondiente aloc la clotoide de entrada
         If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) Then
-            radioC = A1 ^ 2 / (pk0 - inicio1)
+            radioC = a1 ^ 2 / (pk0 - inicio1)
             If rady < 0 Then
                 radioC = radioC * (-1)
             End If
@@ -123,14 +123,14 @@ ElseIf IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) And pk0 < (inicio2 + l2) Then
     Else: radioC2 = rady2
     End If
     If radioC1 < radioC2 Then
-        lmin = A1 ^ 2 / radioC1
-        radioC = (A1 ^ 2) / (lmin - (pk0 - inicio1))
+        lmin = a1 ^ 2 / radioC1
+        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
         If rady < 0 Then
             radioC = radioC * (-1)
         End If
     Else
-        lmin = A1 ^ 2 / radioC2
-        radioC = (A1 ^ 2) / (lmin - (pk0 - inicio1))
+        lmin = a1 ^ 2 / radioC2
+        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
         If rady2 < 0 Then
             radioC = radioC * (-1)
         End If

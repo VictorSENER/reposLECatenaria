@@ -1,11 +1,13 @@
 Attribute VB_Name = "num_postes"
-Sub postes()
+Sub postes(alt_nom1, dist_carril_poste1)
 Dim w As Integer, bis As Integer
 Dim z As Integer
+alt_nom = alt_nom1
+dist_carril_poste = dist_carril_poste1
 w = 1
 bis = 1
 z = 10
-Call datos.datos_excel
+
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
 
 

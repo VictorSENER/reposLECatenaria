@@ -1,5 +1,5 @@
 Attribute VB_Name = "singular"
-Sub viaducto(ByRef h As Integer, ByRef k As Integer, ByRef b As Integer, ByRef a As Integer)
+Sub viaducto(ByRef h, ByRef k, ByRef b, ByRef a)
 Dim vano01 As Double, vano12 As Double, vano0 As Double
 Dim z As Integer
 Dim pkref As Double, pk0 As Double, pk1 As Double, pk2 As Double, dist_restar As Double
@@ -12,18 +12,18 @@ vano0 = Sheets(1).Cells(h - 1, 4).Value
 dist_restar = pk0 - pk1
 If dist_restar < (vano1 - (pk2 - pk1)) And pk2 <> 0 Then
     h = h + 2
-    dist_restar = dist_restar + (pk2 - pk1) + inc_va
+    dist_restar = dist_restar + (pk2 - pk1) + inc_norm_va
     Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     Sheets(1).Cells(h, 33).Value = pk1
-    div = dist_restar - (Int(dist_restar / inc_va) * inc_va)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
-    Sheets(1).Cells(h - 1, 4).Value = (pk2 - pk1) + inc_va
+    Sheets(1).Cells(h - 1, 4).Value = (pk2 - pk1) + inc_norm_va
     z = h - 2
 ElseIf pk2 = 0 Then
     Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
-    div = dist_restar - (Int(dist_restar / inc_va) * inc_va)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Call radio.radio1(h, k)
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
     z = h
@@ -31,34 +31,34 @@ Else
     Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
-    div = dist_restar - (Int(dist_restar / inc_va) * inc_va)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     z = h
 End If
 While dist_restar > 0
        
-        If dist_restar <= inc_va And Sheets(1).Cells(z - 5, 4).Value - (Sheets(1).Cells(z - 3, 4).Value) = dist_va_max Then
+        If dist_restar <= inc_norm_va And Sheets(1).Cells(z - 5, 4).Value - (Sheets(1).Cells(z - 3, 4).Value) = dist_va_max Then
             z = z - 2
         ElseIf Sheets(1).Cells(z - 1, 4).Value - (Sheets(1).Cells(z + 1, 4).Value) > dist_va_max And _
             z >= h - 4 Then
             While Sheets(1).Cells(z - 1, 4).Value - (Sheets(1).Cells(z + 1, 4).Value) > dist_va_max
-                Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
-                dist_restar = dist_restar - inc_va
+                Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+                dist_restar = dist_restar - inc_norm_va
             Wend
             z = z - 2
         ElseIf Sheets(1).Cells(z - 1, 4).Value >= (Sheets(1).Cells(z - 3, 4).Value) And dist_restar >= dist_va_max _
-        And Sheets(1).Cells(z - 1, 4).Value >= Sheets(1).Cells(z + 1, 4).Value And Sheets(1).Cells(z - 1, 4).Value >= (va_max - 2 * inc_va) Then
+        And Sheets(1).Cells(z - 1, 4).Value >= Sheets(1).Cells(z + 1, 4).Value And Sheets(1).Cells(z - 1, 4).Value >= (va_max - 2 * inc_norm_va) Then
             Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - dist_va_max
             dist_restar = dist_restar - dist_va_max
             z = z - 2
-        ElseIf dist_restar < inc_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
+        ElseIf dist_restar < inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
             Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - div
             dist_restar = dist_restar - div
             z = z - 2
         
-        ElseIf dist_restar >= inc_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
-            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
-            dist_restar = dist_restar - inc_va
+        ElseIf dist_restar >= inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
+            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+            dist_restar = dist_restar - inc_norm_va
             z = z - 2
         Else
             z = z - 2
@@ -88,7 +88,7 @@ Sheets(1).Cells(h, 25).Value = "Final viaduc"
 h = h - 2
 a = a + 1
 End Sub
-Sub paso_superior(ByRef h As Integer, ByRef k As Integer, ByRef a As Integer)
+Sub paso_superior(ByRef h, ByRef k, ByRef a)
 Dim l1 As Double, l2 As Double, vano0 As Double, dist_restar As Double, pmedio As Double
 Dim pk1 As Double, pk2 As Double, div As Double, vano12 As Double, vanoref As Double
 Dim z As Integer
@@ -110,27 +110,27 @@ If dist_restar <= 0 Then
     Sheets(1).Cells(h - 2, 33).Value = pk1
     Call radio.radio1(h - 2, k)
         If vano.vano(Sheets(1).Cells(h - 2, 6).Value) < Sheets(1).Cells(h - 1, 4).Value Then
-            vano0 = vano0 - inc_va
+            vano0 = vano0 - inc_norm_va
             pmedio = (vano0 - (Sheets(4).Cells(a, 21).Value - Sheets(4).Cells(a, 2).Value)) / 2
             pk1 = Sheets(4).Cells(a, 2).Value - pmedio
             pk2 = Sheets(4).Cells(a, 21).Value + pmedio
-            dist_restar = Sheets(1).Cells(h - 2, 33).Value - pk1 - inc_va
+            dist_restar = Sheets(1).Cells(h - 2, 33).Value - pk1 - inc_norm_va
             Sheets(1).Cells(h - 1, 4).Value = vano0
         End If
     dist_restar = Sheets(1).Cells(h - 3, 4).Value - (dist_restar * (-1))
-    div = dist_restar - (Int(dist_restar / inc_va) * inc_va)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
 Else
     Sheets(1).Cells(h - 4, 33).Value = Sheets(1).Cells(h - 4, 33).Value - dist_restar
     Call radio.radio(h - 4, k - 1)
         If vano.vano(Sheets(1).Cells(h - 4, 6).Value) < Sheets(1).Cells(h - 3, 4).Value Then
-            vano0 = vano0 - inc_va
+            vano0 = vano0 - inc_norm_va
             pmedio = (vano0 - (Sheets(4).Cells(a, 21).Value - Sheets(4).Cells(a, 2).Value)) / 2
             pk1 = Sheets(4).Cells(a, 2).Value - pmedio
             pk2 = Sheets(4).Cells(a, 21).Value + pmedio
             dist_restar = Sheets(1).Cells(h - 2, 33).Value - pk1
             Sheets(1).Cells(h - 1, 4).Value = vano0
         End If
-    div = dist_restar - (Int(dist_restar / inc_va) * inc_va)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h, 33).Value = pk2
     Call radio.radio1(h, k)
     Sheets(1).Cells(h - 2, 33).Value = pk1
@@ -139,22 +139,22 @@ End If
 
     While dist_restar > 0
        
-        If dist_restar <= 2 * inc_va And Sheets(1).Cells(z - 5, 4).Value - (Sheets(1).Cells(z - 3, 4).Value) = dist_va_max Then
+        If dist_restar <= 2 * inc_norm_va And Sheets(1).Cells(z - 5, 4).Value - (Sheets(1).Cells(z - 3, 4).Value) = dist_va_max Then
             z = z - 2
 
         ElseIf (Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value) > dist_va_max Or Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value > dist_va_max Then
             While Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value > dist_va_max Or Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value > dist_va_max
-                Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 3, 4).Value - inc_va
-                vanoref = vanoref - inc_va
+                Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 3, 4).Value - inc_norm_va
+                vanoref = vanoref - inc_norm_va
             Wend
             z = z - 2
-        ElseIf dist_restar <= inc_va And Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value < dist_va_max Then
+        ElseIf dist_restar <= inc_norm_va And Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value < dist_va_max Then
             Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 3, 4).Value - div
             dist_restar = dist_restar - div
             z = z - 2
-        ElseIf dist_restar > inc_va And Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value <= dist_va_max Then
-            Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 3, 4).Value - inc_va
-            dist_restar = dist_restar - inc_va
+        ElseIf dist_restar > inc_norm_va And Sheets(1).Cells(z - 1, 4).Value - Sheets(1).Cells(z - 3, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 5, 4).Value <= dist_va_max Then
+            Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 3, 4).Value - inc_norm_va
+            dist_restar = dist_restar - inc_norm_va
             z = z - 2
         Else
             z = z - 2
@@ -173,7 +173,7 @@ Wend
 h = h - 2
 a = a + 1
 End Sub
-Sub aguja(ByRef h As Integer, ByRef k As Integer, ByRef b As Integer, ByRef a As Integer)
+Sub aguja(ByRef h, ByRef k, ByRef b, ByRef a)
 Dim dist_restar As Double
 Dim pk1 As Double, pk0 As Double, vano12 As Double, vanoref As Double
 Dim z As Integer
@@ -182,11 +182,11 @@ pk0 = Sheets(1).Cells(h, 33).Value
 'caso particular de tener un paso superior bajo antes de la aguja
 If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
     Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value < va_max _
-    And Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value > (va_max - 5 * inc_va) Then
+    And Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value > (va_max - 5 * inc_norm_va) Then
     pk0 = Sheets(1).Cells(h - 2, 33).Value
     h = h + 2
     Sheets(1).Cells(h - 1, 4).Value = Sheets(4).Cells(a, 2).Value - (Sheets(4).Cells(a - 1, 21).Value + dist_va_max)
-    Sheets(1).Cells(h - 3, 4).Value = Sheets(4).Cells(a - 1, 21).Value - Sheets(4).Cells(a - 1, 2).Value + (4 * inc_va)
+    Sheets(1).Cells(h - 3, 4).Value = Sheets(4).Cells(a - 1, 21).Value - Sheets(4).Cells(a - 1, 2).Value + (4 * inc_norm_va)
     Sheets(1).Cells(h - 4, 33).Value = pk1 - Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h - 3, 4).Value
     Call radio.radio1(h - 4, k - 1)
     Sheets(1).Cells(h - 2, 33).Value = pk1 - Sheets(1).Cells(h - 1, 4).Value
@@ -200,8 +200,8 @@ If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
 ElseIf Sheets(4).Cells(a + 1, 1).Value = "Pont" And _
     Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 21).Value < va_max _
     And Sheets(4).Cells(a, 22).Value > dist_va_max Then
-    vano12 = Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 2).Value - inc_va
-    vanoref = (Int(vano12 / inc_va) + 2) * inc_va
+    vano12 = Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 2).Value - inc_norm_va
+    vanoref = (Int(vano12 / inc_norm_va) + 2) * inc_norm_va
     dist_restar = pk0 - pk1 - (Sheets(1).Cells(h - 1, 4).Value - vanoref)
     Sheets(1).Cells(h - 1, 4).Value = vanoref
     Sheets(1).Cells(h, 33).Value = pk1
@@ -228,7 +228,7 @@ b = 0
         Sheets(1).Cells(h, 25).Value = "Aiguillage"
     End If
     
-While dist_restar > inc_va
+While dist_restar > inc_norm_va
     If Sheets(1).Cells(z - 1, 4).Value > Sheets(1).Cells(z + 1, 4).Value And _
         Sheets(1).Cells(z - 1, 4).Value > Sheets(1).Cells(z - 3, 4).Value And dist_restar > dist_va_max Then
         Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - dist_va_max
@@ -240,8 +240,8 @@ While dist_restar > inc_va
         Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - dist_va_max
         Call three(z, dist_restar, k, dist_va_max)
     Else
-    Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_va
-    Call three(z, dist_restar, k, inc_va)
+    Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+    Call three(z, dist_restar, k, inc_norm_va)
     End If
     z = z - 2
 Wend
@@ -264,7 +264,7 @@ Sheets(1).Cells(h + 2, 33).Value = Sheets(1).Cells(h + 1, 4) + Sheets(1).Cells(h
 Call radio.radio1(h + 2, k - 1)
 a = a + 1
 End Sub
-Private Function three(ByRef z As Integer, ByRef dist_restar As Double, ByRef k As Integer, ByRef n As Double)
+Private Function three(ByRef z, ByRef dist_restar, ByRef k, ByRef n)
 Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z, 33).Value - dist_restar
 Call radio.radio1(z, k - 4)
 If vano.vano(Sheets(1).Cells(z, 6).Value) < Sheets(1).Cells(z + 1, 4).Value Then

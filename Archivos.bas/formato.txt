@@ -1,10 +1,11 @@
 Attribute VB_Name = "formato"
-Sub formato()
+Sub formato(idioma1)
 Dim w As Integer, bis As Integer
 Dim z As Integer
+idioma = idioma1
 z = 8
 'títulos de las filas
-If Sheets(2).Cells(41, 4).Value = "frances" Then
+If idioma = "frances" Then
 Sheets(1).Cells(z, 1).Value = "Nº du pylône"
 Sheets(1).Cells(z, 2).Value = ""
 Sheets(1).Cells(z, 3).Value = "PK (m)"

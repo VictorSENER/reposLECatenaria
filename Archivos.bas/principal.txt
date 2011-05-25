@@ -1,33 +1,37 @@
 Attribute VB_Name = "principal"
 ' variables publicas para tabla de replanteo
 Public caso As String, tip_mac As String, tip_poste As String, num_poste As String
-Public uno As Integer
+Public n_min_va_sm As Integer, n_min_va_sla As Integer
 Public alt_nom As Double, alt_max As Double, alt_min As Double, dist_va_max As Double
-Public canton_max As Double, va_max_comp As Double, va_max_aire As Double, va_max_tunel As Double
-Public inc_va As Double, dist_carril_poste As Double, va_max As Double, inc_alt_hc As Double
-Public fin As Double, inicio As Double, start As Double, l_canton As Double
-Public radio_recta As Double
+Public dist_max_canton As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double
+Public inc_norm_va As Double, dist_carril_poste As Double, va_max As Double, inc_max_alt_hc As Double
+Public d_max_cu As Double
+Public inicio As Double, fin As Double
+Public r_re As Double, alt_cat As Double, va_max_sec_comp As Double, d_max_re As Double
+Public va_max_sec_aire As Long, fallo As Double, ancho_via As Double
 Public Error As Long, n_canton2 As Long
-Function principal(inicioVB, hVB, wVB, kVB, aVB, bVB, cVB) As Long()
-Dim w As Integer, h As Integer, k As Integer, a As Integer, b As Integer
-Dim c As Integer
-
+Function principal(inicio1, h1, w1, k1, a1, b1, c1, r_re1, dist_va_max1, inc_norm_va1, va_max_tunel1, va_max1) As Long()
+inicio = inicio1
+h = h1
+w = w1
+k = k1
+a = a1
+b = b1
+c = c1
+r_re = r_re1
+dist_va_max = dist_va_max1
+inc_norm_va = inc_norm_va1
+va_max_tunel = va_max_tunel1
+va_max = va_max1
 'recolección de datos e inicialización
 
-inicio = inicioVB
-
-If hVB = 10 Then
-Call datos.datos_excel
+If h = 10 Then
+'Call datos.datos_excel
 'inicializar todos los contadores
 
-Sheets(1).Cells(10, 33) = inicio
+Sheets(1).Cells(10, 33) = inicio1
 End If
-a = aVB
-b = bVB
-c = cVB
-h = hVB
-k = kVB
-w = wVB
+
                         ' inicializamos 3 vanos para poder corregirlos
 While 16 > h
 

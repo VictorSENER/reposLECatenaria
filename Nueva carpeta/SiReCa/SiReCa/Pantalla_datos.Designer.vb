@@ -27,6 +27,9 @@ Partial Class Pantalla_datos
         Dim SistemaLabel As System.Windows.Forms.Label
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
+        Me.Label106 = New System.Windows.Forms.Label
+        Me.Text_r_min_traz = New System.Windows.Forms.TextBox
+        Me.Label105 = New System.Windows.Forms.Label
         Me.Label34 = New System.Windows.Forms.Label
         Me.Label35 = New System.Windows.Forms.Label
         Me.Label36 = New System.Windows.Forms.Label
@@ -234,9 +237,7 @@ Partial Class Pantalla_datos
         Me.Button2 = New System.Windows.Forms.Button
         Me.Text_nombre_cat = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Label105 = New System.Windows.Forms.Label
-        Me.Text_r_min_traz = New System.Windows.Forms.TextBox
-        Me.Label106 = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
         AlimentaciónLabel = New System.Windows.Forms.Label
         SistemaLabel = New System.Windows.Forms.Label
         Me.TabControl1.SuspendLayout()
@@ -266,18 +267,20 @@ Partial Class Pantalla_datos
         'AlimentaciónLabel
         '
         AlimentaciónLabel.AutoSize = True
-        AlimentaciónLabel.Location = New System.Drawing.Point(287, 57)
+        AlimentaciónLabel.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        AlimentaciónLabel.Location = New System.Drawing.Point(394, 57)
         AlimentaciónLabel.Name = "AlimentaciónLabel"
-        AlimentaciónLabel.Size = New System.Drawing.Size(75, 16)
+        AlimentaciónLabel.Size = New System.Drawing.Size(116, 23)
         AlimentaciónLabel.TabIndex = 6
         AlimentaciónLabel.Text = "Alimentación:"
         '
         'SistemaLabel
         '
         SistemaLabel.AutoSize = True
+        SistemaLabel.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         SistemaLabel.Location = New System.Drawing.Point(72, 52)
         SistemaLabel.Name = "SistemaLabel"
-        SistemaLabel.Size = New System.Drawing.Size(50, 16)
+        SistemaLabel.Size = New System.Drawing.Size(76, 23)
         SistemaLabel.TabIndex = 7
         SistemaLabel.Text = "Sistema:"
         '
@@ -287,10 +290,11 @@ Partial Class Pantalla_datos
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(71, 133)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(861, 573)
+        Me.TabControl1.Size = New System.Drawing.Size(1078, 573)
         Me.TabControl1.TabIndex = 4
         '
         'TabPage1
@@ -385,736 +389,851 @@ Partial Class Pantalla_datos
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.Text_alt_nom)
         Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(853, 544)
+        Me.TabPage1.Size = New System.Drawing.Size(1070, 537)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "DATOS GENERALES"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label106
+        '
+        Me.Label106.AutoSize = True
+        Me.Label106.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label106.Location = New System.Drawing.Point(966, 424)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(24, 23)
+        Me.Label106.TabIndex = 92
+        Me.Label106.Text = "m"
+        '
+        'Text_r_min_traz
+        '
+        Me.Text_r_min_traz.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_r_min_traz.Location = New System.Drawing.Point(822, 421)
+        Me.Text_r_min_traz.Name = "Text_r_min_traz"
+        Me.Text_r_min_traz.Size = New System.Drawing.Size(135, 27)
+        Me.Text_r_min_traz.TabIndex = 91
+        '
+        'Label105
+        '
+        Me.Label105.AutoSize = True
+        Me.Label105.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label105.Location = New System.Drawing.Point(537, 429)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(176, 23)
+        Me.Label105.TabIndex = 90
+        Me.Label105.Text = "Radio mínimo trazado"
+        '
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(746, 399)
+        Me.Label34.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(966, 398)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(16, 16)
+        Me.Label34.Size = New System.Drawing.Size(24, 23)
         Me.Label34.TabIndex = 89
         Me.Label34.Text = "m"
         '
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(746, 373)
+        Me.Label35.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(966, 372)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(16, 16)
+        Me.Label35.Size = New System.Drawing.Size(24, 23)
         Me.Label35.TabIndex = 88
         Me.Label35.Text = "m"
         '
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(746, 346)
+        Me.Label36.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(966, 345)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(16, 16)
+        Me.Label36.Size = New System.Drawing.Size(24, 23)
         Me.Label36.TabIndex = 87
         Me.Label36.Text = "m"
         '
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(746, 320)
+        Me.Label37.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(966, 319)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(16, 16)
+        Me.Label37.Size = New System.Drawing.Size(24, 23)
         Me.Label37.TabIndex = 86
         Me.Label37.Text = "m"
         '
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(746, 294)
+        Me.Label38.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(966, 293)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(16, 16)
+        Me.Label38.Size = New System.Drawing.Size(24, 23)
         Me.Label38.TabIndex = 85
         Me.Label38.Text = "m"
         '
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(351, 425)
+        Me.Label39.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(475, 428)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(16, 16)
+        Me.Label39.Size = New System.Drawing.Size(24, 23)
         Me.Label39.TabIndex = 84
         Me.Label39.Text = "m"
         '
         'Label40
         '
         Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(746, 267)
+        Me.Label40.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.Location = New System.Drawing.Point(966, 266)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(16, 16)
+        Me.Label40.Size = New System.Drawing.Size(24, 23)
         Me.Label40.TabIndex = 83
         Me.Label40.Text = "m"
         '
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(746, 241)
+        Me.Label41.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(966, 240)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(16, 16)
+        Me.Label41.Size = New System.Drawing.Size(24, 23)
         Me.Label41.TabIndex = 82
         Me.Label41.Text = "m"
         '
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(746, 214)
+        Me.Label42.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(966, 213)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(16, 16)
+        Me.Label42.Size = New System.Drawing.Size(24, 23)
         Me.Label42.TabIndex = 81
         Me.Label42.Text = "m"
         '
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(746, 188)
+        Me.Label43.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(966, 187)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(27, 16)
+        Me.Label43.Size = New System.Drawing.Size(41, 23)
         Me.Label43.TabIndex = 80
         Me.Label43.Text = "m/s"
         '
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(746, 162)
+        Me.Label44.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(966, 161)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(16, 16)
+        Me.Label44.Size = New System.Drawing.Size(24, 23)
         Me.Label44.TabIndex = 79
         Me.Label44.Text = "m"
         '
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(746, 135)
+        Me.Label45.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(966, 134)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(16, 16)
+        Me.Label45.Size = New System.Drawing.Size(24, 23)
         Me.Label45.TabIndex = 78
         Me.Label45.Text = "m"
         '
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(746, 108)
+        Me.Label46.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.Location = New System.Drawing.Point(966, 107)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(16, 16)
+        Me.Label46.Size = New System.Drawing.Size(24, 23)
         Me.Label46.TabIndex = 77
         Me.Label46.Text = "m"
         '
         'Label47
         '
         Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(746, 82)
+        Me.Label47.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(966, 81)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(16, 16)
+        Me.Label47.Size = New System.Drawing.Size(24, 23)
         Me.Label47.TabIndex = 76
         Me.Label47.Text = "m"
         '
         'Label48
         '
         Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(746, 55)
+        Me.Label48.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.Location = New System.Drawing.Point(966, 54)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(16, 16)
+        Me.Label48.Size = New System.Drawing.Size(24, 23)
         Me.Label48.TabIndex = 75
         Me.Label48.Text = "m"
         '
         'Text_l_zn
         '
-        Me.Text_l_zn.Location = New System.Drawing.Point(640, 396)
+        Me.Text_l_zn.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_l_zn.Location = New System.Drawing.Point(822, 395)
         Me.Text_l_zn.Name = "Text_l_zn"
-        Me.Text_l_zn.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zn.Size = New System.Drawing.Size(135, 27)
         Me.Text_l_zn.TabIndex = 74
         '
         'Label49
         '
         Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(462, 399)
+        Me.Label49.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.Location = New System.Drawing.Point(537, 403)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(101, 16)
+        Me.Label49.Size = New System.Drawing.Size(150, 23)
         Me.Label49.TabIndex = 73
         Me.Label49.Text = "Long. Zona Neutra"
         '
         'Text_l_zc_min
         '
-        Me.Text_l_zc_min.Location = New System.Drawing.Point(640, 370)
+        Me.Text_l_zc_min.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_l_zc_min.Location = New System.Drawing.Point(822, 369)
         Me.Text_l_zc_min.Name = "Text_l_zc_min"
-        Me.Text_l_zc_min.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zc_min.Size = New System.Drawing.Size(135, 27)
         Me.Text_l_zc_min.TabIndex = 72
         '
         'Label50
         '
         Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(462, 373)
+        Me.Label50.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label50.Location = New System.Drawing.Point(537, 377)
         Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(122, 16)
+        Me.Label50.Size = New System.Drawing.Size(185, 23)
         Me.Label50.TabIndex = 71
         Me.Label50.Text = "Long. zona común mín."
         '
         'Text_l_zc_max
         '
-        Me.Text_l_zc_max.Location = New System.Drawing.Point(640, 343)
+        Me.Text_l_zc_max.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_l_zc_max.Location = New System.Drawing.Point(822, 342)
         Me.Text_l_zc_max.Name = "Text_l_zc_max"
-        Me.Text_l_zc_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_l_zc_max.Size = New System.Drawing.Size(135, 27)
         Me.Text_l_zc_max.TabIndex = 70
         '
         'Label51
         '
         Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(462, 346)
+        Me.Label51.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label51.Location = New System.Drawing.Point(537, 350)
         Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(125, 16)
+        Me.Label51.Size = New System.Drawing.Size(189, 23)
         Me.Label51.TabIndex = 69
         Me.Label51.Text = "Long. zona común máx."
         '
         'Text_dist_elect_sla
         '
-        Me.Text_dist_elect_sla.Location = New System.Drawing.Point(640, 317)
+        Me.Text_dist_elect_sla.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_elect_sla.Location = New System.Drawing.Point(822, 316)
         Me.Text_dist_elect_sla.Name = "Text_dist_elect_sla"
-        Me.Text_dist_elect_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_elect_sla.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_elect_sla.TabIndex = 68
         '
         'Label52
         '
         Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(462, 320)
+        Me.Label52.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label52.Location = New System.Drawing.Point(537, 324)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(159, 16)
+        Me.Label52.Size = New System.Drawing.Size(237, 23)
         Me.Label52.TabIndex = 67
         Me.Label52.Text = "Distancia eléct. sec. eléctrico"
         '
         'Text_dist_elect_sm
         '
-        Me.Text_dist_elect_sm.Location = New System.Drawing.Point(640, 290)
+        Me.Text_dist_elect_sm.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_elect_sm.Location = New System.Drawing.Point(822, 289)
         Me.Text_dist_elect_sm.Name = "Text_dist_elect_sm"
-        Me.Text_dist_elect_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_elect_sm.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_elect_sm.TabIndex = 66
         '
         'Label53
         '
         Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(462, 293)
+        Me.Label53.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label53.Location = New System.Drawing.Point(537, 297)
         Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(161, 16)
+        Me.Label53.Size = New System.Drawing.Size(241, 23)
         Me.Label53.TabIndex = 65
         Me.Label53.Text = "Distancia eléct. sec. mecánico"
         '
         'Text_dist_base_poste_pmr
         '
-        Me.Text_dist_base_poste_pmr.Location = New System.Drawing.Point(640, 264)
+        Me.Text_dist_base_poste_pmr.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_base_poste_pmr.Location = New System.Drawing.Point(822, 263)
         Me.Text_dist_base_poste_pmr.Name = "Text_dist_base_poste_pmr"
-        Me.Text_dist_base_poste_pmr.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_base_poste_pmr.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_base_poste_pmr.TabIndex = 64
         '
         'Label54
         '
         Me.Label54.AutoSize = True
+        Me.Label54.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label54.Location = New System.Drawing.Point(67, 425)
         Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(56, 16)
+        Me.Label54.Size = New System.Drawing.Size(84, 23)
         Me.Label54.TabIndex = 63
         Me.Label54.Text = "Ancho vía"
         '
         'Text_dist_carril_poste
         '
-        Me.Text_dist_carril_poste.Location = New System.Drawing.Point(640, 238)
+        Me.Text_dist_carril_poste.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_carril_poste.Location = New System.Drawing.Point(822, 237)
         Me.Text_dist_carril_poste.Name = "Text_dist_carril_poste"
-        Me.Text_dist_carril_poste.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_carril_poste.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_carril_poste.TabIndex = 62
         '
         'Label55
         '
         Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(462, 267)
+        Me.Label55.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label55.Location = New System.Drawing.Point(537, 271)
         Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(142, 16)
+        Me.Label55.Size = New System.Drawing.Size(214, 23)
         Me.Label55.TabIndex = 61
         Me.Label55.Text = "Distancia base poste - PMR"
         '
         'Text_fl_max_centro_va
         '
-        Me.Text_fl_max_centro_va.Location = New System.Drawing.Point(640, 211)
+        Me.Text_fl_max_centro_va.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_fl_max_centro_va.Location = New System.Drawing.Point(822, 210)
         Me.Text_fl_max_centro_va.Name = "Text_fl_max_centro_va"
-        Me.Text_fl_max_centro_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_fl_max_centro_va.Size = New System.Drawing.Size(135, 27)
         Me.Text_fl_max_centro_va.TabIndex = 60
         '
         'Label56
         '
         Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(462, 241)
+        Me.Label56.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label56.Location = New System.Drawing.Point(537, 245)
         Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(123, 16)
+        Me.Label56.Size = New System.Drawing.Size(184, 23)
         Me.Label56.TabIndex = 59
         Me.Label56.Text = "Distancia carril - poste"
         '
         'Text_vw
         '
-        Me.Text_vw.Location = New System.Drawing.Point(640, 184)
+        Me.Text_vw.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_vw.Location = New System.Drawing.Point(822, 183)
         Me.Text_vw.Name = "Text_vw"
-        Me.Text_vw.Size = New System.Drawing.Size(100, 20)
+        Me.Text_vw.Size = New System.Drawing.Size(135, 27)
         Me.Text_vw.TabIndex = 58
         '
         'Label57
         '
         Me.Label57.AutoSize = True
-        Me.Label57.Location = New System.Drawing.Point(462, 214)
+        Me.Label57.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label57.Location = New System.Drawing.Point(537, 218)
         Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(131, 16)
+        Me.Label57.Size = New System.Drawing.Size(197, 23)
         Me.Label57.TabIndex = 57
         Me.Label57.Text = "Flecha máx. centro vano"
         '
         'Text_el_max_pant
         '
-        Me.Text_el_max_pant.Location = New System.Drawing.Point(640, 158)
+        Me.Text_el_max_pant.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_el_max_pant.Location = New System.Drawing.Point(822, 157)
         Me.Text_el_max_pant.Name = "Text_el_max_pant"
-        Me.Text_el_max_pant.Size = New System.Drawing.Size(100, 20)
+        Me.Text_el_max_pant.Size = New System.Drawing.Size(135, 27)
         Me.Text_el_max_pant.TabIndex = 56
         '
         'Label58
         '
         Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(462, 188)
+        Me.Label58.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label58.Location = New System.Drawing.Point(537, 192)
         Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(91, 16)
+        Me.Label58.Size = New System.Drawing.Size(136, 23)
         Me.Label58.TabIndex = 55
         Me.Label58.Text = "Velocidad viento"
         '
         'Text_zona_trab_pant
         '
-        Me.Text_zona_trab_pant.Location = New System.Drawing.Point(640, 131)
+        Me.Text_zona_trab_pant.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_zona_trab_pant.Location = New System.Drawing.Point(822, 130)
         Me.Text_zona_trab_pant.Name = "Text_zona_trab_pant"
-        Me.Text_zona_trab_pant.Size = New System.Drawing.Size(100, 20)
+        Me.Text_zona_trab_pant.Size = New System.Drawing.Size(135, 27)
         Me.Text_zona_trab_pant.TabIndex = 54
         '
         'Label59
         '
         Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(462, 161)
+        Me.Label59.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.Location = New System.Drawing.Point(537, 165)
         Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(141, 16)
+        Me.Label59.Size = New System.Drawing.Size(213, 23)
         Me.Label59.TabIndex = 53
         Me.Label59.Text = "Elevación máx. pantógrafo"
         '
         'Text_r_re
         '
-        Me.Text_r_re.Location = New System.Drawing.Point(640, 105)
+        Me.Text_r_re.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_r_re.Location = New System.Drawing.Point(822, 104)
         Me.Text_r_re.Name = "Text_r_re"
-        Me.Text_r_re.Size = New System.Drawing.Size(100, 20)
+        Me.Text_r_re.Size = New System.Drawing.Size(135, 27)
         Me.Text_r_re.TabIndex = 52
         '
         'Label60
         '
         Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(462, 135)
+        Me.Label60.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label60.Location = New System.Drawing.Point(537, 139)
         Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(132, 16)
+        Me.Label60.Size = New System.Drawing.Size(195, 23)
         Me.Label60.TabIndex = 51
         Me.Label60.Text = "Zona trabajo pantógrafo"
         '
         'Text_d_max_cu
         '
-        Me.Text_d_max_cu.Location = New System.Drawing.Point(640, 78)
+        Me.Text_d_max_cu.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_d_max_cu.Location = New System.Drawing.Point(822, 77)
         Me.Text_d_max_cu.Name = "Text_d_max_cu"
-        Me.Text_d_max_cu.Size = New System.Drawing.Size(100, 20)
+        Me.Text_d_max_cu.Size = New System.Drawing.Size(135, 27)
         Me.Text_d_max_cu.TabIndex = 50
         '
         'Label61
         '
         Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(462, 108)
+        Me.Label61.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label61.Location = New System.Drawing.Point(537, 112)
         Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(161, 16)
+        Me.Label61.Size = New System.Drawing.Size(243, 23)
         Me.Label61.TabIndex = 49
         Me.Label61.Text = "Radio considerable como recta"
         '
         'Text_d_max_re
         '
-        Me.Text_d_max_re.Location = New System.Drawing.Point(640, 52)
+        Me.Text_d_max_re.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_d_max_re.Location = New System.Drawing.Point(822, 51)
         Me.Text_d_max_re.Name = "Text_d_max_re"
-        Me.Text_d_max_re.Size = New System.Drawing.Size(100, 20)
+        Me.Text_d_max_re.Size = New System.Drawing.Size(135, 27)
         Me.Text_d_max_re.TabIndex = 48
         '
         'Label62
         '
         Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(462, 82)
+        Me.Label62.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label62.Location = New System.Drawing.Point(537, 86)
         Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(153, 16)
+        Me.Label62.Size = New System.Drawing.Size(229, 23)
         Me.Label62.TabIndex = 47
         Me.Label62.Text = "Descentramiento máx. curva"
         '
         'Text_ancho_via
         '
-        Me.Text_ancho_via.Location = New System.Drawing.Point(245, 422)
+        Me.Text_ancho_via.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_ancho_via.Location = New System.Drawing.Point(336, 425)
         Me.Text_ancho_via.Name = "Text_ancho_via"
-        Me.Text_ancho_via.Size = New System.Drawing.Size(100, 20)
+        Me.Text_ancho_via.Size = New System.Drawing.Size(135, 27)
         Me.Text_ancho_via.TabIndex = 31
         '
         'Label63
         '
         Me.Label63.AutoSize = True
-        Me.Label63.Location = New System.Drawing.Point(462, 55)
+        Me.Label63.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.Location = New System.Drawing.Point(537, 59)
         Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(152, 16)
+        Me.Label63.Size = New System.Drawing.Size(227, 23)
         Me.Label63.TabIndex = 45
         Me.Label63.Text = "Descentramiento máx. recta"
         '
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(351, 400)
+        Me.Label32.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(475, 403)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(21, 16)
+        Me.Label32.Size = New System.Drawing.Size(30, 23)
         Me.Label32.TabIndex = 43
         Me.Label32.Text = "Ud"
         '
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(351, 373)
+        Me.Label33.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(475, 376)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(21, 16)
+        Me.Label33.Size = New System.Drawing.Size(30, 23)
         Me.Label33.TabIndex = 42
         Me.Label33.Text = "Ud"
         '
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(351, 347)
+        Me.Label28.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(475, 350)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(15, 16)
+        Me.Label28.Size = New System.Drawing.Size(20, 23)
         Me.Label28.TabIndex = 41
         Me.Label28.Text = "%"
         '
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(351, 321)
+        Me.Label29.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(475, 324)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(16, 16)
+        Me.Label29.Size = New System.Drawing.Size(24, 23)
         Me.Label29.TabIndex = 40
         Me.Label29.Text = "m"
         '
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(351, 294)
+        Me.Label30.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(475, 297)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(16, 16)
+        Me.Label30.Size = New System.Drawing.Size(24, 23)
         Me.Label30.TabIndex = 39
         Me.Label30.Text = "m"
         '
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(351, 267)
+        Me.Label25.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(475, 270)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(16, 16)
+        Me.Label25.Size = New System.Drawing.Size(24, 23)
         Me.Label25.TabIndex = 38
         Me.Label25.Text = "m"
         '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(351, 241)
+        Me.Label26.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(475, 244)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(16, 16)
+        Me.Label26.Size = New System.Drawing.Size(24, 23)
         Me.Label26.TabIndex = 37
         Me.Label26.Text = "m"
         '
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(351, 214)
+        Me.Label27.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(475, 217)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(16, 16)
+        Me.Label27.Size = New System.Drawing.Size(24, 23)
         Me.Label27.TabIndex = 36
         Me.Label27.Text = "m"
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(351, 188)
+        Me.Label22.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(475, 191)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(16, 16)
+        Me.Label22.Size = New System.Drawing.Size(24, 23)
         Me.Label22.TabIndex = 35
         Me.Label22.Text = "m"
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(351, 162)
+        Me.Label23.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(475, 165)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(16, 16)
+        Me.Label23.Size = New System.Drawing.Size(24, 23)
         Me.Label23.TabIndex = 34
         Me.Label23.Text = "m"
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(351, 135)
+        Me.Label24.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(475, 138)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(16, 16)
+        Me.Label24.Size = New System.Drawing.Size(24, 23)
         Me.Label24.TabIndex = 33
         Me.Label24.Text = "m"
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(351, 108)
+        Me.Label21.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(475, 111)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(16, 16)
+        Me.Label21.Size = New System.Drawing.Size(24, 23)
         Me.Label21.TabIndex = 32
         Me.Label21.Text = "m"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(351, 82)
+        Me.Label20.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(475, 85)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(16, 16)
+        Me.Label20.Size = New System.Drawing.Size(24, 23)
         Me.Label20.TabIndex = 31
         Me.Label20.Text = "m"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(351, 55)
+        Me.Label12.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(475, 58)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(16, 16)
+        Me.Label12.Size = New System.Drawing.Size(24, 23)
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "m"
         '
         'Text_n_min_va_sla
         '
-        Me.Text_n_min_va_sla.Location = New System.Drawing.Point(245, 397)
+        Me.Text_n_min_va_sla.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_n_min_va_sla.Location = New System.Drawing.Point(336, 400)
         Me.Text_n_min_va_sla.Name = "Text_n_min_va_sla"
-        Me.Text_n_min_va_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_min_va_sla.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_min_va_sla.TabIndex = 27
         '
         'Label14
         '
         Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(67, 400)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(160, 16)
+        Me.Label14.Size = New System.Drawing.Size(246, 23)
         Me.Label14.TabIndex = 26
         Me.Label14.Text = "Núm. mín. vanos en sec. eléct."
         '
         'Text_n_min_va_sm
         '
-        Me.Text_n_min_va_sm.Location = New System.Drawing.Point(245, 370)
+        Me.Text_n_min_va_sm.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_n_min_va_sm.Location = New System.Drawing.Point(336, 373)
         Me.Text_n_min_va_sm.Name = "Text_n_min_va_sm"
-        Me.Text_n_min_va_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_min_va_sm.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_min_va_sm.TabIndex = 25
         '
         'Label15
         '
         Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(67, 373)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(155, 16)
+        Me.Label15.Size = New System.Drawing.Size(239, 23)
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Núm. mín. vanos en sec. mec."
         '
         'Text_inc_max_alt_hc
         '
-        Me.Text_inc_max_alt_hc.Location = New System.Drawing.Point(245, 344)
+        Me.Text_inc_max_alt_hc.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_inc_max_alt_hc.Location = New System.Drawing.Point(336, 347)
         Me.Text_inc_max_alt_hc.Name = "Text_inc_max_alt_hc"
-        Me.Text_inc_max_alt_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_inc_max_alt_hc.Size = New System.Drawing.Size(135, 27)
         Me.Text_inc_max_alt_hc.TabIndex = 23
         '
         'Label16
         '
         Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(67, 347)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(118, 16)
+        Me.Label16.Size = New System.Drawing.Size(177, 23)
         Me.Label16.TabIndex = 22
         Me.Label16.Text = "Incr. máx. altura H.C."
         '
         'Text_inc_norm_va
         '
-        Me.Text_inc_norm_va.Location = New System.Drawing.Point(245, 317)
+        Me.Text_inc_norm_va.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_inc_norm_va.Location = New System.Drawing.Point(336, 320)
         Me.Text_inc_norm_va.Name = "Text_inc_norm_va"
-        Me.Text_inc_norm_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_inc_norm_va.Size = New System.Drawing.Size(135, 27)
         Me.Text_inc_norm_va.TabIndex = 21
         '
         'Label17
         '
         Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(67, 320)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(138, 16)
+        Me.Label17.Size = New System.Drawing.Size(207, 23)
         Me.Label17.TabIndex = 20
         Me.Label17.Text = "Incr. normalizado de vano"
         '
         'Text_va_max_tunel
         '
-        Me.Text_va_max_tunel.Location = New System.Drawing.Point(245, 291)
+        Me.Text_va_max_tunel.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_va_max_tunel.Location = New System.Drawing.Point(336, 294)
         Me.Text_va_max_tunel.Name = "Text_va_max_tunel"
-        Me.Text_va_max_tunel.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_tunel.Size = New System.Drawing.Size(135, 27)
         Me.Text_va_max_tunel.TabIndex = 19
         '
         'Label18
         '
         Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(67, 294)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(103, 16)
+        Me.Label18.Size = New System.Drawing.Size(157, 23)
         Me.Label18.TabIndex = 18
         Me.Label18.Text = "Vano máx. en túnel"
         '
         'Text_va_max_sla
         '
-        Me.Text_va_max_sla.Location = New System.Drawing.Point(245, 264)
+        Me.Text_va_max_sla.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_va_max_sla.Location = New System.Drawing.Point(336, 267)
         Me.Text_va_max_sla.Name = "Text_va_max_sla"
-        Me.Text_va_max_sla.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_sla.Size = New System.Drawing.Size(135, 27)
         Me.Text_va_max_sla.TabIndex = 17
         '
         'Label19
         '
         Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(67, 267)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(147, 16)
+        Me.Label19.Size = New System.Drawing.Size(221, 23)
         Me.Label19.TabIndex = 16
         Me.Label19.Text = "Vano máx. en sec. eléctrico"
         '
         'Text_va_max_sm
         '
-        Me.Text_va_max_sm.Location = New System.Drawing.Point(245, 238)
+        Me.Text_va_max_sm.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_va_max_sm.Location = New System.Drawing.Point(336, 241)
         Me.Text_va_max_sm.Name = "Text_va_max_sm"
-        Me.Text_va_max_sm.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max_sm.Size = New System.Drawing.Size(135, 27)
         Me.Text_va_max_sm.TabIndex = 15
         '
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(67, 241)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(149, 16)
+        Me.Label8.Size = New System.Drawing.Size(225, 23)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Vano máx. en sec. mecánico"
         '
         'Text_va_max
         '
-        Me.Text_va_max.Location = New System.Drawing.Point(245, 211)
+        Me.Text_va_max.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_va_max.Location = New System.Drawing.Point(336, 214)
         Me.Text_va_max.Name = "Text_va_max"
-        Me.Text_va_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_va_max.Size = New System.Drawing.Size(135, 27)
         Me.Text_va_max.TabIndex = 13
         '
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(67, 214)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(73, 16)
+        Me.Label9.Size = New System.Drawing.Size(112, 23)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "Vano máximo"
         '
         'Text_dist_max_canton
         '
-        Me.Text_dist_max_canton.Location = New System.Drawing.Point(245, 185)
+        Me.Text_dist_max_canton.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_max_canton.Location = New System.Drawing.Point(336, 188)
         Me.Text_dist_max_canton.Name = "Text_dist_max_canton"
-        Me.Text_dist_max_canton.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_canton.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_max_canton.TabIndex = 11
         '
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(67, 188)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(137, 16)
+        Me.Label10.Size = New System.Drawing.Size(207, 23)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Distancia máx. del cantón"
         '
         'Text_dist_max_va
         '
-        Me.Text_dist_max_va.Location = New System.Drawing.Point(245, 158)
+        Me.Text_dist_max_va.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_dist_max_va.Location = New System.Drawing.Point(336, 161)
         Me.Text_dist_max_va.Name = "Text_dist_max_va"
-        Me.Text_dist_max_va.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_va.Size = New System.Drawing.Size(135, 27)
         Me.Text_dist_max_va.TabIndex = 9
         '
         'Label11
         '
         Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(67, 161)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(145, 16)
+        Me.Label11.Size = New System.Drawing.Size(218, 23)
         Me.Label11.TabIndex = 8
         Me.Label11.Text = "Distancia máx. entre vanos"
         '
         'Text_alt_cat
         '
-        Me.Text_alt_cat.Location = New System.Drawing.Point(245, 132)
+        Me.Text_alt_cat.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_alt_cat.Location = New System.Drawing.Point(336, 135)
         Me.Text_alt_cat.Name = "Text_alt_cat"
-        Me.Text_alt_cat.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_cat.Size = New System.Drawing.Size(135, 27)
         Me.Text_alt_cat.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(67, 135)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(90, 16)
+        Me.Label6.Size = New System.Drawing.Size(135, 23)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Altura catenaria"
         '
         'Text_alt_max
         '
-        Me.Text_alt_max.Location = New System.Drawing.Point(245, 105)
+        Me.Text_alt_max.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_alt_max.Location = New System.Drawing.Point(336, 108)
         Me.Text_alt_max.Name = "Text_alt_max"
-        Me.Text_alt_max.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_max.Size = New System.Drawing.Size(135, 27)
         Me.Text_alt_max.TabIndex = 5
         '
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(67, 108)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(78, 16)
+        Me.Label7.Size = New System.Drawing.Size(123, 23)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Altura máxima"
         '
         'Text_alt_min
         '
-        Me.Text_alt_min.Location = New System.Drawing.Point(245, 79)
+        Me.Text_alt_min.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_alt_min.Location = New System.Drawing.Point(336, 82)
         Me.Text_alt_min.Name = "Text_alt_min"
-        Me.Text_alt_min.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_min.Size = New System.Drawing.Size(135, 27)
         Me.Text_alt_min.TabIndex = 3
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(67, 82)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 16)
+        Me.Label5.Size = New System.Drawing.Size(119, 23)
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "Altura mínima"
         '
         'Text_alt_nom
         '
-        Me.Text_alt_nom.Location = New System.Drawing.Point(245, 52)
+        Me.Text_alt_nom.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Text_alt_nom.Location = New System.Drawing.Point(336, 55)
         Me.Text_alt_nom.Name = "Text_alt_nom"
-        Me.Text_alt_nom.Size = New System.Drawing.Size(100, 20)
+        Me.Text_alt_nom.Size = New System.Drawing.Size(135, 27)
         Me.Text_alt_nom.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(67, 55)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 16)
+        Me.Label4.Size = New System.Drawing.Size(123, 23)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Altura nominal"
         '
@@ -1172,10 +1291,10 @@ Partial Class Pantalla_datos
         Me.TabPage2.Controls.Add(Me.Label65)
         Me.TabPage2.Controls.Add(Me.Combo_hc)
         Me.TabPage2.Controls.Add(Me.Label64)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 32)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(853, 544)
+        Me.TabPage2.Size = New System.Drawing.Size(1070, 537)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "CONDUCTORES"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1184,9 +1303,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_posicion_feed_neg.FormattingEnabled = True
         Me.Combo_posicion_feed_neg.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
-        Me.Combo_posicion_feed_neg.Location = New System.Drawing.Point(244, 362)
+        Me.Combo_posicion_feed_neg.Location = New System.Drawing.Point(314, 363)
         Me.Combo_posicion_feed_neg.Name = "Combo_posicion_feed_neg"
-        Me.Combo_posicion_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_posicion_feed_neg.Size = New System.Drawing.Size(225, 31)
         Me.Combo_posicion_feed_neg.TabIndex = 59
         '
         'Label93
@@ -1194,7 +1313,7 @@ Partial Class Pantalla_datos
         Me.Label93.AutoSize = True
         Me.Label93.Location = New System.Drawing.Point(102, 368)
         Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(94, 16)
+        Me.Label93.Size = New System.Drawing.Size(140, 23)
         Me.Label93.TabIndex = 58
         Me.Label93.Text = "Posición Feeder -"
         '
@@ -1202,9 +1321,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_posicion_feed_pos.FormattingEnabled = True
         Me.Combo_posicion_feed_pos.Items.AddRange(New Object() {"Apoyado", "Suspendido (lado exterior)", "Suspendido (lado vía)"})
-        Me.Combo_posicion_feed_pos.Location = New System.Drawing.Point(244, 332)
+        Me.Combo_posicion_feed_pos.Location = New System.Drawing.Point(314, 333)
         Me.Combo_posicion_feed_pos.Name = "Combo_posicion_feed_pos"
-        Me.Combo_posicion_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_posicion_feed_pos.Size = New System.Drawing.Size(225, 31)
         Me.Combo_posicion_feed_pos.TabIndex = 57
         '
         'Label94
@@ -1212,257 +1331,257 @@ Partial Class Pantalla_datos
         Me.Label94.AutoSize = True
         Me.Label94.Location = New System.Drawing.Point(102, 335)
         Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(96, 16)
+        Me.Label94.Size = New System.Drawing.Size(143, 23)
         Me.Label94.TabIndex = 56
         Me.Label94.Text = "Posición Feeder +"
         '
         'Label87
         '
         Me.Label87.AutoSize = True
-        Me.Label87.Location = New System.Drawing.Point(718, 302)
+        Me.Label87.Location = New System.Drawing.Point(966, 305)
         Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(20, 16)
+        Me.Label87.Size = New System.Drawing.Size(29, 23)
         Me.Label87.TabIndex = 55
         Me.Label87.Text = "Kg"
         '
         'Text_t_pto_fijo
         '
-        Me.Text_t_pto_fijo.Location = New System.Drawing.Point(612, 299)
+        Me.Text_t_pto_fijo.Location = New System.Drawing.Point(825, 302)
         Me.Text_t_pto_fijo.Name = "Text_t_pto_fijo"
-        Me.Text_t_pto_fijo.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_pto_fijo.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_pto_fijo.TabIndex = 54
         '
         'Label88
         '
         Me.Label88.AutoSize = True
-        Me.Label88.Location = New System.Drawing.Point(470, 302)
+        Me.Label88.Location = New System.Drawing.Point(619, 305)
         Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(98, 16)
+        Me.Label88.Size = New System.Drawing.Size(148, 23)
         Me.Label88.TabIndex = 53
         Me.Label88.Text = "Tensión punto fijo"
         '
         'Label91
         '
         Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(718, 276)
+        Me.Label91.Location = New System.Drawing.Point(966, 279)
         Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(20, 16)
+        Me.Label91.Size = New System.Drawing.Size(29, 23)
         Me.Label91.TabIndex = 52
         Me.Label91.Text = "Kg"
         '
         'Text_t_feed_neg
         '
-        Me.Text_t_feed_neg.Location = New System.Drawing.Point(612, 273)
+        Me.Text_t_feed_neg.Location = New System.Drawing.Point(825, 276)
         Me.Text_t_feed_neg.Name = "Text_t_feed_neg"
-        Me.Text_t_feed_neg.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_feed_neg.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_feed_neg.TabIndex = 51
         '
         'Label92
         '
         Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(470, 276)
+        Me.Label92.Location = New System.Drawing.Point(619, 279)
         Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(91, 16)
+        Me.Label92.Size = New System.Drawing.Size(137, 23)
         Me.Label92.TabIndex = 50
         Me.Label92.Text = "Tensión Feeder -"
         '
         'Label85
         '
         Me.Label85.AutoSize = True
-        Me.Label85.Location = New System.Drawing.Point(718, 250)
+        Me.Label85.Location = New System.Drawing.Point(966, 253)
         Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(20, 16)
+        Me.Label85.Size = New System.Drawing.Size(29, 23)
         Me.Label85.TabIndex = 49
         Me.Label85.Text = "Kg"
         '
         'Text_t_feed_pos
         '
-        Me.Text_t_feed_pos.Location = New System.Drawing.Point(612, 247)
+        Me.Text_t_feed_pos.Location = New System.Drawing.Point(825, 250)
         Me.Text_t_feed_pos.Name = "Text_t_feed_pos"
-        Me.Text_t_feed_pos.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_feed_pos.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_feed_pos.TabIndex = 48
         '
         'Label86
         '
         Me.Label86.AutoSize = True
-        Me.Label86.Location = New System.Drawing.Point(470, 250)
+        Me.Label86.Location = New System.Drawing.Point(619, 253)
         Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(93, 16)
+        Me.Label86.Size = New System.Drawing.Size(140, 23)
         Me.Label86.TabIndex = 47
         Me.Label86.Text = "Tensión Feeder +"
         '
         'Label89
         '
         Me.Label89.AutoSize = True
-        Me.Label89.Location = New System.Drawing.Point(718, 224)
+        Me.Label89.Location = New System.Drawing.Point(966, 227)
         Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(20, 16)
+        Me.Label89.Size = New System.Drawing.Size(29, 23)
         Me.Label89.TabIndex = 46
         Me.Label89.Text = "Kg"
         '
         'Text_t_cdpa
         '
-        Me.Text_t_cdpa.Location = New System.Drawing.Point(612, 221)
+        Me.Text_t_cdpa.Location = New System.Drawing.Point(825, 224)
         Me.Text_t_cdpa.Name = "Text_t_cdpa"
-        Me.Text_t_cdpa.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_cdpa.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_cdpa.TabIndex = 45
         '
         'Label90
         '
         Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(470, 224)
+        Me.Label90.Location = New System.Drawing.Point(619, 227)
         Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(74, 16)
+        Me.Label90.Size = New System.Drawing.Size(113, 23)
         Me.Label90.TabIndex = 44
         Me.Label90.Text = "Tensión CdPA"
         '
         'Label77
         '
         Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(718, 198)
+        Me.Label77.Location = New System.Drawing.Point(966, 201)
         Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(20, 16)
+        Me.Label77.Size = New System.Drawing.Size(29, 23)
         Me.Label77.TabIndex = 43
         Me.Label77.Text = "Kg"
         '
         'Text_t_sust
         '
-        Me.Text_t_sust.Location = New System.Drawing.Point(612, 195)
+        Me.Text_t_sust.Location = New System.Drawing.Point(825, 198)
         Me.Text_t_sust.Name = "Text_t_sust"
-        Me.Text_t_sust.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_sust.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_sust.TabIndex = 42
         '
         'Label80
         '
         Me.Label80.AutoSize = True
-        Me.Label80.Location = New System.Drawing.Point(470, 198)
+        Me.Label80.Location = New System.Drawing.Point(619, 201)
         Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(110, 16)
+        Me.Label80.Size = New System.Drawing.Size(165, 23)
         Me.Label80.TabIndex = 41
         Me.Label80.Text = "Tensión sustentador"
         '
         'Label81
         '
         Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(718, 172)
+        Me.Label81.Location = New System.Drawing.Point(966, 175)
         Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(20, 16)
+        Me.Label81.Size = New System.Drawing.Size(29, 23)
         Me.Label81.TabIndex = 40
         Me.Label81.Text = "Kg"
         '
         'Text_t_hc
         '
-        Me.Text_t_hc.Location = New System.Drawing.Point(612, 169)
+        Me.Text_t_hc.Location = New System.Drawing.Point(825, 172)
         Me.Text_t_hc.Name = "Text_t_hc"
-        Me.Text_t_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_t_hc.Size = New System.Drawing.Size(135, 27)
         Me.Text_t_hc.TabIndex = 39
         '
         'Label82
         '
         Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(470, 172)
+        Me.Label82.Location = New System.Drawing.Point(619, 175)
         Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(71, 16)
+        Me.Label82.Size = New System.Drawing.Size(107, 23)
         Me.Label82.TabIndex = 38
         Me.Label82.Text = "Tensión H.C."
         '
         'Label83
         '
         Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(718, 146)
+        Me.Label83.Location = New System.Drawing.Point(966, 149)
         Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(21, 16)
+        Me.Label83.Size = New System.Drawing.Size(30, 23)
         Me.Label83.TabIndex = 37
         Me.Label83.Text = "Ud"
         '
         'Text_n_feed_neg
         '
-        Me.Text_n_feed_neg.Location = New System.Drawing.Point(612, 143)
+        Me.Text_n_feed_neg.Location = New System.Drawing.Point(825, 146)
         Me.Text_n_feed_neg.Name = "Text_n_feed_neg"
-        Me.Text_n_feed_neg.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_feed_neg.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_feed_neg.TabIndex = 36
         '
         'Label84
         '
         Me.Label84.AutoSize = True
-        Me.Label84.Location = New System.Drawing.Point(470, 146)
+        Me.Label84.Location = New System.Drawing.Point(619, 149)
         Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(74, 16)
+        Me.Label84.Size = New System.Drawing.Size(112, 23)
         Me.Label84.TabIndex = 35
         Me.Label84.Text = "Núm Feeder -"
         '
         'Label75
         '
         Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(718, 120)
+        Me.Label75.Location = New System.Drawing.Point(966, 123)
         Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(21, 16)
+        Me.Label75.Size = New System.Drawing.Size(30, 23)
         Me.Label75.TabIndex = 34
         Me.Label75.Text = "Ud"
         '
         'Text_n_feed_pos
         '
-        Me.Text_n_feed_pos.Location = New System.Drawing.Point(612, 117)
+        Me.Text_n_feed_pos.Location = New System.Drawing.Point(825, 120)
         Me.Text_n_feed_pos.Name = "Text_n_feed_pos"
-        Me.Text_n_feed_pos.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_feed_pos.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_feed_pos.TabIndex = 33
         '
         'Label76
         '
         Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(470, 120)
+        Me.Label76.Location = New System.Drawing.Point(619, 123)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(76, 16)
+        Me.Label76.Size = New System.Drawing.Size(115, 23)
         Me.Label76.TabIndex = 32
         Me.Label76.Text = "Núm Feeder +"
         '
         'Label73
         '
         Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(718, 94)
+        Me.Label73.Location = New System.Drawing.Point(966, 97)
         Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(21, 16)
+        Me.Label73.Size = New System.Drawing.Size(30, 23)
         Me.Label73.TabIndex = 31
         Me.Label73.Text = "Ud"
         '
         'Text_n_cdpa
         '
-        Me.Text_n_cdpa.Location = New System.Drawing.Point(612, 91)
+        Me.Text_n_cdpa.Location = New System.Drawing.Point(825, 94)
         Me.Text_n_cdpa.Name = "Text_n_cdpa"
-        Me.Text_n_cdpa.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_cdpa.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_cdpa.TabIndex = 30
         '
         'Label74
         '
         Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(470, 94)
+        Me.Label74.Location = New System.Drawing.Point(619, 97)
         Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(57, 16)
+        Me.Label74.Size = New System.Drawing.Size(88, 23)
         Me.Label74.TabIndex = 29
         Me.Label74.Text = "Núm CdPA"
         '
         'Label72
         '
         Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(718, 68)
+        Me.Label72.Location = New System.Drawing.Point(966, 71)
         Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(21, 16)
+        Me.Label72.Size = New System.Drawing.Size(30, 23)
         Me.Label72.TabIndex = 28
         Me.Label72.Text = "Ud"
         '
         'Text_n_hc
         '
-        Me.Text_n_hc.Location = New System.Drawing.Point(612, 65)
+        Me.Text_n_hc.Location = New System.Drawing.Point(825, 68)
         Me.Text_n_hc.Name = "Text_n_hc"
-        Me.Text_n_hc.Size = New System.Drawing.Size(100, 20)
+        Me.Text_n_hc.Size = New System.Drawing.Size(135, 27)
         Me.Text_n_hc.TabIndex = 27
         '
         'Label78
         '
         Me.Label78.AutoSize = True
-        Me.Label78.Location = New System.Drawing.Point(470, 68)
+        Me.Label78.Location = New System.Drawing.Point(619, 71)
         Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(54, 16)
+        Me.Label78.Size = New System.Drawing.Size(82, 23)
         Me.Label78.TabIndex = 18
         Me.Label78.Text = "Núm H.C."
         '
@@ -1471,9 +1590,9 @@ Partial Class Pantalla_datos
         Me.Combo_anc.DataSource = Me.ConductorAnclajeBindingSource
         Me.Combo_anc.DisplayMember = "Material"
         Me.Combo_anc.FormattingEnabled = True
-        Me.Combo_anc.Location = New System.Drawing.Point(244, 302)
+        Me.Combo_anc.Location = New System.Drawing.Point(314, 303)
         Me.Combo_anc.Name = "Combo_anc"
-        Me.Combo_anc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_anc.Size = New System.Drawing.Size(225, 31)
         Me.Combo_anc.TabIndex = 17
         '
         'ConductorAnclajeBindingSource
@@ -1491,7 +1610,7 @@ Partial Class Pantalla_datos
         Me.Label79.AutoSize = True
         Me.Label79.Location = New System.Drawing.Point(102, 308)
         Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(44, 16)
+        Me.Label79.Size = New System.Drawing.Size(67, 23)
         Me.Label79.TabIndex = 16
         Me.Label79.Text = "Anclaje"
         '
@@ -1500,9 +1619,9 @@ Partial Class Pantalla_datos
         Me.Combo_pend.DataSource = Me.ConductorPendolaBindingSource
         Me.Combo_pend.DisplayMember = "Material"
         Me.Combo_pend.FormattingEnabled = True
-        Me.Combo_pend.Location = New System.Drawing.Point(244, 272)
+        Me.Combo_pend.Location = New System.Drawing.Point(314, 273)
         Me.Combo_pend.Name = "Combo_pend"
-        Me.Combo_pend.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_pend.Size = New System.Drawing.Size(225, 31)
         Me.Combo_pend.TabIndex = 15
         '
         'ConductorPendolaBindingSource
@@ -1515,7 +1634,7 @@ Partial Class Pantalla_datos
         Me.Label68.AutoSize = True
         Me.Label68.Location = New System.Drawing.Point(102, 275)
         Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(46, 16)
+        Me.Label68.Size = New System.Drawing.Size(69, 23)
         Me.Label68.TabIndex = 14
         Me.Label68.Text = "Péndola"
         '
@@ -1524,9 +1643,9 @@ Partial Class Pantalla_datos
         Me.Combo_pto_fijo.DataSource = Me.ConductorPuntoFijoBindingSource
         Me.Combo_pto_fijo.DisplayMember = "Material"
         Me.Combo_pto_fijo.FormattingEnabled = True
-        Me.Combo_pto_fijo.Location = New System.Drawing.Point(244, 242)
+        Me.Combo_pto_fijo.Location = New System.Drawing.Point(314, 243)
         Me.Combo_pto_fijo.Name = "Combo_pto_fijo"
-        Me.Combo_pto_fijo.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_pto_fijo.Size = New System.Drawing.Size(225, 31)
         Me.Combo_pto_fijo.TabIndex = 13
         '
         'ConductorPuntoFijoBindingSource
@@ -1539,7 +1658,7 @@ Partial Class Pantalla_datos
         Me.Label69.AutoSize = True
         Me.Label69.Location = New System.Drawing.Point(102, 245)
         Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(57, 16)
+        Me.Label69.Size = New System.Drawing.Size(84, 23)
         Me.Label69.TabIndex = 12
         Me.Label69.Text = "Punto fijo"
         '
@@ -1548,9 +1667,9 @@ Partial Class Pantalla_datos
         Me.Combo_feed_neg.DataSource = Me.ConductorFeederBindingSource1
         Me.Combo_feed_neg.DisplayMember = "Material"
         Me.Combo_feed_neg.FormattingEnabled = True
-        Me.Combo_feed_neg.Location = New System.Drawing.Point(244, 212)
+        Me.Combo_feed_neg.Location = New System.Drawing.Point(314, 213)
         Me.Combo_feed_neg.Name = "Combo_feed_neg"
-        Me.Combo_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_feed_neg.Size = New System.Drawing.Size(225, 31)
         Me.Combo_feed_neg.TabIndex = 11
         '
         'ConductorFeederBindingSource1
@@ -1563,7 +1682,7 @@ Partial Class Pantalla_datos
         Me.Label70.AutoSize = True
         Me.Label70.Location = New System.Drawing.Point(102, 215)
         Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(50, 16)
+        Me.Label70.Size = New System.Drawing.Size(73, 23)
         Me.Label70.TabIndex = 10
         Me.Label70.Text = "Feeder -"
         '
@@ -1572,9 +1691,9 @@ Partial Class Pantalla_datos
         Me.Combo_feed_pos.DataSource = Me.ConductorFeederBindingSource
         Me.Combo_feed_pos.DisplayMember = "Material"
         Me.Combo_feed_pos.FormattingEnabled = True
-        Me.Combo_feed_pos.Location = New System.Drawing.Point(244, 182)
+        Me.Combo_feed_pos.Location = New System.Drawing.Point(314, 183)
         Me.Combo_feed_pos.Name = "Combo_feed_pos"
-        Me.Combo_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_feed_pos.Size = New System.Drawing.Size(225, 31)
         Me.Combo_feed_pos.TabIndex = 9
         '
         'ConductorFeederBindingSource
@@ -1587,7 +1706,7 @@ Partial Class Pantalla_datos
         Me.Label71.AutoSize = True
         Me.Label71.Location = New System.Drawing.Point(102, 188)
         Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(52, 16)
+        Me.Label71.Size = New System.Drawing.Size(76, 23)
         Me.Label71.TabIndex = 8
         Me.Label71.Text = "Feeder +"
         '
@@ -1596,9 +1715,9 @@ Partial Class Pantalla_datos
         Me.Combo_cdte.DataSource = Me.ConductorCableDeTierraBindingSource
         Me.Combo_cdte.DisplayMember = "Material"
         Me.Combo_cdte.FormattingEnabled = True
-        Me.Combo_cdte.Location = New System.Drawing.Point(244, 152)
+        Me.Combo_cdte.Location = New System.Drawing.Point(314, 153)
         Me.Combo_cdte.Name = "Combo_cdte"
-        Me.Combo_cdte.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cdte.Size = New System.Drawing.Size(225, 31)
         Me.Combo_cdte.TabIndex = 7
         '
         'ConductorCableDeTierraBindingSource
@@ -1611,7 +1730,7 @@ Partial Class Pantalla_datos
         Me.Label66.AutoSize = True
         Me.Label66.Location = New System.Drawing.Point(102, 155)
         Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(84, 16)
+        Me.Label66.Size = New System.Drawing.Size(127, 23)
         Me.Label66.TabIndex = 6
         Me.Label66.Text = "Cable de Tierra"
         '
@@ -1620,9 +1739,9 @@ Partial Class Pantalla_datos
         Me.Combo_cdpa.DataSource = Me.ConductorCDPABindingSource
         Me.Combo_cdpa.DisplayMember = "Material"
         Me.Combo_cdpa.FormattingEnabled = True
-        Me.Combo_cdpa.Location = New System.Drawing.Point(244, 122)
+        Me.Combo_cdpa.Location = New System.Drawing.Point(314, 123)
         Me.Combo_cdpa.Name = "Combo_cdpa"
-        Me.Combo_cdpa.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cdpa.Size = New System.Drawing.Size(225, 31)
         Me.Combo_cdpa.TabIndex = 5
         '
         'ConductorCDPABindingSource
@@ -1635,7 +1754,7 @@ Partial Class Pantalla_datos
         Me.Label67.AutoSize = True
         Me.Label67.Location = New System.Drawing.Point(102, 128)
         Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(124, 16)
+        Me.Label67.Size = New System.Drawing.Size(184, 23)
         Me.Label67.TabIndex = 4
         Me.Label67.Text = "C. de Protección Aérea"
         '
@@ -1644,9 +1763,9 @@ Partial Class Pantalla_datos
         Me.Combo_sust.DataSource = Me.ConductorSustentadorBindingSource
         Me.Combo_sust.DisplayMember = "Material"
         Me.Combo_sust.FormattingEnabled = True
-        Me.Combo_sust.Location = New System.Drawing.Point(244, 92)
+        Me.Combo_sust.Location = New System.Drawing.Point(314, 93)
         Me.Combo_sust.Name = "Combo_sust"
-        Me.Combo_sust.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_sust.Size = New System.Drawing.Size(225, 31)
         Me.Combo_sust.TabIndex = 3
         '
         'ConductorSustentadorBindingSource
@@ -1659,7 +1778,7 @@ Partial Class Pantalla_datos
         Me.Label65.AutoSize = True
         Me.Label65.Location = New System.Drawing.Point(102, 95)
         Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(69, 16)
+        Me.Label65.Size = New System.Drawing.Size(101, 23)
         Me.Label65.TabIndex = 2
         Me.Label65.Text = "Sustentador"
         '
@@ -1668,9 +1787,9 @@ Partial Class Pantalla_datos
         Me.Combo_hc.DataSource = Me.ConductorHCBindingSource
         Me.Combo_hc.DisplayMember = "Material"
         Me.Combo_hc.FormattingEnabled = True
-        Me.Combo_hc.Location = New System.Drawing.Point(244, 62)
+        Me.Combo_hc.Location = New System.Drawing.Point(314, 63)
         Me.Combo_hc.Name = "Combo_hc"
-        Me.Combo_hc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_hc.Size = New System.Drawing.Size(225, 31)
         Me.Combo_hc.TabIndex = 1
         '
         'ConductorHCBindingSource
@@ -1683,7 +1802,7 @@ Partial Class Pantalla_datos
         Me.Label64.AutoSize = True
         Me.Label64.Location = New System.Drawing.Point(102, 68)
         Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(91, 16)
+        Me.Label64.Size = New System.Drawing.Size(136, 23)
         Me.Label64.TabIndex = 0
         Me.Label64.Text = "Hilo de Contacto"
         '
@@ -1691,10 +1810,10 @@ Partial Class Pantalla_datos
         '
         Me.TabPage3.Controls.Add(Me.GroupBox2)
         Me.TabPage3.Controls.Add(Me.GroupBox1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 32)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(853, 544)
+        Me.TabPage3.Size = New System.Drawing.Size(1070, 537)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "POSTES Y MACIZOS"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1709,7 +1828,7 @@ Partial Class Pantalla_datos
         Me.GroupBox2.Controls.Add(Me.Label98)
         Me.GroupBox2.Location = New System.Drawing.Point(84, 68)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(322, 162)
+        Me.GroupBox2.Size = New System.Drawing.Size(466, 162)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "POSTES"
@@ -1720,7 +1839,7 @@ Partial Class Pantalla_datos
         Me.Combo_num_poste.Items.AddRange(New Object() {"pk + poste", "añadir..."})
         Me.Combo_num_poste.Location = New System.Drawing.Point(142, 102)
         Me.Combo_num_poste.Name = "Combo_num_poste"
-        Me.Combo_num_poste.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_num_poste.Size = New System.Drawing.Size(273, 31)
         Me.Combo_num_poste.TabIndex = 6
         '
         'Label1
@@ -1728,7 +1847,7 @@ Partial Class Pantalla_datos
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(29, 105)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 16)
+        Me.Label1.Size = New System.Drawing.Size(100, 23)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Numeración"
         '
@@ -1738,7 +1857,7 @@ Partial Class Pantalla_datos
         Me.Text_tip_poste.Location = New System.Drawing.Point(142, 76)
         Me.Text_tip_poste.Name = "Text_tip_poste"
         Me.Text_tip_poste.ReadOnly = True
-        Me.Text_tip_poste.Size = New System.Drawing.Size(100, 20)
+        Me.Text_tip_poste.Size = New System.Drawing.Size(273, 27)
         Me.Text_tip_poste.TabIndex = 4
         '
         'PostesConsultaBindingSource
@@ -1751,7 +1870,7 @@ Partial Class Pantalla_datos
         Me.Label97.AutoSize = True
         Me.Label97.Location = New System.Drawing.Point(29, 77)
         Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(29, 16)
+        Me.Label97.Size = New System.Drawing.Size(43, 23)
         Me.Label97.TabIndex = 2
         Me.Label97.Text = "Tipo"
         '
@@ -1762,7 +1881,7 @@ Partial Class Pantalla_datos
         Me.Combo_adm_lin_poste.FormattingEnabled = True
         Me.Combo_adm_lin_poste.Location = New System.Drawing.Point(142, 46)
         Me.Combo_adm_lin_poste.Name = "Combo_adm_lin_poste"
-        Me.Combo_adm_lin_poste.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_adm_lin_poste.Size = New System.Drawing.Size(273, 31)
         Me.Combo_adm_lin_poste.TabIndex = 1
         Me.Combo_adm_lin_poste.ValueMember = "Poste"
         '
@@ -1771,7 +1890,7 @@ Partial Class Pantalla_datos
         Me.Label98.AutoSize = True
         Me.Label98.Location = New System.Drawing.Point(29, 49)
         Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(65, 16)
+        Me.Label98.Size = New System.Drawing.Size(100, 23)
         Me.Label98.TabIndex = 0
         Me.Label98.Text = "Adm./Línea"
         '
@@ -1781,9 +1900,9 @@ Partial Class Pantalla_datos
         Me.GroupBox1.Controls.Add(Me.Label96)
         Me.GroupBox1.Controls.Add(Me.Combo_adm_lin_mac)
         Me.GroupBox1.Controls.Add(Me.Label95)
-        Me.GroupBox1.Location = New System.Drawing.Point(468, 68)
+        Me.GroupBox1.Location = New System.Drawing.Point(578, 68)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(322, 162)
+        Me.GroupBox1.Size = New System.Drawing.Size(427, 162)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "MACIZOS"
@@ -1794,7 +1913,7 @@ Partial Class Pantalla_datos
         Me.Text_tip_mac.Location = New System.Drawing.Point(149, 73)
         Me.Text_tip_mac.Name = "Text_tip_mac"
         Me.Text_tip_mac.ReadOnly = True
-        Me.Text_tip_mac.Size = New System.Drawing.Size(100, 20)
+        Me.Text_tip_mac.Size = New System.Drawing.Size(240, 27)
         Me.Text_tip_mac.TabIndex = 4
         '
         'Macizos_ConsultaBindingSource
@@ -1807,7 +1926,7 @@ Partial Class Pantalla_datos
         Me.Label96.AutoSize = True
         Me.Label96.Location = New System.Drawing.Point(36, 46)
         Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(65, 16)
+        Me.Label96.Size = New System.Drawing.Size(100, 23)
         Me.Label96.TabIndex = 2
         Me.Label96.Text = "Adm./Línea"
         '
@@ -1818,7 +1937,7 @@ Partial Class Pantalla_datos
         Me.Combo_adm_lin_mac.FormattingEnabled = True
         Me.Combo_adm_lin_mac.Location = New System.Drawing.Point(149, 43)
         Me.Combo_adm_lin_mac.Name = "Combo_adm_lin_mac"
-        Me.Combo_adm_lin_mac.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_adm_lin_mac.Size = New System.Drawing.Size(240, 31)
         Me.Combo_adm_lin_mac.TabIndex = 1
         Me.Combo_adm_lin_mac.ValueMember = "Macizo"
         '
@@ -1827,7 +1946,7 @@ Partial Class Pantalla_datos
         Me.Label95.AutoSize = True
         Me.Label95.Location = New System.Drawing.Point(36, 76)
         Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(29, 16)
+        Me.Label95.Size = New System.Drawing.Size(43, 23)
         Me.Label95.TabIndex = 0
         Me.Label95.Text = "Tipo"
         '
@@ -1835,9 +1954,9 @@ Partial Class Pantalla_datos
         '
         Me.TabPage4.Controls.Add(Me.GroupBox4)
         Me.TabPage4.Controls.Add(Me.GroupBox3)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 32)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(853, 544)
+        Me.TabPage4.Size = New System.Drawing.Size(1070, 537)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "AISLADORES Y PENDOLADO"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1853,9 +1972,9 @@ Partial Class Pantalla_datos
         Me.GroupBox4.Controls.Add(Me.Label107)
         Me.GroupBox4.Controls.Add(Me.Label108)
         Me.GroupBox4.Controls.Add(Me.Label109)
-        Me.GroupBox4.Location = New System.Drawing.Point(429, 62)
+        Me.GroupBox4.Location = New System.Drawing.Point(528, 62)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(364, 137)
+        Me.GroupBox4.Size = New System.Drawing.Size(495, 137)
         Me.GroupBox4.TabIndex = 10
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "PENDOLADO"
@@ -1863,49 +1982,49 @@ Partial Class Pantalla_datos
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(332, 95)
+        Me.Label13.Location = New System.Drawing.Point(419, 95)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(16, 16)
+        Me.Label13.Size = New System.Drawing.Size(24, 23)
         Me.Label13.TabIndex = 40
         Me.Label13.Text = "m"
         '
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(332, 69)
+        Me.Label31.Location = New System.Drawing.Point(419, 69)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(16, 16)
+        Me.Label31.Size = New System.Drawing.Size(24, 23)
         Me.Label31.TabIndex = 39
         Me.Label31.Text = "m"
         '
         'Label99
         '
         Me.Label99.AutoSize = True
-        Me.Label99.Location = New System.Drawing.Point(332, 43)
+        Me.Label99.Location = New System.Drawing.Point(419, 43)
         Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(16, 16)
+        Me.Label99.Size = New System.Drawing.Size(24, 23)
         Me.Label99.TabIndex = 38
         Me.Label99.Text = "m"
         '
         'Text_dist_max_pend
         '
-        Me.Text_dist_max_pend.Location = New System.Drawing.Point(226, 92)
+        Me.Text_dist_max_pend.Location = New System.Drawing.Point(313, 92)
         Me.Text_dist_max_pend.Name = "Text_dist_max_pend"
-        Me.Text_dist_max_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_max_pend.Size = New System.Drawing.Size(100, 27)
         Me.Text_dist_max_pend.TabIndex = 7
         '
         'Text_dist_prim_seg_pend
         '
-        Me.Text_dist_prim_seg_pend.Location = New System.Drawing.Point(226, 66)
+        Me.Text_dist_prim_seg_pend.Location = New System.Drawing.Point(313, 66)
         Me.Text_dist_prim_seg_pend.Name = "Text_dist_prim_seg_pend"
-        Me.Text_dist_prim_seg_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_prim_seg_pend.Size = New System.Drawing.Size(100, 27)
         Me.Text_dist_prim_seg_pend.TabIndex = 6
         '
         'Text_dist_ap_prim_pend
         '
-        Me.Text_dist_ap_prim_pend.Location = New System.Drawing.Point(226, 40)
+        Me.Text_dist_ap_prim_pend.Location = New System.Drawing.Point(313, 40)
         Me.Text_dist_ap_prim_pend.Name = "Text_dist_ap_prim_pend"
-        Me.Text_dist_ap_prim_pend.Size = New System.Drawing.Size(100, 20)
+        Me.Text_dist_ap_prim_pend.Size = New System.Drawing.Size(100, 27)
         Me.Text_dist_ap_prim_pend.TabIndex = 5
         '
         'Label107
@@ -1913,7 +2032,7 @@ Partial Class Pantalla_datos
         Me.Label107.AutoSize = True
         Me.Label107.Location = New System.Drawing.Point(38, 95)
         Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(159, 16)
+        Me.Label107.Size = New System.Drawing.Size(241, 23)
         Me.Label107.TabIndex = 4
         Me.Label107.Text = "Distancia máx. entre péndolas"
         '
@@ -1922,7 +2041,7 @@ Partial Class Pantalla_datos
         Me.Label108.AutoSize = True
         Me.Label108.Location = New System.Drawing.Point(38, 69)
         Me.Label108.Name = "Label108"
-        Me.Label108.Size = New System.Drawing.Size(131, 16)
+        Me.Label108.Size = New System.Drawing.Size(197, 23)
         Me.Label108.TabIndex = 2
         Me.Label108.Text = "Distancia 1ª y 2ª péndola"
         '
@@ -1931,7 +2050,7 @@ Partial Class Pantalla_datos
         Me.Label109.AutoSize = True
         Me.Label109.Location = New System.Drawing.Point(38, 43)
         Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(151, 16)
+        Me.Label109.Size = New System.Drawing.Size(226, 23)
         Me.Label109.TabIndex = 0
         Me.Label109.Text = "Distancia apoyo y 1ª péndola"
         '
@@ -1949,7 +2068,7 @@ Partial Class Pantalla_datos
         Me.GroupBox3.Controls.Add(Me.Label100)
         Me.GroupBox3.Location = New System.Drawing.Point(57, 62)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(329, 216)
+        Me.GroupBox3.Size = New System.Drawing.Size(430, 216)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "AISLADORES"
@@ -1958,9 +2077,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_aisl_feed_neg.FormattingEnabled = True
         Me.Combo_aisl_feed_neg.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.Combo_aisl_feed_neg.Location = New System.Drawing.Point(168, 160)
+        Me.Combo_aisl_feed_neg.Location = New System.Drawing.Point(195, 160)
         Me.Combo_aisl_feed_neg.Name = "Combo_aisl_feed_neg"
-        Me.Combo_aisl_feed_neg.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_aisl_feed_neg.Size = New System.Drawing.Size(202, 31)
         Me.Combo_aisl_feed_neg.TabIndex = 9
         '
         'Label104
@@ -1968,7 +2087,7 @@ Partial Class Pantalla_datos
         Me.Label104.AutoSize = True
         Me.Label104.Location = New System.Drawing.Point(39, 163)
         Me.Label104.Name = "Label104"
-        Me.Label104.Size = New System.Drawing.Size(50, 16)
+        Me.Label104.Size = New System.Drawing.Size(73, 23)
         Me.Label104.TabIndex = 8
         Me.Label104.Text = "Feeder -"
         '
@@ -1976,9 +2095,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_aisl_feed_pos.FormattingEnabled = True
         Me.Combo_aisl_feed_pos.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.Combo_aisl_feed_pos.Location = New System.Drawing.Point(168, 130)
+        Me.Combo_aisl_feed_pos.Location = New System.Drawing.Point(195, 130)
         Me.Combo_aisl_feed_pos.Name = "Combo_aisl_feed_pos"
-        Me.Combo_aisl_feed_pos.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_aisl_feed_pos.Size = New System.Drawing.Size(202, 31)
         Me.Combo_aisl_feed_pos.TabIndex = 7
         '
         'Label102
@@ -1986,7 +2105,7 @@ Partial Class Pantalla_datos
         Me.Label102.AutoSize = True
         Me.Label102.Location = New System.Drawing.Point(39, 133)
         Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(52, 16)
+        Me.Label102.Size = New System.Drawing.Size(76, 23)
         Me.Label102.TabIndex = 6
         Me.Label102.Text = "Feeder +"
         '
@@ -1994,9 +2113,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_cola_anc.FormattingEnabled = True
         Me.Combo_cola_anc.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.Combo_cola_anc.Location = New System.Drawing.Point(168, 100)
+        Me.Combo_cola_anc.Location = New System.Drawing.Point(195, 100)
         Me.Combo_cola_anc.Name = "Combo_cola_anc"
-        Me.Combo_cola_anc.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_cola_anc.Size = New System.Drawing.Size(202, 31)
         Me.Combo_cola_anc.TabIndex = 5
         '
         'Label103
@@ -2004,7 +2123,7 @@ Partial Class Pantalla_datos
         Me.Label103.AutoSize = True
         Me.Label103.Location = New System.Drawing.Point(39, 103)
         Me.Label103.Name = "Label103"
-        Me.Label103.Size = New System.Drawing.Size(83, 16)
+        Me.Label103.Size = New System.Drawing.Size(126, 23)
         Me.Label103.TabIndex = 4
         Me.Label103.Text = "Cola de anclaje"
         '
@@ -2012,9 +2131,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_tubo_tir.FormattingEnabled = True
         Me.Combo_tubo_tir.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.Combo_tubo_tir.Location = New System.Drawing.Point(168, 70)
+        Me.Combo_tubo_tir.Location = New System.Drawing.Point(195, 70)
         Me.Combo_tubo_tir.Name = "Combo_tubo_tir"
-        Me.Combo_tubo_tir.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_tubo_tir.Size = New System.Drawing.Size(202, 31)
         Me.Combo_tubo_tir.TabIndex = 3
         '
         'Label101
@@ -2022,7 +2141,7 @@ Partial Class Pantalla_datos
         Me.Label101.AutoSize = True
         Me.Label101.Location = New System.Drawing.Point(39, 73)
         Me.Label101.Name = "Label101"
-        Me.Label101.Size = New System.Drawing.Size(71, 16)
+        Me.Label101.Size = New System.Drawing.Size(105, 23)
         Me.Label101.TabIndex = 2
         Me.Label101.Text = "Tubo tirante"
         '
@@ -2030,9 +2149,9 @@ Partial Class Pantalla_datos
         '
         Me.Combo_tubo_men.FormattingEnabled = True
         Me.Combo_tubo_men.Items.AddRange(New Object() {"Cerámico", "Sintético", "Vidrio"})
-        Me.Combo_tubo_men.Location = New System.Drawing.Point(168, 40)
+        Me.Combo_tubo_men.Location = New System.Drawing.Point(195, 40)
         Me.Combo_tubo_men.Name = "Combo_tubo_men"
-        Me.Combo_tubo_men.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_tubo_men.Size = New System.Drawing.Size(202, 31)
         Me.Combo_tubo_men.TabIndex = 1
         '
         'Label100
@@ -2040,7 +2159,7 @@ Partial Class Pantalla_datos
         Me.Label100.AutoSize = True
         Me.Label100.Location = New System.Drawing.Point(39, 43)
         Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(89, 16)
+        Me.Label100.Size = New System.Drawing.Size(138, 23)
         Me.Label100.TabIndex = 0
         Me.Label100.Text = "Tubo de ménsula"
         '
@@ -2050,7 +2169,7 @@ Partial Class Pantalla_datos
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(68, 94)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(165, 18)
+        Me.Label3.Size = New System.Drawing.Size(218, 23)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "DATOS NUEVA CATENARIA"
         '
@@ -2078,10 +2197,10 @@ Partial Class Pantalla_datos
         'Text_al
         '
         Me.Text_al.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Alimentación", True))
-        Me.Text_al.Location = New System.Drawing.Point(368, 53)
+        Me.Text_al.Location = New System.Drawing.Point(525, 57)
         Me.Text_al.Name = "Text_al"
         Me.Text_al.ReadOnly = True
-        Me.Text_al.Size = New System.Drawing.Size(100, 20)
+        Me.Text_al.Size = New System.Drawing.Size(100, 23)
         Me.Text_al.TabIndex = 7
         '
         'Combo_sist
@@ -2091,9 +2210,9 @@ Partial Class Pantalla_datos
         Me.Combo_sist.DisplayMember = "Sistema"
         Me.Combo_sist.FormattingEnabled = True
         Me.Combo_sist.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.Combo_sist.Location = New System.Drawing.Point(128, 49)
+        Me.Combo_sist.Location = New System.Drawing.Point(156, 49)
         Me.Combo_sist.Name = "Combo_sist"
-        Me.Combo_sist.Size = New System.Drawing.Size(121, 24)
+        Me.Combo_sist.Size = New System.Drawing.Size(204, 26)
         Me.Combo_sist.TabIndex = 8
         Me.Combo_sist.ValueMember = "Alimentación"
         '
@@ -2145,57 +2264,42 @@ Partial Class Pantalla_datos
         '
         Me.Button2.Location = New System.Drawing.Point(856, 19)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(76, 61)
+        Me.Button2.Size = New System.Drawing.Size(160, 61)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "GUARDAR DATOS"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Text_nombre_cat
         '
-        Me.Text_nombre_cat.Location = New System.Drawing.Point(227, 16)
+        Me.Text_nombre_cat.Location = New System.Drawing.Point(288, 19)
         Me.Text_nombre_cat.Name = "Text_nombre_cat"
-        Me.Text_nombre_cat.Size = New System.Drawing.Size(100, 20)
+        Me.Text_nombre_cat.Size = New System.Drawing.Size(160, 23)
         Me.Text_nombre_cat.TabIndex = 11
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(72, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(135, 16)
+        Me.Label2.Size = New System.Drawing.Size(202, 23)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Nuevo nombre catenaria:"
         '
-        'Label105
+        'Button1
         '
-        Me.Label105.AutoSize = True
-        Me.Label105.Location = New System.Drawing.Point(462, 425)
-        Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(115, 16)
-        Me.Label105.TabIndex = 90
-        Me.Label105.Text = "Radio mínimo trazado"
-        '
-        'Text_r_min_traz
-        '
-        Me.Text_r_min_traz.Location = New System.Drawing.Point(640, 422)
-        Me.Text_r_min_traz.Name = "Text_r_min_traz"
-        Me.Text_r_min_traz.Size = New System.Drawing.Size(100, 20)
-        Me.Text_r_min_traz.TabIndex = 91
-        '
-        'Label106
-        '
-        Me.Label106.AutoSize = True
-        Me.Label106.Location = New System.Drawing.Point(746, 425)
-        Me.Label106.Name = "Label106"
-        Me.Label106.Size = New System.Drawing.Size(16, 16)
-        Me.Label106.TabIndex = 92
-        Me.Label106.Text = "m"
+        Me.Button1.Location = New System.Drawing.Point(1053, 870)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(160, 61)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "SALIR"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Pantalla_datos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 753)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.ClientSize = New System.Drawing.Size(1284, 988)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Text_nombre_cat)
         Me.Controls.Add(Me.Button2)
@@ -2206,8 +2310,10 @@ Partial Class Pantalla_datos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("Trebuchet MS", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Pantalla_datos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
@@ -2454,4 +2560,5 @@ Partial Class Pantalla_datos
     Friend WithEvents Label106 As System.Windows.Forms.Label
     Friend WithEvents Text_r_min_traz As System.Windows.Forms.TextBox
     Friend WithEvents Label105 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

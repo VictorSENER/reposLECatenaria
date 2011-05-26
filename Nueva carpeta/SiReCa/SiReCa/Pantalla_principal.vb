@@ -137,7 +137,7 @@ Public Class Pantalla_principal
         End If
     End Sub
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        Close()
+        Me.Close()
     End Sub
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         'actualizar el progressbar

@@ -65,12 +65,13 @@ Partial Class Pantalla_principal
         Me.CheckBox3 = New System.Windows.Forms.CheckBox
         Me.CheckBox2 = New System.Windows.Forms.CheckBox
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
-        Me.Button3 = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Label9 = New System.Windows.Forms.Label
+        Me.Nombre_CatenariaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
+        Me.Button3 = New System.Windows.Forms.Button
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Nombre_CatenariaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
+        Me.Button10 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,10 +89,10 @@ Partial Class Pantalla_principal
         Me.RadioButton1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton1.ForeColor = System.Drawing.Color.White
         Me.RadioButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton1.Location = New System.Drawing.Point(35, 39)
-        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.RadioButton1.Location = New System.Drawing.Point(47, 48)
+        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(174, 26)
+        Me.RadioButton1.Size = New System.Drawing.Size(221, 30)
         Me.RadioButton1.TabIndex = 0
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Catenaria existente"
@@ -103,10 +104,10 @@ Partial Class Pantalla_principal
         Me.RadioButton2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton2.ForeColor = System.Drawing.Color.White
         Me.RadioButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton2.Location = New System.Drawing.Point(37, 138)
-        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.RadioButton2.Location = New System.Drawing.Point(47, 164)
+        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(151, 26)
+        Me.RadioButton2.Size = New System.Drawing.Size(188, 30)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Nueva catenaria"
@@ -127,12 +128,12 @@ Partial Class Pantalla_principal
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.Green
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 132)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(28, 119)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.GroupBox1.Size = New System.Drawing.Size(525, 310)
+        Me.GroupBox1.Size = New System.Drawing.Size(647, 355)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "PASO 1: Datos catenaria"
@@ -142,9 +143,10 @@ Partial Class Pantalla_principal
         Me.Button8.BackColor = System.Drawing.Color.Silver
         Me.Button8.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.Location = New System.Drawing.Point(47, 238)
+        Me.Button8.Location = New System.Drawing.Point(58, 272)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(4)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(133, 48)
+        Me.Button8.Size = New System.Drawing.Size(177, 59)
         Me.Button8.TabIndex = 6
         Me.Button8.Text = "VER"
         Me.Button8.UseVisualStyleBackColor = False
@@ -154,9 +156,10 @@ Partial Class Pantalla_principal
         Me.Button9.BackColor = System.Drawing.Color.Silver
         Me.Button9.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button9.ForeColor = System.Drawing.Color.Black
-        Me.Button9.Location = New System.Drawing.Point(186, 237)
+        Me.Button9.Location = New System.Drawing.Point(248, 272)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(133, 48)
+        Me.Button9.Size = New System.Drawing.Size(177, 59)
         Me.Button9.TabIndex = 7
         Me.Button9.Text = "MODIFICAR"
         Me.Button9.UseVisualStyleBackColor = False
@@ -167,10 +170,10 @@ Partial Class Pantalla_principal
         Me.ComboBox1.DisplayMember = "nombre_cat"
         Me.ComboBox1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(225, 82)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Location = New System.Drawing.Point(300, 93)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(249, 30)
+        Me.ComboBox1.Size = New System.Drawing.Size(331, 34)
         Me.ComboBox1.TabIndex = 5
         '
         'NombreCatenariaBindingSource
@@ -189,9 +192,10 @@ Partial Class Pantalla_principal
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label2.Location = New System.Drawing.Point(43, 85)
+        Me.Label2.Location = New System.Drawing.Point(58, 101)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 22)
+        Me.Label2.Size = New System.Drawing.Size(66, 26)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Elegir"
         Me.Label2.Visible = False
@@ -202,10 +206,10 @@ Partial Class Pantalla_principal
         Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button1.Location = New System.Drawing.Point(325, 237)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Location = New System.Drawing.Point(454, 273)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(133, 47)
+        Me.Button1.Size = New System.Drawing.Size(177, 58)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "CARGAR"
         Me.Button1.UseVisualStyleBackColor = False
@@ -216,9 +220,10 @@ Partial Class Pantalla_principal
         Me.Label1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label1.Location = New System.Drawing.Point(43, 185)
+        Me.Label1.Location = New System.Drawing.Point(58, 222)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 22)
+        Me.Label1.Size = New System.Drawing.Size(174, 26)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Nueva catenaria:"
         Me.Label1.Visible = False
@@ -228,10 +233,10 @@ Partial Class Pantalla_principal
         Me.TextBox1.BackColor = System.Drawing.Color.White
         Me.TextBox1.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(225, 180)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox1.Location = New System.Drawing.Point(300, 217)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(249, 26)
+        Me.TextBox1.Size = New System.Drawing.Size(331, 31)
         Me.TextBox1.TabIndex = 1
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox1.Visible = False
@@ -244,11 +249,11 @@ Partial Class Pantalla_principal
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox2.Location = New System.Drawing.Point(645, 132)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Location = New System.Drawing.Point(705, 119)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(565, 142)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(544, 175)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PASO 2: Datos trazado"
@@ -259,10 +264,10 @@ Partial Class Pantalla_principal
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button2.Location = New System.Drawing.Point(288, 53)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button2.Location = New System.Drawing.Point(295, 61)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(133, 37)
+        Me.Button2.Size = New System.Drawing.Size(177, 46)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "IR"
         Me.Button2.UseVisualStyleBackColor = False
@@ -274,9 +279,10 @@ Partial Class Pantalla_principal
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label3.Location = New System.Drawing.Point(35, 65)
+        Me.Label3.Location = New System.Drawing.Point(47, 80)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(174, 23)
+        Me.Label3.Size = New System.Drawing.Size(216, 27)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Buscar archivo excel"
         Me.Label3.Visible = False
@@ -300,11 +306,11 @@ Partial Class Pantalla_principal
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox3.Location = New System.Drawing.Point(21, 495)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(28, 511)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(525, 382)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.GroupBox3.Size = New System.Drawing.Size(647, 407)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "PASO 3: Replanteo"
@@ -314,19 +320,20 @@ Partial Class Pantalla_principal
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(123, 172)
+        Me.Label11.Location = New System.Drawing.Point(164, 212)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(175, 23)
+        Me.Label11.Size = New System.Drawing.Size(215, 27)
         Me.Label11.TabIndex = 12
         Me.Label11.Text = "Evolución subrutinas"
         Me.Label11.Visible = False
         '
         'ProgressBar2
         '
-        Me.ProgressBar2.Location = New System.Drawing.Point(24, 220)
-        Me.ProgressBar2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ProgressBar2.Location = New System.Drawing.Point(32, 271)
+        Me.ProgressBar2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ProgressBar2.Name = "ProgressBar2"
-        Me.ProgressBar2.Size = New System.Drawing.Size(481, 32)
+        Me.ProgressBar2.Size = New System.Drawing.Size(534, 39)
         Me.ProgressBar2.TabIndex = 11
         Me.ProgressBar2.Visible = False
         '
@@ -335,19 +342,20 @@ Partial Class Pantalla_principal
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(123, 44)
+        Me.Label10.Location = New System.Drawing.Point(164, 54)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(243, 23)
+        Me.Label10.Size = New System.Drawing.Size(301, 27)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Evolución programa principal"
         Me.Label10.Visible = False
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(24, 89)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ProgressBar1.Location = New System.Drawing.Point(32, 110)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(481, 30)
+        Me.ProgressBar1.Size = New System.Drawing.Size(534, 37)
         Me.ProgressBar1.TabIndex = 9
         Me.ProgressBar1.Visible = False
         '
@@ -357,9 +365,10 @@ Partial Class Pantalla_principal
         Me.Label8.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label8.Location = New System.Drawing.Point(109, 242)
+        Me.Label8.Location = New System.Drawing.Point(39, 292)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(99, 23)
+        Me.Label8.Size = New System.Drawing.Size(124, 27)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Guardar en"
         Me.Label8.Visible = False
@@ -371,10 +380,10 @@ Partial Class Pantalla_principal
         Me.Button5.ForeColor = System.Drawing.Color.Black
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button5.Location = New System.Drawing.Point(144, 314)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button5.Location = New System.Drawing.Point(400, 332)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(173, 42)
+        Me.Button5.Size = New System.Drawing.Size(231, 52)
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "REPLANTEAR"
         Me.Button5.UseVisualStyleBackColor = False
@@ -385,10 +394,10 @@ Partial Class Pantalla_principal
         Me.Button4.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.Black
         Me.Button4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button4.Location = New System.Drawing.Point(268, 229)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button4.Location = New System.Drawing.Point(200, 272)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(51, 38)
+        Me.Button4.Size = New System.Drawing.Size(68, 47)
         Me.Button4.TabIndex = 6
         Me.Button4.Text = "..."
         Me.Button4.UseVisualStyleBackColor = True
@@ -399,10 +408,10 @@ Partial Class Pantalla_principal
         Me.TextBox4.BackColor = System.Drawing.Color.White
         Me.TextBox4.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.ForeColor = System.Drawing.Color.Black
-        Me.TextBox4.Location = New System.Drawing.Point(268, 185)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox4.Location = New System.Drawing.Point(357, 210)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(168, 26)
+        Me.TextBox4.Size = New System.Drawing.Size(223, 31)
         Me.TextBox4.TabIndex = 5
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox4.Visible = False
@@ -413,9 +422,10 @@ Partial Class Pantalla_principal
         Me.Label6.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(29, 187)
+        Me.Label6.Location = New System.Drawing.Point(39, 212)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(142, 23)
+        Me.Label6.Size = New System.Drawing.Size(174, 27)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Nombre fichero:"
         Me.Label6.Visible = False
@@ -425,10 +435,10 @@ Partial Class Pantalla_principal
         Me.TextBox3.BackColor = System.Drawing.Color.White
         Me.TextBox3.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.ForeColor = System.Drawing.Color.Black
-        Me.TextBox3.Location = New System.Drawing.Point(268, 128)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox3.Location = New System.Drawing.Point(357, 147)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(168, 26)
+        Me.TextBox3.Size = New System.Drawing.Size(223, 31)
         Me.TextBox3.TabIndex = 3
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox3.Visible = False
@@ -438,10 +448,10 @@ Partial Class Pantalla_principal
         Me.TextBox2.BackColor = System.Drawing.Color.White
         Me.TextBox2.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(268, 69)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox2.Location = New System.Drawing.Point(357, 75)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(168, 26)
+        Me.TextBox2.Size = New System.Drawing.Size(223, 31)
         Me.TextBox2.TabIndex = 2
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox2.Visible = False
@@ -452,9 +462,10 @@ Partial Class Pantalla_principal
         Me.Label5.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label5.Location = New System.Drawing.Point(29, 128)
+        Me.Label5.Location = New System.Drawing.Point(39, 149)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(120, 23)
+        Me.Label5.Size = New System.Drawing.Size(149, 27)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "P.K. Final (m)"
         Me.Label5.Visible = False
@@ -465,9 +476,10 @@ Partial Class Pantalla_principal
         Me.Label4.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label4.Location = New System.Drawing.Point(29, 69)
+        Me.Label4.Location = New System.Drawing.Point(39, 75)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(123, 23)
+        Me.Label4.Size = New System.Drawing.Size(152, 27)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "PK. Inicial (m)"
         Me.Label4.Visible = False
@@ -489,11 +501,11 @@ Partial Class Pantalla_principal
         Me.GroupBox4.Controls.Add(Me.CheckBox1)
         Me.GroupBox4.Font = New System.Drawing.Font("Trebuchet MS", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.ForeColor = System.Drawing.Color.Red
-        Me.GroupBox4.Location = New System.Drawing.Point(645, 495)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox4.Location = New System.Drawing.Point(705, 511)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(565, 382)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.GroupBox4.Size = New System.Drawing.Size(544, 407)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "PASO 4: Dibujar"
@@ -504,10 +516,10 @@ Partial Class Pantalla_principal
         Me.Button7.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.Color.Black
         Me.Button7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button7.Location = New System.Drawing.Point(184, 302)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button7.Location = New System.Drawing.Point(295, 332)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(173, 42)
+        Me.Button7.Size = New System.Drawing.Size(231, 52)
         Me.Button7.TabIndex = 10
         Me.Button7.Text = "DIBUJAR"
         Me.Button7.UseVisualStyleBackColor = False
@@ -518,10 +530,10 @@ Partial Class Pantalla_principal
         Me.Button6.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Black
         Me.Button6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button6.Location = New System.Drawing.Point(272, 220)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button6.Location = New System.Drawing.Point(363, 271)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(51, 34)
+        Me.Button6.Size = New System.Drawing.Size(68, 42)
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "..."
         Me.Button6.UseVisualStyleBackColor = False
@@ -532,9 +544,10 @@ Partial Class Pantalla_principal
         Me.Label7.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label7.Location = New System.Drawing.Point(60, 229)
+        Me.Label7.Location = New System.Drawing.Point(80, 282)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(175, 23)
+        Me.Label7.Size = New System.Drawing.Size(218, 27)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Captar datos eje de:"
         '
@@ -544,10 +557,10 @@ Partial Class Pantalla_principal
         Me.CheckBox8.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox8.ForeColor = System.Drawing.Color.White
         Me.CheckBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox8.Location = New System.Drawing.Point(288, 159)
-        Me.CheckBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox8.Location = New System.Drawing.Point(245, 197)
+        Me.CheckBox8.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(151, 27)
+        Me.CheckBox8.Size = New System.Drawing.Size(185, 31)
         Me.CheckBox8.TabIndex = 7
         Me.CheckBox8.Text = "Cantonamiento"
         Me.CheckBox8.UseVisualStyleBackColor = True
@@ -558,10 +571,10 @@ Partial Class Pantalla_principal
         Me.CheckBox7.AutoSize = True
         Me.CheckBox7.ForeColor = System.Drawing.Color.White
         Me.CheckBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox7.Location = New System.Drawing.Point(288, 124)
-        Me.CheckBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox7.Location = New System.Drawing.Point(245, 154)
+        Me.CheckBox7.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(115, 28)
+        Me.CheckBox7.Size = New System.Drawing.Size(142, 33)
         Me.CheckBox7.TabIndex = 6
         Me.CheckBox7.Text = "Altura HC"
         Me.CheckBox7.UseVisualStyleBackColor = True
@@ -573,10 +586,10 @@ Partial Class Pantalla_principal
         Me.CheckBox6.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox6.ForeColor = System.Drawing.Color.White
         Me.CheckBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox6.Location = New System.Drawing.Point(288, 89)
-        Me.CheckBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox6.Location = New System.Drawing.Point(245, 111)
+        Me.CheckBox6.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(132, 27)
+        Me.CheckBox6.Size = New System.Drawing.Size(162, 31)
         Me.CheckBox6.TabIndex = 5
         Me.CheckBox6.Text = "Implantación"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -588,10 +601,10 @@ Partial Class Pantalla_principal
         Me.CheckBox5.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox5.ForeColor = System.Drawing.Color.White
         Me.CheckBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox5.Location = New System.Drawing.Point(288, 54)
-        Me.CheckBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox5.Location = New System.Drawing.Point(245, 67)
+        Me.CheckBox5.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(172, 27)
+        Me.CheckBox5.Size = New System.Drawing.Size(212, 31)
         Me.CheckBox5.TabIndex = 4
         Me.CheckBox5.Text = "Descentramientos"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -603,10 +616,10 @@ Partial Class Pantalla_principal
         Me.CheckBox4.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox4.ForeColor = System.Drawing.Color.White
         Me.CheckBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox4.Location = New System.Drawing.Point(65, 159)
-        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox4.Location = New System.Drawing.Point(39, 196)
+        Me.CheckBox4.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(88, 27)
+        Me.CheckBox4.Size = New System.Drawing.Size(108, 31)
         Me.CheckBox4.TabIndex = 3
         Me.CheckBox4.Text = "Flechas"
         Me.CheckBox4.UseVisualStyleBackColor = True
@@ -618,10 +631,10 @@ Partial Class Pantalla_principal
         Me.CheckBox3.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox3.ForeColor = System.Drawing.Color.White
         Me.CheckBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox3.Location = New System.Drawing.Point(65, 124)
-        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox3.Location = New System.Drawing.Point(39, 153)
+        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(76, 27)
+        Me.CheckBox3.Size = New System.Drawing.Size(92, 31)
         Me.CheckBox3.TabIndex = 2
         Me.CheckBox3.Text = "Vanos"
         Me.CheckBox3.UseVisualStyleBackColor = True
@@ -633,10 +646,10 @@ Partial Class Pantalla_principal
         Me.CheckBox2.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox2.ForeColor = System.Drawing.Color.White
         Me.CheckBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox2.Location = New System.Drawing.Point(65, 89)
-        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox2.Location = New System.Drawing.Point(39, 110)
+        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(104, 27)
+        Me.CheckBox2.Size = New System.Drawing.Size(127, 31)
         Me.CheckBox2.TabIndex = 1
         Me.CheckBox2.Text = "Etiquetas"
         Me.CheckBox2.UseVisualStyleBackColor = True
@@ -648,28 +661,14 @@ Partial Class Pantalla_principal
         Me.CheckBox1.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
         Me.CheckBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.CheckBox1.Location = New System.Drawing.Point(65, 54)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CheckBox1.Location = New System.Drawing.Point(39, 66)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(80, 27)
+        Me.CheckBox1.Size = New System.Drawing.Size(97, 31)
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Postes"
         Me.CheckBox1.UseVisualStyleBackColor = True
         Me.CheckBox1.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.SystemColors.Control
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button3.Location = New System.Drawing.Point(1003, 10)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(201, 50)
-        Me.Button3.TabIndex = 6
-        Me.Button3.Text = "SALIR"
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -677,9 +676,9 @@ Partial Class Pantalla_principal
         Me.Panel1.BackColor = System.Drawing.Color.Navy
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1293, 89)
+        Me.Panel1.Size = New System.Drawing.Size(1724, 90)
         Me.Panel1.TabIndex = 8
         '
         'Label9
@@ -689,20 +688,39 @@ Partial Class Pantalla_principal
         Me.Label9.Font = New System.Drawing.Font("Trebuchet MS", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Label9.Location = New System.Drawing.Point(179, 25)
+        Me.Label9.Location = New System.Drawing.Point(239, 21)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(737, 38)
+        Me.Label9.Size = New System.Drawing.Size(908, 46)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "SIMULADOR DE REPLANTEO DE CATENARIA (SIRECA)"
+        '
+        'Nombre_CatenariaTableAdapter
+        '
+        Me.Nombre_CatenariaTableAdapter.ClearBeforeFill = True
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.SystemColors.Control
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Button3.ForeColor = System.Drawing.Color.Black
+        Me.Button3.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Button3.Location = New System.Drawing.Point(1337, 12)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(268, 62)
+        Me.Button3.TabIndex = 6
+        Me.Button3.Text = "SALIR"
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(45, 10)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(60, 12)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(213, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(271, 47)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
@@ -711,29 +729,35 @@ Partial Class Pantalla_principal
         '
         Me.Panel2.BackColor = System.Drawing.Color.Navy
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Button10)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 706)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel2.Location = New System.Drawing.Point(0, 966)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1036, 74)
+        Me.Panel2.Size = New System.Drawing.Size(1292, 70)
         Me.Panel2.TabIndex = 9
         '
-        'Nombre_CatenariaTableAdapter
+        'Button10
         '
-        Me.Nombre_CatenariaTableAdapter.ClearBeforeFill = True
+        Me.Button10.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.ForeColor = System.Drawing.Color.Black
+        Me.Button10.Location = New System.Drawing.Point(1000, 12)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(212, 46)
+        Me.Button10.TabIndex = 10
+        Me.Button10.Text = "SALIR"
+        Me.Button10.UseVisualStyleBackColor = True
         '
         'Pantalla_principal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1036, 780)
+        Me.ClientSize = New System.Drawing.Size(1292, 1036)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -743,7 +767,7 @@ Partial Class Pantalla_principal
         Me.Controls.Add(Me.GroupBox1)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Name = "Pantalla_principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Simulador de Replanteos de Catenaria (SIRECA)"
@@ -777,7 +801,6 @@ Partial Class Pantalla_principal
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -801,16 +824,18 @@ Partial Class Pantalla_principal
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents ProgressBar2 As System.Windows.Forms.ProgressBar
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
     Friend WithEvents NombreCatenariaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Nombre_CatenariaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Button10 As System.Windows.Forms.Button
 End Class

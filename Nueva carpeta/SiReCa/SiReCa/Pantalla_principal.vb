@@ -6,36 +6,25 @@ Public Class Pantalla_principal
     Public ruta_autocad As String
     Public nombre_excel As String
 
-    Public Direct As New DxVBLib.DirectX7
-    Public DirectD As DxVBLib.DirectDraw7
-    Public ScreenWith As Integer
-    Public ScreenHight As Integer
-
     Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
         Me.Nombre_CatenariaTableAdapter.Fill(Me.Base_de_datosDataSet.Nombre_Catenaria)
 
-        'Dim Direct As New DxVBLib.DirectX7
+        Dim Direct As New DxVBLib.DirectX7
 
-        'Dim DirectD As DxVBLib.DirectDraw7
+        Dim DirectD As DxVBLib.DirectDraw7
 
-        'Dim ScreenWith, ScreenHeight As Integer
+        Dim ScreenWith, ScreenHeight As Integer
 
         'Parametro de Resolucion Deseados
 
-        'ScreenWith = 1280
+        ScreenWith = 1280
 
-        'ScreenHeight = 1024
+        ScreenHeight = 1024
 
-        'DirectD = Direct.DirectDrawCreate("")
+        DirectD = Direct.DirectDrawCreate("")
 
-        'DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
-
-        Dim pantalla As New Pantalla_principal
-        pantalla.ScreenWith = 1280
-        pantalla.ScreenHight = 1024
-        pantalla.DirectD = pantalla.Direct.DirectDrawCreate("")
-        pantalla.DirectD.SetDisplayMode(pantalla.ScreenWith, pantalla.ScreenHight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
+        DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
 
     End Sub
 
@@ -237,5 +226,9 @@ Public Class Pantalla_principal
     Private Sub Button9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button9.Click
         nueva_lac = ComboBox1.Text
         Pantalla_aviso.Show()
+    End Sub
+
+    Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
+        Me.Close()
     End Sub
 End Class

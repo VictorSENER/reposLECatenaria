@@ -2262,9 +2262,10 @@ Partial Class Pantalla_datos
         '
         'Button2
         '
+        Me.Button2.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(856, 19)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(160, 61)
+        Me.Button2.Size = New System.Drawing.Size(160, 76)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "GUARDAR DATOS"
         Me.Button2.UseVisualStyleBackColor = True
@@ -2288,6 +2289,7 @@ Partial Class Pantalla_datos
         '
         'Button1
         '
+        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(1053, 870)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(160, 61)

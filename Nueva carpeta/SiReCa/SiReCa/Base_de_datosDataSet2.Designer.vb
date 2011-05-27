@@ -91,8 +91,8 @@ Partial Public Class Base_de_datosDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Conductores y cables")) Is Nothing) Then
-                MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores y cables")))
+            If (Not (ds.Tables("Conductores_y_cables")) Is Nothing) Then
+                MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores_y_cables")))
             End If
             If (Not (ds.Tables("Electrificación")) Is Nothing) Then
                 MyBase.Tables.Add(New ElectrificaciónDataTable(ds.Tables("Electrificación")))
@@ -395,8 +395,8 @@ Partial Public Class Base_de_datosDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Conductores y cables")) Is Nothing) Then
-                MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores y cables")))
+            If (Not (ds.Tables("Conductores_y_cables")) Is Nothing) Then
+                MyBase.Tables.Add(New Conductores_y_cablesDataTable(ds.Tables("Conductores_y_cables")))
             End If
             If (Not (ds.Tables("Electrificación")) Is Nothing) Then
                 MyBase.Tables.Add(New ElectrificaciónDataTable(ds.Tables("Electrificación")))
@@ -481,7 +481,7 @@ Partial Public Class Base_de_datosDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableConductores_y_cables = CType(MyBase.Tables("Conductores y cables"),Conductores_y_cablesDataTable)
+        Me.tableConductores_y_cables = CType(MyBase.Tables("Conductores_y_cables"),Conductores_y_cablesDataTable)
         If (initTable = true) Then
             If (Not (Me.tableConductores_y_cables) Is Nothing) Then
                 Me.tableConductores_y_cables.InitVars
@@ -869,7 +869,7 @@ Partial Public Class Base_de_datosDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Conductores y cables"
+            Me.TableName = "Conductores_y_cables"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -6859,7 +6859,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.TipoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo' de la tabla 'Conductores y cables' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tipo' de la tabla 'Conductores_y_cables' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -6873,7 +6873,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.MaterialColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Material' de la tabla 'Conductores y cables' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Material' de la tabla 'Conductores_y_cables' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -6887,7 +6887,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Sección__mm2_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Sección (mm2)' de la tabla 'Conductores y cables' es DBNu"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Sección (mm2)' de la tabla 'Conductores_y_cables' es DBNu"& _ 
                             "ll.", e)
                 End Try
             End Get
@@ -6902,7 +6902,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Diámetro_cable__m_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Diámetro cable (m)' de la tabla 'Conductores y cables' es"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Diámetro cable (m)' de la tabla 'Conductores_y_cables' es"& _ 
                             " DBNull.", e)
                 End Try
             End Get
@@ -6917,7 +6917,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Peso_lineal__kg_m_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Peso lineal (kg/m)' de la tabla 'Conductores y cables' es"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Peso lineal (kg/m)' de la tabla 'Conductores_y_cables' es"& _ 
                             " DBNull.", e)
                 End Try
             End Get
@@ -6932,7 +6932,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Resistencia_máxima__ohm_km_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Resistencia máxima (ohm/km)' de la tabla 'Conductores y c"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Resistencia máxima (ohm/km)' de la tabla 'Conductores_y_c"& _ 
                             "ables' es DBNull.", e)
                 End Try
             End Get
@@ -6947,7 +6947,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.Coef_dilataciónColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Coef dilatación' de la tabla 'Conductores y cables' es DB"& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Coef dilatación' de la tabla 'Conductores_y_cables' es DB"& _ 
                             "Null.", e)
                 End Try
             End Get
@@ -6962,7 +6962,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Módulo_elástico__kN_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Módulo elástico (kN)' de la tabla 'Conductores y cables' "& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Módulo elástico (kN)' de la tabla 'Conductores_y_cables' "& _ 
                             "es DBNull.", e)
                 End Try
             End Get
@@ -6977,7 +6977,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables._Carga_rotura__kN_Column),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Carga rotura (kN)' de la tabla 'Conductores y cables' es "& _ 
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Carga rotura (kN)' de la tabla 'Conductores_y_cables' es "& _ 
                             "DBNull.", e)
                 End Try
             End Get
@@ -6992,7 +6992,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.NormaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Norma' de la tabla 'Conductores y cables' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Norma' de la tabla 'Conductores_y_cables' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -7006,7 +7006,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.Orígen_1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Orígen 1' de la tabla 'Conductores y cables' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Orígen 1' de la tabla 'Conductores_y_cables' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -7020,7 +7020,7 @@ Partial Public Class Base_de_datosDataSet
                 Try 
                     Return CType(Me(Me.tableConductores_y_cables.Orígen_2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Orígen 2' de la tabla 'Conductores y cables' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Orígen 2' de la tabla 'Conductores_y_cables' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -11210,7 +11210,7 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Conductores y cables"
+            tableMapping.DataSetTable = "Conductores_y_cables"
             tableMapping.ColumnMappings.Add("Tipo", "Tipo")
             tableMapping.ColumnMappings.Add("Material", "Material")
             tableMapping.ColumnMappings.Add("Sección (mm2)", "Sección (mm2)")
@@ -11293,7 +11293,7 @@ Namespace Base_de_datosDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As Base_de_datosDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Conductores y cables")
+            Return Me.Adapter.Update(dataSet, "Conductores_y_cables")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

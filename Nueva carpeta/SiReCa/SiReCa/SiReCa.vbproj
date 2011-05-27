@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="buscar.vb" />
     <Compile Include="cargar_lac.vb" />
+    <Compile Include="modificar_lac.vb" />
     <Compile Include="Pantalla_aviso.Designer.vb">
       <DependentUpon>Pantalla_aviso.vb</DependentUpon>
     </Compile>
@@ -108,6 +109,7 @@
     <Compile Include="Pantalla_principal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ver_lac.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pantalla_aviso.resx">
@@ -190,6 +192,22 @@
     <COMReference Include="DAO">
       <Guid>{00025E01-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="DxVBLib">
+      <Guid>{E1211242-8E94-11D1-8808-00C04FC2C602}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="DxVBLibA">
+      <Guid>{E1211242-8E94-11D1-8808-00C04FC2C603}</Guid>
+      <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>

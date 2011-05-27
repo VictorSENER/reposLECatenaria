@@ -5,17 +5,49 @@ Public Class Pantalla_principal
     Public ruta_replanteo As String
     Public ruta_autocad As String
     Public nombre_excel As String
+
+    Public Direct As New DxVBLib.DirectX7
+    Public DirectD As DxVBLib.DirectDraw7
+    Public ScreenWith As Integer
+    Public ScreenHight As Integer
+
     Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
         Me.Nombre_CatenariaTableAdapter.Fill(Me.Base_de_datosDataSet.Nombre_Catenaria)
 
+        'Dim Direct As New DxVBLib.DirectX7
+
+        'Dim DirectD As DxVBLib.DirectDraw7
+
+        'Dim ScreenWith, ScreenHeight As Integer
+
+        'Parametro de Resolucion Deseados
+
+        'ScreenWith = 1280
+
+        'ScreenHeight = 1024
+
+        'DirectD = Direct.DirectDrawCreate("")
+
+        'DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
+
+        Dim pantalla As New Pantalla_principal
+        pantalla.ScreenWith = 1280
+        pantalla.ScreenHight = 1024
+        pantalla.DirectD = pantalla.Direct.DirectDrawCreate("")
+        pantalla.DirectD.SetDisplayMode(pantalla.ScreenWith, pantalla.ScreenHight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
 
     End Sub
+
+
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
         Me.TextBox1.Hide()
         Me.Label1.Hide()
         Me.ComboBox1.Show()
+        Me.Button1.Text = "CARGAR"
         Me.Button1.Show()
+        Me.Button8.Show()
+        Me.Button9.Show()
         Me.Label2.Show()
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -28,17 +60,8 @@ Public Class Pantalla_principal
                 MsgBox("Rellenar la celda", 48)
             Else
                 nueva_lac = ComboBox1.Text
-                Pantalla_aviso.Show()
-                Me.Label3.Show()
-                Me.Button2.Show()
-                Me.GroupBox2.Show()
-                'Me.Label2.Hide()
-                'Me.ComboBox1.Hide()
-                'Me.Button1.Hide()
-                'Me.RadioButton1.Hide()
-                'Me.RadioButton2.Hide()
-                'Me.GroupBox1.Text = "Datos de catenaria introducidos"
-                'Me.GroupBox2.ForeColor = Color.Green
+                cargar_lac.cargar_lac()
+
             End If
 
         ElseIf Me.RadioButton2.Checked = True Then
@@ -53,7 +76,7 @@ Public Class Pantalla_principal
                 Dim oComm As OleDbCommand
                 Dim oRead As OleDbDataReader
 
-                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
                 oConn.Open()
                 oComm = New OleDbCommand("select * from Datos", oConn)
                 oRead = oComm.ExecuteReader
@@ -72,13 +95,7 @@ Public Class Pantalla_principal
                     Me.Label3.Show()
                     Me.Button2.Show()
                     Me.GroupBox2.Show()
-                    'Me.Label1.Hide()
-                    'Me.TextBox1.Hide()
-                    'Me.Button1.Hide()
-                    'Me.RadioButton1.Hide()
-                    'Me.RadioButton2.Hide()
-                    'Me.GroupBox1.Text = "Datos de catenaria introducidos"
-                    'Me.GroupBox2.ForeColor = Color.Green
+
                 End If
             End If
         End If
@@ -86,8 +103,10 @@ Public Class Pantalla_principal
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
         Me.Label2.Hide()
         Me.ComboBox1.Hide()
+        Me.Button8.Hide()
+        Me.Button9.Hide()
+        Me.Button1.Text = "GUARDAR"
         Me.Button1.Show()
-        Me.Button8.Show()
         Me.TextBox1.Show()
         Me.Label1.Show()
     End Sub
@@ -209,8 +228,14 @@ Public Class Pantalla_principal
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
         'Call run.run_autocad(ruta_autocad)
     End Sub
+
     Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
-        'Call tabla_r.tabla_r()
-        nueva_lac = "cat"
+        nueva_lac = ComboBox1.Text
+        ver_lac.ver_lac()
+    End Sub
+
+    Private Sub Button9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button9.Click
+        nueva_lac = ComboBox1.Text
+        Pantalla_aviso.Show()
     End Sub
 End Class

@@ -28,6 +28,7 @@ Partial Class Pantalla_principal
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Button8 = New System.Windows.Forms.Button
+        Me.Button9 = New System.Windows.Forms.Button
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.NombreCatenariaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Base_de_datosDataSet = New SiReCa.Base_de_datosDataSet
@@ -90,7 +91,7 @@ Partial Class Pantalla_principal
         Me.RadioButton1.Location = New System.Drawing.Point(35, 39)
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(221, 30)
+        Me.RadioButton1.Size = New System.Drawing.Size(174, 26)
         Me.RadioButton1.TabIndex = 0
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Catenaria existente"
@@ -105,7 +106,7 @@ Partial Class Pantalla_principal
         Me.RadioButton2.Location = New System.Drawing.Point(37, 138)
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(188, 30)
+        Me.RadioButton2.Size = New System.Drawing.Size(151, 26)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Nueva catenaria"
@@ -116,6 +117,7 @@ Partial Class Pantalla_principal
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.GroupBox1.Controls.Add(Me.Button8)
+        Me.GroupBox1.Controls.Add(Me.Button9)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -137,18 +139,27 @@ Partial Class Pantalla_principal
         '
         'Button8
         '
-        Me.Button8.BackColor = System.Drawing.SystemColors.Control
-        Me.Button8.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.BackColor = System.Drawing.Color.Silver
+        Me.Button8.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button8.Location = New System.Drawing.Point(359, 239)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button8.Location = New System.Drawing.Point(47, 238)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(133, 37)
-        Me.Button8.TabIndex = 2
-        Me.Button8.Text = "TABLA"
+        Me.Button8.Size = New System.Drawing.Size(133, 48)
+        Me.Button8.TabIndex = 6
+        Me.Button8.Text = "VER"
         Me.Button8.UseVisualStyleBackColor = False
-        Me.Button8.Visible = False
+        '
+        'Button9
+        '
+        Me.Button9.BackColor = System.Drawing.Color.Silver
+        Me.Button9.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.ForeColor = System.Drawing.Color.Black
+        Me.Button9.Location = New System.Drawing.Point(186, 237)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(133, 48)
+        Me.Button9.TabIndex = 7
+        Me.Button9.Text = "MODIFICAR"
+        Me.Button9.UseVisualStyleBackColor = False
         '
         'ComboBox1
         '
@@ -159,7 +170,7 @@ Partial Class Pantalla_principal
         Me.ComboBox1.Location = New System.Drawing.Point(225, 82)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(249, 34)
+        Me.ComboBox1.Size = New System.Drawing.Size(249, 30)
         Me.ComboBox1.TabIndex = 5
         '
         'NombreCatenariaBindingSource
@@ -180,7 +191,7 @@ Partial Class Pantalla_principal
         Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label2.Location = New System.Drawing.Point(43, 85)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 26)
+        Me.Label2.Size = New System.Drawing.Size(53, 22)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Elegir"
         Me.Label2.Visible = False
@@ -188,17 +199,16 @@ Partial Class Pantalla_principal
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button1.Location = New System.Drawing.Point(200, 239)
+        Me.Button1.Location = New System.Drawing.Point(325, 237)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(133, 48)
+        Me.Button1.Size = New System.Drawing.Size(133, 47)
         Me.Button1.TabIndex = 3
-        Me.Button1.Text = "IR"
+        Me.Button1.Text = "CARGAR"
         Me.Button1.UseVisualStyleBackColor = False
-        Me.Button1.Visible = False
         '
         'Label1
         '
@@ -208,7 +218,7 @@ Partial Class Pantalla_principal
         Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label1.Location = New System.Drawing.Point(43, 185)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 26)
+        Me.Label1.Size = New System.Drawing.Size(139, 22)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Nueva catenaria:"
         Me.Label1.Visible = False
@@ -221,7 +231,7 @@ Partial Class Pantalla_principal
         Me.TextBox1.Location = New System.Drawing.Point(225, 180)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(249, 31)
+        Me.TextBox1.Size = New System.Drawing.Size(249, 26)
         Me.TextBox1.TabIndex = 1
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox1.Visible = False
@@ -266,7 +276,7 @@ Partial Class Pantalla_principal
         Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label3.Location = New System.Drawing.Point(35, 65)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(216, 27)
+        Me.Label3.Size = New System.Drawing.Size(174, 23)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Buscar archivo excel"
         Me.Label3.Visible = False
@@ -306,7 +316,7 @@ Partial Class Pantalla_principal
         Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(123, 172)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(215, 27)
+        Me.Label11.Size = New System.Drawing.Size(175, 23)
         Me.Label11.TabIndex = 12
         Me.Label11.Text = "Evolución subrutinas"
         Me.Label11.Visible = False
@@ -327,7 +337,7 @@ Partial Class Pantalla_principal
         Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(123, 44)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(301, 27)
+        Me.Label10.Size = New System.Drawing.Size(243, 23)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Evolución programa principal"
         Me.Label10.Visible = False
@@ -349,7 +359,7 @@ Partial Class Pantalla_principal
         Me.Label8.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label8.Location = New System.Drawing.Point(109, 242)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(124, 27)
+        Me.Label8.Size = New System.Drawing.Size(99, 23)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Guardar en"
         Me.Label8.Visible = False
@@ -392,7 +402,7 @@ Partial Class Pantalla_principal
         Me.TextBox4.Location = New System.Drawing.Point(268, 185)
         Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(168, 31)
+        Me.TextBox4.Size = New System.Drawing.Size(168, 26)
         Me.TextBox4.TabIndex = 5
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox4.Visible = False
@@ -405,7 +415,7 @@ Partial Class Pantalla_principal
         Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label6.Location = New System.Drawing.Point(29, 187)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(174, 27)
+        Me.Label6.Size = New System.Drawing.Size(142, 23)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Nombre fichero:"
         Me.Label6.Visible = False
@@ -418,7 +428,7 @@ Partial Class Pantalla_principal
         Me.TextBox3.Location = New System.Drawing.Point(268, 128)
         Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(168, 31)
+        Me.TextBox3.Size = New System.Drawing.Size(168, 26)
         Me.TextBox3.TabIndex = 3
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox3.Visible = False
@@ -431,7 +441,7 @@ Partial Class Pantalla_principal
         Me.TextBox2.Location = New System.Drawing.Point(268, 69)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(168, 31)
+        Me.TextBox2.Size = New System.Drawing.Size(168, 26)
         Me.TextBox2.TabIndex = 2
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBox2.Visible = False
@@ -444,7 +454,7 @@ Partial Class Pantalla_principal
         Me.Label5.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label5.Location = New System.Drawing.Point(29, 128)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(149, 27)
+        Me.Label5.Size = New System.Drawing.Size(120, 23)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "P.K. Final (m)"
         Me.Label5.Visible = False
@@ -457,7 +467,7 @@ Partial Class Pantalla_principal
         Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label4.Location = New System.Drawing.Point(29, 69)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 27)
+        Me.Label4.Size = New System.Drawing.Size(123, 23)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "PK. Inicial (m)"
         Me.Label4.Visible = False
@@ -524,7 +534,7 @@ Partial Class Pantalla_principal
         Me.Label7.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Label7.Location = New System.Drawing.Point(60, 229)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(218, 27)
+        Me.Label7.Size = New System.Drawing.Size(175, 23)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Captar datos eje de:"
         '
@@ -537,7 +547,7 @@ Partial Class Pantalla_principal
         Me.CheckBox8.Location = New System.Drawing.Point(288, 159)
         Me.CheckBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(185, 31)
+        Me.CheckBox8.Size = New System.Drawing.Size(151, 27)
         Me.CheckBox8.TabIndex = 7
         Me.CheckBox8.Text = "Cantonamiento"
         Me.CheckBox8.UseVisualStyleBackColor = True
@@ -551,7 +561,7 @@ Partial Class Pantalla_principal
         Me.CheckBox7.Location = New System.Drawing.Point(288, 124)
         Me.CheckBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(142, 33)
+        Me.CheckBox7.Size = New System.Drawing.Size(115, 28)
         Me.CheckBox7.TabIndex = 6
         Me.CheckBox7.Text = "Altura HC"
         Me.CheckBox7.UseVisualStyleBackColor = True
@@ -566,7 +576,7 @@ Partial Class Pantalla_principal
         Me.CheckBox6.Location = New System.Drawing.Point(288, 89)
         Me.CheckBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(162, 31)
+        Me.CheckBox6.Size = New System.Drawing.Size(132, 27)
         Me.CheckBox6.TabIndex = 5
         Me.CheckBox6.Text = "Implantación"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -581,7 +591,7 @@ Partial Class Pantalla_principal
         Me.CheckBox5.Location = New System.Drawing.Point(288, 54)
         Me.CheckBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(212, 31)
+        Me.CheckBox5.Size = New System.Drawing.Size(172, 27)
         Me.CheckBox5.TabIndex = 4
         Me.CheckBox5.Text = "Descentramientos"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -596,7 +606,7 @@ Partial Class Pantalla_principal
         Me.CheckBox4.Location = New System.Drawing.Point(65, 159)
         Me.CheckBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(108, 31)
+        Me.CheckBox4.Size = New System.Drawing.Size(88, 27)
         Me.CheckBox4.TabIndex = 3
         Me.CheckBox4.Text = "Flechas"
         Me.CheckBox4.UseVisualStyleBackColor = True
@@ -611,7 +621,7 @@ Partial Class Pantalla_principal
         Me.CheckBox3.Location = New System.Drawing.Point(65, 124)
         Me.CheckBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(92, 31)
+        Me.CheckBox3.Size = New System.Drawing.Size(76, 27)
         Me.CheckBox3.TabIndex = 2
         Me.CheckBox3.Text = "Vanos"
         Me.CheckBox3.UseVisualStyleBackColor = True
@@ -626,7 +636,7 @@ Partial Class Pantalla_principal
         Me.CheckBox2.Location = New System.Drawing.Point(65, 89)
         Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(127, 31)
+        Me.CheckBox2.Size = New System.Drawing.Size(104, 27)
         Me.CheckBox2.TabIndex = 1
         Me.CheckBox2.Text = "Etiquetas"
         Me.CheckBox2.UseVisualStyleBackColor = True
@@ -641,7 +651,7 @@ Partial Class Pantalla_principal
         Me.CheckBox1.Location = New System.Drawing.Point(65, 54)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(97, 31)
+        Me.CheckBox1.Size = New System.Drawing.Size(80, 27)
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Postes"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -681,7 +691,7 @@ Partial Class Pantalla_principal
         Me.Label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Label9.Location = New System.Drawing.Point(179, 25)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(908, 46)
+        Me.Label9.Size = New System.Drawing.Size(737, 38)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "SIMULADOR DE REPLANTEO DE CATENARIA (SIRECA)"
         '
@@ -704,10 +714,10 @@ Partial Class Pantalla_principal
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 886)
+        Me.Panel2.Location = New System.Drawing.Point(0, 706)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1292, 74)
+        Me.Panel2.Size = New System.Drawing.Size(1036, 74)
         Me.Panel2.TabIndex = 9
         '
         'Nombre_CatenariaTableAdapter
@@ -716,11 +726,14 @@ Partial Class Pantalla_principal
         '
         'Pantalla_principal
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1292, 960)
+        Me.ClientSize = New System.Drawing.Size(1036, 780)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -798,5 +811,6 @@ Partial Class Pantalla_principal
     Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
     Friend WithEvents NombreCatenariaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Nombre_CatenariaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter
+    Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

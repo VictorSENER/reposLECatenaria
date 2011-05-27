@@ -1,13 +1,19 @@
 ﻿
 Module run
     ' variables publicas para tabla de replanteo
-    Public caso As String, tip_mac As String, tip_poste As String, num_poste As String
+    Public caso As String
     Public uno As Integer
-    Public alt_nom As Double, alt_max As Double, alt_min As Long, dist_va_max As Long
-    Public canton_max As Long, va_max_comp As Long, va_max_aire As Long, va_max_tunel As Long
-    Public inc_va As Long, dist_carril_poste As Long, va_max As Long, inc_alt_hc As Long
+    Public nombre_cat As String, sist As String, al As String, alt_nom As Double, alt_min As Double, alt_max As Long, alt_cat As Double, dist_va_max As Long, dist_max_canton As Double, va_max As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double, inc_norm_va As Double, inc_max_alt_hc As Double, n_min_va_sm As Double, n_min_va_sla As Double, ancho_via As Double, d_max_re As Double, d_max_cu As Double, r_re As Double, zona_trab_pant As Double, el_max_pant As Double, vw As Double, fl_max_centro_va As Double, dist_carril_poste As Double, dist_base_poste_pmr As Double, dist_elect_sm As Double, dist_elect_sla As Double, l_zc_max As Double, l_zc_min As Double, l_zn As Double, r_min_traz As Double, hc As String, sust As String, cdpa As String, cdte As String, feed_pos As String, feed_neg As String, pto_fijo As String, pend As String, anc As String, posicion_feed_pos As String, posicion_feed_neg As String, n_hc As Long, n_cdpa As Long, n_feed_pos As Long, n_feed_neg As Long, t_hc As Double, t_sust As Double, t_cdpa As Double, t_feed_pos As Double, t_feed_neg As Double, t_pto_fijo As Double, adm_lin_poste As String, tip_poste As String, num_poste As String, adm_lin_mac As String, tip_mac As String, tubo_men As String, tubo_tir As String, cola_anc As String, aisl_feed_pos As String, aisl_feed_neg As String, dist_ap_prim_pend As Long, dist_prim_seg_pend As Long, dist_max_pend As Long
+    Public sec_hc_cyc As Double, diam_hc_cyc As String, p_hc_cyc As Double, res_max_hc_cyc As Double, coef_dil_hc_cyc As String, mod_elast_hc_cyc As Double, carga_rot_hc_cyc As Double, norma_hc_cyc As String, origen_1_hc_cyc As String, origen_2_hc_cyc As String
+    Public sec_sust_cyc As Double, diam_sust_cyc As String, p_sust_cyc As Double, res_max_sust_cyc As Double, coef_dil_sust_cyc As String, mod_elast_sust_cyc As Double, carga_rot_sust_cyc As Double, norma_sust_cyc As String, origen_1_sust_cyc As String, origen_2_sust_cyc As String
+    Public sec_cdpa_cyc As Double, diam_cdpa_cyc As String, p_cdpa_cyc As Double, res_max_cdpa_cyc As Double, coef_dil_cdpa_cyc As String, mod_elast_cdpa_cyc As Double, carga_rot_cdpa_cyc As Double, norma_cdpa_cyc As String, origen_1_cdpa_cyc As String, origen_2_cdpa_cyc As String
+    Public sec_pto_fijo_cyc As Double, diam_pto_fijo_cyc As String, p_pto_fijo_cyc, res_max_pto_fijo_cyc As Double, coef_dil_pto_fijo_cyc As String, mod_elast_pto_fijo_cyc As Double, carga_rot_pto_fijo_cyc As Double, norma_pto_fijo_cyc As String, origen_1_pto_fijo_cyc As String, origen_2_pto_fijo_cyc As String
+    Public sec_feed_pos_cyc As Double, diam_feed_pos_cyc As String, p_feed_pos_cyc As Double, res_max_feed_pos_cyc As Double, coef_dil_feed_pos_cyc As String, mod_elast_feed_pos_cyc As Double, carga_rot_feed_pos_cyc As Double, norma_feed_pos_cyc As String, origen_1_feed_pos_cyc As String, origen_2_feed_pos_cyc As String
+    Public sec_feed_neg_cyc As Double, diam_feed_neg_cyc As String, p_feed_neg_cyc As Double, res_max_feed_neg_cyc As Double, coef_dil_feed_neg_cyc As String, mod_elast_feed_neg_cyc As Double, carga_rot_feed_neg_cyc As Double, norma_feed_neg_cyc As String, origen_1_feed_neg_cyc As String, origen_2_feed_neg_cyc As String
+    Public sec_cdte_cyc As Double, diam_cdte_cyc As String, p_cdte_cyc As Double, res_max_cdte_cyc As Double, coef_dil_cdte_cyc As String, mod_elast_cdte_cyc As Double, carga_rot_cdte_cyc As Double, norma_cdte_cyc As String, origen_1_cdte_cyc As String, origen_2_cdte_cyc As String
+    Public sec_pend_cyc As Double, diam_pend_cyc As String, p_pend_cyc As Double, res_max_pend_cyc As Double, coef_dil_pend_cyc As String, mod_elast_pend_cyc As Double, carga_rot_pend_cyc As Double, norma_pend_cyc As String, origen_1_pend_cyc As String, origen_2_pend_cyc As String
     Public inicio As Double, fin As Double, start As Long, l_canton As Long
-    Public radio_recta As Long, alt_cat As Long, va_max_sec_comp As Long
+    Public radio_recta As Long, va_max_sec_comp As Long
     Public va_max_sec_aire As Long, fallo As Long
     Public cadena As String
     Public n_canton2 As Long
@@ -16,7 +22,7 @@ Module run
     Public datos_trazado(1000, 9) As Short
     Public c As Long, h As Long, w As Long, k As Long, a As Long, b As Long
     Public tiempo As System.Int32()
-    'Public WithEvents objCAD As Autodesk.AutoCAD.Interop.AcadApplication
+    'Public WithEvents objCAD As Autodesk.AutoCAD.Interop.Common.AcadRegisteredApplication
 
     Public Sub run_excel(ByVal inicio, ByVal fin, ByVal ruta_replanteo, ByVal nombre_excel, ByVal ruta_trazado)
         'generar un objeto excel

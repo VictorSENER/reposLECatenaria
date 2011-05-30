@@ -11,20 +11,29 @@ pk0 = Sheets(1).Cells(h, 33).Value
 final = Sheets(3).Cells(k + 1, 3).Value
 inicio1 = Sheets(3).Cells(k, 3).Value
 ' buscar en que fila de la hoja 3 cae el PK actual
-While pk0 < inicio1 Or pk0 > final
+
+
+While (pk0 < inicio1 Or pk0 > final) And pk0 > inicio1
     k = k + 1
     final = Sheets(3).Cells(k + 1, 3).Value
     inicio1 = Sheets(3).Cells(k, 3).Value
 Wend
+If k = 3 Then
+
+Else
+A12 = Sheets(3).Cells(k - 1, 9).Value
+rady2 = Sheets(3).Cells(k - 1, 2).Value
+End If
+
 
 l1 = Sheets(3).Cells(k, 11).Value
 l2 = Sheets(3).Cells(k, 12).Value
 rady = Sheets(3).Cells(k, 2).Value
-rady2 = Sheets(3).Cells(k - 1, 2).Value
+
 inicio1 = Sheets(3).Cells(k, 3).Value
 inicio2 = Sheets(3).Cells(k, 5).Value
 a1 = Sheets(3).Cells(k, 9).Value
-A12 = Sheets(3).Cells(k - 1, 9).Value
+
 A2 = Sheets(3).Cells(k, 10).Value
 c = Sheets(3).Cells(k, 7).Value
 
@@ -186,15 +195,20 @@ While (Not inicio1 <= pk0) Or (Not pk0 <= final)
     final = Sheets(3).Cells(k + 1, 3).Value
     inicio1 = Sheets(3).Cells(k, 3).Value
 Wend
+If k = 3 Then
 
+Else
+rady2 = Sheets(3).Cells(k - 1, 2).Value
+A12 = Sheets(3).Cells(k - 1, 9).Value
+End If
 l1 = Sheets(3).Cells(k, 11).Value
 l2 = Sheets(3).Cells(k, 12).Value
 rady = Sheets(3).Cells(k, 2).Value
-rady2 = Sheets(3).Cells(k - 1, 2).Value
+
 inicio1 = Sheets(3).Cells(k, 3).Value
 inicio2 = Sheets(3).Cells(k, 5).Value
 a1 = Sheets(3).Cells(k, 9).Value
-A12 = Sheets(3).Cells(k - 1, 9).Value
+
 A2 = Sheets(3).Cells(k, 10).Value
 c = Sheets(3).Cells(k, 7).Value
 

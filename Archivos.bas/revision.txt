@@ -31,20 +31,25 @@ While Not IsEmpty(Sheets(1).Cells(z + 1, 4).Value)
         final = Sheets(3).Cells(kloc + 1, 3).Value
         inicio1 = Sheets(3).Cells(kloc, 3).Value
 ' buscar en que fila de la hoja 3 cae el PK actual
-        While pk0 < inicio1 Or pk0 > final
+        While (pk0 < inicio1 Or pk0 > final) And pk0 > inicio1
             kloc = kloc + 1
             final = Sheets(3).Cells(kloc + 1, 3).Value
             inicio1 = Sheets(3).Cells(kloc, 3).Value
         Wend
-
+        If kloc = 3 Then
+        
+        Else
+        rady2 = Sheets(3).Cells(kloc - 1, 2).Value
+        A12 = Sheets(3).Cells(kloc - 1, 9).Value
+        End If
         l1 = Sheets(3).Cells(kloc, 11).Value
         l2 = Sheets(3).Cells(kloc, 12).Value
         rady = Sheets(3).Cells(kloc, 2).Value
-        rady2 = Sheets(3).Cells(kloc - 1, 2).Value
+        
         inicio1 = Sheets(3).Cells(kloc, 3).Value
         inicio2 = Sheets(3).Cells(kloc, 5).Value
         a1 = Sheets(3).Cells(kloc, 9).Value
-        A12 = Sheets(3).Cells(kloc - 1, 9).Value
+        
         A2 = Sheets(3).Cells(kloc, 10).Value
         c = Sheets(3).Cells(kloc, 7).Value
 

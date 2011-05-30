@@ -14,6 +14,7 @@ dist_carril_poste = Sheets(2).Cells(37, 4).Value
 va_max = Sheets(2).Cells(3, 8).Value
 inc_max_alt_hc = Sheets(2).Cells(37, 4).Value
 r_re = Sheets(2).Cells(39, 4).Value
+idioma = Sheets(2).Cells(41, 4).Value
 uno = 1
 cadena = ActiveWorkbook.Path                            ' dirección de este archivo
 start = inicio

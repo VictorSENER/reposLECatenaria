@@ -1,6 +1,6 @@
 Attribute VB_Name = "principal"
 ' variables publicas para tabla de replanteo
-Public caso As String, tip_mac As String, tip_poste As String, num_poste As String
+Public caso As String, tip_mac As String, tip_poste As String, num_poste As String, idioma As String
 Public n_min_va_sm As Integer, n_min_va_sla As Integer
 Public alt_nom As Double, alt_max As Double, alt_min As Double, dist_va_max As Double
 Public dist_max_canton As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double
@@ -8,8 +8,9 @@ Public inc_norm_va As Double, dist_carril_poste As Double, va_max As Double, inc
 Public d_max_cu As Double
 Public inicio As Double, fin As Double
 Public r_re As Double, alt_cat As Double, va_max_sec_comp As Double, d_max_re As Double
-Public va_max_sec_aire As Long, fallo As Double, ancho_via As Double
-Public Error As Long, n_canton2 As Long
+Public va_max_sec_aire As Long, fallo As Double, ancho_via As Double, l_canton As Double
+Public Error As Long, n_canton2 As Long, uno As Integer
+Public start As Double
 Function principal(inicio1, h1, w1, k1, a1, b1, c1, r_re1, dist_va_max1, inc_norm_va1, va_max_tunel1, va_max1) As Long()
 inicio = inicio1
 h = h1
@@ -28,7 +29,7 @@ va_max = va_max1
 If h = 10 Then
 'Call datos.datos_excel
 'inicializar todos los contadores
-
+uno = 1
 Sheets(1).Cells(10, 33) = inicio1
 End If
 
@@ -47,7 +48,7 @@ Wend
     Call regulacion.regulacion(h, k, a, b)                                  ' comprobamos que los incrementos de vano
     Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
     Call punto_singular.sing1(h, a, k)                                ' comprobamos que el poste no cae en un PS
-    'Call cantones(h, c, k, a)
+    Call cantonamiento.cantones(h, c, k, a)
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
     Dim x(7) As Long

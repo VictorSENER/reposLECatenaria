@@ -6,7 +6,7 @@ Dim beta As Double
 Dim matriz_pk(500) As Double
 With ActiveWorkbook
 With .Sheets(6)
-        For fila = 3 To 122
+        For fila = 2 To 122
             matriz_pk(Sheets(6).Cells(fila, 1).Value) = Sheets(6).Cells(fila, 2).Value
         Next
     End With

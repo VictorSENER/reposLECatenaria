@@ -37,13 +37,13 @@ Wend
 While (Sheets(1).Cells(h - 5, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist_va_max
     Sheets(1).Cells(h - 5, 4).Value = Sheets(1).Cells(h - 5, 4).Value - inc_norm_va
     Sheets(1).Cells(h - 4, 33).Value = Sheets(1).Cells(h - 5, 4).Value + Sheets(1).Cells(h - 6, 33).Value
-    Call radio.radio1(h - 4, k - 2)
+    Call radio.radio1(h - 4, k)
     If vano.vano(Sheets(1).Cells(h - 4, 6).Value) < Sheets(1).Cells(h - 3, 4).Value Then
         Sheets(1).Cells(h - 3, 4).Value = vano.vano(Sheets(1).Cells(h - 4, 6).Value)
     End If
     Call punto_singular.sing1(h - 4, a - 1, k)
     Sheets(1).Cells(h - 2, 33).Value = Sheets(1).Cells(h - 3, 4).Value + Sheets(1).Cells(h - 4, 33).Value
-    Call radio.radio1(h - 2, k - 1)
+    Call radio.radio1(h - 2, k)
     If vano.vano(Sheets(1).Cells(h - 2, 6).Value) < Sheets(1).Cells(h - 1, 4).Value Then
         Sheets(1).Cells(h - 1, 4).Value = vano.vano(Sheets(1).Cells(h - 2, 6).Value)
     End If

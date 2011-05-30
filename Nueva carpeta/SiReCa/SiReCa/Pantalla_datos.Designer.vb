@@ -266,6 +266,8 @@ Partial Class Pantalla_datos
         '
         'AlimentaciónLabel
         '
+        AlimentaciónLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         AlimentaciónLabel.AutoSize = True
         AlimentaciónLabel.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         AlimentaciónLabel.Location = New System.Drawing.Point(394, 57)
@@ -276,6 +278,8 @@ Partial Class Pantalla_datos
         '
         'SistemaLabel
         '
+        SistemaLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         SistemaLabel.AutoSize = True
         SistemaLabel.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         SistemaLabel.Location = New System.Drawing.Point(72, 52)
@@ -286,6 +290,8 @@ Partial Class Pantalla_datos
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
@@ -2165,6 +2171,8 @@ Partial Class Pantalla_datos
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(68, 94)
@@ -2196,6 +2204,8 @@ Partial Class Pantalla_datos
         '
         'Text_al
         '
+        Me.Text_al.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Text_al.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Alimentación", True))
         Me.Text_al.Location = New System.Drawing.Point(525, 57)
         Me.Text_al.Name = "Text_al"
@@ -2205,6 +2215,8 @@ Partial Class Pantalla_datos
         '
         'Combo_sist
         '
+        Me.Combo_sist.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Combo_sist.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Sistema", True))
         Me.Combo_sist.DataSource = Me.Electrificación_ConsultaBindingSource
         Me.Combo_sist.DisplayMember = "Sistema"
@@ -2262,6 +2274,8 @@ Partial Class Pantalla_datos
         '
         'Button2
         '
+        Me.Button2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(856, 19)
         Me.Button2.Name = "Button2"
@@ -2272,6 +2286,8 @@ Partial Class Pantalla_datos
         '
         'Text_nombre_cat
         '
+        Me.Text_nombre_cat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Text_nombre_cat.Location = New System.Drawing.Point(288, 19)
         Me.Text_nombre_cat.Name = "Text_nombre_cat"
         Me.Text_nombre_cat.Size = New System.Drawing.Size(160, 23)
@@ -2279,6 +2295,8 @@ Partial Class Pantalla_datos
         '
         'Label2
         '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Trebuchet MS", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(72, 19)
@@ -2289,6 +2307,8 @@ Partial Class Pantalla_datos
         '
         'Button1
         '
+        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(1053, 870)
         Me.Button1.Name = "Button1"
@@ -2317,7 +2337,6 @@ Partial Class Pantalla_datos
         Me.Name = "Pantalla_datos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()

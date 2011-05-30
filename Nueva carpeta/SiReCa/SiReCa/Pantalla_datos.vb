@@ -5,7 +5,21 @@ Public Class Pantalla_datos
     Dim oConn As New OleDbConnection
 
     Private Sub Pantalla_datos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim Direct As New DxVBLib.DirectX7
 
+        Dim DirectD As DxVBLib.DirectDraw7
+
+        Dim ScreenWith, ScreenHeight As Integer
+
+        'Parametro de Resolucion Deseados
+
+        ScreenWith = 1280
+
+        ScreenHeight = 1024
+
+        DirectD = Direct.DirectDrawCreate("")
+
+        DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
         Text_nombre_cat.Hide()
         Label2.Hide()
 

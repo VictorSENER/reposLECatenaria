@@ -36,6 +36,20 @@ Public Class Pantalla_aviso
     End Sub
 
     Private Sub Pantalla_aviso_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim Direct As New DxVBLib.DirectX7
 
+        Dim DirectD As DxVBLib.DirectDraw7
+
+        Dim ScreenWith, ScreenHeight As Integer
+
+        'Parametro de Resolucion Deseados
+
+        ScreenWith = 1280
+
+        ScreenHeight = 1024
+
+        DirectD = Direct.DirectDrawCreate("")
+
+        DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
     End Sub
 End Class

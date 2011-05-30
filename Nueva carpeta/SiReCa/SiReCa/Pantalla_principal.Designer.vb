@@ -829,6 +829,7 @@ Partial Class Pantalla_principal
         '
         Me.Button10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button10.BackColor = System.Drawing.SystemColors.Control
         Me.Button10.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.Black
         Me.Button10.Location = New System.Drawing.Point(1000, 12)
@@ -836,7 +837,7 @@ Partial Class Pantalla_principal
         Me.Button10.Size = New System.Drawing.Size(212, 46)
         Me.Button10.TabIndex = 10
         Me.Button10.Text = "SALIR"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.Button10.UseVisualStyleBackColor = False
         '
         'Pantalla_principal
         '

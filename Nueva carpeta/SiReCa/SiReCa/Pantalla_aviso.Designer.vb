@@ -31,57 +31,67 @@ Partial Class Pantalla_aviso
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(22, 17)
+        Me.Label3.Location = New System.Drawing.Point(22, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(63, 13)
+        Me.Label3.Size = New System.Drawing.Size(77, 17)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "USUARIO"
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(22, 46)
+        Me.Label4.Location = New System.Drawing.Point(22, 74)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(91, 13)
+        Me.Label4.Size = New System.Drawing.Size(113, 17)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "CONTRASEÑA"
         '
         'Text_usuario
         '
-        Me.Text_usuario.Location = New System.Drawing.Point(119, 13)
+        Me.Text_usuario.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Text_usuario.Location = New System.Drawing.Point(150, 24)
         Me.Text_usuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Text_usuario.Name = "Text_usuario"
-        Me.Text_usuario.Size = New System.Drawing.Size(100, 20)
+        Me.Text_usuario.Size = New System.Drawing.Size(142, 23)
         Me.Text_usuario.TabIndex = 6
         '
         'Text_contraseña
         '
-        Me.Text_contraseña.Location = New System.Drawing.Point(119, 42)
+        Me.Text_contraseña.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Text_contraseña.Location = New System.Drawing.Point(150, 68)
         Me.Text_contraseña.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Text_contraseña.Name = "Text_contraseña"
         Me.Text_contraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.Text_contraseña.Size = New System.Drawing.Size(100, 20)
+        Me.Text_contraseña.Size = New System.Drawing.Size(142, 23)
         Me.Text_contraseña.TabIndex = 7
         '
         'Button3
         '
+        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(225, 13)
+        Me.Button3.Location = New System.Drawing.Point(319, 24)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(57, 49)
+        Me.Button3.Size = New System.Drawing.Size(57, 67)
         Me.Button3.TabIndex = 8
         Me.Button3.Text = "OK"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Pantalla_aviso
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(294, 75)
+        Me.ClientSize = New System.Drawing.Size(388, 115)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Text_contraseña)
         Me.Controls.Add(Me.Text_usuario)

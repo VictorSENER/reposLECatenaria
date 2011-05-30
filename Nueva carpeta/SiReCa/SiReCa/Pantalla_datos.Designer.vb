@@ -191,7 +191,7 @@ Partial Class Pantalla_datos
         Me.Label98 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Text_tip_mac = New System.Windows.Forms.TextBox
-        Me.Macizos_ConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MacizosConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label96 = New System.Windows.Forms.Label
         Me.Combo_adm_lin_mac = New System.Windows.Forms.ComboBox
         Me.Label95 = New System.Windows.Forms.Label
@@ -218,26 +218,25 @@ Partial Class Pantalla_datos
         Me.Combo_tubo_men = New System.Windows.Forms.ComboBox
         Me.Label100 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
-        Me.Electrificación_ConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Electrificación_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
-        Me.TableAdapterManager = New SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager
         Me.Text_al = New System.Windows.Forms.TextBox
         Me.Combo_sist = New System.Windows.Forms.ComboBox
-        Me.Macizos_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
-        Me.Postes_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
+        Me.Button2 = New System.Windows.Forms.Button
+        Me.Text_nombre_cat = New System.Windows.Forms.TextBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
         Me.Conductor_HCTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter
         Me.Conductor_SustentadorTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_SustentadorTableAdapter
-        Me.Conductor_CDPATableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_CDPATableAdapter
         Me.Conductor_Cable_de_TierraTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Cable_de_TierraTableAdapter
+        Me.Conductor_CDPATableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_CDPATableAdapter
         Me.Conductor_Feeder__TableAdapter1 = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter1
         Me.Conductor_Feeder__TableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter
         Me.Conductor_punto_fijoTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_punto_fijoTableAdapter
         Me.Conductor_PendolaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_PendolaTableAdapter
         Me.Conductor_AnclajeTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Conductor_AnclajeTableAdapter
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Text_nombre_cat = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.Postes_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
+        Me.Macizos_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
+        Me.ElectrificaciónConsultaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Electrificación_ConsultaTableAdapter = New SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
         AlimentaciónLabel = New System.Windows.Forms.Label
         SistemaLabel = New System.Windows.Forms.Label
         Me.TabControl1.SuspendLayout()
@@ -257,11 +256,11 @@ Partial Class Pantalla_datos
         Me.GroupBox2.SuspendLayout()
         CType(Me.PostesConsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Macizos_ConsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MacizosConsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.Electrificación_ConsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ElectrificaciónConsultaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AlimentaciónLabel
@@ -1594,7 +1593,7 @@ Partial Class Pantalla_datos
         'Combo_anc
         '
         Me.Combo_anc.DataSource = Me.ConductorAnclajeBindingSource
-        Me.Combo_anc.DisplayMember = "Material"
+        Me.Combo_anc.DisplayMember = "mat_cyc"
         Me.Combo_anc.FormattingEnabled = True
         Me.Combo_anc.Location = New System.Drawing.Point(314, 303)
         Me.Combo_anc.Name = "Combo_anc"
@@ -1623,7 +1622,7 @@ Partial Class Pantalla_datos
         'Combo_pend
         '
         Me.Combo_pend.DataSource = Me.ConductorPendolaBindingSource
-        Me.Combo_pend.DisplayMember = "Material"
+        Me.Combo_pend.DisplayMember = "mat_cyc"
         Me.Combo_pend.FormattingEnabled = True
         Me.Combo_pend.Location = New System.Drawing.Point(314, 273)
         Me.Combo_pend.Name = "Combo_pend"
@@ -1647,7 +1646,7 @@ Partial Class Pantalla_datos
         'Combo_pto_fijo
         '
         Me.Combo_pto_fijo.DataSource = Me.ConductorPuntoFijoBindingSource
-        Me.Combo_pto_fijo.DisplayMember = "Material"
+        Me.Combo_pto_fijo.DisplayMember = "mat_cyc"
         Me.Combo_pto_fijo.FormattingEnabled = True
         Me.Combo_pto_fijo.Location = New System.Drawing.Point(314, 243)
         Me.Combo_pto_fijo.Name = "Combo_pto_fijo"
@@ -1671,7 +1670,7 @@ Partial Class Pantalla_datos
         'Combo_feed_neg
         '
         Me.Combo_feed_neg.DataSource = Me.ConductorFeederBindingSource1
-        Me.Combo_feed_neg.DisplayMember = "Material"
+        Me.Combo_feed_neg.DisplayMember = "mat_cyc"
         Me.Combo_feed_neg.FormattingEnabled = True
         Me.Combo_feed_neg.Location = New System.Drawing.Point(314, 213)
         Me.Combo_feed_neg.Name = "Combo_feed_neg"
@@ -1695,7 +1694,7 @@ Partial Class Pantalla_datos
         'Combo_feed_pos
         '
         Me.Combo_feed_pos.DataSource = Me.ConductorFeederBindingSource
-        Me.Combo_feed_pos.DisplayMember = "Material"
+        Me.Combo_feed_pos.DisplayMember = "mat_cyc"
         Me.Combo_feed_pos.FormattingEnabled = True
         Me.Combo_feed_pos.Location = New System.Drawing.Point(314, 183)
         Me.Combo_feed_pos.Name = "Combo_feed_pos"
@@ -1719,7 +1718,7 @@ Partial Class Pantalla_datos
         'Combo_cdte
         '
         Me.Combo_cdte.DataSource = Me.ConductorCableDeTierraBindingSource
-        Me.Combo_cdte.DisplayMember = "Material"
+        Me.Combo_cdte.DisplayMember = "mat_cyc"
         Me.Combo_cdte.FormattingEnabled = True
         Me.Combo_cdte.Location = New System.Drawing.Point(314, 153)
         Me.Combo_cdte.Name = "Combo_cdte"
@@ -1743,7 +1742,7 @@ Partial Class Pantalla_datos
         'Combo_cdpa
         '
         Me.Combo_cdpa.DataSource = Me.ConductorCDPABindingSource
-        Me.Combo_cdpa.DisplayMember = "Material"
+        Me.Combo_cdpa.DisplayMember = "mat_cyc"
         Me.Combo_cdpa.FormattingEnabled = True
         Me.Combo_cdpa.Location = New System.Drawing.Point(314, 123)
         Me.Combo_cdpa.Name = "Combo_cdpa"
@@ -1767,7 +1766,7 @@ Partial Class Pantalla_datos
         'Combo_sust
         '
         Me.Combo_sust.DataSource = Me.ConductorSustentadorBindingSource
-        Me.Combo_sust.DisplayMember = "Material"
+        Me.Combo_sust.DisplayMember = "mat_cyc"
         Me.Combo_sust.FormattingEnabled = True
         Me.Combo_sust.Location = New System.Drawing.Point(314, 93)
         Me.Combo_sust.Name = "Combo_sust"
@@ -1791,7 +1790,7 @@ Partial Class Pantalla_datos
         'Combo_hc
         '
         Me.Combo_hc.DataSource = Me.ConductorHCBindingSource
-        Me.Combo_hc.DisplayMember = "Material"
+        Me.Combo_hc.DisplayMember = "mat_cyc"
         Me.Combo_hc.FormattingEnabled = True
         Me.Combo_hc.Location = New System.Drawing.Point(314, 63)
         Me.Combo_hc.Name = "Combo_hc"
@@ -1859,7 +1858,7 @@ Partial Class Pantalla_datos
         '
         'Text_tip_poste
         '
-        Me.Text_tip_poste.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PostesConsultaBindingSource, "Poste", True))
+        Me.Text_tip_poste.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PostesConsultaBindingSource, "poste_poste", True))
         Me.Text_tip_poste.Location = New System.Drawing.Point(142, 76)
         Me.Text_tip_poste.Name = "Text_tip_poste"
         Me.Text_tip_poste.ReadOnly = True
@@ -1883,13 +1882,13 @@ Partial Class Pantalla_datos
         'Combo_adm_lin_poste
         '
         Me.Combo_adm_lin_poste.DataSource = Me.PostesConsultaBindingSource
-        Me.Combo_adm_lin_poste.DisplayMember = "Adm/Lín"
+        Me.Combo_adm_lin_poste.DisplayMember = "adm_lin_poste_poste"
         Me.Combo_adm_lin_poste.FormattingEnabled = True
         Me.Combo_adm_lin_poste.Location = New System.Drawing.Point(142, 46)
         Me.Combo_adm_lin_poste.Name = "Combo_adm_lin_poste"
         Me.Combo_adm_lin_poste.Size = New System.Drawing.Size(273, 31)
         Me.Combo_adm_lin_poste.TabIndex = 1
-        Me.Combo_adm_lin_poste.ValueMember = "Poste"
+        Me.Combo_adm_lin_poste.ValueMember = "poste_poste"
         '
         'Label98
         '
@@ -1915,17 +1914,17 @@ Partial Class Pantalla_datos
         '
         'Text_tip_mac
         '
-        Me.Text_tip_mac.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Macizos_ConsultaBindingSource, "Macizo", True))
+        Me.Text_tip_mac.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MacizosConsultaBindingSource, "mac_mac", True))
         Me.Text_tip_mac.Location = New System.Drawing.Point(149, 73)
         Me.Text_tip_mac.Name = "Text_tip_mac"
         Me.Text_tip_mac.ReadOnly = True
         Me.Text_tip_mac.Size = New System.Drawing.Size(240, 27)
         Me.Text_tip_mac.TabIndex = 4
         '
-        'Macizos_ConsultaBindingSource
+        'MacizosConsultaBindingSource
         '
-        Me.Macizos_ConsultaBindingSource.DataMember = "Macizos Consulta"
-        Me.Macizos_ConsultaBindingSource.DataSource = Me.Base_de_datosDataSet
+        Me.MacizosConsultaBindingSource.DataMember = "Macizos Consulta"
+        Me.MacizosConsultaBindingSource.DataSource = Me.Base_de_datosDataSet
         '
         'Label96
         '
@@ -1938,14 +1937,14 @@ Partial Class Pantalla_datos
         '
         'Combo_adm_lin_mac
         '
-        Me.Combo_adm_lin_mac.DataSource = Me.Macizos_ConsultaBindingSource
-        Me.Combo_adm_lin_mac.DisplayMember = "Adm/Lín"
+        Me.Combo_adm_lin_mac.DataSource = Me.MacizosConsultaBindingSource
+        Me.Combo_adm_lin_mac.DisplayMember = "adm_lin_mac_mac"
         Me.Combo_adm_lin_mac.FormattingEnabled = True
         Me.Combo_adm_lin_mac.Location = New System.Drawing.Point(149, 43)
         Me.Combo_adm_lin_mac.Name = "Combo_adm_lin_mac"
         Me.Combo_adm_lin_mac.Size = New System.Drawing.Size(240, 31)
         Me.Combo_adm_lin_mac.TabIndex = 1
-        Me.Combo_adm_lin_mac.ValueMember = "Macizo"
+        Me.Combo_adm_lin_mac.ValueMember = "mac_mac"
         '
         'Label95
         '
@@ -2181,32 +2180,11 @@ Partial Class Pantalla_datos
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "DATOS NUEVA CATENARIA"
         '
-        'Electrificación_ConsultaBindingSource
-        '
-        Me.Electrificación_ConsultaBindingSource.DataMember = "Electrificación Consulta"
-        Me.Electrificación_ConsultaBindingSource.DataSource = Me.Base_de_datosDataSet
-        '
-        'Electrificación_ConsultaTableAdapter
-        '
-        Me.Electrificación_ConsultaTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Conductores_y_cablesTableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.ContraseñaTableAdapter = Nothing
-        Me.TableAdapterManager.DatosTableAdapter = Nothing
-        Me.TableAdapterManager.ElectrificaciónTableAdapter = Nothing
-        Me.TableAdapterManager.MacizosTableAdapter = Nothing
-        Me.TableAdapterManager.PostesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'Text_al
         '
         Me.Text_al.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Text_al.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Alimentación", True))
+        Me.Text_al.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ElectrificaciónConsultaBindingSource, "Alimentación", True))
         Me.Text_al.Location = New System.Drawing.Point(525, 57)
         Me.Text_al.Name = "Text_al"
         Me.Text_al.ReadOnly = True
@@ -2217,8 +2195,7 @@ Partial Class Pantalla_datos
         '
         Me.Combo_sist.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Combo_sist.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Electrificación_ConsultaBindingSource, "Sistema", True))
-        Me.Combo_sist.DataSource = Me.Electrificación_ConsultaBindingSource
+        Me.Combo_sist.DataSource = Me.ElectrificaciónConsultaBindingSource
         Me.Combo_sist.DisplayMember = "Sistema"
         Me.Combo_sist.FormattingEnabled = True
         Me.Combo_sist.ImeMode = System.Windows.Forms.ImeMode.Off
@@ -2227,50 +2204,6 @@ Partial Class Pantalla_datos
         Me.Combo_sist.Size = New System.Drawing.Size(204, 26)
         Me.Combo_sist.TabIndex = 8
         Me.Combo_sist.ValueMember = "Alimentación"
-        '
-        'Macizos_ConsultaTableAdapter
-        '
-        Me.Macizos_ConsultaTableAdapter.ClearBeforeFill = True
-        '
-        'Postes_ConsultaTableAdapter
-        '
-        Me.Postes_ConsultaTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_HCTableAdapter
-        '
-        Me.Conductor_HCTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_SustentadorTableAdapter
-        '
-        Me.Conductor_SustentadorTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_CDPATableAdapter
-        '
-        Me.Conductor_CDPATableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_Cable_de_TierraTableAdapter
-        '
-        Me.Conductor_Cable_de_TierraTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_Feeder__TableAdapter1
-        '
-        Me.Conductor_Feeder__TableAdapter1.ClearBeforeFill = True
-        '
-        'Conductor_Feeder__TableAdapter
-        '
-        Me.Conductor_Feeder__TableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_punto_fijoTableAdapter
-        '
-        Me.Conductor_punto_fijoTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_PendolaTableAdapter
-        '
-        Me.Conductor_PendolaTableAdapter.ClearBeforeFill = True
-        '
-        'Conductor_AnclajeTableAdapter
-        '
-        Me.Conductor_AnclajeTableAdapter.ClearBeforeFill = True
         '
         'Button2
         '
@@ -2317,6 +2250,59 @@ Partial Class Pantalla_datos
         Me.Button1.Text = "SALIR"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Conductor_HCTableAdapter
+        '
+        Me.Conductor_HCTableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_SustentadorTableAdapter
+        '
+        Me.Conductor_SustentadorTableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_Cable_de_TierraTableAdapter
+        '
+        Me.Conductor_Cable_de_TierraTableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_CDPATableAdapter
+        '
+        Me.Conductor_CDPATableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_Feeder__TableAdapter1
+        '
+        Me.Conductor_Feeder__TableAdapter1.ClearBeforeFill = True
+        '
+        'Conductor_Feeder__TableAdapter
+        '
+        Me.Conductor_Feeder__TableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_punto_fijoTableAdapter
+        '
+        Me.Conductor_punto_fijoTableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_PendolaTableAdapter
+        '
+        Me.Conductor_PendolaTableAdapter.ClearBeforeFill = True
+        '
+        'Conductor_AnclajeTableAdapter
+        '
+        Me.Conductor_AnclajeTableAdapter.ClearBeforeFill = True
+        '
+        'Postes_ConsultaTableAdapter
+        '
+        Me.Postes_ConsultaTableAdapter.ClearBeforeFill = True
+        '
+        'Macizos_ConsultaTableAdapter
+        '
+        Me.Macizos_ConsultaTableAdapter.ClearBeforeFill = True
+        '
+        'ElectrificaciónConsultaBindingSource
+        '
+        Me.ElectrificaciónConsultaBindingSource.DataMember = "Electrificación Consulta"
+        Me.ElectrificaciónConsultaBindingSource.DataSource = Me.Base_de_datosDataSet
+        '
+        'Electrificación_ConsultaTableAdapter
+        '
+        Me.Electrificación_ConsultaTableAdapter.ClearBeforeFill = True
+        '
         'Pantalla_datos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -2358,13 +2344,13 @@ Partial Class Pantalla_datos
         CType(Me.PostesConsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.Macizos_ConsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MacizosConsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.Electrificación_ConsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ElectrificaciónConsultaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2540,38 +2526,12 @@ Partial Class Pantalla_datos
     Friend WithEvents Text_dist_max_pend As System.Windows.Forms.TextBox
     Friend WithEvents Text_dist_prim_seg_pend As System.Windows.Forms.TextBox
     Friend WithEvents Text_dist_ap_prim_pend As System.Windows.Forms.TextBox
-    Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
-    Friend WithEvents Electrificación_ConsultaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Electrificación_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
-    Friend WithEvents TableAdapterManager As SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Text_al As System.Windows.Forms.TextBox
     Friend WithEvents Combo_sist As System.Windows.Forms.ComboBox
-    Friend WithEvents Macizos_ConsultaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Macizos_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
     Friend WithEvents Text_tip_mac As System.Windows.Forms.TextBox
-    Friend WithEvents PostesConsultaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Postes_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
     Friend WithEvents Text_tip_poste As System.Windows.Forms.TextBox
     Friend WithEvents Combo_num_poste As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents ConductorHCBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_HCTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter
-    Friend WithEvents ConductorSustentadorBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_SustentadorTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_SustentadorTableAdapter
-    Friend WithEvents ConductorCDPABindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_CDPATableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_CDPATableAdapter
-    Friend WithEvents ConductorCableDeTierraBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_Cable_de_TierraTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Cable_de_TierraTableAdapter
-    Friend WithEvents ConductorFeederBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_Feeder__TableAdapter1 As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter1
-    Friend WithEvents ConductorFeederBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_Feeder__TableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter
-    Friend WithEvents ConductorPuntoFijoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_punto_fijoTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_punto_fijoTableAdapter
-    Friend WithEvents ConductorPendolaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_PendolaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_PendolaTableAdapter
-    Friend WithEvents ConductorAnclajeBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Conductor_AnclajeTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_AnclajeTableAdapter
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label99 As System.Windows.Forms.Label
@@ -2582,4 +2542,29 @@ Partial Class Pantalla_datos
     Friend WithEvents Text_r_min_traz As System.Windows.Forms.TextBox
     Friend WithEvents Label105 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Base_de_datosDataSet As SiReCa.Base_de_datosDataSet
+    Friend WithEvents ConductorHCBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_HCTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter
+    Friend WithEvents ConductorSustentadorBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_SustentadorTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_SustentadorTableAdapter
+    Friend WithEvents ConductorCableDeTierraBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_Cable_de_TierraTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Cable_de_TierraTableAdapter
+    Friend WithEvents ConductorCDPABindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_CDPATableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_CDPATableAdapter
+    Friend WithEvents ConductorFeederBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_Feeder__TableAdapter1 As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter1
+    Friend WithEvents ConductorFeederBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_Feeder__TableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter
+    Friend WithEvents ConductorPuntoFijoBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_punto_fijoTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_punto_fijoTableAdapter
+    Friend WithEvents ConductorPendolaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_PendolaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_PendolaTableAdapter
+    Friend WithEvents ConductorAnclajeBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Conductor_AnclajeTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Conductor_AnclajeTableAdapter
+    Friend WithEvents PostesConsultaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Postes_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter
+    Friend WithEvents MacizosConsultaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Macizos_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter
+    Friend WithEvents ElectrificaciónConsultaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Electrificación_ConsultaTableAdapter As SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter
 End Class

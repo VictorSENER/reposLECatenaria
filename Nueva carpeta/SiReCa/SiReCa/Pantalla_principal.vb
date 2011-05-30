@@ -6,10 +6,7 @@ Public Class Pantalla_principal
     Public ruta_autocad As String
     Public nombre_excel As String
 
-    Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
-        Me.Nombre_CatenariaTableAdapter.Fill(Me.Base_de_datosDataSet.Nombre_Catenaria)
-
+    Private Sub Pantalla_principal_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         Dim Direct As New DxVBLib.DirectX7
 
         Dim DirectD As DxVBLib.DirectDraw7
@@ -25,6 +22,13 @@ Public Class Pantalla_principal
         DirectD = Direct.DirectDrawCreate("")
 
         DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
+    End Sub
+
+    Private Sub Pantalla_principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Nombre_Catenaria' Puede moverla o quitarla según sea necesario.
+        Me.Nombre_CatenariaTableAdapter.Fill(Me.Base_de_datosDataSet.Nombre_Catenaria)
+
+        
 
     End Sub
 
@@ -65,7 +69,8 @@ Public Class Pantalla_principal
                 Dim oComm As OleDbCommand
                 Dim oRead As OleDbDataReader
 
-                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
                 oConn.Open()
                 oComm = New OleDbCommand("select * from Datos", oConn)
                 oRead = oComm.ExecuteReader

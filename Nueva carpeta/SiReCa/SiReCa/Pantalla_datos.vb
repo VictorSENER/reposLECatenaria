@@ -1,10 +1,21 @@
 ﻿Imports System.Data.OleDb
 
 Public Class Pantalla_datos
+    Dim Direct As New DxVBLib.DirectX7
 
+    Dim DirectD As DxVBLib.DirectDraw7
+
+    Dim ScreenWith, ScreenHeight As Integer
     Dim oConn As New OleDbConnection
 
     Private Sub Pantalla_datos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+
+        
+
+
+
+
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Electrificación_Consulta' Puede moverla o quitarla según sea necesario.
         Me.Electrificación_ConsultaTableAdapter.Fill(Me.Base_de_datosDataSet.Electrificación_Consulta)
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Macizos_Consulta' Puede moverla o quitarla según sea necesario.
@@ -30,12 +41,13 @@ Public Class Pantalla_datos
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_HC' Puede moverla o quitarla según sea necesario.
         Me.Conductor_HCTableAdapter.Fill(Me.Base_de_datosDataSet.Conductor_HC)
 
-        Dim Direct As New DxVBLib.DirectX7
 
-        Dim DirectD As DxVBLib.DirectDraw7
+        Text_nombre_cat.Hide()
+        Label2.Hide()
 
-        Dim ScreenWith, ScreenHeight As Integer
 
+
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         'Parametro de Resolucion Deseados
 
         ScreenWith = 1280
@@ -45,13 +57,6 @@ Public Class Pantalla_datos
         DirectD = Direct.DirectDrawCreate("")
 
         DirectD.SetDisplayMode(ScreenWith, ScreenHeight, 0, 0, DxVBLib.CONST_DDSDMFLAGS.DDSDM_DEFAULT)
-        Text_nombre_cat.Hide()
-        Label2.Hide()
-
-        
-
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-
     End Sub
 
     Private Sub Pantalla_datos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing

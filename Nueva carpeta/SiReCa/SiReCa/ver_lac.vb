@@ -161,7 +161,7 @@ Module ver_lac
         Pantalla_datos.Text_dist_ap_prim_pend.Enabled = False
         Pantalla_datos.Text_dist_prim_seg_pend.Enabled = False
         Pantalla_datos.Text_dist_max_pend.Enabled = False
-
+        Pantalla_datos.Button2.Visible = False
 
         Pantalla_datos.Show()
 

@@ -1,0 +1,150 @@
+Attribute VB_Name = "tabla_vanos"
+Sub tabla_vanos(vwVB, diam_hcVB, diam_sustVB, diam_pendVB, va_maxVB, r_min_trazVB, d_max_adVB, _
+d_max_cuVB, d_max_reVB, t_hcVB, t_sustVB, dif_vaVB, r_reVB, n_hcVB)
+
+vw = vwVB
+diam_hc = diam_hcVB
+diam_sust = diam_sustVB
+diam_pend = diam_pendVB
+va_max_tv = va_maxVB
+r_min_traz = r_min_trazVB
+d_max_ad = d_max_adVB
+d_max_cu = d_max_cuVB
+d_max_cu_var = d_max_cu
+d_max_re = d_max_reVB
+t_hc = t_hcVB
+t_sust = t_sustVB
+dif_va = dif_vaVB
+r_re = r_reVB
+n_hc = n_hcVB
+coef_viento = 1.2
+
+Dim cont(10) As Long
+
+    i = 1
+    
+    Sheets(2).Cells(3, 2) = 100000
+    
+    cont(2) = 15000
+    cont(3) = 7500
+    cont(4) = 5000
+    cont(5) = 4000
+    cont(6) = 3000
+    cont(7) = 2500
+   
+    d_media = (d_max_cu + d_max_cu_var) / 2
+    t_tot = (t_hc + t_sust) * 9.81 * 0.89
+    
+    fuerza_viento = 0.625 * coef_viento * (vw ^ 2) * (diam_hc + diam_sust + diam_pend * 0.15)
+       
+    va_max_re = 2 * Sqr((t_tot / fuerza_viento) * (d_max_ad + Sqr((d_max_ad ^ 2) - (d_max_re ^ 2))))
+    
+    While va_max_re < va_max_tv
+        va_max_tv = va_max_tv - dif_va
+    Wend
+      
+    'zona recta
+     
+    Sheets(2).Cells(3, 4) = d_max_re
+    Sheets(2).Cells(3, 5) = -d_max_re
+    
+    i = 1
+    r = 3000
+    va_max_cu = va_max_tv
+    
+    j = 2
+    r = r_re
+
+n:
+    Sheets(2).Cells(i + 2, j + 3) = d_max_cu
+    
+    While r > 2500
+    r = cont(i + 1)
+    d_max_cu_var = 2 * ((va_max_tv ^ 2) / (8 * r)) - d_max_cu
+    Sheets(2).Cells(i + 2, j + 1) = cont(i + 1)
+    Sheets(2).Cells(i + 3, j) = cont(i + 1)
+    Sheets(2).Cells(i + 3, j + 2) = d_max_cu
+    Sheets(2).Cells(i + 3, j + 3) = d_max_cu_var
+    Sheets(2).Cells(i + 2, j - 1) = va_max_tv
+    i = i + 1
+    
+        If r <= 2500 Then
+        GoTo n
+        End If
+    
+    Wend
+        
+    r = 2500
+      
+'zona curva
+
+inicio:
+
+    While va_max_cu >= va_max_tv And r >= r_min_traz
+        r = r - 50
+        va_max_cu = Sqr((8 * r * t_tot * (d_max_ad + d_max_cu)) / (fuerza_viento * r + t_tot))
+    Wend
+    
+    Sheets(2).Cells(i + 3, 2) = r + 50
+    Sheets(2).Cells(i + 3, 4) = d_max_cu
+    Sheets(2).Cells(i + 3, 5) = d_max_cu
+    
+    
+    If r < r_min_traz Then
+        Sheets(2).Cells(i + 2, 3) = r + 50
+        Sheets(2).Cells(i + 2, 1) = va_max_tv
+    GoTo fin
+    End If
+    
+    Sheets(2).Cells(i + 2, 3) = r + 50
+    Sheets(2).Cells(i + 2, 1) = va_max_tv
+    i = i + 1
+    va_max_cu = va_max_tv - dif_va
+    va_max_tv = va_max_cu
+    
+    GoTo inicio
+    
+fin:
+
+    Sheets(2).Cells(i + 3, 1) = ""
+    Sheets(2).Cells(i + 3, 2) = ""
+    Sheets(2).Cells(i + 3, 3) = ""
+    Sheets(2).Cells(i + 3, 4) = ""
+    Sheets(2).Cells(i + 3, 5) = ""
+    Sheets(2).Cells(i + 4, 1) = ""
+    Sheets(2).Cells(i + 4, 2) = ""
+    Sheets(2).Cells(i + 4, 3) = ""
+    Sheets(2).Cells(i + 4, 4) = ""
+    Sheets(2).Cells(i + 4, 5) = ""
+    Sheets(2).Cells(i + 5, 1) = ""
+    Sheets(2).Cells(i + 5, 2) = ""
+    Sheets(2).Cells(i + 5, 3) = ""
+    Sheets(2).Cells(i + 5, 4) = ""
+    Sheets(2).Cells(i + 5, 5) = ""
+    Sheets(2).Cells(i + 6, 1) = ""
+    Sheets(2).Cells(i + 6, 2) = ""
+    Sheets(2).Cells(i + 6, 3) = ""
+    Sheets(2).Cells(i + 6, 4) = ""
+    Sheets(2).Cells(i + 6, 5) = ""
+    Sheets(2).Cells(i + 7, 1) = ""
+    Sheets(2).Cells(i + 7, 2) = ""
+    Sheets(2).Cells(i + 7, 3) = ""
+    Sheets(2).Cells(i + 7, 4) = ""
+    Sheets(2).Cells(i + 7, 5) = ""
+    Sheets(2).Cells(i + 8, 1) = ""
+    Sheets(2).Cells(i + 8, 2) = ""
+    Sheets(2).Cells(i + 8, 3) = ""
+    Sheets(2).Cells(i + 8, 4) = ""
+    Sheets(2).Cells(i + 8, 5) = ""
+    Sheets(2).Cells(i + 9, 1) = ""
+    Sheets(2).Cells(i + 9, 2) = ""
+    Sheets(2).Cells(i + 9, 3) = ""
+    Sheets(2).Cells(i + 9, 4) = ""
+    Sheets(2).Cells(i + 9, 5) = ""
+    Sheets(2).Cells(i + 10, 1) = ""
+    Sheets(2).Cells(i + 10, 2) = ""
+    Sheets(2).Cells(i + 10, 3) = ""
+    Sheets(2).Cells(i + 10, 4) = ""
+    Sheets(2).Cells(i + 10, 5) = ""
+
+End Sub

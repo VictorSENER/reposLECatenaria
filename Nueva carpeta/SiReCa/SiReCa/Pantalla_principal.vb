@@ -99,7 +99,7 @@ Public Class Pantalla_principal
         Me.ComboBox1.Hide()
         Me.Button8.Hide()
         Me.Button9.Hide()
-        Me.Button1.Text = "GUARDAR"
+        Me.Button1.Text = "INTRODUCIR"
         Me.Button1.Show()
         Me.TextBox1.Show()
         Me.Label1.Show()

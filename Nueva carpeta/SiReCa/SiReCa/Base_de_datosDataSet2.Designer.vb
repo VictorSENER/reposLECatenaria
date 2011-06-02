@@ -1491,7 +1491,7 @@ Partial Public Class Base_de_datosDataSet
         
         Private columnr_re As Global.System.Data.DataColumn
         
-        Private columnZona_trab_pant As Global.System.Data.DataColumn
+        Private columnd_max_ad As Global.System.Data.DataColumn
         
         Private columnel_max_pant As Global.System.Data.DataColumn
         
@@ -1763,9 +1763,9 @@ Partial Public Class Base_de_datosDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Zona_trab_pantColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property d_max_adColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnZona_trab_pant
+                Return Me.columnd_max_ad
             End Get
         End Property
         
@@ -2135,7 +2135,7 @@ Partial Public Class Base_de_datosDataSet
                     ByVal d_max_re As Double,  _
                     ByVal d_max_cu As Double,  _
                     ByVal r_re As Double,  _
-                    ByVal Zona_trab_pant As Double,  _
+                    ByVal d_max_ad As Double,  _
                     ByVal el_max_pant As Double,  _
                     ByVal vw As Double,  _
                     ByVal fl_max_centro_va As Double,  _
@@ -2182,7 +2182,7 @@ Partial Public Class Base_de_datosDataSet
                     ByVal dist_prim_seg_pend As Double,  _
                     ByVal dist_max_pend As Double) As DatosRow
             Dim rowDatosRow As DatosRow = CType(Me.NewRow,DatosRow)
-            Dim columnValuesArray() As Object = New Object() {nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend}
+            Dim columnValuesArray() As Object = New Object() {nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend}
             rowDatosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDatosRow)
             Return rowDatosRow
@@ -2228,7 +2228,7 @@ Partial Public Class Base_de_datosDataSet
             Me.columnd_max_re = MyBase.Columns("d_max_re")
             Me.columnd_max_cu = MyBase.Columns("d_max_cu")
             Me.columnr_re = MyBase.Columns("r_re")
-            Me.columnZona_trab_pant = MyBase.Columns("Zona_trab_pant")
+            Me.columnd_max_ad = MyBase.Columns("d_max_ad")
             Me.columnel_max_pant = MyBase.Columns("el_max_pant")
             Me.columnvw = MyBase.Columns("vw")
             Me.columnfl_max_centro_va = MyBase.Columns("fl_max_centro_va")
@@ -2320,8 +2320,8 @@ Partial Public Class Base_de_datosDataSet
             MyBase.Columns.Add(Me.columnd_max_cu)
             Me.columnr_re = New Global.System.Data.DataColumn("r_re", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnr_re)
-            Me.columnZona_trab_pant = New Global.System.Data.DataColumn("Zona_trab_pant", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnZona_trab_pant)
+            Me.columnd_max_ad = New Global.System.Data.DataColumn("d_max_ad", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnd_max_ad)
             Me.columnel_max_pant = New Global.System.Data.DataColumn("el_max_pant", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnel_max_pant)
             Me.columnvw = New Global.System.Data.DataColumn("vw", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
@@ -7466,16 +7466,16 @@ Partial Public Class Base_de_datosDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Zona_trab_pant() As Double
+        Public Property d_max_ad() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableDatos.Zona_trab_pantColumn),Double)
+                    Return CType(Me(Me.tableDatos.d_max_adColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Zona_trab_pant' de la tabla 'Datos' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'd_max_ad' de la tabla 'Datos' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDatos.Zona_trab_pantColumn) = value
+                Me(Me.tableDatos.d_max_adColumn) = value
             End Set
         End Property
         
@@ -8310,13 +8310,13 @@ Partial Public Class Base_de_datosDataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsZona_trab_pantNull() As Boolean
-            Return Me.IsNull(Me.tableDatos.Zona_trab_pantColumn)
+        Public Function Isd_max_adNull() As Boolean
+            Return Me.IsNull(Me.tableDatos.d_max_adColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetZona_trab_pantNull()
-            Me(Me.tableDatos.Zona_trab_pantColumn) = Global.System.Convert.DBNull
+        Public Sub Setd_max_adNull()
+            Me(Me.tableDatos.d_max_adColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -11727,7 +11727,7 @@ Namespace Base_de_datosDataSetTableAdapters
             tableMapping.ColumnMappings.Add("d_max_re", "d_max_re")
             tableMapping.ColumnMappings.Add("d_max_cu", "d_max_cu")
             tableMapping.ColumnMappings.Add("r_re", "r_re")
-            tableMapping.ColumnMappings.Add("Zona_trab_pant", "Zona_trab_pant")
+            tableMapping.ColumnMappings.Add("d_max_ad", "d_max_ad")
             tableMapping.ColumnMappings.Add("el_max_pant", "el_max_pant")
             tableMapping.ColumnMappings.Add("vw", "vw")
             tableMapping.ColumnMappings.Add("fl_max_centro_va", "fl_max_centro_va")
@@ -11791,41 +11791,41 @@ Namespace Base_de_datosDataSetTableAdapters
                 "NULL) OR (`n_min_va_sla` = ?)) AND ((? = 1 AND `ancho_via` IS NULL) OR (`ancho_v"& _ 
                 "ia` = ?)) AND ((? = 1 AND `d_max_re` IS NULL) OR (`d_max_re` = ?)) AND ((? = 1 A"& _ 
                 "ND `d_max_cu` IS NULL) OR (`d_max_cu` = ?)) AND ((? = 1 AND `r_re` IS NULL) OR ("& _ 
-                "`r_re` = ?)) AND ((? = 1 AND `Zona_trab_pant` IS NULL) OR (`Zona_trab_pant` = ?)"& _ 
-                ") AND ((? = 1 AND `el_max_pant` IS NULL) OR (`el_max_pant` = ?)) AND ((? = 1 AND"& _ 
-                " `vw` IS NULL) OR (`vw` = ?)) AND ((? = 1 AND `fl_max_centro_va` IS NULL) OR (`f"& _ 
-                "l_max_centro_va` = ?)) AND ((? = 1 AND `dist_carril_poste` IS NULL) OR (`dist_ca"& _ 
-                "rril_poste` = ?)) AND ((? = 1 AND `dist_base_poste_pmr` IS NULL) OR (`dist_base_"& _ 
-                "poste_pmr` = ?)) AND ((? = 1 AND `dist_elect_sm` IS NULL) OR (`dist_elect_sm` = "& _ 
-                "?)) AND ((? = 1 AND `dist_elect_sla` IS NULL) OR (`dist_elect_sla` = ?)) AND ((?"& _ 
-                " = 1 AND `l_zc_max` IS NULL) OR (`l_zc_max` = ?)) AND ((? = 1 AND `l_zc_min` IS "& _ 
-                "NULL) OR (`l_zc_min` = ?)) AND ((? = 1 AND `l_zn` IS NULL) OR (`l_zn` = ?)) AND "& _ 
-                "((? = 1 AND `r_min_traz` IS NULL) OR (`r_min_traz` = ?)) AND ((? = 1 AND `hc` IS"& _ 
-                " NULL) OR (`hc` = ?)) AND ((? = 1 AND `sust` IS NULL) OR (`sust` = ?)) AND ((? ="& _ 
-                " 1 AND `cdpa` IS NULL) OR (`cdpa` = ?)) AND ((? = 1 AND `cdte` IS NULL) OR (`cdt"& _ 
-                "e` = ?)) AND ((? = 1 AND `feed_pos` IS NULL) OR (`feed_pos` = ?)) AND ((? = 1 AN"& _ 
-                "D `feed_neg` IS NULL) OR (`feed_neg` = ?)) AND ((? = 1 AND `pto_fijo` IS NULL) O"& _ 
-                "R (`pto_fijo` = ?)) AND ((? = 1 AND `pend` IS NULL) OR (`pend` = ?)) AND ((? = 1"& _ 
-                " AND `anc` IS NULL) OR (`anc` = ?)) AND ((? = 1 AND `posicion_feed_pos` IS NULL)"& _ 
-                " OR (`posicion_feed_pos` = ?)) AND ((? = 1 AND `posicion_feed_neg` IS NULL) OR ("& _ 
-                "`posicion_feed_neg` = ?)) AND ((? = 1 AND `n_hc` IS NULL) OR (`n_hc` = ?)) AND ("& _ 
-                "(? = 1 AND `n_cdpa` IS NULL) OR (`n_cdpa` = ?)) AND ((? = 1 AND `n_feed_pos` IS "& _ 
-                "NULL) OR (`n_feed_pos` = ?)) AND ((? = 1 AND `n_feed_neg` IS NULL) OR (`n_feed_n"& _ 
-                "eg` = ?)) AND ((? = 1 AND `t_hc` IS NULL) OR (`t_hc` = ?)) AND ((? = 1 AND `t_su"& _ 
-                "st` IS NULL) OR (`t_sust` = ?)) AND ((? = 1 AND `t_cdpa` IS NULL) OR (`t_cdpa` ="& _ 
-                " ?)) AND ((? = 1 AND `t_feed_pos` IS NULL) OR (`t_feed_pos` = ?)) AND ((? = 1 AN"& _ 
-                "D `t_feed_neg` IS NULL) OR (`t_feed_neg` = ?)) AND ((? = 1 AND `t_pto_fijo` IS N"& _ 
-                "ULL) OR (`t_pto_fijo` = ?)) AND ((? = 1 AND `adm_lin_poste` IS NULL) OR (`adm_li"& _ 
-                "n_poste` = ?)) AND ((? = 1 AND `tip_poste` IS NULL) OR (`tip_poste` = ?)) AND (("& _ 
-                "? = 1 AND `num_poste` IS NULL) OR (`num_poste` = ?)) AND ((? = 1 AND `adm_lin_ma"& _ 
-                "c` IS NULL) OR (`adm_lin_mac` = ?)) AND ((? = 1 AND `tip_mac` IS NULL) OR (`tip_"& _ 
-                "mac` = ?)) AND ((? = 1 AND `tubo_men` IS NULL) OR (`tubo_men` = ?)) AND ((? = 1 "& _ 
-                "AND `tubo_tir` IS NULL) OR (`tubo_tir` = ?)) AND ((? = 1 AND `cola_anc` IS NULL)"& _ 
-                " OR (`cola_anc` = ?)) AND ((? = 1 AND `aisl_feed_pos` IS NULL) OR (`aisl_feed_po"& _ 
-                "s` = ?)) AND ((? = 1 AND `aisl_feed_neg` IS NULL) OR (`aisl_feed_neg` = ?)) AND "& _ 
-                "((? = 1 AND `dist_ap_prim_pend` IS NULL) OR (`dist_ap_prim_pend` = ?)) AND ((? ="& _ 
-                " 1 AND `dist_prim_seg_pend` IS NULL) OR (`dist_prim_seg_pend` = ?)) AND ((? = 1 "& _ 
-                "AND `dist_max_pend` IS NULL) OR (`dist_max_pend` = ?)))"
+                "`r_re` = ?)) AND ((? = 1 AND `d_max_ad` IS NULL) OR (`d_max_ad` = ?)) AND ((? = "& _ 
+                "1 AND `el_max_pant` IS NULL) OR (`el_max_pant` = ?)) AND ((? = 1 AND `vw` IS NUL"& _ 
+                "L) OR (`vw` = ?)) AND ((? = 1 AND `fl_max_centro_va` IS NULL) OR (`fl_max_centro"& _ 
+                "_va` = ?)) AND ((? = 1 AND `dist_carril_poste` IS NULL) OR (`dist_carril_poste` "& _ 
+                "= ?)) AND ((? = 1 AND `dist_base_poste_pmr` IS NULL) OR (`dist_base_poste_pmr` ="& _ 
+                " ?)) AND ((? = 1 AND `dist_elect_sm` IS NULL) OR (`dist_elect_sm` = ?)) AND ((? "& _ 
+                "= 1 AND `dist_elect_sla` IS NULL) OR (`dist_elect_sla` = ?)) AND ((? = 1 AND `l_"& _ 
+                "zc_max` IS NULL) OR (`l_zc_max` = ?)) AND ((? = 1 AND `l_zc_min` IS NULL) OR (`l"& _ 
+                "_zc_min` = ?)) AND ((? = 1 AND `l_zn` IS NULL) OR (`l_zn` = ?)) AND ((? = 1 AND "& _ 
+                "`r_min_traz` IS NULL) OR (`r_min_traz` = ?)) AND ((? = 1 AND `hc` IS NULL) OR (`"& _ 
+                "hc` = ?)) AND ((? = 1 AND `sust` IS NULL) OR (`sust` = ?)) AND ((? = 1 AND `cdpa"& _ 
+                "` IS NULL) OR (`cdpa` = ?)) AND ((? = 1 AND `cdte` IS NULL) OR (`cdte` = ?)) AND"& _ 
+                " ((? = 1 AND `feed_pos` IS NULL) OR (`feed_pos` = ?)) AND ((? = 1 AND `feed_neg`"& _ 
+                " IS NULL) OR (`feed_neg` = ?)) AND ((? = 1 AND `pto_fijo` IS NULL) OR (`pto_fijo"& _ 
+                "` = ?)) AND ((? = 1 AND `pend` IS NULL) OR (`pend` = ?)) AND ((? = 1 AND `anc` I"& _ 
+                "S NULL) OR (`anc` = ?)) AND ((? = 1 AND `posicion_feed_pos` IS NULL) OR (`posici"& _ 
+                "on_feed_pos` = ?)) AND ((? = 1 AND `posicion_feed_neg` IS NULL) OR (`posicion_fe"& _ 
+                "ed_neg` = ?)) AND ((? = 1 AND `n_hc` IS NULL) OR (`n_hc` = ?)) AND ((? = 1 AND `"& _ 
+                "n_cdpa` IS NULL) OR (`n_cdpa` = ?)) AND ((? = 1 AND `n_feed_pos` IS NULL) OR (`n"& _ 
+                "_feed_pos` = ?)) AND ((? = 1 AND `n_feed_neg` IS NULL) OR (`n_feed_neg` = ?)) AN"& _ 
+                "D ((? = 1 AND `t_hc` IS NULL) OR (`t_hc` = ?)) AND ((? = 1 AND `t_sust` IS NULL)"& _ 
+                " OR (`t_sust` = ?)) AND ((? = 1 AND `t_cdpa` IS NULL) OR (`t_cdpa` = ?)) AND ((?"& _ 
+                " = 1 AND `t_feed_pos` IS NULL) OR (`t_feed_pos` = ?)) AND ((? = 1 AND `t_feed_ne"& _ 
+                "g` IS NULL) OR (`t_feed_neg` = ?)) AND ((? = 1 AND `t_pto_fijo` IS NULL) OR (`t_"& _ 
+                "pto_fijo` = ?)) AND ((? = 1 AND `adm_lin_poste` IS NULL) OR (`adm_lin_poste` = ?"& _ 
+                ")) AND ((? = 1 AND `tip_poste` IS NULL) OR (`tip_poste` = ?)) AND ((? = 1 AND `n"& _ 
+                "um_poste` IS NULL) OR (`num_poste` = ?)) AND ((? = 1 AND `adm_lin_mac` IS NULL) "& _ 
+                "OR (`adm_lin_mac` = ?)) AND ((? = 1 AND `tip_mac` IS NULL) OR (`tip_mac` = ?)) A"& _ 
+                "ND ((? = 1 AND `tubo_men` IS NULL) OR (`tubo_men` = ?)) AND ((? = 1 AND `tubo_ti"& _ 
+                "r` IS NULL) OR (`tubo_tir` = ?)) AND ((? = 1 AND `cola_anc` IS NULL) OR (`cola_a"& _ 
+                "nc` = ?)) AND ((? = 1 AND `aisl_feed_pos` IS NULL) OR (`aisl_feed_pos` = ?)) AND"& _ 
+                " ((? = 1 AND `aisl_feed_neg` IS NULL) OR (`aisl_feed_neg` = ?)) AND ((? = 1 AND "& _ 
+                "`dist_ap_prim_pend` IS NULL) OR (`dist_ap_prim_pend` = ?)) AND ((? = 1 AND `dist"& _ 
+                "_prim_seg_pend` IS NULL) OR (`dist_prim_seg_pend` = ?)) AND ((? = 1 AND `dist_ma"& _ 
+                "x_pend` IS NULL) OR (`dist_max_pend` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sist", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -11868,8 +11868,8 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_r_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_ad", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_ad", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_el_max_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_vw", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -11965,17 +11965,17 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Datos` (`nombre_cat`, `sist`, `al`, `alt_nom`, `alt_min`, `alt_max`,"& _ 
                 " `alt_cat`, `dist_max_va`, `dist_max_canton`, `va_max`, `va_max_sm`, `va_max_sla"& _ 
                 "`, `va_max_tunel`, `inc_norm_va`, `inc_max_alt_hc`, `n_min_va_sm`, `n_min_va_sla"& _ 
-                "`, `ancho_via`, `d_max_re`, `d_max_cu`, `r_re`, `Zona_trab_pant`, `el_max_pant`,"& _ 
-                " `vw`, `fl_max_centro_va`, `dist_carril_poste`, `dist_base_poste_pmr`, `dist_ele"& _ 
-                "ct_sm`, `dist_elect_sla`, `l_zc_max`, `l_zc_min`, `l_zn`, `r_min_traz`, `hc`, `s"& _ 
-                "ust`, `cdpa`, `cdte`, `feed_pos`, `feed_neg`, `pto_fijo`, `pend`, `anc`, `posici"& _ 
-                "on_feed_pos`, `posicion_feed_neg`, `n_hc`, `n_cdpa`, `n_feed_pos`, `n_feed_neg`,"& _ 
-                " `t_hc`, `t_sust`, `t_cdpa`, `t_feed_pos`, `t_feed_neg`, `t_pto_fijo`, `adm_lin_"& _ 
-                "poste`, `tip_poste`, `num_poste`, `adm_lin_mac`, `tip_mac`, `tubo_men`, `tubo_ti"& _ 
-                "r`, `cola_anc`, `aisl_feed_pos`, `aisl_feed_neg`, `dist_ap_prim_pend`, `dist_pri"& _ 
-                "m_seg_pend`, `dist_max_pend`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
+                "`, `ancho_via`, `d_max_re`, `d_max_cu`, `r_re`, `d_max_ad`, `el_max_pant`, `vw`,"& _ 
+                " `fl_max_centro_va`, `dist_carril_poste`, `dist_base_poste_pmr`, `dist_elect_sm`"& _ 
+                ", `dist_elect_sla`, `l_zc_max`, `l_zc_min`, `l_zn`, `r_min_traz`, `hc`, `sust`, "& _ 
+                "`cdpa`, `cdte`, `feed_pos`, `feed_neg`, `pto_fijo`, `pend`, `anc`, `posicion_fee"& _ 
+                "d_pos`, `posicion_feed_neg`, `n_hc`, `n_cdpa`, `n_feed_pos`, `n_feed_neg`, `t_hc"& _ 
+                "`, `t_sust`, `t_cdpa`, `t_feed_pos`, `t_feed_neg`, `t_pto_fijo`, `adm_lin_poste`"& _ 
+                ", `tip_poste`, `num_poste`, `adm_lin_mac`, `tip_mac`, `tubo_men`, `tubo_tir`, `c"& _ 
+                "ola_anc`, `aisl_feed_pos`, `aisl_feed_neg`, `dist_ap_prim_pend`, `dist_prim_seg_"& _ 
+                "pend`, `dist_max_pend`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -11998,7 +11998,7 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_ad", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12050,67 +12050,66 @@ Namespace Base_de_datosDataSetTableAdapters
                 "n` = ?, `alt_max` = ?, `alt_cat` = ?, `dist_max_va` = ?, `dist_max_canton` = ?, "& _ 
                 "`va_max` = ?, `va_max_sm` = ?, `va_max_sla` = ?, `va_max_tunel` = ?, `inc_norm_v"& _ 
                 "a` = ?, `inc_max_alt_hc` = ?, `n_min_va_sm` = ?, `n_min_va_sla` = ?, `ancho_via`"& _ 
-                " = ?, `d_max_re` = ?, `d_max_cu` = ?, `r_re` = ?, `Zona_trab_pant` = ?, `el_max_"& _ 
-                "pant` = ?, `vw` = ?, `fl_max_centro_va` = ?, `dist_carril_poste` = ?, `dist_base"& _ 
-                "_poste_pmr` = ?, `dist_elect_sm` = ?, `dist_elect_sla` = ?, `l_zc_max` = ?, `l_z"& _ 
-                "c_min` = ?, `l_zn` = ?, `r_min_traz` = ?, `hc` = ?, `sust` = ?, `cdpa` = ?, `cdt"& _ 
-                "e` = ?, `feed_pos` = ?, `feed_neg` = ?, `pto_fijo` = ?, `pend` = ?, `anc` = ?, `"& _ 
-                "posicion_feed_pos` = ?, `posicion_feed_neg` = ?, `n_hc` = ?, `n_cdpa` = ?, `n_fe"& _ 
-                "ed_pos` = ?, `n_feed_neg` = ?, `t_hc` = ?, `t_sust` = ?, `t_cdpa` = ?, `t_feed_p"& _ 
-                "os` = ?, `t_feed_neg` = ?, `t_pto_fijo` = ?, `adm_lin_poste` = ?, `tip_poste` = "& _ 
-                "?, `num_poste` = ?, `adm_lin_mac` = ?, `tip_mac` = ?, `tubo_men` = ?, `tubo_tir`"& _ 
-                " = ?, `cola_anc` = ?, `aisl_feed_pos` = ?, `aisl_feed_neg` = ?, `dist_ap_prim_pe"& _ 
-                "nd` = ?, `dist_prim_seg_pend` = ?, `dist_max_pend` = ? WHERE ((`nombre_cat` = ?)"& _ 
-                " AND ((? = 1 AND `sist` IS NULL) OR (`sist` = ?)) AND ((? = 1 AND `al` IS NULL) "& _ 
-                "OR (`al` = ?)) AND ((? = 1 AND `alt_nom` IS NULL) OR (`alt_nom` = ?)) AND ((? = "& _ 
-                "1 AND `alt_min` IS NULL) OR (`alt_min` = ?)) AND ((? = 1 AND `alt_max` IS NULL) "& _ 
-                "OR (`alt_max` = ?)) AND ((? = 1 AND `alt_cat` IS NULL) OR (`alt_cat` = ?)) AND ("& _ 
-                "(? = 1 AND `dist_max_va` IS NULL) OR (`dist_max_va` = ?)) AND ((? = 1 AND `dist_"& _ 
-                "max_canton` IS NULL) OR (`dist_max_canton` = ?)) AND ((? = 1 AND `va_max` IS NUL"& _ 
-                "L) OR (`va_max` = ?)) AND ((? = 1 AND `va_max_sm` IS NULL) OR (`va_max_sm` = ?))"& _ 
-                " AND ((? = 1 AND `va_max_sla` IS NULL) OR (`va_max_sla` = ?)) AND ((? = 1 AND `v"& _ 
-                "a_max_tunel` IS NULL) OR (`va_max_tunel` = ?)) AND ((? = 1 AND `inc_norm_va` IS "& _ 
-                "NULL) OR (`inc_norm_va` = ?)) AND ((? = 1 AND `inc_max_alt_hc` IS NULL) OR (`inc"& _ 
-                "_max_alt_hc` = ?)) AND ((? = 1 AND `n_min_va_sm` IS NULL) OR (`n_min_va_sm` = ?)"& _ 
-                ") AND ((? = 1 AND `n_min_va_sla` IS NULL) OR (`n_min_va_sla` = ?)) AND ((? = 1 A"& _ 
-                "ND `ancho_via` IS NULL) OR (`ancho_via` = ?)) AND ((? = 1 AND `d_max_re` IS NULL"& _ 
-                ") OR (`d_max_re` = ?)) AND ((? = 1 AND `d_max_cu` IS NULL) OR (`d_max_cu` = ?)) "& _ 
-                "AND ((? = 1 AND `r_re` IS NULL) OR (`r_re` = ?)) AND ((? = 1 AND `Zona_trab_pant"& _ 
-                "` IS NULL) OR (`Zona_trab_pant` = ?)) AND ((? = 1 AND `el_max_pant` IS NULL) OR "& _ 
-                "(`el_max_pant` = ?)) AND ((? = 1 AND `vw` IS NULL) OR (`vw` = ?)) AND ((? = 1 AN"& _ 
-                "D `fl_max_centro_va` IS NULL) OR (`fl_max_centro_va` = ?)) AND ((? = 1 AND `dist"& _ 
-                "_carril_poste` IS NULL) OR (`dist_carril_poste` = ?)) AND ((? = 1 AND `dist_base"& _ 
-                "_poste_pmr` IS NULL) OR (`dist_base_poste_pmr` = ?)) AND ((? = 1 AND `dist_elect"& _ 
-                "_sm` IS NULL) OR (`dist_elect_sm` = ?)) AND ((? = 1 AND `dist_elect_sla` IS NULL"& _ 
-                ") OR (`dist_elect_sla` = ?)) AND ((? = 1 AND `l_zc_max` IS NULL) OR (`l_zc_max` "& _ 
-                "= ?)) AND ((? = 1 AND `l_zc_min` IS NULL) OR (`l_zc_min` = ?)) AND ((? = 1 AND `"& _ 
-                "l_zn` IS NULL) OR (`l_zn` = ?)) AND ((? = 1 AND `r_min_traz` IS NULL) OR (`r_min"& _ 
-                "_traz` = ?)) AND ((? = 1 AND `hc` IS NULL) OR (`hc` = ?)) AND ((? = 1 AND `sust`"& _ 
-                " IS NULL) OR (`sust` = ?)) AND ((? = 1 AND `cdpa` IS NULL) OR (`cdpa` = ?)) AND "& _ 
-                "((? = 1 AND `cdte` IS NULL) OR (`cdte` = ?)) AND ((? = 1 AND `feed_pos` IS NULL)"& _ 
-                " OR (`feed_pos` = ?)) AND ((? = 1 AND `feed_neg` IS NULL) OR (`feed_neg` = ?)) A"& _ 
-                "ND ((? = 1 AND `pto_fijo` IS NULL) OR (`pto_fijo` = ?)) AND ((? = 1 AND `pend` I"& _ 
-                "S NULL) OR (`pend` = ?)) AND ((? = 1 AND `anc` IS NULL) OR (`anc` = ?)) AND ((? "& _ 
-                "= 1 AND `posicion_feed_pos` IS NULL) OR (`posicion_feed_pos` = ?)) AND ((? = 1 A"& _ 
-                "ND `posicion_feed_neg` IS NULL) OR (`posicion_feed_neg` = ?)) AND ((? = 1 AND `n"& _ 
-                "_hc` IS NULL) OR (`n_hc` = ?)) AND ((? = 1 AND `n_cdpa` IS NULL) OR (`n_cdpa` = "& _ 
-                "?)) AND ((? = 1 AND `n_feed_pos` IS NULL) OR (`n_feed_pos` = ?)) AND ((? = 1 AND"& _ 
-                " `n_feed_neg` IS NULL) OR (`n_feed_neg` = ?)) AND ((? = 1 AND `t_hc` IS NULL) OR"& _ 
-                " (`t_hc` = ?)) AND ((? = 1 AND `t_sust` IS NULL) OR (`t_sust` = ?)) AND ((? = 1 "& _ 
-                "AND `t_cdpa` IS NULL) OR (`t_cdpa` = ?)) AND ((? = 1 AND `t_feed_pos` IS NULL) O"& _ 
-                "R (`t_feed_pos` = ?)) AND ((? = 1 AND `t_feed_neg` IS NULL) OR (`t_feed_neg` = ?"& _ 
-                ")) AND ((? = 1 AND `t_pto_fijo` IS NULL) OR (`t_pto_fijo` = ?)) AND ((? = 1 AND "& _ 
-                "`adm_lin_poste` IS NULL) OR (`adm_lin_poste` = ?)) AND ((? = 1 AND `tip_poste` I"& _ 
-                "S NULL) OR (`tip_poste` = ?)) AND ((? = 1 AND `num_poste` IS NULL) OR (`num_post"& _ 
-                "e` = ?)) AND ((? = 1 AND `adm_lin_mac` IS NULL) OR (`adm_lin_mac` = ?)) AND ((? "& _ 
-                "= 1 AND `tip_mac` IS NULL) OR (`tip_mac` = ?)) AND ((? = 1 AND `tubo_men` IS NUL"& _ 
-                "L) OR (`tubo_men` = ?)) AND ((? = 1 AND `tubo_tir` IS NULL) OR (`tubo_tir` = ?))"& _ 
-                " AND ((? = 1 AND `cola_anc` IS NULL) OR (`cola_anc` = ?)) AND ((? = 1 AND `aisl_"& _ 
-                "feed_pos` IS NULL) OR (`aisl_feed_pos` = ?)) AND ((? = 1 AND `aisl_feed_neg` IS "& _ 
-                "NULL) OR (`aisl_feed_neg` = ?)) AND ((? = 1 AND `dist_ap_prim_pend` IS NULL) OR "& _ 
-                "(`dist_ap_prim_pend` = ?)) AND ((? = 1 AND `dist_prim_seg_pend` IS NULL) OR (`di"& _ 
-                "st_prim_seg_pend` = ?)) AND ((? = 1 AND `dist_max_pend` IS NULL) OR (`dist_max_p"& _ 
-                "end` = ?)))"
+                " = ?, `d_max_re` = ?, `d_max_cu` = ?, `r_re` = ?, `d_max_ad` = ?, `el_max_pant` "& _ 
+                "= ?, `vw` = ?, `fl_max_centro_va` = ?, `dist_carril_poste` = ?, `dist_base_poste"& _ 
+                "_pmr` = ?, `dist_elect_sm` = ?, `dist_elect_sla` = ?, `l_zc_max` = ?, `l_zc_min`"& _ 
+                " = ?, `l_zn` = ?, `r_min_traz` = ?, `hc` = ?, `sust` = ?, `cdpa` = ?, `cdte` = ?"& _ 
+                ", `feed_pos` = ?, `feed_neg` = ?, `pto_fijo` = ?, `pend` = ?, `anc` = ?, `posici"& _ 
+                "on_feed_pos` = ?, `posicion_feed_neg` = ?, `n_hc` = ?, `n_cdpa` = ?, `n_feed_pos"& _ 
+                "` = ?, `n_feed_neg` = ?, `t_hc` = ?, `t_sust` = ?, `t_cdpa` = ?, `t_feed_pos` = "& _ 
+                "?, `t_feed_neg` = ?, `t_pto_fijo` = ?, `adm_lin_poste` = ?, `tip_poste` = ?, `nu"& _ 
+                "m_poste` = ?, `adm_lin_mac` = ?, `tip_mac` = ?, `tubo_men` = ?, `tubo_tir` = ?, "& _ 
+                "`cola_anc` = ?, `aisl_feed_pos` = ?, `aisl_feed_neg` = ?, `dist_ap_prim_pend` = "& _ 
+                "?, `dist_prim_seg_pend` = ?, `dist_max_pend` = ? WHERE ((`nombre_cat` = ?) AND ("& _ 
+                "(? = 1 AND `sist` IS NULL) OR (`sist` = ?)) AND ((? = 1 AND `al` IS NULL) OR (`a"& _ 
+                "l` = ?)) AND ((? = 1 AND `alt_nom` IS NULL) OR (`alt_nom` = ?)) AND ((? = 1 AND "& _ 
+                "`alt_min` IS NULL) OR (`alt_min` = ?)) AND ((? = 1 AND `alt_max` IS NULL) OR (`a"& _ 
+                "lt_max` = ?)) AND ((? = 1 AND `alt_cat` IS NULL) OR (`alt_cat` = ?)) AND ((? = 1"& _ 
+                " AND `dist_max_va` IS NULL) OR (`dist_max_va` = ?)) AND ((? = 1 AND `dist_max_ca"& _ 
+                "nton` IS NULL) OR (`dist_max_canton` = ?)) AND ((? = 1 AND `va_max` IS NULL) OR "& _ 
+                "(`va_max` = ?)) AND ((? = 1 AND `va_max_sm` IS NULL) OR (`va_max_sm` = ?)) AND ("& _ 
+                "(? = 1 AND `va_max_sla` IS NULL) OR (`va_max_sla` = ?)) AND ((? = 1 AND `va_max_"& _ 
+                "tunel` IS NULL) OR (`va_max_tunel` = ?)) AND ((? = 1 AND `inc_norm_va` IS NULL) "& _ 
+                "OR (`inc_norm_va` = ?)) AND ((? = 1 AND `inc_max_alt_hc` IS NULL) OR (`inc_max_a"& _ 
+                "lt_hc` = ?)) AND ((? = 1 AND `n_min_va_sm` IS NULL) OR (`n_min_va_sm` = ?)) AND "& _ 
+                "((? = 1 AND `n_min_va_sla` IS NULL) OR (`n_min_va_sla` = ?)) AND ((? = 1 AND `an"& _ 
+                "cho_via` IS NULL) OR (`ancho_via` = ?)) AND ((? = 1 AND `d_max_re` IS NULL) OR ("& _ 
+                "`d_max_re` = ?)) AND ((? = 1 AND `d_max_cu` IS NULL) OR (`d_max_cu` = ?)) AND (("& _ 
+                "? = 1 AND `r_re` IS NULL) OR (`r_re` = ?)) AND ((? = 1 AND `d_max_ad` IS NULL) O"& _ 
+                "R (`d_max_ad` = ?)) AND ((? = 1 AND `el_max_pant` IS NULL) OR (`el_max_pant` = ?"& _ 
+                ")) AND ((? = 1 AND `vw` IS NULL) OR (`vw` = ?)) AND ((? = 1 AND `fl_max_centro_v"& _ 
+                "a` IS NULL) OR (`fl_max_centro_va` = ?)) AND ((? = 1 AND `dist_carril_poste` IS "& _ 
+                "NULL) OR (`dist_carril_poste` = ?)) AND ((? = 1 AND `dist_base_poste_pmr` IS NUL"& _ 
+                "L) OR (`dist_base_poste_pmr` = ?)) AND ((? = 1 AND `dist_elect_sm` IS NULL) OR ("& _ 
+                "`dist_elect_sm` = ?)) AND ((? = 1 AND `dist_elect_sla` IS NULL) OR (`dist_elect_"& _ 
+                "sla` = ?)) AND ((? = 1 AND `l_zc_max` IS NULL) OR (`l_zc_max` = ?)) AND ((? = 1 "& _ 
+                "AND `l_zc_min` IS NULL) OR (`l_zc_min` = ?)) AND ((? = 1 AND `l_zn` IS NULL) OR "& _ 
+                "(`l_zn` = ?)) AND ((? = 1 AND `r_min_traz` IS NULL) OR (`r_min_traz` = ?)) AND ("& _ 
+                "(? = 1 AND `hc` IS NULL) OR (`hc` = ?)) AND ((? = 1 AND `sust` IS NULL) OR (`sus"& _ 
+                "t` = ?)) AND ((? = 1 AND `cdpa` IS NULL) OR (`cdpa` = ?)) AND ((? = 1 AND `cdte`"& _ 
+                " IS NULL) OR (`cdte` = ?)) AND ((? = 1 AND `feed_pos` IS NULL) OR (`feed_pos` = "& _ 
+                "?)) AND ((? = 1 AND `feed_neg` IS NULL) OR (`feed_neg` = ?)) AND ((? = 1 AND `pt"& _ 
+                "o_fijo` IS NULL) OR (`pto_fijo` = ?)) AND ((? = 1 AND `pend` IS NULL) OR (`pend`"& _ 
+                " = ?)) AND ((? = 1 AND `anc` IS NULL) OR (`anc` = ?)) AND ((? = 1 AND `posicion_"& _ 
+                "feed_pos` IS NULL) OR (`posicion_feed_pos` = ?)) AND ((? = 1 AND `posicion_feed_"& _ 
+                "neg` IS NULL) OR (`posicion_feed_neg` = ?)) AND ((? = 1 AND `n_hc` IS NULL) OR ("& _ 
+                "`n_hc` = ?)) AND ((? = 1 AND `n_cdpa` IS NULL) OR (`n_cdpa` = ?)) AND ((? = 1 AN"& _ 
+                "D `n_feed_pos` IS NULL) OR (`n_feed_pos` = ?)) AND ((? = 1 AND `n_feed_neg` IS N"& _ 
+                "ULL) OR (`n_feed_neg` = ?)) AND ((? = 1 AND `t_hc` IS NULL) OR (`t_hc` = ?)) AND"& _ 
+                " ((? = 1 AND `t_sust` IS NULL) OR (`t_sust` = ?)) AND ((? = 1 AND `t_cdpa` IS NU"& _ 
+                "LL) OR (`t_cdpa` = ?)) AND ((? = 1 AND `t_feed_pos` IS NULL) OR (`t_feed_pos` = "& _ 
+                "?)) AND ((? = 1 AND `t_feed_neg` IS NULL) OR (`t_feed_neg` = ?)) AND ((? = 1 AND"& _ 
+                " `t_pto_fijo` IS NULL) OR (`t_pto_fijo` = ?)) AND ((? = 1 AND `adm_lin_poste` IS"& _ 
+                " NULL) OR (`adm_lin_poste` = ?)) AND ((? = 1 AND `tip_poste` IS NULL) OR (`tip_p"& _ 
+                "oste` = ?)) AND ((? = 1 AND `num_poste` IS NULL) OR (`num_poste` = ?)) AND ((? ="& _ 
+                " 1 AND `adm_lin_mac` IS NULL) OR (`adm_lin_mac` = ?)) AND ((? = 1 AND `tip_mac` "& _ 
+                "IS NULL) OR (`tip_mac` = ?)) AND ((? = 1 AND `tubo_men` IS NULL) OR (`tubo_men` "& _ 
+                "= ?)) AND ((? = 1 AND `tubo_tir` IS NULL) OR (`tubo_tir` = ?)) AND ((? = 1 AND `"& _ 
+                "cola_anc` IS NULL) OR (`cola_anc` = ?)) AND ((? = 1 AND `aisl_feed_pos` IS NULL)"& _ 
+                " OR (`aisl_feed_pos` = ?)) AND ((? = 1 AND `aisl_feed_neg` IS NULL) OR (`aisl_fe"& _ 
+                "ed_neg` = ?)) AND ((? = 1 AND `dist_ap_prim_pend` IS NULL) OR (`dist_ap_prim_pen"& _ 
+                "d` = ?)) AND ((? = 1 AND `dist_prim_seg_pend` IS NULL) OR (`dist_prim_seg_pend` "& _ 
+                "= ?)) AND ((? = 1 AND `dist_max_pend` IS NULL) OR (`dist_max_pend` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nombre_cat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nombre_cat", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sist", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sist", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12133,7 +12132,7 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("d_max_ad", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("vw", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fl_max_centro_va", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fl_max_centro_va", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12220,8 +12219,8 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_cu", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_cu", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_r_re", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_r_re", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "r_re", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Zona_trab_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Zona_trab_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_d_max_ad", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_d_max_ad", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "d_max_ad", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_el_max_pant", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_el_max_pant", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "el_max_pant", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_vw", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "vw", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -12327,14 +12326,14 @@ Namespace Base_de_datosDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dis"& _ 
                 "t_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_"& _ 
-                "alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_tra"& _ 
-                "b_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pm"& _ 
-                "r, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust"& _ 
-                ", cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posici"& _ 
-                "on_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_"& _ 
-                "pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, t"& _ 
-                "ip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim"& _ 
-                "_pend, dist_prim_seg_pend, dist_max_pend FROM Datos"
+                "alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad"& _ 
+                ", el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dis"& _ 
+                "t_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa"& _ 
+                ", cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_fee"& _ 
+                "d_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t"& _ 
+                "_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac"& _ 
+                ", tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend,"& _ 
+                " dist_prim_seg_pend, dist_max_pend FROM Datos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -12409,7 +12408,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal Original_r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal Original_vw As Global.System.Nullable(Of Double),  _
                     ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -12600,9 +12599,9 @@ Namespace Base_de_datosDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
             End If
-            If (Original_Zona_trab_pant.HasValue = true) Then
+            If (Original_d_max_ad.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_Zona_trab_pant.Value,Double)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_d_max_ad.Value,Double)
             Else
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
@@ -12962,7 +12961,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal vw As Global.System.Nullable(Of Double),  _
                     ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -13113,8 +13112,8 @@ Namespace Base_de_datosDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Zona_trab_pant.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(Zona_trab_pant.Value,Double)
+            If (d_max_ad.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(d_max_ad.Value,Double)
             Else
                 Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
@@ -13383,7 +13382,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal vw As Global.System.Nullable(Of Double),  _
                     ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -13450,7 +13449,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal Original_r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal Original_vw As Global.System.Nullable(Of Double),  _
                     ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -13601,8 +13600,8 @@ Namespace Base_de_datosDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Zona_trab_pant.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Zona_trab_pant.Value,Double)
+            If (d_max_ad.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(d_max_ad.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
@@ -13976,9 +13975,9 @@ Namespace Base_de_datosDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             End If
-            If (Original_Zona_trab_pant.HasValue = true) Then
+            If (Original_d_max_ad.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_Zona_trab_pant.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_d_max_ad.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
@@ -14337,7 +14336,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal vw As Global.System.Nullable(Of Double),  _
                     ByVal fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -14404,7 +14403,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal Original_d_max_re As Global.System.Nullable(Of Double),  _
                     ByVal Original_d_max_cu As Global.System.Nullable(Of Double),  _
                     ByVal Original_r_re As Global.System.Nullable(Of Double),  _
-                    ByVal Original_Zona_trab_pant As Global.System.Nullable(Of Double),  _
+                    ByVal Original_d_max_ad As Global.System.Nullable(Of Double),  _
                     ByVal Original_el_max_pant As Global.System.Nullable(Of Double),  _
                     ByVal Original_vw As Global.System.Nullable(Of Double),  _
                     ByVal Original_fl_max_centro_va As Global.System.Nullable(Of Double),  _
@@ -14450,7 +14449,7 @@ Namespace Base_de_datosDataSetTableAdapters
                     ByVal Original_dist_ap_prim_pend As Global.System.Nullable(Of Double),  _
                     ByVal Original_dist_prim_seg_pend As Global.System.Nullable(Of Double),  _
                     ByVal Original_dist_max_pend As Global.System.Nullable(Of Double)) As Integer
-            Return Me.Update(Original_nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, Zona_trab_pant, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, Original_nombre_cat, Original_sist, Original_al, Original_alt_nom, Original_alt_min, Original_alt_max, Original_alt_cat, Original_dist_max_va, Original_dist_max_canton, Original_va_max, Original_va_max_sm, Original_va_max_sla, Original_va_max_tunel, Original_inc_norm_va, Original_inc_max_alt_hc, Original_n_min_va_sm, Original_n_min_va_sla, Original_ancho_via, Original_d_max_re, Original_d_max_cu, Original_r_re, Original_Zona_trab_pant, Original_el_max_pant, Original_vw, Original_fl_max_centro_va, Original_dist_carril_poste, Original_dist_base_poste_pmr, Original_dist_elect_sm, Original_dist_elect_sla, Original_l_zc_max, Original_l_zc_min, Original_l_zn, Original_r_min_traz, Original_hc, Original_sust, Original_cdpa, Original_cdte, Original_feed_pos, Original_feed_neg, Original_pto_fijo, Original_pend, Original_anc, Original_posicion_feed_pos, Original_posicion_feed_neg, Original_n_hc, Original_n_cdpa, Original_n_feed_pos, Original_n_feed_neg, Original_t_hc, Original_t_sust, Original_t_cdpa, Original_t_feed_pos, Original_t_feed_neg, Original_t_pto_fijo, Original_adm_lin_poste, Original_tip_poste, Original_num_poste, Original_adm_lin_mac, Original_tip_mac, Original_tubo_men, Original_tubo_tir, Original_cola_anc, Original_aisl_feed_pos, Original_aisl_feed_neg, Original_dist_ap_prim_pend, Original_dist_prim_seg_pend, Original_dist_max_pend)
+            Return Me.Update(Original_nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, Original_nombre_cat, Original_sist, Original_al, Original_alt_nom, Original_alt_min, Original_alt_max, Original_alt_cat, Original_dist_max_va, Original_dist_max_canton, Original_va_max, Original_va_max_sm, Original_va_max_sla, Original_va_max_tunel, Original_inc_norm_va, Original_inc_max_alt_hc, Original_n_min_va_sm, Original_n_min_va_sla, Original_ancho_via, Original_d_max_re, Original_d_max_cu, Original_r_re, Original_d_max_ad, Original_el_max_pant, Original_vw, Original_fl_max_centro_va, Original_dist_carril_poste, Original_dist_base_poste_pmr, Original_dist_elect_sm, Original_dist_elect_sla, Original_l_zc_max, Original_l_zc_min, Original_l_zn, Original_r_min_traz, Original_hc, Original_sust, Original_cdpa, Original_cdte, Original_feed_pos, Original_feed_neg, Original_pto_fijo, Original_pend, Original_anc, Original_posicion_feed_pos, Original_posicion_feed_neg, Original_n_hc, Original_n_cdpa, Original_n_feed_pos, Original_n_feed_neg, Original_t_hc, Original_t_sust, Original_t_cdpa, Original_t_feed_pos, Original_t_feed_neg, Original_t_pto_fijo, Original_adm_lin_poste, Original_tip_poste, Original_num_poste, Original_adm_lin_mac, Original_tip_mac, Original_tubo_men, Original_tubo_tir, Original_cola_anc, Original_aisl_feed_pos, Original_aisl_feed_neg, Original_dist_ap_prim_pend, Original_dist_prim_seg_pend, Original_dist_max_pend)
         End Function
     End Class
     

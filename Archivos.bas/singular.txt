@@ -24,7 +24,7 @@ ElseIf pk2 = 0 Then
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
-    Call radio.radio1(h, k)
+    Call radio.radio1(h)
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
     z = h
 Else
@@ -66,7 +66,7 @@ While dist_restar > 0
     Wend
 While z <= h
     Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z - 1, 4) + Sheets(1).Cells(z - 2, 33)
-    Call radio.radio1(z, k - 4)
+    Call radio.radio1(z)
     Call punto_singular.sing1(z, a - 1, k - 4)
     z = z + 2
 Wend
@@ -78,7 +78,7 @@ While Not IsEmpty(Sheets(4).Cells(a, b))
     b = b + 1
         If Not IsEmpty(Sheets(4).Cells(a, b).Value) Then
             Sheets(1).Cells(h, 33).Value = Sheets(4).Cells(a, b).Value
-            Call radio.radio1(h, k)
+            Call radio.radio1(h)
             Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h, 33).Value - Sheets(1).Cells(h - 2, 33).Value
         Else
             Sheets(1).Cells(h - 1, 4).Value = vano.vano(Sheets(1).Cells(h - 2, 6).Value)
@@ -106,9 +106,9 @@ z = h
 If dist_restar <= 0 Then
     h = h + 2
     Sheets(1).Cells(h, 33).Value = pk2
-    Call radio.radio1(h, k)
+    Call radio.radio1(h)
     Sheets(1).Cells(h - 2, 33).Value = pk1
-    Call radio.radio1(h - 2, k)
+    Call radio.radio1(h - 2)
         If vano.vano(Sheets(1).Cells(h - 2, 6).Value) < Sheets(1).Cells(h - 1, 4).Value Then
             vano0 = vano0 - inc_norm_va
             pmedio = (vano0 - (Sheets(4).Cells(a, 21).Value - Sheets(4).Cells(a, 2).Value)) / 2
@@ -121,7 +121,7 @@ If dist_restar <= 0 Then
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
 Else
     Sheets(1).Cells(h - 4, 33).Value = Sheets(1).Cells(h - 4, 33).Value - dist_restar
-    Call radio.radio(h - 4, k - 1)
+    Call radio.radio(h - 4)
         If vano.vano(Sheets(1).Cells(h - 4, 6).Value) < Sheets(1).Cells(h - 3, 4).Value Then
             vano0 = vano0 - inc_norm_va
             pmedio = (vano0 - (Sheets(4).Cells(a, 21).Value - Sheets(4).Cells(a, 2).Value)) / 2
@@ -132,9 +132,9 @@ Else
         End If
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h, 33).Value = pk2
-    Call radio.radio1(h, k)
+    Call radio.radio1(h)
     Sheets(1).Cells(h - 2, 33).Value = pk1
-    Call radio.radio1(h - 2, k - 1)
+    Call radio.radio1(h - 2)
 End If
 
     While dist_restar > 0
@@ -162,11 +162,11 @@ End If
         
     Wend
 Sheets(1).Cells(h, 33).Value = pk1 + Sheets(1).Cells(h - 1, 4).Value
-Call radio.radio1(h, k - 1)
+Call radio.radio1(h)
 z = z - 2
 While z <= h
     Sheets(1).Cells(z - 2, 33).Value = Sheets(1).Cells(z - 3, 4) + Sheets(1).Cells(z - 4, 33)
-    Call radio.radio1(z - 2, k - 4)
+    Call radio.radio1(z - 2)
     Call punto_singular.sing1(z - 2, a - 1, k - 4)
     z = z + 2
 Wend
@@ -181,18 +181,18 @@ pk1 = Sheets(4).Cells(a, 2).Value
 pk0 = Sheets(1).Cells(h, 33).Value
 'caso particular de tener un paso superior bajo antes de la aguja
 If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
-    Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value < va_max _
-    And Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value > (va_max - 5 * inc_norm_va) Then
+    Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value < (va_max - 9) _
+    And Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value > (va_max - 14 * inc_norm_va) Then
     pk0 = Sheets(1).Cells(h - 2, 33).Value
     h = h + 2
     Sheets(1).Cells(h - 1, 4).Value = Sheets(4).Cells(a, 2).Value - (Sheets(4).Cells(a - 1, 21).Value + dist_va_max)
     Sheets(1).Cells(h - 3, 4).Value = Sheets(4).Cells(a - 1, 21).Value - Sheets(4).Cells(a - 1, 2).Value + (4 * inc_norm_va)
     Sheets(1).Cells(h - 4, 33).Value = pk1 - Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h - 3, 4).Value
-    Call radio.radio1(h - 4, k - 1)
+    Call radio.radio1(h - 4)
     Sheets(1).Cells(h - 2, 33).Value = pk1 - Sheets(1).Cells(h - 1, 4).Value
-    Call radio.radio1(h - 2, k - 1)
+    Call radio.radio1(h - 2)
     Sheets(1).Cells(h, 33).Value = pk1
-    Call radio.radio1(h, k - 1)
+    Call radio.radio1(h)
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
     dist_restar = pk0 - Sheets(1).Cells(h - 4, 33).Value
     z = h - 4
@@ -205,10 +205,10 @@ ElseIf Sheets(4).Cells(a + 1, 1).Value = "Pont" And _
     dist_restar = pk0 - pk1 - (Sheets(1).Cells(h - 1, 4).Value - vanoref)
     Sheets(1).Cells(h - 1, 4).Value = vanoref
     Sheets(1).Cells(h, 33).Value = pk1
-    Call radio.radio1(h, k - 1)
+    Call radio.radio1(h)
     Sheets(1).Cells(h + 1, 4).Value = vano12
     Sheets(1).Cells(h + 2, 33).Value = pk1 + vano12
-    Call radio.radio1(h, k - 1)
+    Call radio.radio1(h)
     z = h - 2
 'para el resto de los casos
 Else
@@ -253,20 +253,20 @@ While ((Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value) > dis
 Wend
     Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - dist_restar
     Sheets(1).Cells(z, 33).Value = pk1
-    Call radio.radio1(z, k - 1)
+    Call radio.radio1(z)
 While z < h
     Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z - 1, 4) + Sheets(1).Cells(z - 2, 33)
-    Call radio.radio1(z, k - 4)
+    Call radio.radio1(z)
     'Call sing1(z, a - 1, k)
     z = z + 2
 Wend
 Sheets(1).Cells(h + 2, 33).Value = Sheets(1).Cells(h + 1, 4) + Sheets(1).Cells(h, 33)
-Call radio.radio1(h + 2, k - 1)
+Call radio.radio1(h + 2)
 a = a + 1
 End Sub
 Private Function three(ByRef z, ByRef dist_restar, ByRef k, ByRef n)
 Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z, 33).Value - dist_restar
-Call radio.radio1(z, k - 4)
+Call radio.radio1(z)
 If vano.vano(Sheets(1).Cells(z, 6).Value) < Sheets(1).Cells(z + 1, 4).Value Then
     Sheets(1).Cells(z + 1, 4).Value = vano.vano(Sheets(1).Cells(z, 6).Value)
     dist_restar = dist_restar - n

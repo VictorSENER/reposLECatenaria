@@ -12,14 +12,14 @@ Else
 End If
 ' buscar en que fila de la hoja 2 se encuentra el radio que buscamos
 If Not IsEmpty(Sheets(1).Cells(z, 6).Value) Then
-    While rady <= Sheets(2).Cells(m, 11).Value And _
-        rady > Sheets(2).Cells(m, 10).Value
+    While rady <= Sheets(2).Cells(m, 2).Value And _
+        rady > Sheets(2).Cells(m, 3).Value
         m = m + 1
     Wend
 Else
         m = 3
 End If
-descentramiento = Sheets(2).Cells(m, 14).Value
+descentramiento = Sheets(2).Cells(m, 5).Value
 
 ' el descentramiento varia segun el sentido de giro de la curva
 ' el descentramiento anterior y posterior varian de signo en recta
@@ -31,7 +31,7 @@ If Not IsEmpty(Sheets(1).Cells(z, 6).Value) Then
     End If
 ElseIf IsEmpty(Sheets(1).Cells(z, 6).Value) Then
     If Sheets(1).Cells(z - 2, 8).Value = descentramiento Then
-        Sheets(1).Cells(z, 8).Value = Sheets(2).Cells(m, 13).Value
+        Sheets(1).Cells(z, 8).Value = Sheets(2).Cells(m, 4).Value
     Else
         Sheets(1).Cells(z, 8).Value = descentramiento
     End If

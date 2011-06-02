@@ -6,49 +6,52 @@ Public alt_nom As Double, alt_max As Double, alt_min As Double, dist_va_max As D
 Public dist_max_canton As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double
 Public inc_norm_va As Double, dist_carril_poste As Double, va_max As Double, inc_max_alt_hc As Double
 Public d_max_cu As Double
-Public inicio As Double, fin As Double
-Public r_re As Double, alt_cat As Double, va_max_sec_comp As Double, d_max_re As Double
+Public inicio As Double, fin As Double, r_min_traz As Double, va_max_sec_comp
+Public r_re As Double, alt_cat As Double, d_max_re As Double
 Public va_max_sec_aire As Long, fallo As Double, ancho_via As Double, l_canton As Double
 Public Error As Long, n_canton2 As Long, uno As Integer
-Public start As Double
-Function principal(inicio1, h1, w1, k1, a1, b1, c1, r_re1, dist_va_max1, inc_norm_va1, va_max_tunel1, va_max1) As Long()
-inicio = inicio1
-h = h1
-w = w1
-k = k1
-a = a1
-b = b1
-c = c1
-r_re = r_re1
-dist_va_max = dist_va_max1
-inc_norm_va = inc_norm_va1
-va_max_tunel = va_max_tunel1
-va_max = va_max1
+Public start As Double, vw As Double, diam_hc As Double, diam_sust As Double, r_min As Double
+Public d_max_ad As Double, t_hc As Double, diam_pend As Double
+Public t_sust As Double, dif_va As Double, n_hc As Double, coef_viento As Double
+Function principal(inicioVB, hVB, wVB, kVB, aVB, bVB, cVB, r_reVB, dist_va_maxVB, _
+inc_norm_vaVB, va_max_tunelVB, va_maxVB, dist_max_cantonVB, va_max_smVB) As Long()
 'recolección de datos e inicialización
-
-If h = 10 Then
-'Call datos.datos_excel
+inicio = inicioVB
+h = hVB
+w = wVB
+k = kVB
+a = aVB
+b = bVB
+c = cVB
+r_re = r_reVB
+dist_va_max = dist_va_maxVB
+inc_norm_va = inc_norm_vaVB
+va_max_tunel = va_max_tunelVB
+va_max = va_maxVB
+dist_max_canton = dist_max_cantonVB
+va_max_sm = va_max_smVB
 'inicializar todos los contadores
+If h = 10 Then
 uno = 1
-Sheets(1).Cells(10, 33) = inicio1
+Sheets(1).Cells(10, 33) = inicio
 End If
 
                         ' inicializamos 3 vanos para poder corregirlos
 While 16 > h
 
     
-    Call radio.radio(h, k)                                    ' calculamos el radio para el pk
+    Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
     h = h + 2                                           ' avanzamos una fila y calculamos un nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
 Wend
 
-    Call radio.radio(h, k)                                    ' calculamos el radio para el pk
+    Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
     Call regulacion.regulacion(h, k, a, b)                                  ' comprobamos que los incrementos de vano
     Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
     Call punto_singular.sing1(h, a, k)                                ' comprobamos que el poste no cae en un PS
-    Call cantonamiento.cantones(h, c, k, a)
+    'Call cantonamiento.cantones(h, c, k, a)
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
     Dim x(7) As Long

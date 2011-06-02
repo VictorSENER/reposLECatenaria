@@ -1,8 +1,8 @@
 Attribute VB_Name = "formato"
-Sub formato(idioma1)
+Sub formato(idiomaVB)
 Dim w As Integer, bis As Integer
 Dim z As Integer
-idioma = idioma1
+idioma = idiomaVB
 z = 8
 'títulos de las filas
 If idioma = "frances" Then
@@ -33,11 +33,11 @@ Sheets(1).Cells(z, 24).Value = "Massif d'ancrage"
 Sheets(1).Cells(z, 25).Value = "Observations"
 Sheets(1).Cells(z, 26).Value = "Lg. 1/2 tir anc. à axe antich. (m)"
 Sheets(1).Cells(z, 27).Value = "Lg. de tir anc. à anc. (m)"
-ElseIf Sheets(2).Cells(41, 4).Value = "español" Then
+ElseIf idioma = "español" Then
 'para el dia que se necesiten los encabezados en español
-ElseIf Sheets(2).Cells(41, 4).Value = "catalan" Then
+ElseIf idioma = "catalan" Then
 'para el dia que se necesiten los encabezados en catalan
-ElseIf Sheets(2).Cells(41, 4).Value = "ingles" Then
+ElseIf idioma = "ingles" Then
 'para el dia que se necesiten los encabezados en ingles
 End If
 

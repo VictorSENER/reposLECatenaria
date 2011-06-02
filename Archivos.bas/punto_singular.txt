@@ -31,12 +31,12 @@ And (Sheets(4).Cells(a, 1).Value = "Pont" Or Sheets(4).Cells(a, 1).Value = "Buse
     Wend
     While z <> h
         Sheets(1).Cells(z + 2, 33).Value = Sheets(1).Cells(z + 1, 4) + Sheets(1).Cells(z, 33)
-        Call radio.radio1(z, k - 1)
+        Call radio.radio1(z)
         'Call reg(z, k, a)
         z = z + 2
     Wend
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
-    Call radio.radio1(h, k - 1)
+    Call radio.radio1(h)
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
 End If
 
@@ -74,7 +74,7 @@ And Sheets(4).Cells(a, 1) = "Tunel") Then
     If Sheets(1).Cells(h - 1, 4).Value > va_max_tunel Then
         Sheets(1).Cells(h - 1, 4).Value = va_max_tunel
         Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 2, 33) + Sheets(1).Cells(h - 1, 4)
-        Call radio.radio1(h, k - 1)
+        Call radio.radio1(h)
     End If
 End If
 

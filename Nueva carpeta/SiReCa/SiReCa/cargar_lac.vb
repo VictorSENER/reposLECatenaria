@@ -37,7 +37,7 @@ Module cargar_lac
                 d_max_re = oRead("d_max_re")
                 d_max_cu = oRead("d_max_cu")
                 r_re = oRead("r_re")
-                zona_trab_pant = oRead("zona_trab_pant")
+                d_max_ad = oRead("d_max_ad")
                 el_max_pant = oRead("el_max_pant")
                 vw = oRead("vw")
                 fl_max_centro_va = oRead("fl_max_centro_va")
@@ -83,7 +83,7 @@ Module cargar_lac
                 dist_ap_prim_pend = oRead("dist_ap_prim_pend")
                 dist_prim_seg_pend = oRead("dist_prim_seg_pend")
                 dist_max_pend = oRead("dist_max_pend")
-
+                idioma = oRead("idioma")
             End If
 
         End While

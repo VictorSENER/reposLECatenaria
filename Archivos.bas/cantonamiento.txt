@@ -4,7 +4,6 @@ Sub cantones(ByRef h, ByRef c, ByRef k, ByRef a)
 Dim pk As Double, finish As Double, total As Double, total2 As Double
 Dim n_canton As Integer
 
-canton_max = Sheets(2).Cells(29, 4).Value
 pk = Sheets(1).Cells(h, 33).Value
 'Sheets(4).Cells(c, 1).Value <> "Tunel" And
 While (Sheets(4).Cells(c, 22).Value <> "IN" And Sheets(4).Cells(c, 23).Value <> "FINAL" And _
@@ -13,24 +12,24 @@ Sheets(4).Cells(c, 1).Value <> "Zone" And Sheets(4).Cells(c, 22).Value <> "OUT" 
     caso = Sheets(4).Cells(c, 1).Value
     finish = Sheets(4).Cells(c, 2).Value
     total = finish - start
-    n_canton = total \ canton_max
+    n_canton = total \ dist_max_canton
 Wend
 While uno = 1
 Select Case caso
     Case Is = "Tunel"
         If pk >= Sheets(4).Cells(c, 2).Value And pk <= Sheets(4).Cells(c, 21).Value Then
             total2 = total + (n_canton * 160) - 50
-            n_canton2 = (total2 \ canton_max) + 1
+            n_canton2 = (total2 \ dist_max_canton) + 1
             l_canton = total2 / n_canton2
             Error = 0
         ElseIf Sheets(4).Cells(c, 22).Value > 1000 Then
             total2 = total + (n_canton * 160) - 400
-            n_canton2 = (total2 \ canton_max) + 1
+            n_canton2 = (total2 \ dist_max_canton) + 1
             l_canton = total2 / n_canton2
             Error = 0
         Else
             total2 = total + (n_canton * 160) - 50
-            n_canton2 = (total2 \ canton_max) + 1
+            n_canton2 = (total2 \ dist_max_canton) + 1
             l_canton = total2 / n_canton2
             Error = 0
         End If
@@ -40,26 +39,26 @@ Select Case caso
         ElseIf Sheets(4).Cells(c, 22).Value = "OUT" Then
             finish = Sheets(4).Cells(c, 2).Value
             total = finish - start
-            n_canton = total \ canton_max
+            n_canton = total \ dist_max_canton
             total2 = total + (n_canton * 160) + 600
         End If
-        n_canton2 = (total2 \ canton_max) + 1
+        n_canton2 = (total2 \ dist_max_canton) + 1
         l_canton = total2 / n_canton2
         Error = 0
     Case Is = "Viaduc"
         total2 = total + (n_canton * 160)
-        n_canton2 = (total2 \ canton_max) + 1
+        n_canton2 = (total2 \ dist_max_canton) + 1
         l_canton = total2 / n_canton2
         Error = 0
     Case Is = "Zone"
         total2 = total + (n_canton * 160) + 153
-        n_canton2 = (total2 \ canton_max) + 1
+        n_canton2 = (total2 \ dist_max_canton) + 1
         l_canton = total2 / n_canton2
         Error = 0
 End Select
 uno = 2
 Wend
-If (pk >= start + l_canton And (Error < 27 Or l_canton + Error > canton_max)) Or (pk >= start + l_canton + Error And (Error >= 27 And l_canton + Error <= canton_max)) Then
+If (pk >= start + l_canton And (Error < 27 Or l_canton + Error > dist_max_canton)) Or (pk >= start + l_canton + Error And (Error >= 27 And l_canton + Error <= dist_max_canton)) Then
 
 
     Select Case n_canton2
@@ -156,8 +155,8 @@ Private Sub one(ByRef h, ByRef k, ByRef a)
 Dim c As Integer
 c = 10
     While c >= 0 And caso <> "Zone"
-        If Sheets(1).Cells(h - c - 1, 4).Value > va_max_sec_comp Then
-            Sheets(1).Cells(h - c - 1, 4).Value = va_max_sec_comp
+        If Sheets(1).Cells(h - c - 1, 4).Value > va_max_sm Then
+            Sheets(1).Cells(h - c - 1, 4).Value = va_max_sm
         End If
         Sheets(1).Cells(h - c, 33).Value = Sheets(1).Cells(h - c - 2, 33).Value + Sheets(1).Cells(h - c - 1, 4).Value
         If k >= 5 Then

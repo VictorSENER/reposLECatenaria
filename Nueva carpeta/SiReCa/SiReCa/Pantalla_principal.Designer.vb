@@ -271,7 +271,6 @@ Partial Class Pantalla_principal
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "IR"
         Me.Button2.UseVisualStyleBackColor = False
-        Me.Button2.Visible = False
         '
         'Label3
         '
@@ -285,7 +284,6 @@ Partial Class Pantalla_principal
         Me.Label3.Size = New System.Drawing.Size(224, 27)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Buscar archivo excel"
-        Me.Label3.Visible = False
         '
         'GroupBox3
         '
@@ -375,7 +373,6 @@ Partial Class Pantalla_principal
         Me.Label8.Size = New System.Drawing.Size(124, 27)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Guardar en"
-        Me.Label8.Visible = False
         '
         'Button5
         '
@@ -393,7 +390,6 @@ Partial Class Pantalla_principal
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "REPLANTEAR"
         Me.Button5.UseVisualStyleBackColor = False
-        Me.Button5.Visible = False
         '
         'Button4
         '
@@ -409,7 +405,6 @@ Partial Class Pantalla_principal
         Me.Button4.TabIndex = 6
         Me.Button4.Text = "..."
         Me.Button4.UseVisualStyleBackColor = True
-        Me.Button4.Visible = False
         '
         'TextBox4
         '
@@ -422,7 +417,6 @@ Partial Class Pantalla_principal
         Me.TextBox4.Size = New System.Drawing.Size(219, 31)
         Me.TextBox4.TabIndex = 5
         Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox4.Visible = False
         '
         'Label6
         '
@@ -436,7 +430,6 @@ Partial Class Pantalla_principal
         Me.Label6.Size = New System.Drawing.Size(174, 27)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "Nombre fichero:"
-        Me.Label6.Visible = False
         '
         'TextBox3
         '
@@ -449,7 +442,6 @@ Partial Class Pantalla_principal
         Me.TextBox3.Size = New System.Drawing.Size(219, 31)
         Me.TextBox3.TabIndex = 3
         Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox3.Visible = False
         '
         'TextBox2
         '
@@ -462,7 +454,6 @@ Partial Class Pantalla_principal
         Me.TextBox2.Size = New System.Drawing.Size(219, 31)
         Me.TextBox2.TabIndex = 2
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TextBox2.Visible = False
         '
         'Label5
         '
@@ -476,7 +467,6 @@ Partial Class Pantalla_principal
         Me.Label5.Size = New System.Drawing.Size(149, 27)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "P.K. Final (m)"
-        Me.Label5.Visible = False
         '
         'Label4
         '
@@ -490,7 +480,6 @@ Partial Class Pantalla_principal
         Me.Label4.Size = New System.Drawing.Size(152, 27)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "PK. Inicial (m)"
-        Me.Label4.Visible = False
         '
         'GroupBox4
         '
@@ -531,7 +520,6 @@ Partial Class Pantalla_principal
         Me.Button7.TabIndex = 10
         Me.Button7.Text = "DIBUJAR"
         Me.Button7.UseVisualStyleBackColor = False
-        Me.Button7.Visible = False
         '
         'Button6
         '
@@ -548,7 +536,6 @@ Partial Class Pantalla_principal
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "..."
         Me.Button6.UseVisualStyleBackColor = False
-        Me.Button6.Visible = False
         '
         'Label7
         '
@@ -564,7 +551,6 @@ Partial Class Pantalla_principal
         Me.Label7.Size = New System.Drawing.Size(224, 27)
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "Captar datos eje de:"
-        Me.Label7.Visible = False
         '
         'CheckBox8
         '
@@ -579,7 +565,6 @@ Partial Class Pantalla_principal
         Me.CheckBox8.TabIndex = 7
         Me.CheckBox8.Text = "Cantonamiento"
         Me.CheckBox8.UseVisualStyleBackColor = True
-        Me.CheckBox8.Visible = False
         '
         'CheckBox7
         '
@@ -593,7 +578,6 @@ Partial Class Pantalla_principal
         Me.CheckBox7.TabIndex = 6
         Me.CheckBox7.Text = "Altura HC"
         Me.CheckBox7.UseVisualStyleBackColor = True
-        Me.CheckBox7.Visible = False
         '
         'CheckBox6
         '
@@ -608,7 +592,6 @@ Partial Class Pantalla_principal
         Me.CheckBox6.TabIndex = 5
         Me.CheckBox6.Text = "Implantación"
         Me.CheckBox6.UseVisualStyleBackColor = True
-        Me.CheckBox6.Visible = False
         '
         'CheckBox5
         '
@@ -623,7 +606,6 @@ Partial Class Pantalla_principal
         Me.CheckBox5.TabIndex = 4
         Me.CheckBox5.Text = "Descentramientos"
         Me.CheckBox5.UseVisualStyleBackColor = True
-        Me.CheckBox5.Visible = False
         '
         'CheckBox4
         '
@@ -638,7 +620,6 @@ Partial Class Pantalla_principal
         Me.CheckBox4.TabIndex = 3
         Me.CheckBox4.Text = "Flechas"
         Me.CheckBox4.UseVisualStyleBackColor = True
-        Me.CheckBox4.Visible = False
         '
         'CheckBox3
         '
@@ -653,7 +634,6 @@ Partial Class Pantalla_principal
         Me.CheckBox3.TabIndex = 2
         Me.CheckBox3.Text = "Vanos"
         Me.CheckBox3.UseVisualStyleBackColor = True
-        Me.CheckBox3.Visible = False
         '
         'CheckBox2
         '
@@ -668,7 +648,6 @@ Partial Class Pantalla_principal
         Me.CheckBox2.TabIndex = 1
         Me.CheckBox2.Text = "Etiquetas"
         Me.CheckBox2.UseVisualStyleBackColor = True
-        Me.CheckBox2.Visible = False
         '
         'CheckBox1
         '
@@ -683,7 +662,6 @@ Partial Class Pantalla_principal
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Postes"
         Me.CheckBox1.UseVisualStyleBackColor = True
-        Me.CheckBox1.Visible = False
         '
         'Panel1
         '

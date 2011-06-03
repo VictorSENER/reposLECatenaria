@@ -5,8 +5,8 @@ Module ver_lac
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
         'LEER NOMBRE CATENARIA Y CARGAR
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
@@ -83,6 +83,53 @@ Module ver_lac
                 Pantalla_datos.Text_dist_ap_prim_pend.Text = oRead("dist_ap_prim_pend")
                 Pantalla_datos.Text_dist_prim_seg_pend.Text = oRead("dist_prim_seg_pend")
                 Pantalla_datos.Text_dist_max_pend.Text = oRead("dist_max_pend")
+                Pantalla_datos.Text_dist_vert_hc.Text = oRead("dist_vert_hc")
+                Pantalla_datos.Text_dist_horiz_hc.Text = oRead("dist_horiz_hc")
+                Pantalla_datos.Text_dist_vert_sust.Text = oRead("dist_vert_sust")
+                Pantalla_datos.Text_dist_horiz_sust.Text = oRead("dist_horiz_sust")
+                Pantalla_datos.Text_dist_vert_feed_pos.Text = oRead("dist_vert_feed_pos")
+                Pantalla_datos.Text_dist_horiz_feed_pos.Text = oRead("dist_horiz_feed_pos")
+                Pantalla_datos.Text_dist_vert_feed_neg.Text = oRead("dist_vert_feed_neg")
+                Pantalla_datos.Text_dist_horiz_feed_neg.Text = oRead("dist_horiz_feed_neg")
+                Pantalla_datos.Text_dist_vert_cdpa.Text = oRead("dist_vert_cdpa")
+                Pantalla_datos.Text_dist_horiz_cdpa.Text = oRead("dist_horiz_cdpa")
+                Pantalla_datos.Text_dist_horiz_equip.Text = oRead("dist_horiz_equip")
+                Pantalla_datos.Text_dist_vert_hc_anc.Text = oRead("dist_vert_hc_anc")
+                Pantalla_datos.Text_dist_vert_sust_anc.Text = oRead("dist_vert_sust_anc")
+                Pantalla_datos.Text_dist_vert_hc_se_sm_el.Text = oRead("dist_vert_hc_se_sm_el")
+                Pantalla_datos.Text_dist_horiz_hc_se_sm_el.Text = oRead("dist_horiz_hc_se_sm_el")
+                Pantalla_datos.Text_dist_vert_sust_se_sm_el.Text = oRead("dist_vert_sust_se_sm_el")
+                Pantalla_datos.Text_dist_horiz_sust_se_sm_el.Text = oRead("dist_horiz_sust_se_sm_el")
+                Pantalla_datos.Text_dist_vert_hc_e_sm.Text = oRead("dist_vert_hc_e_sm")
+                Pantalla_datos.Text_dist_horiz_hc_e_sm.Text = oRead("dist_horiz_hc_e_sm")
+                Pantalla_datos.Text_dist_vert_sust_e_sm.Text = oRead("dist_vert_sust_e_sm")
+                Pantalla_datos.Text_dist_horiz_sust_e_sm.Text = oRead("dist_horiz_sust_e_sm")
+                Pantalla_datos.Text_dist_vert_hc_se_sla_el.Text = oRead("dist_vert_hc_se_sla_el")
+                Pantalla_datos.Text_dist_horiz_hc_se_sla_el.Text = oRead("dist_horiz_hc_se_sla_el")
+                Pantalla_datos.Text_dist_vert_sust_se_sla_el.Text = oRead("dist_vert_sust_se_sla_el")
+                Pantalla_datos.Text_dist_horiz_sust_se_sla_el.Text = oRead("dist_horiz_sust_se_sla_el")
+                Pantalla_datos.Text_dist_vert_hc_e_sla.Text = oRead("dist_vert_hc_e_sla")
+                Pantalla_datos.Text_dist_horiz_hc_e_sla.Text = oRead("dist_horiz_hc_e_sla")
+                Pantalla_datos.Text_dist_vert_sust_e_sla.Text = oRead("dist_vert_sust_e_sla")
+                Pantalla_datos.Text_dist_horiz_sust_e_sla.Text = oRead("dist_horiz_sust_e_sla")
+                Pantalla_datos.Text_dist_vert_hc_se_ag_el.Text = oRead("dist_vert_hc_se_ag_el")
+                Pantalla_datos.Text_dist_horiz_hc_se_ag_el.Text = oRead("dist_horiz_hc_se_ag_el")
+                Pantalla_datos.Text_dist_vert_sust_se_ag_el.Text = oRead("dist_vert_sust_se_ag_el")
+                Pantalla_datos.Text_dist_horiz_sust_se_ag_el.Text = oRead("dist_horiz_sust_se_ag_el")
+                Pantalla_datos.Text_dist_vert_hc_e_ag.Text = oRead("dist_vert_hc_e_ag")
+                Pantalla_datos.Text_dist_horiz_hc_e_ag.Text = oRead("dist_horiz_hc_e_ag")
+                Pantalla_datos.Text_dist_vert_sust_e_ag.Text = oRead("dist_vert_sust_e_ag")
+                Pantalla_datos.Text_dist_horiz_sust_e_ag.Text = oRead("dist_horiz_sust_e_ag")
+                Pantalla_datos.Text_dist_vert_hc_se_zn_el.Text = oRead("dist_vert_hc_se_zn_el")
+                Pantalla_datos.Text_dist_horiz_hc_se_zn_el.Text = oRead("dist_horiz_hc_se_zn_el")
+                Pantalla_datos.Text_dist_vert_sust_se_zn_el.Text = oRead("dist_vert_sust_se_zn_el")
+                Pantalla_datos.Text_dist_horiz_sust_se_zn_el.Text = oRead("dist_horiz_sust_se_zn_el")
+                Pantalla_datos.Text_dist_vert_hc_e_zn.Text = oRead("dist_vert_hc_e_zn")
+                Pantalla_datos.Text_dist_horiz_hc_e_zn.Text = oRead("dist_horiz_hc_e_zn")
+                Pantalla_datos.Text_dist_vert_sust_e_zn.Text = oRead("dist_vert_sust_e_zn")
+                Pantalla_datos.Text_dist_horiz_sust_e_zn.Text = oRead("dist_horiz_sust_e_zn")
+                Pantalla_datos.Combo_idioma.Text = oRead("idioma")
+
 
             End If
 
@@ -161,6 +208,52 @@ Module ver_lac
         Pantalla_datos.Text_dist_prim_seg_pend.Enabled = False
         Pantalla_datos.Text_dist_max_pend.Enabled = False
         Pantalla_datos.Button2.Visible = False
+        Pantalla_datos.Text_dist_vert_hc.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust.Enabled = False
+        Pantalla_datos.Text_dist_vert_feed_pos.Enabled = False
+        Pantalla_datos.Text_dist_horiz_feed_pos.Enabled = False
+        Pantalla_datos.Text_dist_vert_feed_neg.Enabled = False
+        Pantalla_datos.Text_dist_horiz_feed_neg.Enabled = False
+        Pantalla_datos.Text_dist_vert_cdpa.Enabled = False
+        Pantalla_datos.Text_dist_horiz_cdpa.Enabled = False
+        Pantalla_datos.Text_dist_horiz_equip.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_anc.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_anc.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_se_sm_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_se_sm_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_se_sm_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_se_sm_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_e_sm.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_e_sm.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_e_sm.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_e_sm.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_se_sla_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_se_sla_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_se_sla_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_se_sla_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_e_sla.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_e_sla.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_e_sla.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_e_sla.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_se_ag_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_se_ag_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_se_ag_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_se_ag_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_e_ag.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_e_ag.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_e_ag.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_e_ag.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_se_zn_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_se_zn_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_se_zn_el.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_se_zn_el.Enabled = False
+        Pantalla_datos.Text_dist_vert_hc_e_zn.Enabled = False
+        Pantalla_datos.Text_dist_horiz_hc_e_zn.Enabled = False
+        Pantalla_datos.Text_dist_vert_sust_e_zn.Enabled = False
+        Pantalla_datos.Text_dist_horiz_sust_e_zn.Enabled = False
+        Pantalla_datos.Combo_idioma.Enabled = False
 
         Pantalla_datos.Show()
 

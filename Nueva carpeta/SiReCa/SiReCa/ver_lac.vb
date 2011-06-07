@@ -5,8 +5,8 @@ Module ver_lac
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
         'LEER NOMBRE CATENARIA Y CARGAR
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
@@ -129,7 +129,7 @@ Module ver_lac
                 Pantalla_datos.Text_dist_vert_sust_e_zn.Text = oRead("dist_vert_sust_e_zn")
                 Pantalla_datos.Text_dist_horiz_sust_e_zn.Text = oRead("dist_horiz_sust_e_zn")
                 Pantalla_datos.Combo_idioma.Text = oRead("idioma")
-
+                Pantalla_datos.Text_sep_hc.Text = oRead("sep_hc")
 
             End If
 
@@ -254,6 +254,7 @@ Module ver_lac
         Pantalla_datos.Text_dist_vert_sust_e_zn.Enabled = False
         Pantalla_datos.Text_dist_horiz_sust_e_zn.Enabled = False
         Pantalla_datos.Combo_idioma.Enabled = False
+        Pantalla_datos.Text_sep_hc.Enabled = False
 
         Pantalla_datos.Show()
 

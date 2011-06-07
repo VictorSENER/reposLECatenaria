@@ -1,12 +1,15 @@
 ﻿Imports System.Data.OleDb
+
 Module cargar_lac
+    Public posicion_feed_pos As String
     Sub cargar_lac()
+
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
         'LEER NOMBRE CATENARIA Y CARGAR
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
@@ -16,7 +19,7 @@ Module cargar_lac
             'El DataReader se situa sobre el registro
 
             If (Pantalla_principal.nueva_lac = oRead("nombre_cat")) Then
-
+                nombre_cat = oRead("nombre_cat")
                 sist = oRead("sist")
                 al = oRead("al")
                 alt_nom = oRead("alt_nom")
@@ -129,7 +132,7 @@ Module cargar_lac
                 dist_horiz_hc_e_zn = oRead("dist_horiz_hc_e_zn")
                 dist_vert_sust_e_zn = oRead("dist_vert_sust_e_zn")
                 dist_horiz_sust_e_zn = oRead("dist_horiz_sust_e_zn")
-
+                sep_hc = oRead("sep_hc")
             End If
 
         End While
@@ -139,8 +142,8 @@ Module cargar_lac
 
         'LECTURA DE LA TABLA CONDUCTORES Y CABLES
 
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Conductores_y_cables", oConn)
         oRead = oComm.ExecuteReader

@@ -132,7 +132,7 @@ Module modificar_lac
                 Pantalla_datos.Text_dist_horiz_hc_e_zn.Text = oRead("dist_horiz_hc_e_zn")
                 Pantalla_datos.Text_dist_vert_sust_e_zn.Text = oRead("dist_vert_sust_e_zn")
                 Pantalla_datos.Text_dist_horiz_sust_e_zn.Text = oRead("dist_horiz_sust_e_zn")
-
+                Pantalla_datos.Text_sep_hc.Text = oRead("sep_hc")
             End If
 
         End While

@@ -11,10 +11,6 @@ C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Base de datos.accdb
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\SiReCa.exe.config
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\SiReCa.vbproj.ResolveComReference.cache
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\Interop.DAO.dll
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Interop.DAO.dll
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\Interop.ADOR.dll
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Interop.ADOR.dll
 C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\bin\Debug\SiReCa.exe.config
 C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\obj\Debug\SiReCa.vbproj.ResolveComReference.cache
 C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\obj\Debug\SiReCa.exe
@@ -52,8 +48,6 @@ C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\ob
 C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\obj\Debug\Interop.DxVBLib.dll
 C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Interop.DxVBLib.dll
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\Interop.DxVBLib.dll
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\Interop.DxVBLibA.dll
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Interop.DxVBLib.dll
-C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\bin\Debug\Interop.DxVBLibA.dll
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\SiReCa.Pantalla_aviso.resources
 C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\obj\Debug\SiReCa.Pantalla_principal.resources

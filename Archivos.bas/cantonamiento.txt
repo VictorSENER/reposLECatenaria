@@ -1,5 +1,4 @@
 Attribute VB_Name = "cantonamiento"
-
 Sub cantones(ByRef h, ByRef c, ByRef k, ByRef a)
 Dim pk As Double, finish As Double, total As Double, total2 As Double
 Dim n_canton As Integer

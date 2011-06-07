@@ -103,12 +103,13 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
     If inicio = pk0 Then
         dev = (c * 1000) / radioC
         contador = 2
-    ElseIf rady > radio_0 Then
-        dev = (c * 1000) / radioC
-        contador = 2
     ElseIf contador = 0 Then
         dev = (c * 1000) / radioC
         contador = contador + 1
+    ElseIf rady >= radio_0 Then
+        dev = (c * 1000) / radioC
+        contador = 2
+
     ElseIf contador = 1 Then
         dev = (c * 1000) / radioC
         contador = contador + 1
@@ -138,7 +139,7 @@ ElseIf IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) And pk0 < (inicio2 + l2) Then
     End If
     If radioC1 < radioC2 Then
         lmin = a1 ^ 2 / radioC1
-        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+        radioC = (a1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
         If rady < 0 Then
             radioC = radioC * (-1)
         End If

@@ -2,8 +2,10 @@ Attribute VB_Name = "comentarios"
 Sub comentarios()
 Dim z As Integer, aloc As Integer
 Dim valor As String, guardar As String
+'inicializar variables locales
 z = 10
 aloc = 3
+'inicio de la rutina principal
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     While Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc, 21).Value And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
     aloc = aloc + 1

@@ -1,6 +1,6 @@
 Attribute VB_Name = "momento"
 Sub momento(nombre_catVB)
-Dim coef_viento As Double, Fw As Double
+Dim coef_viento As Double
 Dim va_ini As Double, va_fin As Double
 Dim r As Double, d_0 As Double, d_1 As Double, d_2 As Double
 Dim tip As String
@@ -24,28 +24,6 @@ Dim fuerza_at_ejey_cdpa As Double
 Dim fuerza_at_cu_ejey_cdpa As Double
 Dim fuerza_at_ejex_cdpa As Double
 Dim fuerza_at_cu_ejex_cdpa As Double
-Dim p_sust As Double
-Dim p_hc As Double
-Dim p_feed_pos As Double
-Dim p_feed_neg As Double
-Dim p_cdpa As Double
-Dim dist_vert_sust As Double
-Dim dist_vert_sust_1 As Double
-Dim dist_horiz_sust As Double
-Dim dist_horiz_sust_1 As Double
-Dim dist_vert_hc As Double
-Dim dist_vert_hc_1 As Double
-Dim dist_horiz_hc As Double
-Dim dist_horiz_hc_1 As Double
-Dim dist_vert_feed_pos As Double
-Dim dist_horiz_feed_pos As Double
-Dim dist_vert_feed_neg As Double
-Dim dist_horiz_feed_neg As Double
-Dim dist_vert_cdpa As Double
-Dim dist_horiz_cdpa As Double
-Dim dist_horiz_equip As Double
-Dim dist_vert_sust_anc As Double
-Dim dist_vert_hc_anc As Double
 Dim mom_sust As Double
 Dim mom_sust_1 As Double
 Dim mom_hc As Double
@@ -56,10 +34,6 @@ Dim mom_cdpa As Double
 Dim mom_equip As Double
 Dim mom_sust_anc As Double
 Dim mom_hc_anc As Double
-Dim dist_aisl_sm As Double
-Dim dist_aisl_sla As Double
-Dim Montage As String
-
 Dim pres_viento_sust As Double
 Dim pres_viento_hc As Double
 Dim pres_viento_feed_pos As Double
@@ -107,16 +81,15 @@ If posicion_feed_neg = "Suspendido (lado vía)" Then
 End If
 'variables del excel
 z = 12
-'Distancias de aislamiento para seccionamiento eléctrico y seccionamiento mecánico
- 
-    dist_elec_sm = 0.2
-    dist_elec_sla = 0.4
     
 'inicio de la rutina
-While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
     va_ini = Hoja1.Cells(z - 1, 4).Value
     va_fin = Hoja1.Cells(z + 1, 4).Value
     r = Hoja1.Cells(z, 6).Value
+    If r = 0 Then
+        r = 100000000
+    End If
     d_0 = Hoja1.Cells(z - 2, 8).Value
     d_1 = Hoja1.Cells(z, 8).Value
     d_2 = Hoja1.Cells(z + 2, 8).Value
@@ -195,11 +168,10 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_poste
         
-    End If
 
     'Seccionamiento mecánico
 
-    If tip = "Anc.Chevau." Then
+    ElseIf tip = "Anc.Chevau." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -213,9 +185,9 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
+
     
-    If tip = "Inter.Chevau." Then
+    ElseIf tip = "Inter.Chevau." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_se_sm_el = fuerza_viento_sust * dist_vert_sust_se_sm_el - masa_sust * dist_horiz_sust_se_sm_el + fuerza_at_ejey_sust * dist_vert_sust_se_sm_el
@@ -231,9 +203,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_se_sm_el + mom_hc + mom_hc_se_sm_el + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
-    
-    If tip = "Axe.Chevau." Then
+   
+    ElseIf tip = "Axe.Chevau." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_e_sm = fuerza_viento_sust * dist_vert_sust_e_sm + masa_sust * dist_horiz_e_sm + fuerza_at_ejey_sust * dist_vert_sust_e_sm
@@ -247,11 +218,10 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_e_sm + mom_hc + mom_hc_e_sm + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_poste
     
-    End If
     
     'Seccionamiento eléctrico
     
-    If tip = "Anc.Section." Then
+    ElseIf tip = "Anc.Section." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -265,9 +235,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
-    
-    If tip = "Inter.Section." Then
+   
+    ElseIf tip = "Inter.Section." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_se_sla_el = fuerza_viento_sust * dist_vert_sust_se_sla_el - masa_sust * dist_horiz_sust_se_sla_el + fuerza_at_ejey_sust * dist_vert_sust_se_sla_el
@@ -283,9 +252,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_se_sla_el + mom_hc + mom_hc_se_sla_el + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
     
-    If tip = "Axe.Section." Then
+    ElseIf tip = "Axe.Section." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_e_sla = fuerza_viento_sust * dist_vert_sust_e_sla + masa_sust * dist_horiz_sust_e_sla + fuerza_at_ejey_sust * dist_vert_sust_e_sla
@@ -299,11 +267,10 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_e_sla + mom_hc + mom_hc_e_sla + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_poste
     
-    End If
     
     'Punto fijo
     
-    If tip = "Anc.Antich." Then
+    ElseIf tip = "Anc.Antich." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -316,9 +283,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
             
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_poste
     
-    End If
          
-    If tip = "Axe.Antich." Then
+    ElseIf tip = "Axe.Antich." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc - masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -332,11 +298,10 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_poste
     
     
-    End If
     
     'Agujas
     
-    If tip = "Anc.Aigu" Then
+    ElseIf tip = "Anc.Aigu" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -351,9 +316,7 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
     
-    End If
-    
-    If tip = "Inter.Aigu" Then
+    ElseIf tip = "Inter.Aigu" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_se_ag_el = fuerza_viento_sust * dist_vert_sust_se_ag_el - masa_sust * dist_horiz_sust_se_ag_el + fuerza_at_ejey_sust * dist_vert_sust_se_ag_el
@@ -369,9 +332,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_se_ag_el + mom_hc + mom_hc_se_ag_el + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
     
-    If tip = "Axe.Aigu" Then
+    ElseIf tip = "Axe.Aigu" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_e_ag = fuerza_viento_sust * dist_vert_sust_e_ag + masa_sust * dist_horiz_sust_e_ag + fuerza_at_ejey_sust * dist_vert_sust_e_ag
@@ -384,12 +346,11 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         'mom_poste = fuerza_viento_poste * (alt_nenc_poste / 2)
         
         mom_tot = mom_sust + mom_sust_e_ag + mom_hc + mom_hc_e_ag + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_poste
-    
-    End If
+
     
     'zona neutra
     
-    If tip = "Anc.Neutre." Then
+    ElseIf tip = "Anc.Neutre." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -403,9 +364,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
     
-    If tip = "Inter.Neutre." Then
+    ElseIf tip = "Inter.Neutre." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_se_zn_el = fuerza_viento_sust * dist_vert_sust_se_zn_el - masa_sust * dist_horiz_sust_se_zn_el + fuerza_at_ejey_sust * dist_vert_sust_se_zn_el
@@ -421,9 +381,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         mom_tot = mom_sust + mom_sust_se_zn_el + mom_hc + mom_hc_se_zn_el + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
-    End If
-    
-    If tip = "Axe.Neutre." Then
+
+    ElseIf tip = "Axe.Neutre." Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_e_zn = fuerza_viento_sust * dist_vert_sust_e_zn + masa_sust * dist_horiz_sust_e_zn + fuerza_at_ejey_sust * dist_vert_sust_e_zn
@@ -439,7 +398,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     
     End If
     
-    Hoja1.Cells(12, 19) = mom_tot
+    Hoja1.Cells(z, 19) = mom_tot
+    z = z + 2
     Wend
 End Sub
 
@@ -465,10 +425,6 @@ Public Function fuerza_viento_cyc(ByRef diam, ByRef sec, ByRef n, ByRef tip, ByR
             Else
                 coef_viento = 1.6 * coef_viento
             End If
-        
-        fuerza_viento_cyc = 0.5 * 1.25 * (vw ^ 2) * coef_viento * diam
-        'kg/m
-        
         End If
     ElseIf adm_lin_poste = "ONCF" Then
     If sec <= 107 Then
@@ -489,11 +445,10 @@ Public Function fuerza_viento_cyc(ByRef diam, ByRef sec, ByRef n, ByRef tip, ByR
             Else
                 coef_viento = 1.6 * coef_viento
             End If
-        
-        fuerza_viento_cyc = 0.5 * 1.25 * (vw ^ 2) * coef_viento * diam
-        'kg/m
       End If
       End If
+fuerza_viento_cyc = 0.5 * 1.25 * (vw ^ 2) * coef_viento * diam
+'kg/m
 End Function
 
 Public Function fuerza_viento_sup(ByRef adm_lin) As Double

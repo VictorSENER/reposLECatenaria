@@ -1,5 +1,5 @@
 Attribute VB_Name = "punto_singular"
-Sub sing1(ByRef h, ByRef a, ByRef k)
+Sub sing1(ByRef h, ByRef a)
 Dim z As Integer
 Dim pk0 As Double
 ' buscar en que fila de la hoja 4 se corresponde con el pk actual
@@ -9,35 +9,37 @@ Dim pk0 As Double
 If Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
 And (Sheets(4).Cells(a, 1).Value = "Pont" Or Sheets(4).Cells(a, 1).Value = "Buse" Or Sheets(4).Cells(a, 1).Value = "P.I." Or Sheets(4).Cells(a, 1).Value = "Dalot" Or Sheets(4).Cells(a, 1).Value = "P.N.") Then
     z = h
-    dist_restar = Sheets(1).Cells(h, 33).Value - Sheets(4).Cells(a, 2).Value
-
-    While dist_restar > 0
+    dist_restar = Sheets(1).Cells(h, 33).Value - Sheets(4).Cells(a, 2).Value + (inc_norm_va / 2)
+    div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
+    Call singular.restar(dist_restar, div, z, h, a)
+    
+    'While dist_restar > 0
        
-        If dist_restar <= 2 * inc_norm_va And Sheets(1).Cells(z - 3, 4).Value - (Sheets(1).Cells(z - 1, 4).Value) = dist_va_max Then
-            z = z - 2
+        'If dist_restar <= 2 * inc_norm_va And Sheets(1).Cells(z - 3, 4).Value - (Sheets(1).Cells(z - 1, 4).Value) = dist_va_max Then
+            'z = z - 2
 
-        ElseIf dist_restar <= inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
-            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
-            dist_restar = dist_restar - inc_norm_va
-            z = z - 2
-        ElseIf dist_restar > inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
-            Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
-            dist_restar = dist_restar - inc_norm_va
-            z = z - 2
-        Else
-            z = z - 2
-        End If
+        'ElseIf dist_restar <= inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value < dist_va_max Then
+            'Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+            'dist_restar = dist_restar - inc_norm_va
+            'z = z - 2
+        'ElseIf dist_restar > inc_norm_va And Sheets(1).Cells(z + 1, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max And Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value <= dist_va_max Then
+            'Sheets(1).Cells(z - 1, 4).Value = Sheets(1).Cells(z - 1, 4).Value - inc_norm_va
+            'dist_restar = dist_restar - inc_norm_va
+            'z = z - 2
+        'Else
+            'z = z - 2
+        'End If
         
-    Wend
-    While z <> h
-        Sheets(1).Cells(z + 2, 33).Value = Sheets(1).Cells(z + 1, 4) + Sheets(1).Cells(z, 33)
-        Call radio.radio1(z)
+    'Wend
+    'While z <> h
+        'Sheets(1).Cells(z + 2, 33).Value = Sheets(1).Cells(z + 1, 4) + Sheets(1).Cells(z, 33)
+        'Call radio.radio1(z)
         'Call reg(z, k, a)
-        z = z + 2
-    Wend
-    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
-    Call radio.radio1(h)
-    Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
+        'z = z + 2
+    'Wend
+    'Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
+    'Call radio.radio1(h)
+    'Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
 End If
 
 While Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 21).Value And Sheets(4).Cells(a, 23).Value <> "FINAL"

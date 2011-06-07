@@ -1,14 +1,13 @@
 Attribute VB_Name = "altura"
-Sub altura(alt_max1, alt_nom1, alt_min1, inc_max_alt_hc1)
+Sub altura(nombre_catVB)
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
-alt_max = alt_max1
-alt_nom = alt_nom1
-alt_min = alt_min1
-inc_max_alt_hc = inc_max_alt_hc1
+'inicializar variables que provienen del VB.net
+Call datos.datos_acces(nombre_catVB)
+'inicializar variables locales
 z = 10
 aloc = 3
-
+'inicio de la rutina principal
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     While (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value) And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
         aloc = aloc + 1

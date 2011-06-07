@@ -1,28 +1,29 @@
 Attribute VB_Name = "regulacion"
-Sub regulacion(ByRef h, ByRef k, ByRef a, ByRef b)
+Sub regulacion(ByRef h, ByRef a, ByRef b)
 z = h
 While (Sheets(1).Cells(h - 5, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist_va_max
     Sheets(1).Cells(h - 5, 4).Value = Sheets(1).Cells(h - 5, 4).Value - inc_norm_va
-    Call actualizar(z - 4, h, k)
+    Call actualizar(z - 4, h, a)
 Wend
 While (Sheets(1).Cells(h - 3, 4).Value - Sheets(1).Cells(h - 5, 4).Value) > dist_va_max Or _
 (Sheets(1).Cells(h - 3, 4).Value - Sheets(1).Cells(h - 1, 4).Value) > dist_va_max
     Sheets(1).Cells(h - 3, 4).Value = Sheets(1).Cells(h - 3, 4).Value - inc_norm_va
-    Call actualizar(z - 2, h, k)
+    Call actualizar(z - 2, h, a)
 Wend
 While (Sheets(1).Cells(h - 1, 4).Value - Sheets(1).Cells(h - 3, 4).Value) > dist_va_max
     Sheets(1).Cells(h - 1, 4).Value = Sheets(1).Cells(h - 1, 4).Value - inc_norm_va
-    Call actualizar(z, h, k)
+    Call actualizar(z, h, a)
 Wend
 
 End Sub
-Sub actualizar(z, h, k)
+Sub actualizar(z, h, a)
   
     While z <= h
     Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z - 1, 4).Value + Sheets(1).Cells(z - 2, 33).Value
     Call radio1(z)
-    If vano.vano(Sheets(1).Cells(z, 6).Value) < Sheets(1).Cells(z + 1, 4).Value Then
-        Sheets(1).Cells(z + 1, 4).Value = vano.vano(Sheets(1).Cells(z, 6).Value)
+    Call punto_singular.sing1(z, a - 1)
+    If vano.vano(Sheets(1).Cells(z - 2, 6).Value) < Sheets(1).Cells(z - 1, 4).Value Then
+        Sheets(1).Cells(z - 1, 4).Value = vano.vano(Sheets(1).Cells(z - 2, 6).Value)
     End If
     z = z + 2
     Wend

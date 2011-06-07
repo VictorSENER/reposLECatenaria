@@ -1,21 +1,17 @@
 Attribute VB_Name = "principal"
-' variables publicas para tabla de replanteo
-Public caso As String, tip_mac As String, tip_poste As String, num_poste As String, idioma As String
-Public n_min_va_sm As Integer, n_min_va_sla As Integer
-Public alt_nom As Double, alt_max As Double, alt_min As Double, dist_va_max As Double
-Public dist_max_canton As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double
-Public inc_norm_va As Double, dist_carril_poste As Double, va_max As Double, inc_max_alt_hc As Double
-Public d_max_cu As Double
-Public inicio As Double, fin As Double, r_min_traz As Double, va_max_sec_comp
-Public r_re As Double, alt_cat As Double, d_max_re As Double
-Public va_max_sec_aire As Long, fallo As Double, ancho_via As Double, l_canton As Double
-Public Error As Long, n_canton2 As Long, uno As Integer
-Public start As Double, vw As Double, diam_hc As Double, diam_sust As Double, r_min As Double
-Public d_max_ad As Double, t_hc As Double, diam_pend As Double
-Public t_sust As Double, dif_va As Double, n_hc As Double, coef_viento As Double
+' variables publicas
+Public dist_va_max As Double
+Public dist_max_canton As Double, va_max_sm As Double, va_max_tunel As Double
+Public inc_norm_va As Double, va_max As Double
+Public inicio As Double, r_re As Double
+Public uno As Integer
+
+
+
 Function principal(inicioVB, hVB, wVB, kVB, aVB, bVB, cVB, r_reVB, dist_va_maxVB, _
 inc_norm_vaVB, va_max_tunelVB, va_maxVB, dist_max_cantonVB, va_max_smVB) As Long()
 'recolección de datos e inicialización
+'Application.VBE.ActiveVBProject.References.AddFromFile "C:\Documents and Settings\23370\Escritorio\SiReCa\msado15.dll"
 inicio = inicioVB
 h = hVB
 w = wVB
@@ -38,8 +34,6 @@ End If
 
                         ' inicializamos 3 vanos para poder corregirlos
 While 16 > h
-
-    
     Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
     h = h + 2                                           ' avanzamos una fila y calculamos un nuevo pk
@@ -48,9 +42,9 @@ Wend
 
     Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
-    Call regulacion.regulacion(h, k, a, b)                                  ' comprobamos que los incrementos de vano
+    Call regulacion.regulacion(h, a, b)                                  ' comprobamos que los incrementos de vano
     Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
-    Call punto_singular.sing1(h, a, k)                                ' comprobamos que el poste no cae en un PS
+    Call punto_singular.sing1(h, a)                                ' comprobamos que el poste no cae en un PS
     'Call cantonamiento.cantones(h, c, k, a)
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
@@ -63,10 +57,5 @@ Wend
         x(5) = b
         x(6) = c
         x(7) = Sheets(1).Cells(h, 33).Value
-
     principal = x
-
-    
 End Function
-
-

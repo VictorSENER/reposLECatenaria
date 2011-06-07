@@ -37,7 +37,13 @@ a1 = Sheets(3).Cells(k, 9).Value
 A2 = Sheets(3).Cells(k, 10).Value
 c = Sheets(3).Cells(k, 7).Value
 
-
+    If Sheets(1).Cells(h - 2, 6).Value < 0 Then
+        radio_0 = Sheets(1).Cells(h - 2, 6).Value * (-1)
+    ElseIf Sheets(1).Cells(h - 2, 6).Value > 0 Then
+        radio_0 = Sheets(1).Cells(h - 2, 6).Value
+    Else
+        radio_0 = r_re
+    End If
 ' calculo del radio correspondiente a la clotoide de entrada
 If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(k - 1, 6).Value) Then
     radioC = a1 ^ 2 / (pk0 - inicio1)
@@ -96,20 +102,13 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
     If rady < 0 Then
         rady = rady * (-1)
     End If
-    If Sheets(1).Cells(h - 2, 6).Value < 0 Then
-        radio_0 = Sheets(1).Cells(h - 2, 6).Value * (-1)
-    ElseIf Sheets(1).Cells(h - 2, 6).Value > 0 Then
-        radio_0 = Sheets(1).Cells(h - 2, 6).Value
-    Else
-        radio_0 = r_re
-    End If
     If rady < r_re Then
         If inicio = pk0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
             contador = 2
-        ElseIf rady > radio_0 Then
+        ElseIf rady >= radio_0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
@@ -159,25 +158,27 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
         End If
         If radioC1 < radioC2 Then
             lmin = a1 ^ 2 / radioC1
-            radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+            radiot = (a1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
             If rady < 0 Then
-                radioC = radioC * (-1)
+                radioC = radiot * (-1)
+            Else: radioC = radiot
             End If
         Else
             lmin = a1 ^ 2 / radioC2
-            radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+            radiot = (a1 ^ 2) / (lmin - (pk0 - inicio1))
             If rady2 < 0 Then
-                radioC = radioC * (-1)
+                radioC = radiot * (-1)
+            Else: radioC = radiot
             End If
         End If
         
-        If rady < r_re Then
+        If radiot < r_re And radioC1 < radioC2 Then
             If inicio = pk0 Then
                 Sheets(1).Cells(h, 6).Value = radioC
                 dev = (c * 1000) / radioC
                 Sheets(1).Cells(h, 7).Value = dev
                 contador = 2
-            ElseIf rady > radio_0 Then
+            ElseIf radiot > radio_0 And contador = 0 Then
                 Sheets(1).Cells(h, 6).Value = radioC
                 dev = (c * 1000) / radioC
                 Sheets(1).Cells(h, 7).Value = dev
@@ -190,13 +191,29 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
                 pk0 = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
                 Sheets(1).Cells(h, 33).Value = pk0
                 contador = contador + 1
+
+
             ElseIf contador = 1 Then
-                Call radio1(h)
-                'Sheets(1).Cells(h, 6).Value = radioC
-                'dev = (c * 1000) / radioC
-                'Sheets(1).Cells(h, 7).Value = dev
+                Sheets(1).Cells(h - 2, 6).Value = radioC
+                dev = (c * 1000) / radioC
+                Sheets(1).Cells(h - 2, 7).Value = dev
+                'Sheets(1).Cells(h - 1, 4).Value = vano.vano(Sheets(1).Cells(h - 2, 6).Value)
+                'pk0 = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
+                'Sheets(1).Cells(h, 33).Value = pk0
                 contador = contador + 1
+                
+                
+                'Call radio1(h)
+                Sheets(1).Cells(h, 6).Value = radioC
+                dev = (c * 1000) / radioC
+                Sheets(1).Cells(h, 7).Value = dev
+                contador = 2
             End If
+        ElseIf rady < r_re And radioC1 > radioC2 Then
+            Sheets(1).Cells(h, 6).Value = radioC
+            dev = (c * 1000) / radioC
+            Sheets(1).Cells(h, 7).Value = dev
+            contador = 2
         Else
             contador = 2
         End If
@@ -250,6 +267,16 @@ A2 = Sheets(3).Cells(k, 10).Value
 c = Sheets(3).Cells(k, 7).Value
 
 
+
+    If Sheets(1).Cells(h - 2, 6).Value < 0 Then
+        radio_0 = Sheets(1).Cells(h - 2, 6).Value * (-1)
+    ElseIf Sheets(1).Cells(h - 2, 6).Value > 0 Then
+        radio_0 = Sheets(1).Cells(h - 2, 6).Value
+    Else
+        radio_0 = r_re
+    End If
+
+
 ' calculo del radio correspondiente a la clotoide de entrada
 If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(k - 1, 6).Value) Then
     radioC = a1 ^ 2 / (pk0 - inicio1)
@@ -273,26 +300,10 @@ If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(k - 1
             Sheets(1).Cells(h - 2, 6).Value = ""
             Sheets(1).Cells(h - 2, 7).Value = ""
             If IsEmpty(Sheets(1).Cells(h - 2, 6).Value) Then
-                'If radioC1 > radioC2 Then
-                    Sheets(1).Cells(h - 2, 6).Value = radioC
-                    dev = (c * 1000) / radioC
-                    Sheets(1).Cells(h - 2, 7).Value = dev
-                'Else
-                    'Sheets(1).Cells(h - 2, 6).Value = radioa
-                    'dev = (c * 1000) / radioa
-                    'Sheets(1).Cells(h - 2, 7).Value = dev
-                'End If
+                Sheets(1).Cells(h - 2, 6).Value = radioC
+                dev = (c * 1000) / radioC
+                Sheets(1).Cells(h - 2, 7).Value = dev
                 contador = contador + 1
-            'Else
-
-                'If radioC1 > radioC2 Or Sheets(1).Cells(h - 2, 33).Value < Sheets(3).Cells(k - 1, 6).Value Or k = 3 Then
-                    'Sheets(1).Cells(h - 2, 6).Value = radioC
-                    'dev = (c * 1000) / radioC
-                    'Sheets(1).Cells(h - 2, 7).Value = dev
-                    'contador = contador + 1
-                'Else
-                    'contador = contador + 1
-                'End If
             End If
         ElseIf contador = 1 Then
             Sheets(1).Cells(h, 6).Value = radioC
@@ -322,20 +333,14 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
     If rady < 0 Then
         rady = rady * (-1)
     End If
-    If Sheets(1).Cells(h - 2, 6).Value < 0 Then
-        radio_0 = Sheets(1).Cells(h - 2, 6).Value * (-1)
-    ElseIf Sheets(1).Cells(h - 2, 6).Value > 0 Then
-        radio_0 = Sheets(1).Cells(h - 2, 6).Value
-    Else
-        radio_0 = r_re
-    End If
+
     If rady < r_re Then
         If inicio = pk0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
             contador = 2
-        ElseIf rady > radio_0 Then
+        ElseIf rady >= radio_0 And contador = 0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
@@ -344,11 +349,13 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
             Sheets(1).Cells(h - 2, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h - 2, 7).Value = dev
-            'Sheets(1).Cells(h - 1, 4).Value = vano(Sheets(1).Cells(h - 2, 6).Value)
             pk0 = vano.vano(Sheets(1).Cells(h - 2, 6).Value) + Sheets(1).Cells(h - 2, 33).Value
-            'Sheets(1).Cells(h, 33).Value = pk
             contador = contador + 1
         ElseIf contador = 1 Then
+        Sheets(1).Cells(h - 2, 6).Value = radioC
+            dev = (c * 1000) / radioC
+            Sheets(1).Cells(h - 2, 7).Value = dev
+            pk0 = vano.vano(Sheets(1).Cells(h - 2, 6).Value) + Sheets(1).Cells(h - 2, 33).Value
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
@@ -369,7 +376,9 @@ ElseIf pk0 > inicio2 And pk0 < inicio2 + l2 Then
         Sheets(1).Cells(h, 6).Value = radioC
         dev = (c * 1000) / radioC
         Sheets(1).Cells(h, 7).Value = dev
-
+    Else
+        Sheets(1).Cells(h, 6).Value = ""
+        Sheets(1).Cells(h, 7).Value = ""
     End If
 
 ' calculo del radio correspondiente a la clotoide entre dos curvas
@@ -384,24 +393,26 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
     End If
     If radioC1 < radioC2 Then
         lmin = a1 ^ 2 / radioC1
-        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+        radiot = (a1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
         If rady < 0 Then
-            radioC = radioC * (-1)
+            radioC = radiot * (-1)
+        Else: radioC = radiot
         End If
     Else
         lmin = a1 ^ 2 / radioC2
-        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+        radiot = (a1 ^ 2) / (lmin - (pk0 - inicio1))
         If rady2 < 0 Then
-            radioC = radioC * (-1)
+            radioC = radiot * (-1)
+        Else: radioC = radiot
         End If
     End If
-    If rady < r_re Then
+    If rady < r_re And radioC1 < radioC2 Then
         If inicio = pk0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
             contador = 2
-        ElseIf rady > radio_0 Then
+        ElseIf radiot > radio_0 And contador = 0 Then
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
@@ -413,21 +424,23 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
             pk0 = vano.vano(Sheets(1).Cells(h - 2, 6).Value) + Sheets(1).Cells(h - 2, 33).Value
             contador = contador + 1
         ElseIf contador = 1 Then
+            Sheets(1).Cells(h - 2, 6).Value = radioC
+            dev = (c * 1000) / radioC
+            Sheets(1).Cells(h - 2, 7).Value = dev
+            pk0 = vano.vano(Sheets(1).Cells(h - 2, 6).Value) + Sheets(1).Cells(h - 2, 33).Value
             Sheets(1).Cells(h, 6).Value = radioC
             dev = (c * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
             contador = contador + 1
         End If
+    ElseIf rady < r_re And radioC1 > radioC2 Then
+            Sheets(1).Cells(h, 6).Value = radioC
+            dev = (c * 1000) / radioC
+            Sheets(1).Cells(h, 7).Value = dev
+            contador = 2
     Else
         contador = 2
     End If
-    
-    
-    
-    
-        'Sheets(1).Cells(h, 6).Value = radioC
-        'dev = (c * 1000) / radioC
-        'Sheets(1).Cells(h, 7).Value = dev
     
 Else
 contador = 2

@@ -118,10 +118,12 @@ Module run
         xLibro = objExcel.Workbooks.Open(ruta_trazado)
 
         'objExcel.Workbooks.Add()
-        objExcel.Visible = True
+        'objExcel.Visible = True
         objExcel.Worksheets.Add(Before:=objExcel.Worksheets(1))
         objExcel.Worksheets.Add(Before:=objExcel.Worksheets(2))
         objExcel.Worksheets.Add(After:=objExcel.Worksheets(6))
+        objExcel.Worksheets.Add(After:=objExcel.Worksheets(7))
+        objExcel.Worksheets.Add(After:=objExcel.Worksheets(8))
         'cargar los modulos
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\principal.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\punto_singular.txt")
@@ -140,7 +142,8 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\formato.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\tabla_vanos.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\momento.txt")
-        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\datos.txt")
+        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\cargar.txt")
+        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\eleccion.txt")
         objExcel.VBE.ActiveVBProject.References.AddFromFile("C:\Documents and Settings\23370\Escritorio\SiReCa\msado15.dll")
         'ejecutar rutinas antes del programa principal
         objExcel.Run("tabla_vanos.tabla_vanos", nombre_cat)
@@ -165,7 +168,7 @@ Module run
         Pantalla_principal.ProgressBar2.Visible = True
         Pantalla_principal.Label11.Visible = True
         With Pantalla_principal.ProgressBar2
-            .Maximum = 11
+            .Maximum = 13
             .Minimum = 0
             .Value = 0
         End With
@@ -193,40 +196,58 @@ Module run
             Pantalla_principal.ProgressBar1.Value = tiempo(7)
 
         End While
-        Pantalla_principal.Refresh()
-        Pantalla_principal.ProgressBar2.Value = 1
-        objExcel.Run("formato.formato", idioma)
-        Pantalla_principal.Label11.Text = "Módulo formato"
-        Pantalla_principal.ProgressBar2.Value = 2
-        objExcel.Run("pk_real.convertir_LT")
+
         Pantalla_principal.Label11.Text = "Módulo conversión de PK"
-        Pantalla_principal.ProgressBar2.Value = 3
-        objExcel.Run("num_postes.postes", nombre_cat)
+        Pantalla_principal.ProgressBar2.Value = 1
+        Pantalla_principal.Refresh()
+        objExcel.Run("pk_real.convertir_LT")
         Pantalla_principal.Label11.Text = "Módulo numeración postes"
-        Pantalla_principal.ProgressBar2.Value = 4
-        objExcel.Run("altura.altura", nombre_cat)
+        Pantalla_principal.ProgressBar2.Value = 2
+        Pantalla_principal.Refresh()
+        objExcel.Run("num_postes.postes", nombre_cat)
         Pantalla_principal.Label11.Text = "Módulo altura"
-        Pantalla_principal.ProgressBar2.Value = 5
-        objExcel.Run("cad.esfuerzo")
+        Pantalla_principal.ProgressBar2.Value = 3
+        Pantalla_principal.Refresh()
+        objExcel.Run("altura.altura", nombre_cat)
         Pantalla_principal.Label11.Text = "Módulo esfuerzos"
-        Pantalla_principal.ProgressBar2.Value = 6
+        Pantalla_principal.ProgressBar2.Value = 4
+        Pantalla_principal.Refresh()
+        objExcel.Run("cad.esfuerzo")
+        Pantalla_principal.Label11.Text = "descentramiento"
+        Pantalla_principal.ProgressBar2.Value = 5
+        Pantalla_principal.Refresh()
         'objExcel.Run("canton")                                            ' distribución de los cantones de catenaria
         objExcel.Run("descentramiento.desc")
-        Pantalla_principal.Label11.Text = "descentramiento"
-        Pantalla_principal.ProgressBar2.Value = 7
-        objExcel.Run("cad.posicion")
         Pantalla_principal.Label11.Text = "Módulo posicion"
-        Pantalla_principal.ProgressBar2.Value = 8
-        objExcel.Run("comentarios.comentarios")
+        Pantalla_principal.ProgressBar2.Value = 6
+        Pantalla_principal.Refresh()
+        objExcel.Run("cad.posicion")
         Pantalla_principal.Label11.Text = "Módulo comentarios"
-        Pantalla_principal.ProgressBar2.Value = 9
-        objExcel.Run("momento.momento", nombre_cat)
+        Pantalla_principal.ProgressBar2.Value = 7
+        Pantalla_principal.Refresh()
+        objExcel.Run("comentarios.comentarios")
         Pantalla_principal.Label11.Text = "Módulo momento"
+        Pantalla_principal.ProgressBar2.Value = 8
+        Pantalla_principal.Refresh()
+        objExcel.Run("momento.momento", nombre_cat)
+        Pantalla_principal.Label11.Text = "Módulo formato"
+        Pantalla_principal.ProgressBar2.Value = 9
+        Pantalla_principal.Refresh()
+        objExcel.Run("formato.formato", idioma)
+        Pantalla_principal.Label11.Text = "Elección postes"
         Pantalla_principal.ProgressBar2.Value = 10
+        Pantalla_principal.Refresh()
+        objExcel.Run("eleccion.postes", nombre_cat)
+        Pantalla_principal.Label11.Text = "Elección postes"
+        Pantalla_principal.ProgressBar2.Value = 11
+        Pantalla_principal.Refresh()
+        objExcel.Run("eleccion.cimentaciones", nombre_cat)
+        Pantalla_principal.Label11.Text = "Módulo revisión"
+        Pantalla_principal.ProgressBar2.Value = 12
+        Pantalla_principal.Refresh()
         'objExcel.Run("im_pend(fin)")
         objExcel.Run("revision.revision")
-        Pantalla_principal.Label11.Text = "Módulo revisión"
-        Pantalla_principal.ProgressBar2.Value = 11
+        Pantalla_principal.ProgressBar2.Value = 13
         'borrar los módulos
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("principal"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("singular"))
@@ -244,7 +265,8 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("comentarios"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("formato"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("tabla_vanos"))
-        objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("datos"))
+        objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("cargar"))
+        objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("eleccion"))
         objExcel.DisplayAlerts = False
         xLibro.Worksheets(6).Delete()
         xLibro.Worksheets(5).Delete()

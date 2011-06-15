@@ -2,7 +2,7 @@ Attribute VB_Name = "num_postes"
 Sub postes(nombre_catVB)
 Dim w As Integer, bis As Integer
 Dim z As Integer
-Call datos.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 w = 1
 bis = 1
 z = 10

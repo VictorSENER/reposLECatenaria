@@ -1,7 +1,7 @@
 Attribute VB_Name = "tabla_vanos"
 Sub tabla_vanos(nombre_catVB)
 
-Call datos.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 coef_viento = 1.2
 
 Dim cont(10) As Long
@@ -23,10 +23,10 @@ d_max_cu_var = d_max_cu
     fuerza_viento = 0.625 * coef_viento * (vw ^ 2) * (diam_hc + diam_sust + diam_pend * 0.15)
        
     va_max_re = 2 * Sqr((t_tot / fuerza_viento) * (d_max_ad + Sqr((d_max_ad ^ 2) - (d_max_re ^ 2))))
-    va_max_tv = va_max
+    va_max_var = va_max
     
-    While va_max_re < va_max_tv
-        va_max_tv = va_max_tv - inc_norm_va
+    While va_max_re < va_max_var
+        va_max_var = va_max_var - inc_norm_va
     Wend
       
     'zona recta
@@ -36,7 +36,7 @@ d_max_cu_var = d_max_cu
     
     i = 1
     r = 3000
-    va_max_cu = va_max_tv
+    va_max_cu = va_max_var
     
     j = 2
     r = r_re
@@ -46,12 +46,12 @@ n:
     
     While r > 2500
     r = cont(i + 1)
-    d_max_cu_var = 2 * ((va_max_tv ^ 2) / (8 * r)) - d_max_cu
+    d_max_cu_var = 2 * ((va_max_var ^ 2) / (8 * r)) - d_max_cu
     Sheets(2).Cells(i + 2, j + 1) = cont(i + 1)
     Sheets(2).Cells(i + 3, j) = cont(i + 1)
     Sheets(2).Cells(i + 3, j + 2) = d_max_cu
     Sheets(2).Cells(i + 3, j + 3) = d_max_cu_var
-    Sheets(2).Cells(i + 2, j - 1) = va_max_tv
+    Sheets(2).Cells(i + 2, j - 1) = va_max_var
     i = i + 1
     
         If r <= 2500 Then
@@ -66,7 +66,7 @@ n:
 
 inicio:
 
-    While va_max_cu >= va_max_tv And r >= r_min_traz
+    While va_max_cu >= va_max_var And r >= r_min_traz
         r = r - 50
         va_max_cu = Sqr((8 * r * t_tot * (d_max_ad + d_max_cu)) / (fuerza_viento * r + t_tot))
     Wend
@@ -78,15 +78,15 @@ inicio:
     
     If r < r_min_traz Then
         Sheets(2).Cells(i + 2, 3) = r + 50
-        Sheets(2).Cells(i + 2, 1) = va_max_tv
+        Sheets(2).Cells(i + 2, 1) = va_max_var
     GoTo fin
     End If
     
     Sheets(2).Cells(i + 2, 3) = r + 50
-    Sheets(2).Cells(i + 2, 1) = va_max_tv
+    Sheets(2).Cells(i + 2, 1) = va_max_var
     i = i + 1
-    va_max_cu = va_max_tv - inc_norm_va
-    va_max_tv = va_max_cu
+    va_max_cu = va_max_var - inc_norm_va
+    va_max_var = va_max_cu
     
     GoTo inicio
     

@@ -1,4 +1,6 @@
 Attribute VB_Name = "momento"
+' queda la duda de si el momento de atirantado en recta se debe sumar en los momentos de curva
+
 Sub momento(nombre_catVB)
 Dim coef_viento As Double
 Dim va_ini As Double, va_fin As Double
@@ -58,7 +60,32 @@ Dim masa_pend As Double
 Dim masa_equip As Double
 
 'recolección de datos e inicialización
-Call datos.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
+dist_vert_hc = dist_vert_hc + dist_base_poste_pmr
+dist_vert_sust = dist_vert_sust + dist_base_poste_pmr
+dist_vert_feed_pos = dist_vert_feed_pos + dist_base_poste_pmr
+dist_vert_feed_neg = dist_vert_feed_neg + dist_base_poste_pmr
+dist_vert_cdpa = dist_vert_cdpa + dist_base_poste_pmr
+dist_horiz_equip = dist_horiz_equip + dist_base_poste_pmr
+dist_vert_hc_anc = dist_vert_hc_anc + dist_base_poste_pmr
+dist_vert_sust_anc = dist_vert_sust_anc + dist_base_poste_pmr
+dist_vert_hc_se_sm_el = dist_vert_hc_se_sm_el + dist_base_poste_pmr
+dist_vert_sust_se_sm_el = dist_vert_sust_se_sm_el + dist_base_poste_pmr
+dist_vert_hc_e_sm = dist_vert_hc_e_sm + dist_base_poste_pmr
+dist_vert_sust_e_sm = dist_vert_sust_e_sm + dist_base_poste_pmr
+dist_vert_hc_se_sla_el = dist_vert_hc_se_sla_el + dist_base_poste_pmr
+dist_vert_sust_se_sla_el = dist_vert_sust_se_sla_el + dist_base_poste_pmr
+dist_vert_hc_e_sla = dist_vert_hc_e_sla + dist_base_poste_pmr
+dist_vert_sust_e_sla = dist_vert_sust_e_sla + dist_base_poste_pmr
+dist_vert_hc_se_ag_el = dist_vert_hc_se_ag_el + dist_base_poste_pmr
+dist_vert_sust_se_ag_el = dist_vert_sust_se_ag_el + dist_base_poste_pmr
+dist_vert_hc_e_ag = dist_vert_hc_e_ag + dist_base_poste_pmr
+dist_vert_sust_e_ag = dist_vert_sust_e_ag + dist_base_poste_pmr
+dist_vert_hc_se_zn_el = dist_vert_hc_se_zn_el + dist_base_poste_pmr
+dist_vert_sust_se_zn_el = dist_vert_sust_se_zn_el + dist_base_poste_pmr
+dist_vert_hc_e_zn = dist_vert_hc_e_zn + dist_base_poste_pmr
+dist_vert_sust_e_zn = dist_vert_sust_e_zn + dist_base_poste_pmr
+masa_equip = 160
 n_sust = 1
 If posicion_feed_pos = "apoyado" Then
     dist_horiz_feed_pos = 0
@@ -80,21 +107,28 @@ If posicion_feed_neg = "Suspendido (lado vía)" Then
     dist_horiz_feed_neg = (dist_horiz_feed_neg)
 End If
 'variables del excel
-z = 12
+z = 10
     
 'inicio de la rutina
 While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
-    va_ini = Hoja1.Cells(z - 1, 4).Value
+
     va_fin = Hoja1.Cells(z + 1, 4).Value
     r = Hoja1.Cells(z, 6).Value
     If r = 0 Then
         r = 100000000
+    ElseIf r < 0 Then
+        r = r * (-1)
     End If
-    d_0 = Hoja1.Cells(z - 2, 8).Value
     d_1 = Hoja1.Cells(z, 8).Value
     d_2 = Hoja1.Cells(z + 2, 8).Value
     tip = Hoja1.Cells(z, 16).Value
-  
+    If z <> 10 Then
+        va_ini = Hoja1.Cells(z - 1, 4).Value
+        d_0 = Hoja1.Cells(z - 2, 8).Value
+    Else
+    va_ini = va_fin
+    d_0 = d_1
+    End If
 'Cálculo fuerza del viento (kg)
 
     fuerza_viento_sust = fuerza_viento_cyc(diam_sust, sec_sust, n_sust, sust, adm_lin_poste) * (va_ini + va_fin) / 2
@@ -147,10 +181,13 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
     fuerza_at_ejex_cdpa = fuerza_at_cu_ejex_cdpa
     
 'Tensión de anclaje
-  
+If IsEmpty(Sheets(1).Cells(z + 2, 33).Value) Then
     fuerza_ejey_sust_anc = t_sust * Sin(Atn((dist_horiz_sust + d_1) / va_ini))
     fuerza_ejey_hc_anc = t_hc * Sin(Atn((dist_horiz_hc + d_1) / va_ini))
-
+Else
+    fuerza_ejey_sust_anc = t_sust * Sin(Atn((dist_horiz_sust + d_1) / va_fin))
+    fuerza_ejey_hc_anc = t_hc * Sin(Atn((dist_horiz_hc + d_1) / va_fin))
+End If
     
 'Cálculo momentos
     
@@ -171,7 +208,7 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
 
     'Seccionamiento mecánico
 
-    ElseIf tip = "Anc.Chevau." Then
+    ElseIf tip = "Anc.Chevau." Or tip = "Anc.Chevau.sans AT" Or tip = "Anc.Section.sans AT" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -350,7 +387,7 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
     
     'zona neutra
     
-    ElseIf tip = "Anc.Neutre." Then
+    ElseIf tip = "Anc.Neutre" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_hc = fuerza_viento_hc * dist_vert_hc + masa_hc * dist_horiz_hc + fuerza_at_ejey_hc * dist_vert_hc
@@ -365,7 +402,7 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
         mom_tot = mom_sust + mom_hc + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
     
-    ElseIf tip = "Inter.Neutre." Then
+    ElseIf tip = "Inter.Neutre" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust - masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_se_zn_el = fuerza_viento_sust * dist_vert_sust_se_zn_el - masa_sust * dist_horiz_sust_se_zn_el + fuerza_at_ejey_sust * dist_vert_sust_se_zn_el
@@ -382,7 +419,7 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
         mom_tot = mom_sust + mom_sust_se_zn_el + mom_hc + mom_hc_se_zn_el + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_sust_anc + mom_hc_anc + mom_poste
     
 
-    ElseIf tip = "Axe.Neutre." Then
+    ElseIf tip = "Axe.Neutre" Then
     
         mom_sust = fuerza_viento_sust * dist_vert_sust + masa_sust * dist_horiz_sust + fuerza_at_ejey_sust * dist_vert_sust
         mom_sust_e_zn = fuerza_viento_sust * dist_vert_sust_e_zn + masa_sust * dist_horiz_sust_e_zn + fuerza_at_ejey_sust * dist_vert_sust_e_zn
@@ -397,7 +434,7 @@ While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
         mom_tot = mom_sust + mom_sust_e_zn + mom_hc + mom_hc_e_zn + mom_feed_pos + mom_feed_neg + mom_cdpa + mom_equip + mom_poste
     
     End If
-    
+
     Hoja1.Cells(z, 19) = mom_tot
     z = z + 2
     Wend
@@ -428,16 +465,12 @@ Public Function fuerza_viento_cyc(ByRef diam, ByRef sec, ByRef n, ByRef tip, ByR
         End If
     ElseIf adm_lin_poste = "ONCF" Then
     If sec <= 107 Then
-            coef_viento = 1.2
-        End If
-        
-        If sec > 107 And sec < 150 Then
-            coef_viento = 1.1
-        End If
-        
-        If sec >= 150 Then
-            coef_viento = 1
-        End If
+        coef_viento = 1.2
+    ElseIf sec > 107 And sec < 150 Then
+        coef_viento = 1.1
+    ElseIf sec >= 150 Then
+        coef_viento = 1
+    End If
         
         If n > 1 And tip = "hc" Then
             If sep_hc > (6 * diam) Then
@@ -447,7 +480,7 @@ Public Function fuerza_viento_cyc(ByRef diam, ByRef sec, ByRef n, ByRef tip, ByR
             End If
       End If
       End If
-fuerza_viento_cyc = 0.5 * 1.25 * (vw ^ 2) * coef_viento * diam
+fuerza_viento_cyc = 0.5 * 1.25 * (vw ^ 2) * coef_viento * diam / 9.81
 'kg/m
 End Function
 

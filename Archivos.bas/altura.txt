@@ -3,7 +3,7 @@ Sub altura(nombre_catVB)
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
 'inicializar variables que provienen del VB.net
-Call datos.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 'inicializar variables locales
 z = 10
 aloc = 3

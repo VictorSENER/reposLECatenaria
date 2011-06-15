@@ -4,7 +4,7 @@ Dim pk1 As Double, vano0 As Double, vano1 As Double, vanox As Double
 Dim z As Long, aloc As Long, bloc As Long, d As Long
 Dim l1 As Double, l2 As Double, rady As Double, inicio1 As Double, inicio2 As Double
 Dim radioC As Double, dev As Double, pk0 As Double, final As Double, radioC1 As Double
-Dim radioC2 As Double, rady2 As Double, a1 As Double, A12 As Double, A2 As Double, c As Double
+Dim radioC2 As Double, rady2 As Double, a1 As Double, A12 As Double, A2 As Double, C As Double
 Dim contador As Integer
 z = 10
 aloc = 3
@@ -51,7 +51,7 @@ While contador <> 2
         a1 = Sheets(3).Cells(kloc, 9).Value
         
         A2 = Sheets(3).Cells(kloc, 10).Value
-        c = Sheets(3).Cells(kloc, 7).Value
+        C = Sheets(3).Cells(kloc, 7).Value
 
 ' calculo del radio correspondiente aloc la clotoide de entrada
         If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) Then
@@ -61,7 +61,7 @@ While contador <> 2
             End If
             If contador = 0 Then
                 If IsEmpty(Sheets(1).Cells(z - 2, 6).Value) Then
-                    dev = (c * 1000) / radioC
+                    dev = (C * 1000) / radioC
                     'pk = vano(Sheets(1).Cells(z - 2, 6).Value) + Sheets(1).Cells(z - 2, 33).Value
                     contador = contador + 1
                 Else
@@ -72,7 +72,7 @@ While contador <> 2
                         radioC2 = radioC * (-1)
                     End If
                     If radioC1 >= radioC2 Then
-                        dev = (c * 1000) / radioC
+                        dev = (C * 1000) / radioC
                         ' pk = vano(Sheets(1).Cells(z - 2, 6).Value) + Sheets(1).Cells(z - 2, 33).Value
                         contador = contador + 1
                     Else
@@ -81,7 +81,7 @@ While contador <> 2
                     End If
                 End If
             ElseIf contador = 1 Then
-                dev = (c * 1000) / radioC
+                dev = (C * 1000) / radioC
                 contador = contador + 1
             Else
                 contador = 2
@@ -101,17 +101,17 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
         radio_0 = r_re
     End If
     If inicio = pk0 Then
-        dev = (c * 1000) / radioC
+        dev = (C * 1000) / radioC
         contador = 2
     ElseIf contador = 0 Then
-        dev = (c * 1000) / radioC
+        dev = (C * 1000) / radioC
         contador = contador + 1
     ElseIf rady >= radio_0 Then
-        dev = (c * 1000) / radioC
+        dev = (C * 1000) / radioC
         contador = 2
 
     ElseIf contador = 1 Then
-        dev = (c * 1000) / radioC
+        dev = (C * 1000) / radioC
         contador = contador + 1
     Else
         contador = 2
@@ -124,7 +124,7 @@ ElseIf pk0 > inicio2 And pk0 < inicio2 + l2 Then
     If rady < 0 Then
         radioC = radioC * (-1)
     End If
-    dev = (c * 1000) / radioC
+    dev = (C * 1000) / radioC
 
 ' calculo del radio correspondiente aloc la clotoide entre dos curvas
 ElseIf IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) And pk0 < (inicio2 + l2) Then
@@ -150,7 +150,7 @@ ElseIf IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) And pk0 < (inicio2 + l2) Then
             radioC = radioC * (-1)
         End If
     End If
-        dev = (c * 1000) / radioC
+        dev = (C * 1000) / radioC
 Else
 contador = 2
 End If
@@ -164,7 +164,7 @@ If radiofinal > 15000 Then
     radioC = 0
 End If
     ' verificación de las variaciones del vano
-    If ((vano0 - 9) > vano1 Or (vano0 + 9) < vano1) And z > 10 Then
+    If ((vano0 - dist_va_max) > vano1 Or (vano0 + dist_va_max) < vano1) And z > 10 Then
         Sheets(1).Cells(z + 1, 4).Font.Color = vbRed
         Sheets(7).Cells(bloc, 1).Value = d
         Sheets(7).Cells(bloc, 2).Value = "Error en la verificación de la diferencia entre vanos"

@@ -5,11 +5,11 @@ Module nueva_lac
         Dim oComm As OleDbCommand
         Dim oComm2 As OleDbCommand
         Dim oRead As OleDbDataReader
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         'INTRODUCIR NUEVA CATENARIA FALTA VER QUE EL NOMBRE ESCRITO NO COINCIDA
 
-        oComm = New OleDbCommand("insert into Datos(nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, idioma, dist_vert_hc, dist_horiz_hc, dist_vert_sust, dist_horiz_sust, dist_vert_feed_pos, dist_horiz_feed_pos, dist_vert_feed_neg, dist_horiz_feed_neg, dist_vert_cdpa, dist_horiz_cdpa, dist_horiz_equip, dist_vert_hc_anc, dist_vert_sust_anc, dist_vert_hc_se_sm_el, dist_horiz_hc_se_sm_el, dist_vert_sust_se_sm_el, dist_horiz_sust_se_sm_el, dist_vert_hc_e_sm, dist_horiz_hc_e_sm, dist_vert_sust_e_sm, dist_horiz_sust_e_sm, dist_vert_hc_se_sla_el, dist_horiz_hc_se_sla_el, dist_vert_sust_se_sla_el, dist_horiz_sust_se_sla_el, dist_vert_hc_e_sla, dist_horiz_hc_e_sla, dist_vert_sust_e_sla, dist_horiz_sust_e_sla, dist_vert_hc_se_ag_el, dist_horiz_hc_se_ag_el, dist_vert_sust_se_ag_el, dist_horiz_sust_se_ag_el, dist_vert_hc_e_ag, dist_horiz_hc_e_ag, dist_vert_sust_e_ag, dist_horiz_sust_e_ag, dist_vert_hc_se_zn_el, dist_horiz_hc_se_zn_el, dist_vert_sust_se_zn_el, dist_horiz_sust_se_zn_el, dist_vert_hc_e_zn, dist_horiz_hc_e_zn, dist_vert_sust_e_zn, dist_horiz_sust_e_zn, sep_hc) values(@nombre_cat, @sist, @al, @alt_nom, @alt_min, @alt_max, @alt_cat, @dist_max_va, @dist_max_canton, @va_max, @va_max_sm, @va_max_sla, @va_max_tunel, @inc_norm_va, @inc_max_alt_hc, @n_min_va_sm, @n_min_va_sla, @ancho_via, @d_max_re, @d_max_cu, @r_re, @zona_trab_pant, @el_max_pant, @vw, @fl_max_centro_va, @dist_carril_poste, @dist_base_poste_pmr, @dist_elect_sm, @dist_elect_sla, @l_zc_max, @l_zc_min, @l_zn, @r_min_traz, @hc, @sust, @cdpa, @cdte, @feed_pos, @feed_neg, @pto_fijo, @pend, @anc, @posicion_feed_pos, @posicion_feed_neg, @n_hc, @n_cdpa, @n_feed_pos, @n_feed_neg, @t_hc, @t_sust, @t_cdpa, @t_feed_pos, @t_feed_neg, @t_pto_fijo, @adm_lin_poste, @tip_poste, @num_poste, @adm_lin_mac, @tip_mac, @tubo_men, @tubo_tir, @cola_anc, @aisl_feed_pos, @aisl_feed_neg, @dist_ap_prim_pend, @dist_prim_seg_pend, @dist_max_pend, @idioma, @dist_vert_hc, @dist_horiz_hc, @dist_vert_sust, @dist_horiz_sust, @dist_vert_feed_pos, @dist_horiz_feed_pos, @dist_vert_feed_neg, @dist_horiz_feed_neg, @dist_vert_cdpa, @dist_horiz_cdpa, @dist_horiz_equip, @dist_vert_hc_anc, @dist_vert_sust_anc, @dist_vert_hc_se_sm_el, @dist_horiz_hc_se_sm_el, @dist_vert_sust_se_sm_el, @dist_horiz_sust_se_sm_el, @dist_vert_hc_e_sm, @dist_horiz_hc_e_sm, @dist_vert_sust_e_sm, @dist_horiz_sust_e_sm, @dist_vert_hc_se_sla_el, @dist_horiz_hc_se_sla_el, @dist_vert_sust_se_sla_el, @dist_horiz_sust_se_sla_el, @dist_vert_hc_e_sla, @dist_horiz_hc_e_sla, @dist_vert_sust_e_sla, @dist_horiz_sust_e_sla, @dist_vert_hc_se_ag_el, @dist_horiz_hc_se_ag_el, @dist_vert_sust_se_ag_el, @dist_horiz_sust_se_ag_el, @dist_vert_hc_e_ag, @dist_horiz_hc_e_ag, @dist_vert_sust_e_ag, @dist_horiz_sust_e_ag, @dist_vert_hc_se_zn_el, @dist_horiz_hc_se_zn_el, @dist_vert_sust_se_zn_el, @dist_horiz_sust_se_zn_el, @dist_vert_hc_e_zn, @dist_horiz_hc_e_zn, @dist_vert_sust_e_zn, @dist_horiz_sust_e_zn, @sep_hc)", oConn)
+        oComm = New OleDbCommand("insert into Datos(nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, idioma, dist_vert_feed_pos, dist_horiz_feed_pos, dist_vert_feed_neg, dist_horiz_feed_neg, dist_vert_cdpa, dist_horiz_cdpa, dist_horiz_equip_t, dist_horiz_equip_comp, dist_vert_hc_anc, dist_vert_sust_anc, alt_cat_se_sm_el, alt_cat_e_sm, alt_cat_se_sla_el, alt_cat_e_sla, alt_cat_se_ag_el, alt_cat_e_ag, alt_cat_se_zn_el, alt_cat_e_zn, sep_hc, p_medio_equip_t, p_medio_equip_comp, el_hc, tip_carril, ancho_carril) values(@nombre_cat, @sist, @al, @alt_nom, @alt_min, @alt_max, @alt_cat, @dist_max_va, @dist_max_canton, @va_max, @va_max_sm, @va_max_sla, @va_max_tunel, @inc_norm_va, @inc_max_alt_hc, @n_min_va_sm, @n_min_va_sla, @ancho_via, @d_max_re, @d_max_cu, @r_re, @zona_trab_pant, @el_max_pant, @vw, @fl_max_centro_va, @dist_carril_poste, @dist_base_poste_pmr, @dist_elect_sm, @dist_elect_sla, @l_zc_max, @l_zc_min, @l_zn, @r_min_traz, @hc, @sust, @cdpa, @cdte, @feed_pos, @feed_neg, @pto_fijo, @pend, @anc, @posicion_feed_pos, @posicion_feed_neg, @n_hc, @n_cdpa, @n_feed_pos, @n_feed_neg, @t_hc, @t_sust, @t_cdpa, @t_feed_pos, @t_feed_neg, @t_pto_fijo, @adm_lin_poste, @tip_poste, @num_poste, @adm_lin_mac, @tip_mac, @tubo_men, @tubo_tir, @cola_anc, @aisl_feed_pos, @aisl_feed_neg, @dist_ap_prim_pend, @dist_prim_seg_pend, @dist_max_pend, @idioma, @dist_vert_feed_pos, @dist_horiz_feed_pos, @dist_vert_feed_neg, @dist_horiz_feed_neg, @dist_vert_cdpa, @dist_horiz_cdpa, @dist_horiz_equip_t, @dist_horiz_equip_comp, @dist_vert_hc_anc, @dist_vert_sust_anc, @alt_cat_se_sm_el, @alt_cat_e_sm, @alt_cat_se_sla_el, @alt_cat_e_sla, @alt_cat_se_ag_el, @alt_cat_e_ag, @alt_cat_se_zn_el, @alt_cat_e_zn, @sep_hc, @p_medio_equip_t, @p_medio_equip_comp, @el_hc, @tip_carril, @ancho_carril)", oConn)
 
         oComm2 = New OleDbCommand("select * from Datos", oConn)
         oConn.Open()
@@ -241,18 +241,6 @@ Module nueva_lac
         oComm.Parameters.Add(New OleDbParameter("@idioma", OleDbType.VarChar))
         oComm.Parameters("@idioma").Value = Pantalla_datos.Combo_idioma.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc").Value = Pantalla_datos.Text_dist_vert_hc.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc").Value = Pantalla_datos.Text_dist_horiz_hc.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust").Value = Pantalla_datos.Text_dist_vert_sust.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust").Value = Pantalla_datos.Text_dist_horiz_sust.Text
-
         oComm.Parameters.Add(New OleDbParameter("@dist_vert_feed_pos", OleDbType.VarChar))
         oComm.Parameters("@dist_vert_feed_pos").Value = Pantalla_datos.Text_dist_vert_feed_pos.Text
 
@@ -271,8 +259,11 @@ Module nueva_lac
         oComm.Parameters.Add(New OleDbParameter("@dist_horiz_cdpa", OleDbType.VarChar))
         oComm.Parameters("@dist_horiz_cdpa").Value = Pantalla_datos.Text_dist_horiz_cdpa.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_equip", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_equip").Value = Pantalla_datos.Text_dist_horiz_equip.Text
+        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_equip_t", OleDbType.VarChar))
+        oComm.Parameters("@dist_horiz_equip_t").Value = Pantalla_datos.Text_dist_horiz_equip_t.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_equip_comp", OleDbType.VarChar))
+        oComm.Parameters("@dist_horiz_equip_comp").Value = Pantalla_datos.Text_dist_horiz_equip_comp.Text
 
         oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_anc", OleDbType.VarChar))
         oComm.Parameters("@dist_vert_hc_anc").Value = Pantalla_datos.Text_dist_vert_hc_anc.Text
@@ -280,104 +271,47 @@ Module nueva_lac
         oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_anc", OleDbType.VarChar))
         oComm.Parameters("@dist_vert_sust_anc").Value = Pantalla_datos.Text_dist_vert_sust_anc.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_se_sm_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_se_sm_el").Value = Pantalla_datos.Text_dist_vert_hc_se_sm_el.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_se_sm_el", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_se_sm_el").Value = Pantalla_datos.Text_alt_cat_se_sm_el.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_se_sm_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_se_sm_el").Value = Pantalla_datos.Text_dist_horiz_hc_se_sm_el.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_e_sm", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_e_sm").Value = Pantalla_datos.Text_alt_cat_e_sm.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_se_sm_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_se_sm_el").Value = Pantalla_datos.Text_dist_vert_sust_se_sm_el.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_se_sla_el", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_se_sla_el").Value = Pantalla_datos.Text_alt_cat_se_sla_el.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_se_sm_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_se_sm_el").Value = Pantalla_datos.Text_dist_horiz_sust_se_sm_el.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_e_sla", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_e_sla").Value = Pantalla_datos.Text_alt_cat_e_sla.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_e_sm", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_e_sm").Value = Pantalla_datos.Text_dist_vert_hc_e_sm.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_se_ag_el", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_se_ag_el").Value = Pantalla_datos.Text_alt_cat_se_ag_el.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_e_sm", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_e_sm").Value = Pantalla_datos.Text_dist_horiz_hc_e_sm.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_e_ag", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_e_ag").Value = Pantalla_datos.Text_alt_cat_e_ag.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_e_sm", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_e_sm").Value = Pantalla_datos.Text_dist_vert_sust_e_sm.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_se_zn_el", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_se_zn_el").Value = Pantalla_datos.Text_alt_cat_se_zn_el.Text
 
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_e_sm", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_e_sm").Value = Pantalla_datos.Text_dist_horiz_sust_e_sm.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_se_sla_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_se_sla_el").Value = Pantalla_datos.Text_dist_vert_hc_se_sla_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_se_sla_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_se_sla_el").Value = Pantalla_datos.Text_dist_horiz_hc_se_sla_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_se_sla_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_se_sla_el").Value = Pantalla_datos.Text_dist_vert_sust_se_sla_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_se_sla_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_se_sla_el").Value = Pantalla_datos.Text_dist_horiz_sust_se_sla_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_e_sla", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_e_sla").Value = Pantalla_datos.Text_dist_vert_hc_e_sla.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_e_sla", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_e_sla").Value = Pantalla_datos.Text_dist_horiz_hc_e_sla.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_e_sla", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_e_sla").Value = Pantalla_datos.Text_dist_vert_sust_e_sla.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_e_sla", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_e_sla").Value = Pantalla_datos.Text_dist_horiz_sust_e_sla.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_se_ag_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_se_ag_el").Value = Pantalla_datos.Text_dist_vert_hc_se_ag_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_se_ag_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_se_ag_el").Value = Pantalla_datos.Text_dist_horiz_hc_se_ag_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_se_ag_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_se_ag_el").Value = Pantalla_datos.Text_dist_vert_sust_se_ag_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_se_ag_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_se_ag_el").Value = Pantalla_datos.Text_dist_horiz_sust_se_ag_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_e_ag", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_e_ag").Value = Pantalla_datos.Text_dist_vert_hc_e_ag.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_e_ag", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_e_ag").Value = Pantalla_datos.Text_dist_horiz_hc_e_ag.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_e_ag", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_e_ag").Value = Pantalla_datos.Text_dist_vert_sust_e_ag.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_e_ag", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_e_ag").Value = Pantalla_datos.Text_dist_horiz_sust_e_ag.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_se_zn_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_se_zn_el").Value = Pantalla_datos.Text_dist_vert_hc_se_zn_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_se_zn_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_se_zn_el").Value = Pantalla_datos.Text_dist_horiz_hc_se_zn_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_se_zn_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_se_zn_el").Value = Pantalla_datos.Text_dist_vert_sust_se_zn_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_se_zn_el", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_se_zn_el").Value = Pantalla_datos.Text_dist_horiz_sust_se_zn_el.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_hc_e_zn", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_hc_e_zn").Value = Pantalla_datos.Text_dist_vert_hc_e_zn.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_hc_e_zn", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_hc_e_zn").Value = Pantalla_datos.Text_dist_horiz_hc_e_zn.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_vert_sust_e_zn", OleDbType.VarChar))
-        oComm.Parameters("@dist_vert_sust_e_zn").Value = Pantalla_datos.Text_dist_vert_sust_e_zn.Text
-
-        oComm.Parameters.Add(New OleDbParameter("@dist_horiz_sust_e_zn", OleDbType.VarChar))
-        oComm.Parameters("@dist_horiz_sust_e_zn").Value = Pantalla_datos.Text_dist_horiz_sust_e_zn.Text
+        oComm.Parameters.Add(New OleDbParameter("@alt_cat_e_zn", OleDbType.VarChar))
+        oComm.Parameters("@alt_cat_e_zn").Value = Pantalla_datos.Text_alt_cat_e_zn.Text
 
         oComm.Parameters.Add(New OleDbParameter("@sep_hc", OleDbType.VarChar))
         oComm.Parameters("@sep_hc").Value = Pantalla_datos.Text_sep_hc.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@p_medio_equip_t", OleDbType.VarChar))
+        oComm.Parameters("@p_medio_equip_t").Value = Pantalla_datos.Text_p_medio_equip_t.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@p_medio_equip_comp", OleDbType.VarChar))
+        oComm.Parameters("@p_medio_equip_comp").Value = Pantalla_datos.Text_p_medio_equip_comp.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@el_hc", OleDbType.VarChar))
+        oComm.Parameters("@el_hc").Value = Pantalla_datos.Text_el_hc.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@tip_carril", OleDbType.VarChar))
+        oComm.Parameters("@tip_carril").Value = Pantalla_datos.Combo_tip_carril.Text
+
+        oComm.Parameters.Add(New OleDbParameter("@ancho_carril", OleDbType.VarChar))
+        oComm.Parameters("@ancho_carril").Value = Pantalla_datos.Text_ancho_carril.Text
 
         oComm2.Connection.Close()
         oComm.Connection.Open()

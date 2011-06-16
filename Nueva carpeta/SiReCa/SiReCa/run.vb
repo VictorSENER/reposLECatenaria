@@ -12,7 +12,7 @@ Module run
     Public sec_feed_neg As Double, diam_feed_neg As String, p_feed_neg As Double, res_max_feed_neg As Double, coef_dil_feed_neg As String, mod_elast_feed_neg As Double, carga_rot_feed_neg As Double, norma_feed_neg As String, origen_1_feed_neg As String, origen_2_feed_neg As String
     Public sec_cdte As Double, diam_cdte As String, p_cdte As Double, res_max_cdte As Double, coef_dil_cdte As String, mod_elast_cdte As Double, carga_rot_cdte As Double, norma_cdte As String, origen_1_cdte As String, origen_2_cdte As String
     Public sec_pend As Double, diam_pend As String, p_pend As Double, res_max_pend As Double, coef_dil_pend As String, mod_elast_pend As Double, carga_rot_pend As Double, norma_pend As String, origen_1_pend As String, origen_2_pend As String
-    Public dist_vert_hc As Double, dist_horiz_hc As Double, dist_vert_sust As Double, dist_horiz_sust As Double, dist_vert_feed_pos As Double, dist_horiz_feed_pos As Double, dist_vert_feed_neg As Double, dist_horiz_feed_neg As Double, dist_vert_cdpa As Double, dist_horiz_cdpa As Double, dist_horiz_equip As Double, dist_vert_hc_anc As Double, dist_vert_sust_anc As Double, dist_vert_hc_se_sm_el As Double, dist_horiz_hc_se_sm_el As Double, dist_vert_sust_se_sm_el As Double, dist_horiz_sust_se_sm_el As Double, dist_vert_hc_e_sm As Double, dist_horiz_hc_e_sm As Double, dist_vert_sust_e_sm As Double, dist_horiz_sust_e_sm As Double, dist_vert_hc_se_sla_el As Double, dist_horiz_hc_se_sla_el As Double, dist_vert_sust_se_sla_el As Double, dist_horiz_sust_se_sla_el As Double, dist_vert_hc_e_sla As Double, dist_horiz_hc_e_sla As Double, dist_vert_sust_e_sla As Double, dist_horiz_sust_e_sla As Double, dist_vert_hc_se_ag_el As Double, dist_horiz_hc_se_ag_el As Double, dist_vert_sust_se_ag_el As Double, dist_horiz_sust_se_ag_el As Double, dist_vert_hc_e_ag As Double, dist_horiz_hc_e_ag As Double, dist_vert_sust_e_ag As Double, dist_horiz_sust_e_ag As Double, dist_vert_hc_se_zn_el As Double, dist_horiz_hc_se_zn_el As Double, dist_vert_sust_se_zn_el As Double, dist_horiz_sust_se_zn_el As Double, dist_vert_hc_e_zn As Double, dist_horiz_hc_e_zn As Double, dist_vert_sust_e_zn As Double, dist_horiz_sust_e_zn As Double, sep_hc As Double
+    Public dist_vert_feed_pos As Double, dist_horiz_feed_pos As Double, dist_vert_feed_neg As Double, dist_horiz_feed_neg As Double, dist_vert_cdpa As Double, dist_horiz_cdpa As Double, dist_horiz_equip_t As Double, dist_horiz_equip_comp As Double, dist_vert_hc_anc As Double, dist_vert_sust_anc As Double, sep_hc As Double, p_medio_equip_t As Double, p_medio_equip_comp As Double, alt_cat_se_sm_el As Double, alt_cat_e_sm As Double, alt_cat_se_sla_el As Double, alt_cat_e_sla As Double, alt_cat_se_ag_el As Double, alt_cat_e_ag As Double, alt_cat_se_zn_el As Double, alt_cat_e_zn As Double, el_hc As Double, tip_carril As String, ancho_carril As Double
     Public inicio As Double, fin As Double, start As Long
     Public objExcel As Microsoft.Office.Interop.Excel.Application
     Public xLibro As Microsoft.Office.Interop.Excel.Workbook
@@ -65,51 +65,21 @@ Module run
         fuerza_d(31) = sec_pend
 
         'variables double a pasar al excel para calculo de momentos
-        momento(0) = dist_vert_hc
-        momento(1) = dist_horiz_hc
-        momento(2) = dist_vert_sust
-        momento(3) = dist_horiz_sust
+
+
+
+
         momento(4) = dist_vert_feed_pos
         momento(5) = dist_horiz_feed_pos
         momento(6) = dist_vert_feed_neg
         momento(7) = dist_horiz_feed_neg
         momento(8) = dist_vert_cdpa
         momento(9) = dist_horiz_cdpa
-        momento(10) = dist_horiz_equip
+        momento(10) = dist_horiz_equip_t
         momento(11) = dist_vert_hc_anc
         momento(12) = dist_vert_sust_anc
-        momento(13) = dist_vert_hc_se_sm_el
-        momento(14) = dist_horiz_hc_se_sm_el
-        momento(15) = dist_vert_sust_se_sm_el
-        momento(16) = dist_horiz_sust_se_sm_el
-        momento(17) = dist_vert_hc_e_sm
-        momento(18) = dist_horiz_hc_e_sm
-        momento(19) = dist_vert_sust_e_sm
-        momento(20) = dist_horiz_sust_e_sm
-        momento(21) = dist_vert_hc_se_sla_el
-        momento(22) = dist_horiz_hc_se_sla_el
-        momento(23) = dist_vert_sust_se_sla_el
-        momento(24) = dist_horiz_sust_se_sla_el
-        momento(25) = dist_vert_hc_e_sla
-        momento(26) = dist_horiz_hc_e_sla
-        momento(27) = dist_vert_sust_e_sla
-        momento(28) = dist_horiz_sust_e_sla
-        momento(29) = dist_vert_hc_se_ag_el
-        momento(30) = dist_horiz_hc_se_ag_el
-        momento(31) = dist_vert_sust_se_ag_el
-        momento(32) = dist_horiz_sust_se_ag_el
-        momento(33) = dist_vert_hc_e_ag
-        momento(34) = dist_horiz_hc_e_ag
-        momento(35) = dist_vert_sust_e_ag
-        momento(36) = dist_horiz_sust_e_ag
-        momento(37) = dist_vert_hc_se_zn_el
-        momento(38) = dist_horiz_hc_se_zn_el
-        momento(39) = dist_vert_sust_se_zn_el
-        momento(40) = dist_horiz_sust_se_zn_el
-        momento(41) = dist_vert_hc_e_zn
-        momento(42) = dist_horiz_hc_e_zn
-        momento(43) = dist_vert_sust_e_zn
-        momento(44) = dist_horiz_sust_e_zn
+
+
 
 
         'generar un objeto excel

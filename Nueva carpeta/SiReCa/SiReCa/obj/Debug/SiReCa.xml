@@ -82,6 +82,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:SiReCa.Base_de_datosDataSet.Conductores_y_cablesRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -158,6 +166,14 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:SiReCa.Base_de_datosDataSet.Conductores_y_cablesRowChangeEvent">
 	<summary>
 Row event argument class
@@ -231,6 +247,14 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:SiReCa.Base_de_datosDataSet.Postes_ConsultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -311,6 +335,14 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.CarrilTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Carril_ConsultaTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

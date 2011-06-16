@@ -9,6 +9,8 @@ Public Class Pantalla_datos
     Dim oConn As New OleDbConnection
 
     Private Sub Pantalla_datos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Carril_Consulta' Puede moverla o quitarla según sea necesario.
+        Me.Carril_ConsultaTableAdapter.Fill(Me.Base_de_datosDataSet.Carril_Consulta)
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet._Conductor_Feeder__' Puede moverla o quitarla según sea necesario.
         Me.Conductor_Feeder__TableAdapter.Fill(Me.Base_de_datosDataSet._Conductor_Feeder__)
         'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.__Conductor_Feeder__' Puede moverla o quitarla según sea necesario.

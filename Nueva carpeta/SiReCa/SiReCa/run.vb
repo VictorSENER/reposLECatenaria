@@ -24,57 +24,6 @@ Module run
     Public fuerza_s(2) As String
     Public momento(44) As Double
     Public Sub run_excel(ByVal inicio, ByVal fin, ByVal ruta_replanteo, ByVal nombre_excel, ByVal ruta_trazado)
-        'variables string a pasar al excel para calculo de fuerzas
-
-        fuerza_s(0) = posicion_feed_pos
-        fuerza_s(1) = posicion_feed_neg
-        fuerza_s(2) = adm_lin_poste
-        'variables double a pasar al excel para calculo de fuerzas
-
-        fuerza_d(0) = vw
-        fuerza_d(1) = diam_sust
-        fuerza_d(2) = diam_hc
-        fuerza_d(3) = diam_feed_pos
-        fuerza_d(4) = diam_feed_neg
-        fuerza_d(5) = diam_pto_fijo
-        fuerza_d(6) = diam_cdpa
-        fuerza_d(7) = diam_pend
-        fuerza_d(8) = p_sust
-        fuerza_d(9) = p_hc
-        fuerza_d(10) = p_feed_pos
-        fuerza_d(11) = p_feed_neg
-        fuerza_d(12) = p_pto_fijo
-        fuerza_d(13) = p_cdpa
-        fuerza_d(14) = p_pend
-        fuerza_d(15) = t_sust
-        fuerza_d(16) = t_hc
-        fuerza_d(17) = t_feed_pos
-        fuerza_d(18) = t_feed_neg
-        fuerza_d(19) = t_pto_fijo
-        fuerza_d(20) = t_cdpa
-        fuerza_d(21) = n_hc
-        fuerza_d(22) = n_feed_pos
-        fuerza_d(23) = n_feed_neg
-        fuerza_d(24) = n_cdpa
-        fuerza_d(25) = sec_sust
-        fuerza_d(26) = sec_hc
-        fuerza_d(27) = sec_feed_pos
-        fuerza_d(28) = sec_feed_neg
-        fuerza_d(29) = sec_pto_fijo
-        fuerza_d(30) = sec_cdpa
-        fuerza_d(31) = sec_pend
-
-        'variables double a pasar al excel para calculo de momentos
-
-        momento(4) = dist_vert_feed_pos
-        momento(5) = dist_horiz_feed_pos
-        momento(6) = dist_vert_feed_neg
-        momento(7) = dist_horiz_feed_neg
-        momento(8) = dist_vert_cdpa
-        momento(9) = dist_horiz_cdpa
-        momento(10) = dist_horiz_equip_t
-        momento(11) = dist_vert_hc_anc
-        momento(12) = dist_vert_sust_anc
 
         'generar un objeto excel
         objExcel = New Microsoft.Office.Interop.Excel.Application
@@ -177,10 +126,10 @@ Module run
         Pantalla_principal.ProgressBar2.Value = 4
         Pantalla_principal.Refresh()
         objExcel.Run("cad.esfuerzo")
-        Pantalla_principal.Label11.Text = "descentramiento"
+        Pantalla_principal.Label11.Text = "Módulo descentramiento"
         Pantalla_principal.ProgressBar2.Value = 5
         Pantalla_principal.Refresh()
-        objExcel.Run("cantonamiento.canton_final", nombre_cat)                                            ' distribución de los cantones de catenaria
+        objExcel.Run("cantonamiento.canton_final", nombre_cat, fin)                                            ' distribución de los cantones de catenaria
         objExcel.Run("descentramiento.desc")
         Pantalla_principal.Label11.Text = "Módulo posicion"
         Pantalla_principal.ProgressBar2.Value = 6
@@ -198,11 +147,11 @@ Module run
         Pantalla_principal.ProgressBar2.Value = 9
         Pantalla_principal.Refresh()
         objExcel.Run("formato.formato", idioma)
-        Pantalla_principal.Label11.Text = "Elección postes"
+        Pantalla_principal.Label11.Text = "Módulo elección postes"
         Pantalla_principal.ProgressBar2.Value = 10
         Pantalla_principal.Refresh()
         objExcel.Run("eleccion.postes", nombre_cat)
-        Pantalla_principal.Label11.Text = "Elección postes"
+        Pantalla_principal.Label11.Text = "Módulo elección cimentaciones"
         Pantalla_principal.ProgressBar2.Value = 11
         Pantalla_principal.Refresh()
         objExcel.Run("eleccion.cimentaciones", nombre_cat)
@@ -232,11 +181,16 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("cargar"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("eleccion"))
         objExcel.DisplayAlerts = False
+        xLibro.Worksheets(9).Delete()
+        xLibro.Worksheets(8).Delete()
         xLibro.Worksheets(6).Delete()
         xLibro.Worksheets(5).Delete()
         xLibro.Worksheets(4).Delete()
         xLibro.Worksheets(3).Delete()
         xLibro.Worksheets(2).Delete()
+        xLibro.Worksheets(1).activate()
+        xLibro.Worksheets(1).name = "Replanteo"
+        xLibro.Worksheets(2).name = "Errores"
         objExcel.DisplayAlerts = True
         objExcel.ActiveWorkbook.SaveAs(ruta_replanteo & "\" & nombre_excel, 56)
         xLibro.Close()

@@ -5,7 +5,7 @@ Dim z As Integer
 idioma = idiomaVB
 z = 8
 'títulos de las filas
-If idioma = "frances" Then
+If idioma = "Frances" Then
 Sheets(1).Cells(z, 1).Value = "Nº du pylône"
 Sheets(1).Cells(z, 2).Value = ""
 Sheets(1).Cells(z, 3).Value = "PK (m)"
@@ -41,15 +41,35 @@ ElseIf idioma = "ingles" Then
 'para el dia que se necesiten los encabezados en ingles
 End If
 
-Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 26)).Interior.ColorIndex = 15
-For i = 1 To 26
+Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Interior.ColorIndex = 15
+With Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Borders(xlEdgeLeft)
+.LineStyle = xlContinuous
+.Weight = xlMedium
+End With
+With Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Borders(xlEdgeTop)
+.LineStyle = xlContinuous
+.Weight = xlMedium
+End With
+With Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Borders(xlEdgeBottom)
+.LineStyle = xlContinuous
+.Weight = xlMedium
+End With
+With Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Borders(xlEdgeRight)
+.LineStyle = xlContinuous
+.Weight = xlMedium
+End With
+With Sheets(1).Range(Sheets(1).Cells(z, 1), Sheets(1).Cells(z + 1, 27)).Borders(xlInsideVertical)
+.LineStyle = xlContinuous
+.Weight = xlMedium
+End With
+For i = 1 To 27
     Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
 Next i
 
 z = z + 2
 
 'agrupar celdas
-While Not IsEmpty(Sheets(1).Cells(z + 2, 33).Value)
+While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
 
 For i = 1 To 3
     Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
@@ -63,15 +83,40 @@ Sheets(1).Range(Sheets(1).Cells(z + 1, 4), Sheets(1).Cells(z + 2, 4)).MergeCells
 z = z + 2
 
 Wend
-'formato del contenido de las celdas
-Sheets(1).Columns(1).NumberFormat = "@"
+    With Sheets(1).Range(Sheets(1).Cells(10, 1), Sheets(1).Cells(z, 27)).Borders(xlEdgeLeft)
+        .LineStyle = 2
+        .ColorIndex = 15
+    End With
+    'With Sheets(1).Range(Sheets(1).Cells(12, 1), Sheets(1).Cells(z, 27)).Borders(xlEdgeTop)
+        '.LineStyle = 2
+        '.ColorIndex = 15
+    'End With
+    With Sheets(1).Range(Sheets(1).Cells(10, 1), Sheets(1).Cells(z, 27)).Borders(xlEdgeBottom)
+        .LineStyle = 2
+        .ColorIndex = 15
+    End With
+    With Sheets(1).Range(Sheets(1).Cells(10, 1), Sheets(1).Cells(z, 27)).Borders(xlEdgeRight)
+        .LineStyle = 2
+        .ColorIndex = 15
+    End With
+    With Sheets(1).Range(Sheets(1).Cells(10, 1), Sheets(1).Cells(z, 27)).Borders(xlInsideVertical)
+        .LineStyle = 2
+        .ColorIndex = 15
+    End With
+    With Sheets(1).Range(Sheets(1).Cells(10, 1), Sheets(1).Cells(z, 24)).Borders(xlInsideHorizontal)
+        .LineStyle = 2
+        .ColorIndex = 15
+    End With
+ 
+'formato de las columnas
 Sheets(1).Columns(3).NumberFormat = "0+000.0"
-
 Sheets(1).Columns(6).NumberFormat = "0.00"
 Sheets(1).Columns(7).NumberFormat = "0.00"
+Sheets(1).Columns(8).NumberFormat = "0.00"
 Sheets(1).Columns(10).NumberFormat = "0.00"
 Sheets(1).Columns(19).NumberFormat = "0.00"
 Sheets(1).Columns(23).NumberFormat = "0.00"
+
 'centrar el texto
 Sheets(1).Range("A1", "AH10001").HorizontalAlignment = xlHAlignCenter
 Sheets(1).Range("A1", "AH10001").VerticalAlignment = xlHAlignCenter
@@ -79,4 +124,5 @@ Sheets(1).Range("A8", "Z9").WrapText = True
 
 'ocultar columnas
 Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
+Sheets(1).Columns("B").EntireColumn.Hidden = True
 End Sub

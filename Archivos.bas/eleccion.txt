@@ -54,15 +54,25 @@ Sub postes(nombre_catVB)
     
     z = 10
     i = 2
-    
-    While Sheets(1).Cells(z, 19) <> 0
+
+    While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+        If Sheets(1).Cells(z, 25).Value = "Tunnel" Or Sheets(1).Cells(z, 25).Value = "Pilier Viaduc" Then
+        Else
         mom_poste_calc = Sheets(1).Cells(z, 19)
-        
-        While Sheets(8).Cells(i, 17) < mom_poste_calc
-            i = i + 1
-        Wend
+        alt_nenc_poste = Sheets(8).Cells(i, 9)
+        If IsEmpty(Sheets(1).Cells(z, 16).Value) Then
+            While Sheets(8).Cells(i, 17).Value < mom_poste_calc
+                i = i + 1
+            Wend
+        Else
+            While Sheets(8).Cells(i, 17).Value < mom_poste_calc Or alt_nenc_poste < 8
+                i = i + 1
+                alt_nenc_poste = Sheets(8).Cells(i, 9)
+            Wend
+        End If
+
         mom_poste_var = Sheets(8).Cells(i, 17)
-        alt_nenc_poste = Sheets(8).Cells(i, 10)
+        alt_nenc_poste = Sheets(8).Cells(i, 9)
         tip_poste = Sheets(8).Cells(i, 3)
 x:
         i = 2
@@ -78,6 +88,7 @@ x:
         Sheets(1).Cells(z, 35) = mom_poste_var
         Sheets(1).Cells(z, 36) = alt_nenc_poste
         Sheets(1).Cells(z, 18) = tip_poste
+        End If
         z = z + 2
         i = 2
     Wend
@@ -407,8 +418,9 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
     z = 10
     i = 2
     
-    While Sheets(1).Cells(z, 19) <> 0
-      
+    While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+        If Sheets(1).Cells(z, 25).Value = "Tunnel" Or Sheets(1).Cells(z, 25).Value = "Pilier Viaduc" Then
+        Else
         mom_poste_var = Sheets(1).Cells(z, 19)
         
         While Sheets(9).Cells(i, 18) < mom_poste_var
@@ -417,6 +429,7 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
         
         mom_cim_var = Sheets(9).Cells(i, 18)
         tip_mac = Sheets(9).Cells(i, 4)
+        vol_tot_mac = Sheets(9).Cells(i, 14)
         
 x:
         i = 2
@@ -425,6 +438,7 @@ x:
             If Sheets(9).Cells(i, 18) < mom_cim_var And Sheets(9).Cells(i, 18) > mom_poste_var Then
                 mom_cim_var = Sheets(9).Cells(i, 18)
                 tip_mac = Sheets(9).Cells(i, 4)
+                vol_tot_mac = Sheets(9).Cells(i, 14)
                 GoTo x
             Else: i = i + 1
             End If
@@ -432,6 +446,8 @@ x:
         
         Sheets(1).Cells(z, 37) = mom_cim_var
         Sheets(1).Cells(z, 22) = tip_mac
+        Sheets(1).Cells(z, 23) = vol_tot_mac
+        End If
         z = z + 2
         i = 2
         
@@ -441,5 +457,7 @@ x:
    
    
                    
+
+
 
 

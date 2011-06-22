@@ -113,6 +113,7 @@ ElseIf pk0 >= (inicio1 + l1) And pk0 < inicio2 Then
             dev = (C * 1000) / radioC
             Sheets(1).Cells(h, 7).Value = dev
             contador = 2
+       
         ElseIf contador = 0 Then
             Sheets(1).Cells(h - 2, 6).Value = radioC
             dev = (C * 1000) / radioC
@@ -156,7 +157,7 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
             radioC2 = rady2 * (-1)
         Else: radioC2 = rady2
         End If
-        If radioC1 < radioC2 Then
+        If radioC1 < radioC2 And l1 <> 0 Then
             lmin = a1 ^ 2 / radioC1
             radiot = (a1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
             If rady < 0 Then
@@ -178,6 +179,14 @@ ElseIf IsEmpty(Sheets(3).Cells(k - 1, 6).Value) And pk0 < (inicio2 + l2) Then
                 dev = (C * 1000) / radioC
                 Sheets(1).Cells(h, 7).Value = dev
                 contador = 2
+            ElseIf radiot = 0 Then
+                Sheets(1).Cells(h - 2, 6).Value = radioC2
+                dev = (C * 1000) / radioC2
+                Sheets(1).Cells(h - 2, 7).Value = dev
+                'Sheets(1).Cells(h - 1, 4).Value = vano.vano(Sheets(1).Cells(h - 2, 6).Value)
+                'pk0 = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
+                'Sheets(1).Cells(h, 33).Value = pk0
+                contador = contador + 1
             ElseIf radiot > radio_0 And contador = 0 Then
                 Sheets(1).Cells(h, 6).Value = radioC
                 dev = (C * 1000) / radioC

@@ -12,8 +12,7 @@ Else
 End If
 ' buscar en que fila de la hoja 2 se encuentra el radio que buscamos
 If Not IsEmpty(Sheets(1).Cells(z, 6).Value) Then
-    While rady <= Sheets(2).Cells(m, 2).Value And _
-        rady > Sheets(2).Cells(m, 3).Value
+    While rady <= Sheets(2).Cells(m, 3).Value
         m = m + 1
     Wend
 Else

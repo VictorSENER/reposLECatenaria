@@ -24,6 +24,7 @@ Dim i As Long
     nombre_cat = nombre_catVB
     'elegir uno de estas dos rutas al archivo Access
     strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
+    'strDB = "C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb"
     'nombre de la tabla del archivo Access
     strTabla = "Datos"
     'crear la conexión
@@ -39,7 +40,6 @@ Dim i As Long
     
     While Not oRead.EOF
     If oRead("nombre_cat") = nombre_cat Then
-    
                 sist = oRead("sist")
                 al = oRead("al")
                 alt_nom = oRead("alt_nom")
@@ -107,52 +107,30 @@ Dim i As Long
                 dist_prim_seg_pend = oRead("dist_prim_seg_pend")
                 dist_max_pend = oRead("dist_max_pend")
                 idioma = oRead("idioma")
-                dist_vert_hc = oRead("dist_vert_hc")
-                dist_horiz_hc = oRead("dist_horiz_hc")
-                dist_vert_sust = oRead("dist_vert_sust")
-                dist_horiz_sust = oRead("dist_horiz_sust")
                 dist_vert_feed_pos = oRead("dist_vert_feed_pos")
                 dist_horiz_feed_pos = oRead("dist_horiz_feed_pos")
                 dist_vert_feed_neg = oRead("dist_vert_feed_neg")
                 dist_horiz_feed_neg = oRead("dist_horiz_feed_neg")
                 dist_vert_cdpa = oRead("dist_vert_cdpa")
                 dist_horiz_cdpa = oRead("dist_horiz_cdpa")
-                dist_horiz_equip = oRead("dist_horiz_equip")
+                dist_horiz_equip_t = oRead("dist_horiz_equip_t")
+                dist_horiz_equip_comp = oRead("dist_horiz_equip_comp")
                 dist_vert_hc_anc = oRead("dist_vert_hc_anc")
                 dist_vert_sust_anc = oRead("dist_vert_sust_anc")
-                dist_vert_hc_se_sm_el = oRead("dist_vert_hc_se_sm_el")
-                dist_horiz_hc_se_sm_el = oRead("dist_horiz_hc_se_sm_el")
-                dist_vert_sust_se_sm_el = oRead("dist_vert_sust_se_sm_el")
-                dist_horiz_sust_se_sm_el = oRead("dist_horiz_sust_se_sm_el")
-                dist_vert_hc_e_sm = oRead("dist_vert_hc_e_sm")
-                dist_horiz_hc_e_sm = oRead("dist_horiz_hc_e_sm")
-                dist_vert_sust_e_sm = oRead("dist_vert_sust_e_sm")
-                dist_horiz_sust_e_sm = oRead("dist_horiz_sust_e_sm")
-                dist_vert_hc_se_sla_el = oRead("dist_vert_hc_se_sla_el")
-                dist_horiz_hc_se_sla_el = oRead("dist_horiz_hc_se_sla_el")
-                dist_vert_sust_se_sla_el = oRead("dist_vert_sust_se_sla_el")
-                dist_horiz_sust_se_sla_el = oRead("dist_horiz_sust_se_sla_el")
-                dist_vert_hc_e_sla = oRead("dist_vert_hc_e_sla")
-                dist_horiz_hc_e_sla = oRead("dist_horiz_hc_e_sla")
-                dist_vert_sust_e_sla = oRead("dist_vert_sust_e_sla")
-                dist_horiz_sust_e_sla = oRead("dist_horiz_sust_e_sla")
-                dist_vert_hc_se_ag_el = oRead("dist_vert_hc_se_ag_el")
-                dist_horiz_hc_se_ag_el = oRead("dist_horiz_hc_se_ag_el")
-                dist_vert_sust_se_ag_el = oRead("dist_vert_sust_se_ag_el")
-                dist_horiz_sust_se_ag_el = oRead("dist_horiz_sust_se_ag_el")
-                dist_vert_hc_e_ag = oRead("dist_vert_hc_e_ag")
-                dist_horiz_hc_e_ag = oRead("dist_horiz_hc_e_ag")
-                dist_vert_sust_e_ag = oRead("dist_vert_sust_e_ag")
-                dist_horiz_sust_e_ag = oRead("dist_horiz_sust_e_ag")
-                dist_vert_hc_se_zn_el = oRead("dist_vert_hc_se_zn_el")
-                dist_horiz_hc_se_zn_el = oRead("dist_horiz_hc_se_zn_el")
-                dist_vert_sust_se_zn_el = oRead("dist_vert_sust_se_zn_el")
-                dist_horiz_sust_se_zn_el = oRead("dist_horiz_sust_se_zn_el")
-                dist_vert_hc_e_zn = oRead("dist_vert_hc_e_zn")
-                dist_horiz_hc_e_zn = oRead("dist_horiz_hc_e_zn")
-                dist_vert_sust_e_zn = oRead("dist_vert_sust_e_zn")
-                dist_horiz_sust_e_zn = oRead("dist_horiz_sust_e_zn")
+                alt_cat_se_sm_el = oRead("alt_cat_se_sm_el")
+                alt_cat_e_sm = oRead("alt_cat_e_sm")
+                alt_cat_se_sla_el = oRead("alt_cat_se_sla_el")
+                alt_cat_e_sla = oRead("alt_cat_e_sla")
+                alt_cat_se_ag_el = oRead("alt_cat_se_ag_el")
+                alt_cat_e_ag = oRead("alt_cat_e_ag")
+                alt_cat_se_zn_el = oRead("alt_cat_se_zn_el")
+                alt_cat_e_zn = oRead("alt_cat_e_zn")
                 sep_hc = oRead("sep_hc")
+                p_medio_equip_t = oRead("p_medio_equip_t")
+                p_medio_equip_comp = oRead("p_medio_equip_comp")
+                el_hc = oRead("el_hc")
+                tip_carril = oRead("tip_carril")
+                ancho_carril = oRead("ancho_carril")
     End If
     oRead.MoveNext
     Wend

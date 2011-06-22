@@ -14,8 +14,8 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     Wend
 
     If Sheets(4).Cells(aloc - 1, 1) = ("P.N.") And Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc - 1, 2).Value And Sheets(1).Cells(z - 2, 33).Value < Sheets(4).Cells(aloc - 1, 2).Value Then
-        Sheets(1).Cells(z, 25) = "Passage à niveau"
-        Sheets(1).Range(Sheets(1).Cells(z - 1, 25), Sheets(1).Cells(z, 25)).MergeCells = True
+        'Sheets(1).Cells(z, 25) = "Passage à niveau"
+        'Sheets(1).Range(Sheets(1).Cells(z - 1, 25), Sheets(1).Cells(z, 25)).MergeCells = True
         s = z
         Amx = alt_max
         s = s - 2

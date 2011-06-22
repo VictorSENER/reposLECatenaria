@@ -1,42 +1,59 @@
 Attribute VB_Name = "comentarios"
 Sub comentarios()
 Dim z As Integer, aloc As Integer
-Dim valor As String, guardar As String
+Dim valor As String, guardar As String, rango As Range
 'inicializar variables locales
 z = 10
 aloc = 3
 'inicio de la rutina principal
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
-    While Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc, 21).Value And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
+    While Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
     aloc = aloc + 1
     Wend
-    If Sheets(1).Cells(z + 2, 33).Value > Sheets(4).Cells(aloc, 21).Value Then
+    If Sheets(1).Cells(z + 2, 33).Value >= Sheets(4).Cells(aloc, 21).Value Then
     If Sheets(4).Cells(aloc, 1).Value = "Buse" Or Sheets(4).Cells(aloc, 1).Value = "Dalot" _
     Or Sheets(4).Cells(aloc, 1).Value = "Pont" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
     Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" _
-    Or Sheets(4).Cells(aloc, 1).Value = "PontXL" Then
+    Or Sheets(4).Cells(aloc, 1).Value = "PontXL" Or Sheets(4).Cells(aloc, 1).Value = "P.N." Then
     If Sheets(4).Cells(aloc, 1).Value = "P.I." Then
         valor = "Passage inférieur"
+    ElseIf Sheets(4).Cells(aloc, 1).Value = "P.N." Then
+        valor = "Passage à niveau"
     ElseIf Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then
         valor = Sheets(4).Cells(aloc, 3).Value
     Else
         valor = Sheets(4).Cells(aloc, 1).Value
     End If
+    If valor = "Aiguillage" Then
+        z_var = z
+    Else
+        z_var = z + 1
+    End If
     
-    If IsEmpty(Sheets(1).Cells(z + 2, 25).Value) Then
-        Sheets(1).Cells(z + 2, 25).Value = valor
+    If IsEmpty(Sheets(1).Cells(z_var + 1, 25).Value) Then
+        Sheets(1).Cells(z_var + 1, 25).Value = valor
     Else
-        Sheets(1).Cells(z + 2, 25).Value = Sheets(1).Cells(z + 2, 25).Value & " " & valor
+        Sheets(1).Cells(z_var + 1, 25).Value = Sheets(1).Cells(z_var + 1, 25).Value & " " & valor
     End If
-    If Not IsEmpty(Sheets(1).Cells(z + 1, 25).Value) Then
-        guardar = Sheets(1).Cells(z + 1, 25).Value
-        Sheets(1).Cells(z + 1, 25).Value = ""
-        Sheets(1).Range(Sheets(1).Cells(z + 1, 25), Sheets(1).Cells(z + 2, 25)).MergeCells = True
-        Sheets(1).Cells(z + 1, 25).Value = guardar & " - " & valor
-    Else
-        Sheets(1).Range(Sheets(1).Cells(z + 1, 25), Sheets(1).Cells(z + 2, 25)).MergeCells = True
+    If Not IsEmpty(Sheets(1).Cells(z_var, 25).Value) Then
+        guardar = Sheets(1).Cells(z_var, 25).Value
+        Sheets(1).Cells(z_var, 25).Value = ""
+        'Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25)).MergeCells = True
+        Sheets(1).Cells(z_var, 25).Value = guardar & " - " & valor
+    'Else
+        'Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25)).MergeCells = True
     End If
-
+    With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25))
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    .MergeCells = True
+    End With
     
     End If
     End If

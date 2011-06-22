@@ -150,7 +150,7 @@ If (pk >= start + l_canton And (Error < 27 Or l_canton + Error > dist_max_canton
 
 End If
 End Sub
-Sub canton_final(nombre_cat)
+Sub canton_final(nombre_cat, fin)
 Dim total As Double, ncanton As Double, lcanton As Double, corte As Double, prin As Double, Error As Double
 Dim a As Integer, h As Integer, hini As Integer, contador As Integer
 Dim algo As Double
@@ -159,7 +159,7 @@ h = 10
 z = 10
 a = 3
 beta = h
-fin = Sheets(1).Cells(3, 2).Value
+
 If h = 10 Then
         Sheets(1).Cells(h, 16).Value = "Anc.Chevau."
         Sheets(1).Cells(h + 2, 16).Value = "Inter.Chevau."
@@ -265,6 +265,11 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
                 Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
                 Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
             End If
+            Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
+            Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
+            'If ncaton / 2 = double Then
+            'Sheets(1).Range(Sheets(1).Cells(h - 2, 27), Sheets(1).Cells(h - 2, 27)).Interior.ColorIndex = 5
+            'Sheets(1).Range(Sheets(1).Cells(hini, 27), Sheets(1).Cells(hini, 27)).Interior.ColorIndex = 5
         Case Is = 2
             Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
             Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
@@ -301,7 +306,8 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
             corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
             fijo = prin + (lcanton / 2)
             ncanton = ncanton - 1
-
+            Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
+            Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
         Case Is = 1
             Select Case tipo_singular_out
             
@@ -351,13 +357,17 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
                     Sheets(4).Cells(a - 2, 22).Value > dist_max_canton) Then
                         Sheets(1).Cells(h, 16).Value = "Anc.Section.sans AT"
                     End If
+                    
                     If Sheets(4).Cells(a, 22).Value = "IN" Then
                         a = a + 1
                     End If
                 End Select
+                Sheets(1).Range(Sheets(1).Cells(h, 26), Sheets(1).Cells(h, 26)).Interior.ColorIndex = 8
+                Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
             tipo_singular_in = Sheets(4).Cells(a, 1).Value
       
  End Select
+ 
  End If
     If fijo <= (Sheets(1).Cells(h, 33).Value) Then
             Sheets(1).Cells(h - 4, 16).Value = "Anc.Antich."
@@ -367,7 +377,9 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
             fijo = Sheets(1).Cells(h - 2, 33).Value + 2000
             puntofijo = Sheets(1).Cells(h - 2, 33).Value
             Sheets(1).Cells(h - 4, 26).Value = puntofijo - prin
+            Sheets(1).Range(Sheets(1).Cells(h - 4, 26), Sheets(1).Cells(h - 4, 26)).Interior.ColorIndex = 6
             Sheets(1).Cells(hini, 26).Value = Sheets(1).Cells(h - 4, 26).Value
+            Sheets(1).Range(Sheets(1).Cells(hini, 26), Sheets(1).Cells(hini, 26)).Interior.ColorIndex = 6
     End If
     h = h + 2
     

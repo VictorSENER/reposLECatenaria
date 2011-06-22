@@ -43,7 +43,17 @@ End If
 If (Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
 And Sheets(4).Cells(a, 1) = "Tunel") Then
         Sheets(1).Cells(h, 25).Value = "Tunnel"
-        Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25)).MergeCells = True
+    With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
+    .MergeCells = True
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    End With
     If Sheets(1).Cells(h - 1, 4).Value > va_max_tunel Then
         Sheets(1).Cells(h - 1, 4).Value = va_max_tunel
         Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 2, 33) + Sheets(1).Cells(h - 1, 4)

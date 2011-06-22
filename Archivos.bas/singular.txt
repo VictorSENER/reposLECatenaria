@@ -35,11 +35,23 @@ Else
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     z = h
 End If
+
 Call restar(dist_restar, div, z, h, a)
 
 While Not IsEmpty(Sheets(4).Cells(a, b))
     Sheets(1).Cells(h, 25).Value = "Pilier Viaduc"
-    Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25)).MergeCells = True
+    'Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25)).MergeCells = True
+    With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
+    .MergeCells = True
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    End With
     h = h + 2
     b = b + 1
         If Not IsEmpty(Sheets(4).Cells(a, b).Value) Then
@@ -156,12 +168,26 @@ b = 0
         Sheets(1).Cells(h - 2, 16).Value = "Inter.Aigu"
         Sheets(1).Cells(h - 4, 16).Value = "Anc.Aigu"
         Sheets(1).Cells(h + 1, 25).Value = "Aiguillage"
+        z_var = h + 1
     Else
         Sheets(1).Cells(h, 16).Value = "Axe.Aigu"
         Sheets(1).Cells(h + 2, 16).Value = "Inter.Aigu"
         Sheets(1).Cells(h + 4, 16).Value = "Anc.Aigu"
         Sheets(1).Cells(h, 25).Value = "Aiguillage"
+        z_var = h
     End If
+    With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var, 25))
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    .MergeCells = True
+    End With
+    
     
 While dist_restar > inc_norm_va
     If Sheets(1).Cells(z - 1, 4).Value > Sheets(1).Cells(z + 1, 4).Value And _

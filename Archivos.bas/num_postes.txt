@@ -42,6 +42,7 @@ End If
 'relleno de la columna de altura y distancia poste carril
 Sheets(1).Cells(z, 10).Value = alt_nom
 Sheets(1).Cells(z, 5).Value = dist_carril_poste
+Sheets(1).Cells(z, 20).Value = dist_base_poste_pmr
 
 
 z = z + 2

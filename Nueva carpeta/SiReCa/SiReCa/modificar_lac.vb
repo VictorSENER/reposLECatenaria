@@ -7,8 +7,8 @@ Module modificar_lac
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
         'LEER NOMBRE CATENARIA Y CARGAR
-        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+        oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
@@ -119,15 +119,7 @@ Module modificar_lac
         oRead.Close()
         oConn.Close()
         Pantalla_datos.Show()
-        Pantalla_principal.Label1.Hide()
-        Pantalla_principal.Label2.Hide()
-        Pantalla_principal.TextBox1.Hide()
-        Pantalla_principal.ComboBox1.Hide()
-        Pantalla_principal.Button1.Hide()
-        Pantalla_principal.RadioButton1.Hide()
-        Pantalla_principal.RadioButton2.Hide()
-        Pantalla_principal.GroupBox1.Text = "Datos de catenaria introducidos"
-        Pantalla_principal.GroupBox2.ForeColor = Color.Green
+
 
 
     End Sub

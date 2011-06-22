@@ -66,9 +66,6 @@ Module run
 
         'variables double a pasar al excel para calculo de momentos
 
-
-
-
         momento(4) = dist_vert_feed_pos
         momento(5) = dist_horiz_feed_pos
         momento(6) = dist_vert_feed_neg
@@ -78,9 +75,6 @@ Module run
         momento(10) = dist_horiz_equip_t
         momento(11) = dist_vert_hc_anc
         momento(12) = dist_vert_sust_anc
-
-
-
 
         'generar un objeto excel
         objExcel = New Microsoft.Office.Interop.Excel.Application
@@ -186,7 +180,7 @@ Module run
         Pantalla_principal.Label11.Text = "descentramiento"
         Pantalla_principal.ProgressBar2.Value = 5
         Pantalla_principal.Refresh()
-        'objExcel.Run("canton")                                            ' distribución de los cantones de catenaria
+        objExcel.Run("cantonamiento.canton_final", nombre_cat)                                            ' distribución de los cantones de catenaria
         objExcel.Run("descentramiento.desc")
         Pantalla_principal.Label11.Text = "Módulo posicion"
         Pantalla_principal.ProgressBar2.Value = 6

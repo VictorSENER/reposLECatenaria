@@ -7,6 +7,8 @@ Public Class Pantalla_principal
     Public nombre_excel As String
 
     Private Sub Pantalla_principal_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+
+
         Dim Direct As New DxVBLib.DirectX7
 
         Dim DirectD As DxVBLib.DirectDraw7
@@ -69,8 +71,8 @@ Public Class Pantalla_principal
                 Dim oComm As OleDbCommand
                 Dim oRead As OleDbDataReader
 
-                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
-                'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
+                oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
                 oConn.Open()
                 oComm = New OleDbCommand("select * from Datos", oConn)
                 oRead = oComm.ExecuteReader
@@ -85,7 +87,53 @@ Public Class Pantalla_principal
 
                 If (Me.Label1.ForeColor = Color.Red) = False Then
                     nueva_lac = TextBox1.Text
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Carril_Consulta' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Carril_ConsultaTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Carril_Consulta)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet._Conductor_Feeder__' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_Feeder__TableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet._Conductor_Feeder__)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.__Conductor_Feeder__' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_Feeder__TableAdapter1.Fill(Pantalla_datos.Base_de_datosDataSet.__Conductor_Feeder__)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Macizos_Consulta' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Macizos_ConsultaTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Macizos_Consulta)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Postes_Consulta' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Postes_ConsultaTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Postes_Consulta)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Electrificación_Consulta' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Electrificación_ConsultaTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Electrificación_Consulta)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Anclaje' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_AnclajeTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_Anclaje)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Pendola' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_PendolaTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_Pendola)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_punto_fijo' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_punto_fijoTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_punto_fijo)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet._Conductor_Feeder__' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_Feeder__TableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet._Conductor_Feeder__)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Cable_de_Tierra' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_Cable_de_TierraTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_Cable_de_Tierra)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_CDPA' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_CDPATableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_CDPA)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_Sustentador' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_SustentadorTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_Sustentador)
+                    'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_HC' Puede moverla o quitarla según sea necesario.
+                    Pantalla_datos.Conductor_HCTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_HC)
+
+
+                    'Pantalla_datos.Text_nombre_cat.Hide()
+                    'Pantalla_datos.Label2.Hide()
                     Pantalla_datos.Show()
+                    Pantalla_datos.Combo_sist.Text = ""
+                    'Pantalla_datos.Combo_posicion_feed_pos.Text = "algo"
+                    Pantalla_datos.Combo_hc.Text = ""
+                    'Pantalla_datos.Combo_sust.Text = ""
+                    'Pantalla_datos.Combo_cdpa.Text = ""
+                    'Pantalla_datos.Combo_cdte.Text = ""
+                    'Pantalla_datos.Combo_feed_pos.Text = ""
+                    'Pantalla_datos.Combo_feed_neg.Text = ""
+                    'Pantalla_datos.Combo_pto_fijo.Text = ""
+                    'Pantalla_datos.Combo_pend.Text = ""
+                    'Pantalla_datos.Combo_anc.Text = ""
+                    'Pantalla_datos.Combo_adm_lin_poste.Text = ""
+                    'Pantalla_datos.Combo_adm_lin_mac.Text = ""
+
                     Me.Label3.Show()
                     Me.Button2.Show()
                     Me.GroupBox2.Show()

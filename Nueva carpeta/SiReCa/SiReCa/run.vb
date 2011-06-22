@@ -94,6 +94,8 @@ Module run
         h = 10
         k = 3
         w = 1
+        'formato del contenido de las celdas
+        xLibro.Worksheets(1).Columns(1).NumberFormat = "@"
 
         tiempo = objExcel.Run("principal.principal", inicio, h, w, k, a, b, c, r_re, _
                               dist_va_max, inc_norm_va, va_max_tunel, va_max, dist_max_canton, _

@@ -13,14 +13,14 @@ dist_restar = pk0 - pk1
 If dist_restar < (vano1 - (pk2 - pk1)) And pk2 <> 0 Then
     h = h + 2
     dist_restar = dist_restar + (pk2 - pk1) + inc_norm_va
-    Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
+    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     Sheets(1).Cells(h - 1, 4).Value = (pk2 - pk1) + inc_norm_va
     z = h - 2
 ElseIf pk2 = 0 Then
-    Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
+    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
@@ -28,14 +28,25 @@ ElseIf pk2 = 0 Then
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
     z = h
 Else
-    Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
+    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     z = h
 End If
-
+Sheets(1).Cells(h - 2, 25).Value = "Commencement Viaduc"
+    With Sheets(1).Range(Sheets(1).Cells(h - 2, 25), Sheets(1).Cells(h - 1, 25))
+    .MergeCells = True
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    End With
 Call restar(dist_restar, div, z, h, a)
 
 While Not IsEmpty(Sheets(4).Cells(a, b))
@@ -63,6 +74,17 @@ While Not IsEmpty(Sheets(4).Cells(a, b))
         End If
 Wend
 Sheets(1).Cells(h, 25).Value = "Final viaduc"
+    With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
+    .MergeCells = True
+    .Borders(xlEdgeLeft).LineStyle = 2
+    .Borders(xlEdgeLeft).ColorIndex = 15
+    .Borders(xlEdgeTop).LineStyle = 2
+    .Borders(xlEdgeTop).ColorIndex = 15
+    .Borders(xlEdgeBottom).LineStyle = 2
+    .Borders(xlEdgeBottom).ColorIndex = 15
+    .Borders(xlEdgeRight).LineStyle = 2
+    .Borders(xlEdgeRight).ColorIndex = 15
+    End With
 h = h - 2
 a = a + 1
 End Sub
@@ -126,7 +148,7 @@ Dim z As Integer
 pk1 = Sheets(4).Cells(a, 2).Value
 pk0 = Sheets(1).Cells(h, 33).Value
 'caso particular de tener un paso superior bajo antes de la aguja
-If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
+    If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
     Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value < (va_max) _
     And Sheets(4).Cells(a, 2).Value - Sheets(4).Cells(a - 1, 21).Value > (inc_norm_va * 6) Then
     pk0 = Sheets(1).Cells(h - 2, 33).Value
@@ -147,9 +169,11 @@ If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _
 ElseIf Sheets(4).Cells(a + 1, 1).Value = "Pont" And _
     Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 21).Value < va_max _
     And Sheets(4).Cells(a, 22).Value > dist_va_max Then
-    vano12 = Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 2).Value - inc_norm_va
-    vanoref = (Int(vano12 / inc_norm_va) + 2) * inc_norm_va
+    vano12 = Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 2).Value - 0.5
+    'vanoref = (Int(vano12 / inc_norm_va) + 2) * inc_norm_va
+    vanoref = vano12 + dist_va_max
     dist_restar = pk0 - pk1 - (Sheets(1).Cells(h - 1, 4).Value - vanoref)
+
     Sheets(1).Cells(h - 1, 4).Value = vanoref
     Sheets(1).Cells(h, 33).Value = pk1
     Call radio.radio1(h)
@@ -207,8 +231,8 @@ While dist_restar > inc_norm_va
     z = z - 2
 Wend
 
-While ((Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value) > dist_va_max And _
-   (Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value) > -dist_va_max) _
+While ((Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value) >= dist_va_max And _
+   (Sheets(1).Cells(z - 3, 4).Value - Sheets(1).Cells(z - 1, 4).Value) >= -dist_va_max) _
    'And Not (Sheets(1).Cells(z - 3, 4).Value = Sheets(1).Cells(z - 1, 4).Value)
         z = z - 2
 Wend

@@ -36,6 +36,9 @@ End If
 While 16 > h
     Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
+    'If va_max <> va_max_sm Then
+        'Call cantonamiento.canton_durante(h, C, k, a)
+    'End If
     h = h + 2                                           ' avanzamos una fila y calculamos un nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
 Wend
@@ -43,10 +46,13 @@ Wend
     Call radio.radio(h)                                    ' calculamos el radio para el pk
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)           ' al radio buscado le corresponde un vano
     Call regulacion.regulacion(h, a, b, k)                                 ' comprobamos que los incrementos de vano
+    'If va_max <> va_max_sm Then
+        'Call cantonamiento.canton_durante(h, C, k, a)
+    'End If
     Call punto_singular.sing(h, k, a, b)                            ' comprobamos que el poste no cae en un PS
     Call punto_singular.sing1(h, a)                                ' comprobamos que el poste no cae en un PS
     'If va_max <> va_max_sm Then
-    'Call cantonamiento.canton_durante
+    'Call cantonamiento.canton_durante(h, C, k, a)
     'End If
     h = h + 2                                           'avanzamos una fila y calculamos nuevo pk
     Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)

@@ -1,159 +1,86 @@
 Attribute VB_Name = "cantonamiento"
+Public INI As Double, finish As Double
+Public tipo_singular_out As String, tipo_singular_in As String
+Public hini As Integer, acan As Integer
 Sub canton_durante(ByRef h, ByRef C, ByRef k, ByRef a)
-Dim pk As Double, finish As Double, total As Double, total2 As Double
-Dim n_canton As Integer
 
-pk = Sheets(1).Cells(h, 33).Value
-'Sheets(4).Cells(c, 1).Value <> "Tunel" And
-While (Sheets(4).Cells(C, 22).Value <> "IN" And Sheets(4).Cells(C, 23).Value <> "FINAL" And _
-Sheets(4).Cells(C, 1).Value <> "Zone" And Sheets(4).Cells(C, 22).Value <> "OUT" And (Sheets(4).Cells(C, 1).Value <> "Viaduc" Or Sheets(4).Cells(C + 1, 1).Value <> "Viaduc")) Or (Sheets(4).Cells(C, 21).Value <= pk And uno = 1)
-    C = C + 1
-    caso = Sheets(4).Cells(C, 1).Value
-    finish = Sheets(4).Cells(C, 2).Value
-    total = finish - start
-    n_canton = total \ dist_max_canton
-Wend
-While uno = 1
-Select Case caso
-    Case Is = "Tunel"
-        If pk >= Sheets(4).Cells(C, 2).Value And pk <= Sheets(4).Cells(C, 21).Value Then
-            total2 = total + (n_canton * 160) - 50
-            n_canton2 = (total2 \ dist_max_canton) + 1
-            l_canton = total2 / n_canton2
-            Error = 0
-        ElseIf Sheets(4).Cells(C, 22).Value > 1000 Then
-            total2 = total + (n_canton * 160) - 400
-            n_canton2 = (total2 \ dist_max_canton) + 1
-            l_canton = total2 / n_canton2
-            Error = 0
-        Else
-            total2 = total + (n_canton * 160) - 50
-            n_canton2 = (total2 \ dist_max_canton) + 1
-            l_canton = total2 / n_canton2
-            Error = 0
-        End If
-    Case Is = "Aiguillage"
-        If Sheets(4).Cells(C, 22).Value = "IN" Then
-            total2 = total + (n_canton * 202) - 128
-        ElseIf Sheets(4).Cells(C, 22).Value = "OUT" Then
-            finish = Sheets(4).Cells(C, 2).Value
-            total = finish - start
-            n_canton = total \ dist_max_canton
-            total2 = total + (n_canton * 160) + 600
-        End If
-        n_canton2 = (total2 \ dist_max_canton) + 1
-        l_canton = total2 / n_canton2
-        Error = 0
-    Case Is = "Viaduc"
-        total2 = total + (n_canton * 160)
-        n_canton2 = (total2 \ dist_max_canton) + 1
-        l_canton = total2 / n_canton2
-        Error = 0
-    Case Is = "Zone"
-        total2 = total + (n_canton * 160) + 153
-        n_canton2 = (total2 \ dist_max_canton) + 1
-        l_canton = total2 / n_canton2
-        Error = 0
-End Select
-uno = 2
-Wend
-If (pk >= start + l_canton And (Error < 27 Or l_canton + Error > dist_max_canton)) Or (pk >= start + l_canton + Error And (Error >= 27 And l_canton + Error <= dist_max_canton)) Then
+If h = 10 Then
+        Sheets(1).Cells(h, 16).Value = "Anc.Chevau."
+        Sheets(1).Cells(h + 2, 16).Value = "Inter.Chevau."
+        Sheets(1).Cells(h + 4, 16).Value = "Axe.Chevau."
+        Sheets(1).Cells(h + 6, 16).Value = "Inter.Chevau."
+        Sheets(1).Cells(h + 8, 16).Value = "Anc.Chevau."
+        INI = Sheets(1).Cells(h, 33).Value
+        'prin = Sheets(1).Cells(h, 33).Value
+        hini = h
+        tipo_singular_in = "inicio"
+        acan = 3
+End If
 
 
-    Select Case n_canton2
 
-        Case Is > 2                                     ' número de cantones superior a 2
-            Call one(h, k, a)
-            Call two(h, pk)
-
-        Case Is = 2                                     ' número de cantones igual a 2
-            Call one(h, k, a)
-            Call two(h, pk)
-            Select Case caso
-                Case Is = "Zone"
-                    l_canton = l_canton + 153
-            End Select
-
-        Case Is = 1                                     ' número de cantones igual a 1
-        
-            Select Case caso
-                Case Is = "Tunel"
-                    If Sheets(4).Cells(C, 22).Value >= 1000 Then
-                        Call one(h, k, a)
-                        Call two(h, pk)
-                        uno = 1
-                     Else
-                        Call one(h, k, a)
-                        Call two(h, pk)
-                        uno = 1
-                     End If
-    
-                Case Is = "Viaduc"
-                    Call one(h, k, a)
-                    Call two(h, pk)
-                    uno = 1
-                    C = C + 1
-                Case Is = "Aiguillage"
-                    Call one(h, k, a)
-                    Error = Error + (l_canton - (Sheets(1).Cells(h - 2, 33).Value - start))
-                    Sheets(1).Cells(h - 2, 16).Value = "Anc.Section."
-                    Sheets(1).Cells(h - 4, 16).Value = "Inter.Section."
-                    Sheets(1).Cells(h - 6, 16).Value = "Axe.Section."
-                    Sheets(1).Cells(h - 8, 16).Value = "Inter.Section."
-                    Sheets(1).Cells(h - 10, 16).Value = "Anc.Section."
-                    Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - start
-                    start = Sheets(1).Cells(h - 10, 33).Value
-                    n_canton2 = n_canton2 - 1
-                    uno = 1
-                    C = C + 1
-                Case Is = "Zone"
-                    Sheets(1).Cells(h, 16).Value = "Anc.Neutre"
-                    Sheets(1).Cells(h - 1, 4).Value = 27
-                    Sheets(1).Cells(h - 2, 16).Value = "Inter.Neutre"
-                    Sheets(1).Cells(h - 3, 4).Value = 27
-                    Sheets(1).Cells(h - 4, 16).Value = "Inter.Neutre"
-                    Sheets(1).Cells(h - 5, 4).Value = 36
-                    Sheets(1).Cells(h - 6, 16).Value = "Axe.Neutre"
-                    Sheets(1).Cells(h - 7, 4).Value = 27
-                    Sheets(1).Cells(h - 8, 16).Value = "Inter.Neutre"
-                    Sheets(1).Cells(h - 9, 4).Value = 27
-                    Sheets(1).Cells(h - 10, 16).Value = "Inter.Neutre"
-                    Sheets(1).Cells(h - 11, 4).Value = 36
-                    Sheets(1).Cells(h - 12, 16).Value = "Anc.Neutre"
-                    Sheets(1).Cells(h - 13, 4).Value = 45
-                    Sheets(1).Cells(h + 1, 25).Value = "Finale Zone neutre"
-                    Sheets(1).Cells(h - 12, 25).Value = "Commencement Zone neutre"
-                    z = h - 14
-                    While z <> h
-                        Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z - 1, 4).Value + Sheets(1).Cells(z - 2, 33).Value
-                        z = z + 2
-                    Wend
-                    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
-                    Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - start
-                    start = Sheets(1).Cells(h - 12, 33).Value
-                    n_canton2 = n_canton2 - 1
-                    C = C + 1
-                    uno = 1
-    End Select
-
-
-    End Select
-
-    Select Case caso
+    While (Sheets(4).Cells(acan, 1).Value <> "Tunel" And Sheets(4).Cells(acan, 22).Value <> "IN" And Sheets(4).Cells(acan, 23).Value <> "FINAL" _
+     And Sheets(4).Cells(acan, 22).Value <> "OUT" And Sheets(4).Cells(acan, 1).Value <> "Zone") Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(hini, 33).Value)
+        acan = acan + 1
+        tipo_singular_out = Sheets(4).Cells(acan, 1).Value
+        INI = Sheets(1).Cells(hini, 33).Value
+        finish = Sheets(4).Cells(acan, 2).Value
+    Wend
+    If tipo_singular_out = "Aiguillage" And Sheets(4).Cells(acan - 1, 22).Value <> "IN" Then
+        tipo_singular_in = "inicio"
+    End If
+    'prin = Sheets(1).Cells(hini, 33).Value
+    Select Case tipo_singular_out
         Case Is = "Tunel"
-    
-        Case Is = "Viaduc"
-    
+            If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 1, 1).Value = "Aiguillage" Then
+                'a = a + 1
+                tipo_singular_out = Sheets(4).Cells(acan, 1).Value
+                finish = Sheets(4).Cells(acan, 2).Value
+             ElseIf tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 2, 1).Value = "Aiguillage" Then
+                acan = acan + 1
+                tipo_singular_out = Sheets(4).Cells(acan, 1).Value
+                finish = Sheets(4).Cells(acan, 2).Value
+            End If
         Case Is = "Aiguillage"
-    
+            If tipo_singular_in = tipo_singular_out And (Sheets(4).Cells(acan, 2).Value - Sheets(4).Cells(acan - 1, 2).Value) + 650 > dist_max_canton _
+             And (finish >= Sheets(4).Cells(acan - 1, 2).Value And finish < Sheets(4).Cells(acan, 2).Value) Then
+                finish = Sheets(4).Cells(acan, 2).Value - (Sheets(4).Cells(acan, 2).Value - Sheets(4).Cells(acan - 1, 2).Value) / 2
+            ElseIf tipo_singular_in = tipo_singular_out And finish > Sheets(4).Cells(acan, 2).Value Then
+                finish = Sheets(4).Cells(acan, 2).Value + 325
+            End If
+            
     End Select
 
+
+If INI + dist_max_canton < Sheets(1).Cells(h, 33).Value Or finish < Sheets(1).Cells(h, 33).Value Then
+    z = h
+    If finish < Sheets(1).Cells(h, 33).Value Then
+    Select Case tipo_singular_out
+        Case Is = "Aiguillage"
+            If Sheets(4).Cells(acan, 22).Value = "IN" Then
+                z = h - 8
+            Else
+                z = h
+            End If
+    End Select
+
+    If Sheets(4).Cells(acan, 22).Value <> "OUT" Then
+        tipo_singular_in = Sheets(4).Cells(acan, 1).Value
+        acan = acan + 1
+    Else
+        finish = Sheets(4).Cells(acan, 2).Value + 325
+    End If
+    End If
+    Call one(z, a)
+    Call pintar(z - 2, hini, 27)
+    Call two(z, pk)
 End If
 End Sub
 Sub canton_final(nombre_cat, fin)
 Dim total As Double, ncanton As Double, lcanton As Double, corte As Double, prin As Double, Error As Double
 Dim a As Integer, h As Integer, hini As Integer, contador As Integer
 Dim algo As Double
+Dim resultado As Integer
 Call cargar.datos_acces(nombre_cat)
 h = 10
 z = 10
@@ -241,12 +168,15 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
     If corte <= (Sheets(1).Cells(h, 33).Value) Then
     
     Select Case ncanton
-        
+    
+    
        Case Is > 2
+            Call pintar(h - 2, hini, 27)
+            Call pintar(h - 2, hfijo - 1, 26)
             Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
             Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
             Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
-            Sheets(1).Cells(hfijo, 26).Value = Sheets(1).Cells(h - 2, 26).Value
+            Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
             corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
             prin = Sheets(1).Cells(h - 10, 33).Value
             hini = h - 10
@@ -266,15 +196,15 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
                 Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
             End If
             Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
-            Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
-            'If ncaton / 2 = double Then
-            'Sheets(1).Range(Sheets(1).Cells(h - 2, 27), Sheets(1).Cells(h - 2, 27)).Interior.ColorIndex = 5
-            'Sheets(1).Range(Sheets(1).Cells(hini, 27), Sheets(1).Cells(hini, 27)).Interior.ColorIndex = 5
+            Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
+
         Case Is = 2
+            Call pintar(h - 2, hini, 27)
+            Call pintar(h - 2, hfijo - 1, 26)
             Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
             Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
             Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
-            Sheets(1).Cells(hfijo, 26).Value = Sheets(1).Cells(h - 2, 26).Value
+            Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
             prin = Sheets(1).Cells(h - 10, 33).Value
             hini = h - 10
             Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
@@ -307,23 +237,27 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
             fijo = prin + (lcanton / 2)
             ncanton = ncanton - 1
             Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
-            Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
+            Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
         Case Is = 1
+            Call pintar(h, hini, 27)
+            Call pintar(h, hfijo - 1, 26)
             Select Case tipo_singular_out
             
                 Case Is = "Zone"
+                    'Call pintar(h, hini, resultado, ncanton)
                     ncanton = ncanton - 1
                     Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
                     Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
                     Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo, 26).Value = Sheets(1).Cells(h, 26).Value
+                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
                     hini = h - 12
                     a = a + 1
                 Case Is = "Tunel"
+                    'Call pintar(h, hini, resultado, ncanton)
                     Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
                     Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
                     Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo, 26).Value = Sheets(1).Cells(h, 26).Value
+                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
                     Sheets(1).Cells(h, 16).Value = "Anc.Chevau."
                     Sheets(1).Cells(h - 2, 16).Value = "Inter.Chevau."
                     Sheets(1).Cells(h - 4, 16).Value = "Axe.Chevau."
@@ -341,10 +275,11 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
                         a = a + 1
                     End If
                 Case Is = "Aiguillage"
+                    
                     Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
                     Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
                     Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo, 26).Value = Sheets(1).Cells(h, 26).Value
+                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
                     Sheets(1).Cells(h, 16).Value = "Anc.Section."
                     Sheets(1).Cells(h - 2, 16).Value = "Inter.Section."
                     Sheets(1).Cells(h - 4, 16).Value = "Axe.Section."
@@ -363,7 +298,7 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
                     End If
                 End Select
                 Sheets(1).Range(Sheets(1).Cells(h, 26), Sheets(1).Cells(h, 26)).Interior.ColorIndex = 8
-                Sheets(1).Range(Sheets(1).Cells(hfijo, 26), Sheets(1).Cells(hfijo, 26)).Interior.ColorIndex = 8
+                Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
             tipo_singular_in = Sheets(4).Cells(a, 1).Value
       
  End Select
@@ -376,10 +311,12 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
             hfijo = h
             fijo = Sheets(1).Cells(h - 2, 33).Value + 2000
             puntofijo = Sheets(1).Cells(h - 2, 33).Value
-            Sheets(1).Cells(h - 4, 26).Value = puntofijo - prin
-            Sheets(1).Range(Sheets(1).Cells(h - 4, 26), Sheets(1).Cells(h - 4, 26)).Interior.ColorIndex = 6
-            Sheets(1).Cells(hini, 26).Value = Sheets(1).Cells(h - 4, 26).Value
+            Sheets(1).Cells(h - 3, 26).Value = puntofijo - prin
+            Sheets(1).Range(Sheets(1).Cells(h - 3, 26), Sheets(1).Cells(h - 3, 26)).Interior.ColorIndex = 6
+            Sheets(1).Cells(hini, 26).Value = Sheets(1).Cells(h - 3, 26).Value
+            Call pintar(h - 3, hini, 26)
             Sheets(1).Range(Sheets(1).Cells(hini, 26), Sheets(1).Cells(hini, 26)).Interior.ColorIndex = 6
+            
     End If
     h = h + 2
     
@@ -388,38 +325,61 @@ Wend
 
 Wend
 End Sub
-Private Sub one(ByRef h, ByRef k, ByRef a)
+Sub pintar(ByRef z, zini, columna)
+If columna = 27 Then
+    If Sheets(1).Range(Sheets(1).Cells(zini + 8, columna), Sheets(1).Cells(zini + 8, columna)).Interior.ColorIndex = 3 Then
+        Sheets(1).Range(Sheets(1).Cells(z, columna), Sheets(1).Cells(z, columna)).Interior.ColorIndex = 4
+        Sheets(1).Range(Sheets(1).Cells(zini, columna), Sheets(1).Cells(zini, columna)).Interior.ColorIndex = 4
+        ActiveSheet.Shapes.AddLine(90 * columna, (zini * 13.8), 90 * columna, ((z - 1) * 13.8)).Select
+    Else
+        Sheets(1).Range(Sheets(1).Cells(z, columna), Sheets(1).Cells(z, columna)).Interior.ColorIndex = 3
+        Sheets(1).Range(Sheets(1).Cells(zini, columna), Sheets(1).Cells(zini, columna)).Interior.ColorIndex = 3
+        ActiveSheet.Shapes.AddLine(88 * columna, (zini * 13.8), 88 * columna, ((z - 1) * 13.8)).Select
+    End If
+Else
+    If Sheets(1).Range(Sheets(1).Cells(zini - 2, columna), Sheets(1).Cells(zini - 2, columna)).Interior.ColorIndex = 6 Then
+        ActiveSheet.Shapes.AddLine(90 * columna, (zini * 13.8), 90 * columna, ((z - 1) * 13.8)).Select
+    Else
+        ActiveSheet.Shapes.AddLine(88 * columna, (zini * 13.8), 88 * columna, ((z - 1) * 13.8)).Select
+    End If
+End If
+Selection.ShapeRange.Line.EndArrowheadStyle = msoArrowheadTriangle
+Selection.ShapeRange.Line.EndArrowheadLength = msoArrowheadLengthMedium
+Selection.ShapeRange.Line.EndArrowheadWidth = msoArrowheadWidthMedium
+Selection.ShapeRange.Flip msoFlipHorizontal
+Selection.ShapeRange.Line.BeginArrowheadStyle = msoArrowheadTriangle
+Selection.ShapeRange.Line.BeginArrowheadLength = msoArrowheadLengthMedium
+Selection.ShapeRange.Line.BeginArrowheadWidth = msoArrowheadWidthMedium
+End Sub
+
+Private Sub one(ByRef h, ByRef a)
 Dim C As Integer
 C = 10
     While C >= 0 And caso <> "Zone"
         If Sheets(1).Cells(h - C - 1, 4).Value > va_max_sm Then
             Sheets(1).Cells(h - C - 1, 4).Value = va_max_sm
         End If
-        Sheets(1).Cells(h - C, 33).Value = Sheets(1).Cells(h - C - 2, 33).Value + Sheets(1).Cells(h - C - 1, 4).Value
-        If k >= 5 Then
-            Call radio.radio1(h - C, k - 2)
-            'Call sing(h - c, k - 1, a, b, w)
-            Call punto_singular.sing1(h - C, a - 2, k - 2)
-        Else
-            Call radio.radio1(h - C, k - 1)
-            Call punto_singular.sing1(h - C, a - 2, k - 1)
-        End If
+            Sheets(1).Cells(h - C, 33).Value = Sheets(1).Cells(h - C - 2, 33).Value + Sheets(1).Cells(h - C - 1, 4).Value
+            Call radio.radio1(h - C)
+            Call punto_singular.sing1(h - C, a - 1)
         C = C - 2
     Wend
-    'Sheets(1).Cells(h - c, 33).Value = Sheets(1).Cells(h - c - 2, 33).Value + Sheets(1).Cells(h - c - 1, 4).Value
-    'Call radio.radio1(h - c, k - 2)
-    'Call sing(h - c, k - 1, a, b, w)
-    'Call punto_singular.sing1(h - c, a - 1, k - 1)
+    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 2, 33).Value + Sheets(1).Cells(h - 1, 4).Value
+    Call radio.radio1(h)
+    Call punto_singular.sing1(h, a - 1)
 End Sub
-Private Sub two(ByRef h, ByRef pk)
-Error = Error + (l_canton - (Sheets(1).Cells(h - 2, 33).Value - start))
+Sub two(ByRef h, ByRef pk)
+'Error = Error + (l_canton - (Sheets(1).Cells(h - 2, 33).Value - start))
+
 Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
 Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
 Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
 Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
 Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
-Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - start
-start = Sheets(1).Cells(h - 10, 33).Value
-n_canton2 = n_canton2 - 1
+Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - INI
+Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
+INI = Sheets(1).Cells(h - 10, 33).Value
+hini = h - 10
+'n_canton2 = n_canton2 - 1
 End Sub
 

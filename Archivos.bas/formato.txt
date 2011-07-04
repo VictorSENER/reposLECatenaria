@@ -118,9 +118,14 @@ Sheets(1).Columns(19).NumberFormat = "0.00"
 Sheets(1).Columns(23).NumberFormat = "0.00"
 
 'centrar el texto
-Sheets(1).Range("A1", "AH10001").HorizontalAlignment = xlHAlignCenter
-Sheets(1).Range("A1", "AH10001").VerticalAlignment = xlHAlignCenter
-Sheets(1).Range("A8", "Z9").WrapText = True
+Sheets(1).Range("A1", "AA10001").HorizontalAlignment = xlHAlignCenter
+Sheets(1).Range("A1", "AA10001").VerticalAlignment = xlHAlignCenter
+Sheets(1).Range("A8", "AA10001").WrapText = True
+'ancho y alto de la columna
+'Sheets(1).Range("A1", "AA10001").ColumnWidth = 16
+
+
+'Sheets(1).Range("A1", "AA10001").RowHeight = 14
 
 'ocultar columnas
 Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True

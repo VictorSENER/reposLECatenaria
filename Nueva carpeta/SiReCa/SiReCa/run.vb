@@ -96,7 +96,8 @@ Module run
         w = 1
         'formato del contenido de las celdas
         xLibro.Worksheets(1).Columns(1).NumberFormat = "@"
-
+        xLibro.Worksheets(1).range("A1", "AA10001").ColumnWidth = 16
+        xLibro.Worksheets(1).Range("A1", "AA10001").RowHeight = 14
         tiempo = objExcel.Run("principal.principal", inicio, h, w, k, a, b, c, r_re, _
                               dist_va_max, inc_norm_va, va_max_tunel, va_max, dist_max_canton, _
                               va_max_sm)
@@ -131,7 +132,7 @@ Module run
         Pantalla_principal.Label11.Text = "Módulo descentramiento"
         Pantalla_principal.ProgressBar2.Value = 5
         Pantalla_principal.Refresh()
-        objExcel.Run("cantonamiento.canton_final", nombre_cat, fin)                                            ' distribución de los cantones de catenaria
+        objExcel.Run("cantonamiento.canton_final", nombre_cat, fin)         ' distribución de los cantones de catenaria
         objExcel.Run("descentramiento.desc")
         Pantalla_principal.Label11.Text = "Módulo posicion"
         Pantalla_principal.ProgressBar2.Value = 6
@@ -149,6 +150,7 @@ Module run
         Pantalla_principal.ProgressBar2.Value = 9
         Pantalla_principal.Refresh()
         objExcel.Run("formato.formato", idioma)
+
         Pantalla_principal.Label11.Text = "Módulo elección postes"
         Pantalla_principal.ProgressBar2.Value = 10
         Pantalla_principal.Refresh()
@@ -182,6 +184,7 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("tabla_vanos"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("cargar"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("eleccion"))
+        objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("momento"))
         objExcel.DisplayAlerts = False
         xLibro.Worksheets(9).Delete()
         xLibro.Worksheets(8).Delete()

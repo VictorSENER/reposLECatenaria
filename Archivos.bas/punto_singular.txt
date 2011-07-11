@@ -7,7 +7,7 @@ Dim pk0 As Double
 ' si es uno de estos PS corregir el vano
 ' falta corregir los PS que tengan una longitud mayor a 9 metros
 If Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
-And (Sheets(4).Cells(a, 1).Value = "Pont" Or Sheets(4).Cells(a, 1).Value = "Buse" Or Sheets(4).Cells(a, 1).Value = "P.I." Or Sheets(4).Cells(a, 1).Value = "Dalot" Or Sheets(4).Cells(a, 1).Value = "P.N.") Then
+And (Sheets(4).Cells(a, 1).Value = "Puente" Or Sheets(4).Cells(a, 1).Value = "Conducto" Or Sheets(4).Cells(a, 1).Value = "P.I." Or Sheets(4).Cells(a, 1).Value = "Drenaje" Or Sheets(4).Cells(a, 1).Value = "P.N.") Then
     z = h
     dist_restar = Sheets(1).Cells(h, 33).Value - Sheets(4).Cells(a, 2).Value + (inc_norm_va / 2)
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
@@ -26,9 +26,9 @@ Sheets(1).Cells(5, 1).Value = Sheets(4).Cells(a, 2).Value
 ' buscar en que fila de la hoja 4 se corresponde con el pk actual
 
 If (Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 21).Value And _
-(Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" Or Sheets(4).Cells(a, 1) = "PontXL")) Then
+(Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" Or Sheets(4).Cells(a, 1) = "PuenteXL")) Then
     
-   If Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" And Sheets(4).Cells(a + 1, 1) = "Aiguillage" And Sheets(4).Cells(a + 1, 2) - Sheets(4).Cells(a, 2) < 63 Then
+   If Sheets(4).Cells(a, 1) = "7 > P.S. > 5,2 m" And Sheets(4).Cells(a + 1, 1) = "Aguja" And Sheets(4).Cells(a + 1, 2) - Sheets(4).Cells(a, 2) < 63 Then
         a = a + 1
     Else
     Call singular.paso_superior(h, k, a)
@@ -36,13 +36,13 @@ If (Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 21).Value And _
 End If
 If Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 3).Value _
 And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
-And Sheets(4).Cells(a, 1) = "Viaduc" Then
-    Call singular.viaducto(h, k, b, a)
+And Sheets(4).Cells(a, 1) = "Viaducto" Then
+    Call singular.Viaducto(h, k, b, a)
 End If
 
 If (Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value _
 And Sheets(4).Cells(a, 1) = "Tunel") Then
-        Sheets(1).Cells(h, 25).Value = "Tunnel"
+        Sheets(1).Cells(h, 25).Value = Sheets(4).Cells(a, 23).Value
     With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
     .MergeCells = True
     .Borders(xlEdgeLeft).LineStyle = 2
@@ -62,13 +62,13 @@ And Sheets(4).Cells(a, 1) = "Tunel") Then
 End If
 
 If (Sheets(1).Cells(h - 2, 33).Value < Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 2).Value And _
-Sheets(4).Cells(a, 1) = "Aiguillage") Then
+Sheets(4).Cells(a, 1) = "Aguja") Then
 
 Call singular.aguja(h, k, b, a)
 End If
 If Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value <= Sheets(4).Cells(a, 21).Value And _
-Sheets(4).Cells(a, 1).Value = "Zone" Then
-Call singular.zone(h, a)
+Sheets(4).Cells(a, 1).Value = "Zona" Then
+Call singular.Zona(h, a)
 End If
 While Sheets(1).Cells(h, 33).Value >= Sheets(4).Cells(a, 21).Value And Sheets(4).Cells(a, 23).Value <> "FINAL"
     a = a + 1

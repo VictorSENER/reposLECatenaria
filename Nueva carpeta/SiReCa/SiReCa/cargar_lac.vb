@@ -1,23 +1,32 @@
-﻿Imports System.Data.OleDb
-
+﻿'//
+'// cargar libreria
+'//
+Imports System.Data.OleDb
+'//
+'// Rutina destinada a guardar los datos de la catenaria escogida en variables del programa
+'//
 Module cargar_lac
     Public posicion_feed_pos As String
     Sub cargar_lac()
-
+        '//
+        '// crear objeto base de datos y abrir la base de datos
+        '//
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
-        'LEER NOMBRE CATENARIA Y CARGAR
         'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
+        '//
+        '// realiación de la consulta
+        '//
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
 
         While oRead.Read
-
-            'El DataReader se situa sobre el registro
-
+            '//
+            '// cargar los datos generales de la catenaria de la BBDD a variables
+            '//
             If (Pantalla_principal.nueva_lac = oRead("nombre_cat")) Then
                 nombre_cat = oRead("nombre_cat")
                 sist = oRead("sist")
@@ -111,24 +120,28 @@ Module cargar_lac
                 el_hc = oRead("el_hc")
                 tip_carril = oRead("tip_carril")
                 ancho_carril = oRead("ancho_carril")
-
             End If
-
         End While
-
+        '//
+        '// cerrar la base de datos
+        '//
         oRead.Close()
         oConn.Close()
-
-        'LECTURA DE LA TABLA CONDUCTORES Y CABLES
-
+        '//
+        '// crear objeto base de datos y abrir la base de datos
+        '//
         'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
+        '//
+        '// realiación de la consulta
+        '//
         oComm = New OleDbCommand("select * from Conductores_y_cables", oConn)
         oRead = oComm.ExecuteReader
-
         While oRead.Read
-
+            '//
+            '// cargar los datos de conductores de la BBDD a variables
+            '//
             If oRead("tip_cyc") = ("HC") And oRead("mat_cyc") = hc Then
                 sec_hc = oRead("sec_cyc")
                 diam_hc = oRead("diam_cyc")
@@ -234,13 +247,14 @@ Module cargar_lac
             End If
 
         End While
+        '//
+        '// cerrar la base de datos
+        '//
         oRead.Close()
         oConn.Close()
-
-        'LECTURA DE LA TABLA MACIZOS
-        'LECTURA DE LA TABLA POSTES
-
-
+        '//
+        '// actualizar la pantalla principal
+        '//
         Pantalla_principal.Label1.Hide()
         Pantalla_principal.Label2.Hide()
         Pantalla_principal.TextBox1.Hide()
@@ -255,8 +269,6 @@ Module cargar_lac
         Pantalla_principal.Label3.Show()
         Pantalla_principal.Button2.Show()
         Pantalla_principal.GroupBox2.Show()
-
-
 
     End Sub
 End Module

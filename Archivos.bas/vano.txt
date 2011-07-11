@@ -1,11 +1,19 @@
 Attribute VB_Name = "vano"
+'//
+'// Rutina destinada a encontrar el vano correspondiente al radio
+'//
 Function vano(ByRef rayon As Double) As Double
 Dim m As Integer
+'//
+'// inicializar variables
+'//
 m = 3
 If rayon < 0 Then
     rayon = rayon * (-1)
 End If
-' buscar en que fila de la hoja 2 contiene el radio actual y elegir el vano correspondiente
+'//
+'// buscar fila de la hoja 2 que contiene radio y elegir el vano correspondiente
+'//
 If Not rayon = 0 Then
     While rayon < Sheets(2).Cells(m, 3).Value _
     Or rayon > Sheets(2).Cells(m, 2).Value

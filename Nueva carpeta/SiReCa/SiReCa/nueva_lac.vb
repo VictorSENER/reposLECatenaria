@@ -1,6 +1,15 @@
-﻿Imports System.Data.OleDb
+﻿'//
+'//Importar libreria
+'//
+Imports System.Data.OleDb
+'//
+'// Rutina destinada a introducir valores de catenaria y guardarlos en BBDD
+'//
 Module nueva_lac
     Sub nueva_lac()
+        '//
+        '// crear objeto base de datos y abrir la tabla de base de datos que contiene la catenaria escogida
+        '//
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oComm2 As OleDbCommand
@@ -10,12 +19,9 @@ Module nueva_lac
         'INTRODUCIR NUEVA CATENARIA FALTA VER QUE EL NOMBRE ESCRITO NO COINCIDA
 
         oComm = New OleDbCommand("insert into Datos(nombre_cat, sist, al, alt_nom, alt_min, alt_max, alt_cat, dist_max_va, dist_max_canton, va_max, va_max_sm, va_max_sla, va_max_tunel, inc_norm_va, inc_max_alt_hc, n_min_va_sm, n_min_va_sla, ancho_via, d_max_re, d_max_cu, r_re, d_max_ad, el_max_pant, vw, fl_max_centro_va, dist_carril_poste, dist_base_poste_pmr, dist_elect_sm, dist_elect_sla, l_zc_max, l_zc_min, l_zn, r_min_traz, hc, sust, cdpa, cdte, feed_pos, feed_neg, pto_fijo, pend, anc, posicion_feed_pos, posicion_feed_neg, n_hc, n_cdpa, n_feed_pos, n_feed_neg, t_hc, t_sust, t_cdpa, t_feed_pos, t_feed_neg, t_pto_fijo, adm_lin_poste, tip_poste, num_poste, adm_lin_mac, tip_mac, tubo_men, tubo_tir, cola_anc, aisl_feed_pos, aisl_feed_neg, dist_ap_prim_pend, dist_prim_seg_pend, dist_max_pend, idioma, dist_vert_feed_pos, dist_horiz_feed_pos, dist_vert_feed_neg, dist_horiz_feed_neg, dist_vert_cdpa, dist_horiz_cdpa, dist_horiz_equip_t, dist_horiz_equip_comp, dist_vert_hc_anc, dist_vert_sust_anc, alt_cat_se_sm_el, alt_cat_e_sm, alt_cat_se_sla_el, alt_cat_e_sla, alt_cat_se_ag_el, alt_cat_e_ag, alt_cat_se_zn_el, alt_cat_e_zn, sep_hc, p_medio_equip_t, p_medio_equip_comp, el_hc, tip_carril, ancho_carril) values(@nombre_cat, @sist, @al, @alt_nom, @alt_min, @alt_max, @alt_cat, @dist_max_va, @dist_max_canton, @va_max, @va_max_sm, @va_max_sla, @va_max_tunel, @inc_norm_va, @inc_max_alt_hc, @n_min_va_sm, @n_min_va_sla, @ancho_via, @d_max_re, @d_max_cu, @r_re, @zona_trab_pant, @el_max_pant, @vw, @fl_max_centro_va, @dist_carril_poste, @dist_base_poste_pmr, @dist_elect_sm, @dist_elect_sla, @l_zc_max, @l_zc_min, @l_zn, @r_min_traz, @hc, @sust, @cdpa, @cdte, @feed_pos, @feed_neg, @pto_fijo, @pend, @anc, @posicion_feed_pos, @posicion_feed_neg, @n_hc, @n_cdpa, @n_feed_pos, @n_feed_neg, @t_hc, @t_sust, @t_cdpa, @t_feed_pos, @t_feed_neg, @t_pto_fijo, @adm_lin_poste, @tip_poste, @num_poste, @adm_lin_mac, @tip_mac, @tubo_men, @tubo_tir, @cola_anc, @aisl_feed_pos, @aisl_feed_neg, @dist_ap_prim_pend, @dist_prim_seg_pend, @dist_max_pend, @idioma, @dist_vert_feed_pos, @dist_horiz_feed_pos, @dist_vert_feed_neg, @dist_horiz_feed_neg, @dist_vert_cdpa, @dist_horiz_cdpa, @dist_horiz_equip_t, @dist_horiz_equip_comp, @dist_vert_hc_anc, @dist_vert_sust_anc, @alt_cat_se_sm_el, @alt_cat_e_sm, @alt_cat_se_sla_el, @alt_cat_e_sla, @alt_cat_se_ag_el, @alt_cat_e_ag, @alt_cat_se_zn_el, @alt_cat_e_zn, @sep_hc, @p_medio_equip_t, @p_medio_equip_comp, @el_hc, @tip_carril, @ancho_carril)", oConn)
-
         oComm2 = New OleDbCommand("select * from Datos", oConn)
         oConn.Open()
-
         oRead = oComm2.ExecuteReader
-
         If Pantalla_datos.Text_nombre_cat.Visible Then
 
             While oRead.Read
@@ -38,8 +44,9 @@ Module nueva_lac
             oComm.Parameters("@nombre_cat").Value = Pantalla_principal.nueva_lac
 
         End If
-
-
+        '//
+        '// cargar los datos de la pantalla a la BBDD
+        '//
         oComm.Parameters.Add(New OleDbParameter("@sist", OleDbType.VarChar))
         oComm.Parameters("@sist").Value = Pantalla_datos.Combo_sist.Text
 
@@ -312,15 +319,23 @@ Module nueva_lac
 
         oComm.Parameters.Add(New OleDbParameter("@ancho_carril", OleDbType.VarChar))
         oComm.Parameters("@ancho_carril").Value = Pantalla_datos.Text_ancho_carril.Text
-
+        '//
+        '// cerrar la conexión con la BBDD
+        '//
         oComm2.Connection.Close()
         oComm.Connection.Open()
         On Error GoTo mserror
         oComm.ExecuteNonQuery()
         oComm.Connection.Close()
         MsgBox("RESGITRO AÑADIDO")
+        '//
+        '// cargar los datos a variables y cerrar la pantalla de datos
+        '//
         cargar_lac.cargar_lac()
         Pantalla_datos.Close()
+        '//
+        '// actualizar pantalla principal
+        '//
         Pantalla_principal.Label1.Hide()
         Pantalla_principal.Label2.Hide()
         Pantalla_principal.TextBox1.Hide()
@@ -332,9 +347,10 @@ Module nueva_lac
         Pantalla_principal.RadioButton2.Hide()
         Pantalla_principal.GroupBox1.Text = "Datos de catenaria introducidos"
         Pantalla_principal.GroupBox2.ForeColor = Color.Green
-
-
         Exit Sub
+        '//
+        '// mensaje al tener celdas vacias
+        '//
 mserror:
         oComm.Connection.Close()
         MsgBox("FALTAN CAMPOS POR COMPLETAR")

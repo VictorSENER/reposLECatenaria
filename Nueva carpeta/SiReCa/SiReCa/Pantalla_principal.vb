@@ -115,25 +115,9 @@ Public Class Pantalla_principal
                     Pantalla_datos.Conductor_SustentadorTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_Sustentador)
                     'TODO: esta línea de código carga datos en la tabla 'Base_de_datosDataSet.Conductor_HC' Puede moverla o quitarla según sea necesario.
                     Pantalla_datos.Conductor_HCTableAdapter.Fill(Pantalla_datos.Base_de_datosDataSet.Conductor_HC)
-
-
-                    'Pantalla_datos.Text_nombre_cat.Hide()
-                    'Pantalla_datos.Label2.Hide()
                     Pantalla_datos.Show()
                     Pantalla_datos.Combo_sist.Text = ""
-                    'Pantalla_datos.Combo_posicion_feed_pos.Text = "algo"
                     Pantalla_datos.Combo_hc.Text = ""
-                    'Pantalla_datos.Combo_sust.Text = ""
-                    'Pantalla_datos.Combo_cdpa.Text = ""
-                    'Pantalla_datos.Combo_cdte.Text = ""
-                    'Pantalla_datos.Combo_feed_pos.Text = ""
-                    'Pantalla_datos.Combo_feed_neg.Text = ""
-                    'Pantalla_datos.Combo_pto_fijo.Text = ""
-                    'Pantalla_datos.Combo_pend.Text = ""
-                    'Pantalla_datos.Combo_anc.Text = ""
-                    'Pantalla_datos.Combo_adm_lin_poste.Text = ""
-                    'Pantalla_datos.Combo_adm_lin_mac.Text = ""
-
                     Me.Label3.Show()
                     Me.Button2.Show()
                     Me.GroupBox2.Show()

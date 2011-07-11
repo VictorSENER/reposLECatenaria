@@ -25,10 +25,18 @@ d_max_cu_var = d_max_cu
     fuerza_viento = 0.625 * coef_viento * (vw ^ 2) * (diam_hc + diam_sust + diam_pend * 0.15)
        
     va_max_re = 2 * Sqr((t_tot / fuerza_viento) * (d_max_ad + Sqr((d_max_ad ^ 2) - (d_max_re ^ 2))))
+    
+    va_max_re = Int(va_max_re)
+    
     va_max_var = va_max
     
     While va_max_re < va_max_var
-        va_max_var = va_max_var - inc_norm_va
+        While (va_max_re / inc_norm_va) <> Int(va_max_re / inc_norm_va)
+            va_max_re = va_max_re - 0.5
+        Wend
+    
+        va_max_var = va_max_re
+
     Wend
       
     'zona recta
@@ -72,15 +80,23 @@ inicio:
         r = r - 50
         va_max_cu = Sqr((8 * r * t_tot * (d_max_ad + d_max_cu)) / (fuerza_viento * r + t_tot))
     Wend
-    
+        
     Sheets(2).Cells(i + 3, 2) = r + 50
     Sheets(2).Cells(i + 3, 4) = d_max_cu
     Sheets(2).Cells(i + 3, 5) = d_max_cu
     
-    
     If r < r_min_traz Then
-        Sheets(2).Cells(i + 2, 3) = r + 50
-        Sheets(2).Cells(i + 2, 1) = va_max_var
+    
+        va_max_cu = Sqr((8 * r_min_traz * t_tot * (d_max_ad + d_max_cu)) / (fuerza_viento * r + t_tot))
+        If va_max_cu >= va_max_var Then
+            Sheets(2).Cells(i + 2, 3) = r_min_traz
+            Sheets(2).Cells(i + 2, 1) = va_max_var
+            GoTo fin
+        Else
+            Sheets(2).Cells(i + 2, 3) = r + 50
+            Sheets(2).Cells(i + 2, 1) = va_max_var
+            GoTo fin
+        End If
     GoTo fin
     End If
     
@@ -88,6 +104,11 @@ inicio:
     Sheets(2).Cells(i + 2, 1) = va_max_var
     i = i + 1
     va_max_cu = va_max_var - inc_norm_va
+    
+        While (va_max_cu / inc_norm_va) <> Int(va_max_cu / inc_norm_va)
+            va_max_cu = va_max_cu + 0.5
+        Wend
+    
     va_max_var = va_max_cu
     
     GoTo inicio
@@ -136,3 +157,4 @@ fin:
     Sheets(2).Cells(i + 10, 5) = ""
 
 End Sub
+

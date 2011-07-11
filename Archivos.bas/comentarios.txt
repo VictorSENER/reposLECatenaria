@@ -1,30 +1,35 @@
 Attribute VB_Name = "comentarios"
+'//
+'// Rutina destinada a incluir los comentarios del trazado
+'//
 Sub comentarios()
 Dim z As Integer, aloc As Integer
 Dim valor As String, guardar As String, rango As Range
-'inicializar variables locales
+'//
+'// inicializar variables locales
+'//
 z = 10
 aloc = 3
-'inicio de la rutina principal
+'//
+'// inicio de la rutina
+'//
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+    '//
+    '// buscar puntos sigulares
+    '//
     While Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
     aloc = aloc + 1
     Wend
+    '//
+    '// Si coinciden con puntos singulares, escribir su respectivo comentario
+    '//
     If Sheets(1).Cells(z + 2, 33).Value >= Sheets(4).Cells(aloc, 21).Value Then
-    If Sheets(4).Cells(aloc, 1).Value = "Buse" Or Sheets(4).Cells(aloc, 1).Value = "Dalot" _
-    Or Sheets(4).Cells(aloc, 1).Value = "Pont" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
+    If Sheets(4).Cells(aloc, 1).Value = "Conducto" Or Sheets(4).Cells(aloc, 1).Value = "Drenaje" _
+    Or Sheets(4).Cells(aloc, 1).Value = "Puente" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
     Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" _
-    Or Sheets(4).Cells(aloc, 1).Value = "PontXL" Or Sheets(4).Cells(aloc, 1).Value = "P.N." Then
-    If Sheets(4).Cells(aloc, 1).Value = "P.I." Then
-        valor = "Passage inférieur"
-    ElseIf Sheets(4).Cells(aloc, 1).Value = "P.N." Then
-        valor = "Passage à niveau"
-    ElseIf Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" Then
-        valor = Sheets(4).Cells(aloc, 3).Value
-    Else
-        valor = Sheets(4).Cells(aloc, 1).Value
-    End If
-    If valor = "Aiguillage" Then
+    Or Sheets(4).Cells(aloc, 1).Value = "PuenteXL" Or Sheets(4).Cells(aloc, 1).Value = "P.N." Then
+    valor = Sheets(4).Cells(aloc, 23).Value
+    If Sheets(4).Cells(aloc, 1).Value = "Aguja" Then
         z_var = z
     Else
         z_var = z + 1
@@ -38,10 +43,7 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     If Not IsEmpty(Sheets(1).Cells(z_var, 25).Value) Then
         guardar = Sheets(1).Cells(z_var, 25).Value
         Sheets(1).Cells(z_var, 25).Value = ""
-        'Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25)).MergeCells = True
         Sheets(1).Cells(z_var, 25).Value = guardar & " - " & valor
-    'Else
-        'Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25)).MergeCells = True
     End If
     With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25))
     .Borders(xlEdgeLeft).LineStyle = 2

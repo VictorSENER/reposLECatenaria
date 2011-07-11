@@ -1,25 +1,32 @@
-﻿Imports System.Data.OleDb
+﻿'//
+'//Importar libreria
+'//
+Imports System.Data.OleDb
+'//
+'// Rutina destinada a aprovechar catenaria existente y realizar cambios
+'//
 Module modificar_lac
-
     Sub modificar_lac()
-
+        '//
+        '// crear objeto base de datos y abrir la base de datos
+        '//
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
-        'LEER NOMBRE CATENARIA Y CARGAR
         'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
+        '//
+        '// realiación de la consulta
+        '//
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
-
         While oRead.Read
-
-            'El DataReader se situa sobre el registro
-
+            '//
+            '// cargar los datos generales de la catenaria de la BBDD a la pantalla
+            '//
             If (Pantalla_principal.nueva_lac = oRead("nombre_cat")) Then
-
-                Pantalla_datos.Combo_sist.Text = oRead("sist") 'Lee los campos que se requieran ya situado sobre el registro correspondiente
+                Pantalla_datos.Combo_sist.Text = oRead("sist")
                 Pantalla_datos.Text_alt_nom.Text = oRead("alt_nom")
                 Pantalla_datos.Text_alt_min.Text = oRead("alt_min")
                 Pantalla_datos.Text_alt_max.Text = oRead("alt_max")
@@ -111,17 +118,16 @@ Module modificar_lac
                 Pantalla_datos.Text_el_hc.Text = oRead("el_hc")
                 Pantalla_datos.Combo_tip_carril.Text = oRead("tip_carril")
                 Pantalla_datos.Text_ancho_carril.Text = oRead("ancho_carril")
-
             End If
-
         End While
-
+        '//
+        '// cerrar la base de datos
+        '//
         oRead.Close()
         oConn.Close()
+        '//
+        '// Mostrar la pantalla de datos
+        '//
         Pantalla_datos.Show()
-
-
-
     End Sub
-
 End Module

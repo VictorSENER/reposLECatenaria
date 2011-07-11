@@ -1,6 +1,10 @@
-﻿
+﻿'//
+'// Rutina destinada a comunicarse con el Excel y activar su programación
+'//
 Module run
-    ' variables publicas para tabla de replanteo
+    '//
+    '// variables publicas para tabla de replanteo
+    '//
     Public caso As String
     Public uno As Integer
     Public nombre_cat As String, sist As String, al As String, alt_nom As Double, alt_min As Double, alt_max As Long, alt_cat As Double, dist_va_max As Long, dist_max_canton As Double, va_max As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double, inc_norm_va As Double, inc_max_alt_hc As Double, n_min_va_sm As Double, n_min_va_sla As Double, ancho_via As Double, d_max_re As Double, d_max_cu As Double, r_re As Double, d_max_ad As Double, el_max_pant As Double, vw As Double, fl_max_centro_va As Double, dist_carril_poste As Double, dist_base_poste_pmr As Double, dist_elect_sm As Double, dist_elect_sla As Double, l_zc_max As Double, l_zc_min As Double, l_zn As Double, r_min_traz As Double, hc As String, sust As String, cdpa As String, cdte As String, feed_pos As String, feed_neg As String, pto_fijo As String, pend As String, anc As String, posicion_feed_neg As String, n_hc As Long, n_cdpa As Long, n_feed_pos As Long, n_feed_neg As Long, t_hc As Double, t_sust As Double, t_cdpa As Double, t_feed_pos As Double, t_feed_neg As Double, t_pto_fijo As Double, adm_lin_poste As String, tip_poste As String, num_poste As String, adm_lin_mac As String, tip_mac As String, tubo_men As String, tubo_tir As String, cola_anc As String, aisl_feed_pos As String, aisl_feed_neg As String, dist_ap_prim_pend As Long, dist_prim_seg_pend As Long, dist_max_pend As Long, idioma As String
@@ -24,20 +28,31 @@ Module run
     Public fuerza_s(2) As String
     Public momento(44) As Double
     Public Sub run_excel(ByVal inicio, ByVal fin, ByVal ruta_replanteo, ByVal nombre_excel, ByVal ruta_trazado)
-
-        'generar un objeto excel
+        '//
+        '// generar un objeto excel
+        '//
         objExcel = New Microsoft.Office.Interop.Excel.Application
-        'cargar las hojas del trazado
-        xLibro = objExcel.Workbooks.Open(ruta_trazado)
-
-        'objExcel.Workbooks.Add()
         'objExcel.Visible = True
+        '//
+        '// abrir el excel de trazado
+        '//
+        xLibro = objExcel.Workbooks.Open(ruta_trazado)
+        '//
+        '// cargar y activar la rutina formato.lenguaje
+        '//
+        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\formato.txt")
+        objExcel.Run("formato.lenguaje", idioma)
+        '//
+        '// añadir hojas para trabajar con el excel
+        '//
         objExcel.Worksheets.Add(Before:=objExcel.Worksheets(1))
         objExcel.Worksheets.Add(Before:=objExcel.Worksheets(2))
         objExcel.Worksheets.Add(After:=objExcel.Worksheets(6))
         objExcel.Worksheets.Add(After:=objExcel.Worksheets(7))
         objExcel.Worksheets.Add(After:=objExcel.Worksheets(8))
-        'cargar los modulos
+        '//
+        '// cargar los modulos desde los doc's TXT
+        '//
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\principal.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\punto_singular.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\altura.txt")
@@ -52,13 +67,14 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\revision.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\vano.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\comentarios.txt")
-        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\formato.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\tabla_vanos.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\momento.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\cargar.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\eleccion.txt")
         objExcel.VBE.ActiveVBProject.References.AddFromFile("C:\Documents and Settings\23370\Escritorio\SiReCa\msado15.dll")
-        'ejecutar rutinas antes del programa principal
+        '//
+        '// ejecutar rutinas antes del programa principal
+        '//
         objExcel.Run("tabla_vanos.tabla_vanos", nombre_cat)
 
         Pantalla_principal.Button5.Visible = False
@@ -70,12 +86,17 @@ Module run
         Pantalla_principal.Label5.Visible = False
         Pantalla_principal.Label6.Visible = False
         Pantalla_principal.Label8.Visible = False
-        'actualizar la barra de progreso
+        '//
+        '// actualizar la barra de progreso
+        '//
         With Pantalla_principal.ProgressBar1
             .Maximum = fin + 60
             .Minimum = inicio
             .Value = inicio
         End With
+        '//
+        '// actualizar la apariencia de la plantalla
+        '//
         Pantalla_principal.ProgressBar1.Visible = True
         Pantalla_principal.Label10.Visible = True
         Pantalla_principal.ProgressBar2.Visible = True
@@ -87,32 +108,38 @@ Module run
         End With
         Pantalla_principal.ProgressBar2.Visible = True
         Pantalla_principal.Refresh()
-        'ejecutar el programa en excel y actualizar contadores
+        '//
+        '// ejecutar el programa en excel e inicializar contadores
+        '//
         a = 3
         b = 3
         c = 3
         h = 10
         k = 3
         w = 1
-        'formato del contenido de las celdas
+        '//
+        '// formato del contenido de las celdas
+        '//
         xLibro.Worksheets(1).Columns(1).NumberFormat = "@"
         xLibro.Worksheets(1).range("A1", "AA10001").ColumnWidth = 16
         xLibro.Worksheets(1).Range("A1", "AA10001").RowHeight = 14
+        '//
+        '// activación del programa principal de excel
+        '//
         tiempo = objExcel.Run("principal.principal", inicio, h, w, k, a, b, c, r_re, _
                               dist_va_max, inc_norm_va, va_max_tunel, va_max, dist_max_canton, _
                               va_max_sm)
-        'objExcel.ActiveWorkbook.SaveAs(ruta_replanteo & "\" & nombre_excel, 52)
-
-
-
-        'eliminar modulos
+        '//
+        '// rutina del programa principal y actualización de barra de estado
+        '//
         While tiempo(7) < fin
             tiempo = objExcel.Run("principal.principal", tiempo(0), tiempo(1), tiempo(2), tiempo(3), tiempo(4), tiempo(5), tiempo(6), _
                               r_re, dist_va_max, inc_norm_va, va_max_tunel, va_max, dist_max_canton, va_max_sm)
             Pantalla_principal.ProgressBar1.Value = tiempo(7)
-
         End While
-
+        '//
+        '// activación del resto de rutinas y actualización de la barra de estado
+        '//
         Pantalla_principal.Label11.Text = "Módulo conversión de PK"
         Pantalla_principal.ProgressBar2.Value = 1
         Pantalla_principal.Refresh()
@@ -150,7 +177,6 @@ Module run
         Pantalla_principal.ProgressBar2.Value = 9
         Pantalla_principal.Refresh()
         objExcel.Run("formato.formato", idioma)
-
         Pantalla_principal.Label11.Text = "Módulo elección postes"
         Pantalla_principal.ProgressBar2.Value = 10
         Pantalla_principal.Refresh()
@@ -165,7 +191,9 @@ Module run
         'objExcel.Run("im_pend(fin)")
         objExcel.Run("revision.revision")
         Pantalla_principal.ProgressBar2.Value = 13
-        'borrar los módulos
+        '//
+        '// borrar los módulos del excel
+        '//
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("principal"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("singular"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("altura"))
@@ -186,6 +214,9 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("eleccion"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("momento"))
         objExcel.DisplayAlerts = False
+        '//
+        '// borrar las hojas no presentables
+        '//
         xLibro.Worksheets(9).Delete()
         xLibro.Worksheets(8).Delete()
         xLibro.Worksheets(6).Delete()
@@ -194,9 +225,15 @@ Module run
         xLibro.Worksheets(3).Delete()
         xLibro.Worksheets(2).Delete()
         xLibro.Worksheets(1).activate()
+        '//
+        '// cambiar el nombre de las hojas principales
+        '//
         xLibro.Worksheets(1).name = "Replanteo"
         xLibro.Worksheets(2).name = "Errores"
         objExcel.DisplayAlerts = True
+        '//
+        '// guardar y cerrar el excel y su objeto
+        '//
         objExcel.ActiveWorkbook.SaveAs(ruta_replanteo & "\" & nombre_excel, 56)
         xLibro.Close()
         objExcel.Quit()

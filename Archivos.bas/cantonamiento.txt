@@ -1,4 +1,7 @@
 Attribute VB_Name = "cantonamiento"
+'//
+'// Declaración de variables publicas (para durante)
+'//
 Public INI As Double, finish As Double
 Public tipo_singular_out As String, tipo_singular_in As String
 Public hini As Integer, acan As Integer
@@ -20,28 +23,28 @@ End If
 
 
     While (Sheets(4).Cells(acan, 1).Value <> "Tunel" And Sheets(4).Cells(acan, 22).Value <> "IN" And Sheets(4).Cells(acan, 23).Value <> "FINAL" _
-     And Sheets(4).Cells(acan, 22).Value <> "OUT" And Sheets(4).Cells(acan, 1).Value <> "Zone") Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(hini, 33).Value)
+     And Sheets(4).Cells(acan, 22).Value <> "OUT" And Sheets(4).Cells(acan, 1).Value <> "Zona") Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(hini, 33).Value)
         acan = acan + 1
         tipo_singular_out = Sheets(4).Cells(acan, 1).Value
         INI = Sheets(1).Cells(hini, 33).Value
         finish = Sheets(4).Cells(acan, 2).Value
     Wend
-    If tipo_singular_out = "Aiguillage" And Sheets(4).Cells(acan - 1, 22).Value <> "IN" Then
+    If tipo_singular_out = "Aguja" And Sheets(4).Cells(acan - 1, 22).Value <> "IN" Then
         tipo_singular_in = "inicio"
     End If
     'prin = Sheets(1).Cells(hini, 33).Value
     Select Case tipo_singular_out
         Case Is = "Tunel"
-            If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 1, 1).Value = "Aiguillage" Then
+            If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 1, 1).Value = "Aguja" Then
                 'a = a + 1
                 tipo_singular_out = Sheets(4).Cells(acan, 1).Value
                 finish = Sheets(4).Cells(acan, 2).Value
-             ElseIf tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 2, 1).Value = "Aiguillage" Then
+             ElseIf tipo_singular_in = tipo_singular_out And Sheets(4).Cells(acan + 2, 1).Value = "Aguja" Then
                 acan = acan + 1
                 tipo_singular_out = Sheets(4).Cells(acan, 1).Value
                 finish = Sheets(4).Cells(acan, 2).Value
             End If
-        Case Is = "Aiguillage"
+        Case Is = "Aguja"
             If tipo_singular_in = tipo_singular_out And (Sheets(4).Cells(acan, 2).Value - Sheets(4).Cells(acan - 1, 2).Value) + 650 > dist_max_canton _
              And (finish >= Sheets(4).Cells(acan - 1, 2).Value And finish < Sheets(4).Cells(acan, 2).Value) Then
                 finish = Sheets(4).Cells(acan, 2).Value - (Sheets(4).Cells(acan, 2).Value - Sheets(4).Cells(acan - 1, 2).Value) / 2
@@ -56,7 +59,7 @@ If INI + dist_max_canton < Sheets(1).Cells(h, 33).Value Or finish < Sheets(1).Ce
     z = h
     If finish < Sheets(1).Cells(h, 33).Value Then
     Select Case tipo_singular_out
-        Case Is = "Aiguillage"
+        Case Is = "Aguja"
             If Sheets(4).Cells(acan, 22).Value = "IN" Then
                 z = h - 8
             Else
@@ -76,11 +79,17 @@ If INI + dist_max_canton < Sheets(1).Cells(h, 33).Value Or finish < Sheets(1).Ce
     Call two(z, pk)
 End If
 End Sub
+'//
+'// Rutina destinada a realizar el cantonamiento al final del replanteo
+'//
 Sub canton_final(nombre_cat, fin)
 Dim total As Double, ncanton As Double, lcanton As Double, corte As Double, prin As Double, Error As Double
 Dim a As Integer, h As Integer, hini As Integer, contador As Integer
 Dim algo As Double
 Dim resultado As Integer
+'//
+'// inicializar variables
+'//
 Call cargar.datos_acces(nombre_cat)
 h = 10
 z = 10
@@ -98,31 +107,49 @@ If h = 10 Then
         hini = h
 End If
 tipo_singular_in = "inicio"
+
+'//
+'// Inicio de la rutina, realizar hasta encontrar una celda vacia
+'//
 While Not IsEmpty(Sheets(1).Cells(h, 33).Value) And Not IsEmpty(Sheets(1).Cells(beta, 33).Value)
+    '//
+    '// Encontrar puntos singulares (tuneles, agujas y zonas neutras)
+    '//
     While (Sheets(4).Cells(a, 1).Value <> "Tunel" And Sheets(4).Cells(a, 22).Value <> "IN" And Sheets(4).Cells(a, 23).Value <> "FINAL" _
-     And Sheets(4).Cells(a, 22).Value <> "OUT" And Sheets(4).Cells(a, 1).Value <> "Zone") Or (Sheets(4).Cells(a, 2).Value < Sheets(1).Cells(hini, 33).Value)
+    And Sheets(4).Cells(a, 22).Value <> "OUT" And Sheets(4).Cells(a, 1).Value <> "Zona") Or (Sheets(4).Cells(a, 2).Value < Sheets(1).Cells(hini, 33).Value)
         a = a + 1
     Wend
+    '//
+    '// Inicializar variables locales
+    '//
     tipo_singular_out = Sheets(4).Cells(a, 1).Value
     INI = Sheets(1).Cells(hini, 33).Value
     prin = Sheets(1).Cells(hini, 33).Value
+    '//
+    '// Escoger el tratamiento del tramo siguiente
+    '//
     Select Case tipo_singular_out
         Case Is = "Tunel"
-            If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a + 1, 1).Value = "Aiguillage" Then
+            If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a + 1, 1).Value = "Aguja" Then
                 a = a + 1
                 tipo_singular_out = Sheets(4).Cells(a, 1).Value
-             ElseIf tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a + 2, 1).Value = "Aiguillage" Then
+             ElseIf tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a + 2, 1).Value = "Aguja" Then
                 a = a + 2
                 tipo_singular_out = Sheets(4).Cells(a, 1).Value
             End If
     End Select
     beta = h
+    '//
+    '// Encontrar puntos singulares siguiente (tuneles, agujas y zonas neutras)
+    '//
     While (Sheets(1).Cells(beta, 33).Value < Sheets(4).Cells(a, 2).Value _
      Or (tipo_singular_out = "Tunel" And tipo_singular_in = "Tunel" And Sheets(1).Cells(beta, 33).Value < Sheets(4).Cells(a, 21).Value)) _
      And Not IsEmpty(Sheets(1).Cells(beta, 33).Value)
         beta = beta + 2
     Wend
-    
+    '//
+    '// Calcular y escoger el Pk final del seccionamiento
+    '//
     If Sheets(4).Cells(a, 1).Value = "Tunel" And Sheets(1).Cells(h, 33).Value > Sheets(4).Cells(a, 2).Value _
     And (Sheets(4).Cells(a, 21).Value - Sheets(4).Cells(a, 2).Value > dist_max_canton) Then
         final2 = Sheets(4).Cells(a + 2, 2).Value
@@ -134,177 +161,204 @@ While Not IsEmpty(Sheets(1).Cells(h, 33).Value) And Not IsEmpty(Sheets(1).Cells(
         final2 = Sheets(1).Cells(beta + 10, 33).Value
     ElseIf Sheets(4).Cells(a, 1).Value = "Tunel" Then
         final2 = Sheets(1).Cells(beta - 2, 33).Value
-    ElseIf tipo_singular_out = "Zone" Then
+    ElseIf tipo_singular_out = "Zona" Then
         final2 = Sheets(1).Cells(beta - 6, 33).Value
     End If
     total = final2 - INI
     ncanton1 = (total \ dist_max_canton) + 1
     lcanton = ((total) / ncanton1)
-    'corte = INI + lcanton1
     ncanton = 0
-While ncanton1 <> ncanton
-    z = hini
-    total = final2 - INI
-    ncanton = ncanton1
-    lcanton = ((total) / ncanton)
-    corte = INI + lcanton
-    While Sheets(1).Cells(z, 33).Value <= final2 And Sheets(1).Cells(z, 33).Value < fin
-
-        If Val(corte) < Val(Sheets(1).Cells(z, 33).Value) Then
-            total = total + (Sheets(1).Cells(z - 2, 33).Value - Sheets(1).Cells(z - 10, 33).Value) + (Sheets(1).Cells(z, 33).Value - corte) + 10
-            corte = corte + lcanton
-        End If
-        z = z + 2
+    '//
+    '// Calcular el numero de seccionamientos y la longitud de cada uno de ellos
+    '//
+    While ncanton1 <> ncanton
+        z = hini
+        total = final2 - INI
+        ncanton = ncanton1
+        lcanton = ((total) / ncanton)
+        corte = INI + lcanton
+        '//
+        '// Calcular el incremento de distancia en los seccionamientos
+        '//
+        While Sheets(1).Cells(z, 33).Value <= final2 And Sheets(1).Cells(z, 33).Value < fin
+            If Val(corte) < Val(Sheets(1).Cells(z, 33).Value) Then
+                total = total + (Sheets(1).Cells(z - 2, 33).Value - Sheets(1).Cells(z - 10, 33).Value) + (Sheets(1).Cells(z, 33).Value - corte) + 10
+                corte = corte + lcanton
+            End If
+            z = z + 2
+        Wend
+        ncanton1 = (total \ dist_max_canton) + 1
     Wend
-    ncanton1 = (total \ dist_max_canton) + 1
-
-Wend
+    '//
+    '// Calcular la longitud media del cantonamiento, el final del seccionamiento y punto fijo
+    '//
     lcanton = ((total) / ncanton)
     corte = INI + lcanton
     fijo = corte - (lcanton / 2)
-While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < fin
-    'Sheets(1).Cells(h, 1).Value = corte
-    'Sheets(1).Cells(h, 2).Value = ncanton
-    If corte <= (Sheets(1).Cells(h, 33).Value) Then
+    '//
+    '// Avanzar hasta llegar al final del seccionamiento o final del tramo
+    '//
+    While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < fin
+        '//
+        '// Seccionamientos
+        '//
+        If corte <= (Sheets(1).Cells(h, 33).Value) Then
+        '//
+        '// Escribir información de cantonamiento: longitud cantonamiento, longitud punto fijo,
+        '// inicialización siguiente cantonamiento, escribir tipo de seccionamiento en 4 vanos.
+        '//
+        Select Case ncanton
+           Case Is > 2
+                Call pintar(h - 2, hini, 27)
+                Call pintar(h - 2, hfijo - 1, 26)
+                Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
+                Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
+                Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
+                Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
+                corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
+                prin = Sheets(1).Cells(h - 10, 33).Value
+                hini = h - 10
+                fijo = prin + (lcanton / 2)
+                ncanton = ncanton - 1
+                '//
+                '// caso particular para cantonamiento en tunel largo
+                '//
+                If tipo_singular_in = "Tunel" Then
+                    Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
+                    Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
+                    Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
+                    Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
+                    Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
+                Else
+                    Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
+                    Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
+                    Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
+                    Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
+                    Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
+                End If
+                Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
+                Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
     
-    Select Case ncanton
-    
-    
-       Case Is > 2
-            Call pintar(h - 2, hini, 27)
-            Call pintar(h - 2, hfijo - 1, 26)
-            Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
-            Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
-            Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
-            Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
-            corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
-            prin = Sheets(1).Cells(h - 10, 33).Value
-            hini = h - 10
-            fijo = prin + (lcanton / 2)
-            ncanton = ncanton - 1
-            If tipo_singular_in = "Tunel" Then
-                Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
-                Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
-                Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
-                Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
-                Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
-            Else
+            Case Is = 2
+                Call pintar(h - 2, hini, 27)
+                Call pintar(h - 2, hfijo - 1, 26)
+                Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
+                Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
+                Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
+                Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
+                prin = Sheets(1).Cells(h - 10, 33).Value
+                hini = h - 10
                 Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
                 Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
                 Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
                 Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
                 Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
-            End If
-            Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
-            Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
-
-        Case Is = 2
-            Call pintar(h - 2, hini, 27)
-            Call pintar(h - 2, hfijo - 1, 26)
-            Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - prin
-            Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
-            Sheets(1).Cells(h - 2, 26).Value = Sheets(1).Cells(h - 2, 33).Value - puntofijo
-            Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h - 2, 26).Value
-            prin = Sheets(1).Cells(h - 10, 33).Value
-            hini = h - 10
-            Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
-            Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
-            Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
-            Sheets(1).Cells(h - 8, 16).Value = "Inter.Chevau."
-            Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau."
-
-            Select Case tipo_singular_out
-                Case Is = "Tunel"
-                    If tipo_singular_out = tipo_singular_in Then
-                        Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
-                        Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
-                    End If
-                    lcanton = final2 - prin
-                Case Is = "Aiguillage"
-                    If Sheets(4).Cells(a, 22).Value = "IN" Then
+    
+                Select Case tipo_singular_out
+                    Case Is = "Tunel"
+                        '//
+                        '// caso particular para cantonamiento dentro tunel largo
+                        '//
+                        If tipo_singular_out = tipo_singular_in Then
+                            Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
+                            Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
+                        End If
                         lcanton = final2 - prin
-                    ElseIf Sheets(4).Cells(a, 22).Value = "OUT" Then
+                    Case Is = "Aguja"
+                        '//
+                        '// caso particular para cantonamiento con final en aguja
+                        '//
+                        If Sheets(4).Cells(a, 22).Value = "IN" Then
+                            lcanton = final2 - prin
+                        '//
+                        '// caso particular para cantonamiento entre agujas
+                        '//
+                        ElseIf Sheets(4).Cells(a, 22).Value = "OUT" Then
+                            lcanton = final2 - prin
+                        End If
+                        '//
+                        '// caso particular para cantonamiento entre tunel y aguja
+                        '//
+                        If tipo_singular_in = "Tunel" Then
+                            Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
+                            Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
+                        End If
+                    Case Is = "Zona"
                         lcanton = final2 - prin
-                    End If
-                    If tipo_singular_in = "Tunel" Then
-                        Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau.sans AT"
-                        Sheets(1).Cells(h - 10, 16).Value = "Anc.Chevau.sans AT"
-                    End If
-                Case Is = "Zone"
-                    lcanton = final2 - prin
-            End Select
-            corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
-            fijo = prin + (lcanton / 2)
-            ncanton = ncanton - 1
-            Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
-            Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
-        Case Is = 1
-            Call pintar(h, hini, 27)
-            Call pintar(h, hfijo - 1, 26)
-            Select Case tipo_singular_out
-            
-                Case Is = "Zone"
-                    'Call pintar(h, hini, resultado, ncanton)
-                    ncanton = ncanton - 1
-                    Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
-                    Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
-                    Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
-                    hini = h - 12
-                    a = a + 1
-                Case Is = "Tunel"
-                    'Call pintar(h, hini, resultado, ncanton)
-                    Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
-                    Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
-                    Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
-                    Sheets(1).Cells(h, 16).Value = "Anc.Chevau."
-                    Sheets(1).Cells(h - 2, 16).Value = "Inter.Chevau."
-                    Sheets(1).Cells(h - 4, 16).Value = "Axe.Chevau."
-                    Sheets(1).Cells(h - 6, 16).Value = "Inter.Chevau."
-                    Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau."
-                    ncanton = ncanton - 1
-                    hini = h - 8
-                    prin = Sheets(1).Cells(h - 8, 33).Value
-                    If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a, 22).Value > dist_max_canton Then
-                        Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau.sans AT"
-                    ElseIf tipo_singular_out = "Tunel" And Sheets(4).Cells(a, 22).Value > dist_max_canton Then
-                        Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau.sans AT"
-                    End If
-                    If tipo_singular_in = tipo_singular_out Then
-                        a = a + 1
-                    End If
-                Case Is = "Aiguillage"
-                    
-                    Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
-                    Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
-                    Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
-                    Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
-                    Sheets(1).Cells(h, 16).Value = "Anc.Section."
-                    Sheets(1).Cells(h - 2, 16).Value = "Inter.Section."
-                    Sheets(1).Cells(h - 4, 16).Value = "Axe.Section."
-                    Sheets(1).Cells(h - 6, 16).Value = "Inter.Section."
-                    Sheets(1).Cells(h - 8, 16).Value = "Anc.Section."
-                    ncanton = ncanton - 1
-                    hini = h - 8
-                    prin = Sheets(1).Cells(h - 8, 33).Value
-                    If tipo_singular_in = "Tunel" And (Sheets(4).Cells(a - 1, 22).Value > dist_max_canton Or _
-                    Sheets(4).Cells(a - 2, 22).Value > dist_max_canton) Then
-                        Sheets(1).Cells(h, 16).Value = "Anc.Section.sans AT"
-                    End If
-                    
-                    If Sheets(4).Cells(a, 22).Value = "IN" Then
-                        a = a + 1
-                    End If
                 End Select
-                Sheets(1).Range(Sheets(1).Cells(h, 26), Sheets(1).Cells(h, 26)).Interior.ColorIndex = 8
+                corte = Sheets(1).Cells(h - 10, 33).Value + lcanton
+                fijo = prin + (lcanton / 2)
+                ncanton = ncanton - 1
+                Sheets(1).Range(Sheets(1).Cells(h - 2, 26), Sheets(1).Cells(h - 2, 26)).Interior.ColorIndex = 8
                 Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
-            tipo_singular_in = Sheets(4).Cells(a, 1).Value
-      
- End Select
- 
- End If
-    If fijo <= (Sheets(1).Cells(h, 33).Value) Then
+            Case Is = 1
+                Call pintar(h, hini, 27)
+                Call pintar(h, hfijo - 1, 26)
+                Select Case tipo_singular_out
+                
+                    Case Is = "Zona"
+                        ncanton = ncanton - 1
+                        Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
+                        Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
+                        Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
+                        Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
+                        hini = h - 12
+                        a = a + 1
+                    Case Is = "Tunel"
+                        Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
+                        Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
+                        Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
+                        Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
+                        Sheets(1).Cells(h, 16).Value = "Anc.Chevau."
+                        Sheets(1).Cells(h - 2, 16).Value = "Inter.Chevau."
+                        Sheets(1).Cells(h - 4, 16).Value = "Axe.Chevau."
+                        Sheets(1).Cells(h - 6, 16).Value = "Inter.Chevau."
+                        Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau."
+                        ncanton = ncanton - 1
+                        hini = h - 8
+                        prin = Sheets(1).Cells(h - 8, 33).Value
+                        If tipo_singular_in = tipo_singular_out And Sheets(4).Cells(a, 22).Value > dist_max_canton Then
+                            Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau.sans AT"
+                        ElseIf tipo_singular_out = "Tunel" And Sheets(4).Cells(a, 22).Value > dist_max_canton Then
+                            Sheets(1).Cells(h - 8, 16).Value = "Anc.Chevau.sans AT"
+                        End If
+                        If tipo_singular_in = tipo_singular_out Then
+                            a = a + 1
+                        End If
+                    Case Is = "Aguja"
+                        Sheets(1).Cells(h, 27).Value = Sheets(1).Cells(h, 33).Value - prin
+                        Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h, 27).Value
+                        Sheets(1).Cells(h, 26).Value = Sheets(1).Cells(h, 33).Value - puntofijo
+                        Sheets(1).Cells(hfijo - 1, 26).Value = Sheets(1).Cells(h, 26).Value
+                        Sheets(1).Cells(h, 16).Value = "Anc.Section."
+                        Sheets(1).Cells(h - 2, 16).Value = "Inter.Section."
+                        Sheets(1).Cells(h - 4, 16).Value = "Axe.Section."
+                        Sheets(1).Cells(h - 6, 16).Value = "Inter.Section."
+                        Sheets(1).Cells(h - 8, 16).Value = "Anc.Section."
+                        ncanton = ncanton - 1
+                        hini = h - 8
+                        prin = Sheets(1).Cells(h - 8, 33).Value
+                        If tipo_singular_in = "Tunel" And (Sheets(4).Cells(a - 1, 22).Value > dist_max_canton Or _
+                        Sheets(4).Cells(a - 2, 22).Value > dist_max_canton) Then
+                            Sheets(1).Cells(h, 16).Value = "Anc.Section.sans AT"
+                        End If
+                        
+                        If Sheets(4).Cells(a, 22).Value = "IN" Then
+                            a = a + 1
+                        End If
+                    End Select
+                    Sheets(1).Range(Sheets(1).Cells(h, 26), Sheets(1).Cells(h, 26)).Interior.ColorIndex = 8
+                    Sheets(1).Range(Sheets(1).Cells(hfijo - 1, 26), Sheets(1).Cells(hfijo - 1, 26)).Interior.ColorIndex = 8
+                    tipo_singular_in = Sheets(4).Cells(a, 1).Value
+                End Select
+     
+            End If
+        '//
+        '// Punto fijo
+        '// Escribir información de punto fijo: longitud, longitud punto fijo,
+        '// inicialización siguiente punto fijo, escribir tipo de punto fijo
+        '//
+        If fijo <= (Sheets(1).Cells(h, 33).Value) Then
             Sheets(1).Cells(h - 4, 16).Value = "Anc.Antich."
             Sheets(1).Cells(h - 2, 16).Value = "Axe.Antich."
             Sheets(1).Cells(h, 16).Value = "Anc.Antich."
@@ -316,15 +370,14 @@ While Sheets(1).Cells(h, 33).Value <= final2 And Sheets(1).Cells(h, 33).Value < 
             Sheets(1).Cells(hini, 26).Value = Sheets(1).Cells(h - 3, 26).Value
             Call pintar(h - 3, hini, 26)
             Sheets(1).Range(Sheets(1).Cells(hini, 26), Sheets(1).Cells(hini, 26)).Interior.ColorIndex = 6
-            
-    End If
-    h = h + 2
-    
-Wend
-
-
+        End If
+        h = h + 2
+    Wend
 Wend
 End Sub
+'//
+'// Rutina destinada a dibujar flechas para aclarar los cantonamientos
+'//
 Sub pintar(ByRef z, zini, columna)
 If columna = 27 Then
     If Sheets(1).Range(Sheets(1).Cells(zini + 8, columna), Sheets(1).Cells(zini + 8, columna)).Interior.ColorIndex = 3 Then
@@ -351,11 +404,13 @@ Selection.ShapeRange.Line.BeginArrowheadStyle = msoArrowheadTriangle
 Selection.ShapeRange.Line.BeginArrowheadLength = msoArrowheadLengthMedium
 Selection.ShapeRange.Line.BeginArrowheadWidth = msoArrowheadWidthMedium
 End Sub
-
+'//
+'// Rutina destinada a
+'//
 Private Sub one(ByRef h, ByRef a)
 Dim C As Integer
 C = 10
-    While C >= 0 And caso <> "Zone"
+    While C >= 0 And caso <> "Zona"
         If Sheets(1).Cells(h - C - 1, 4).Value > va_max_sm Then
             Sheets(1).Cells(h - C - 1, 4).Value = va_max_sm
         End If
@@ -368,9 +423,10 @@ C = 10
     Call radio.radio1(h)
     Call punto_singular.sing1(h, a - 1)
 End Sub
+'//
+'// Rutina destinada a
+'//
 Sub two(ByRef h, ByRef pk)
-'Error = Error + (l_canton - (Sheets(1).Cells(h - 2, 33).Value - start))
-
 Sheets(1).Cells(h - 2, 16).Value = "Anc.Chevau."
 Sheets(1).Cells(h - 4, 16).Value = "Inter.Chevau."
 Sheets(1).Cells(h - 6, 16).Value = "Axe.Chevau."
@@ -380,6 +436,5 @@ Sheets(1).Cells(h - 2, 27).Value = Sheets(1).Cells(h - 2, 33).Value - INI
 Sheets(1).Cells(hini, 27).Value = Sheets(1).Cells(h - 2, 27).Value
 INI = Sheets(1).Cells(h - 10, 33).Value
 hini = h - 10
-'n_canton2 = n_canton2 - 1
 End Sub
 

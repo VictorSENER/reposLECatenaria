@@ -1,4 +1,7 @@
-﻿Module buscar
+﻿'//
+'// Rutina destinada a buscar archivo mediante ventana
+'//
+Module buscar
     Function buscar_archivo(ByVal tipo As String) As String
         Dim myStream As IO.Stream = Nothing
         Dim openFileDialog1 As New OpenFileDialog()
@@ -25,7 +28,9 @@
             End Try
         End If
     End Function
-
+    '//
+    '// Rutina destinada a buscar carpeta mediante ventana
+    '//
     Function buscar_carpeta(Optional ByVal Titulo As String = "...Seleccione una carpeta ", _
                                 Optional ByVal Path_Inicial As Object = "") As String
 
@@ -50,13 +55,13 @@
                 o_Carpeta = objFolder.Self
 
                 ' Devuelve la ruta completa seleccionada en el diálogo
-                Buscar_Carpeta = o_Carpeta.Path
+                buscar_carpeta = o_Carpeta.Path
             Catch ex As Exception
             End Try
             'Error
         Catch ex As Exception
             MsgBox(Err.Description, vbCritical)
-            Buscar_Carpeta = vbNullString
+            buscar_carpeta = vbNullString
         End Try
     End Function
 End Module

@@ -1,5 +1,5 @@
 Attribute VB_Name = "singular"
-Sub viaducto(ByRef h, ByRef k, ByRef b, ByRef a)
+Sub Viaducto(ByRef h, ByRef k, ByRef b, ByRef a)
 Dim vano01 As Double, vano12 As Double, vano0 As Double
 Dim z As Integer
 Dim pkref As Double, pk0 As Double, pk1 As Double, pk2 As Double, dist_restar As Double
@@ -13,14 +13,12 @@ dist_restar = pk0 - pk1
 If dist_restar < (vano1 - (pk2 - pk1)) And pk2 <> 0 Then
     h = h + 2
     dist_restar = dist_restar + (pk2 - pk1) + inc_norm_va
-    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     Sheets(1).Cells(h - 1, 4).Value = (pk2 - pk1) + inc_norm_va
     z = h - 2
 ElseIf pk2 = 0 Then
-    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
@@ -28,14 +26,13 @@ ElseIf pk2 = 0 Then
     Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
     z = h
 Else
-    'Sheets(1).Cells(h - 1, 25).Value = "Commencement Viaduc"
     dist_restar = pk0 - pk1
     Sheets(1).Cells(h, 33).Value = pk1
     div = dist_restar - (Int(dist_restar / inc_norm_va) * inc_norm_va)
     Sheets(1).Cells(h + 1, 4).Value = pk2 - pk1
     z = h
 End If
-Sheets(1).Cells(h - 2, 25).Value = "Commencement Viaduc"
+Sheets(1).Cells(h - 2, 25).Value = Sheets(4).Cells(a, 24).Value
     With Sheets(1).Range(Sheets(1).Cells(h - 2, 25), Sheets(1).Cells(h - 1, 25))
     .MergeCells = True
     .Borders(xlEdgeLeft).LineStyle = 2
@@ -50,7 +47,7 @@ Sheets(1).Cells(h - 2, 25).Value = "Commencement Viaduc"
 Call restar(dist_restar, div, z, h, a)
 
 While Not IsEmpty(Sheets(4).Cells(a, b))
-    Sheets(1).Cells(h, 25).Value = "Pilier Viaduc"
+    Sheets(1).Cells(h, 25).Value = Sheets(4).Cells(a, 25).Value
     'Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25)).MergeCells = True
     With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
     .MergeCells = True
@@ -73,7 +70,7 @@ While Not IsEmpty(Sheets(4).Cells(a, b))
             Sheets(1).Cells(h - 1, 4).Value = vano.vano(Sheets(1).Cells(h - 2, 6).Value)
         End If
 Wend
-Sheets(1).Cells(h, 25).Value = "Final viaduc"
+Sheets(1).Cells(h, 25).Value = Sheets(4).Cells(a, 26).Value
     With Sheets(1).Range(Sheets(1).Cells(h, 25), Sheets(1).Cells(h + 1, 25))
     .MergeCells = True
     .Borders(xlEdgeLeft).LineStyle = 2
@@ -100,9 +97,7 @@ pk1 = Sheets(4).Cells(a, 2).Value - pmedio
 pk2 = Sheets(4).Cells(a, 21).Value + pmedio
 dist_restar = Sheets(1).Cells(h - 2, 33).Value - pk1
 vano12 = pk2 - pk1
-'Sheets(1).Cells(h - 1, 4).Value = vano12
 z = h
-
 If dist_restar <= 0 Then
     h = h + 2
     Sheets(1).Cells(h, 33).Value = pk2
@@ -166,7 +161,7 @@ pk0 = Sheets(1).Cells(h, 33).Value
     z = h - 4
 
 'caso particular de tener un puente despues de la aguja
-ElseIf Sheets(4).Cells(a + 1, 1).Value = "Pont" And _
+ElseIf Sheets(4).Cells(a + 1, 1).Value = "Puente" And _
     Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 21).Value < va_max _
     And Sheets(4).Cells(a, 22).Value > dist_va_max Then
     vano12 = Sheets(4).Cells(a + 1, 2).Value - Sheets(4).Cells(a, 2).Value - 0.5
@@ -191,13 +186,13 @@ b = 0
         Sheets(1).Cells(h, 16).Value = "Axe.Aigu"
         Sheets(1).Cells(h - 2, 16).Value = "Inter.Aigu"
         Sheets(1).Cells(h - 4, 16).Value = "Anc.Aigu"
-        Sheets(1).Cells(h + 1, 25).Value = "Aiguillage"
+        Sheets(1).Cells(h + 1, 25).Value = Sheets(4).Cells(a, 23).Value
         z_var = h + 1
     Else
         Sheets(1).Cells(h, 16).Value = "Axe.Aigu"
         Sheets(1).Cells(h + 2, 16).Value = "Inter.Aigu"
         Sheets(1).Cells(h + 4, 16).Value = "Anc.Aigu"
-        Sheets(1).Cells(h, 25).Value = "Aiguillage"
+        Sheets(1).Cells(h, 25).Value = Sheets(4).Cells(a, 23).Value
         z_var = h
     End If
     With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var, 25))
@@ -247,7 +242,7 @@ Sheets(1).Cells(h + 2, 33).Value = Sheets(1).Cells(h + 1, 4) + Sheets(1).Cells(h
 Call radio.radio1(h + 2)
 a = a + 1
 End Sub
-Sub zone(ByRef h, ByRef a)
+Sub Zona(ByRef h, ByRef a)
 Sheets(1).Cells(h, 16).Value = "Anc.Neutre"
 Sheets(1).Cells(h - 1, 4).Value = 27
 Sheets(1).Cells(h - 2, 16).Value = "Inter.Neutre"
@@ -267,7 +262,7 @@ z = h - 14
 While z <> h
 Sheets(1).Cells(z, 33).Value = Sheets(1).Cells(z - 1, 4).Value + Sheets(1).Cells(z - 2, 33).Value
 z = z + 2
-Sheets(1).Cells(z, 25).Value = "Zone neutre"
+Sheets(1).Cells(z, 25).Value = Sheets(4).Cells(a, 23).Value
 Wend
 Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4).Value + Sheets(1).Cells(h - 2, 33).Value
 a = a + 1

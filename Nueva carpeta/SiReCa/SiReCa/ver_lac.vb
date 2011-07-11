@@ -1,23 +1,34 @@
-﻿Imports System.Data.OleDb
+﻿'//
+'// Importar libreria
+'//
+Imports System.Data.OleDb
+'//
+'// Rutina destinada a permitir la visualización de los datos de la base de datos a VB Studio
+'//
 Module ver_lac
     Sub ver_lac()
+        '//
+        '// crear objeto base de datos y abrir la base de datos
+        '//
         Dim oConn As New OleDbConnection
         Dim oComm As OleDbCommand
         Dim oRead As OleDbDataReader
-        'LEER NOMBRE CATENARIA Y CARGAR
         'oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb")
         oConn.Open()
+        '//
+        '// realiación de la consulta
+        '//
         oComm = New OleDbCommand("select * from Datos", oConn)
         oRead = oComm.ExecuteReader
 
         While oRead.Read
-
-            'El DataReader se situa sobre el registro
-
+            '//
+            '// cargar los datos de la BBDD a VB
+            '// Lee los campos que se requieran ya situado sobre el registro correspondiente
+            '//
             If (Pantalla_principal.nueva_lac = oRead("nombre_cat")) Then
-
-                Pantalla_datos.Combo_sist.Text = oRead("sist") 'Lee los campos que se requieran ya situado sobre el registro correspondiente
+                Pantalla_datos.Combo_sist.Text = oRead("sist")
                 Pantalla_datos.Text_alt_nom.Text = oRead("alt_nom")
                 Pantalla_datos.Text_alt_min.Text = oRead("alt_min")
                 Pantalla_datos.Text_alt_max.Text = oRead("alt_max")
@@ -108,15 +119,16 @@ Module ver_lac
                 Pantalla_datos.Combo_tip_carril.Text = oRead("tip_carril")
                 Pantalla_datos.Text_ancho_carril.Text = oRead("ancho_carril")
                 Pantalla_datos.Text_el_hc.Text = oRead("el_hc")
-
             End If
-
         End While
-
+        '//
+        '// cerrar la base de datos
+        '//
         oRead.Close()
         oConn.Close()
-
-
+        '//
+        '// Inhabilitar la posibilidad de manipular los datos
+        '//
         Pantalla_datos.Combo_sist.Enabled = False
         Pantalla_datos.Text_al.Enabled = False
         Pantalla_datos.Text_alt_nom.Enabled = False
@@ -211,7 +223,9 @@ Module ver_lac
         Pantalla_datos.Text_el_hc.Enabled = False
         Pantalla_datos.Combo_tip_carril.Enabled = False
         Pantalla_datos.Text_ancho_carril.Enabled = False
-
+        '//
+        '// mostrar la pantalla de datos
+        '//
         Pantalla_datos.Show()
 
     End Sub

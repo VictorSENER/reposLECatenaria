@@ -131,3 +131,48 @@ Sheets(1).Range("A8", "AA10001").WrapText = True
 Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
 Sheets(1).Columns("B").EntireColumn.Hidden = True
 End Sub
+Sub lenguaje(idiomaVB)
+a = 3
+While Not IsEmpty(Sheets(2).Cells(a, 1).Value)
+punto = Sheets(2).Cells(a, 1).Value
+If idiomaVB = "Frances" Then
+    Select Case punto
+        Case Is = "P.S. > 7 m"
+            Sheets(2).Cells(a, 23).Value = "Passage superieur nº " & Sheets(2).Cells(a, 3).Value
+        Case Is = "Puente"
+            Sheets(2).Cells(a, 23).Value = "Pont"
+        Case Is = "7 > P.S. > 5,2 m"
+            Sheets(2).Cells(a, 23).Value = "Passage superieur nº " & Sheets(2).Cells(a, 3).Value
+        Case Is = "Conducto"
+            Sheets(2).Cells(a, 23).Value = "Buse"
+        Case Is = "Tunel"
+            Sheets(2).Cells(a, 23).Value = "Tunnel nº " & Sheets(2).Cells(a, 3).Value
+        Case Is = "P.N."
+            Sheets(2).Cells(a, 23).Value = "Passage à niveau"
+        Case Is = "P.I."
+            Sheets(2).Cells(a, 23).Value = "Passage inférieur"
+        Case Is = "Aguja"
+            Sheets(2).Cells(a, 23).Value = "Aiguillage"
+        Case Is = "Drenaje"
+            Sheets(2).Cells(a, 23).Value = "Dalot"
+        Case Is = "Viaducto"
+            Sheets(2).Cells(a, 23).Value = "Viaduc"
+            Sheets(2).Cells(a, 24).Value = "Commencement Viaduc"
+            Sheets(2).Cells(a, 25).Value = "Pilier Viaduc"
+            Sheets(2).Cells(a, 26).Value = "Final Viaduc"
+        Case Is = "PuenteXL"
+            Sheets(2).Cells(a, 23).Value = "Pont longue"
+        Case Is = "Zona"
+            Sheets(2).Cells(a, 23).Value = "Zone neutre"
+    End Select
+ElseIf idioma = "castellano" Then
+
+ElseIf idioma = "catalan" Then
+
+ElseIf idioma = "ingles" Then
+
+End If
+a = a + 1
+Wend
+End Sub
+

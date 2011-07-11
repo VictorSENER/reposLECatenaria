@@ -4,7 +4,7 @@ Dim pk1 As Double, vano0 As Double, vano1 As Double, vanox As Double
 Dim z As Long, aloc As Long, bloc As Long, d As Long
 Dim l1 As Double, l2 As Double, rady As Double, inicio1 As Double, inicio2 As Double
 Dim radioC As Double, dev As Double, pk0 As Double, final As Double, radioC1 As Double
-Dim radioC2 As Double, rady2 As Double, a1 As Double, A12 As Double, A2 As Double, C As Double
+Dim radioC2 As Double, rady2 As Double, A1 As Double, A12 As Double, A2 As Double, C As Double
 Dim contador As Integer
 z = 10
 aloc = 3
@@ -48,14 +48,14 @@ While contador <> 2
         
         inicio1 = Sheets(3).Cells(kloc, 3).Value
         inicio2 = Sheets(3).Cells(kloc, 5).Value
-        a1 = Sheets(3).Cells(kloc, 9).Value
+        A1 = Sheets(3).Cells(kloc, 9).Value
         
         A2 = Sheets(3).Cells(kloc, 10).Value
         C = Sheets(3).Cells(kloc, 7).Value
 
 ' calculo del radio correspondiente aloc la clotoide de entrada
         If pk0 >= inicio1 And pk0 < (inicio1 + l1) And Not IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) Then
-            radioC = a1 ^ 2 / (pk0 - inicio1)
+            radioC = A1 ^ 2 / (pk0 - inicio1)
             If rady < 0 Then
                 radioC = radioC * (-1)
             End If
@@ -138,14 +138,14 @@ ElseIf IsEmpty(Sheets(3).Cells(kloc - 1, 6).Value) And pk0 < (inicio2 + l2) Then
     Else: radioC2 = rady2
     End If
     If radioC1 < radioC2 Then
-        lmin = a1 ^ 2 / radioC1
-        radioC = (a1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
+        lmin = A1 ^ 2 / radioC1
+        radioC = (A1 ^ 2) / (lmin - ((inicio1 + l1) - pk0))
         If rady < 0 Then
             radioC = radioC * (-1)
         End If
     Else
-        lmin = a1 ^ 2 / radioC2
-        radioC = (a1 ^ 2) / (lmin - (pk0 - inicio1))
+        lmin = A1 ^ 2 / radioC2
+        radioC = (A1 ^ 2) / (lmin - (pk0 - inicio1))
         If rady2 < 0 Then
             radioC = radioC * (-1)
         End If
@@ -186,7 +186,7 @@ End If
     ' verificación ubicación sobre puntos singulares
 
     Select Case Sheets(4).Cells(aloc, 1).Value
-        Case Is = "PontXL", "Pont", "P.S. > 7 m", "7 > P.S. > 5,2 m", "Buse", "P.N.", "P.I.", "Dalot"
+        Case Is = "PuenteXL", "Puente", "P.S. > 7 m", "7 > P.S. > 5,2 m", "Conducto", "P.N.", "P.I.", "Drenaje"
             If pk0 > Sheets(4).Cells(aloc, 2).Value And pk0 < Sheets(4).Cells(aloc, 21).Value Then
                 Sheets(1).Cells(z, 33).Font.Color = vbBlue
                 Sheets(7).Cells(bloc, 1).Value = d
@@ -197,9 +197,9 @@ End If
                 bloc = bloc + 1
                 d = d + 1
             End If
-        Case Is = "Aiguillage"
+        Case Is = "Aguja"
             If pk0 = Sheets(4).Cells(aloc, 2).Value Then
-                Sheets(7).Cells(bloc, 2).Value = " Aguja: " & Sheets(4).Cells(aloc, 3).Value & " instalada correctamente"
+                Sheets(7).Cells(bloc, 2).Value = "Aguja: " & Sheets(4).Cells(aloc, 3).Value & " instalada correctamente"
                 bloc = bloc + 1
             End If
     End Select

@@ -1,21 +1,37 @@
 Attribute VB_Name = "altura"
+'//
+'// Rutina destinada a calcular los incrementos de altura en puntos singulares
+'//
 Sub altura(nombre_catVB)
 Dim Amx As Double, Amx1 As Double
 Dim z As Integer, aloc As Integer, s As Integer
-'inicializar variables que provienen del VB.net
+'//
+'// inicializar variables globales
+'//
 Call cargar.datos_acces(nombre_catVB)
-'inicializar variables locales
+'//
+'// inicializar variables locales
+'//
 z = 10
 aloc = 3
-'inicio de la rutina principal
+'//
+'// inicio de la rutina principal
+'//
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+    '//
+    '// Encontrar el punto singular para cada PK
+    '//
     While (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 21).Value) And Sheets(4).Cells(aloc, 23).Value <> "FINAL"
         aloc = aloc + 1
     Wend
-
+    '//
+    '// Actuar si pasamos por un paso a nivel (se debe ir incrementando la altura hasta
+    '// la altura máxima y decrementarla hasta la nominal al pasar el paso a nivel)
+    '//
     If Sheets(4).Cells(aloc - 1, 1) = ("P.N.") And Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc - 1, 2).Value And Sheets(1).Cells(z - 2, 33).Value < Sheets(4).Cells(aloc - 1, 2).Value Then
-        'Sheets(1).Cells(z, 25) = "Passage à niveau"
-        'Sheets(1).Range(Sheets(1).Cells(z - 1, 25), Sheets(1).Cells(z, 25)).MergeCells = True
+        '//
+        '// Calculo de la altura a decrementar hacia atras
+        '//
         s = z
         Amx = alt_max
         s = s - 2
@@ -34,6 +50,9 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
                         End If
                 End If
         Wend
+        '//
+        '// Calculo de la altura a decrementar hacia adelante
+        '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_max
         Amx = alt_max - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
@@ -50,10 +69,16 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
                         End If
                 End If
         Wend
-
+    '//
+    '// Actuar si pasamos por un paso superior bajo (se debe ir decrementando la altura hasta
+    '// la altura mínima al llegar al paso e incrementar la altura hasta la nominal una vez pasado)
+    '//
     ElseIf (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc - 1, 2).Value And Sheets(1).Cells(z, 33).Value <= Sheets(4).Cells(aloc - 1, 21).Value _
     And Sheets(4).Cells(aloc - 1, 1) = "7 > P.S. > 5,2 m") Or (Sheets(1).Cells(z - 2, 33).Value < Sheets(4).Cells(aloc - 1, 2).Value And Sheets(1).Cells(z, 33).Value > Sheets(4).Cells(aloc - 1, 2).Value And _
     Sheets(4).Cells(aloc - 1, 1) = "7 > P.S. > 5,2 m") Then
+        '//
+        '// Calculo de la altura a incrementar hacia atras
+        '//
         s = z
         s = s - 2
         Sheets(1).Cells(s, 10).Value = alt_min
@@ -71,6 +96,9 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
                         End If
                 End If
         Wend
+        '//
+        '// Calculo de la altura a incrementar hacia adelante
+        '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
         Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
@@ -87,12 +115,20 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
                         End If
                 End If
         Wend
-    
+    '//
+    '// Actuar si estamos dentro del tunel
+    '//
     ElseIf (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc, 2).Value And Sheets(1).Cells(z, 33).Value <= Sheets(4).Cells(aloc, 21).Value _
     And Sheets(4).Cells(aloc, 1) = "Tunel") Then
          Sheets(1).Cells(z, 10).Value = alt_min
+    '//
+    '// Actuar si entramos en tunel
+    '//
     ElseIf (Sheets(1).Cells(z, 33).Value >= Sheets(4).Cells(aloc - 1, 2).Value And Sheets(1).Cells(z - 2, 33).Value <= Sheets(4).Cells(aloc - 1, 21).Value _
     And Sheets(4).Cells(aloc - 1, 1) = "Tunel") Then
+        '//
+        '// Calculo de la altura a incrementar hacia atras
+        '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
         Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
@@ -109,9 +145,14 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
                         End If
                 End If
         Wend
-    
+    '//
+    '// Actuar si salimos de tunel
+    '//
     ElseIf (Sheets(1).Cells(z, 33).Value <= Sheets(4).Cells(aloc, 2).Value And Sheets(1).Cells(z + 2, 33).Value > Sheets(4).Cells(aloc, 2).Value _
     And Sheets(4).Cells(aloc, 1) = "Tunel") Then
+        '//
+        '// Calculo de la altura a incrementar hacia adelante
+        '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
         Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)

@@ -1,23 +1,91 @@
 Attribute VB_Name = "pendolado"
-Sub pendolado()
+Option Explicit
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
+    (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+'// The SendMessage function sends the specified message to a window or windows.
+'// The function calls the window procedure for the specified window and does not
+'// return until the window procedure has processed the message.
+'// The PostMessage function, in contrast, posts a message to a thread’s message
+'// queue and returns immediately.
+'//
+'// PARAMETERS:
+'//
+'// hwnd
+'// Identifies the window whose window procedure will receive the message.
+'// If this parameter is HWND_BROADCAST, the message is sent to all top-level
+'// windows in the system, including disabled or invisible unowned windows,
+'// overlapped windows, and pop-up windows; but the message is not sent to child windows.
 
-Dim dist(100) As Double
-Dim fuerza(20) As Double
-Dim n_pend As Long
-Dim cont As Long
-Dim mom(20) As Double
-Dim n(30) As Long
-Dim fl_hc(30) As Double
-Dim fl_sust(30) As Double
-Dim el_hc_der(20) As Double
-Dim el_hc_izq(20) As Double
-Dim fuerza_der(20) As Double
-Dim dist_der(20) As Double
-Dim l_pend_der(20) As Double
-Dim acum(20) As Double
-Dim a As Integer
-Dim tip As String
+'// Msg
+'// Specifies the message to be sent.
 
+'// wParam
+'// Specifies additional message-specific information.
+
+'// lParam
+'// Specifies additional message-specific information.
+
+'//////////////////////////////////////////////////////////////////////////
+'// The IsWindow function determines whether the specified window handle
+'// identifies an existing window.
+Private Declare Function IsWindow Lib "user32" (ByVal hwnd As Long) As Long
+'// PARAMETERS:
+'// hWnd
+'// Specifies the window handle.
+
+'//////////////////////////////////////////////////////////////////////////
+'//
+Private Declare Function InvalidateRect Lib "user32" (ByVal hwnd As Long, _
+    lpRect As Long, ByVal bErase As Long) As Long
+
+Private Declare Function UpdateWindow Lib "user32" (ByVal hwnd As Long) As Long
+
+Private Declare Function GetDesktopWindow Lib "user32" () As Long
+
+Public Function fncScreenUpdating(State As Boolean, Optional Window_hWnd As Long = 0)
+Const WM_SETREDRAW = &HB
+Const WM_PAINT = &HF
+
+If Window_hWnd = 0 Then
+    Window_hWnd = GetDesktopWindow()
+Else
+    If IsWindow(hwnd:=Window_hWnd) = False Then
+        Exit Function
+    End If
+End If
+
+If State = True Then
+    Call SendMessage(hwnd:=Window_hWnd, wMsg:=WM_SETREDRAW, wParam:=1, lParam:=0)
+    Call InvalidateRect(hwnd:=Window_hWnd, lpRect:=0, bErase:=True)
+    Call UpdateWindow(hwnd:=Window_hWnd)
+Else
+    Call SendMessage(hwnd:=Window_hWnd, wMsg:=WM_SETREDRAW, wParam:=0, lParam:=0)
+End If
+
+End Function
+
+
+Sub pendolado(nombre_catVB)
+Dim fso As Object
+Dim dist(100) As Double, fuerza(20) As Double, mom(20) As Double
+Dim n_pend As Long, cont As Long, n(30) As Long
+Dim fl_hc(30) As Double, fl_sust(30) As Double, el_hc_der(20) As Double, el_hc_izq(20) As Double
+Dim fuerza_der(20) As Double, dist_der(20) As Double, l_pend_der(20) As Double, acum(20) As Double
+Dim dist_ap_prim_pend_izq As Double, dist_ap_prim_pend_der As Double, dist_prim_seg_pend_izq As Double
+Dim dist_prim_seg_pend_der As Double, va_var_sla As Double, l_sup_pend As Double, l_inf_pend As Double
+Dim va As Double, el_hc_ini As Double, el_hc_fin As Double, p_aisl As Double, var_dist As Double
+Dim p_sust_var As Double, p_sust As Double, va_min As Double, var_0 As Double, va_var As Double
+Dim var_1 As Double, p_var_0 As Double, p_var_1 As Double, p_var_2 As Double, p_var_3 As Double
+Dim p_sust_ap As Double, x_var As Double, p_hc_ap As Double, p_pend_equip As Double, p_hc_ap_izq As Double
+Dim p_hc_ap_der As Double, p_ap_tot_izq As Double, p_ap_tot_der_var As Double, p_ap_tot_der As Double
+Dim t_horiz_sust As Double, var_comp As Double, d As String, e As String
+Dim a As Integer, dfijo As String, efijo As String, aisl As Integer, it As Integer, it_var As Integer
+Dim npi As Integer, i As Integer, j As Integer, var_izq_der As Integer, b As Integer
+Dim tip As String, PDFFijoFileName As String, tip_var As String, PSFileName As String
+Dim PDFFileName As String, TXTFileName As String
+'//
+'//LECTURA BASE DE DATOS
+'//
 Call cargar.datos_acces(nombre_catVB)
 
 Dim myPDF As PdfDistiller
@@ -29,16 +97,22 @@ dist_ap_prim_pend_der = dist_ap_prim_pend
 
 dist_prim_seg_pend_izq = dist_prim_seg_pend
 dist_prim_seg_pend_der = dist_prim_seg_pend
-
-Application.Workbooks.Open "C:\Documents and Settings\29289\Escritorio\Excels Sireca\plantilla_pendolado.xlsx"
+Application.Workbooks.Open "C:\Documents and Settings\23370\Escritorio\plantilla.xlsm"
+'Application.Workbooks.Open "C:\Documents and Settings\29289\Escritorio\Excels Sireca\plantilla_pendolado.xlsx"
 
 a = 10
 dfijo = Workbooks(1).Worksheets(1).Cells(a, 1).Value
 efijo = Workbooks(1).Worksheets(1).Cells(a + 2, 1).Value
-PDFFijoFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & dfijo & " " & efijo & ".pdf"
+PDFFijoFileName = "C:\Documents and Settings\23370\Escritorio\" & dfijo & " " & efijo & ".pdf"
+'PDFFijoFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & dfijo & " " & efijo & ".pdf"
 aisl = 0
+'//
+'//SELECCIÓN TIPOLOGÍA PENDOLADO
+'//
 
-'sólo un pendolado para un vano
+'//
+'//Sólo un pendolado para un vano
+'//
 ini1:
 
 Call cargar.datos_acces(nombre_catVB)
@@ -73,14 +147,19 @@ tip_var = Workbooks(1).Sheets(1).Cells(a + 2, 16)
 Dim pk_ini_var As String
 Dim pk_fin_var As String
 
-'Formato para que se muestre en el encabezado de cada ficha
+'//
+'//Formato para que se muestre en el encabezado de cada ficha
+'//
 pk_ini_var = CStr(Workbooks(1).Sheets(1).Cells(a, 3))
 pk_fin_var = CStr(Workbooks(1).Sheets(1).Cells(a + 2, 3))
 
 Workbooks(2).Sheets(1).Name = pk_ini_var & " - " & pk_fin_var
 
 GoTo pas
-'dos hojas de pendolado de un mismo vano
+
+'//
+'//Dos hojas de pendolado de un mismo vano
+'//
 ini2:
 
 Call cargar.datos_acces(nombre_catVB)
@@ -100,6 +179,9 @@ End If
 
 pas:
 
+'//
+'//Tramo normal (un único hilo)
+'//
 If (tip = "" Or tip = "Anc.Chevau." Or tip = "Anc.Antich." Or tip = "Anc.Aigu" Or tip = "Axe.Antich." Or tip = "Anc.Antich." Or tip = "Anc.Chevau.sans AT" Or tip = "Anc.Section.sans AT") And tip_var <> "Axe.Aigu" Then
    
     Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
@@ -117,7 +199,9 @@ If (tip = "" Or tip = "Anc.Chevau." Or tip = "Anc.Antich." Or tip = "Anc.Aigu" O
     
     it = 0
     
-'seccionamiento mecánico (faltaría incluir el caso de 5 vanos)
+'//
+'//Seccionamiento mecánico (faltaría incluir el caso de 5 vanos)
+'//
 ElseIf tip = "Inter.Chevau." And (tip_var <> "Anc.Chevau." And tip_var <> "Anc.Chevau.sans AT") And it = 0 Then
     
     Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
@@ -197,7 +281,9 @@ ElseIf tip = "Axe.Chevau." And it = 1 Then
     
     it = 0
 
-'seccionamiento eléctrico
+'//
+'//Seccionamiento eléctrico
+'//
 ElseIf (tip = "Anc.Section." Or tip = "Anc.Section.sans AT") And tip_var = "Inter.Section." Then
 
     Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
@@ -207,7 +293,9 @@ ElseIf (tip = "Anc.Section." Or tip = "Anc.Section.sans AT") And tip_var = "Inte
     Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
     Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
-    'la variable va_var_sla suma la mitad del ancho de la ménsula
+    '//
+    '//La variable va_var_sla suma la mitad del ancho de la ménsula
+    '//
     va_var_sla = 0.5
     
     Workbooks(2).Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
@@ -320,7 +408,9 @@ ElseIf tip = "Anc.Section." And tip_var = "" And it = 0 Then
     
     it = 0
 
-'agujas
+'//
+'//Agujas
+'//
 ElseIf tip = "Inter.Aigu" And tip_var = "Axe.Aigu" And it = 0 Then
 
     Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
@@ -498,7 +588,9 @@ ElseIf tip = "Inter.Aigu" And tip_var = "Anc.Aigu" And it = 0 Then
 
     it = 0
     
-'zona neutra
+'//
+'//Zona neutra
+'//
 ElseIf tip = "Anc.Neutre" And tip_var = "Int.Neutre" Then
     
     Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
@@ -700,56 +792,24 @@ ElseIf tip = "Anc.Neutre" And tip_var = "" Then
 
 End If
 
-'leer SIRECA
 
+'//
+'//CÁLCULO GEOMÉTRICO
+'//
 
-
-'cola_anc tiene que dar si es cerámico, vidrio o sintético
-
-l_sup_pend = 0.033
-l_inf_pend = 0.032
-
-'dist_max_pend = 9
-'va_max = 63
-
-
-'A leer del excel
 va = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
 el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
 el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
 
+'//
+'//Longitud de cabeza superior e inferior de la péndola
+'//
+l_sup_pend = 0.033
+l_inf_pend = 0.032
 
-'hay que distinguir todos los casos, eje, semieje...
-
-If el_hc_ini <> 0 And el_hc_fin <> 0 Then
-
-    If el_hc_ini > el_hc_fin Then
-        el_hc_ini = el_hc_ini - el_hc_fin
-        el_hc_fin = 0
-    Else
-        el_hc_fin = el_hc_fin - el_hc_ini
-        el_hc_ini = 0
-    End If
-    
-End If
-
-'Cálculo longitud de las péndolas
-
-'valores a leer del Sireca
-'p_sust = 0.605 'kg/m
-'p_hc = 0.952 'kg/m
-'p_pend = 0 'kg/m
-'p_pend_equip = 0.36 'kg
-
-'n_hc = 1
-'t_sust = 1200 'kg
-'t_hc = 1200 'kg
-
-'El programa lee dicho dato, sin embargo lo más frecuente es establecer una determinada flecha máxima en función de cada vano.
-fl_max_centro_va = va / 1000
-
-
-'Se considera el peso del aislador de manera aproximada tal y como en el método portugues, en todo caso es posible realizar un cálculo mejor
+'//
+'//Elección aislador en caso de que haya
+'//
 If aisl = 1 Then
     
     If cola_anc = "Cerámico" Then
@@ -771,8 +831,27 @@ If aisl = 1 Then
     
 End If
 
-'Inicio del cálculo geométrico
+'//
+'//Se debe distinguir entre posible casos con elevación a un lado, elevación en ambos, etc.
+'//
+
+If el_hc_ini <> 0 And el_hc_fin <> 0 Then
+
+    If el_hc_ini > el_hc_fin Then
+        el_hc_ini = el_hc_ini - el_hc_fin
+        el_hc_fin = 0
+    Else
+        el_hc_fin = el_hc_fin - el_hc_ini
+        el_hc_ini = 0
+    End If
     
+End If
+
+'//
+'//Flecha máxima en centro de vano impuesta
+'//
+fl_max_centro_va = va / 1000
+ 
 If (dist_ap_prim_pend_izq = dist_ap_prim_pend_der) And (el_hc_ini = el_hc_fin) Then
 
     dist_ap_prim_pend = dist_ap_prim_pend_izq
@@ -972,7 +1051,10 @@ Else
         Wend
         
     End If
-
+    
+'//
+'//Consideración de la reducción de peso en caso de flecha intencional
+'//
 p_var_0 = p_hc * n_hc * dist(1)
 
 If (el_hc_ini <> 0 Or el_hc_fin <> 0) Or (el_hc_ini = el_hc_fin And el_hc_ini <> 0) Then
@@ -989,9 +1071,13 @@ p_var_3 = (p_sust * va) / 2
 
 p_sust_ap = (p_sust * va) / 2
 
-'Cálculo de la elevaciones
+'//
+'//Cálculo de las elevaciones
+'//
 
-'Elevación hilo de contacto (a un lado)
+'//
+'//Elevación hilo de contacto (a un lado)
+'//
 
 If el_hc_fin <> 0 Or el_hc_ini <> 0 Then
 i = 1
@@ -1026,7 +1112,9 @@ End If
                             
 End If
 
-'Reacciones (kg)
+'//
+'//CÁLCULO REACCIONES EN CADA PÉNDOLA
+'//
 
 i = 1
 n_pend = 1
@@ -1052,7 +1140,10 @@ While cont <= 30
     cont = cont + 1
 Wend
 
-'sin elevación del hilo
+'//
+'//Cálculo de las reacciones sin elevación del hilo de contacto
+'//
+
 If el_hc_ini = 0 And el_hc_fin = 0 Or el_hc_ini = el_hc_fin Then
     While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
     
@@ -1077,7 +1168,9 @@ If el_hc_ini = 0 And el_hc_fin = 0 Or el_hc_ini = el_hc_fin Then
     
     Wend
 
-'con elevación
+'//
+'//Cálculo de las reacciones con elevación del hilo de contacto
+'//
 ElseIf el_hc_ini <> 0 Or el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
        
     j = 11
@@ -1142,13 +1235,14 @@ ElseIf el_hc_ini <> 0 Or el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
             i = i + 1
             n_pend = n_pend + 1
             j = j + 2
-        'End If
     
     Wend
                     
 End If
 
-'Búsqueda de las reacciones en los apoyos
+'//
+'//Búsqueda de las reacciones en los apoyos
+'//
 
 i = 1
 cont = 1
@@ -1177,7 +1271,9 @@ While cont <= 30
     cont = cont + 1
 Wend
 
-'Distintas alturas de catenaria
+'//
+'//Distintas alturas de catenaria
+'//
          
 If Workbooks(2).Sheets(1).Cells(5, 4) <> Workbooks(2).Sheets(1).Cells(6, 4) Then
     
@@ -1186,7 +1282,9 @@ If Workbooks(2).Sheets(1).Cells(5, 4) <> Workbooks(2).Sheets(1).Cells(6, 4) Then
     
 End If
 
-'Momentos (kg·m)
+'//
+'//CÁLCULO MOMENTO EN CADA PÉNDOLA
+'//
 
 i = 1
 n_pend = 1
@@ -1201,12 +1299,6 @@ While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
         mom(i) = p_ap_tot_der * acum(i) - (p_sust / 2) * (acum(i) ^ 2)
    
     ElseIf i = Workbooks(2).Sheets(1).Cells(9, 4) And Workbooks(2).Sheets(1).Cells(5, 4) <> Workbooks(2).Sheets(1).Cells(6, 4) Then
-    
-    '  While cont <= i - 1
-    '     n(cont) = 1
-    '    cont = cont + 1
-    'Wend
-    
     mom(i) = (p_ap_tot_izq) * Workbooks(2).Sheets(1).Cells(j + 2, 7) - (p_sust / 2) * (Workbooks(2).Sheets(1).Cells(j + 2, 7) ^ 2)
    
     Else
@@ -1226,7 +1318,13 @@ While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
 
 Wend
 
-'flecha hilo de contacto
+'//
+'//CÁLCULO FLECHA SUSTENTADOR E HILO DE CONTACTO
+'//
+
+'//
+'//Flecha hilo de contacto
+'//
 
 If el_hc_ini = 0 And el_hc_fin = 0 Then
 
@@ -1270,9 +1368,11 @@ i = 1
 End If
 
 'Descomposición fuerza
-t_horiz_sust = Sqr((t_sust ^ 2) - (p_ap_tot_der ^ 2))
+'t_horiz_sust = Sqr((t_sust ^ 2) - (p_ap_tot_der ^ 2))
 
-'flecha sustentador
+'//
+'//Flecha sustentador
+'//
 i = 1
 n_pend = 1
 While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
@@ -1284,7 +1384,9 @@ i = i + 1
 
 Wend
 
-'longitud péndolas
+'//
+'//CÁLCULO LONGITUD PÉNDOLAS
+'//
 i = 1
 n_pend = 1
 j = 12
@@ -1313,7 +1415,9 @@ j = j + 2
 
 Wend
 
-'Si elevación a izquierda
+'//
+'//Si la elevación es a la izquierda
+'//
                     
 el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
 el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
@@ -1389,30 +1493,34 @@ If el_hc_ini <> 0 And el_hc_fin <> 0 Then
     Wend
     
 End If
-
+'//
+'//GENERACIÓN FICHA
+'//
 b = 1
     
     d = Workbooks(1).Worksheets(1).Cells(a, 1).Value
     e = Workbooks(1).Worksheets(1).Cells(a + 2, 1).Value
-        
-    Call Workbooks(2).Worksheets(b).PrintOut(from:=1, To:=1, copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=False, collate:=True, prtofilename:="C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps")
-  
+    fncScreenUpdating State:=False
+    Call Workbooks(2).Worksheets(b).PrintOut(from:=1, To:=1, Copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=True, collate:=False, prtofilename:="C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".ps")
+    fncScreenUpdating State:=True
+    'Call Workbooks(2).Worksheets(b).PrintOut(from:=1, To:=1, copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=False, collate:=True, prtofilename:="C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps")
+    PSFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".ps"
+    PDFFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".pdf"
+    TXTFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".log"
     
-    PSFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps"
-    PDFFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".pdf"
-    TXTFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".log"
+    'PSFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps"
+    'PDFFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".pdf"
+    'TXTFileName = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".log"
     myPDF.FileToPDF PSFileName, PDFFileName, ""
-' Print the Excel range to the postscript file
-'Dim MySheet As Worksheet
-'Set MySheet = Workbooks(2).Worksheets(b)
-
-'MySheet.PrintOut copies:=1, preview:=False, _
-'ActivePrinter:="Acrobat Distiller", printtofile:=True, collate:=True, _
-'prtofilename:=PSFileName
-fso.DeleteFile PSFileName, True
-fso.DeleteFile TXTFileName, True
-Call CombPDF(PDFFijoFileName, PDFFileName)
-'inicializar variables
+    fso.DeleteFile PSFileName, True
+    fso.DeleteFile TXTFileName, True
+'//
+'//INSERCIÓN FICHA EN PDF GLOBAL
+'//
+    Call CombPDF(PDFFijoFileName, PDFFileName)
+'//
+'//Inicialización variables
+'//
 i = 0
 While i <= 100
     dist(i) = 0
@@ -1491,13 +1599,14 @@ Else
 
 End If
 x:
-    fso.DeleteFile "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & dfijo & " " & efijo & ".pdf", True
+    fso.DeleteFile "C:\Documents and Settings\23370\Escritorio\" & dfijo & " " & efijo & ".pdf", True
+    'fso.DeleteFile "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & dfijo & " " & efijo & ".pdf", True
     Workbooks(2).Close False
 
 End Sub
 
 Function CombPDF(PDFFijo, PDFName)
-
+Dim fso As Object
 Dim AcroApp As Acrobat.CAcroApp
 Dim Part1Document As Acrobat.CAcroPDDoc
 Dim Part2Document As Acrobat.CAcroPDDoc
@@ -1515,12 +1624,16 @@ If Part1Document.InsertPages(numPages - 1, Part2Document, _
 0, Part2Document.GetNumPages(), True) = False Then
     Exit Function
 End If
-     
-If Part1Document.Save(PDSaveFull, "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\pendulage.pdf") = False Then
+If Part1Document.Save(PDSaveFull, "C:\Documents and Settings\23370\Escritorio\pendulage.pdf") = False Then
 Else
-        PDFFijo = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\\pendulage.pdf"
+        PDFFijo = "C:\Documents and Settings\23370\Escritorio\pendulage.pdf"
         
 End If
+'If Part1Document.Save(PDSaveFull, "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\pendulage.pdf") = False Then
+'Else
+        'PDFFijo = "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\pendulage.pdf"
+        
+'End If
         
 Part1Document.Close
 Part2Document.Close

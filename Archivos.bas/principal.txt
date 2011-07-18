@@ -36,29 +36,22 @@ If h = 10 Then
     uno = 1
     Sheets(1).Cells(10, 33) = inicio
 End If
-'//
-'// Inicializar 3 primeros vanos para poder regularlos
-'// radio + vano + cantonamiento + incrementar PK y fila
-'//
-While 16 > h
-    Call radio.radio(h)
-    Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
-    'If va_max <> va_max_sm Then
-        'Call cantonamiento.canton_durante(h, C, k, a)
-    'End If
-    h = h + 2
-    Sheets(1).Cells(h, 33).Value = Sheets(1).Cells(h - 1, 4) + Sheets(1).Cells(h - 2, 33)
-Wend
+
 '//
 '// Rutina general del programa
 '// radio + vano + regulación vano + cantonamiento + punto singular + incrementar PK y fila
 '//
 Call radio.radio(h)
 Sheets(1).Cells(h + 1, 4).Value = vano.vano(Sheets(1).Cells(h, 6).Value)
-Call regulacion.regulacion(h, a, b, k)
-'If va_max <> va_max_sm Then
-    'Call cantonamiento.canton_durante(h, C, k, a)
-'End If
+'//
+'// Empezar a regular cuando se hayan realizado 3 bucles
+'//
+If h > 16 Then
+    Call regulacion.regulacion(h, a, b, k)
+    'If va_max <> va_max_sm Then
+        'Call cantonamiento.canton_durante(h, C, k, a)
+    'End If
+End If
 Call punto_singular.sing(h, k, a, b)
 Call punto_singular.sing1(h, a)
 h = h + 2

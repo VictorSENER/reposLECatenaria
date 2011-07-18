@@ -4,6 +4,9 @@ Attribute VB_Name = "regulacion"
 '// (se deberá ampliar en caso de diferenciales entre vano max y min mayores al acutal)
 '//
 Sub regulacion(ByRef h, ByRef a, ByRef b, ByRef k)
+'//
+'// Inizializar variables
+'//
 z = h
 '//
 '// Comprobación n-1

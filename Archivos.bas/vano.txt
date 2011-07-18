@@ -8,18 +8,18 @@ Dim m As Integer
 '// inicializar variables
 '//
 m = 3
-If rayon < 0 Then
-    rayon = rayon * (-1)
-End If
 '//
-'// buscar fila de la hoja 2 que contiene radio y elegir el vano correspondiente
+'// buscar fila de la hoja 2 con el rango del radio actual y elegir el vano correspondiente
 '//
 If Not rayon = 0 Then
-    While rayon < Sheets(2).Cells(m, 3).Value _
-    Or rayon > Sheets(2).Cells(m, 2).Value
+    While Abs(rayon) < Sheets(2).Cells(m, 3).Value _
+    Or Abs(rayon) > Sheets(2).Cells(m, 2).Value
     m = m + 1
     Wend
 End If
-    vano = Sheets(2).Cells(m, 1).Value
+'//
+'// Actualizar el vano en su celda correspondiente
+'//
+vano = Sheets(2).Cells(m, 1).Value
 End Function
 

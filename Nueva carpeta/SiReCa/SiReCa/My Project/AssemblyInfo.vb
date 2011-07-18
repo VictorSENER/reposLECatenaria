@@ -15,7 +15,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyright("Copyright © SENER 2011")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)> 
 
 'El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
 <Assembly: Guid("0af3db03-60f3-42dc-bee8-66c5003e1a39")> 

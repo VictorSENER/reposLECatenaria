@@ -1,7 +1,7 @@
 Attribute VB_Name = "radio"
 '//
 '// Rutina destinada a encontrar la ubicación del PK respecto a su trazado (clotoide entrada,
-'// radio, clotoide de salida o clotoide entre curvas) y calcular el radio y vano correspondiente
+'// radio, clotoide de salida o clotoide entre curvas)
 '//
 Sub radio(ByRef h)
 Dim l1 As Double, l2 As Double, rady As Double, inicio1 As Double, inicio2 As Double
@@ -14,7 +14,8 @@ Dim contador As Integer
 k = 3
 contador = 0
 '//
-'// Mientras el bucle sea menor o igual a 2
+'// Mientras el bucle sea menor o igual a 2. Necesario realizar el calculo dos veces en clotoides de entrada,
+'// curvas y tramos entre clotoides.
 '//
 While contador <> 2
     '//
@@ -43,20 +44,19 @@ While contador <> 2
     A2 = Sheets(3).Cells(k, 10).Value
     C = Sheets(3).Cells(k, 7).Value
     '//
-    '// Caso inicial
+    '// Recoger datos del radio anterior. Si es nulo lo consideramos como recta
+    '//
+    If Sheets(1).Cells(h - 2, 6).Value <> 0 And k <> 3 Then
+        radio_0 = Abs(Sheets(1).Cells(h - 2, 6).Value)
+    Else
+        radio_0 = r_re
+    End If
+    '//
+    '// Caso inicial (coincide con la primera fila). No existen datos anteriores
     '//
     If k <> 3 Then
         A12 = Sheets(3).Cells(k - 1, 9).Value
         rady2 = Sheets(3).Cells(k - 1, 2).Value
-    End If
-    '//
-    '// Recoger dato radio anterior
-    '//
-    If Sheets(1).Cells(h - 2, 6).Value < 0 Or Sheets(1).Cells(h - 2, 6).Value > 0 _
-    And k <> 3 Then
-        radio_0 = Abs(Sheets(1).Cells(h - 2, 6).Value)
-    Else
-        radio_0 = r_re
     End If
     '//
     '// calculo del radio correspondiente a la clotoide de entrada
@@ -71,7 +71,7 @@ While contador <> 2
                 radioC = radioC * (-1)
             End If
             '//
-            '// calculo caso inicial
+            '// calculo caso inicial (pk actual = inicio)
             '//
             If inicio = pk0 Then
                 Sheets(1).Cells(h, 6).Value = radioC
@@ -245,15 +245,15 @@ While contador <> 2
                 Sheets(1).Cells(h, 7).Value = dev
                 contador = 2
             '//
-            '// calculo caso inicial
+            '// calculo especifico radio calculado = 0
             '//
-            ElseIf radiot = 0 Then
-                Sheets(1).Cells(h - 2, 6).Value = radioC2
-                dev = (C * 1000) / radioC2
-                Sheets(1).Cells(h - 2, 7).Value = dev
-                contador = contador + 1
+            'ElseIf radiot = 0 Then
+                'Sheets(1).Cells(h - 2, 6).Value = radioC2
+                'dev = (C * 1000) / radioC2
+                'Sheets(1).Cells(h - 2, 7).Value = dev
+                'contador = contador + 1
             '//
-            '// calculo caso inicial
+            '// calculo caso radio calculado mayor a radio anterior y primer bucle no realizado
             '//
             ElseIf radiot > radio_0 And contador = 0 Then
                 Sheets(1).Cells(h, 6).Value = radioC

@@ -1,11 +1,31 @@
 Attribute VB_Name = "tabla_vanos"
 Sub tabla_vanos(nombre_catVB)
 
+Dim cont(10) As Long
+
+'//
+'//LECTURA BASE DE DATOS
+'//
+
 Call cargar.datos_acces(nombre_catVB)
+
+'//
+'//CÁLCULO FUERZA VIENTO
+'//
+
 coef_viento = 1.2
 
-Dim cont(10) As Long
-d_max_cu_var = d_max_cu
+'//
+'//Para el cálculo de la fuerza de viento se ha considerado un 15% de afectación en las péndolas
+'//
+
+fuerza_viento = 0.625 * coef_viento * (vw ^ 2) * (diam_hc + diam_sust + diam_pend * 0.15)
+
+'//
+'//ZONA RECTA
+'//
+
+    d_max_cu_var = d_max_cu
     i = 1
     
     Sheets(2).Cells(3, 2) = 100000
@@ -19,11 +39,7 @@ d_max_cu_var = d_max_cu
    
     d_media = (d_max_cu + d_max_cu_var) / 2
     t_tot = (n_hc * t_hc + t_sust) * 9.81 * 0.89
-    'fuerza_viento_sust = fuerza_viento_cyc(diam_sust, sec_sust, 1, "sust", adm_lin_poste) * 9.8
-    'fuerza_viento_hc = fuerza_viento_cyc(diam_hc, sec_hc, n_hc, "hc", adm_lin_poste) * 9.8
-    'fuerza_viento = fuerza_viento_sust + fuerza_viento_hc
-    fuerza_viento = 0.625 * coef_viento * (vw ^ 2) * (diam_hc + diam_sust + diam_pend * 0.15)
-       
+    
     va_max_re = 2 * Sqr((t_tot / fuerza_viento) * (d_max_ad + Sqr((d_max_ad ^ 2) - (d_max_re ^ 2))))
     
     va_max_re = Int(va_max_re)
@@ -39,8 +55,6 @@ d_max_cu_var = d_max_cu
 
     Wend
       
-    'zona recta
-     
     Sheets(2).Cells(3, 4) = d_max_re
     Sheets(2).Cells(3, 5) = -d_max_re
     
@@ -52,7 +66,7 @@ d_max_cu_var = d_max_cu
     r = r_re
 
 n:
-    Sheets(2).Cells(i + 3, j + 2) = d_max_cu
+    Sheets(2).Cells(i + 2, j + 3) = d_max_cu
     
     While r > 2500
     r = cont(i + 1)
@@ -71,8 +85,10 @@ n:
     Wend
         
     r = 2500
-      
-'zona curva
+   
+'//
+'//ZONA CURVA
+'//
 
 inicio:
 
@@ -115,46 +131,10 @@ inicio:
     
 fin:
 
-    Sheets(2).Cells(i + 3, 1) = ""
-    Sheets(2).Cells(i + 3, 2) = ""
-    Sheets(2).Cells(i + 3, 3) = ""
-    Sheets(2).Cells(i + 3, 4) = ""
-    Sheets(2).Cells(i + 3, 5) = ""
-    Sheets(2).Cells(i + 4, 1) = ""
-    Sheets(2).Cells(i + 4, 2) = ""
-    Sheets(2).Cells(i + 4, 3) = ""
-    Sheets(2).Cells(i + 4, 4) = ""
-    Sheets(2).Cells(i + 4, 5) = ""
-    Sheets(2).Cells(i + 5, 1) = ""
-    Sheets(2).Cells(i + 5, 2) = ""
-    Sheets(2).Cells(i + 5, 3) = ""
-    Sheets(2).Cells(i + 5, 4) = ""
-    Sheets(2).Cells(i + 5, 5) = ""
-    Sheets(2).Cells(i + 6, 1) = ""
-    Sheets(2).Cells(i + 6, 2) = ""
-    Sheets(2).Cells(i + 6, 3) = ""
-    Sheets(2).Cells(i + 6, 4) = ""
-    Sheets(2).Cells(i + 6, 5) = ""
-    Sheets(2).Cells(i + 7, 1) = ""
-    Sheets(2).Cells(i + 7, 2) = ""
-    Sheets(2).Cells(i + 7, 3) = ""
-    Sheets(2).Cells(i + 7, 4) = ""
-    Sheets(2).Cells(i + 7, 5) = ""
-    Sheets(2).Cells(i + 8, 1) = ""
-    Sheets(2).Cells(i + 8, 2) = ""
-    Sheets(2).Cells(i + 8, 3) = ""
-    Sheets(2).Cells(i + 8, 4) = ""
-    Sheets(2).Cells(i + 8, 5) = ""
-    Sheets(2).Cells(i + 9, 1) = ""
-    Sheets(2).Cells(i + 9, 2) = ""
-    Sheets(2).Cells(i + 9, 3) = ""
-    Sheets(2).Cells(i + 9, 4) = ""
-    Sheets(2).Cells(i + 9, 5) = ""
-    Sheets(2).Cells(i + 10, 1) = ""
-    Sheets(2).Cells(i + 10, 2) = ""
-    Sheets(2).Cells(i + 10, 3) = ""
-    Sheets(2).Cells(i + 10, 4) = ""
-    Sheets(2).Cells(i + 10, 5) = ""
+'//
+'//FINALIZACIÓN TABLA
+'//
+Sheets(2).Range(Sheets(2).Cells(i + 3, 1), Sheets(2).Cells(i + 10, 5)).ClearContents
 
 End Sub
 

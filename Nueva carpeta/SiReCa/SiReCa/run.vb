@@ -71,7 +71,14 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\momento.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\cargar.txt")
         objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\eleccion.txt")
+        objExcel.VBE.ActiveVBProject.VBComponents.Import("C:\Documents and Settings\23370\Escritorio\SiReCa\Archivos.bas\pendolado.txt")
+        '//
+        '// añadir librerias
+        '//
         objExcel.VBE.ActiveVBProject.References.AddFromFile("C:\Documents and Settings\23370\Escritorio\SiReCa\msado15.dll")
+        objExcel.VBE.ActiveVBProject.References.AddFromFile("C:\Documents and Settings\23370\Escritorio\SiReCa\Acrobat.dll")
+
+        objExcel.VBE.ActiveVBProject.References.AddFromFile("C:\Documents and Settings\23370\Escritorio\SiReCa\acrodist.exe")
         '//
         '// ejecutar rutinas antes del programa principal
         '//
@@ -102,7 +109,11 @@ Module run
         Pantalla_principal.ProgressBar2.Visible = True
         Pantalla_principal.Label11.Visible = True
         With Pantalla_principal.ProgressBar2
-            .Maximum = 13
+            If Pantalla_principal.CheckBox9.Checked = True Then
+                .Maximum = 14
+            Else
+                .Maximum = 13
+            End If
             .Minimum = 0
             .Value = 0
         End With
@@ -188,9 +199,17 @@ Module run
         Pantalla_principal.Label11.Text = "Módulo revisión"
         Pantalla_principal.ProgressBar2.Value = 12
         Pantalla_principal.Refresh()
-        'objExcel.Run("im_pend(fin)")
-        objExcel.Run("revision.revision")
-        Pantalla_principal.ProgressBar2.Value = 13
+        If Pantalla_principal.CheckBox9.Checked = True Then
+            objExcel.Run("pendolado.pendolado", nombre_cat)
+            Pantalla_principal.Label11.Text = "Módulo pendolado"
+            Pantalla_principal.ProgressBar2.Value = 13
+            Pantalla_principal.Refresh()
+            objExcel.Run("revision.revision")
+            Pantalla_principal.ProgressBar2.Value = 14
+        Else
+            objExcel.Run("revision.revision")
+            Pantalla_principal.ProgressBar2.Value = 13
+        End If
         '//
         '// borrar los módulos del excel
         '//
@@ -213,6 +232,7 @@ Module run
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("cargar"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("eleccion"))
         objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("momento"))
+        objExcel.VBE.ActiveVBProject.VBComponents.Remove(VBComponent:=objExcel.VBE.ActiveVBProject.VBComponents.Item("pendolado"))
         objExcel.DisplayAlerts = False
         '//
         '// borrar las hojas no presentables

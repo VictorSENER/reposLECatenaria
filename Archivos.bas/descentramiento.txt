@@ -1,16 +1,31 @@
 Attribute VB_Name = "descentramiento"
+'//
+'// Rutina destinada a elegir el descentramiento correspondiente al radio en la tabla de vanos
+'//
 Sub desc()
 Dim z As Integer, m As Integer
 Dim descentramiento As Double, rady As Double
+'//
+'// Inicializar variables
+'//
 z = 10
+'//
+'// Mientras no lleguemos al final del replanteo
+'//
 While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
+'//
+'// Inicializar variable local
+'//
 m = 3
+
 If Sheets(1).Cells(z, 6).Value < 0 Then
     rady = Sheets(1).Cells(z, 6).Value * (-1)
 Else
     rady = Sheets(1).Cells(z, 6).Value
 End If
-' buscar en que fila de la hoja 2 se encuentra el radio que buscamos
+'//
+'// Buscar en que fila de la hoja 2 se encuentra el radio que buscamos
+'//
 If Not IsEmpty(Sheets(1).Cells(z, 6).Value) Then
     While rady <= Sheets(2).Cells(m, 3).Value
         m = m + 1
@@ -19,9 +34,10 @@ Else
         m = 3
 End If
 descentramiento = Sheets(2).Cells(m, 5).Value
-
-' el descentramiento varia segun el sentido de giro de la curva
-' el descentramiento anterior y posterior varian de signo en recta
+'//
+'// el descentramiento varia segun el sentido de giro de la curva
+'// el descentramiento anterior y posterior varian de signo en recta
+'//
 If Not IsEmpty(Sheets(1).Cells(z, 6).Value) Then
     If Sheets(1).Cells(z, 6).Value >= 0 Then
         Sheets(1).Cells(z, 8).Value = descentramiento
@@ -35,7 +51,9 @@ ElseIf IsEmpty(Sheets(1).Cells(z, 6).Value) Then
         Sheets(1).Cells(z, 8).Value = descentramiento
     End If
 End If
-
+'//
+'// Incrementar fila del replanteo
+'//
 z = z + 2
 Wend
 End Sub

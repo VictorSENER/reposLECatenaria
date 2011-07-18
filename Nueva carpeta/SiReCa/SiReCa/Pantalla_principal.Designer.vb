@@ -72,6 +72,7 @@ Partial Class Pantalla_principal
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.Button10 = New System.Windows.Forms.Button
+        Me.CheckBox9 = New System.Windows.Forms.CheckBox
         Me.GroupBox1.SuspendLayout()
         CType(Me.NombreCatenariaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Base_de_datosDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -289,6 +290,7 @@ Partial Class Pantalla_principal
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox3.Controls.Add(Me.CheckBox9)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.ProgressBar2)
         Me.GroupBox3.Controls.Add(Me.Label10)
@@ -750,6 +752,18 @@ Partial Class Pantalla_principal
         Me.Button10.Text = "SALIR"
         Me.Button10.UseVisualStyleBackColor = False
         '
+        'CheckBox9
+        '
+        Me.CheckBox9.AutoSize = True
+        Me.CheckBox9.Font = New System.Drawing.Font("Trebuchet MS", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox9.ForeColor = System.Drawing.Color.White
+        Me.CheckBox9.Location = New System.Drawing.Point(47, 353)
+        Me.CheckBox9.Name = "CheckBox9"
+        Me.CheckBox9.Size = New System.Drawing.Size(319, 31)
+        Me.CheckBox9.TabIndex = 13
+        Me.CheckBox9.Text = "Realizar fichas de pendolado"
+        Me.CheckBox9.UseVisualStyleBackColor = True
+        '
         'Pantalla_principal
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -837,4 +851,5 @@ Partial Class Pantalla_principal
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents CheckBox9 As System.Windows.Forms.CheckBox
 End Class

@@ -21,45 +21,53 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     aloc = aloc + 1
     Wend
     '//
-    '// Si coinciden con puntos singulares, escribir su respectivo comentario
+    '// Si PK actual coincide con puntos singulares, escribir su respectivo comentario
     '//
     If Sheets(1).Cells(z + 2, 33).Value >= Sheets(4).Cells(aloc, 21).Value Then
-    If Sheets(4).Cells(aloc, 1).Value = "Conducto" Or Sheets(4).Cells(aloc, 1).Value = "Drenaje" _
-    Or Sheets(4).Cells(aloc, 1).Value = "Puente" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
-    Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" _
-    Or Sheets(4).Cells(aloc, 1).Value = "PuenteXL" Or Sheets(4).Cells(aloc, 1).Value = "P.N." Then
-    valor = Sheets(4).Cells(aloc, 23).Value
-    If Sheets(4).Cells(aloc, 1).Value = "Aguja" Then
-        z_var = z
-    Else
-        z_var = z + 1
+        If Sheets(4).Cells(aloc, 1).Value = "Conducto" Or Sheets(4).Cells(aloc, 1).Value = "Drenaje" _
+        Or Sheets(4).Cells(aloc, 1).Value = "Puente" Or Sheets(4).Cells(aloc, 1).Value = "P.I." _
+        Or Sheets(4).Cells(aloc, 1).Value = "P.S. > 7 m" Or Sheets(4).Cells(aloc, 1).Value = "7 > P.S. > 5,2 m" _
+        Or Sheets(4).Cells(aloc, 1).Value = "PuenteXL" Or Sheets(4).Cells(aloc, 1).Value = "P.N." Then
+        valor = Sheets(4).Cells(aloc, 23).Value
+            If Sheets(4).Cells(aloc, 1).Value = "Aguja" Then
+                z_var = z
+            Else
+                z_var = z + 1
+            End If
+        '//
+        '// Insertar comentario en excel
+        '//
+        If IsEmpty(Sheets(1).Cells(z_var + 1, 25).Value) Then
+            Sheets(1).Cells(z_var + 1, 25).Value = valor
+        Else
+            Sheets(1).Cells(z_var + 1, 25).Value = Sheets(1).Cells(z_var + 1, 25).Value & " " & valor
+        End If
+        If Not IsEmpty(Sheets(1).Cells(z_var, 25).Value) Then
+            guardar = Sheets(1).Cells(z_var, 25).Value
+            Sheets(1).Cells(z_var, 25).Value = ""
+            Sheets(1).Cells(z_var, 25).Value = guardar & " - " & valor
+        End If
+        '//
+        '// Formato de la celda de comentarios
+        '//
+        With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25))
+            .Borders(xlEdgeLeft).LineStyle = 2
+            .Borders(xlEdgeLeft).ColorIndex = 15
+            .Borders(xlEdgeTop).LineStyle = 2
+            .Borders(xlEdgeTop).ColorIndex = 15
+            .Borders(xlEdgeBottom).LineStyle = 2
+            .Borders(xlEdgeBottom).ColorIndex = 15
+            .Borders(xlEdgeRight).LineStyle = 2
+            .Borders(xlEdgeRight).ColorIndex = 15
+            .MergeCells = True
+        End With
+        
+        End If
     End If
-    
-    If IsEmpty(Sheets(1).Cells(z_var + 1, 25).Value) Then
-        Sheets(1).Cells(z_var + 1, 25).Value = valor
-    Else
-        Sheets(1).Cells(z_var + 1, 25).Value = Sheets(1).Cells(z_var + 1, 25).Value & " " & valor
-    End If
-    If Not IsEmpty(Sheets(1).Cells(z_var, 25).Value) Then
-        guardar = Sheets(1).Cells(z_var, 25).Value
-        Sheets(1).Cells(z_var, 25).Value = ""
-        Sheets(1).Cells(z_var, 25).Value = guardar & " - " & valor
-    End If
-    With Sheets(1).Range(Sheets(1).Cells(z_var, 25), Sheets(1).Cells(z_var + 1, 25))
-    .Borders(xlEdgeLeft).LineStyle = 2
-    .Borders(xlEdgeLeft).ColorIndex = 15
-    .Borders(xlEdgeTop).LineStyle = 2
-    .Borders(xlEdgeTop).ColorIndex = 15
-    .Borders(xlEdgeBottom).LineStyle = 2
-    .Borders(xlEdgeBottom).ColorIndex = 15
-    .Borders(xlEdgeRight).LineStyle = 2
-    .Borders(xlEdgeRight).ColorIndex = 15
-    .MergeCells = True
-    End With
-    
-    End If
-    End If
-    z = z + 2
+'//
+'// Incrementar fila del replanteo
+'//
+z = z + 2
 Wend
 End Sub
 

@@ -139,8 +139,8 @@ Sheets(1).Range("A8", "AA10001").WrapText = True
 '//
 '// Formato de ocultar columnas
 '//
-Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
-Sheets(1).Columns("B").EntireColumn.Hidden = True
+'Sheets(1).Columns("AB:AO").EntireColumn.Hidden = True
+'Sheets(1).Columns("B").EntireColumn.Hidden = True
 End Sub
 '//
 '// Rutina destinada a establecer el comentario del punto singular en el idioma adecuado

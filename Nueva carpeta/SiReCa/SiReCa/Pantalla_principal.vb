@@ -6,6 +6,7 @@ Public Class Pantalla_principal
     Public ruta_autocad As String
     Public nombre_excel As String
 
+
     Private Sub Pantalla_principal_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
 
 
@@ -125,6 +126,7 @@ Public Class Pantalla_principal
                 End If
             End If
         End If
+
     End Sub
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
         Me.Label2.Hide()
@@ -268,5 +270,6 @@ Public Class Pantalla_principal
     Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
         Me.Close()
     End Sub
+
 
 End Class

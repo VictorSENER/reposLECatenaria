@@ -23,7 +23,9 @@ End If
 
 
     While (Sheets(4).Cells(acan, 1).Value <> "Tunel" And Sheets(4).Cells(acan, 22).Value <> "IN" And Sheets(4).Cells(acan, 23).Value <> "FINAL" _
-     And Sheets(4).Cells(acan, 22).Value <> "OUT" And Sheets(4).Cells(acan, 1).Value <> "Zona") Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(hini, 33).Value)
+     And Sheets(4).Cells(acan, 22).Value <> "OUT" And Sheets(4).Cells(acan, 1).Value <> "Zona") Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(hini, 33).Value) _
+     'Or (Sheets(4).Cells(acan, 2).Value < Sheets(1).Cells(h, 33).Value)
+     
         acan = acan + 1
         tipo_singular_out = Sheets(4).Cells(acan, 1).Value
         INI = Sheets(1).Cells(hini, 33).Value
@@ -56,6 +58,10 @@ End If
 
 
 If INI + dist_max_canton < Sheets(1).Cells(h, 33).Value Or finish < Sheets(1).Cells(h, 33).Value Then
+    If finish < Sheets(1).Cells(hini, 33).Value + 600 Then
+        tipo_singular_in = Sheets(4).Cells(acan, 1).Value
+        acan = acan + 1
+    Else
     z = h
     If finish < Sheets(1).Cells(h, 33).Value Then
     Select Case tipo_singular_out
@@ -77,6 +83,7 @@ If INI + dist_max_canton < Sheets(1).Cells(h, 33).Value Or finish < Sheets(1).Ce
     Call one(z, a)
     Call pintar(z - 2, hini, 27)
     Call two(z, pk)
+    End If
 End If
 End Sub
 '//

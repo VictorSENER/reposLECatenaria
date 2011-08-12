@@ -6,7 +6,7 @@ Module run
     '// variables publicas para tabla de replanteo
     '//
     Public caso As String
-    Public uno As Integer
+    Public uno As Integer, i As Integer
     Public nombre_cat As String, sist As String, al As String, alt_nom As Double, alt_min As Double, alt_max As Long, alt_cat As Double, dist_va_max As Long, dist_max_canton As Double, va_max As Double, va_max_sm As Double, va_max_sla As Double, va_max_tunel As Double, inc_norm_va As Double, inc_max_alt_hc As Double, n_min_va_sm As Double, n_min_va_sla As Double, ancho_via As Double, d_max_re As Double, d_max_cu As Double, r_re As Double, d_max_ad As Double, el_max_pant As Double, vw As Double, fl_max_centro_va As Double, dist_carril_poste As Double, dist_base_poste_pmr As Double, dist_elect_sm As Double, dist_elect_sla As Double, l_zc_max As Double, l_zc_min As Double, l_zn As Double, r_min_traz As Double, hc As String, sust As String, cdpa As String, cdte As String, feed_pos As String, feed_neg As String, pto_fijo As String, pend As String, anc As String, posicion_feed_neg As String, n_hc As Long, n_cdpa As Long, n_feed_pos As Long, n_feed_neg As Long, t_hc As Double, t_sust As Double, t_cdpa As Double, t_feed_pos As Double, t_feed_neg As Double, t_pto_fijo As Double, adm_lin_poste As String, tip_poste As String, num_poste As String, adm_lin_mac As String, tip_mac As String, tubo_men As String, tubo_tir As String, cola_anc As String, aisl_feed_pos As String, aisl_feed_neg As String, dist_ap_prim_pend As Long, dist_prim_seg_pend As Long, dist_max_pend As Long, idioma As String
     Public sec_hc As Double, diam_hc As String, p_hc As Double, res_max_hc As Double, coef_dil_hc As String, mod_elast_hc As Double, carga_rot_hc As Double, norma_hc As String, origen_1_hc As String, origen_2_hc As String
     Public sec_sust As Double, diam_sust As String, p_sust As Double, res_max_sust As Double, coef_dil_sust As String, mod_elast_sust As Double, carga_rot_sust As Double, norma_sust As String, origen_1_sust As String, origen_2_sust As String
@@ -28,6 +28,7 @@ Module run
     Public fuerza_s(2) As String
     Public momento(44) As Double
     Public Sub run_excel(ByVal inicio, ByVal fin, ByVal ruta_replanteo, ByVal nombre_excel, ByVal ruta_trazado)
+        Dim usuario As String
         '//
         '// generar un objeto excel
         '//
@@ -93,6 +94,7 @@ Module run
         Pantalla_principal.Label5.Visible = False
         Pantalla_principal.Label6.Visible = False
         Pantalla_principal.Label8.Visible = False
+        Pantalla_principal.CheckBox9.Visible = False
         '//
         '// actualizar la barra de progreso
         '//
@@ -134,6 +136,7 @@ Module run
         xLibro.Worksheets(1).Columns(1).NumberFormat = "@"
         xLibro.Worksheets(1).range("A1", "AA10001").ColumnWidth = 16
         xLibro.Worksheets(1).Range("A1", "AA10001").RowHeight = 14
+        usuario = xLibro.Application.UserName
         '//
         '// activación del programa principal de excel
         '//
@@ -143,73 +146,92 @@ Module run
         '//
         '// rutina del programa principal y actualización de barra de estado
         '//
+        xLibro.Worksheets(1).activate()
         While tiempo(7) < fin
             tiempo = objExcel.Run("principal.principal", tiempo(0), tiempo(1), tiempo(2), tiempo(3), tiempo(4), tiempo(5), tiempo(6), _
                               r_re, dist_va_max, inc_norm_va, va_max_tunel, va_max, dist_max_canton, va_max_sm)
             Pantalla_principal.ProgressBar1.Value = tiempo(7)
         End While
+        xLibro.Worksheets(9).activate()
         '//
         '// activación del resto de rutinas y actualización de la barra de estado
         '//
+        i = 0
         Pantalla_principal.Label11.Text = "Módulo conversión de PK"
-        Pantalla_principal.ProgressBar2.Value = 1
         Pantalla_principal.Refresh()
         objExcel.Run("pk_real.convertir_LT")
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo numeración postes"
-        Pantalla_principal.ProgressBar2.Value = 2
         Pantalla_principal.Refresh()
         objExcel.Run("num_postes.postes", nombre_cat)
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo altura"
-        Pantalla_principal.ProgressBar2.Value = 3
         Pantalla_principal.Refresh()
         objExcel.Run("altura.altura", nombre_cat)
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo esfuerzos"
-        Pantalla_principal.ProgressBar2.Value = 4
         Pantalla_principal.Refresh()
         objExcel.Run("cad.esfuerzo")
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo descentramiento"
-        Pantalla_principal.ProgressBar2.Value = 5
         Pantalla_principal.Refresh()
-        objExcel.Run("cantonamiento.canton_final", nombre_cat, fin)         ' distribución de los cantones de catenaria
         objExcel.Run("descentramiento.desc")
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo posicion"
-        Pantalla_principal.ProgressBar2.Value = 6
         Pantalla_principal.Refresh()
         objExcel.Run("cad.posicion")
-        Pantalla_principal.Label11.Text = "Módulo comentarios"
-        Pantalla_principal.ProgressBar2.Value = 7
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Refresh()
+        Pantalla_principal.Label11.Text = "Módulo comentarios"
         objExcel.Run("comentarios.comentarios")
+        Pantalla_principal.ProgressBar2.Value = i
+        i = i + 1
         Pantalla_principal.Label11.Text = "Módulo momento"
-        Pantalla_principal.ProgressBar2.Value = 8
         Pantalla_principal.Refresh()
         objExcel.Run("momento.momento", nombre_cat)
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo formato"
-        Pantalla_principal.ProgressBar2.Value = 9
         Pantalla_principal.Refresh()
         objExcel.Run("formato.formato", idioma)
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo elección postes"
-        Pantalla_principal.ProgressBar2.Value = 10
         Pantalla_principal.Refresh()
         objExcel.Run("eleccion.postes", nombre_cat)
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         Pantalla_principal.Label11.Text = "Módulo elección cimentaciones"
-        Pantalla_principal.ProgressBar2.Value = 11
         Pantalla_principal.Refresh()
         objExcel.Run("eleccion.cimentaciones", nombre_cat)
-        Pantalla_principal.Label11.Text = "Módulo revisión"
-        Pantalla_principal.ProgressBar2.Value = 12
-        Pantalla_principal.Refresh()
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
         If Pantalla_principal.CheckBox9.Checked = True Then
-            objExcel.Run("pendolado.pendolado", nombre_cat)
             Pantalla_principal.Label11.Text = "Módulo pendolado"
-            Pantalla_principal.ProgressBar2.Value = 13
             Pantalla_principal.Refresh()
-            objExcel.Run("revision.revision")
-            Pantalla_principal.ProgressBar2.Value = 14
-        Else
-            objExcel.Run("revision.revision")
-            Pantalla_principal.ProgressBar2.Value = 13
+            objExcel.Run("pendolado.pendolado", nombre_cat)
+            i = i + 1
+            Pantalla_principal.ProgressBar2.Value = i
         End If
+        If va_max = va_max_sm Then
+            Pantalla_principal.Label11.Text = "Módulo cantonamiento"
+            Pantalla_principal.Refresh()
+            objExcel.Run("cantonamiento.canton_final", nombre_cat, fin)
+            i = i + 1
+            Pantalla_principal.ProgressBar2.Value = i
+        End If
+        Pantalla_principal.Label11.Text = "Módulo revisión"
+        Pantalla_principal.Refresh()
+        objExcel.Run("revision.revision")
+        i = i + 1
+        Pantalla_principal.ProgressBar2.Value = i
+        Pantalla_principal.Refresh()
         '//
         '// borrar los módulos del excel
         '//
@@ -259,6 +281,23 @@ Module run
         objExcel.Quit()
         xLibro = Nothing
         objExcel = Nothing
+        '//
+        '//Archivo de control de cambios
+        '//
+        Dim strNombreArchivo, strRuta, strArchivoTexto As String
+        'nombre y ruta del archivo de texto
+        strNombreArchivo = "Control.txt"
+        strRuta = "W:\223\D\D223041\IN_INFORMES\"
+        strArchivoTexto = strRuta & strNombreArchivo
+        Dim file As System.IO.StreamWriter = System.IO.File.AppendText(strArchivoTexto)
+        file.WriteLine("Realización replanteo - Fecha: " & Date.Today & " Hora: " & TimeOfDay & " Usuario: " & usuario & " Nº Usuario: " & Environment.UserName & " Maquina: " & Environment.MachineName)
+        file.Close()
+
+        file = Nothing
+
+
+
+
 
     End Sub
     'Sub run_autocad(ByVal ruta_autocad)

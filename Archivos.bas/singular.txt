@@ -140,7 +140,7 @@ Sub aguja(ByRef h, ByRef k, ByRef b, ByRef a)
 Dim dist_restar As Double
 Dim pk1 As Double, pk0 As Double, vano12 As Double, vanoref As Double
 Dim z As Integer
-pk1 = Sheets(4).Cells(a, 2).Value
+    pk1 = Sheets(4).Cells(a, 2).Value
 pk0 = Sheets(1).Cells(h, 33).Value
 'caso particular de tener un paso superior bajo antes de la aguja
     If Sheets(4).Cells(a - 1, 1).Value = "7 > P.S. > 5,2 m" And _

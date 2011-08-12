@@ -125,6 +125,7 @@ Module modificar_lac
         '//
         oRead.Close()
         oConn.Close()
+
         '//
         '// Mostrar la pantalla de datos
         '//

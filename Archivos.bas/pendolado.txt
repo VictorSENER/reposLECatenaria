@@ -97,7 +97,15 @@ dist_ap_prim_pend_der = dist_ap_prim_pend
 
 dist_prim_seg_pend_izq = dist_prim_seg_pend
 dist_prim_seg_pend_der = dist_prim_seg_pend
-Application.Workbooks.Open "C:\Documents and Settings\23370\Escritorio\plantilla.xlsm"
+
+
+
+Dim plantilla As Object
+Set plantilla = CreateObject("Excel.Application")
+plantilla.Visible = False
+plantilla.Workbooks.Open "C:\Documents and Settings\23370\Escritorio\plantilla.xlsm"
+
+
 'Application.Workbooks.Open "C:\Documents and Settings\29289\Escritorio\Excels Sireca\plantilla_pendolado.xlsx"
 
 a = 10
@@ -117,16 +125,16 @@ ini1:
 
 Call cargar.datos_acces(nombre_catVB)
 
-Workbooks(2).Sheets(1).Range("D4:D9").ClearContents
-Workbooks(2).Sheets(1).Cells(6, 10).ClearContents
-Workbooks(2).Sheets(1).Cells(8, 10).ClearContents
-Workbooks(2).Sheets(1).Range("D12:D10001").ClearContents
-Workbooks(2).Sheets(1).Range("E12:E10001").ClearContents
-Workbooks(2).Sheets(1).Range("F12:F10001").ClearContents
-Workbooks(2).Sheets(1).Range("G11:G10001").ClearContents
-Workbooks(2).Sheets(1).Range("H11:H10001").ClearContents
+plantilla.Sheets(1).Range("D4:D9").ClearContents
+plantilla.Sheets(1).Cells(6, 10).ClearContents
+plantilla.Sheets(1).Cells(8, 10).ClearContents
+plantilla.Sheets(1).Range("D12:D10001").ClearContents
+plantilla.Sheets(1).Range("E12:E10001").ClearContents
+plantilla.Sheets(1).Range("F12:F10001").ClearContents
+plantilla.Sheets(1).Range("G11:G10001").ClearContents
+plantilla.Sheets(1).Range("H11:H10001").ClearContents
 
-Workbooks(2).Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4)
+plantilla.Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4)
 
 If Workbooks(1).Sheets(1).Cells(a + 1, 4) < 36 Then
     
@@ -153,7 +161,7 @@ Dim pk_fin_var As String
 pk_ini_var = CStr(Workbooks(1).Sheets(1).Cells(a, 3))
 pk_fin_var = CStr(Workbooks(1).Sheets(1).Cells(a + 2, 3))
 
-Workbooks(2).Sheets(1).Name = pk_ini_var & " - " & pk_fin_var
+plantilla.Sheets(1).Name = pk_ini_var & " - " & pk_fin_var
 
 GoTo pas
 
@@ -164,12 +172,12 @@ ini2:
 
 Call cargar.datos_acces(nombre_catVB)
 
-Workbooks(2).Sheets(1).Range("D5:D9").ClearContents
-Workbooks(2).Sheets(1).Range("D12:D10001").ClearContents
-Workbooks(2).Sheets(1).Range("E12:E10001").ClearContents
-Workbooks(2).Sheets(1).Range("F12:F10001").ClearContents
-Workbooks(2).Sheets(1).Range("G11:G10001").ClearContents
-Workbooks(2).Sheets(1).Range("H11:H10001").ClearContents
+plantilla.Sheets(1).Range("D5:D9").ClearContents
+plantilla.Sheets(1).Range("D12:D10001").ClearContents
+plantilla.Sheets(1).Range("E12:E10001").ClearContents
+plantilla.Sheets(1).Range("F12:F10001").ClearContents
+plantilla.Sheets(1).Range("G11:G10001").ClearContents
+plantilla.Sheets(1).Range("H11:H10001").ClearContents
 
 If Workbooks(1).Sheets(1).Cells(a + 1, 4) < 36 Then
   
@@ -184,12 +192,12 @@ pas:
 '//
 If (tip = "" Or tip = "Anc.Chevau." Or tip = "Anc.Antich." Or tip = "Anc.Aigu" Or tip = "Axe.Antich." Or tip = "Anc.Antich." Or tip = "Anc.Chevau.sans AT" Or tip = "Anc.Section.sans AT") And tip_var <> "Axe.Aigu" Then
    
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -204,12 +212,12 @@ If (tip = "" Or tip = "Anc.Chevau." Or tip = "Anc.Antich." Or tip = "Anc.Aigu" O
 '//
 ElseIf tip = "Inter.Chevau." And (tip_var <> "Anc.Chevau." And tip_var <> "Anc.Chevau.sans AT") And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -221,12 +229,12 @@ ElseIf tip = "Inter.Chevau." And (tip_var <> "Anc.Chevau." And tip_var <> "Anc.C
     
 ElseIf tip = "Inter.Chevau." And (tip_var <> "Anc.Chevau." And tip_var <> "Anc.Chevau.sans AT") And it = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_sm_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_sm_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_sm_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_sm_el
+    plantilla.Sheets(1).Cells(7, 4) = el_hc
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend * 2
@@ -238,12 +246,12 @@ ElseIf tip = "Inter.Chevau." And (tip_var <> "Anc.Chevau." And tip_var <> "Anc.C
     
 ElseIf tip = "Inter.Chevau." And (tip_var = "Anc.Chevau." Or tip_var = "Anc.Chevau.sans AT") Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -255,23 +263,23 @@ ElseIf tip = "Inter.Chevau." And (tip_var = "Anc.Chevau." Or tip_var = "Anc.Chev
     
 ElseIf tip = "Axe.Chevau." And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_sm_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_sm_el
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = el_hc
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     it = 1
 
 ElseIf tip = "Axe.Chevau." And it = 1 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_sm_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_sm_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -286,30 +294,30 @@ ElseIf tip = "Axe.Chevau." And it = 1 Then
 '//
 ElseIf (tip = "Anc.Section." Or tip = "Anc.Section.sans AT") And tip_var = "Inter.Section." Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat - 0.2
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat - 0.2
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     '//
     '//La variable va_var_sla suma la mitad del ancho de la ménsula
     '//
     va_var_sla = 0.5
     
-    Workbooks(2).Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
+    plantilla.Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
     
     it = 0
     
 ElseIf tip = "Inter.Section." And (tip_var <> "Anc.Section." And tip_var <> "Anc.Section.sans AT") And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat - 0.2
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_e_sla
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat - 0.2
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_e_sla
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -321,12 +329,12 @@ ElseIf tip = "Inter.Section." And (tip_var <> "Anc.Section." And tip_var <> "Anc
     
 ElseIf tip = "Inter.Section." And (tip_var <> "Anc.Section." And tip_var <> "Anc.Section.sans AT") And it = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_sla_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_sla_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_sla_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_sla_el
+    plantilla.Sheets(1).Cells(7, 4) = el_hc
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend * 2
@@ -340,12 +348,12 @@ ElseIf tip = "Inter.Section." And (tip_var <> "Anc.Section." And tip_var <> "Anc
 
 ElseIf tip = "Axe.Section." And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_e_sla
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_sla_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_e_sla
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_sla_el
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = el_hc
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend * 2
@@ -359,12 +367,12 @@ ElseIf tip = "Axe.Section." And it = 0 Then
 
 ElseIf tip = "Axe.Section." And it = 1 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_sla_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat - 0.2
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_sla_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat - 0.2
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend + 0.6
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -376,12 +384,12 @@ ElseIf tip = "Axe.Section." And it = 1 Then
     
 ElseIf tip = "Inter.Section." And (tip_var = "Anc.Section." Or tip_var = "Anc.Section.sans AT") And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat - 0.2
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat - 0.2
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -393,12 +401,12 @@ ElseIf tip = "Inter.Section." And (tip_var = "Anc.Section." Or tip_var = "Anc.Se
 
 ElseIf tip = "Anc.Section." And tip_var = "" And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat - 0.2
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat - 0.2
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -413,12 +421,12 @@ ElseIf tip = "Anc.Section." And tip_var = "" And it = 0 Then
 '//
 ElseIf tip = "Inter.Aigu" And tip_var = "Axe.Aigu" And it = 0 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -430,12 +438,12 @@ ElseIf tip = "Inter.Aigu" And tip_var = "Axe.Aigu" And it = 0 Then
 
 ElseIf tip = "Inter.Aigu" And tip_var = "Axe.Aigu" And it = 1 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(7, 4) = el_hc
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -447,12 +455,12 @@ ElseIf tip = "Inter.Aigu" And tip_var = "Axe.Aigu" And it = 1 Then
     
 ElseIf tip = "Axe.Aigu" And tip_var = "" And it = 0 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -464,12 +472,12 @@ ElseIf tip = "Axe.Aigu" And tip_var = "" And it = 0 Then
 
 ElseIf tip = "Axe.Aigu" And tip_var = "" And it = 1 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -479,18 +487,18 @@ ElseIf tip = "Axe.Aigu" And tip_var = "" And it = 1 Then
 
     va_var_sla = 0.5
     
-    Workbooks(2).Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
+    plantilla.Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
 
     it = 0
 
 ElseIf tip = "Anc.Antich." And tip_var = "Axe.Aigu" And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -502,12 +510,12 @@ ElseIf tip = "Anc.Antich." And tip_var = "Axe.Aigu" And it = 0 Then
 
 ElseIf tip = "" And tip_var = "Axe.Aigu" And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -518,12 +526,12 @@ ElseIf tip = "" And tip_var = "Axe.Aigu" And it = 0 Then
     it = 1
 
 ElseIf tip = "" And tip_var = "Axe.Aigu" And it = 1 Then
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -533,18 +541,18 @@ ElseIf tip = "" And tip_var = "Axe.Aigu" And it = 1 Then
 
     va_var_sla = 0.5
     
-    Workbooks(2).Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
+    plantilla.Sheets(1).Cells(4, 4) = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
 
     it = 0
     
 ElseIf tip = "Axe.Aigu" And tip_var = "Inter.Aigu" And it = 0 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -556,12 +564,12 @@ ElseIf tip = "Axe.Aigu" And tip_var = "Inter.Aigu" And it = 0 Then
 
 ElseIf tip = "Axe.Aigu" And tip_var = "Inter.Aigu" And it = 1 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = el_hc
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_ag_el
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = el_hc
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -573,12 +581,12 @@ ElseIf tip = "Axe.Aigu" And tip_var = "Inter.Aigu" And it = 1 Then
    
 ElseIf tip = "Inter.Aigu" And tip_var = "Anc.Aigu" And it = 0 Then
 
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -593,12 +601,12 @@ ElseIf tip = "Inter.Aigu" And tip_var = "Anc.Aigu" And it = 0 Then
 '//
 ElseIf tip = "Anc.Neutre" And tip_var = "Int.Neutre" Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -610,12 +618,12 @@ ElseIf tip = "Anc.Neutre" And tip_var = "Int.Neutre" Then
        
 ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 0 And it_var = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -629,12 +637,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 0 And it_var = 0 T
     
 ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 1 And it_var = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat - 0.05
-    Workbooks(2).Sheets(1).Cells(7, 4) = el_hc - 0.15
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat - 0.05
+    plantilla.Sheets(1).Cells(7, 4) = el_hc - 0.15
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
         
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -646,12 +654,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 1 And it_var = 0 T
     
 ElseIf tip = "Int.Neutre" And tip_var = "Axe.Neutre" And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_e_zn
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_e_zn
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
   
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -663,12 +671,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Axe.Neutre" And it = 0 Then
     
 ElseIf tip = "Int.Neutre" And tip_var = "Axe.Neutre" And it = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat - 0.05
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat - 0.05
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     aisl = 1
     
@@ -682,12 +690,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Axe.Neutre" And it = 1 Then
     
 ElseIf tip = "Axe.Neutre" And tip_var = "Int.Neutre" And it = 0 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_e_zn
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_e_zn
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_e_zn
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_e_zn
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     aisl = 1
         
@@ -701,12 +709,12 @@ ElseIf tip = "Axe.Neutre" And tip_var = "Int.Neutre" And it = 0 Then
     
 ElseIf tip = "Axe.Neutre" And tip_var = "Int.Neutre" And it = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     aisl = 1
     
@@ -720,12 +728,12 @@ ElseIf tip = "Axe.Neutre" And tip_var = "Int.Neutre" And it = 1 Then
 
 ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 0 And it_var = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_e_zn
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_e_zn
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_e_zn
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_e_zn
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0.05
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     aisl = 1
     
@@ -739,12 +747,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 0 And it_var = 1 T
     
 ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 1 And it_var = 1 Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0.05
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(7, 4) = 0.05
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
         
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend + 0.6
@@ -758,12 +766,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Int.Neutre" And it = 1 And it_var = 1 T
     
 ElseIf tip = "Int.Neutre" And tip_var = "Anc.Neutre" Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat_se_zn_el
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
     
     dist_ap_prim_pend_izq = dist_ap_prim_pend + 0.6
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -775,12 +783,12 @@ ElseIf tip = "Int.Neutre" And tip_var = "Anc.Neutre" Then
 
 ElseIf tip = "Anc.Neutre" And tip_var = "" Then
     
-    Workbooks(2).Sheets(1).Cells(5, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(6, 4) = alt_cat
-    Workbooks(2).Sheets(1).Cells(7, 4) = 0
-    Workbooks(2).Sheets(1).Cells(8, 4) = 0
-    Workbooks(2).Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
-    Workbooks(2).Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
+    plantilla.Sheets(1).Cells(5, 4) = alt_cat
+    plantilla.Sheets(1).Cells(6, 4) = alt_cat
+    plantilla.Sheets(1).Cells(7, 4) = 0
+    plantilla.Sheets(1).Cells(8, 4) = 0
+    plantilla.Sheets(1).Cells(6, 10) = Workbooks(1).Sheets(1).Cells(a, 1)
+    plantilla.Sheets(1).Cells(8, 10) = Workbooks(1).Sheets(1).Cells(a + 2, 1)
 
     dist_ap_prim_pend_izq = dist_ap_prim_pend
     dist_ap_prim_pend_der = dist_ap_prim_pend
@@ -798,8 +806,8 @@ End If
 '//
 
 va = Workbooks(1).Sheets(1).Cells(a + 1, 4) + va_var_sla
-el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
-el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
+el_hc_ini = plantilla.Sheets(1).Cells(7, 4)
+el_hc_fin = plantilla.Sheets(1).Cells(8, 4)
 
 '//
 '//Longitud de cabeza superior e inferior de la péndola
@@ -932,9 +940,9 @@ If (dist_ap_prim_pend_izq = dist_ap_prim_pend_der) And (el_hc_ini = el_hc_fin) T
         i = 1
         j = 11
         While dist(i) <> 0
-            Workbooks(2).Sheets(1).Cells(j, 7) = dist(i)
-            var_dist = var_dist + Workbooks(2).Sheets(1).Cells(j, 7)
-            Workbooks(2).Sheets(1).Cells(j, 8) = var_dist
+            plantilla.Sheets(1).Cells(j, 7) = dist(i)
+            var_dist = var_dist + plantilla.Sheets(1).Cells(j, 7)
+            plantilla.Sheets(1).Cells(j, 8) = var_dist
             i = i + 1
             j = j + 2
         Wend
@@ -942,8 +950,8 @@ If (dist_ap_prim_pend_izq = dist_ap_prim_pend_der) And (el_hc_ini = el_hc_fin) T
         i = 2
         j = 12
         While dist(i) <> 0
-            Workbooks(2).Sheets(1).Cells(j, 4) = var_1 + 1
-            Workbooks(2).Sheets(1).Cells(9, 4) = var_1 + 1
+            plantilla.Sheets(1).Cells(j, 4) = var_1 + 1
+            plantilla.Sheets(1).Cells(9, 4) = var_1 + 1
             var_1 = var_1 + 1
             i = i + 1
             j = j + 2
@@ -1031,10 +1039,10 @@ Else
         j = 11
         var_dist = 0
         While dist(i) <> 0
-            Workbooks(2).Sheets(1).Cells(j, 7) = dist(i)
-            acum(i) = acum(i - 1) + Workbooks(2).Sheets(1).Cells(j, 7)
-            var_dist = var_dist + Workbooks(2).Sheets(1).Cells(j, 7)
-            Workbooks(2).Sheets(1).Cells(j, 8) = var_dist
+            plantilla.Sheets(1).Cells(j, 7) = dist(i)
+            acum(i) = acum(i - 1) + plantilla.Sheets(1).Cells(j, 7)
+            var_dist = var_dist + plantilla.Sheets(1).Cells(j, 7)
+            plantilla.Sheets(1).Cells(j, 8) = var_dist
             i = i + 1
             j = j + 2
         Wend
@@ -1043,8 +1051,8 @@ Else
         j = 12
         var_1 = 0
         While dist(i) <> 0
-            Workbooks(2).Sheets(1).Cells(j, 4) = var_1 + 1
-            Workbooks(2).Sheets(1).Cells(9, 4) = var_1 + 1
+            plantilla.Sheets(1).Cells(j, 4) = var_1 + 1
+            plantilla.Sheets(1).Cells(9, 4) = var_1 + 1
             var_1 = var_1 + 1
             i = i + 1
             j = j + 2
@@ -1091,7 +1099,7 @@ End If
     x_var = Sqr((el_hc_fin * 2 * t_hc) / p_hc)
     x_var = va - x_var
     
-            While cont <= i And n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+            While cont <= i And n_pend <= plantilla.Sheets(1).Cells(9, 4)
                 n(cont) = 1
                 cont = cont + 1
             
@@ -1119,8 +1127,8 @@ End If
 i = 1
 n_pend = 1
 p_hc_ap = 0
-el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
-el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
+el_hc_ini = plantilla.Sheets(1).Cells(7, 4)
+el_hc_fin = plantilla.Sheets(1).Cells(8, 4)
 
 If el_hc_ini <> 0 And el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
 
@@ -1145,13 +1153,13 @@ Wend
 '//
 
 If el_hc_ini = 0 And el_hc_fin = 0 Or el_hc_ini = el_hc_fin Then
-    While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+    While n_pend <= plantilla.Sheets(1).Cells(9, 4)
     
         If n_pend = 1 Then
         
             fuerza(i) = p_hc * dist(i) + p_var_2 * (dist(i + 1) / 2) + p_pend * ((dist(i) + dist(i + 1)) / 2) + p_pend_equip + p_var_1 * ((va - 2 * dist(i)) / 2)
         
-        ElseIf i = Workbooks(2).Sheets(1).Cells(9, 4) Then
+        ElseIf i = plantilla.Sheets(1).Cells(9, 4) Then
             
             fuerza(i) = p_hc * dist(i + 1) + p_var_2 * (dist(i) / 2) + p_pend * ((dist(i) + dist(i + 1)) / 2) + p_pend_equip + p_var_1 * ((va - 2 * dist(i + 1)) / 2)
          
@@ -1182,7 +1190,7 @@ ElseIf el_hc_ini <> 0 Or el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
             var_izq_der = 1
         End If
     
-    While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+    While n_pend <= plantilla.Sheets(1).Cells(9, 4)
               
         fuerza(i) = 0
         If n_pend = 1 Then
@@ -1191,7 +1199,7 @@ ElseIf el_hc_ini <> 0 Or el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
         
         End If
         
-        If x_var >= Workbooks(2).Sheets(1).Cells(j + 2, 8) Then
+        If x_var >= plantilla.Sheets(1).Cells(j + 2, 8) Then
             
             fuerza(i) = fuerza(i) + p_hc * ((dist(i) + dist(i + 1)) / 2) + p_pend * ((dist(i) + dist(i + 1)) / 2) + p_pend_equip
             
@@ -1225,7 +1233,7 @@ ElseIf el_hc_ini <> 0 Or el_hc_fin <> 0 And el_hc_ini <> el_hc_fin Then
             
         End If
               
-        If Workbooks(2).Sheets(1).Cells(j, 8) <= va / 2 Then
+        If plantilla.Sheets(1).Cells(j, 8) <= va / 2 Then
             p_hc_ap_izq = p_hc_ap_izq + fuerza(i)
             
         Else
@@ -1246,9 +1254,9 @@ End If
 
 i = 1
 cont = 1
-n_pend = Workbooks(2).Sheets(1).Cells(9, 4)
+n_pend = plantilla.Sheets(1).Cells(9, 4)
 
-While cont <= Workbooks(2).Sheets(1).Cells(9, 4)
+While cont <= plantilla.Sheets(1).Cells(9, 4)
     n(cont) = 1
     cont = cont + 1
 Wend
@@ -1256,7 +1264,7 @@ Wend
 p_ap_tot_izq = p_sust_ap + (n(1) * fuerza(1) * acum(1) + n(2) * fuerza(2) * acum(2) + n(3) * fuerza(3) * acum(3) + n(4) * fuerza(4) * acum(4) + n(5) * fuerza(5) * acum(5) + n(6) * fuerza(6) * acum(6) + n(7) * fuerza(7) * acum(7) + n(8) * fuerza(8) * acum(8) + n(9) * fuerza(9) * acum(9) + n(10) * fuerza(10) * acum(10) + n(11) * fuerza(11) * acum(11) + n(12) * fuerza(12) * acum(12) + n(13) * fuerza(13) * acum(13) + n(14) * fuerza(14) * acum(14)) / va
 
 i = 1
-While i <= Workbooks(2).Sheets(1).Cells(9, 4)
+While i <= plantilla.Sheets(1).Cells(9, 4)
     p_ap_tot_der_var = p_ap_tot_der_var + n(i) * fuerza(i) * (acum(n_pend + 1) - acum(i))
         
     i = i + 1
@@ -1275,10 +1283,10 @@ Wend
 '//Distintas alturas de catenaria
 '//
          
-If Workbooks(2).Sheets(1).Cells(5, 4) <> Workbooks(2).Sheets(1).Cells(6, 4) Then
+If plantilla.Sheets(1).Cells(5, 4) <> plantilla.Sheets(1).Cells(6, 4) Then
     
-    p_ap_tot_izq = (p_ap_tot_der) + (t_sust * (Workbooks(2).Sheets(1).Cells(6, 4) - Workbooks(2).Sheets(1).Cells(5, 4)) / va)
-    p_ap_tot_der = (p_ap_tot_der) + (t_sust * (Workbooks(2).Sheets(1).Cells(5, 4) - Workbooks(2).Sheets(1).Cells(6, 4)) / va)
+    p_ap_tot_izq = (p_ap_tot_der) + (t_sust * (plantilla.Sheets(1).Cells(6, 4) - plantilla.Sheets(1).Cells(5, 4)) / va)
+    p_ap_tot_der = (p_ap_tot_der) + (t_sust * (plantilla.Sheets(1).Cells(5, 4) - plantilla.Sheets(1).Cells(6, 4)) / va)
     
 End If
 
@@ -1292,14 +1300,14 @@ p_hc_ap = 0
 cont = 1
 j = 11
 
-While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+While n_pend <= plantilla.Sheets(1).Cells(9, 4)
 
     If n_pend = 1 Then
     
         mom(i) = p_ap_tot_der * acum(i) - (p_sust / 2) * (acum(i) ^ 2)
    
-    ElseIf i = Workbooks(2).Sheets(1).Cells(9, 4) And Workbooks(2).Sheets(1).Cells(5, 4) <> Workbooks(2).Sheets(1).Cells(6, 4) Then
-    mom(i) = (p_ap_tot_izq) * Workbooks(2).Sheets(1).Cells(j + 2, 7) - (p_sust / 2) * (Workbooks(2).Sheets(1).Cells(j + 2, 7) ^ 2)
+    ElseIf i = plantilla.Sheets(1).Cells(9, 4) And plantilla.Sheets(1).Cells(5, 4) <> plantilla.Sheets(1).Cells(6, 4) Then
+    mom(i) = (p_ap_tot_izq) * plantilla.Sheets(1).Cells(j + 2, 7) - (p_sust / 2) * (plantilla.Sheets(1).Cells(j + 2, 7) ^ 2)
    
     Else
      
@@ -1331,13 +1339,13 @@ If el_hc_ini = 0 And el_hc_fin = 0 Then
 i = 1
 n_pend = 1
 j = 11
-While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+While n_pend <= plantilla.Sheets(1).Cells(9, 4)
 
 If n_pend = 1 Then
     
         fl_hc(i) = 0
     
-    ElseIf i = Workbooks(2).Sheets(1).Cells(9, 4) Then
+    ElseIf i = plantilla.Sheets(1).Cells(9, 4) Then
         
         fl_hc(i) = fl_hc(1)
     
@@ -1357,7 +1365,7 @@ ElseIf el_hc_ini <> 0 And el_hc_fin <> 0 Then
 n_pend = 1
 i = 1
 
-    While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+    While n_pend <= plantilla.Sheets(1).Cells(9, 4)
         fl_hc(i) = 0
         
         i = i + 1
@@ -1368,14 +1376,14 @@ i = 1
 End If
 
 'Descomposición fuerza
-'t_horiz_sust = Sqr((t_sust ^ 2) - (p_ap_tot_der ^ 2))
+t_horiz_sust = Sqr((t_sust ^ 2) - (p_ap_tot_der ^ 2))
 
 '//
 '//Flecha sustentador
 '//
 i = 1
 n_pend = 1
-While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+While n_pend <= plantilla.Sheets(1).Cells(9, 4)
 
     fl_sust(i) = mom(i) / t_horiz_sust
 
@@ -1390,22 +1398,22 @@ Wend
 i = 1
 n_pend = 1
 j = 12
-While n_pend <= Workbooks(2).Sheets(1).Cells(9, 4)
+While n_pend <= plantilla.Sheets(1).Cells(9, 4)
 
     If n_pend = 1 Then
     
-        Workbooks(2).Worksheets(1).Cells(j, 6) = Workbooks(2).Worksheets(1).Cells(5, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
-        Workbooks(2).Worksheets(1).Cells(j, 5) = Workbooks(2).Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
+        plantilla.Worksheets(1).Cells(j, 6) = plantilla.Worksheets(1).Cells(5, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
+        plantilla.Worksheets(1).Cells(j, 5) = plantilla.Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
     
-    ElseIf i = Workbooks(2).Sheets(1).Cells(9, 4) Then
+    ElseIf i = plantilla.Sheets(1).Cells(9, 4) Then
         
-        Workbooks(2).Worksheets(1).Cells(j, 6) = Workbooks(2).Worksheets(1).Cells(6, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
-        Workbooks(2).Worksheets(1).Cells(j, 5) = Workbooks(2).Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
+        plantilla.Worksheets(1).Cells(j, 6) = plantilla.Worksheets(1).Cells(6, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
+        plantilla.Worksheets(1).Cells(j, 5) = plantilla.Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
     
     Else
      
-        Workbooks(2).Worksheets(1).Cells(j, 6) = Workbooks(2).Worksheets(1).Cells(5, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
-        Workbooks(2).Worksheets(1).Cells(j, 5) = Workbooks(2).Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
+        plantilla.Worksheets(1).Cells(j, 6) = plantilla.Worksheets(1).Cells(5, 4) - fl_sust(i) + fl_hc(i) - el_hc_izq(i) - el_hc_der(i)
+        plantilla.Worksheets(1).Cells(j, 5) = plantilla.Worksheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
     
     End If
     
@@ -1419,8 +1427,8 @@ Wend
 '//Si la elevación es a la izquierda
 '//
                     
-el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
-el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
+el_hc_ini = plantilla.Sheets(1).Cells(7, 4)
+el_hc_fin = plantilla.Sheets(1).Cells(8, 4)
 
 If el_hc_ini <> 0 And el_hc_fin <> 0 Then
 
@@ -1438,11 +1446,11 @@ End If
         i = 1
         cont = 1
         j = 12
-        n_pend = Workbooks(2).Sheets(1).Cells(9, 4)
+        n_pend = plantilla.Sheets(1).Cells(9, 4)
                                                     
-        While i <= Workbooks(2).Sheets(1).Cells(9, 4) + 1
+        While i <= plantilla.Sheets(1).Cells(9, 4) + 1
             dist_der(i) = dist(i)
-            l_pend_der(i) = Workbooks(2).Sheets(1).Cells(j, 6)
+            l_pend_der(i) = plantilla.Sheets(1).Cells(j, 6)
             acum(i) = 0
             n_pend = n_pend - 1
             i = i + 1
@@ -1451,18 +1459,18 @@ End If
         i = 1
         j = 12
         acum(i) = 0
-        n_pend = Workbooks(2).Sheets(1).Cells(9, 4) + 1
+        n_pend = plantilla.Sheets(1).Cells(9, 4) + 1
         
-        While i <= Workbooks(2).Sheets(1).Cells(9, 4) + 1
+        While i <= plantilla.Sheets(1).Cells(9, 4) + 1
             dist(i) = dist_der(n_pend)
-            Workbooks(2).Sheets(1).Cells(j - 1, 7) = dist(i)
+            plantilla.Sheets(1).Cells(j - 1, 7) = dist(i)
             If l_pend_der(n_pend - 1) <> 0 Then
-                Workbooks(2).Sheets(1).Cells(j, 6) = l_pend_der(n_pend - 1)
-                Workbooks(2).Sheets(1).Cells(j, 5) = Workbooks(2).Sheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
+                plantilla.Sheets(1).Cells(j, 6) = l_pend_der(n_pend - 1)
+                plantilla.Sheets(1).Cells(j, 5) = plantilla.Sheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
             End If
             
             acum(i) = acum(i - 1) + dist(i)
-            Workbooks(2).Sheets(1).Cells(j - 1, 8) = acum(i)
+            plantilla.Sheets(1).Cells(j - 1, 8) = acum(i)
                                
             n_pend = n_pend - 1
             i = i + 1
@@ -1471,8 +1479,8 @@ End If
         
     End If
     
-el_hc_ini = Workbooks(2).Sheets(1).Cells(7, 4)
-el_hc_fin = Workbooks(2).Sheets(1).Cells(8, 4)
+el_hc_ini = plantilla.Sheets(1).Cells(7, 4)
+el_hc_fin = plantilla.Sheets(1).Cells(8, 4)
     
 If el_hc_ini <> 0 And el_hc_fin <> 0 Then
 
@@ -1484,9 +1492,9 @@ If el_hc_ini <> 0 And el_hc_fin <> 0 Then
         i = 1
         j = 12
         
-    While i <= Workbooks(2).Sheets(1).Cells(9, 4)
-        Workbooks(2).Sheets(1).Cells(j, 6) = Workbooks(2).Sheets(1).Cells(j, 6) - var_comp
-        Workbooks(2).Sheets(1).Cells(j, 5) = Workbooks(2).Sheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
+    While i <= plantilla.Sheets(1).Cells(9, 4)
+        plantilla.Sheets(1).Cells(j, 6) = plantilla.Sheets(1).Cells(j, 6) - var_comp
+        plantilla.Sheets(1).Cells(j, 5) = plantilla.Sheets(1).Cells(j, 6) - l_sup_pend - l_inf_pend
         
         i = i + 1
         j = j + 2
@@ -1500,10 +1508,10 @@ b = 1
     
     d = Workbooks(1).Worksheets(1).Cells(a, 1).Value
     e = Workbooks(1).Worksheets(1).Cells(a + 2, 1).Value
-    fncScreenUpdating State:=False
-    Call Workbooks(2).Worksheets(b).PrintOut(from:=1, To:=1, Copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=True, collate:=False, prtofilename:="C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".ps")
-    fncScreenUpdating State:=True
-    'Call Workbooks(2).Worksheets(b).PrintOut(from:=1, To:=1, copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=False, collate:=True, prtofilename:="C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps")
+    'fncScreenUpdating State:=False
+    Call plantilla.Worksheets(b).PrintOut(from:=1, To:=1, Copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=True, collate:=False, prtofilename:="C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".ps")
+    'fncScreenUpdating State:=True
+    'Call plantilla.Worksheets(b).PrintOut(from:=1, To:=1, copies:=1, preview:=False, ActivePrinter:="Adobe PDF", printtofile:=False, collate:=True, prtofilename:="C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & d & " " & e & ".ps")
     PSFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".ps"
     PDFFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".pdf"
     TXTFileName = "C:\Documents and Settings\23370\Escritorio\" & d & " " & e & ".log"
@@ -1601,8 +1609,19 @@ End If
 x:
     fso.DeleteFile "C:\Documents and Settings\23370\Escritorio\" & dfijo & " " & efijo & ".pdf", True
     'fso.DeleteFile "C:\Documents and Settings\29289\Escritorio\Excels Sireca\Fichas\" & dfijo & " " & efijo & ".pdf", True
-    Workbooks(2).Close False
+    '//
+    '// cerrar objectos
+    '//
+    myPDF.CancelJob
+    Set myPDF = Nothing
+    'fso.Close
+    Set fso = Nothing
 
+    plantilla.DisplayAlerts = False
+    plantilla.Workbooks.Close
+    plantilla.Quit
+    Set plantilla = Nothing
+    
 End Sub
 
 Function CombPDF(PDFFijo, PDFName)

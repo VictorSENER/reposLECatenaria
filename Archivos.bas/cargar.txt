@@ -27,9 +27,15 @@ Dim strDB, strSQL As String
 Dim strTabla As String
 Dim lngTablas As Long
 Dim i As Long
-    nombre_cat = nombre_catVB
+'//
+'// Inicializar variables
+'//
+nombre_cat = nombre_catVB
+'//
+'// Obtener la dirección de la base de datos
+'//
     'elegir uno de estas dos rutas al archivo Access
-    strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
+strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
     'strDB = "C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb"
     
 '//

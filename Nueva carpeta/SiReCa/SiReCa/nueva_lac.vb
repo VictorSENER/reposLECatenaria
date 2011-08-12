@@ -347,6 +347,18 @@ Module nueva_lac
         Pantalla_principal.RadioButton2.Hide()
         Pantalla_principal.GroupBox1.Text = "Datos de catenaria introducidos"
         Pantalla_principal.GroupBox2.ForeColor = Color.Green
+        '//
+        '//Archivo de control de cambios
+        '//
+        Dim strNombreArchivo, strRuta, strArchivoTexto As String
+        'nombre y ruta del archivo de texto
+        strNombreArchivo = "Control.txt"
+        strRuta = "W:\223\D\D223041\IN_INFORMES\"
+        strArchivoTexto = strRuta & strNombreArchivo
+        Dim file As System.IO.StreamWriter = System.IO.File.AppendText(strArchivoTexto)
+        file.WriteLine("Creacion catenaria a BBDD: " & Pantalla_principal.nueva_lac & " Fecha: " & Date.Today & " Hora: " & TimeOfDay & " Usuario: " & Environment.UserName & " Maquina: " & Environment.MachineName)
+        file.Close()
+        file = Nothing
         Exit Sub
         '//
         '// mensaje al tener celdas vacias

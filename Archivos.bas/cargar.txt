@@ -1,10 +1,13 @@
 Attribute VB_Name = "cargar"
-Public caso As String
-Public sist As String, al As String, alt_nom As Double, alt_min As Double, alt_max As Long, alt_cat As Double, va_max_sla As Double, inc_max_alt_hc As Double, n_min_va_sm As Double, n_min_va_sla As Double, ancho_via As Double, d_max_re As Double, d_max_cu As Double, d_max_ad As Double, el_max_pant As Double, vw As Double, fl_max_centro_va As Double, dist_carril_poste As Double, dist_base_poste_pmr As Double, dist_elect_sm As Double, dist_elect_sla As Double, l_zc_max As Double, l_zc_min As Double, l_zn As Double, r_min_traz As Double, hc As String, sust As String, cdpa As String, cdte As String, feed_pos As String, feed_neg As String, pto_fijo As String, pend As String, anc As String, posicion_feed_neg As String, n_hc As Long, n_cdpa As Long, n_feed_pos As Long, n_feed_neg As Long, t_hc As Double, t_sust As Double, t_cdpa As Double, t_
-Public t_feed_neg As Double, t_feed_pos As Double, t_pto_fijo As Double, adm_lin_poste As String, tip_poste As String, num_poste As String, adm_lin_mac As String, tip_mac As String, tubo_men As String, tubo_tir As String, cola_anc As String, aisl_feed_pos As String, aisl_feed_neg As String, dist_ap_prim_pend As Long, dist_prim_seg_pend As Long, dist_max_pend As Long, idioma As String
 '//
 '// Declaración de todas las variables públicas
 '//
+Public caso As String
+Public sist As String, al As String
+Public alt_nom As Double, alt_min As Double, alt_max As Double, alt_cat As Double, va_max_sla As Double, inc_max_alt_hc As Double, n_min_va_sm As Double, n_min_va_sla As Double, ancho_via As Double, d_max_re As Double, d_max_cu As Double, d_max_ad As Double, el_max_pant As Double, vw As Double, fl_max_centro_va As Double
+Public dist_carril_poste As Double, dist_base_poste_pmr As Double, dist_elect_sm As Double, dist_elect_sla As Double
+Public l_zc_max As Double, l_zc_min As Double, l_zn As Double, r_min_traz As Double, hc As String, sust As String, cdpa As String, cdte As String, feed_pos As String, feed_neg As String, pto_fijo As String, pend As String, anc As String, posicion_feed_neg As String, n_hc As Long, n_cdpa As Long, n_feed_pos As Long, n_feed_neg As Long, t_hc As Double, t_sust As Double, t_cdpa As Double
+Public t_feed_neg As Double, t_feed_pos As Double, t_pto_fijo As Double, adm_lin_poste As String, tip_poste As String, num_poste As String, adm_lin_mac As String, tip_mac As String, tubo_men As String, tubo_tir As String, cola_anc As String, aisl_feed_pos As String, aisl_feed_neg As String, dist_ap_prim_pend As Long, dist_prim_seg_pend As Long, dist_max_pend As Long, idioma As String
 Public sec_hc As Double, diam_hc As Double, p_hc As Double, res_max_hc As Double, coef_dil_hc As Double, mod_elast_hc As Double, carga_rot_hc As Double, norma_hc As String, origen_1_hc As String, origen_2_hc As String
 Public sec_sust As Double, diam_sust As Double, p_sust As Double, res_max_sust As Double, coef_dil_sust As Double, mod_elast_sust As Double, carga_rot_sust As Double, norma_sust As String, origen_1_sust As String, origen_2_sust As String
 Public sec_cdpa As Double, diam_cdpa As Double, p_cdpa As Double, res_max_cdpa As Double, coef_dil_cdpa As Double, mod_elast_cdpa As Double, carga_rot_cdpa As Double, norma_cdpa As String, origen_1_cdpa As String, origen_2_cdpa As String
@@ -15,7 +18,7 @@ Public sec_cdte As Double, diam_cdte As Double, p_cdte As Double, res_max_cdte A
 Public sec_pend As Double, diam_pend As Double, p_pend As Double, res_max_pend As Double, coef_dil_pend As Double, mod_elast_pend As Double, carga_rot_pend As Double, norma_pend As String, origen_1_pend As String, origen_2_pend As String
 Public dist_vert_hc As Double, dist_horiz_hc As Double, dist_vert_sust As Double, dist_horiz_sust As Double, sep_hc As Double
 Public dist_vert_feed_pos As Double, dist_horiz_feed_pos As Double, dist_vert_feed_neg As Double, dist_horiz_feed_neg As Double, dist_vert_cdpa As Double, dist_horiz_cdpa As Double, dist_horiz_equip As Double, dist_vert_hc_anc As Double, dist_vert_sust_anc As Double, alt_cat_se_sm_el As Double, alt_cat_e_sm As Double, alt_cat_se_sla_el As Double, alt_cat_e_sla As Double, alt_cat_se_ag_el As Double, alt_cat_e_ag As Double, alt_cat_se_zn_el As Double, alt_cat_e_zn As Double
-Public el_hc As Double
+Public el_hc As Double, ancho_carril As Double
 Public dist_vert_hc_se_zn_el As Double, dist_horiz_hc_se_zn_el As Double, dist_vert_sust_se_zn_el As Double, dist_horiz_sust_se_zn_el As Double, dist_vert_hc_e_zn, dist_horiz_hc_e_zn As Double, dist_vert_sust_e_zn, dist_horiz_sust_e_zn As Double
 '//
 '// Rutina destinada a recoger los datos de catenaria de la base de datos (Acces)
@@ -35,9 +38,8 @@ nombre_cat = nombre_catVB
 '// Obtener la dirección de la base de datos
 '//
     'elegir uno de estas dos rutas al archivo Access
-strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
-    'strDB = "C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb"
-    
+strDB = "W:\223\D\D223041\CC_CALCULOS\SiReCa\Base de datos.accdb" 'si en otra carpeta
+        
 '//
 '// nombre de la tabla del archivo Access
 '//
@@ -55,7 +57,7 @@ oConn.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & _
 strSQL = "SELECT * FROM " & strTabla & ""
 oRead.Open strSQL, oConn
 '//
-'// copiar datos a las variables
+'// realización de la consulta y copia de datos a las variables
 '//
 While Not oRead.EOF
     If oRead("nombre_cat") = nombre_cat Then

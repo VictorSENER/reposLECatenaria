@@ -3,13 +3,16 @@ Attribute VB_Name = "comentarios"
 '// Rutina destinada a incluir los comentarios del trazado
 '//
 Sub comentarios()
-Dim z As Integer, aloc As Integer
+Dim z As Integer, aloc As Integer, cont As Integer
 Dim valor As String, guardar As String, rango As Range
 '//
 '// inicializar variables locales
 '//
 z = 10
 aloc = 3
+rayo = "Parafoudres"
+cont = 3
+'Call cargar.datos_acces(nombre_catVB)
 '//
 '// inicio de la rutina
 '//
@@ -47,6 +50,7 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
             Sheets(1).Cells(z_var, 25).Value = ""
             Sheets(1).Cells(z_var, 25).Value = guardar & " - " & valor
         End If
+        
         '//
         '// Formato de la celda de comentarios
         '//
@@ -64,6 +68,56 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         
         End If
     End If
+'//
+'// relleno de la columna de altura y distancia poste carril
+'//
+Sheets(1).Cells(z, 10).Value = alt_nom
+If Sheets(1).Cells(z, 16).Value = "Axe.Aigu." Then
+    Sheets(1).Cells(z, 5).Value = 2.2 ' !!!!!!!!!!!!!!!!!FALTA VARIABLE EN BBDD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Else
+    Sheets(1).Cells(z, 5).Value = dist_carril_poste
+End If
+Sheets(1).Cells(z, 20).Value = dist_base_poste_pmr
+
+If Sheets(1).Cells(z, 16).Value = "Axe.Antich." And Sheets(1).Cells(z, 38).Value <> "Tunel" Then
+    If rayo = "Parafoudres" Then
+        Sheets(1).Cells(z, 15).Value = "Parafoudres" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+        Sheets(1).Cells(z, 14).Value = "Mise à la terre" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+        rayo = "Parafoudres + DPPo"
+    ElseIf rayo = "Parafoudres + DPPo" Then
+        Sheets(1).Cells(z, 15).Value = "Parafoudres + DPPo" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+        Sheets(1).Cells(z, 14).Value = "Mise au rail + mise à la terre" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+        rayo = "Parafoudres"
+    End If
+End If
+
+If Sheets(1).Cells(z, 33).Value > tierra And Sheets(1).Cells(z, 38).Value <> "Tunel" Then
+    tierra = tierra + 3000 '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+    Sheets(1).Cells(z, 14).Value = "Mise à la terre"
+End If
+If Sheets(1).Cells(z, 16).Value = "Inter.Chevau." And Sheets(1).Cells(z + 2, 16).Value = "Axe.Chevau." Then
+    Sheets(1).Cells(z + 1, 13).Value = "667001 Rep. 51" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Inter.Chevau." And Sheets(1).Cells(z - 2, 16).Value = "Axe.Chevau." Then
+    Sheets(1).Cells(z - 1, 13).Value = "667001 Rep. 51" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Inter.Section." And Sheets(1).Cells(z + 2, 16).Value = "Axe.Section." Then
+    Sheets(1).Cells(z - 1, 13).Value = "667001 Rep. 53" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Inter.Section." And Sheets(1).Cells(z - 2, 16).Value = "Axe.Section." Then
+    Sheets(1).Cells(z + 1, 13).Value = "667001 Rep. 53" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Inter.Chevau." And Sheets(1).Cells(z + 2, 16).Value = "Axe.Chevau." Then
+    Sheets(1).Cells(z + 1, 13).Value = "667001 Rep. 51" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Axe.Antich." Then
+    Sheets(1).Cells(z - 1, 13).Value = "667001 Rep. 02" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+ElseIf Sheets(1).Cells(z, 16).Value = "Axe.Aigu." Then
+    Sheets(1).Cells(z - 1, 13).Value = "667001 Rep. 22" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+    Sheets(1).Cells(z + 1, 13).Value = "667001 Rep. 22" '!!!!!!!!!!!!!!!!! debe ser variable desde BBDD
+End If
+
+While Not IsEmpty(Sheets(1).Cells(cont, 5).Value) Or Sheets(1).Cells(z, 33).Value >= Sheets(5).Cells(cont, 6).Value
+cont = cont + 1
+Wend
+Sheets(1).Cells(z, 21).Value = Sheets(5).Cells(cont, 7).Value
+
+
 '//
 '// Incrementar fila del replanteo
 '//

@@ -1,7 +1,19 @@
 Attribute VB_Name = "eleccion"
 Sub postes(nombre_catVB)
+    
+    Sheets(8).Range("A1:AH10001").ClearContents
+    
+'//
+'//LECTURA BASE DE DATOS
+'//
+    
     Call cargar.datos_acces(nombre_catVB)
-    'dimensiones
+ 
+    
+'//
+'//INSERCIÓN DATOS EN HOJA ANEXA DE REPLANTEO
+'//
+    
     Dim oConn As ADODB.Connection
     Dim oRead As ADODB.Recordset
     Dim strDB, strSQL As String
@@ -9,8 +21,7 @@ Sub postes(nombre_catVB)
     Dim lngTablas As Long
     Dim i As Long
     'elegir uno de estas dos rutas al archivo Access
-    'strDB = "C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
-    strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb"
+    strDB = "W:\223\D\D223041\CC_CALCULOS\SiReCa\Base de datos.accdb"
     'nombre de la tabla del archivo Access
     strTabla = "Postes"
     'crear la conexión
@@ -50,7 +61,9 @@ Sub postes(nombre_catVB)
     oRead.Close: Set oRead = Nothing
     oConn.Close: Set oConn = Nothing
     
-    'Evaluación postes (ELECCIÓN CON LISTA NO ORDENADA)
+'//
+'//ELECCIÓN POSTE EN FUNCIÓN MOMENTO CALCULADO
+'//
     
     z = 10
     i = 2
@@ -85,6 +98,11 @@ x:
             Else: i = i + 1
             End If
         Wend
+        
+'//
+'//INSERECIÓN POSTE EN REPLANTEO
+'//
+        
         Sheets(1).Cells(z, 35) = mom_poste_var
         Sheets(1).Cells(z, 36) = alt_nenc_poste
         Sheets(1).Cells(z, 18) = tip_poste
@@ -94,34 +112,20 @@ x:
     Wend
 
 End Sub
-            
-Public Function MAX(x As Double, y As Double) As Double
-Dim Resul As Double
-If x > y Then
-Resul = x
-ElseIf x <= y Then
-Resul = y
-End If
-MAX = Resul
-End Function
-Public Function MIN(x As Double, y As Double) As Double
-Dim Resul As Double
-If x > y Then
-Resul = y
-ElseIf x <= y Then
-Resul = x
-End If
-MIN = Resul
-End Function
-
 Sub cimentaciones(nombre_catVB)
 
-    'Sheets(3).Range("A1:AH10001").ClearContents
-    'Sheets(3).Range("A1:AH10001").MergeCells = False
-    'Sheets(3).Range("A1:AH10001").Font.Color = vbBlack
-    'Sheets(3).Range("A1:G1000").ClearContents
+    Sheets(9).Range("A1:AH10001").ClearContents
+    
+'//
+'//LECTURA BASE DE DATOS
+'//
+    
     Call cargar.datos_acces(nombre_catVB)
-   'dimensiones
+
+'//
+'//INSERCIÓN DATOS EN HOJA ANEXA DE REPLANTEO
+'//
+    
     Dim oConn As ADODB.Connection
     Dim oRead As ADODB.Recordset
     Dim strDB, strSQL As String
@@ -129,8 +133,7 @@ Sub cimentaciones(nombre_catVB)
     Dim lngTablas As Long
     Dim i As Long
     'elegir uno de estas dos rutas al archivo Access
-    'strDB = "C:\Documents and Settings\29289\Escritorio\SIRECA\reposLECatenaria\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb" 'si en otra carpeta
-    strDB = "C:\Documents and Settings\23370\Escritorio\SiReCa\Nueva carpeta\SiReCa\SiReCa\Base de datos.accdb"
+    strDB = "W:\223\D\D223041\CC_CALCULOS\SiReCa\Base de datos.accdb"
     'nombre de la tabla del archivo Access
     strTabla = "Macizos"
     'crear la conexión
@@ -148,7 +151,7 @@ Sub cimentaciones(nombre_catVB)
     While Not oRead.EOF
  
     'se debe leer del programa
-    If oRead.Fields(0).Value = tip_mac And oRead.Fields(1).Value = adm_lin_mac And oRead.Fields(2).Value = "desmonte" Then
+    If oRead.Fields(0).Value = tip_mac And oRead.Fields(1).Value = adm_lin_mac Then 'And oRead.Fields(2).Value = "desmonte" then
     
     lngCampos = oRead.Fields.count
     For i = 0 To lngCampos - 1
@@ -171,9 +174,10 @@ Sub cimentaciones(nombre_catVB)
     oRead.Close: Set oRead = Nothing
     oConn.Close: Set oConn = Nothing
 
-'Cálculo cimentaciones
 
-'Desmonte o terraplén
+'//
+'//CÁLCULO CIMENTACIÓN
+'//
 
 Dim desm_terrap_mac As String
 Dim res_lat As Double
@@ -249,7 +253,12 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
             
                     mom_vuelco = (mom_lat + mom_base) / coef_pond
                     
-                    Sheets(9).Cells(i, 16) = mom_vuelco
+                    If Sheets(9).Cells(i, 16) = "" Then
+                                                                   
+                        Sheets(9).Cells(i, 16) = mom_vuelco
+                        
+                    End If
+                    
                 
                 ElseIf desm_terrap_mac = "terraplén" Then
                     l_ent_mac = Sheets(9).Cells(i, 5) 'ancho cimentación en sentido perpendicular a la vía
@@ -298,8 +307,13 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
                     mom_vuelco_neg = mom_vuelco_neg / 1.5
                     
                     mom_vuelco = MAX(mom_vuelco_pos, mom_vuelco_neg)
-                    Sheets(9).Cells(i, 16) = mom_vuelco
                     
+                    If Sheets(9).Cells(i, 16) = "" Then
+                                                                   
+                        Sheets(9).Cells(i, 16) = mom_vuelco
+                        
+                    End If
+                                       
                 ElseIf desm_terrap_mac = "anclaje" Then
                     
                     l_ent_mac = Sheets(9).Cells(i, 5) 'ancho cimentación en sentido perpendicular a la vía
@@ -356,7 +370,11 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
             
                     mom_vuelco = (mom_lat) / coef_pond
                     
-                    Sheets(9).Cells(i, 16) = mom_vuelco
+                    If Sheets(9).Cells(i, 16) = "" Then
+                                                                   
+                        Sheets(9).Cells(i, 16) = mom_vuelco
+                        
+                    End If
                 
                 ElseIf desm_terrap_mac = "terraplén" Then
                     diam_mac = Sheets(9).Cells(i, 15) 'ancho cimentación en sentido perpendicular a la vía
@@ -378,7 +396,11 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
             
                     mom_vuelco = (mom_lat) / coef_pond
                     
-                    Sheets(9).Cells(i, 16) = mom_vuelco
+                    If Sheets(9).Cells(i, 16) = "" Then
+                                                                   
+                        Sheets(9).Cells(i, 16) = mom_vuelco
+                        
+                    End If
                     
                 ElseIf desm_terrap_mac = "anclaje" Then
                     
@@ -406,15 +428,25 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
     
     End If
     
-    
-    Sheets(9).Cells(i, 18) = mom_vuelco * (Sheets(1).Cells(z, 36) / (Sheets(1).Cells(z, 36) + alt_nent_mac + (2 / 3) * alt_ent_mac))
+    If Sheets(9).Cells(i, 16) = "" Then
+                                                                                
+    Sheets(9).Cells(i, 19) = mom_vuelco * (Sheets(1).Cells(z, 36) / (Sheets(1).Cells(z, 36) + alt_nent_mac + (2 / 3) * alt_ent_mac))
      
+    Else
+    
+    Sheets(9).Cells(i, 19) = Sheets(9).Cells(i, 16)
+     
+    End If
+      
     i = i + 1
    
     Wend
     
-    
-  'Evaluación macizos (Método no ordenado, la tabla no tiene que estar ordenada)
+  
+'//
+'//ELECCIÓN CIMENTACIÓN EN FUNCIÓN MOMENTO POSTE
+'//
+  
     z = 10
     i = 2
     
@@ -423,26 +455,30 @@ desm_terrap_mac = Sheets(9).Cells(i, 3)
         Else
         mom_poste_var = Sheets(1).Cells(z, 19)
         
-        While Sheets(9).Cells(i, 18) < mom_poste_var
+        While Sheets(9).Cells(i, 19) < mom_poste_var
             i = i + 1
         Wend
         
-        mom_cim_var = Sheets(9).Cells(i, 18)
+        mom_cim_var = Sheets(9).Cells(i, 19)
         tip_mac = Sheets(9).Cells(i, 4)
         vol_tot_mac = Sheets(9).Cells(i, 14)
         
 x:
         i = 2
         
-        While Sheets(9).Cells(i, 18) <> 0
-            If Sheets(9).Cells(i, 18) < mom_cim_var And Sheets(9).Cells(i, 18) > mom_poste_var Then
-                mom_cim_var = Sheets(9).Cells(i, 18)
+        While Sheets(9).Cells(i, 19) <> 0
+            If Sheets(9).Cells(i, 19) < mom_cim_var And Sheets(9).Cells(i, 19) > mom_poste_var Then
+                mom_cim_var = Sheets(9).Cells(i, 19)
                 tip_mac = Sheets(9).Cells(i, 4)
                 vol_tot_mac = Sheets(9).Cells(i, 14)
                 GoTo x
             Else: i = i + 1
             End If
         Wend
+        
+'//
+'//INSERCIÓN CIMENTACIÓN EN REPLANTEO
+'//
         
         Sheets(1).Cells(z, 37) = mom_cim_var
         Sheets(1).Cells(z, 22) = tip_mac
@@ -454,10 +490,26 @@ x:
     Wend
         
   End Sub
-   
-   
-                   
+Public Function MAX(x As Double, y As Double) As Double
+Dim Resul As Double
+If x > y Then
+Resul = x
+ElseIf x <= y Then
+Resul = y
+End If
+MAX = Resul
+End Function
+Public Function MIN(x As Double, y As Double) As Double
+Dim Resul As Double
+If x > y Then
+Resul = y
+ElseIf x <= y Then
+Resul = x
+End If
+MIN = Resul
+End Function
 
+ 
 
 
 

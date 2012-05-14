@@ -8,7 +8,7 @@ Dim z As Integer
 '//
 '// Inicializar variables
 '//
-idioma = idiomaVB
+idioma = "Ingles"
 z = 8
 '//
 '// Introducir los títulos de las filas en el idioma adecuado
@@ -50,10 +50,34 @@ Select Case idioma
         '//
         '// pendiente de actualizar
         '//
-    Case Is = "ingles"
-        '//
-        '// pendiente de actualizar
-        '//
+    Case Is = "Ingles"
+        Sheets(1).Cells(z, 1).Value = "profil number"
+        Sheets(1).Cells(z, 2).Value = ""
+        Sheets(1).Cells(z, 3).Value = "PK (m)"
+        Sheets(1).Cells(z, 4).Value = "Span (m)"
+        Sheets(1).Cells(z, 5).Value = "Implantation (m)"
+        Sheets(1).Cells(z, 6).Value = "Radius (m)"
+        Sheets(1).Cells(z, 7).Value = "Slope (mm)"
+        Sheets(1).Cells(z, 8).Value = "Lateral Offset 1 (m)"
+        Sheets(1).Cells(z, 9).Value = "lateral Offset 2 (m)"
+        Sheets(1).Cells(z, 10).Value = "Contact wire height (m)"
+        Sheets(1).Cells(z, 11).Value = "Dropper type 1"
+        Sheets(1).Cells(z, 12).Value = "Dropper type 2"
+        Sheets(1).Cells(z, 13).Value = "Electrical connection"
+        Sheets(1).Cells(z, 14).Value = "Connecting to rail"
+        Sheets(1).Cells(z, 15).Value = "Lightning"
+        Sheets(1).Cells(z, 16).Value = "Overlap"
+        Sheets(1).Cells(z, 17).Value = "Repère poutrelle H"
+        Sheets(1).Cells(z, 18).Value = "Mast type"
+        Sheets(1).Cells(z, 19).Value = "Moment of force (daN/m)"
+        Sheets(1).Cells(z, 20).Value = "Foundation height (m)"
+        Sheets(1).Cells(z, 21).Value = "Soil type"
+        Sheets(1).Cells(z, 22).Value = "Foundation type"
+        Sheets(1).Cells(z, 23).Value = "Foundation volume (m3)"
+        Sheets(1).Cells(z, 24).Value = "Foundation anchor"
+        Sheets(1).Cells(z, 25).Value = "Observations"
+        Sheets(1).Cells(z, 26).Value = "Lg. 1/2 section (m)"
+        Sheets(1).Cells(z, 27).Value = "Lg. section (m)"
 End Select
 '//
 '// Formato del borde de las celdas de cabecera
@@ -91,7 +115,16 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
     For i = 1 To 3
         Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
     Next i
-    For i = 5 To 24
+    For i = 4 To 4
+        Sheets(1).Range(Sheets(1).Cells(z + 1, i), Sheets(1).Cells(z + 2, i)).MergeCells = True
+    Next i
+    For i = 5 To 10
+        Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
+    Next i
+    For i = 11 To 13
+        Sheets(1).Range(Sheets(1).Cells(z + 1, i), Sheets(1).Cells(z + 2, i)).MergeCells = True
+    Next i
+    For i = 14 To 24
         Sheets(1).Range(Sheets(1).Cells(z, i), Sheets(1).Cells(z + 1, i)).MergeCells = True
     Next i
     Sheets(1).Range(Sheets(1).Cells(z + 1, 4), Sheets(1).Cells(z + 2, 4)).MergeCells = True
@@ -153,40 +186,40 @@ a = 3
 '//
 '// Mientras no se hayan comentado todos los puntos singulares
 '//
-While Not IsEmpty(Sheets(2).Cells(a, 1).Value)
-punto = Sheets(2).Cells(a, 1).Value
+While Not IsEmpty(Sheets(4).Cells(a, 1).Value)
+punto = Sheets(4).Cells(a, 1).Value
 If idiomaVB = "Frances" Then
     '//
     '// Traducir los comentarios al idioma adecuado
     '//
     Select Case punto
         Case Is = "P.S. > 7 m"
-            Sheets(2).Cells(a, 23).Value = "Passage superieur nº " & Sheets(2).Cells(a, 3).Value
+            Sheets(4).Cells(a, 23).Value = "Passage superieur nº " & Sheets(4).Cells(a, 3).Value
         Case Is = "Puente"
-            Sheets(2).Cells(a, 23).Value = "Pont"
+            Sheets(4).Cells(a, 23).Value = "Pont"
         Case Is = "7 > P.S. > 5,2 m"
-            Sheets(2).Cells(a, 23).Value = "Passage superieur nº " & Sheets(2).Cells(a, 3).Value
+            Sheets(4).Cells(a, 23).Value = "Passage superieur nº " & Sheets(4).Cells(a, 3).Value
         Case Is = "Conducto"
-            Sheets(2).Cells(a, 23).Value = "Buse"
+            Sheets(4).Cells(a, 23).Value = "Buse"
         Case Is = "Tunel"
-            Sheets(2).Cells(a, 23).Value = "Tunnel nº " & Sheets(2).Cells(a, 3).Value
+            Sheets(4).Cells(a, 23).Value = "Tunnel nº " & Sheets(4).Cells(a, 3).Value
         Case Is = "P.N."
-            Sheets(2).Cells(a, 23).Value = "Passage à niveau"
+            Sheets(4).Cells(a, 23).Value = "Passage à niveau"
         Case Is = "P.I."
-            Sheets(2).Cells(a, 23).Value = "Passage inférieur"
+            Sheets(4).Cells(a, 23).Value = "Passage inférieur"
         Case Is = "Aguja"
-            Sheets(2).Cells(a, 23).Value = "Aiguillage"
+            Sheets(4).Cells(a, 23).Value = "Aiguillage"
         Case Is = "Drenaje"
-            Sheets(2).Cells(a, 23).Value = "Dalot"
+            Sheets(4).Cells(a, 23).Value = "Dallot"
         Case Is = "Viaducto"
-            Sheets(2).Cells(a, 23).Value = "Viaduc"
-            Sheets(2).Cells(a, 24).Value = "Commencement Viaduc"
-            Sheets(2).Cells(a, 25).Value = "Pilier Viaduc"
-            Sheets(2).Cells(a, 26).Value = "Final Viaduc"
+            Sheets(4).Cells(a, 23).Value = "Viaduc"
+            Sheets(4).Cells(a, 24).Value = "Commencement Viaduc"
+            Sheets(4).Cells(a, 25).Value = "Pilier Viaduc"
+            Sheets(4).Cells(a, 26).Value = "Final Viaduc"
         Case Is = "PuenteXL"
-            Sheets(2).Cells(a, 23).Value = "Pont longue"
+            Sheets(4).Cells(a, 23).Value = "Pont longue"
         Case Is = "Zona"
-            Sheets(2).Cells(a, 23).Value = "Zone neutre"
+            Sheets(4).Cells(a, 23).Value = "Zone neutre"
     End Select
 ElseIf idioma = "castellano" Then
 '//

@@ -3,12 +3,12 @@ Sub posicion()
 h = 10
 While Not IsEmpty(Sheets(1).Cells(h, 33).Value)
     a = 3
-    While a < 10
-        If Sheets(1).Cells(h, 33).Value < Sheets(5).Cells(a, 2).Value And Sheets(1).Cells(h, 33).Value > Sheets(5).Cells(a, 1).Value Then
-        Sheets(1).Cells(h, 30).Value = Sheets(5).Cells(a, 3).Value
-        End If
-    a = a + 1
+    While Sheets(1).Cells(h, 33).Value >= Sheets(5).Cells(a, 2).Value And Not IsEmpty(Sheets(5).Cells(a, 2).Value)
+        a = a + 1
     Wend
+    Sheets(1).Cells(h, 30).Value = Sheets(5).Cells(a, 3).Value
+
+    
     h = h + 2
 Wend
 End Sub

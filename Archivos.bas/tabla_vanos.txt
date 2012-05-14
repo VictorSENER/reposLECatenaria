@@ -4,6 +4,15 @@ Sub tabla_vanos(nombre_catVB)
 Dim cont(10) As Long
 
 '//
+'//AÑADIR EN UN IF NUEVAS TABLAS DE VANOS
+'//
+
+'//
+'//CATENARIA MARRUECOS 1x25 KV (CALCULADA)
+'//
+
+If nombre_catVB = "Marruecos" Then
+'//
 '//LECTURA BASE DE DATOS
 '//
 
@@ -134,7 +143,82 @@ fin:
 '//
 '//FINALIZACIÓN TABLA
 '//
+
 Sheets(2).Range(Sheets(2).Cells(i + 3, 1), Sheets(2).Cells(i + 10, 5)).ClearContents
 
+
+'//
+'//CATENARIA MARRUECOS 3.000 Vcc (FIJADA POR MEMORANDUM)
+'//
+
+ElseIf nombre_catVB = "Marruecos 3.000 Vcc" Then
+
+Sheets(2).Cells(3, 1).Value = 54
+Sheets(2).Cells(3, 2).Value = 100000
+Sheets(2).Cells(3, 3).Value = 7500
+Sheets(2).Cells(3, 4).Value = 0.2
+Sheets(2).Cells(3, 5).Value = -0.2
+
+Sheets(2).Cells(4, 1).Value = 54
+Sheets(2).Cells(4, 2).Value = 7500
+Sheets(2).Cells(4, 3).Value = 5000
+Sheets(2).Cells(4, 4).Value = 0.2
+Sheets(2).Cells(4, 5).Value = -0.04
+
+Sheets(2).Cells(5, 1).Value = 54
+Sheets(2).Cells(5, 2).Value = 5000
+Sheets(2).Cells(5, 3).Value = 4000
+Sheets(2).Cells(5, 4).Value = 0.2
+Sheets(2).Cells(5, 5).Value = 0.04
+
+Sheets(2).Cells(6, 1).Value = 54
+Sheets(2).Cells(6, 2).Value = 4000
+Sheets(2).Cells(6, 3).Value = 3000
+Sheets(2).Cells(6, 4).Value = 0.2
+Sheets(2).Cells(6, 5).Value = 0.12
+
+Sheets(2).Cells(7, 1).Value = 54
+Sheets(2).Cells(7, 2).Value = 3000
+Sheets(2).Cells(7, 3).Value = 1350
+Sheets(2).Cells(7, 4).Value = 0.2
+Sheets(2).Cells(7, 5).Value = 0.2
+
+Sheets(2).Cells(8, 1).Value = 49.5
+Sheets(2).Cells(8, 2).Value = 1350
+Sheets(2).Cells(8, 3).Value = 1100
+Sheets(2).Cells(8, 4).Value = 0.2
+Sheets(2).Cells(8, 5).Value = 0.2
+
+Sheets(2).Cells(9, 1).Value = 45
+Sheets(2).Cells(9, 2).Value = 1100
+Sheets(2).Cells(9, 3).Value = 850
+Sheets(2).Cells(9, 4).Value = 0.2
+Sheets(2).Cells(9, 5).Value = 0.2
+
+Sheets(2).Cells(10, 1).Value = 40.5
+Sheets(2).Cells(10, 2).Value = 850
+Sheets(2).Cells(10, 3).Value = 650
+Sheets(2).Cells(10, 4).Value = 0.2
+Sheets(2).Cells(10, 5).Value = 0.2
+
+Sheets(2).Cells(11, 1).Value = 36
+Sheets(2).Cells(11, 2).Value = 650
+Sheets(2).Cells(11, 3).Value = 500
+Sheets(2).Cells(11, 4).Value = 0.2
+Sheets(2).Cells(11, 5).Value = 0.2
+
+Sheets(2).Cells(12, 1).Value = 31.5
+Sheets(2).Cells(12, 2).Value = 500
+Sheets(2).Cells(12, 3).Value = 350
+Sheets(2).Cells(12, 4).Value = 0.2
+Sheets(2).Cells(12, 5).Value = 0.2
+
+Sheets(2).Cells(13, 1).Value = 27
+Sheets(2).Cells(13, 2).Value = 350
+Sheets(2).Cells(13, 3).Value = 300
+Sheets(2).Cells(13, 4).Value = 0.2
+Sheets(2).Cells(13, 5).Value = 0.2
+
+End If
 End Sub
 

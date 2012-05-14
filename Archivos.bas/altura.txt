@@ -8,7 +8,7 @@ Dim z As Integer, aloc As Integer, s As Integer
 '//
 '// Cargar variables catenaria
 '//
-Call cargar.datos_acces(nombre_catVB)
+'Call cargar.datos_acces(nombre_catVB)
 '//
 '// inicializar variables locales
 '//
@@ -37,19 +37,19 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         Amx = alt_max
         s = s - 2
         Sheets(1).Cells(s, 10).Value = alt_max
-        Amx = alt_max - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_max - Abs((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) / 100) * 100
         '//
         '// Calculo de la altura a decrementar hacia PK anteriores hasta llegar a la altura nominal
         '//
-        While Amx >= alt_nom
+        While Amx >= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx - Int(((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                 If Amx < alt_nom Then
-                    Amx1 = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                    Amx1 = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                         If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 - Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -60,19 +60,19 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_max
-        Amx = alt_max - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_max - Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
         '//
         '// Calculo de la altura a decrementar hacia PK siguientes hasta llegar a la altura nominal
         '//
-        While Amx >= alt_nom
+        While Amx >= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx - Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                 If Amx < alt_nom Then
-                    Amx1 = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                    Amx1 = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                         If ((Amx1 - alt_nom) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 - (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 - Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -91,19 +91,19 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         s = z
         s = s - 2
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_min + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
         '//
         '// Calculo de la altura a incrementar hacia PK anteriores hasta llegar a la altura nominal
         '//
-        While Amx <= alt_nom
+        While Amx <= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                 If Amx > alt_nom Then
                     Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                         If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -114,19 +114,19 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_min + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
         '//
         '// Calculo de la altura a incrementar hacia PK anteriores hasta llegar a la altura nominal
         '//
-        While Amx <= alt_nom
+        While Amx <= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                    Amx1 = Amx - Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                         If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -151,19 +151,20 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+        Amx = alt_min + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
+
         '//
         '// Calculo de la altura a incrementar hacia PK siguientes hasta llegar a la altura nominal
         '//
-        While Amx <= alt_nom
+        While Amx <= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s + 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+            Amx = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                 If Amx > alt_nom Then
-                    Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                    Amx1 = Amx - Int(((inc_max_alt_hc * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                         If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s + 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s + 2
-                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s + 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -179,19 +180,19 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
         '//
         s = z
         Sheets(1).Cells(s, 10).Value = alt_min
-        Amx = alt_min + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+        Amx = alt_min + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
         '//
         '// Calculo de la altura a incrementar hacia PK anteriores hasta llegar a la altura nominal
         '//
-        While Amx <= alt_nom
+        While Amx <= alt_nom And Not IsEmpty(Sheets(1).Cells(s, 33).Value)
             s = s - 2
             Sheets(1).Cells(s, 10).Value = Amx
-            Amx = Amx + ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+            Amx = Amx + Int(((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                 If Amx > alt_nom Then
                     Amx1 = Amx - ((inc_max_alt_hc * Sheets(1).Cells(s - 1, 4).Value) / 1000)
                         If ((alt_nom - Amx1) * 1000) / Sheets(1).Cells(s - 1, 4).Value > (inc_max_alt_hc / 2) Then
                             s = s - 2
-                            Amx1 = Amx1 + (((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000)
+                            Amx1 = Amx1 + Int((((inc_max_alt_hc / 2) * Sheets(1).Cells(s - 1, 4).Value) / 1000) * 100) / 100
                             Sheets(1).Cells(s, 10).Value = Amx1
                         End If
                 End If
@@ -203,4 +204,5 @@ While Not IsEmpty(Sheets(1).Cells(z, 33).Value)
 z = z + 2
 Wend
 End Sub
+
 

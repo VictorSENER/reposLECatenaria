@@ -144,8 +144,7 @@ If Sheets(1).Cells(z, 25).Value <> "Tunnel" Then
     If posicion_feed_neg = "NO HAY" Then
         var_1 = 0
     End If
-    'variables del excel
-    z = 10
+
 
 '//
 '//CÁLCULO FUERZA VIENTO

@@ -8,7 +8,7 @@ Dim z As Integer
 '//
 '// Inicializar variables
 '//
-idioma = "Ingles"
+
 z = 8
 '//
 '// Introducir los títulos de las filas en el idioma adecuado

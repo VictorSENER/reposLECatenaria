@@ -8,7 +8,7 @@ Dim z As Integer, aloc As Integer, s As Integer
 '//
 '// Cargar variables catenaria
 '//
-'Call cargar.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 '//
 '// inicializar variables locales
 '//

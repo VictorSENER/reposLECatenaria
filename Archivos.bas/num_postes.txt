@@ -8,7 +8,7 @@ Dim z As Integer
 '//
 '// Inicializar variables y cargar los datos de catenaria
 '//
-'Call cargar.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 
 bis = 1
 z = 10

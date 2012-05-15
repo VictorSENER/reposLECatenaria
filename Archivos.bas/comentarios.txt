@@ -12,7 +12,7 @@ z = 10
 aloc = 3
 rayo = "Parafoudres"
 cont = 3
-'Call cargar.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 '//
 '// inicio de la rutina
 '//

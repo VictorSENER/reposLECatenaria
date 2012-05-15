@@ -88,7 +88,7 @@ Dim pk_ini_var As String, pk_fin_var As String, tip_pend As String, tip_pend_var
 '//
 '//LECTURA BASE DE DATOS
 '//
-'Call cargar.datos_acces(nombre_catVB)
+Call cargar.datos_acces(nombre_catVB)
 
 Dim myPDF As PdfDistiller
 Set myPDF = New PdfDistiller

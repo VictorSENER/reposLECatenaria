@@ -1,0 +1,89 @@
+.banner {
+	background-color:#002664;
+	color: white;
+	padding: 5px 10px;
+}
+.banner-head{
+	font-size: 2.1em;
+	padding: 40px 10px;
+}
+
+.banner .banner-info{
+    padding: 0px 0px 0px 0px;
+}
+
+.banner .logout{
+	text-decoration: underline;
+	cursor: pointer;
+} 
+
+.banner .logout:HOVER{
+    color: red;
+}
+
+.footer {
+	background-color:#002664;
+	color: white;
+	padding-top: 5px;
+}
+
+.footer a,.footer a:VISITED {
+	color: white;	
+}
+
+.sidebar a,.sidebar a:VISITED {
+	color: black;
+	text-decoration: none;
+}
+
+.sidebar-fn{
+	cursor: pointer;
+}
+
+
+.head1{
+	font-size: large;
+}
+.head2{
+	font-size: medium;
+}
+
+.row-title .z-label{
+	font-weight: bold;
+	color:#636363;
+}
+
+.fn-caption .z-caption-l{
+	font-weight: bold;
+	font-size: medium;
+	color: #636363;
+}
+
+.welcome{
+    padding: 20px 20px;
+}
+
+.welcome-caption{
+    font-weight: bold;
+    font-size: 24px;
+    color: #636363;
+}
+
+.complete-todo .z-label{
+	text-decoration: line-through;
+}
+
+.warn{
+	color:red;
+}
+
+.demo-main a,.demo-main a:VISITED{
+	color:#636363;
+	text-decoration: underline;
+	font-size: smaller;	
+}
+
+.user-box {
+	padding-right:4px;
+}
+

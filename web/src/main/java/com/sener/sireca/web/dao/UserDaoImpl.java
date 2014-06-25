@@ -7,8 +7,6 @@ package com.sener.sireca.web.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,15 +15,13 @@ import org.springframework.stereotype.Repository;
 
 import com.sener.sireca.web.bean.User;
 
-@Repository
+@Repository("userDao")
 public class UserDaoImpl implements UserDao
 {
 
     @Autowired
     SessionFactory sessionFactory;
 
-    @Override
-    @Transactional
     public int insertUser(User user)
     {
         Session session = sessionFactory.openSession();
@@ -37,7 +33,6 @@ public class UserDaoImpl implements UserDao
         return (Integer) id;
     }
 
-    @Override
     public List<User> getAllUsers()
     {
         Session session = sessionFactory.openSession();
@@ -47,15 +42,14 @@ public class UserDaoImpl implements UserDao
         return userList;
     }
 
-    @Override
     public User getUserById(int id)
     {
         Session session = sessionFactory.openSession();
         User user = (User) session.load(User.class, id);
+        session.close();
         return user;
     }
 
-    @Override
     public int updateUser(User user)
     {
         Session session = sessionFactory.openSession();
@@ -67,7 +61,6 @@ public class UserDaoImpl implements UserDao
         return (Integer) id;
     }
 
-    @Override
     public int deleteUser(int id)
     {
         Session session = sessionFactory.openSession();

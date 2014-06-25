@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="SIRECA - Usuarios" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+            <window apply="com.sener.sireca.web.page.UserPage"
+                    border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+                <caption src="/img/user.png" sclass="fn-caption" label="Usuarios"/>
+                <borderlayout>
+                    <center autoscroll="true" border="none">
+                        <vlayout hflex="1" vflex="1">
+                            <hbox align="center" hflex="1" sclass="user-box" >
+                                <button id="addUser" image="/img/plus.png" label="Nuevo Usuario" width="130px"/>
+                            </hbox>
+                            <listbox id="userListbox" vflex="1">
+                                <listhead>
+                                    <listheader/>
+                                    <listheader hflex="min"/>
+                                </listhead>
+                                <template name="model">
+                                    <listitem value="${each}">
+                                        <listcell>
+                                            <label value="${each.username}"/>
+                                        </listcell>
+                                        <listcell>
+                                            <button forward="onClick=userListbox.onUserDelete" image="/img/cross.png" width="36px"/>
+                                        </listcell>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </vlayout>
+                    </center>
+                    <south id="selectedUserBlock" visible="false" height="105px" border="none" collapsible="false" 
+                           splittable="true" minsize="105" autoscroll="true">
+                        <vlayout >
+                            <grid hflex="1">
+                                <columns>
+                                    <column align="right" hflex="min"/>
+                                    <column/>
+                                </columns>
+                                <rows>
+                                    <row>
+                                        <cell sclass="row-title">Nombre :</cell>
+                                        <cell>
+                                            <textbox id="selectedUserUsername" width="200px" />
+                                        </cell>
+                                    </row>
+                                    <row>
+                                        <cell sclass="row-title">Password :</cell>
+                                        <cell>
+                                            <textbox id="selectedUserPassword" width="200px" />
+                                        </cell>
+                                    </row>
+                                </rows>
+                            </grid>
+                            <hlayout>
+                                <button id="updateSelectedUser" label="Salvar"/>
+                            </hlayout>
+                        </vlayout>
+                    </south>
+                </borderlayout>
+            </window>
+    </hbox>
+</zk>

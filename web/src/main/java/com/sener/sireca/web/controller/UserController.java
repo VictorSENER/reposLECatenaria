@@ -30,14 +30,14 @@ public class UserController
     {
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("userList", allUsers);
-        return "list";
+        return "user.zul";
     }
 
     @RequestMapping(value = "user/new", method = RequestMethod.GET)
     public String newUser(Model model)
     {
         model.addAttribute("userObj", new User());
-        return "form";
+        return "form.jsp";
     }
 
     @RequestMapping(value = "user/edit/{id}", method = RequestMethod.GET)
@@ -45,7 +45,7 @@ public class UserController
     {
         User userObj = userService.getUserById(id);
         model.addAttribute("userObj", userObj);
-        return "form";
+        return "form.jsp";
     }
 
     @RequestMapping(value = "user/save", method = RequestMethod.POST)

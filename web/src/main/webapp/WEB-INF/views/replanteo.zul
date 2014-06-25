@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="SIRECA - Cuadernos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+            <window border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+                <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
+                <borderlayout>
+                    <center autoscroll="true" border="none">
+                        No disponible
+                    </center>
+                </borderlayout>
+            </window>
+    </hbox>
+</zk>

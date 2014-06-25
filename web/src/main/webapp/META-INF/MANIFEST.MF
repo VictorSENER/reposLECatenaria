@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: SIRECA Web Application
+Specification-Version: 1.0
+Specification-Vendor: SENER Ingenieria y Sistemas
+Implementation-Title: SIRECA Web Application
+Implementation-URL: http://www.sener.es/
+Implementation-Version: 1.0
+Implementation-Vendor: SENER Ingenieria y Sistemas

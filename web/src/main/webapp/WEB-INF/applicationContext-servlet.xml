@@ -42,15 +42,13 @@
         </property>
     </bean>
 
-    <!-- Hibernate transaction manager configuration -->
-    <bean id="txManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-
     <!-- Translation post processor -->
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+    <!-- Resources management -->
+    <mvc:resources location="/images/" mapping="/img/**" />
+    <mvc:resources location="/stylesheets/" mapping="/style/**" />
 
     <!-- Views name resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -58,14 +56,17 @@
             <value>/WEB-INF/views/</value>
         </property>
         <property name="suffix">
-            <value>.jsp</value>
+            <value></value>
         </property>
     </bean>
 
+    <!-- Spring application context  -->
+    <bean id="springApplicationContext" class="com.sener.sireca.web.util.SpringApplicationContext"/>
+
     <!-- DAO beans -->
-    <bean id="userDaoImpl" class="com.sener.sireca.web.dao.UserDaoImpl" />
+    <context:component-scan base-package="com.sener.sireca.web.dao" />
 
     <!-- Service beans -->
-    <bean id="userServiceImpl" class="com.sener.sireca.web.service.UserServiceImpl" /> 
+    <context:component-scan base-package="com.sener.sireca.web.service" />
 
 </beans>

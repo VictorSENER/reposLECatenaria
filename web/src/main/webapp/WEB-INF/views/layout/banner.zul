@@ -11,6 +11,8 @@
             </cell>
             <hbox apply="com.sener.sireca.web.page.BannerComponent" 
                 hflex="1" vflex="1" pack="end" align="end" sclass="banner-info" >
+                <label value="Proyecto ${sessionScope.ActiveProject.selectedProject} activo" if="${not (sessionScope.ActiveProject.idSelectedProject == null)}" style="font-weight: bold;"/>  
+                <label value="Ningun proyecto activo" if="${(sessionScope.ActiveProject.idSelectedProject == null)}" style="font-weight: bold;"/>  |
                 <label value="${sessionScope.userCredential.username}" if="${not (sessionScope.userCredential == null)}" style="font-weight: bold;"/>
                 <html id="logout" if="${not (sessionScope.userCredential == null)}" class="z-label"> |  <span class="logout">${labels.banner.logout}</span></html>
             </hbox>

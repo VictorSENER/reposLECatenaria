@@ -62,4 +62,5 @@ public class AuthenticationServiceImpl implements AuthenticationService
     {
         session.removeAttribute("userCredential");
     }
+
 }

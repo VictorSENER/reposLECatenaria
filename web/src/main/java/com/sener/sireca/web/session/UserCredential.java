@@ -14,12 +14,16 @@ public class UserCredential implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
+    int idUser;
+    int idSelectedProject = 0;
+    String selectedProject;
     String username;
     String password;
     Set<String> roles = new HashSet<String>();
 
     public UserCredential(User u)
     {
+        this.idUser = u.getId();
         this.username = u.getUsername();
         this.password = u.getPassword();
     }
@@ -27,6 +31,16 @@ public class UserCredential implements Serializable
     public String getUsername()
     {
         return username;
+    }
+
+    public int getIdUser()
+    {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser)
+    {
+        this.idUser = idUser;
     }
 
     public void setUsername(String username)
@@ -53,4 +67,25 @@ public class UserCredential implements Serializable
     {
         roles.add(role);
     }
+
+    public int getIdSelectedProject()
+    {
+        return idSelectedProject;
+    }
+
+    public void setIdSelectedProject(int idSelectedProject)
+    {
+        this.idSelectedProject = idSelectedProject;
+    }
+
+    public String getSelectedProject()
+    {
+        return selectedProject;
+    }
+
+    public void setSelectedProject(String selectedProject)
+    {
+        this.selectedProject = selectedProject;
+    }
+
 }

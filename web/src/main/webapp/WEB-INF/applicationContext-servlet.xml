@@ -31,6 +31,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.sener.sireca.web.bean.User</value>
+                <value>com.sener.sireca.web.bean.Project</value>
             </list>
         </property>
         <property name="hibernateProperties">

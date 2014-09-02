@@ -62,6 +62,7 @@ public class ProjectPage extends SelectorComposer<Component>
         List<Project> projectList = projectService.getAllProjects();
         projectListModel = new ListModelList<Project>(projectList);
         projectListbox.setModel(projectListModel);
+
     }
 
     @Listen("onClick = #addproject")
@@ -86,6 +87,8 @@ public class ProjectPage extends SelectorComposer<Component>
         selectedProject = projectService.getProjectByTitle(title);
         projectListModel.add(selectedProject);
         projectListModel.addToSelection(selectedProject);
+
+        // Crear carpetas
 
     }
 
@@ -145,7 +148,14 @@ public class ProjectPage extends SelectorComposer<Component>
     @Listen("onProjectEdit = #projectListbox")
     public void doProjectEdit(final ForwardEvent evt)
     {
-        Executions.getCurrent().sendRedirect("/project/edit/1");
+
+        Button btn = (Button) evt.getOrigin().getTarget();
+        Listitem litem = (Listitem) btn.getParent().getParent();
+        Project project = (Project) litem.getValue();
+
+        // Executions.getCurrent().setAttribute("id", project.getId());
+
+        Executions.getCurrent().sendRedirect("/project/edit/" + project.getId());
 
     }
 

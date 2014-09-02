@@ -137,6 +137,28 @@ public class UserPage extends SelectorComposer<Component>
         refreshDetailView();
     }
 
+    @Listen("onClick = #cancelSelectedUser")
+    public void doCancelClick()
+    {
+
+        Messagebox.show("Está seguro que quiere cancelar?", "Confirmación",
+                Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
+                new org.zkoss.zk.ui.event.EventListener<Event>()
+                {
+                    public void onEvent(Event e) throws Exception
+                    {
+                        if (e.getName().equals("onOK"))
+                        {
+                            selectedUser = null;
+
+                            // Refresh view according to new selection.
+                            refreshDetailView();
+                        }
+                    }
+                });
+
+    }
+
     @Listen("onClick = #updateSelectedUser")
     public void doUpdateClick()
     {
@@ -149,6 +171,14 @@ public class UserPage extends SelectorComposer<Component>
             return;
         }
 
+        else if (selectedUserUsername.getValue().length() > 50)
+        {
+            Clients.showNotification(
+                    "El nombre de usuario no puede ser tan largo. (Máximo 50 carácteres)",
+                    selectedUserUsername);
+            return;
+        }
+
         // Checks if password is empty.
         if (Strings.isBlank(selectedUserPassword.getValue()))
         {
@@ -157,6 +187,13 @@ public class UserPage extends SelectorComposer<Component>
             return;
         }
 
+        else if (selectedUserPassword.getValue().length() > 50)
+        {
+            Clients.showNotification(
+                    "El password no puede ser tan largo. (Máximo 50 carácteres)",
+                    selectedUserPassword);
+            return;
+        }
         // Set new data to selected user.
         selectedUser.setUsername(selectedUserUsername.getValue());
         selectedUser.setPassword(selectedUserPassword.getValue());
@@ -168,8 +205,14 @@ public class UserPage extends SelectorComposer<Component>
         // Update user into listbox.
         userListModel.set(userListModel.indexOf(selectedUser), selectedUser);
 
-        // show message for user.
+        // Show message for user.
         Clients.showNotification("Usuario guardado correctamente");
+
+        selectedUser = null;
+
+        // Refresh view according to new selection.
+        refreshDetailView();
+
     }
 
     private void refreshDetailView()

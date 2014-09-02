@@ -34,7 +34,12 @@ public class ProjectServiceImpl implements ProjectService
 
     public Project getProjectById(int id)
     {
-        return projectDao.getProjectById(id);
+        for (Project p : getAllProjects())
+        {
+            if (p.getId() == id)
+                return p;
+        }
+        return null;
     }
 
     public Project getProjectByTitle(String title)

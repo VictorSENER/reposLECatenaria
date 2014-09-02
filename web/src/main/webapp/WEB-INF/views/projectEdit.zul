@@ -5,45 +5,51 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
 <zk xmlns:n="native">
     <hbox self="@define(content)" hflex="1" vflex="1">
-            <window apply="com.sener.sireca.web.page.ProjectEditPage"
+    	<window apply="com.sener.sireca.web.page.ProjectEditPage"
                     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
-                <caption src="/img/project.png" sclass="fn-caption" label="proyectos"/>
-                <borderlayout>
-                    <center autoscroll="true" border="none">
-                         <grid hflex="1">
-                                <columns>
-                                    <column align="right" hflex="min"/>
-                                    <column/>
-                                </columns>
-                                <rows>
-                                    <row>
-                                        <cell sclass="row-title">Nombre del Proyecto :</cell>
-                                        <cell>
-                                            <textbox id="selectedProjectTitle" width="200px" />
-                                        </cell>
-                                    </row>
-                                   <row>
-                                        <cell sclass="row-title">Usuario Propietario :</cell>
-                                        <cell>
-                                            <textbox id="selectedProjectUser" width="200px" disabled="true" />
-                                        </cell>
-                                    </row>
-                                     <row>
-                                        <cell sclass="row-title"> Cliente :</cell>
-                                        <cell>
-                                            <textbox id="selectedProjectClient" width="200px" disabled="true" />
-                                        </cell>
-                                    </row>
-                                    <row>
-                                        <cell sclass="row-title"> Referencia :</cell>
-                                        <cell>
-                                            <textbox id="selectedProjectReference" width="200px" />
-                                        </cell>
-                                    </row>
-                                </rows>
-                            </grid>  
-                    </center>
-                </borderlayout>
-            </window>
+	        <caption src="/img/project.png" sclass="fn-caption" label="Proyectos"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+                     <grid hflex="1">
+                     	<columns>
+                        	<column align="right" hflex="min"/>
+                            <column/>
+                        </columns>
+                        <rows>
+                            <row>
+        	                    <cell sclass="row-title">Nombre del Proyecto :</cell>
+                                <cell>
+                                    <textbox id="selectedProjectTitle" width="200px" />
+                                </cell>
+                            </row>
+                            <row>
+                                 <cell sclass="row-title">Usuario Propietario :</cell>
+                                 <cell>
+                                    <textbox id="selectedProjectUser" width="200px" disabled="true" />
+                                 </cell>
+                            </row>
+                            <row>
+                                 <cell sclass="row-title"> Cliente :</cell>
+                                 <cell>
+                                     <textbox id="selectedProjectClient" width="200px" />
+                                 </cell>
+                            </row>
+                            <row>
+                                <cell sclass="row-title"> Referencia :</cell>
+                                <cell>
+                                    <textbox id="selectedProjectReference" width="200px" />
+                                </cell>
+                            </row>
+                        </rows>
+                   	</grid>
+               	</center>
+               	<south>
+               		<hlayout>
+                   		<button id="updateSelectedProject" label="Salvar" width="65px"/>
+                   		<button id="cancelSelectedProject" label="Volver" width="65px"/>
+                   	</hlayout>
+               	</south>
+            </borderlayout>
+        </window>
     </hbox>
 </zk>

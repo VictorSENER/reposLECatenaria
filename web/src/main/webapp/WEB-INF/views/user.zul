@@ -56,7 +56,8 @@
                                 </rows>
                             </grid>
                             <hlayout>
-                                <button id="updateSelectedUser" label="Salvar"/>
+                                <button id="updateSelectedUser" label="Salvar" width="65px"/>
+                                <button id="cancelSelectedUser" label="Cancelar" width="65px"/>
                             </hlayout>
                         </vlayout>
                     </south>

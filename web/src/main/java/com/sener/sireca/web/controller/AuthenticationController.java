@@ -74,10 +74,8 @@ public class AuthenticationController
     }
 
     @RequestMapping(value = "project/edit/{id}", method = RequestMethod.GET)
-    public String editUser(@PathVariable Integer id, Model model)
+    public String editProject(@PathVariable Integer id, Model model)
     {
-        // User userObj = userService.getUserById(id);
-        // model.addAttribute("userObj", userObj);
         return "projectEdit.zul";
     }
 

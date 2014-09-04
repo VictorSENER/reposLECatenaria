@@ -7,35 +7,45 @@ package com.sener.sireca.web.bean;
 public class ReplanteoVersion
 {
     // Identificador del proyecto al que pertenece la versión.
-    private int idProject;
+    private Integer idProject;
 
     // Número de versión.
-    private int numVersion;
+    private Integer numVersion;
 
-    public int getIdProject()
+    public ReplanteoVersion(Integer idProject, Integer numVersion)
+    {
+        super();
+        this.idProject = idProject;
+        this.numVersion = numVersion;
+    }
+
+    public Integer getIdProject()
     {
         return idProject;
     }
 
-    public void setIdProject(int idProject)
+    public void setIdProject(Integer idProject)
     {
         this.idProject = idProject;
     }
 
-    public int getNumVersion()
+    public Integer getNumVersion()
     {
         return numVersion;
     }
 
-    public void setNumVersion(int numVersion)
+    public void setNumVersion(Integer numVersion)
     {
         this.numVersion = numVersion;
     }
 
     public String getFolderPath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/" + "projects";
-        return basePath + "/" + idProject + "/" + "replanteo" + "/"
+
+        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+
+        return basePath + idProject + Globals.CALCULO_REPLANTEO + "/"
                 + numVersion;
+
     }
 }

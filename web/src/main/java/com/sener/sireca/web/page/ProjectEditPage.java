@@ -88,7 +88,8 @@ public class ProjectEditPage extends SelectorComposer<Component>
         // Check if client name is empty.
         if (Strings.isBlank(selectedProjectClient.getValue()))
         {
-            Clients.showNotification("La referencia no puede estar vacía.",
+            Clients.showNotification(
+                    "El nombre del cliente no puede estar vacío.",
                     selectedProjectClient);
             return;
         }
@@ -120,6 +121,7 @@ public class ProjectEditPage extends SelectorComposer<Component>
 
         // Set new data to selected user.
         selectedProject.setTitulo(selectedProjectTitle.getValue());
+        selectedProject.setCliente(selectedProjectClient.getValue());
         selectedProject.setReferencia(selectedProjectReference.getValue());
 
         // Save new data into DB.
@@ -129,16 +131,13 @@ public class ProjectEditPage extends SelectorComposer<Component>
         // show message for user.
         Clients.showNotification("Proyecto guardado correctamente");
 
-        // Redirect back
-        // Executions.getCurrent().sendRedirect("/project");
-
     }
 
     @Listen("onClick = #cancelSelectedProject")
     public void doCancelClick()
     {
 
-        Messagebox.show("Está seguro que quiere volver sin guardar?", "Confirmación",
+        Messagebox.show("Está seguro que quiere volver?", "Confirmación",
                 Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
                 {

@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class ReplanteoRevision
 {
+
     // Identificador del proyecto al que pertenece la versión.
     private int idProject;
 
@@ -17,14 +18,15 @@ public class ReplanteoRevision
     // Número de revisión.
     private int numRevision;
 
-    // Tipo de revisión (0:calculado, 1:importado).
+    // Tipo de revisión (0:calculado, 1:importado, 2:recalculado a partir de
+    // fase 4)
     private int type;
 
     // Indica si la revisión ha sido calculada o si aún se está calculando.
     private boolean calculated;
 
     // Fecha de creación de la revisión.
-    private Date creationDate;
+    private Date date;
 
     // Tamaño del fichero de la revisión (en bytes).
     private long fileSize;
@@ -79,14 +81,14 @@ public class ReplanteoRevision
         this.calculated = calculated;
     }
 
-    public Date getCreationDate()
+    public Date getDate()
     {
-        return creationDate;
+        return date;
     }
 
-    public void setCreationDate(Date creationDate)
+    public void setDate(Date date)
     {
-        this.creationDate = creationDate;
+        this.date = date;
     }
 
     public long getFileSize()
@@ -99,17 +101,35 @@ public class ReplanteoRevision
         this.fileSize = fileSize;
     }
 
+    public String getBasePath()
+    {
+
+        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+
+        return basePath + idProject + Globals.CALCULO_REPLANTEO + "/"
+                + numVersion + "/" + numRevision + "_" + type;
+
+    }
+
     public String getExcelPath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/" + "projects";
-        return basePath + "/" + idProject + "/" + "replanteo" + "/"
-                + numVersion + "/" + numRevision + "-" + type + ".xls";
+
+        if (calculated)
+            return getBasePath() + "_C.xls";
+
+        else
+            return getBasePath() + "_P.xls";
+
     }
 
     public String getProgressFilePath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/" + "projects";
-        return basePath + "/" + idProject + "/" + "replanteo" + "/"
-                + numVersion + "/" + numRevision + "-" + type + ".txt";
+
+        if (calculated)
+            return getBasePath() + "_C.txt";
+
+        else
+            return getBasePath() + "_P.txt";
+
     }
 }

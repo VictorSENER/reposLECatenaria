@@ -11,12 +11,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
+import com.sener.sireca.web.bean.Globals;
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.dao.ProjectDao;
+import com.sener.sireca.web.util.SpringApplicationContext;
 
 @Service("projectService")
 @Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ProjectServiceImpl implements ProjectService
+
 {
 
     @Autowired
@@ -24,7 +27,19 @@ public class ProjectServiceImpl implements ProjectService
 
     public int insertProject(Project project)
     {
-        return projectDao.insertProject(project);
+
+        int id = projectDao.insertProject(project);
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+        String ruta = "../projects/" + id;
+
+        // Crear carpetas
+
+        fileService.addDirectory(ruta + Globals.CALCULO_REPLANTEO + "/1");
+        fileService.addDirectory(ruta + Globals.DIBUJO_REPLANTEO + "/1");
+        fileService.addDirectory(ruta + Globals.FICHAS_MONTAJE + "/1");
+        fileService.addDirectory(ruta + Globals.FICHAS_PENDOLADO + "/1");
+
+        return id;
     }
 
     public List<Project> getAllProjects()
@@ -60,7 +75,23 @@ public class ProjectServiceImpl implements ProjectService
 
     public int deleteProject(int id)
     {
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+        fileService.deleteDirectory("../projects/" + id);
+
         return projectDao.deleteProject(id);
+    }
+
+    public void addDirectory(String ruta)
+    {
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+        fileService.addDirectory(ruta);
+
+    }
+
+    public boolean deleteDirectory(String ruta)
+    {
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+        return fileService.deleteDirectory(ruta);
     }
 
 }

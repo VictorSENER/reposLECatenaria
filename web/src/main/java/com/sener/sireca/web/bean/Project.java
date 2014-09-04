@@ -83,4 +83,31 @@ public class Project
         this.referencia = referencia;
     }
 
+    private String getBasePath()
+    {
+        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+
+        return basePath + id + Globals.CALCULO_REPLANTEO;
+    }
+
+    public String getCalcReplanteoBasePath()
+    {
+        return getBasePath() + Globals.CALCULO_REPLANTEO;
+    }
+
+    public String getDibReplanteoBasePath()
+    {
+        return getBasePath() + Globals.DIBUJO_REPLANTEO;
+    }
+
+    public String getMonReplanteoBasePath()
+    {
+        return getBasePath() + Globals.FICHAS_MONTAJE;
+    }
+
+    public String getPenReplanteoBasePath()
+    {
+        return getBasePath() + Globals.FICHAS_PENDOLADO;
+    }
+
 }

@@ -88,8 +88,6 @@ public class ProjectPage extends SelectorComposer<Component>
         projectListModel.add(selectedProject);
         projectListModel.addToSelection(selectedProject);
 
-        // Crear carpetas
-
     }
 
     @Listen("onClick = #selectproject")
@@ -122,6 +120,7 @@ public class ProjectPage extends SelectorComposer<Component>
                     {
                         if (e.getName().equals("onOK"))
                         {
+
                             // Get project to be deleted.
                             Button btn = (Button) evt.getOrigin().getTarget();
                             Listitem litem = (Listitem) btn.getParent().getParent();
@@ -139,7 +138,8 @@ public class ProjectPage extends SelectorComposer<Component>
                                 selectedProject = null;
 
                             // Show confirmation.
-                            Clients.showNotification("Usuario borrado correctamente");
+                            Clients.showNotification("Proyecto borrado correctamente");
+
                         }
                     }
                 });
@@ -152,8 +152,6 @@ public class ProjectPage extends SelectorComposer<Component>
         Button btn = (Button) evt.getOrigin().getTarget();
         Listitem litem = (Listitem) btn.getParent().getParent();
         Project project = (Project) litem.getValue();
-
-        // Executions.getCurrent().setAttribute("id", project.getId());
 
         Executions.getCurrent().sendRedirect("/project/edit/" + project.getId());
 

@@ -4,64 +4,185 @@
 
 package com.sener.sireca.web.service;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
+import com.sener.sireca.web.util.SpringApplicationContext;
 
 public class ReplanteoServiceImpl
 {
+    FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+
+    // Return a list of the versions of the specific project.
     public List<ReplanteoVersion> getVersions(Project project)
     {
-        // TODO: mirar carpetas bajo el proyecto
-        return new ArrayList<ReplanteoVersion>();
+        ArrayList<Integer> versionList = getVersions(project.getCalcReplanteoBasePath());
+        ArrayList<ReplanteoVersion> replanteoVersion = new ArrayList<ReplanteoVersion>();
+
+        for (int i = 0; i < versionList.size(); i++)
+            replanteoVersion.add(new ReplanteoVersion(project.getId(), versionList.get(i)));
+
+        return replanteoVersion;
     }
 
+    // Get the list of the version directories and parse it into an Integer
+    // ArrayList.
+    private ArrayList<Integer> getVersions(String ruta)
+    {
+        ArrayList<Integer> versionList = new ArrayList<Integer>();
+
+        File[] ficheros = fileService.getDirectory(ruta);
+
+        for (int i = 0; i < ficheros.length; i++)
+            try
+            {
+                versionList.add(Integer.parseInt(ficheros[i].getName()));
+            }
+            catch (Exception e)
+            {
+                // Ignora el elemento.
+            }
+
+        Collections.sort(versionList);
+
+        return versionList;
+    }
+
+    // Check if the folder exists, and if so build the object.
     public ReplanteoVersion getVersion(Project project, int numVersion)
     {
-        // TODO: mira si existe carpeta, y si es así construye el objeto
+        if (getVersion(project.getCalcReplanteoBasePath(), numVersion))
+            return new ReplanteoVersion(project.getId(), numVersion);
+
         return null;
     }
 
+    // Check if an specific version exists.
+    private boolean getVersion(String ruta, int version)
+    {
+        ArrayList<Integer> versionList = getVersions(ruta);
+
+        for (int i = 0; i < versionList.size(); i++)
+            if (versionList.get(i) == version)
+                return true;
+
+            else if (versionList.get(i) > version)
+                return false;
+
+        return false;
+    }
+
+    // Creates a new version of a project.
     public ReplanteoVersion createVersion(Project project)
     {
-        // TODO: calcula número de version (el mayor + 1) y crea una carpeta con
-        // el
-        return null;
+        int idLastversion = getLastVersion(project.getCalcReplanteoBasePath());
+        idLastversion++;
+
+        fileService.addDirectory(project.getCalcReplanteoBasePath()
+                + idLastversion);
+
+        return new ReplanteoVersion(project.getId(), idLastversion);
     }
 
+    // Get the last version of a project.
+    private int getLastVersion(String ruta)
+    {
+        ArrayList<Integer> versionList = getVersions(ruta);
+        return versionList.get(versionList.size());
+    }
+
+    // Delete the specific version of a specific project.
     public void deleteVersion(Project project, int numVersion)
     {
-        // TODO: hace primero un getVersion(), y luego borra la carpeta con el
-        // path del objeto obtenido.
+        if (getVersion(project.getCalcReplanteoBasePath(), numVersion))
+            fileService.deleteDirectory(project.getCalcReplanteoBasePath()
+                    + numVersion);
     }
 
+    // Return a list of the revisions of a specific project.
     public List<ReplanteoRevision> getRevisions(ReplanteoVersion version)
     {
-        // TODO: - mirar ficheros bajo la carpeta de la revisión dada.
-        // - construir objetos a partir del nombre de los ficheros
-        // - considerar tb ficheros de progreso (si existen, calculated = false)
-        return new ArrayList<ReplanteoRevision>();
+        ArrayList<String> revisionList = getRevisions(version.getFolderPath());
+        ArrayList<ReplanteoRevision> replanteoRevision = new ArrayList<ReplanteoRevision>();
+
+        for (int i = 0; i < revisionList.size(); i++)
+        {
+
+            String fileName = revisionList.get(i);
+            String[] parameters = fileName.split("_");
+
+            ReplanteoRevision replanteoRevisionAux = new ReplanteoRevision();
+            replanteoRevisionAux.setIdProject(version.getIdProject());
+            replanteoRevisionAux.setNumVersion(version.getNumVersion());
+            replanteoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
+            replanteoRevisionAux.setType(Integer.parseInt(parameters[1]));
+            if (parameters[2] == "C")
+                replanteoRevisionAux.setCalculated(true);
+            else
+                replanteoRevisionAux.setCalculated(false);
+
+            replanteoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                    + fileName));
+            replanteoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                    + fileName));
+
+            replanteoRevision.add(replanteoRevisionAux);
+        }
+
+        return replanteoRevision;
     }
 
+    // Get the list of the revisions and parse it into a String ArrayList.
+    private ArrayList<String> getRevisions(String ruta)
+    {
+        ArrayList<String> revisionList = new ArrayList<String>();
+        File[] ficheros = fileService.getDirectory(ruta);
+
+        for (int i = 0; i < ficheros.length; i++)
+            revisionList.add(ficheros[i].getName());
+
+        return revisionList;
+    }
+
+    // Returns a specific revision of a specific version.
     public ReplanteoRevision getRevision(ReplanteoVersion version,
             int numRevision)
     {
-        // TODO: - hace un getRevisions() e itera sobre la lista obtenida para
-        // buscar
-        // la revisión con el número dado.
+        List<ReplanteoRevision> replanteoRevision = getRevisions(version);
+
+        for (int i = 0; i < replanteoRevision.size(); i++)
+            if (replanteoRevision.get(i).getNumRevision() == numRevision)
+                return replanteoRevision.get(i);
+
         return null;
     }
 
+    // Creates a new revision of the specific version of a project.
     public ReplanteoRevision createRevision(ReplanteoVersion version, int type)
     {
-        // TODO: calcula el siguiente numero de revision y crea el objeto
-        // correspondiente
-        // pero no hace nada con los ficheros: la GUI ya se encargará de ponerlo
-        // en el path que indica el fichero.
-        return null;
+        int lastRevision = 0;
+
+        List<ReplanteoRevision> replanteoRevision = getRevisions(version);
+
+        for (int i = 0; i < replanteoRevision.size(); i++)
+            if (replanteoRevision.get(i).getNumRevision() > lastRevision)
+                lastRevision = replanteoRevision.get(i).getNumRevision();
+
+        ReplanteoRevision lastReplanteoRevision = new ReplanteoRevision();
+
+        lastReplanteoRevision.setNumRevision(lastRevision + 1);
+        lastReplanteoRevision.setNumVersion(version.getNumVersion());
+        lastReplanteoRevision.setDate(new Date());
+        // Lo basico, falta añadir datos desde GUI
+
+        return lastReplanteoRevision;
+
     }
 
     public void calculateRevision(ReplanteoRevision revision)
@@ -71,10 +192,15 @@ public class ReplanteoServiceImpl
         // 3) Ejecuta el cálculo VB
     }
 
+    // Delete the specific revision of the specific version of the specific
+    // project and the progress file.
     public void deleteRevision(Project project, int numVersion, int numRevision)
     {
-        // TODO: hace primero un getRevision(), y luego borra el fichero con el
-        // path del objeto obtenido.
-        // tb borra el fichero de progreso si existiera
+        ReplanteoVersion version = getVersion(project, numVersion);
+        ReplanteoRevision revision = getRevision(version, numRevision);
+
+        fileService.deleteFile(revision.getExcelPath());
+        fileService.deleteFile(revision.getProgressFilePath());
+
     }
 }

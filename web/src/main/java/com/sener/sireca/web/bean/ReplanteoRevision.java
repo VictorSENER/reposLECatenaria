@@ -4,7 +4,12 @@
 
 package com.sener.sireca.web.bean;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.sener.sireca.web.service.ProjectService;
+import com.sener.sireca.web.service.UserService;
+import com.sener.sireca.web.util.SpringApplicationContext;
 
 public class ReplanteoRevision
 {
@@ -71,7 +76,7 @@ public class ReplanteoRevision
         this.type = type;
     }
 
-    public boolean isCalculated()
+    public boolean getCalculated()
     {
         return calculated;
     }
@@ -101,35 +106,76 @@ public class ReplanteoRevision
         this.fileSize = fileSize;
     }
 
-    public String getBasePath()
+    private String getBasePath()
     {
-
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + idProject + Globals.CALCULO_REPLANTEO + "/"
-                + numVersion + "/" + numRevision + "_" + type;
-
+        return basePath + idProject + Globals.CALCULO_REPLANTEO + numVersion
+                + "/" + numRevision + "_" + type;
     }
 
     public String getExcelPath()
     {
-
         if (calculated)
-            return getBasePath() + "_C.xls";
+            return getBasePath() + "_C.xlsx";
 
         else
-            return getBasePath() + "_P.xls";
-
+            return getBasePath() + "_P.xlsx";
     }
 
     public String getProgressFilePath()
     {
-
         if (calculated)
             return getBasePath() + "_C.txt";
 
         else
             return getBasePath() + "_P.txt";
+    }
+
+    public String getExcelName()
+    {
+        if (calculated)
+            return numRevision + "_" + type + "_C.xlsx";
+
+        else
+            return numRevision + "_" + type + "_P.xlsx";
 
     }
+
+    public String getRUser()
+    {
+        ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+        UserService userService = (UserService) SpringApplicationContext.getBean("userService");
+
+        int idUser = projectService.getProjectById(idProject).getIdUsuario();
+
+        return userService.getUserById(idUser).getUsername();
+    }
+
+    public String getRType()
+    {
+        if (type == 0)
+            return "Calculado";
+        else if (type == 1)
+            return "Importado";
+        else
+            return "Recalculado";
+    }
+
+    public String getRFileSize()
+    {
+        if (fileSize < 1024)
+            return fileSize + " B";
+
+        int exp = (int) (Math.log(fileSize) / Math.log(1024));
+        String pre = "" + ("KMGTPE").charAt(exp - 1); // ("i");
+
+        return String.format("%.1f %sB", fileSize / Math.pow(1024, exp), pre);
+    }
+
+    public String getRDate()
+    {
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
+
 }

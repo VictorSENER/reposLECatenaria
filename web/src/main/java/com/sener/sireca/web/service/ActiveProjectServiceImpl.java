@@ -18,11 +18,28 @@ public class ActiveProjectServiceImpl implements ActiveProjectService
     @Autowired
     ProjectService projectService;
 
-    public void selectActive(HttpSession session, int idProj, String titleProj)
+    public void setActive(HttpSession session, int idProj, String titleProj)
     {
         ActiveProject proj = new ActiveProject(idProj, titleProj);
 
-        session.setAttribute("ActiveProject", proj);
+        session.setAttribute("activeProject", proj);
 
     }
+
+    public int getIdActive(HttpSession session)
+    {
+        ActiveProject proj = (ActiveProject) session.getAttribute("activeProject");
+
+        if (proj == null)
+            return 0;
+
+        return proj.getIdSelectedProject();
+    }
+
+    // public boolean getActive(HttpSession session)
+    // {
+    // // TODO Auto-generated method stub
+    // return null;
+    // }
+
 }

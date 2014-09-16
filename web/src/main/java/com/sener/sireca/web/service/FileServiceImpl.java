@@ -5,6 +5,7 @@
 package com.sener.sireca.web.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 
 import org.springframework.context.annotation.Scope;
@@ -46,6 +47,22 @@ public class FileServiceImpl implements FileService
             return true;
 
         return false;
+    }
+
+    // Add a file in the specific Path.
+    public boolean addFile(String ruta)
+    {
+        File file = new File(ruta);
+
+        try
+        {
+            file.createNewFile();
+            return true;
+        }
+        catch (IOException e)
+        {
+            return false;
+        }
     }
 
     // Returns the content of a directory in an array.

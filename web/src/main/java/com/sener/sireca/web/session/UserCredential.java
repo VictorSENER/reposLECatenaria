@@ -68,24 +68,4 @@ public class UserCredential implements Serializable
         roles.add(role);
     }
 
-    public int getIdSelectedProject()
-    {
-        return idSelectedProject;
-    }
-
-    public void setIdSelectedProject(int idSelectedProject)
-    {
-        this.idSelectedProject = idSelectedProject;
-    }
-
-    public String getSelectedProject()
-    {
-        return selectedProject;
-    }
-
-    public void setSelectedProject(String selectedProject)
-    {
-        this.selectedProject = selectedProject;
-    }
-
 }

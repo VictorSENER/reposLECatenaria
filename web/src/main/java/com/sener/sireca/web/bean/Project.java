@@ -87,7 +87,7 @@ public class Project
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + id + Globals.CALCULO_REPLANTEO;
+        return basePath + id;
     }
 
     public String getCalcReplanteoBasePath()

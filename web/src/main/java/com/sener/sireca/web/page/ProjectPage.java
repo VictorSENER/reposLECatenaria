@@ -51,6 +51,7 @@ public class ProjectPage extends SelectorComposer<Component>
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
     AuthenticationService authService = (AuthenticationService) SpringApplicationContext.getBean("authService");
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
+    ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
     @Override
     public void doAfterCompose(Component comp) throws Exception
@@ -58,7 +59,6 @@ public class ProjectPage extends SelectorComposer<Component>
         super.doAfterCompose(comp);
 
         // Fill projects list using DB data
-        ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
         List<Project> projectList = projectService.getAllProjects();
         projectListModel = new ListModelList<Project>(projectList);
         projectListbox.setModel(projectListModel);
@@ -96,7 +96,7 @@ public class ProjectPage extends SelectorComposer<Component>
 
         if (selectedProject != null)
         {
-            actProj.selectActive(session, selectedProject.getId(),
+            actProj.setActive(session, selectedProject.getId(),
                     selectedProject.getTitulo());
             Executions.sendRedirect("/project");
         }

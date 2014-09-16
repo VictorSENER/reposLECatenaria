@@ -15,6 +15,8 @@ public interface FileService
 
     public boolean deleteFile(String ruta);
 
+    public boolean addFile(String ruta);
+
     public File[] getDirectory(String ruta);
 
     public Date getFileDate(String ruta);

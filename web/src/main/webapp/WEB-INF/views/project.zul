@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <?page title="SIRECA - proyectos" ?>
 <?link rel="stylesheet" type="text/css" href="/style/style.css"?>
 <?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
@@ -29,7 +29,7 @@
                                         <label value="${each.titulo}"/>
                                     </listcell>
                                     <listcell>
-                                    	<image src="/img/check.png" if="${(sessionScope.ActiveProject.idSelectedProject == each.id)}" height= "15px" width="15px"/>
+                                    	<image src="/img/check.png" if="${(sessionScope.activeProject.idSelectedProject == each.id)}" height= "15px" width="15px"/>
                                     </listcell>
                               		<listcell>
                                     	<button forward="onClick=projectListbox.onProjectEdit" image="/img/edit.png" width="36px"/>

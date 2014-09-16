@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 public interface ActiveProjectService
 {
 
-    public void selectActive(HttpSession session, int idProj, String titleProj);
+    public void setActive(HttpSession session, int idProj, String titleProj);
+
+    public int getIdActive(HttpSession session);
 
 }

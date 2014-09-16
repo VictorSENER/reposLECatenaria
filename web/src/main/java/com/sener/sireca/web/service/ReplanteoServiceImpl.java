@@ -4,18 +4,27 @@
 
 package com.sener.sireca.web.service;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Service;
 
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoServiceImpl
+@Service("replanteoService")
+@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class ReplanteoServiceImpl implements ReplanteoService
 {
     FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
 
@@ -94,7 +103,7 @@ public class ReplanteoServiceImpl
     private int getLastVersion(String ruta)
     {
         ArrayList<Integer> versionList = getVersions(ruta);
-        return versionList.get(versionList.size());
+        return versionList.get(versionList.size() - 1);
     }
 
     // Delete the specific version of a specific project.
@@ -122,7 +131,7 @@ public class ReplanteoServiceImpl
             replanteoRevisionAux.setNumVersion(version.getNumVersion());
             replanteoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
             replanteoRevisionAux.setType(Integer.parseInt(parameters[1]));
-            if (parameters[2] == "C")
+            if (parameters[2].equals("C.xlsx"))
                 replanteoRevisionAux.setCalculated(true);
             else
                 replanteoRevisionAux.setCalculated(false);
@@ -133,9 +142,11 @@ public class ReplanteoServiceImpl
                     + fileName));
 
             replanteoRevision.add(replanteoRevisionAux);
+
         }
 
         return replanteoRevision;
+
     }
 
     // Get the list of the revisions and parse it into a String ArrayList.
@@ -145,9 +156,21 @@ public class ReplanteoServiceImpl
         File[] ficheros = fileService.getDirectory(ruta);
 
         for (int i = 0; i < ficheros.length; i++)
-            revisionList.add(ficheros[i].getName());
+        {
+            if (getFileExtension(ficheros[i]).equals("xlsx"))
+                revisionList.add(ficheros[i].getName());
+        }
 
         return revisionList;
+    }
+
+    private static String getFileExtension(File file)
+    {
+        String fileName = file.getName();
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
+        else
+            return "";
     }
 
     // Returns a specific revision of a specific version.
@@ -188,6 +211,8 @@ public class ReplanteoServiceImpl
     public void calculateRevision(ReplanteoRevision revision)
     {
         // TODO: 1) Crea el fichero de progreso: está en blanco
+        fileService.addFile(revision.getProgressFilePath());
+
         // 2) Carga los módulos VB sobre el Excel
         // 3) Ejecuta el cálculo VB
     }
@@ -202,5 +227,26 @@ public class ReplanteoServiceImpl
         fileService.deleteFile(revision.getExcelPath());
         fileService.deleteFile(revision.getProgressFilePath());
 
+    }
+
+    public String[] getProgressInfo(ReplanteoRevision replanteoRevision)
+            throws IOException
+    {
+        String valores[] = null;
+
+        BufferedReader br = new BufferedReader(new FileReader(replanteoRevision.getProgressFilePath()));
+        try
+        {
+            String line = br.readLine();
+
+            if (line != null)
+                valores = line.split("/");
+        }
+        finally
+        {
+            br.close();
+        }
+
+        return valores;
     }
 }

@@ -4,6 +4,7 @@
 
 package com.sener.sireca.web.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.sener.sireca.web.bean.Project;
@@ -30,5 +31,8 @@ public interface ReplanteoService
     public void calculateRevision(ReplanteoRevision revision);
 
     public void deleteRevision(Project project, int numVersion, int numRevision);
+
+    public String[] getProgressInfo(ReplanteoRevision revision)
+            throws IOException;
 
 }

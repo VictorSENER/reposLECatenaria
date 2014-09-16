@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Cuadernos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.ReplanteoNewPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+					<grid hflex="1">
+						<auxhead>
+            				<auxheader label="Nueva revisión de cuaderno de replanteo" colspan="2" rowspan="3" />
+        				</auxhead>
+                     	<columns>
+                        	<column align="left" hflex="min"/>
+                            <column/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <cell>
+                                    <textbox id="fileToUpload" width="200px" disabled="true" />
+                                </cell>
+                                <cell>
+                                    <button id="uploadFile" label="Subir" upload="true" width="65px" />
+            					</cell>
+                            </row>
+                            <row>
+                                 <cell sclass="row-title" >
+									<checkbox id="calcularImportar"/> Calcular replanteo
+								</cell>
+                            </row>
+                            <row>
+                                 <cell sclass="row-title" align="right"> PK Inicial : <textbox id="pkInicial" disabled="true" width="50px" /> </cell>
+                            </row>
+                            <row>
+								 <cell sclass="row-title" align="right">  PK Final : <textbox id="pkFinal" disabled="true" width="50px" /></cell>
+                            </row>
+                        </rows>
+                   	</grid>
+               	</center>
+               	<south>
+               		<hlayout>
+                   		<button id="calculoReplanteo" label="Salvar" width="65px"/>
+                   		<button id="volver" label="Volver" width="65px"/>
+                   	</hlayout>
+               	</south>	                    
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

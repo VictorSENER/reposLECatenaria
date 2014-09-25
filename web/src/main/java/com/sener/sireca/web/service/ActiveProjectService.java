@@ -13,4 +13,6 @@ public interface ActiveProjectService
 
     public int getIdActive(HttpSession session);
 
+    public void setInactive(HttpSession session);
+
 }

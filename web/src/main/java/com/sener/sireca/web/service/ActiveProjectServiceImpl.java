@@ -36,10 +36,11 @@ public class ActiveProjectServiceImpl implements ActiveProjectService
         return proj.getIdSelectedProject();
     }
 
-    // public boolean getActive(HttpSession session)
-    // {
-    // // TODO Auto-generated method stub
-    // return null;
-    // }
+    public void setInactive(HttpSession session)
+    {
+
+        session.setAttribute("activeProject", null);
+
+    }
 
 }

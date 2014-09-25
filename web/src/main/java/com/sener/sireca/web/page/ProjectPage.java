@@ -80,7 +80,6 @@ public class ProjectPage extends SelectorComposer<Component>
         project.setReferencia("Referencia");
 
         // Store new project into DB.
-        ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
         projectService.insertProject(project);
 
         // Add new project into list model and select it.
@@ -127,7 +126,6 @@ public class ProjectPage extends SelectorComposer<Component>
                             Project project = (Project) litem.getValue();
 
                             // Delete project from DB.
-                            ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
                             projectService.deleteProject(project.getId());
 
                             // Remove project from listbox.
@@ -172,7 +170,7 @@ public class ProjectPage extends SelectorComposer<Component>
     {
         // Check if base project title isn't used.
         String baseProjecttitle = "Nuevo proyecto";
-        ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+
         if (projectService.getProjectByTitle(baseProjecttitle) == null)
             return baseProjecttitle;
 

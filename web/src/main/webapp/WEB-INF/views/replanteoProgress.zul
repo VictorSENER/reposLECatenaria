@@ -14,25 +14,25 @@
 				        <grid id="info" hflex="1">
 	                        <rows>
 	                        	<row>
-	                        		<cell>
-	                        			<progressmeter id="postes" width="475px" />
+	                        		<cell hflex="min">
+	                        			<progressmeter id="postes" width="500px" />
 			            			</cell>
 			            			<cell>
 				            			<label id="progressLabel" value="" />
 	                        		</cell>
 	                            </row>
 	                            <row>
-	                                <cell>
+	                                <cell colspan="2">
 	                                    <label id="version" />
 	                                </cell>
 	                            </row>
 	                            <row>
-	                                 <cell>
+	                                 <cell colspan="2">
 	                                    <label id="revision" />
 	                                </cell>
 	                            </row>
 	                            <row>
-	                                  <cell>
+	                                  <cell colspan="2">
 	                                    <label id="fecha" />
 	                                </cell>
 	                            </row>
@@ -41,14 +41,11 @@
                    		
                    		<!-- refresh content every 5 seconds -->
    						<timer id="timer" delay="5000" repeats="true" /> 
-
-                	</vlayout>  	
-                </center>
-                <south>
-               		<hlayout>
+					<hlayout>
                    		<button id="goBack" label="Volver" width="65px"/>
                    	</hlayout>
-               	</south>
+                	</vlayout>  
+                </center>
             </borderlayout>
         </window>
     </hbox>

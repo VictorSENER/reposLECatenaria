@@ -11,12 +11,10 @@ import javax.servlet.http.HttpSession;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
-import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Label;
-import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Progressmeter;
 import org.zkoss.zul.Timer;
 
@@ -85,9 +83,14 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
                 + new SimpleDateFormat("dd-MM-yyyy").format(rev.getDate()));
 
         String valores[] = replanteoService.getProgressInfo(rev);
+        double percentage;
 
         progressLabel.setValue(valores[0] + "/" + valores[1]);
-        double percentage = (Double.parseDouble(valores[0]) / Double.parseDouble(valores[1])) * 100;
+
+        if (valores[1].equals("?"))
+            percentage = 0;
+        else
+            percentage = (Double.parseDouble(valores[0]) / Double.parseDouble(valores[1])) * 100;
 
         postes.setValue((int) percentage);
     }
@@ -101,20 +104,8 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
     @Listen("onClick = #goBack")
     public void doBackClick()
     {
-
-        Messagebox.show("Está seguro que quiere volver?", "Confirmación",
-                Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
-                new org.zkoss.zk.ui.event.EventListener<Event>()
-                {
-                    public void onEvent(Event e) throws Exception
-                    {
-                        if (e.getName().equals("onOK"))
-                        {
-                            // Go back
-                            Executions.getCurrent().sendRedirect("/replanteo");
-                        }
-                    }
-                });
+        // Go back
+        Executions.getCurrent().sendRedirect("/replanteo");
 
     }
 

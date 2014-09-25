@@ -9,46 +9,57 @@
                     border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
 	        <caption src="/img/project.png" sclass="fn-caption" label="Proyectos"/>
             <borderlayout>
-                <center autoscroll="true" border="none">
-                     <grid hflex="1">
-                     	<columns>
-                        	<column align="right" hflex="min"/>
-                            <column/>
-                        </columns>
-                        <rows>
-                            <row>
-        	                    <cell sclass="row-title">Nombre del Proyecto :</cell>
-                                <cell>
-                                    <textbox id="selectedProjectTitle" width="200px" />
-                                </cell>
-                            </row>
-                            <row>
-                                 <cell sclass="row-title">Usuario Propietario :</cell>
-                                 <cell>
-                                    <textbox id="selectedProjectUser" width="200px" disabled="true" />
-                                 </cell>
-                            </row>
-                            <row>
-                                 <cell sclass="row-title"> Cliente :</cell>
-                                 <cell>
-                                     <textbox id="selectedProjectClient" width="200px" />
-                                 </cell>
-                            </row>
-                            <row>
-                                <cell sclass="row-title"> Referencia :</cell>
-                                <cell>
-                                    <textbox id="selectedProjectReference" width="200px" />
-                                </cell>
-                            </row>
-                        </rows>
-                   	</grid>
+	        	<center autoscroll="true" border="none">
+	           		<vlayout>
+	                     <grid hflex="1">
+	                     	<auxhead>
+	            				<auxheader label="Editar proyecto" colspan="2" rowspan="3" />
+	        				</auxhead>
+	                     	<columns>
+	                        	<column align="right" hflex="min"/>
+	                            <column/>
+	                        </columns>
+	                        <rows>
+	                            <row>
+	        	                    <cell sclass="row-title">Nombre del Proyecto :</cell>
+	                                <cell>
+	                                    <textbox id="selectedProjectTitle" width="200px" />
+	                                </cell>
+	                            </row>
+	                            <row>
+	                                 <cell sclass="row-title">Usuario Propietario :</cell>
+	                                 <cell>
+	                                    <textbox id="selectedProjectUser" width="200px" disabled="true" />
+	                                 </cell>
+	                            </row>
+	                            <row>
+	                                 <cell sclass="row-title"> Cliente :</cell>
+	                                 <cell>
+	                                     <textbox id="selectedProjectClient" width="200px" />
+	                                 </cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title"> Referencia :</cell>
+	                                <cell>
+	                                    <textbox id="selectedProjectReference" width="200px" />
+	                                </cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title"> Catenaria :</cell>
+	                                <cell>
+	                                 	<combobox id="selectedProjectCatenaria" width="200px" >
+	                                    	<comboitem value="${each.nomCatenaria}" />
+	                                    </combobox>
+	                                </cell>
+	                            </row>
+	                        </rows>
+	                   	</grid>
+	               		<hlayout>
+                   			<button id="updateSelectedProject" label="Guardar" width="65px"/>
+                   			<button id="cancelSelectedProject" label="Volver" width="65px"/>
+                   		</hlayout>
+               		</vlayout>
                	</center>
-               	<south>
-               		<hlayout>
-                   		<button id="updateSelectedProject" label="Salvar" width="65px"/>
-                   		<button id="cancelSelectedProject" label="Volver" width="65px"/>
-                   	</hlayout>
-               	</south>
             </borderlayout>
         </window>
     </hbox>

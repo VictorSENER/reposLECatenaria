@@ -4,6 +4,7 @@
 
 package com.sener.sireca.web.page;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 
@@ -16,8 +17,8 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Filedownload;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModelList;
@@ -73,7 +74,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
 
         String action = (String) Executions.getCurrent().getAttribute("action");
 
-        if (action.equals("delete"))
+        if (!action.equals(""))
         {
 
             final int numVersion = (Integer) Executions.getCurrent().getAttribute(
@@ -81,34 +82,119 @@ public class ReplanteoPage extends SelectorComposer<Component>
             final int numRevision = (Integer) Executions.getCurrent().getAttribute(
                     "numRevision");
 
-            Messagebox.show("Está seguro que quiere eliminar esta revisión?",
-                    "Confirmación", Messagebox.OK | Messagebox.CANCEL,
-                    Messagebox.QUESTION,
-                    new org.zkoss.zk.ui.event.EventListener<Event>()
-                    {
-                        public void onEvent(Event e) throws Exception
+            if (action.equals("delete"))
+            {
+                Messagebox.show(
+                        "Está seguro que quiere eliminar esta revisión?",
+                        "Confirmación", Messagebox.OK | Messagebox.CANCEL,
+                        Messagebox.QUESTION,
+                        new org.zkoss.zk.ui.event.EventListener<Event>()
                         {
+                            public void onEvent(Event e) throws Exception
+                            {
+                                if (e.getName().equals("onOK"))
+                                {
+                                    try
+                                    {
 
-                            if (e.getName().equals("onOK"))
+                                        if (!replanteoService.getRevision(
+                                                replanteoService.getVersion(
+                                                        project, numVersion),
+                                                numRevision).getCalculated())
+                                            throw new Exception();
+
+                                        replanteoService.deleteRevision(
+                                                project, numVersion,
+                                                numRevision);
+
+                                        Messagebox.show(
+                                                "Revisión "
+                                                        + numRevision
+                                                        + " de la versión "
+                                                        + numVersion
+                                                        + " eliminada correctamente.",
+                                                "Información",
+                                                Messagebox.OK,
+                                                Messagebox.INFORMATION,
+                                                new org.zkoss.zk.ui.event.EventListener<Event>()
+                                                {
+                                                    public void onEvent(Event e)
+                                                            throws Exception
+                                                    {
+
+                                                        if (e.getName().equals(
+                                                                "onOK"))
+                                                        {
+                                                            // Redirect back
+                                                            Executions.getCurrent().sendRedirect(
+                                                                    "/replanteo/");
+                                                        }
+
+                                                    }
+                                                });
+
+                                    }
+                                    catch (Exception e1)
+                                    {
+
+                                        Messagebox.show(
+                                                "Fallo al eliminar la revisión "
+                                                        + numRevision
+                                                        + " de la versión "
+                                                        + numVersion
+                                                        + " eliminada correctamente.",
+                                                "Información",
+                                                Messagebox.OK,
+                                                Messagebox.INFORMATION,
+                                                new org.zkoss.zk.ui.event.EventListener<Event>()
+                                                {
+                                                    public void onEvent(Event e)
+                                                            throws Exception
+                                                    {
+                                                        if (e.getName().equals(
+                                                                "onOK"))
+                                                        {
+                                                            // Redirect back
+                                                            Executions.getCurrent().sendRedirect(
+                                                                    "/replanteo/");
+                                                        }
+                                                    }
+                                                });
+                                    }
+
+                                }
+                                else
+                                    // Redirect back
+                                    Executions.getCurrent().sendRedirect(
+                                            "/replanteo/");
+                            }
+                        });
+            }
+
+            else if (action.equals("show"))
+            {
+                Messagebox.show("Revisión " + numRevision + " de la versión "
+                        + numVersion + " importada correctamente.",
+                        "Información", Messagebox.OK, Messagebox.INFORMATION,
+                        new org.zkoss.zk.ui.event.EventListener<Event>()
+                        {
+                            public void onEvent(Event e) throws Exception
                             {
 
-                                replanteoService.deleteRevision(project,
-                                        numVersion, numRevision);
-
-                                // Show confirmation.
-                                Clients.showNotification("Revision eliminada correctamente"
-                                        + numVersion + "_" + numRevision);
-
+                                if (e.getName().equals("onOK"))
+                                    // Redirect back
+                                    Executions.getCurrent().sendRedirect(
+                                            "/replanteo/");
                             }
-                            Executions.getCurrent().sendRedirect("/replanteo/");
-                        }
-                    });
-
+                        });
+            }
+            else
+                Executions.getCurrent().sendRedirect("/replanteo/");
         }
 
         List<ReplanteoVersion> replanteoVerList = replanteoService.getVersions(project);
 
-        currentVersion.setValue("Version Actual: "
+        currentVersion.setValue("Versión Actual: "
                 + replanteoVerList.get(replanteoVerList.size() - 1).getNumVersion());
 
         for (int i = 0; i < replanteoVerList.size(); i++)
@@ -123,7 +209,9 @@ public class ReplanteoPage extends SelectorComposer<Component>
     @Listen("onClick = #downloadTemplate")
     public void doDownloadTemplate() throws FileNotFoundException
     {
-        // TODO: descargar el template.
+        java.io.InputStream is = new FileInputStream(System.getenv("SIRECA_HOME")
+                + "/templates/INPUTS_template.xlsx");
+        Filedownload.save(is, "application/xlsx", "INPUTS_template.xlsx");
 
     }
 

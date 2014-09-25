@@ -11,7 +11,7 @@ import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoRevision
+public class DibujoRevision
 {
 
     // Identificador del proyecto al que pertenece la versión.
@@ -20,12 +20,14 @@ public class ReplanteoRevision
     // Número de versión.
     private int numVersion;
 
+    // Revisión del cuaderno de replanteo usada
+    private ReplanteoRevision repRev;
+
+    // Revisión del cuaderno de replanteo usada
+    private DibujoConfTipologia confTipo;
+
     // Número de revisión.
     private int numRevision;
-
-    // Tipo de revisión (0:calculado, 1:importado, 2:recalculado a partir de
-    // fase 4)
-    private int type;
 
     // Indica si la revisión ha sido calculada o si aún se está calculando.
     private boolean calculated;
@@ -69,16 +71,6 @@ public class ReplanteoRevision
         this.numRevision = numRevision;
     }
 
-    public int getType()
-    {
-        return type;
-    }
-
-    public void setType(int type)
-    {
-        this.type = type;
-    }
-
     public boolean getCalculated()
     {
         return calculated;
@@ -119,30 +111,51 @@ public class ReplanteoRevision
         this.fileSize = fileSize;
     }
 
+    public ReplanteoRevision getRepRev()
+    {
+        return repRev;
+    }
+
+    public void setRepRev(ReplanteoRevision repRev)
+    {
+        this.repRev = repRev;
+    }
+
+    public DibujoConfTipologia getConfTipo()
+    {
+        return confTipo;
+    }
+
+    public void setConfTipo(DibujoConfTipologia confTipo)
+    {
+        this.confTipo = confTipo;
+    }
+
     private String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + idProject + Globals.CALCULO_REPLANTEO + numVersion
+        return basePath + idProject + Globals.DIBUJO_REPLANTEO + numVersion
                 + "/" + getBaseName();
     }
 
     private String getBaseName()
     {
-
-        return numRevision + "_" + type;
+        return numRevision + "_" + repRev.getNumVersion() + "_"
+                + repRev.getNumRevision();
     }
 
-    public String getExcelPath()
+    public String getAutoCadPath()
     {
+        // TODO: Get extension ".dwg" or ".dwf"
         if (error)
-            return getBasePath() + "_E.xlsx";
+            return getBasePath() + "_E.dwg";
 
         if (calculated)
-            return getBasePath() + "_C.xlsx";
+            return getBasePath() + "_C.dwg";
 
         else
-            return getBasePath() + "_P.xlsx";
+            return getBasePath() + "_P.dwg";
     }
 
     public String getProgressFilePath()
@@ -157,17 +170,16 @@ public class ReplanteoRevision
             return getBasePath() + "_P.txt";
     }
 
-    public String getExcelName()
+    public String getAutoCadName()
     {
         if (error)
-            return getBaseName() + "_E.xlsx";
+            return getBaseName() + "_E.dwg";
 
         if (calculated)
-            return getBaseName() + "_C.xlsx";
+            return getBaseName() + "_C.dwg";
 
         else
-            return getBaseName() + "_P.xlsx";
-
+            return getBaseName() + "_P.dwg";
     }
 
     public String getRUser()
@@ -178,16 +190,6 @@ public class ReplanteoRevision
         int idUser = projectService.getProjectById(idProject).getIdUsuario();
 
         return userService.getUserById(idUser).getUsername();
-    }
-
-    public String getRType()
-    {
-        if (type == 0)
-            return "Calculado";
-        else if (type == 1)
-            return "Importado";
-        else
-            return "Recalculado";
     }
 
     public String getRFileSize()

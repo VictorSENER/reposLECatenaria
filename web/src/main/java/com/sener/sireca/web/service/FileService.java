@@ -23,4 +23,5 @@ public interface FileService
 
     public long getFileSize(String ruta);
 
+    public String getFileExtension(File file);
 }

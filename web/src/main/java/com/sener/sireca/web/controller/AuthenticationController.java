@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.AuthenticationService;
+import com.sener.sireca.web.service.DibujoService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.session.UserCredential;
@@ -33,6 +34,8 @@ public class AuthenticationController
 {
     @Autowired
     AuthenticationService authService;
+    @Autowired
+    ActiveProjectService actProj;
 
     @RequestMapping(value = { "", "/", "index" }, method = RequestMethod.GET)
     public String index(ModelMap model, HttpServletRequest request,
@@ -56,6 +59,7 @@ public class AuthenticationController
             HttpSession session)
     {
         authService.logout(session);
+        actProj.setInactive(session);
         return "redirect:index";
     }
 
@@ -91,7 +95,6 @@ public class AuthenticationController
 
     private boolean isThereAnActiveProject(HttpSession session)
     {
-        ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
 
         if (actProj.getIdActive(session) != 0)
             return true;
@@ -115,65 +118,137 @@ public class AuthenticationController
         return "replanteoNew.zul";
     }
 
-    @RequestMapping(value = "replanteo/progress/{numVersion}/{numRevision}", method = RequestMethod.GET)
-    public String progress(@PathVariable Integer numVersion,
-            @PathVariable Integer numRevision, Model model)
-    {
-        return "replanteoProgress.zul";
-    }
-
     @RequestMapping(value = "replanteo/{action}/{numVersion}/{numRevision}", method = RequestMethod.GET)
-    public String delete(@PathVariable Integer numVersion,
+    public String deleteShowRep(@PathVariable Integer numVersion,
             @PathVariable Integer numRevision, @PathVariable String action,
-            Model model)
+            Model model, HttpServletResponse response, HttpSession session)
     {
-        return "replanteo.zul";
+        if (isThereAnActiveProject(session))
+        {
+            if (action.equals("download"))
+            {
+
+                ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
+                ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
+                ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+
+                Project project = projectService.getProjectById(actProj.getIdActive(session));
+
+                if (replanteoService.getRevision(
+                        replanteoService.getVersion(project, numVersion),
+                        numRevision).getCalculated())
+                {
+                    try
+                    {
+
+                        String path = replanteoService.getRevision(
+                                replanteoService.getVersion(project, numVersion),
+                                numRevision).getExcelPath();
+
+                        String fileName = replanteoService.getRevision(
+                                replanteoService.getVersion(project, numVersion),
+                                numRevision).getExcelName();
+
+                        // Get file as InputStream
+                        InputStream is = new FileInputStream(path);
+
+                        // Set file name
+                        response.setHeader("Content-Disposition", "filename="
+                                + fileName);
+
+                        // Copy it to response's OutputStream
+                        org.apache.commons.io.IOUtils.copy(is,
+                                response.getOutputStream());
+                        response.flushBuffer();
+                    }
+                    catch (IOException ex)
+                    {
+                        throw new RuntimeException("IOError writing file to output stream");
+                    }
+                }
+
+            }
+            else if (action.equals("progress"))
+                return "replanteoProgress.zul";
+
+            return "replanteo.zul";
+        }
+        return "nonActiveProject.zul";
+
     }
 
-    @RequestMapping(value = "replanteo/download/{numVersion}/{numRevision}", method = RequestMethod.GET)
-    public void getFile(HttpServletResponse response,
-            @PathVariable Integer numVersion,
-            @PathVariable Integer numRevision, HttpSession session)
-    {
-        try
-        {
-            ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
-            ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
-            ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
-
-            Project project = projectService.getProjectById(actProj.getIdActive(session));
-
-            String path = replanteoService.getRevision(
-                    replanteoService.getVersion(project, numVersion),
-                    numRevision).getExcelPath();
-
-            String fileName = replanteoService.getRevision(
-                    replanteoService.getVersion(project, numVersion),
-                    numRevision).getExcelName();
-
-            // Get file as InputStream
-            InputStream is = new FileInputStream(path);
-
-            // Sey file name
-            response.setHeader("Content-Disposition", "filename=" + fileName);
-
-            // Copy it to response's OutputStream
-            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-            response.flushBuffer();
-        }
-        catch (IOException ex)
-        {
-            throw new RuntimeException("IOError writing file to output stream");
-        }
-    }
-
-    @RequestMapping(value = "drawing", method = RequestMethod.GET)
+    @RequestMapping(value = "drawing{action}", method = RequestMethod.GET)
     public String drawing(Model model, HttpServletRequest request,
             HttpSession session)
     {
         if (isThereAnActiveProject(session))
             return "drawing.zul";
         return "nonActiveProject.zul";
+    }
+
+    @RequestMapping(value = "drawing/new", method = RequestMethod.GET)
+    public String newDibujo(Model model)
+    {
+        return "drawingNew.zul";
+    }
+
+    @RequestMapping(value = "drawing/{action}/{numVersion}/{numRevision}", method = RequestMethod.GET)
+    public String deleteShowDib(@PathVariable Integer numVersion,
+            @PathVariable Integer numRevision, @PathVariable String action,
+            Model model, HttpServletResponse response, HttpSession session)
+    {
+        if (isThereAnActiveProject(session))
+        {
+            if (action.equals("download"))
+            {
+
+                ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
+                DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
+                ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+
+                Project project = projectService.getProjectById(actProj.getIdActive(session));
+
+                if (dibujoService.getRevision(
+                        dibujoService.getVersion(project, numVersion),
+                        numRevision).getCalculated())
+                {
+                    try
+                    {
+
+                        String path = dibujoService.getRevision(
+                                dibujoService.getVersion(project, numVersion),
+                                numRevision).getAutoCadPath();
+
+                        String fileName = dibujoService.getRevision(
+                                dibujoService.getVersion(project, numVersion),
+                                numRevision).getAutoCadName();
+
+                        // Get file as InputStream
+                        InputStream is = new FileInputStream(path);
+
+                        // Set file name
+                        response.setHeader("Content-Disposition", "filename="
+                                + fileName);
+
+                        // Copy it to response's OutputStream
+                        org.apache.commons.io.IOUtils.copy(is,
+                                response.getOutputStream());
+                        response.flushBuffer();
+                    }
+                    catch (IOException ex)
+                    {
+                        throw new RuntimeException("IOError writing file to output stream");
+                    }
+                }
+
+            }
+            else if (action.equals("progress"))
+                return "replanteoProgress.zul";
+
+            return "drawing.zul";
+        }
+        return "nonActiveProject.zul";
+
     }
 
     @RequestMapping(value = "pendolado", method = RequestMethod.GET)

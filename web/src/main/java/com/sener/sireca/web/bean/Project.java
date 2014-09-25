@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "proyecto")
+@Table(name = "Proyecto")
 public class Project
 {
     // Identificador del usuario
@@ -26,17 +26,21 @@ public class Project
     @Column(name = "titulo")
     private String titulo;
 
+    // Referencia del Proyecto
+    @Column(name = "referencia")
+    private String referencia;
+
+    // Nombre del cliente
+    @Column(name = "cliente")
+    private String cliente;
+
     // Id del usuario
     @Column(name = "idUsuario")
     private int idUsuario;
 
-    // Id del cliente
-    @Column(name = "cliente")
-    private String cliente;
-
-    // Referencia del Proyecto
-    @Column(name = "referencia")
-    private String referencia;
+    // Id de la catenaria
+    @Column(name = "idCatenaria")
+    private int idCatenaria;
 
     public Integer getId()
     {
@@ -81,6 +85,16 @@ public class Project
     public void setReferencia(String referencia)
     {
         this.referencia = referencia;
+    }
+
+    public int getIdCatenaria()
+    {
+        return idCatenaria;
+    }
+
+    public void setIdCatenaria(int idCatenaria)
+    {
+        this.idCatenaria = idCatenaria;
     }
 
     private String getBasePath()

@@ -10,15 +10,15 @@
             <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
             <borderlayout>
                 <center autoscroll="true" border="none">
-             		<vlayout hflex="1" vflex="1">
+             		<vlayout hflex="1" vflex="1" >
 	                    <hbox align="center" hflex="1" sclass="replanteo-box" >
 	                        <button id="newReplanteo" image="/img/plus.png" label="Nuevo replanteo" width="140px"/>
 	                        <button id="handOverVersion" image="/img/handin.png" label="Entrega de versión" width="140px"/> 
 	                        <button id="downloadTemplate" image="/img/download.png" label="Descargar plantilla" width="140px" />
-    							
-							<textbox id="tb" visible="false" />
-	                        <label style="font-weight: bold;" id="currentVersion"/>
-	                    </hbox>
+	                    	<hbox align="center" pack="end" hflex="1" sclass="replanteo-box" >
+	                        	<label style="font-weight:bold;margin-right:10px" id="currentVersion"/>
+	                    	</hbox> 
+                    	</hbox>
 	                    <listbox id="versionListBox" vflex="1">
                             <listhead>
                                 <listheader/>
@@ -50,8 +50,10 @@
 														<button if="${each.calculated}" image="/img/cross.png" width="36px" href="/replanteo/delete/${each.numVersion}/${each.numRevision}"/>
 														<separator orient="vertical"></separator>
 														<button if="${each.calculated}" image="/img/download.png" width="36px" href="/replanteo/download/${each.numVersion}/${each.numRevision}"/>
-														<separator orient="vertical"></separator>
+														<separator orient="vertical" if="${each.calculated == false}"></separator>
 														<button if="${each.calculated == false}" image="/img/progreso.png" width="36px" href="/replanteo/progress/${each.numVersion}/${each.numRevision}"/>
+														<separator orient="vertical" if="${each.calculated == false}"></separator>
+														<separator orient="vertical" if="${each.calculated == false}"></separator>
 													</cell>
 					                            </row>
 					                        </rows>

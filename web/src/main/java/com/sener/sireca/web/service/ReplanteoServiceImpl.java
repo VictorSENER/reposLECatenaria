@@ -6,10 +6,10 @@ package com.sener.sireca.web.service;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -27,11 +27,12 @@ import com.sener.sireca.web.util.SpringApplicationContext;
 public class ReplanteoServiceImpl implements ReplanteoService
 {
     FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+    VerService verService = (VerService) SpringApplicationContext.getBean("verService");
 
     // Return a list of the versions of the specific project.
     public List<ReplanteoVersion> getVersions(Project project)
     {
-        ArrayList<Integer> versionList = getVersions(project.getCalcReplanteoBasePath());
+        ArrayList<Integer> versionList = verService.getVersions(project.getCalcReplanteoBasePath());
         ArrayList<ReplanteoVersion> replanteoVersion = new ArrayList<ReplanteoVersion>();
 
         for (int i = 0; i < versionList.size(); i++)
@@ -40,57 +41,20 @@ public class ReplanteoServiceImpl implements ReplanteoService
         return replanteoVersion;
     }
 
-    // Get the list of the version directories and parse it into an Integer
-    // ArrayList.
-    private ArrayList<Integer> getVersions(String ruta)
-    {
-        ArrayList<Integer> versionList = new ArrayList<Integer>();
-
-        File[] ficheros = fileService.getDirectory(ruta);
-
-        for (int i = 0; i < ficheros.length; i++)
-            try
-            {
-                versionList.add(Integer.parseInt(ficheros[i].getName()));
-            }
-            catch (Exception e)
-            {
-                // Ignora el elemento.
-            }
-
-        Collections.sort(versionList);
-
-        return versionList;
-    }
-
     // Check if the folder exists, and if so build the object.
     public ReplanteoVersion getVersion(Project project, int numVersion)
     {
-        if (getVersion(project.getCalcReplanteoBasePath(), numVersion))
+        if (verService.getVersion(project.getCalcReplanteoBasePath(),
+                numVersion))
             return new ReplanteoVersion(project.getId(), numVersion);
 
         return null;
     }
 
-    // Check if an specific version exists.
-    private boolean getVersion(String ruta, int version)
-    {
-        ArrayList<Integer> versionList = getVersions(ruta);
-
-        for (int i = 0; i < versionList.size(); i++)
-            if (versionList.get(i) == version)
-                return true;
-
-            else if (versionList.get(i) > version)
-                return false;
-
-        return false;
-    }
-
     // Creates a new version of a project.
     public ReplanteoVersion createVersion(Project project)
     {
-        int idLastversion = getLastVersion(project.getCalcReplanteoBasePath());
+        int idLastversion = verService.getLastVersion(project.getCalcReplanteoBasePath());
         idLastversion++;
 
         fileService.addDirectory(project.getCalcReplanteoBasePath()
@@ -99,17 +63,16 @@ public class ReplanteoServiceImpl implements ReplanteoService
         return new ReplanteoVersion(project.getId(), idLastversion);
     }
 
-    // Get the last version of a project.
-    private int getLastVersion(String ruta)
+    public int getLastVersion(Project project)
     {
-        ArrayList<Integer> versionList = getVersions(ruta);
-        return versionList.get(versionList.size() - 1);
+        return verService.getLastVersion(project.getCalcReplanteoBasePath());
     }
 
     // Delete the specific version of a specific project.
     public void deleteVersion(Project project, int numVersion)
     {
-        if (getVersion(project.getCalcReplanteoBasePath(), numVersion))
+        if (verService.getVersion(project.getCalcReplanteoBasePath(),
+                numVersion))
             fileService.deleteDirectory(project.getCalcReplanteoBasePath()
                     + numVersion);
     }
@@ -157,20 +120,11 @@ public class ReplanteoServiceImpl implements ReplanteoService
 
         for (int i = 0; i < ficheros.length; i++)
         {
-            if (getFileExtension(ficheros[i]).equals("xlsx"))
+            if (fileService.getFileExtension(ficheros[i]).equals("xlsx"))
                 revisionList.add(ficheros[i].getName());
         }
 
         return revisionList;
-    }
-
-    private static String getFileExtension(File file)
-    {
-        String fileName = file.getName();
-        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-            return fileName.substring(fileName.lastIndexOf(".") + 1);
-        else
-            return "";
     }
 
     // Returns a specific revision of a specific version.
@@ -186,8 +140,7 @@ public class ReplanteoServiceImpl implements ReplanteoService
         return null;
     }
 
-    // Creates a new revision of the specific version of a project.
-    public ReplanteoRevision createRevision(ReplanteoVersion version, int type)
+    public int getLastRevision(ReplanteoVersion version)
     {
         int lastRevision = 0;
 
@@ -197,12 +150,28 @@ public class ReplanteoServiceImpl implements ReplanteoService
             if (replanteoRevision.get(i).getNumRevision() > lastRevision)
                 lastRevision = replanteoRevision.get(i).getNumRevision();
 
+        return lastRevision;
+    }
+
+    // Creates a new revision of the specific version of a project.
+    public ReplanteoRevision createRevision(ReplanteoVersion version, int type)
+    {
+
+        int lastRevision = getLastRevision(version);
+
         ReplanteoRevision lastReplanteoRevision = new ReplanteoRevision();
 
-        lastReplanteoRevision.setNumRevision(lastRevision + 1);
+        lastReplanteoRevision.setIdProject(version.getIdProject());
         lastReplanteoRevision.setNumVersion(version.getNumVersion());
+        lastReplanteoRevision.setNumRevision(lastRevision + 1);
+        lastReplanteoRevision.setType(type);
+        if (type == 0)
+            lastReplanteoRevision.setCalculated(false);
+        else
+            lastReplanteoRevision.setCalculated(true);
+
         lastReplanteoRevision.setDate(new Date());
-        // Lo basico, falta añadir datos desde GUI
+        lastReplanteoRevision.setFileSize(fileService.getFileSize(lastReplanteoRevision.getExcelPath()));
 
         return lastReplanteoRevision;
 
@@ -212,7 +181,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
     {
         // TODO: 1) Crea el fichero de progreso: está en blanco
         fileService.addFile(revision.getProgressFilePath());
-
         // 2) Carga los módulos VB sobre el Excel
         // 3) Ejecuta el cálculo VB
     }
@@ -232,19 +200,29 @@ public class ReplanteoServiceImpl implements ReplanteoService
     public String[] getProgressInfo(ReplanteoRevision replanteoRevision)
             throws IOException
     {
-        String valores[] = null;
+        String valores[] = { "0", "?" };
 
-        BufferedReader br = new BufferedReader(new FileReader(replanteoRevision.getProgressFilePath()));
+        BufferedReader br = null;
+
         try
         {
-            String line = br.readLine();
+            br = new BufferedReader(new FileReader(replanteoRevision.getProgressFilePath()));
 
-            if (line != null)
-                valores = line.split("/");
+            try
+            {
+                String line = br.readLine();
+
+                if (line != null)
+                    valores = line.split("/");
+            }
+            finally
+            {
+                br.close();
+            }
         }
-        finally
+        catch (FileNotFoundException e)
         {
-            br.close();
+            // Ignore
         }
 
         return valores;

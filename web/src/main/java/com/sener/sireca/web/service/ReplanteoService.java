@@ -23,6 +23,8 @@ public interface ReplanteoService
 
     public List<ReplanteoRevision> getRevisions(ReplanteoVersion version);
 
+    public int getLastRevision(ReplanteoVersion version);
+
     public ReplanteoRevision getRevision(ReplanteoVersion version,
             int numRevision);
 
@@ -35,4 +37,5 @@ public interface ReplanteoService
     public String[] getProgressInfo(ReplanteoRevision revision)
             throws IOException;
 
+    public int getLastVersion(Project project);
 }

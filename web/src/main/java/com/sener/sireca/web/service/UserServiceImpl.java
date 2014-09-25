@@ -35,10 +35,8 @@ public class UserServiceImpl implements UserService
     public User getUserById(int id)
     {
         for (User u : getAllUsers())
-        {
             if (u.getId() == id)
                 return u;
-        }
 
         return null;
     }
@@ -46,10 +44,8 @@ public class UserServiceImpl implements UserService
     public User getUserByUsername(String username)
     {
         for (User u : getAllUsers())
-        {
             if (u.getUsername().equals(username))
                 return u;
-        }
 
         return null;
     }

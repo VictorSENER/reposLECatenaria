@@ -90,6 +90,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
                         Messagebox.QUESTION,
                         new org.zkoss.zk.ui.event.EventListener<Event>()
                         {
+                            @Override
                             public void onEvent(Event e) throws Exception
                             {
                                 if (e.getName().equals("onOK"))
@@ -118,6 +119,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                 Messagebox.INFORMATION,
                                                 new org.zkoss.zk.ui.event.EventListener<Event>()
                                                 {
+                                                    @Override
                                                     public void onEvent(Event e)
                                                             throws Exception
                                                     {
@@ -148,6 +150,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                 Messagebox.INFORMATION,
                                                 new org.zkoss.zk.ui.event.EventListener<Event>()
                                                 {
+                                                    @Override
                                                     public void onEvent(Event e)
                                                             throws Exception
                                                     {
@@ -178,6 +181,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
                         "Información", Messagebox.OK, Messagebox.INFORMATION,
                         new org.zkoss.zk.ui.event.EventListener<Event>()
                         {
+                            @Override
                             public void onEvent(Event e) throws Exception
                             {
 

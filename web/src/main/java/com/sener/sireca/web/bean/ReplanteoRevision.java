@@ -119,7 +119,7 @@ public class ReplanteoRevision
         this.fileSize = fileSize;
     }
 
-    private String getBasePath()
+    public String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
@@ -145,16 +145,14 @@ public class ReplanteoRevision
             return getBasePath() + "_P.xlsx";
     }
 
-    public String getProgressFilePath()
+    public String getFilePath()
     {
         if (error)
-            return getBasePath() + "_E.txt";
-
-        if (calculated)
-            return getBasePath() + "_C.txt";
-
+            return getBasePath() + ".error";
+        // return getBasePath() + "_E.txt";
         else
-            return getBasePath() + "_P.txt";
+            return getBasePath() + ".progress";
+        // return getBasePath() + "_C.txt";
     }
 
     public String getExcelName()
@@ -184,8 +182,10 @@ public class ReplanteoRevision
     {
         if (type == 0)
             return "Calculado";
+
         else if (type == 1)
             return "Importado";
+
         else
             return "Recalculado";
     }

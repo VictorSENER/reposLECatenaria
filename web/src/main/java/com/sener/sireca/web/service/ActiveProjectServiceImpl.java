@@ -18,6 +18,7 @@ public class ActiveProjectServiceImpl implements ActiveProjectService
     @Autowired
     ProjectService projectService;
 
+    @Override
     public void setActive(HttpSession session, int idProj, String titleProj)
     {
         ActiveProject proj = new ActiveProject(idProj, titleProj);
@@ -26,6 +27,7 @@ public class ActiveProjectServiceImpl implements ActiveProjectService
 
     }
 
+    @Override
     public int getIdActive(HttpSession session)
     {
         ActiveProject proj = (ActiveProject) session.getAttribute("activeProject");
@@ -36,6 +38,7 @@ public class ActiveProjectServiceImpl implements ActiveProjectService
         return proj.getIdSelectedProject();
     }
 
+    @Override
     public void setInactive(HttpSession session)
     {
 

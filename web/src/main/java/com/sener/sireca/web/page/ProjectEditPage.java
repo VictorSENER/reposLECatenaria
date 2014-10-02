@@ -155,6 +155,7 @@ public class ProjectEditPage extends SelectorComposer<Component>
                 Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
                 {
+                    @Override
                     public void onEvent(Event e) throws Exception
                     {
                         if (e.getName().equals("onOK"))

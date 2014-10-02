@@ -25,6 +25,7 @@ public class ProjectServiceImpl implements ProjectService
     @Autowired
     ProjectDao projectDao;
 
+    @Override
     public int insertProject(Project project)
     {
 
@@ -41,11 +42,13 @@ public class ProjectServiceImpl implements ProjectService
         return id;
     }
 
+    @Override
     public List<Project> getAllProjects()
     {
         return projectDao.getAllProjects();
     }
 
+    @Override
     public Project getProjectById(int id)
     {
         for (Project p : getAllProjects())
@@ -55,6 +58,7 @@ public class ProjectServiceImpl implements ProjectService
         return null;
     }
 
+    @Override
     public Project getProjectByTitle(String title)
     {
         for (Project p : getAllProjects())
@@ -64,11 +68,13 @@ public class ProjectServiceImpl implements ProjectService
         return null;
     }
 
+    @Override
     public int updateProject(Project project)
     {
         return projectDao.updateProject(project);
     }
 
+    @Override
     public int deleteProject(int id)
     {
         FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");

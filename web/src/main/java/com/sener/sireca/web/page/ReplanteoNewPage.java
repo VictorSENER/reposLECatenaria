@@ -31,6 +31,7 @@ import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.util.SpringApplicationContext;
+import com.sener.sireca.web.worker.ReplanteoWorker;
 
 public class ReplanteoNewPage extends SelectorComposer<Component>
 {
@@ -135,8 +136,13 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
                 File dest = new File(ruta);
                 Files.copy(dest, media.getStreamData());
 
-                pkInicial.getValue();
-                pkFinal.getValue();
+                int idCatenaria = project.getIdCatenaria();
+                int pkIni = Integer.parseInt(pkInicial.getValue());
+                int pkFin = Integer.parseInt(pkFinal.getValue());
+
+                ReplanteoWorker rw = new ReplanteoWorker(replanteoRevision, idCatenaria, pkIni, pkFin);
+
+                rw.run();
 
                 // TODO: Calculate Revision
                 Executions.getCurrent().sendRedirect(

@@ -115,6 +115,7 @@ public class ProjectPage extends SelectorComposer<Component>
                 Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
                 {
+                    @Override
                     public void onEvent(Event e) throws Exception
                     {
                         if (e.getName().equals("onOK"))

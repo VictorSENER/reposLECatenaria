@@ -22,6 +22,7 @@ public class UserDaoImpl implements UserDao
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public int insertUser(User user)
     {
         Session session = sessionFactory.openSession();
@@ -33,6 +34,7 @@ public class UserDaoImpl implements UserDao
         return (Integer) id;
     }
 
+    @Override
     public List<User> getAllUsers()
     {
         Session session = sessionFactory.openSession();
@@ -42,6 +44,7 @@ public class UserDaoImpl implements UserDao
         return userList;
     }
 
+    @Override
     public User getUserById(int id)
     {
         Session session = sessionFactory.openSession();
@@ -50,6 +53,7 @@ public class UserDaoImpl implements UserDao
         return user;
     }
 
+    @Override
     public int updateUser(User user)
     {
         Session session = sessionFactory.openSession();
@@ -61,6 +65,7 @@ public class UserDaoImpl implements UserDao
         return (Integer) id;
     }
 
+    @Override
     public int deleteUser(int id)
     {
         Session session = sessionFactory.openSession();

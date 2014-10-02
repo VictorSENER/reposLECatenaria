@@ -171,6 +171,9 @@ public class AuthenticationController
             else if (action.equals("progress"))
                 return "replanteoProgress.zul";
 
+            else if (action.equals("error"))
+                return "replanteoError.zul";
+
             return "replanteo.zul";
         }
         return "nonActiveProject.zul";

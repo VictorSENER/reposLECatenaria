@@ -19,6 +19,7 @@ public class AuthenticationServiceImpl implements AuthenticationService
     @Autowired
     UserService userService;
 
+    @Override
     public UserCredential getUserCredential(HttpSession session)
     {
         // Get user credentials from current session.
@@ -40,6 +41,7 @@ public class AuthenticationServiceImpl implements AuthenticationService
         return cre;
     }
 
+    @Override
     public boolean login(HttpSession session, String username, String password)
     {
         // Get the user with the given username.
@@ -58,6 +60,7 @@ public class AuthenticationServiceImpl implements AuthenticationService
         return true;
     }
 
+    @Override
     public void logout(HttpSession session)
     {
         session.removeAttribute("userCredential");

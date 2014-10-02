@@ -5,23 +5,28 @@
 package com.sener.sireca.web.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 
 public interface FileService
 {
-    public void addDirectory(String ruta);
+    public boolean addDirectory(String path);
 
-    public boolean deleteDirectory(String ruta);
+    public boolean deleteDirectory(String path);
 
-    public boolean deleteFile(String ruta);
+    public boolean deleteFile(String path);
 
-    public boolean addFile(String ruta);
+    public boolean addFile(String path);
 
-    public File[] getDirectory(String ruta);
+    public File[] getDirectory(String path);
 
-    public Date getFileDate(String ruta);
+    public Date getFileDate(String path);
 
-    public long getFileSize(String ruta);
+    public long getFileSize(String path);
 
     public String getFileExtension(File file);
+
+    public void fileCopy(String initPath, String finalPath);
+
+    public String getFileContent(String path) throws IOException;
 }

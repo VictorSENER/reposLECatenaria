@@ -24,11 +24,13 @@ public class CatenariaServiceImpl implements CatenariaService
     @Autowired
     CatenariaDao catenariaDao;
 
+    @Override
     public List<Catenaria> getAllCatenarias()
     {
         return catenariaDao.getAllCatenarias();
     }
 
+    @Override
     public Catenaria getCatenariaById(int id)
     {
         for (Catenaria c : getAllCatenarias())
@@ -38,6 +40,7 @@ public class CatenariaServiceImpl implements CatenariaService
         return null;
     }
 
+    @Override
     public Catenaria getCatenariaByTitle(String nombre)
     {
         for (Catenaria c : getAllCatenarias())
@@ -47,6 +50,7 @@ public class CatenariaServiceImpl implements CatenariaService
         return null;
     }
 
+    @Override
     public List<String> getListCatenarias()
     {
         List<Catenaria> cat = catenariaDao.getAllCatenarias();

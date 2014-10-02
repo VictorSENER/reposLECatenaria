@@ -20,6 +20,7 @@ public class CatenariaDaoImpl implements CatenariaDao
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public List<Catenaria> getAllCatenarias()
     {
         Session session = sessionFactory.openSession();
@@ -29,6 +30,7 @@ public class CatenariaDaoImpl implements CatenariaDao
         return catenariaList;
     }
 
+    @Override
     public Catenaria getCatenariaById(int id)
     {
         Session session = sessionFactory.openSession();

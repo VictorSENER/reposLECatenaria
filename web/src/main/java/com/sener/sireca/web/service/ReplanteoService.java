@@ -30,7 +30,8 @@ public interface ReplanteoService
 
     public ReplanteoRevision createRevision(ReplanteoVersion version, int type);
 
-    public void calculateRevision(ReplanteoRevision revision);
+    public void calculateRevision(ReplanteoRevision revision, int idCatenaria,
+            int pkIni, int pkFin);
 
     public void deleteRevision(Project project, int numVersion, int numRevision);
 
@@ -38,4 +39,7 @@ public interface ReplanteoService
             throws IOException;
 
     public int getLastVersion(Project project);
+
+    public String getErrorLog(ReplanteoRevision replanteoRevision)
+            throws IOException;
 }

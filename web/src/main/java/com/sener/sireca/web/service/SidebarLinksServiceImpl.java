@@ -38,11 +38,13 @@ public class SidebarLinksServiceImpl implements SidebarLinksService
                 new SidebarLink("montaje", "Fichas de Montaje", "/img/ficha-montaje.png", "/montaje"));
     }
 
+    @Override
     public List<SidebarLink> getLinks()
     {
         return new ArrayList<SidebarLink>(linkMap.values());
     }
 
+    @Override
     public SidebarLink getLink(String name)
     {
         return linkMap.get(name);

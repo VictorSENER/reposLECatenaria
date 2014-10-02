@@ -20,6 +20,7 @@ import com.sener.sireca.web.util.SpringApplicationContext;
 public class AuthenticationInit implements Initiator
 {
 
+    @Override
     public void doInit(Page page, Map<String, Object> args) throws Exception
     {
         HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();

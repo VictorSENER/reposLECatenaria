@@ -22,6 +22,7 @@ public class ProjectDaoImpl implements ProjectDao
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public int insertProject(Project project)
     {
         Session session = sessionFactory.openSession();
@@ -33,6 +34,7 @@ public class ProjectDaoImpl implements ProjectDao
         return (Integer) id;
     }
 
+    @Override
     public List<Project> getAllProjects()
     {
         Session session = sessionFactory.openSession();
@@ -42,6 +44,7 @@ public class ProjectDaoImpl implements ProjectDao
         return projectList;
     }
 
+    @Override
     public Project getProjectById(int id)
     {
         Session session = sessionFactory.openSession();
@@ -50,6 +53,7 @@ public class ProjectDaoImpl implements ProjectDao
         return project;
     }
 
+    @Override
     public int updateProject(Project project)
     {
         Session session = sessionFactory.openSession();
@@ -61,6 +65,7 @@ public class ProjectDaoImpl implements ProjectDao
         return (Integer) id;
     }
 
+    @Override
     public int deleteProject(int id)
     {
         Session session = sessionFactory.openSession();

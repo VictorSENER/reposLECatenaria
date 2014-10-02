@@ -27,6 +27,7 @@ public class SpringApplicationContext implements ApplicationContextAware
      * @param context
      *            a reference to the ApplicationContext.
      */
+    @Override
     public void setApplicationContext(ApplicationContext context)
             throws BeansException
     {

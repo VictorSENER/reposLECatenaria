@@ -22,16 +22,19 @@ public class UserServiceImpl implements UserService
     @Autowired
     UserDao userDao;
 
+    @Override
     public int insertUser(User user)
     {
         return userDao.insertUser(user);
     }
 
+    @Override
     public List<User> getAllUsers()
     {
         return userDao.getAllUsers();
     }
 
+    @Override
     public User getUserById(int id)
     {
         for (User u : getAllUsers())
@@ -41,6 +44,7 @@ public class UserServiceImpl implements UserService
         return null;
     }
 
+    @Override
     public User getUserByUsername(String username)
     {
         for (User u : getAllUsers())
@@ -50,11 +54,13 @@ public class UserServiceImpl implements UserService
         return null;
     }
 
+    @Override
     public int updateUser(User user)
     {
         return userDao.updateUser(user);
     }
 
+    @Override
     public int deleteUser(int id)
     {
         return userDao.deleteUser(id);

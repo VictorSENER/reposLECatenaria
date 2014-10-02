@@ -69,6 +69,7 @@ public class SidebarComponent extends SelectorComposer<Component>
         {
             private static final long serialVersionUID = 1L;
 
+            @Override
             public void onEvent(Event event) throws Exception
             {
                 // redirect current url to new location

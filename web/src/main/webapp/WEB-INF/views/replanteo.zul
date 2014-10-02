@@ -47,13 +47,18 @@
 													<cell sclass="row-title"> ${each.RType}  </cell>
 													<cell sclass="row-title"> ${each.RFileSize}  </cell>
 													<cell> 
-														<button if="${each.calculated}" image="/img/cross.png" width="36px" href="/replanteo/delete/${each.numVersion}/${each.numRevision}"/>
+														
+														
+														<button if="${each.calculated and each.error == false}" image="/img/cross.png" width="36px" href="/replanteo/delete/${each.numVersion}/${each.numRevision}"/>
 														<separator orient="vertical"></separator>
-														<button if="${each.calculated}" image="/img/download.png" width="36px" href="/replanteo/download/${each.numVersion}/${each.numRevision}"/>
-														<separator orient="vertical" if="${each.calculated == false}"></separator>
-														<button if="${each.calculated == false}" image="/img/progreso.png" width="36px" href="/replanteo/progress/${each.numVersion}/${each.numRevision}"/>
-														<separator orient="vertical" if="${each.calculated == false}"></separator>
-														<separator orient="vertical" if="${each.calculated == false}"></separator>
+														<button if="${each.calculated and each.error == false}" image="/img/download.png" width="36px" href="/replanteo/download/${each.numVersion}/${each.numRevision}"/>
+														
+														<separator orient="vertical" if="${each.calculated == false or each.error}"></separator>
+														<button if="${each.error}" image="/img/error.png" width="36px" href="/replanteo/error/${each.numVersion}/${each.numRevision}"/>
+														<button if="${each.calculated == false and each.error == false}" image="/img/progreso.png" width="36px" href="/replanteo/progress/${each.numVersion}/${each.numRevision}"/>
+														<separator orient="vertical" if="${each.calculated == false or each.error}"></separator>
+														<separator orient="vertical" if="${each.calculated == false or each.error}"></separator>
+														
 													</cell>
 					                            </row>
 					                        </rows>

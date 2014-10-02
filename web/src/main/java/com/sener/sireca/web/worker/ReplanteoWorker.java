@@ -11,16 +11,25 @@ public class ReplanteoWorker extends Thread
 {
     // Revisión de la cual calcular el cuaderno de replanteo
     private ReplanteoRevision revision;
+    private int idCatenaria;
+    private int pkIni;
+    private int pkFin;
 
-    public ReplanteoWorker(ReplanteoRevision revision)
+    public ReplanteoWorker(ReplanteoRevision revision, int idCatenaria,
+            int pkIni, int pkFin)
     {
+        super();
         this.revision = revision;
+        this.idCatenaria = idCatenaria;
+        this.pkIni = pkIni;
+        this.pkFin = pkFin;
     }
 
     @Override
     public void run()
     {
         ReplanteoServiceImpl service = new ReplanteoServiceImpl();
-        service.calculateRevision(this.revision);
+        service.calculateRevision(this.revision, this.idCatenaria, this.pkIni,
+                this.pkFin);
     }
 }

@@ -175,11 +175,11 @@
     <dependency>
       <groupId>com.jacob</groupId>
       <artifactId>jacob</artifactId>
-      <version>1.17</version>
+      <version>1.18-M2</version>
       <scope>system</scope>
       <systemPath>${basedir}/extlibs/jacob.jar</systemPath>
     </dependency>
-
+    
     <!-- JSTL -->
     <dependency>
       <groupId>javax.servlet</groupId>

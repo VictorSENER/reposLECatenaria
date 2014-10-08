@@ -45,11 +45,6 @@ public class User
         return password;
     }
 
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
-
     public void setUsername(String username)
     {
         this.username = username;

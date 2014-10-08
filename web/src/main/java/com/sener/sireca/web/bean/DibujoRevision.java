@@ -135,8 +135,8 @@ public class DibujoRevision
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + idProject + Globals.DIBUJO_REPLANTEO + numVersion
-                + "/" + getBaseName();
+        return basePath + idProject + DibujoVersion.DIBUJO_REPLANTEO
+                + numVersion + "/" + getBaseName();
     }
 
     private String getBaseName()

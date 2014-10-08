@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
+import org.zkoss.lang.Strings;
+import org.zkoss.zk.ui.util.Clients;
 
 import com.sener.sireca.web.bean.User;
 import com.sener.sireca.web.dao.UserDao;
@@ -26,6 +28,7 @@ public class UserServiceImpl implements UserService
     public int insertUser(User user)
     {
         return userDao.insertUser(user);
+
     }
 
     @Override
@@ -57,6 +60,38 @@ public class UserServiceImpl implements UserService
     @Override
     public int updateUser(User user)
     {
+
+        // Checks if username is empty.
+        if (Strings.isBlank(user.getUsername()))
+        {
+            Clients.showNotification("El nombre de usuario no puede estar vacío.");
+            return 0;
+        }
+
+        else if (user.getUsername().length() > 50)
+        {
+            Clients.showNotification("El nombre de usuario no puede ser tan largo. (Máximo 50 carácteres)");
+            return 0;
+        }
+        else if (getUserByUsername(user.getUsername()) != null)
+        {
+            Clients.showNotification("El nombre de usuario ya existe.");
+            return 0;
+        }
+
+        // Checks if password is empty.
+        if (Strings.isBlank(user.getPassword()))
+        {
+            Clients.showNotification("El password no puede estar vacío.");
+            return 0;
+        }
+
+        else if (user.getPassword().length() > 50)
+        {
+            Clients.showNotification("El password no puede ser tan largo. (Máximo 50 carácteres)");
+            return 0;
+        }
+
         return userDao.updateUser(user);
     }
 

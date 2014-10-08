@@ -9,6 +9,7 @@ import java.util.Date;
 
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
+import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
 public class ReplanteoRevision
@@ -121,10 +122,15 @@ public class ReplanteoRevision
 
     public String getBasePath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+        String basePath = System.getenv("SIRECA_HOME");
 
-        return basePath + idProject + Globals.CALCULO_REPLANTEO + numVersion
-                + "/" + getBaseName();
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
+
+        return basePath + idProject + ReplanteoVersion.CALCULO_REPLANTEO
+                + numVersion + "/" + getBaseName();
     }
 
     private String getBaseName()
@@ -149,10 +155,8 @@ public class ReplanteoRevision
     {
         if (error)
             return getBasePath() + ".error";
-        // return getBasePath() + "_E.txt";
         else
             return getBasePath() + ".progress";
-        // return getBasePath() + "_C.txt";
     }
 
     public String getExcelName()

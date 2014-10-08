@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.sener.sireca.web.util.IsJUnit;
+
 @Entity
 @Table(name = "Proyecto")
 public class Project
@@ -99,19 +101,24 @@ public class Project
 
     private String getBasePath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+        String basePath = System.getenv("SIRECA_HOME");
+
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
 
         return basePath + id;
     }
 
     public String getCalcReplanteoBasePath()
     {
-        return getBasePath() + Globals.CALCULO_REPLANTEO;
+        return getBasePath() + ReplanteoVersion.CALCULO_REPLANTEO;
     }
 
     public String getDibReplanteoBasePath()
     {
-        return getBasePath() + Globals.DIBUJO_REPLANTEO;
+        return getBasePath() + DibujoVersion.DIBUJO_REPLANTEO;
     }
 
     public String getMonReplanteoBasePath()

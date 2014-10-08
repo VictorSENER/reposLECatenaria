@@ -16,6 +16,7 @@ import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
+import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
 @Service("jacobService")
@@ -37,6 +38,22 @@ public class JACOBServiceImpl implements JACOBService
 
         files.add(new File(path + ".xlsm"));
         files.add(new File(path + ".xlsx"));
+
+        return files;
+
+    }
+
+    private List<File> prepareTestFiles(String path)
+    {
+        String initPath = path + "testJunit.xlsx";
+        String finalPath = path + "testJunit - in.xlsx";
+
+        fileService.fileCopy(initPath, finalPath);
+
+        List<File> files = new ArrayList<File>();
+
+        files.add(new File(path + "testJunit.xlsm"));
+        files.add(new File(path + "testJunit - in.xlsx"));
 
         return files;
 
@@ -114,8 +131,10 @@ public class JACOBServiceImpl implements JACOBService
 
         try
         {
-            files = prepareFiles(path, fase);
-
+            if (!IsJUnit.isJunitRunning())
+                files = prepareFiles(path, fase);
+            else
+                files = prepareTestFiles(path);
             executeMacro(excel, files, parameters);
 
         }
@@ -130,7 +149,8 @@ public class JACOBServiceImpl implements JACOBService
                 excel.invoke("Quit", new Variant[0]);
                 ComThread.Release();
 
-                fileService.deleteFile(files.get(0).getAbsolutePath());
+                if (!IsJUnit.isJunitRunning())
+                    fileService.deleteFile(files.get(0).getAbsolutePath());
 
             }
             catch (Exception e)

@@ -6,8 +6,12 @@ package com.sener.sireca.web.bean;
 
 import java.util.List;
 
+import com.sener.sireca.web.util.IsJUnit;
+
 public class ReplanteoVersion
 {
+    public static final String CALCULO_REPLANTEO = "/calculo-replanteo/";
+
     // Identificador del proyecto al que pertenece la versión.
     private Integer idProject;
 
@@ -58,10 +62,15 @@ public class ReplanteoVersion
     public String getFolderPath()
     {
 
-        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+        String basePath = System.getenv("SIRECA_HOME");
 
-        return basePath + idProject + Globals.CALCULO_REPLANTEO + "/"
-                + numVersion + "/";
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
+
+        return basePath + idProject + CALCULO_REPLANTEO + "/" + numVersion
+                + "/";
 
     }
 }

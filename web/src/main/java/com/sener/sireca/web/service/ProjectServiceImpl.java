@@ -10,10 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
+import org.zkoss.lang.Strings;
+import org.zkoss.zk.ui.util.Clients;
 
+import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Globals;
 import com.sener.sireca.web.bean.Project;
+import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.dao.ProjectDao;
+import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
 @Service("projectService")
@@ -21,7 +26,6 @@ import com.sener.sireca.web.util.SpringApplicationContext;
 public class ProjectServiceImpl implements ProjectService
 
 {
-
     @Autowired
     ProjectDao projectDao;
 
@@ -31,11 +35,20 @@ public class ProjectServiceImpl implements ProjectService
 
         int id = projectDao.insertProject(project);
         FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-        String ruta = System.getenv("SIRECA_HOME") + "/projects/" + id;
+        String ruta = System.getenv("SIRECA_HOME");
+
+        // int id = getProjectByTitle(project.getTitulo()).getId(); // Chapuza
+
+        if (!IsJUnit.isJunitRunning())
+            ruta += "/projects/";
+        else
+            ruta += "/projectTest/";
+        ruta += id;
 
         // Crear carpetas
-        fileService.addDirectory(ruta + Globals.CALCULO_REPLANTEO + "/1");
-        fileService.addDirectory(ruta + Globals.DIBUJO_REPLANTEO + "/1");
+        fileService.addDirectory(ruta + ReplanteoVersion.CALCULO_REPLANTEO
+                + "/1");
+        fileService.addDirectory(ruta + DibujoVersion.DIBUJO_REPLANTEO + "/1");
         fileService.addDirectory(ruta + Globals.FICHAS_MONTAJE + "/1");
         fileService.addDirectory(ruta + Globals.FICHAS_PENDOLADO + "/1");
 
@@ -71,6 +84,52 @@ public class ProjectServiceImpl implements ProjectService
     @Override
     public int updateProject(Project project)
     {
+
+        // Check if title is empty.
+        if (Strings.isBlank(project.getTitulo()))
+        {
+            Clients.showNotification("El título del proyecto no puede estar vacío.");
+            return 0;
+        }
+        // Check if title is too long.
+        else if (project.getTitulo().length() > 100)
+        {
+            Clients.showNotification("El título del proyecto no puede ser tan largo. (Máximo 100 carácteres)");
+            return 0;
+        }
+        else if (getProjectByTitle(project.getTitulo()) != null)
+        {
+            Clients.showNotification("El título del proyecto ya existe.");
+            return 0;
+        }
+
+        // Check if client name is empty.
+        if (Strings.isBlank(project.getCliente()))
+        {
+            Clients.showNotification("El nombre del cliente no puede estar vacío.");
+            return 0;
+        }
+
+        // Check if client name is too long.
+        else if (project.getCliente().length() > 50)
+        {
+            Clients.showNotification("El nombre del cliente no puede ser tan largo. (Máximo 50 carácteres)");
+            return 0;
+        }
+
+        // Check if reference is empty.
+        if (Strings.isBlank(project.getReferencia()))
+        {
+            Clients.showNotification("La referencia no puede estar vacía.");
+            return 0;
+        }
+        // Check if reference is too long.
+        else if (project.getReferencia().length() > 20)
+        {
+            Clients.showNotification("La referencia no puede ser tan larga. (Máximo 20 carácteres)");
+            return 0;
+        }
+
         return projectDao.updateProject(project);
     }
 
@@ -78,23 +137,18 @@ public class ProjectServiceImpl implements ProjectService
     public int deleteProject(int id)
     {
         FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-        fileService.deleteDirectory(System.getenv("SIRECA_HOME") + "/projects/"
-                + id);
+
+        String ruta = System.getenv("SIRECA_HOME");
+
+        if (!IsJUnit.isJunitRunning())
+            ruta += "/projects/";
+        else
+            ruta += "/projectTest/";
+        ruta += id;
+
+        fileService.deleteDirectory(ruta);
 
         return projectDao.deleteProject(id);
-    }
-
-    public void addDirectory(String ruta)
-    {
-        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-        fileService.addDirectory(ruta);
-
-    }
-
-    public boolean deleteDirectory(String ruta)
-    {
-        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-        return fileService.deleteDirectory(ruta);
     }
 
 }

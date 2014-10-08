@@ -6,7 +6,6 @@ package com.sener.sireca.web.page;
 
 import java.util.List;
 
-import org.zkoss.lang.Strings;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.ForwardEvent;
@@ -49,13 +48,15 @@ public class UserPage extends SelectorComposer<Component>
     // User currently selected.
     User selectedUser;
 
+    // Services
+    UserService userService = (UserService) SpringApplicationContext.getBean("userService");
+
     @Override
     public void doAfterCompose(Component comp) throws Exception
     {
         super.doAfterCompose(comp);
 
         // Fill users list using DB data
-        UserService userService = (UserService) SpringApplicationContext.getBean("userService");
         List<User> userList = userService.getAllUsers();
         userListModel = new ListModelList<User>(userList);
         userListbox.setModel(userListModel);
@@ -73,7 +74,6 @@ public class UserPage extends SelectorComposer<Component>
         user.setPassword("");
 
         // Store new user into DB.
-        UserService userService = (UserService) SpringApplicationContext.getBean("userService");
         userService.insertUser(user);
 
         // Add new user into list model and select it.
@@ -105,7 +105,6 @@ public class UserPage extends SelectorComposer<Component>
                             User user = (User) litem.getValue();
 
                             // Delete user from DB.
-                            UserService userService = (UserService) SpringApplicationContext.getBean("userService");
                             userService.deleteUser(user.getId());
 
                             // Remove user from listbox.
@@ -164,56 +163,26 @@ public class UserPage extends SelectorComposer<Component>
     @Listen("onClick = #updateSelectedUser")
     public void doUpdateClick()
     {
-        // Checks if username is empty.
-        if (Strings.isBlank(selectedUserUsername.getValue()))
-        {
-            Clients.showNotification(
-                    "El nombre de usuario no puede estar vacío.",
-                    selectedUserUsername);
-            return;
-        }
 
-        else if (selectedUserUsername.getValue().length() > 50)
-        {
-            Clients.showNotification(
-                    "El nombre de usuario no puede ser tan largo. (Máximo 50 carácteres)",
-                    selectedUserUsername);
-            return;
-        }
-
-        // Checks if password is empty.
-        if (Strings.isBlank(selectedUserPassword.getValue()))
-        {
-            Clients.showNotification("El password no puede estar vacío.",
-                    selectedUserPassword);
-            return;
-        }
-
-        else if (selectedUserPassword.getValue().length() > 50)
-        {
-            Clients.showNotification(
-                    "El password no puede ser tan largo. (Máximo 50 carácteres)",
-                    selectedUserPassword);
-            return;
-        }
         // Set new data to selected user.
         selectedUser.setUsername(selectedUserUsername.getValue());
         selectedUser.setPassword(selectedUserPassword.getValue());
 
         // Save new data into DB.
-        UserService userService = (UserService) SpringApplicationContext.getBean("userService");
-        userService.updateUser(selectedUser);
+        if (userService.updateUser(selectedUser) != 0)
+        {
 
-        // Update user into listbox.
-        userListModel.set(userListModel.indexOf(selectedUser), selectedUser);
+            // Update user into listbox.
+            userListModel.set(userListModel.indexOf(selectedUser), selectedUser);
 
-        // Show message for user.
-        Clients.showNotification("Usuario guardado correctamente");
+            // Show message for user.
+            Clients.showNotification("Usuario guardado correctamente");
 
-        selectedUser = null;
+            selectedUser = null;
 
-        // Refresh view according to new selection.
-        refreshDetailView();
+            // Refresh view according to new selection.
+            refreshDetailView();
+        }
 
     }
 

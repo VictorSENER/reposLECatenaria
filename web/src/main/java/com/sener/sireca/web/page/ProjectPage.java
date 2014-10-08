@@ -49,6 +49,8 @@ public class ProjectPage extends SelectorComposer<Component>
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
+
+    // Services
     AuthenticationService authService = (AuthenticationService) SpringApplicationContext.getBean("authService");
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
@@ -78,6 +80,7 @@ public class ProjectPage extends SelectorComposer<Component>
         project.setIdUsuario(authService.getUserCredential(session).getIdUser());
         project.setCliente("Nombre Cliente");
         project.setReferencia("Referencia");
+        project.setIdCatenaria(1);
 
         // Store new project into DB.
         projectService.insertProject(project);

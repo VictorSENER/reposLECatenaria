@@ -8,6 +8,8 @@ import java.util.List;
 
 public class DibujoVersion
 {
+    public static final String DIBUJO_REPLANTEO = "/dibujo-replanteo/";
+
     // Identificador del proyecto al que pertenece la versión.
     private Integer idProject;
 
@@ -59,8 +61,7 @@ public class DibujoVersion
 
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + idProject + Globals.DIBUJO_REPLANTEO + "/"
-                + numVersion + "/";
+        return basePath + idProject + DIBUJO_REPLANTEO + "/" + numVersion + "/";
 
     }
 }

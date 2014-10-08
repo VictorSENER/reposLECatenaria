@@ -6,7 +6,6 @@ package com.sener.sireca.web.page;
 
 import java.util.List;
 
-import org.zkoss.lang.Strings;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
@@ -55,6 +54,7 @@ public class ProjectEditPage extends SelectorComposer<Component>
     CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
     UserService userService = (UserService) SpringApplicationContext.getBean("userService");
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void doAfterCompose(Component comp) throws Exception
     {
@@ -81,56 +81,6 @@ public class ProjectEditPage extends SelectorComposer<Component>
     @Listen("onClick = #updateSelectedProject")
     public void doUpdateClick() throws InterruptedException
     {
-        // Check if title is empty.
-        if (Strings.isBlank(selectedProjectTitle.getValue()))
-        {
-            Clients.showNotification(
-                    "El título del proyecto no puede estar vacío.",
-                    selectedProjectTitle);
-            return;
-        }
-        // Check if title is too long.
-        else if (selectedProjectTitle.getValue().length() > 100)
-        {
-            Clients.showNotification(
-                    "El título del proyecto no puede ser tan largo. (Máximo 100 carácteres)",
-                    selectedProjectTitle);
-            return;
-        }
-
-        // Check if client name is empty.
-        if (Strings.isBlank(selectedProjectClient.getValue()))
-        {
-            Clients.showNotification(
-                    "El nombre del cliente no puede estar vacío.",
-                    selectedProjectClient);
-            return;
-        }
-
-        // Check if reference is too long.
-        else if (selectedProjectClient.getValue().length() > 50)
-        {
-            Clients.showNotification(
-                    "El nombre del cliente no puede ser tan largo. (Máximo 50 carácteres)",
-                    selectedProjectClient);
-            return;
-        }
-
-        // Check if reference is empty.
-        if (Strings.isBlank(selectedProjectReference.getValue()))
-        {
-            Clients.showNotification("La referencia no puede estar vacía.",
-                    selectedProjectReference);
-            return;
-        }
-        // Check if reference is too long.
-        else if (selectedProjectReference.getValue().length() > 20)
-        {
-            Clients.showNotification(
-                    "La referencia no puede ser tan larga. (Máximo 20 carácteres)",
-                    selectedProjectReference);
-            return;
-        }
 
         // Set new data to selected user.
         selectedProject.setTitulo(selectedProjectTitle.getValue());
@@ -140,10 +90,9 @@ public class ProjectEditPage extends SelectorComposer<Component>
                 selectedProjectCatenaria.getSelectedItem().getValue().toString()).getId());
 
         // Save new data into DB.
-        projectService.updateProject(selectedProject);
-
-        // how message for user.
-        Clients.showNotification("Proyecto guardado correctamente");
+        if (projectService.updateProject(selectedProject) != 0)
+            // Show message for user.
+            Clients.showNotification("Proyecto guardado correctamente");
 
     }
 

@@ -5,10 +5,14 @@ Attribute VB_Name = "principal"
 Public dist_va_max As Double, dist_max_canton As Double, va_max_sm As Double, va_max_tunel As Double
 Public inc_norm_va As Double, va_max As Double, inicio As Double, r_re As Double
 Public pol As Integer
+'Public Const strDB = "C:\Users\23370\Documents\Proyectos\D223041 - SiReCa\DR_PLANOS\BBDD\Base de datos.accdb"
+Public strDB
+Public nombre_cat As String
 Sub principal(pk_inicio, pk_final, nombre_cat)
 Dim texto As String
 Dim fichero As String
 Dim text As Scripting.TextStream
+strDB = Environ("SIRECA_HOME") & "\database\db.Accdb"
 Set a_text = CreateObject("Scripting.fileSystemObject")
 i = 1
 While Mid(Application.ActiveWorkbook.FullName, i, 1) <> "."
@@ -195,7 +199,7 @@ If con = True Then
     Call dibujar.dibujar_conexion(cadena_ruta)
 End If
 If pro = True Then
-    Call dibujar.dibujar_proteccion(cadena_ruta)
+    Call dibujar.teccion(cadena_ruta)
 End If
 If pen = True Then
     Call dibujar.dibujar_pendola(cadena_ruta)

@@ -23,14 +23,13 @@ Public dist_vert_hc_se_zn_el As Double, dist_horiz_hc_se_zn_el As Double, dist_v
 Public anc_sm_con As String, anc_sm_sin As String, anc_sla_con As String, anc_sla_sin As String, semi_eje_sm As String, eje_aguj As String, anc_neutra As String, semi_eje_neutra As String
 Public semi_eje_sla As String, eje_sm As String, eje_sla As String, anc_pf As String, eje_pf As String, anc_aguj As String, semi_eje_aguj As String, eje_neutra As String
 Public d_semi_eje_sla1 As Double, d_semi_eje_sla2 As Double, d_eje_sla1 As Double, d_eje_sla2 As Double, d_semi_eje_sm1 As Double, d_semi_eje_sm2 As Double, d_eje_sm1 As Double, d_eje_sm2 As Double, dist_pant_util As Double, d_eje_aguj1 As Double, d_eje_aguj2 As Double, d_semi_eje_aguj1 As Double, d_semi_eje_aguj2 As Double
-Public Const strDB = "C:\Users\23370\Documents\Proyectos\D223041 - SiReCa\DR_PLANOS\BBDD\Base de datos.accdb"
 Public pas_sup As String, pue As String, con As String, tun As String, p_n As String, p_i As String, aguj As String, dren As String, via As String, est As String, pue_xl As String, mar As String, zon As String, sen As String, lin As String
 Public SS As String, pot_ali As String
 Public col() As String
 Public lngCampos As Integer
 Public cim(100, 100) As Variant
 Public post(100, 100) As Variant
-Public nombre_cat As String, ruta_replanteo As String
+Public ruta_replanteo As String
 Public fila_ini As Double, fila_fin As Double
 
 '//

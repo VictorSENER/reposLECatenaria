@@ -8,8 +8,6 @@
   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd  
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <!-- Spring controllers package -->
-    <context:component-scan base-package="com.sener.sireca.web.controller" />
 
     <!-- Database properties file -->
     <context:property-placeholder location="classpath:database/database.properties" />
@@ -64,6 +62,9 @@
 
     <!-- Spring application context  -->
     <bean id="springApplicationContext" class="com.sener.sireca.web.util.SpringApplicationContext"/>
+
+    <!-- Spring controllers package -->
+    <context:component-scan base-package="com.sener.sireca.web.controller" />
 
     <!-- DAO beans -->
     <context:component-scan base-package="com.sener.sireca.web.dao" />

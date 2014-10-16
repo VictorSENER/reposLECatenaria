@@ -8,7 +8,7 @@ Public pol As Integer
 'Public Const strDB = "C:\Users\23370\Documents\Proyectos\D223041 - SiReCa\DR_PLANOS\BBDD\Base de datos.accdb"
 Public strDB
 Public nombre_cat As String
-Sub principal(pk_inicio, pk_final, nombre_cat)
+Sub calculoReplanteo(pk_inicio, pk_final, nombre_cat)
 Dim texto As String
 Dim fichero As String
 Dim text As Scripting.TextStream

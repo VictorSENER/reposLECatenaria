@@ -2925,6 +2925,7 @@ Dim longueur As Double
 Dim primero As String, primero2 As String, segundo As String, tercero As String, cuatro As String, segundo2 As String, tercero2 As String, cuarto As String, cuarto2 As String
 Dim normal As Boolean, cas_tun As Boolean
 Dim algo As Variant
+dim tip_1 as String, tip_pf_1 as string, tip_0 as String, tip_pf_0 as string, tip_2 as String, tip_pf_2 as string
 z = 10
 Call cargar.datos_lac(nombre_catVB)
 While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)

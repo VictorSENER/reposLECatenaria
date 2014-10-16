@@ -35,7 +35,7 @@ While VB(3) < pk_final
     
 VB = replanteo(VB(0), VB(1), VB(2), r_re, dist_va_max, inc_norm_va, va_max_tunel, dist_max_canton, va_max_sm, ventoso, polpri, nombre_cat, pol)
     Set text = a_text.CreateTextFile(Mid(Application.ActiveWorkbook.FullName, 1, i) & "proges")
-    text.WriteLine VB(3) & " / " & pk_final
+    text.WriteLine "1" & "/" & "14" & "/" & "Replanteo de los postes" & "/" & VB(3) & "/" & pk_final
     text.Close
     'principal = sheets("Replanteo").Cells(h, 33).Value
 Wend

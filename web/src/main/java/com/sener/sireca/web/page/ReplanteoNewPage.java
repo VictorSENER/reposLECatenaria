@@ -28,6 +28,7 @@ import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
+import com.sener.sireca.web.service.CatenariaService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.util.SpringApplicationContext;
@@ -58,6 +59,7 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
     ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+    CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
 
     Media media = null;
 
@@ -112,8 +114,6 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
     @Listen("onClick = #calculoReplanteo")
     public void doCalculateReplanteo() throws IOException
     {
-        // TODO: Obtener la información de todo y mandarla.
-
         Project project = projectService.getProjectById(actProj.getIdActive(session));
         int numVersion = replanteoService.getLastVersion(project);
         ReplanteoVersion replanteoVersion = replanteoService.getVersion(
@@ -137,12 +137,15 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
                 Files.copy(dest, media.getStreamData());
 
                 int idCatenaria = project.getIdCatenaria();
-                int pkIni = Integer.parseInt(pkInicial.getValue());
-                int pkFin = Integer.parseInt(pkFinal.getValue());
+                long pkIni = Integer.parseInt(pkInicial.getValue());
+                long pkFin = Integer.parseInt(pkFinal.getValue());
 
-                ReplanteoWorker rw = new ReplanteoWorker(replanteoRevision, idCatenaria, pkIni, pkFin);
+                String catenaria = catenariaService.getCatenariaById(
+                        idCatenaria).getNomCatenaria();
 
-                rw.run();
+                ReplanteoWorker rw = new ReplanteoWorker(replanteoRevision, pkIni, pkFin, catenaria);
+
+                rw.start();
 
                 // TODO: Calculate Revision
                 Executions.getCurrent().sendRedirect(

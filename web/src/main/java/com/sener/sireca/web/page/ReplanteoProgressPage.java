@@ -30,15 +30,15 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
 {
     private static final long serialVersionUID = 1L;
 
-    int numVersion;
-
-    int numRevision;
-
     // Dialog components
     @Wire
     Progressmeter postes;
     @Wire
     Label progressLabel;
+    @Wire
+    Progressmeter function;
+    @Wire
+    Label funcLabel;
     @Wire
     Label version;
     @Wire
@@ -47,6 +47,15 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
     Label fecha;
     @Wire
     Timer timer;
+
+    private int numVersion;
+
+    private int numRevision;
+
+    private Project project;
+
+    ReplanteoVersion ver;
+    ReplanteoRevision rev;
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
@@ -66,26 +75,29 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
         numRevision = (Integer) Executions.getCurrent().getAttribute(
                 "numRevision");
 
-        refreshGrid();
-
-    }
-
-    public void refreshGrid() throws Exception
-    {
-        Project project = projectService.getProjectById(actProj.getIdActive(session));
-
-        ReplanteoVersion ver = replanteoService.getVersion(project, numVersion);
-        ReplanteoRevision rev = replanteoService.getRevision(ver, numRevision);
+        project = projectService.getProjectById(actProj.getIdActive(session));
+        ver = replanteoService.getVersion(project, numVersion);
+        rev = replanteoService.getRevision(ver, numRevision);
 
         version.setValue("Version: " + numVersion);
         revision.setValue("Revision: " + numRevision);
         fecha.setValue("Fecha: "
                 + new SimpleDateFormat("dd-MM-yyyy").format(rev.getDate()));
 
+        refreshGrid();
+
+    }
+
+    public void refreshGrid() throws Exception
+    {
+
         String valores[] = replanteoService.getProgressInfo(rev);
         double percentage;
 
-        progressLabel.setValue(valores[0] + "/" + valores[1]);
+        progressLabel.setValue(valores[0] + "/" + valores[1] + " : "
+                + valores[2]);
+
+        funcLabel.setValue(valores[3] + "/" + valores[4]);
 
         if (valores[1].equals("?"))
             percentage = 0;
@@ -93,6 +105,14 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
             percentage = (Double.parseDouble(valores[0]) / Double.parseDouble(valores[1])) * 100;
 
         postes.setValue((int) percentage);
+
+        if (valores[4].equals("?"))
+            percentage = 0;
+        else
+            percentage = (Double.parseDouble(valores[3]) / Double.parseDouble(valores[4])) * 100;
+
+        function.setValue((int) percentage);
+
     }
 
     @Listen("onTimer = #timer")

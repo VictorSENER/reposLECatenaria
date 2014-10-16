@@ -26,9 +26,54 @@ public class JACOBServiceImpl implements JACOBService
 {
     FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
 
-    private List<File> prepareFiles(String path, String fase)
+    @Override
+    public boolean executeCoreCommand(String path, String command,
+            List<Variant> parameters)
     {
-        String initPath = System.getenv("SIRECA_HOME") + "/core/" + fase
+        boolean todoOk = true;
+        List<File> files = null;
+
+        ComThread.InitSTA();
+
+        final ActiveXComponent excel = new ActiveXComponent("Excel.Application");
+
+        try
+        {
+            if (!IsJUnit.isJunitRunning())
+                files = prepareFiles(path, command);
+            else
+                files = prepareTestFiles(path);
+
+            executeMacro(excel, files, parameters);
+
+        }
+        catch (Exception e)
+        {
+            todoOk = false;
+        }
+        finally
+        {
+            try
+            {
+                excel.invoke("Quit", new Variant[0]);
+                ComThread.Release();
+
+                if (!IsJUnit.isJunitRunning())
+                    fileService.deleteFile(files.get(0).getAbsolutePath());
+
+            }
+            catch (Exception e)
+            {
+                // Do Nothing
+            }
+        }
+
+        return todoOk;
+    }
+
+    private List<File> prepareFiles(String path, String command)
+    {
+        String initPath = System.getenv("SIRECA_HOME") + "/core/" + command
                 + ".xlsm";
         String finalPath = path + ".xlsm";
 
@@ -59,45 +104,6 @@ public class JACOBServiceImpl implements JACOBService
 
     }
 
-    private void createCall(ActiveXComponent excel, String excelName,
-            List<Variant> parameters)
-    {
-        int nParam = parameters.size();
-
-        // Call the macro
-        switch (nParam)
-        {
-            case 0:
-                Dispatch.call(excel, "Run", new Variant(excelName
-                        + "!ExecuteExcel"));
-
-            case 1:
-                Dispatch.call(excel, "Run", new Variant(excelName
-                        + "!ExecuteExcel"), parameters.get(0));
-                break;
-
-            case 2:
-                Dispatch.call(excel, "Run", new Variant(excelName
-                        + "!ExecuteExcel"), parameters.get(0),
-                        parameters.get(1));
-                break;
-
-            case 3:
-                Dispatch.call(excel, "Run", new Variant(excelName
-                        + "!ExecuteExcel"), parameters.get(0),
-                        parameters.get(1), parameters.get(2));
-                break;
-
-            case 4:
-                Dispatch.call(excel, "Run", new Variant(excelName
-                        + "!ExecuteExcel"), parameters.get(0),
-                        parameters.get(1), parameters.get(2), parameters.get(3));
-                break;
-
-        }
-
-    }
-
     private void executeMacro(ActiveXComponent excel, List<File> files,
             List<Variant> parameters)
     {
@@ -110,7 +116,7 @@ public class JACOBServiceImpl implements JACOBService
         final Dispatch workBookATratar = Dispatch.call(workbooks, "Open",
                 files.get(1).getAbsolutePath()).toDispatch();
 
-        createCall(excel, files.get(0).getName(), parameters);
+        createCall(excel, files.get(0).getName(), "ExecuteExcel", parameters);
 
         // Save and Close
         Dispatch.call(workBookATratar, "Save");
@@ -118,47 +124,41 @@ public class JACOBServiceImpl implements JACOBService
         Dispatch.call(workBookConMacro, "Close", 0);
     }
 
-    @Override
-    public boolean executeCoreCommand(String path, String fase,
-            List<Variant> parameters)
+    private void createCall(ActiveXComponent excel, String excelName,
+            String macroName, List<Variant> parameters)
     {
-        boolean todoOk = true;
-        List<File> files = null;
+        int nParam = parameters.size();
 
-        ComThread.InitSTA();
-
-        final ActiveXComponent excel = new ActiveXComponent("Excel.Application");
-
-        try
+        // Call the macro
+        switch (nParam)
         {
-            if (!IsJUnit.isJunitRunning())
-                files = prepareFiles(path, fase);
-            else
-                files = prepareTestFiles(path);
-            executeMacro(excel, files, parameters);
+            case 0:
+                Dispatch.call(excel, "Run", new Variant(excelName + "!"
+                        + macroName));
+
+            case 1:
+                Dispatch.call(excel, "Run", new Variant(excelName + "!"
+                        + macroName), parameters.get(0));
+                break;
+
+            case 2:
+                Dispatch.call(excel, "Run", new Variant(excelName + "!"
+                        + macroName), parameters.get(0), parameters.get(1));
+                break;
+
+            case 3:
+                Dispatch.call(excel, "Run", new Variant(excelName + "!"
+                        + macroName), parameters.get(0), parameters.get(1),
+                        parameters.get(2));
+                break;
+
+            case 4:
+                Dispatch.call(excel, "Run", new Variant(excelName + "!"
+                        + macroName), parameters.get(0), parameters.get(1),
+                        parameters.get(2), parameters.get(3));
+                break;
 
         }
-        catch (Exception e)
-        {
-            todoOk = false;
-        }
-        finally
-        {
-            try
-            {
-                excel.invoke("Quit", new Variant[0]);
-                ComThread.Release();
 
-                if (!IsJUnit.isJunitRunning())
-                    fileService.deleteFile(files.get(0).getAbsolutePath());
-
-            }
-            catch (Exception e)
-            {
-                // Do Nothing
-            }
-        }
-
-        return todoOk;
     }
 }

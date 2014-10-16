@@ -31,8 +31,11 @@ public class ReplanteoRevision
     // Indica si la revisión ha sido calculada o si aún se está calculando.
     private boolean calculated;
 
-    // Indica si la revisión tiene errores o no.
+    // Indica si la revisión tiene errores fatales o no.
     private boolean error;
+
+    // Indica si la revisión tiene warnings o no.
+    private boolean warning;
 
     // Fecha de creación de la revisión.
     private Date date;
@@ -100,6 +103,16 @@ public class ReplanteoRevision
         this.error = error;
     }
 
+    public boolean getWarning()
+    {
+        return warning;
+    }
+
+    public void setWarning(boolean warning)
+    {
+        this.warning = warning;
+    }
+
     public Date getDate()
     {
         return date;
@@ -141,30 +154,51 @@ public class ReplanteoRevision
 
     public String getExcelPath()
     {
-        if (error)
+        if (calculated && warning)
+            return getBasePath() + "_CW.xlsx";
+
+        else if (error)
             return getBasePath() + "_E.xlsx";
 
-        if (calculated)
+        else if (warning)
+            return getBasePath() + "_W.xlsx";
+
+        else if (calculated)
             return getBasePath() + "_C.xlsx";
 
         else
             return getBasePath() + "_P.xlsx";
     }
 
-    public String getFilePath()
+    public String getProgressFilePath()
     {
-        if (error)
-            return getBasePath() + ".error";
-        else
+
+        if (!calculated)
             return getBasePath() + ".progress";
+
+        return "";
+    }
+
+    public String getErrorFilePath()
+    {
+        if (error || warning)
+            return getBasePath() + ".error";
+
+        return "";
     }
 
     public String getExcelName()
     {
-        if (error)
+        if (calculated && warning)
+            return getBaseName() + "_CW.xlsx";
+
+        else if (error)
             return getBaseName() + "_E.xlsx";
 
-        if (calculated)
+        else if (warning)
+            return getBaseName() + "_W.xlsx";
+
+        else if (calculated)
             return getBaseName() + "_C.xlsx";
 
         else

@@ -6,13 +6,20 @@ package com.sener.sireca.web.service;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.ArrayUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -41,10 +48,25 @@ public class FileServiceImpl implements FileService
         return directory.delete();
     }
 
+    // Delete all the files in a directory.
+    private void deleteRecurivelly(File directory)
+    {
+        File[] ficheros = directory.listFiles();
+
+        for (int x = 0; x < ficheros.length; x++)
+        {
+            if (ficheros[x].isDirectory())
+                deleteRecurivelly(ficheros[x]);
+
+            ficheros[x].delete();
+        }
+    }
+
     // Remove the specific file.
     @Override
     public boolean deleteFile(String path)
     {
+
         File file = new File(path);
 
         return file.delete();
@@ -71,24 +93,43 @@ public class FileServiceImpl implements FileService
     @Override
     public File[] getDirectory(String path)
     {
-
         File directory = new File(path);
-        return directory.listFiles();
-
-    }
-
-    // Delete all the files in a directory.
-    private void deleteRecurivelly(File directory)
-    {
         File[] ficheros = directory.listFiles();
 
-        for (int x = 0; x < ficheros.length; x++)
-        {
-            if (ficheros[x].isDirectory())
-                deleteRecurivelly(ficheros[x]);
+        sortDirectory(ficheros);
 
-            ficheros[x].delete();
-        }
+        return ficheros;
+    }
+
+    private void sortDirectory(File[] files)
+    {
+        Arrays.sort(files, new Comparator<File>()
+        {
+            public int compare(File o1, File o2)
+            {
+                int n1 = extractNumber(o1.getName());
+                int n2 = extractNumber(o2.getName());
+                return n1 - n2;
+            }
+
+            private int extractNumber(String name)
+            {
+                int i = 0;
+                try
+                {
+                    int s = 0;
+                    int e = name.indexOf('_');
+                    String number = name.substring(s, e);
+                    i = Integer.parseInt(number);
+                }
+                catch (Exception e)
+                {
+                    i = 0;
+                }
+                return i;
+            }
+        });
+
     }
 
     // Returns the date of an specific file.
@@ -146,6 +187,84 @@ public class FileServiceImpl implements FileService
         }
     }
 
+    public String[] getProgressFileContent(String path) throws IOException
+    {
+        String firstLine[] = { "0", "?",
+                "Ejecutando funcionalidad desconocida." };
+
+        String secondLine[] = { "0", "?" };
+
+        BufferedReader br = null;
+
+        try
+        {
+            br = new BufferedReader(new FileReader(path));
+
+            try
+            {
+                String line = br.readLine();
+
+                if (line != null)
+                    firstLine = line.split("/");
+
+                line = br.readLine();
+
+                if (line != null)
+                    secondLine = line.split("/");
+            }
+            finally
+            {
+                br.close();
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            // Ignore
+        }
+
+        String[] valores = (String[]) ArrayUtils.addAll(firstLine, secondLine);
+
+        return valores;
+
+    }
+
+    public ArrayList<String> getErrorFileContent(String path)
+            throws IOException
+    {
+
+        ArrayList<String> errorLog = new ArrayList<String>();
+
+        BufferedReader br = null;
+
+        try
+        {
+            br = new BufferedReader(new FileReader(path));
+
+            try
+            {
+                String line = br.readLine();
+
+                while (line != null)
+                {
+                    errorLog.add(line);
+                    line = br.readLine();
+                }
+
+            }
+            finally
+            {
+                br.close();
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            // Ignore
+        }
+
+        return errorLog;
+
+    }
+
     @Override
     public String getFileContent(String path) throws IOException
     {
@@ -162,6 +281,35 @@ public class FileServiceImpl implements FileService
         }
 
         return everything;
+
+    }
+
+    public boolean fileExists(String path)
+    {
+
+        BufferedReader br = null;
+
+        try
+        {
+            br = new BufferedReader(new FileReader(path));
+
+            try
+            {
+                br.close();
+            }
+            catch (IOException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        }
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
+
+        return true;
 
     }
 }

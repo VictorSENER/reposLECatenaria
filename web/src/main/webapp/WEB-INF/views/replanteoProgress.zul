@@ -22,6 +22,14 @@
 	                        		</cell>
 	                            </row>
 	                            <row>
+	                        		<cell hflex="min">
+	                        			<progressmeter id="function" width="500px" />
+			            			</cell>
+			            			<cell>
+				            			<label id="funcLabel" value="" />
+	                        		</cell>
+	                            </row>
+	                            <row>
 	                                <cell colspan="2">
 	                                    <label id="version" />
 	                                </cell>

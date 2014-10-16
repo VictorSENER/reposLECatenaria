@@ -5,6 +5,7 @@
 package com.sener.sireca.web.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.sener.sireca.web.bean.Project;
@@ -17,11 +18,15 @@ public interface ReplanteoService
 
     public ReplanteoVersion getVersion(Project project, int numVersion);
 
+    public List<Integer> getVersionList(Project project);
+
     public ReplanteoVersion createVersion(Project project);
 
     public void deleteVersion(Project project, int numVersion);
 
     public List<ReplanteoRevision> getRevisions(ReplanteoVersion version);
+
+    public List<Integer> getRevisionList(ReplanteoVersion version);
 
     public int getLastRevision(ReplanteoVersion version);
 
@@ -30,16 +35,17 @@ public interface ReplanteoService
 
     public ReplanteoRevision createRevision(ReplanteoVersion version, int type);
 
-    public void calculateRevision(ReplanteoRevision revision, int idCatenaria,
-            int pkIni, int pkFin);
+    public void calculateRevision(ReplanteoRevision revision, long pkIni,
+            long pkFin, String catenaria);
 
-    public void deleteRevision(Project project, int numVersion, int numRevision);
+    public boolean deleteRevision(Project project, int numVersion,
+            int numRevision);
 
     public String[] getProgressInfo(ReplanteoRevision revision)
             throws IOException;
 
     public int getLastVersion(Project project);
 
-    public String getErrorLog(ReplanteoRevision replanteoRevision)
+    public ArrayList<String> getErrorLog(ReplanteoRevision replanteoRevision)
             throws IOException;
 }

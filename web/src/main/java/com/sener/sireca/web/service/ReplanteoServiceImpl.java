@@ -4,10 +4,7 @@
 
 package com.sener.sireca.web.service;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,6 +39,12 @@ public class ReplanteoServiceImpl implements ReplanteoService
             replanteoVersion.add(new ReplanteoVersion(project.getId(), versionList.get(i)));
 
         return replanteoVersion;
+    }
+
+    @Override
+    public List<Integer> getVersionList(Project project)
+    {
+        return verService.getVersions(project.getCalcReplanteoBasePath());
     }
 
     // Check if the folder exists, and if so build the object.
@@ -96,32 +99,67 @@ public class ReplanteoServiceImpl implements ReplanteoService
 
             String fileName = revisionList.get(i);
             String[] parameters = fileName.split("_");
+            try
+            {
 
-            ReplanteoRevision replanteoRevisionAux = new ReplanteoRevision();
-            replanteoRevisionAux.setIdProject(version.getIdProject());
-            replanteoRevisionAux.setNumVersion(version.getNumVersion());
-            replanteoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
-            replanteoRevisionAux.setType(Integer.parseInt(parameters[1]));
-            if (parameters[2].equals("E.xlsx"))
-                replanteoRevisionAux.setError(true);
+                ReplanteoRevision replanteoRevisionAux = new ReplanteoRevision();
 
-            else if (parameters[2].equals("C.xlsx"))
-                replanteoRevisionAux.setCalculated(true);
+                replanteoRevisionAux.setIdProject(version.getIdProject());
+                replanteoRevisionAux.setNumVersion(version.getNumVersion());
+                replanteoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
+                replanteoRevisionAux.setType(Integer.parseInt(parameters[1]));
 
-            else
-                replanteoRevisionAux.setCalculated(false);
+                if (parameters[2].equals("E.xlsx"))
+                    replanteoRevisionAux.setError(true);
 
-            replanteoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
-                    + fileName));
-            replanteoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
-                    + fileName));
+                else if (parameters[2].equals("W.xlsx"))
+                    replanteoRevisionAux.setWarning(true);
 
-            replanteoRevision.add(replanteoRevisionAux);
+                else if (parameters[2].equals("C.xlsx"))
+                    replanteoRevisionAux.setCalculated(true);
+
+                else if (parameters[2].equals("CW.xlsx"))
+                {
+                    replanteoRevisionAux.setCalculated(true);
+                    replanteoRevisionAux.setWarning(true);
+                }
+                else
+                    replanteoRevisionAux.setCalculated(false);
+
+                replanteoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                        + fileName));
+                replanteoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                        + fileName));
+
+                replanteoRevision.add(replanteoRevisionAux);
+
+            }
+            catch (Exception e)
+            {
+            }
 
         }
 
         return replanteoRevision;
 
+    }
+
+    public List<Integer> getRevisionList(ReplanteoVersion version)
+    {
+        ArrayList<String> revisionList = getRevisions(version.getFolderPath());
+        ArrayList<Integer> revList = new ArrayList<Integer>();
+
+        for (int i = 0; i < revisionList.size(); i++)
+        {
+            String fileName = revisionList.get(i);
+            String[] parameters = fileName.split("_");
+
+            if (parameters[2].equals("C.xlsx")
+                    || parameters[2].equals("CW.xlsx"))
+                revList.add(Integer.parseInt(parameters[0]));
+        }
+
+        return revList;
     }
 
     // Get the list of the revisions and parse it into a String ArrayList.
@@ -193,42 +231,79 @@ public class ReplanteoServiceImpl implements ReplanteoService
     }
 
     @Override
-    public void calculateRevision(ReplanteoRevision revision, int idCatenaria,
-            int pkIni, int pkFin)
+    public void calculateRevision(ReplanteoRevision revision, long pkIni,
+            long pkFin, String catenaria)
     {
 
         String path = revision.getBasePath();
 
         List<Variant> parameter = new ArrayList<Variant>();
-        parameter.add(new Variant(idCatenaria));
+
         parameter.add(new Variant(pkIni));
         parameter.add(new Variant(pkFin));
+        parameter.add(new Variant(catenaria));
 
         File file = new File(revision.getExcelPath());
 
         if (jacobService.executeCoreCommand(path + "_P", "calculo-replanteo",
                 parameter))
             revision.setCalculated(true);
-        else
-            revision.setError(true);
+
+        if (fileService.fileExists(path + ".error"))
+        {
+            ArrayList<String> errorLog = null;
+
+            try
+            {
+                errorLog = fileService.getErrorFileContent(path + ".error");
+            }
+            catch (IOException e)
+            {
+
+            }
+
+            if (errorLog.contains("Error"))
+                revision.setError(true);
+            else
+                revision.setWarning(true);
+
+        }
 
         File newFile = new File(revision.getExcelPath());
 
         file.renameTo(newFile);
 
-        fileService.deleteFile(revision.getFilePath());
+        if (fileService.fileExists(revision.getProgressFilePath()))
+            fileService.deleteFile(revision.getProgressFilePath());
     }
 
     // Delete the specific revision of the specific version of the specific
     // project and the progress file.
     @Override
-    public void deleteRevision(Project project, int numVersion, int numRevision)
+    public boolean deleteRevision(Project project, int numVersion,
+            int numRevision)
     {
+
         ReplanteoVersion version = getVersion(project, numVersion);
         ReplanteoRevision revision = getRevision(version, numRevision);
 
-        fileService.deleteFile(revision.getExcelPath());
-        fileService.deleteFile(revision.getFilePath());
+        try
+        {
+            if (!revision.getCalculated())
+                return false;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+
+        if (fileService.fileExists(revision.getErrorFilePath()))
+            fileService.deleteFile(revision.getErrorFilePath());
+
+        if (fileService.fileExists(revision.getProgressFilePath()))
+            fileService.deleteFile(revision.getProgressFilePath());
+
+        return fileService.deleteFile(revision.getExcelPath());
 
     }
 
@@ -236,39 +311,13 @@ public class ReplanteoServiceImpl implements ReplanteoService
     public String[] getProgressInfo(ReplanteoRevision replanteoRevision)
             throws IOException
     {
-        String valores[] = { "0", "?" };
-
-        BufferedReader br = null;
-
-        try
-        {
-            br = new BufferedReader(new FileReader(replanteoRevision.getFilePath()));
-
-            try
-            {
-                String line = br.readLine();
-
-                if (line != null)
-                    valores = line.split("/");
-            }
-            finally
-            {
-                br.close();
-            }
-        }
-        catch (FileNotFoundException e)
-        {
-            // Ignore
-        }
-
-        return valores;
+        return fileService.getProgressFileContent(replanteoRevision.getProgressFilePath());
     }
 
     @Override
-    public String getErrorLog(ReplanteoRevision replanteoRevision)
+    public ArrayList<String> getErrorLog(ReplanteoRevision replanteoRevision)
             throws IOException
     {
-        return fileService.getFileContent(replanteoRevision.getFilePath());
-
+        return fileService.getErrorFileContent(replanteoRevision.getErrorFilePath());
     }
 }

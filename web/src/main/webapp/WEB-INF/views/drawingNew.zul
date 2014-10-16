@@ -13,28 +13,51 @@
 	                <hlayout>
 						<grid hflex="1">
 							<auxhead>
-	            				<auxheader label="Nueva revisión de planos de replanteo" colspan="1" rowspan="3" />
+	            				<auxheader label="Nueva revisión de planos de replanteo" colspan="2" rowspan="2" />
 	        				</auxhead>
 	                     	<columns>
 	                        	<column align="left" />
+	                        	<column />
 	                        </columns>
 	                        <rows>
-	                            <row>
+	                        	<row>
+	                            	<cell sclass="row-title"> Eje de Trazado: </cell>
+	                            </row>
+	                        	<row>
 	                                <cell>
+	                                    <textbox id="fileToUpload" width="227px" disabled="true" />
+	                                </cell>
+	                                <cell>
+	                                    <button id="uploadFile" label="Subir" upload="true" width="65px" />
+	            					</cell>
+	                            </row>
+	                            <row>
+	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" width="50px" /> </cell>
+	                            </row>
+	                            <row>
+									 <cell sclass="row-title" colspan="2" >  PK Final : &#160; <textbox id="pkFinal" width="50px" /></cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title" colspan="2">
+	                                	Versión:&#160;&#160;
 	                                    <combobox id="versionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
 	            					</cell>
 	                            </row>
 	                            <row>
-	                                <cell>
+	                                <cell sclass="row-title" colspan="2">
+	                                	Revisión:
 	                                	<combobox id="revisionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
 	            					</cell>
 	                            </row>
 	                            <row>
-	                                <cell>
+	                            	<cell sclass="row-title" colspan="2" > Configuración tipo entidades del plano de replanteo: </cell>
+	                            </row>
+	                            <row>
+	                                <cell colspan="2">
 	                                	<radiogroup id="rg">
 	                                    	<radio label="Replanteo" selected="true"/>
 	                                    	<separator></separator>
@@ -45,10 +68,12 @@
 	            					</cell>
 	                            </row>
 	                            <row>
-	                            	<hlayout>
-	                   					<button id="dibujoReplanteo" label="Dibujar" width="65px"/>
-	                   					<button id="volver" label="Volver" width="65px"/>
-	                   				</hlayout>
+	                            	<cell colspan="2">
+		                            	<hlayout >
+		                   					<button id="dibujoReplanteo" label="Dibujar" width="65px"/>
+		                   					<button id="volver" label="Volver" width="65px"/>
+		                   				</hlayout>
+	                   				</cell>
 	                            </row>
                             </rows>
                         </grid>
@@ -108,6 +133,14 @@
 								<row sclass="row-title" >
 									<checkbox id="datTraz"/>  Datos del trazado
 								</row>
+								<row>
+	                            	<cell colspan="2">
+		                            	<hlayout >
+		                   					<button id="checkAll" label="Seleccionar todo" width="125px"/>
+		                   					<button id="unCheckAll" label="Restablecer" width="125px"/>
+		                   				</hlayout>
+	                   				</cell>
+	                            </row>
 	                        </rows>
 	                   	</grid>
               		</hlayout>  

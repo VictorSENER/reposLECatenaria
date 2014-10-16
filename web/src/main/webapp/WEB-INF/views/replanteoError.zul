@@ -13,9 +13,10 @@
 					<vlayout>
 						<grid id="errorList" hflex="1" >
 	                   		<auxhead>
-								<auxheader label="Informe de Errores" rowspan="2"/>
+								<auxheader label="Informe de Errores" colspan= "2" rowspan="2"/>
 							</auxhead>
 	                     	<columns>
+								<column hflex="min" />
 								<column />
 	                        </columns>
 	                	</grid>

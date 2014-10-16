@@ -32,8 +32,11 @@ public class DibujoRevision
     // Indica si la revisión ha sido calculada o si aún se está calculando.
     private boolean calculated;
 
-    // Indica si la revisión tiene errores o no.
+    // Indica si la revisión tiene errores fatales o no.
     private boolean error;
+
+    // Indica si la revisión tiene warnings o no.
+    private boolean warning;
 
     // Fecha de creación de la revisión.
     private Date date;
@@ -89,6 +92,16 @@ public class DibujoRevision
     public void setError(boolean error)
     {
         this.error = error;
+    }
+
+    public boolean getWarning()
+    {
+        return warning;
+    }
+
+    public void setWarning(boolean warning)
+    {
+        this.warning = warning;
     }
 
     public Date getDate()
@@ -147,11 +160,14 @@ public class DibujoRevision
 
     public String getAutoCadPath()
     {
-        // TODO: Get extension ".dwg" or ".dwf"
-        if (error)
+
+        if (calculated && warning)
+            return getBasePath() + "_CW.dwg";
+
+        else if (error)
             return getBasePath() + "_E.dwg";
 
-        if (calculated)
+        else if (calculated)
             return getBasePath() + "_C.dwg";
 
         else
@@ -160,22 +176,29 @@ public class DibujoRevision
 
     public String getProgressFilePath()
     {
-        if (error)
-            return getBasePath() + "_E.txt";
+        if (!calculated)
+            return getBasePath() + ".progress";
 
-        if (calculated)
-            return getBasePath() + "_C.txt";
+        return "";
+    }
 
-        else
-            return getBasePath() + "_P.txt";
+    public String getErrorFilePath()
+    {
+        if (error || warning)
+            return getBasePath() + ".error";
+
+        return "";
     }
 
     public String getAutoCadName()
     {
-        if (error)
+        if (calculated && warning)
+            return getBaseName() + "_CW.dwg";
+
+        else if (error)
             return getBaseName() + "_E.dwg";
 
-        if (calculated)
+        else if (calculated)
             return getBaseName() + "_C.dwg";
 
         else
@@ -198,7 +221,7 @@ public class DibujoRevision
             return fileSize + " B";
 
         int exp = (int) (Math.log(fileSize) / Math.log(1024));
-        String pre = "" + ("KMGTPE").charAt(exp - 1); // ("i");
+        String pre = "" + ("KMGTPE").charAt(exp - 1);
 
         return String.format("%.1f %sB", fileSize / Math.pow(1024, exp), pre);
     }

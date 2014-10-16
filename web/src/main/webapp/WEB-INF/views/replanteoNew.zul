@@ -20,6 +20,9 @@
 	                            <column/>
 	                        </columns>
 	                        <rows>
+	                        	<row>
+	                            	<cell sclass="row-title"> Cuaderno de replanteo: </cell>
+	                            </row>
 	                            <row>
 	                                <cell>
 	                                    <textbox id="fileToUpload" width="200px" disabled="true" />
@@ -29,15 +32,15 @@
 	            					</cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title" >
+	                                 <cell sclass="row-title" colspan="2" >
 										<checkbox id="calcularImportar"/> Calcular replanteo
 									</cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title" align="right"> PK Inicial : <textbox id="pkInicial" disabled="true" width="50px" /> </cell>
+	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" disabled="true" width="50px" /> </cell>
 	                            </row>
 	                            <row>
-									 <cell sclass="row-title" align="right">  PK Final : <textbox id="pkFinal" disabled="true" width="50px" /></cell>
+									 <cell sclass="row-title" colspan="2" > PK Final : &#160; <textbox id="pkFinal" disabled="true" width="50px" /></cell>
 	                            </row>
 	                        </rows>
 	                   	</grid>

@@ -95,18 +95,9 @@ public class ReplanteoPage extends SelectorComposer<Component>
                             {
                                 if (e.getName().equals("onOK"))
                                 {
-                                    try
-                                    {
 
-                                        if (!replanteoService.getRevision(
-                                                replanteoService.getVersion(
-                                                        project, numVersion),
-                                                numRevision).getCalculated())
-                                            throw new Exception();
-
-                                        replanteoService.deleteRevision(
-                                                project, numVersion,
-                                                numRevision);
+                                    if (replanteoService.deleteRevision(
+                                            project, numVersion, numRevision))
 
                                         Messagebox.show(
                                                 "Revisión "
@@ -135,16 +126,13 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                     }
                                                 });
 
-                                    }
-                                    catch (Exception e1)
-                                    {
+                                    else
 
                                         Messagebox.show(
                                                 "Fallo al eliminar la revisión "
                                                         + numRevision
                                                         + " de la versión "
-                                                        + numVersion
-                                                        + " eliminada correctamente.",
+                                                        + numVersion + ".",
                                                 "Información",
                                                 Messagebox.OK,
                                                 Messagebox.INFORMATION,
@@ -163,7 +151,6 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                         }
                                                     }
                                                 });
-                                    }
 
                                 }
                                 else
@@ -206,6 +193,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
                     replanteoService.getRevisions(replanteoVerList.get(i)));
 
         versionListModel = new ListModelList<ReplanteoVersion>(replanteoVerList);
+
         versionListBox.setModel(versionListModel);
 
     }

@@ -4,6 +4,8 @@
 
 package com.sener.sireca.web.page;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.zkoss.zk.ui.Component;
@@ -12,6 +14,7 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zul.Cell;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Row;
@@ -60,13 +63,30 @@ public class ReplanteoErrorPage extends SelectorComposer<Component>
         ReplanteoRevision revision = replanteoService.getRevision(version,
                 numRevision);
 
+        ArrayList<String> errorLog = replanteoService.getErrorLog(revision);
+
         Rows rows = new Rows();
         rows.setParent(errorList);
-        Row row = new Row();
 
-        Label idLabel = new Label(replanteoService.getErrorLog(revision));
-        idLabel.setParent(row);
-        row.setParent(rows);
+        for (int i = 0; i < errorLog.size(); i += 2)
+        {
+
+            Row row = new Row();
+            Label idLabel;
+
+            Cell cell1 = new Cell();
+            idLabel = new Label(errorLog.get(i));
+            idLabel.setParent(cell1);
+
+            Cell cell2 = new Cell();
+            idLabel = new Label(errorLog.get(i + 1));
+            idLabel.setParent(cell2);
+
+            cell1.setParent(row);
+            cell2.setParent(row);
+            row.setParent(rows);
+
+        }
 
     }
 

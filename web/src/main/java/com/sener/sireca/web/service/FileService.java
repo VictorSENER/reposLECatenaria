@@ -7,6 +7,7 @@ package com.sener.sireca.web.service;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public interface FileService
 {
@@ -28,5 +29,13 @@ public interface FileService
 
     public void fileCopy(String initPath, String finalPath);
 
+    public String[] getProgressFileContent(String path) throws IOException;
+
+    public ArrayList<String> getErrorFileContent(String path)
+            throws IOException;
+
     public String getFileContent(String path) throws IOException;
+
+    public boolean fileExists(String path);
+
 }

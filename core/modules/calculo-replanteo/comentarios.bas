@@ -214,22 +214,22 @@ Call cargar.datos_lac(nombre_catVB)
 '//
 While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
     If Mid(Sheets("Replanteo").Cells(z, 3).Value, 3, 3) = "bis" Then
-        Replanteo = Mid(Sheets("Replanteo").Cells(z, 3).Value, 1, 2) & Mid(Sheets("Replanteo").Cells(z, 3).Value, 7)
+        replan = Mid(Sheets("Replanteo").Cells(z, 3).Value, 1, 2) & Mid(Sheets("Replanteo").Cells(z, 3).Value, 7)
         implanta = Mid(Sheets("Extra").Cells(j, 21).Value, 1, 2) & Mid(Sheets("Extra").Cells(j, 21).Value, 7)
         implanta2 = Mid(Sheets("Extra").Cells(j, 20).Value, 1, 2) & Mid(Sheets("Extra").Cells(j, 20).Value, 7)
     Else
-        Replanteo = Sheets("Replanteo").Cells(z, 3).Value
+        replan = Sheets("Replanteo").Cells(z, 3).Value
         implanta = Sheets("Extra").Cells(j, 21).Value
         implanta2 = Sheets("Extra").Cells(j, 20).Value
     End If
-    While implanta < Replanteo
+    While implanta < replan
         j = j + 1
     If Mid(Sheets("Replanteo").Cells(z, 3).Value, 3, 3) = "bis" Then
-        Replanteo = Mid(Sheets("Replanteo").Cells(z, 3).Value, 1, 2) & Mid(Sheets("Replanteo").Cells(z, 3).Value, 7)
+        replan = Mid(Sheets("Replanteo").Cells(z, 3).Value, 1, 2) & Mid(Sheets("Replanteo").Cells(z, 3).Value, 7)
         implanta = Mid(Sheets("Extra").Cells(j, 21).Value, 1, 2) & Mid(Sheets("Extra").Cells(j, 21).Value, 7)
         implanta2 = Mid(Sheets("Extra").Cells(j, 20).Value, 1, 2) & Mid(Sheets("Extra").Cells(j, 20).Value, 7)
     Else
-        Replanteo = Sheets("Replanteo").Cells(z, 3).Value
+        replan = Sheets("Replanteo").Cells(z, 3).Value
         implanta = Sheets("Extra").Cells(j, 21).Value
         implanta2 = Sheets("Extra").Cells(j, 20).Value
     End If
@@ -245,7 +245,7 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
     '///
     Else
 
-        If implanta2 <= Replanteo And implanta >= Replanteo Then
+        If implanta2 <= replan And implanta >= replan Then
            
             Sheets("Replanteo").Cells(z, 5).Value = Sheets("Extra").Cells(j, 22).Value
 

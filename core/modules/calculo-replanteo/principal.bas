@@ -15,12 +15,24 @@ Dim text As Scripting.TextStream
 strDB = Environ("SIRECA_HOME") & "\database\db.Accdb"
 Set a_text = CreateObject("Scripting.fileSystemObject")
 i = 1
-While Mid(Application.ActiveWorkbook.FullName, i, 1) <> "."
+cont_ = 1
+While Mid(Application.ActiveWorkbook.Name, i, 1) <> "_" Or cont_ <= 2
     i = i + 1
+    If Mid(Application.ActiveWorkbook.Name, i, 1) = "_" Then
+        cont_ = cont_ + 1
+    End If
 Wend
+nom_archivo = Mid(Application.ActiveWorkbook.Name, 1, i - 1)
 
-
-
+i = 1
+cont_carp = 1
+While Mid(Application.ActiveWorkbook.FullName, i, 1) <> ""
+    i = i + 1
+    If Mid(Application.ActiveWorkbook.FullName, i, 1) = "\" Then
+        cont_carp = i
+    End If
+Wend
+dir_archivo = Mid(Application.ActiveWorkbook.FullName, 1, cont_carp) & nom_archivo & ".progress"
 Call cargar.datos_lac(nombre_cat)
 ventoso = viento.viento
 pol = pol + 3
@@ -34,7 +46,7 @@ While VB(3) < pk_final
 
     
 VB = replanteo(VB(0), VB(1), VB(2), r_re, dist_va_max, inc_norm_va, va_max_tunel, dist_max_canton, va_max_sm, ventoso, polpri, nombre_cat, pol)
-    Set text = a_text.CreateTextFile(Mid(Application.ActiveWorkbook.FullName, 1, i) & "proges")
+    Set text = a_text.CreateTextFile(dir_archivo)
     text.WriteLine "1" & "/" & "14" & "/" & "Replanteo de los postes" & "/" & VB(3) & "/" & pk_final
     text.Close
     'principal = sheets("Replanteo").Cells(h, 33).Value

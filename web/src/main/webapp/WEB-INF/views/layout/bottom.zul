@@ -1,0 +1,6 @@
+<div hflex="1" vflex="1" sclass="footer">
+    <vbox hflex="1" vflex="1" align="center">
+        SIRECA: Versió
+        <a href="http://www.sener.es">http://www.sener.es</a>
+    </vbox>
+</div>

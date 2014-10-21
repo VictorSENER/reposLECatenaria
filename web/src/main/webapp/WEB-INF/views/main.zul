@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Simulador de Replanteo de Catenaria" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <vbox self="@define(content)" hflex="1" vflex="1" sclass="welcome"
+          align="center" pack="center" >
+          <label value="${labels.main.welcome}" sclass="welcome-caption"/>
+          <image src="/img/logosireca-large.png" width="600px"
+                 style="border: 1px solid grey;border-radius: 10px;" />
+    </vbox>
+</zk>

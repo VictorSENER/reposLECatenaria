@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Cuadernos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.ReplanteoPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+             		<vlayout hflex="1" vflex="1" >
+	                    <hbox align="center" hflex="1" sclass="replanteo-box" >
+	                        <button id="newReplanteo" image="/img/plus.png" label="Nuevo replanteo" width="140px"/>
+	                        <button id="handOverVersion" image="/img/handin.png" label="Entrega de versión" width="140px"/> 
+	                        <button id="downloadTemplate" image="/img/download.png" label="Descargar plantilla" width="140px" />
+	                    	<hbox align="center" pack="end" hflex="1" sclass="replanteo-box" >
+	                        	<label style="font-weight:bold;margin-right:10px" id="currentVersion"/>
+	                    	</hbox> 
+                    	</hbox>
+	                    <listbox id="versionListBox" vflex="1">
+                            <listhead>
+                                <listheader/>
+                            </listhead>
+                            <template name="model">
+                                <listitem value="${each}">
+                                	<listcell>
+ 										<grid hflex="1" >
+	                                   		<auxhead>
+	            								<auxheader label="Versión ${each.numVersion}" colspan="5" />
+	            								<auxheader label="Acciones" align="center" colspan="3" />
+	        								</auxhead>
+					                     	<columns>
+												<column label="Revisión" />
+	            								<column label="Usuario" />
+	            								<column label="Fecha Creación" />
+	            								<column label="Tipo Creación"/>
+	            								<column label="Tamaño" />
+	            								<column hflex="min" label="&#160;&#160; E &#160;&#160;" align="center"/>
+	            								<column hflex="min" label="&#160;&#160; C &#160;&#160;" align="center"/>
+	            								<column hflex="min" label="&#160;&#160; P &#160;&#160;" align="center"/>
+					                        </columns>
+					                        <rows>
+					                        <row forEach="${each.modelList}">
+					                            	
+					        	                    <cell sclass="row-title"> ${each.numRevision}  </cell>
+													<cell sclass="row-title"> ${each.RUser} </cell>
+													<cell sclass="row-title"> ${each.RDate}  </cell>
+													<cell sclass="row-title"> ${each.RType}  </cell>
+													<cell sclass="row-title"> ${each.RFileSize}  </cell>			
+													<cell> 
+														<button if="${each.error or each.warning}" image="/img/error.png" width="36px" href="/replanteo/error/${each.numVersion}/${each.numRevision}"/>
+													</cell>
+													<cell>	
+														<button if="${each.calculated and each.error == false}" image="/img/cross.png" width="36px" href="/replanteo/delete/${each.numVersion}/${each.numRevision}"/>
+														
+														<separator orient="vertical"></separator>
+														
+														<button if="${each.calculated and each.error == false}" image="/img/download.png" width="36px" href="/replanteo/download/${each.numVersion}/${each.numRevision}"/>
+													</cell> 
+													<cell>	
+														<button if="${each.calculated == false and each.error == false }" image="/img/progreso.png" width="36px" href="/replanteo/progress/${each.numVersion}/${each.numRevision}"/>
+													</cell>
+					                            </row>
+					                        </rows>
+					                	</grid>
+                                    </listcell>
+                                </listitem>
+                            </template>
+                        </listbox>
+                	</vlayout>
+                </center>
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

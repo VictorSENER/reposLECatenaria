@@ -1,0 +1,383 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SiReCa
+</name>
+</assembly>
+<members>
+<member name="T:SiReCa.Base_de_datosDataSet.Conductores_y_cablesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ContraseñaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.DatosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ElectrificaciónDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.MacizosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.PostesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_AnclajeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_Cable_de_TierraDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_CDPADataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet._Conductor_Feeder__DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.__Conductor_Feeder__DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_HCDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_PendolaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_punto_fijoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_SustentadorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Electrificación_ConsultaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Macizos_ConsultaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Nombre_CatenariaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Postes_ConsultaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductores_y_cablesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ContraseñaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.DatosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ElectrificaciónRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.MacizosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.PostesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_AnclajeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_Cable_de_TierraRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_CDPARow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet._Conductor_Feeder__Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.__Conductor_Feeder__Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_HCRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_PendolaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_punto_fijoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_SustentadorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Electrificación_ConsultaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Macizos_ConsultaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Nombre_CatenariaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Postes_ConsultaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductores_y_cablesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ContraseñaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.DatosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.ElectrificaciónRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.MacizosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.PostesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_AnclajeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_Cable_de_TierraRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_CDPARowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet._Conductor_Feeder__RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.__Conductor_Feeder__RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_HCRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_PendolaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_punto_fijoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Conductor_SustentadorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Electrificación_ConsultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Macizos_ConsultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Nombre_CatenariaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Postes_ConsultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.CarrilRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet.Carril_ConsultaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductores_y_cablesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.ContraseñaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.DatosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.ElectrificaciónTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.MacizosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.PostesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_AnclajeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Cable_de_TierraTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_CDPATableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_Feeder__TableAdapter1">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_HCTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_PendolaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_punto_fijoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Conductor_SustentadorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Electrificación_ConsultaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Macizos_ConsultaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Nombre_CatenariaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Postes_ConsultaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.CarrilTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.Carril_ConsultaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(SiReCa.Base_de_datosDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(SiReCa.Base_de_datosDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(SiReCa.Base_de_datosDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateAll(SiReCa.Base_de_datosDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:SiReCa.Base_de_datosDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

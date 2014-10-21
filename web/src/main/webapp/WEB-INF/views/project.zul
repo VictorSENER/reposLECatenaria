@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - proyectos" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.ProjectPage"
+                border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/project.png" sclass="fn-caption" label="Proyectos"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+                    <vlayout hflex="1" vflex="1">
+                        <hbox align="center" hflex="1" sclass="project-box" >
+                            <button id="addproject" image="/img/plus.png" label="Nuevo proyecto" width="130px"/>
+                            <button id="selectproject" image="/img/check.png" label="Seleccionar proyecto activo"/>
+                        </hbox>
+                        
+                        <listbox id="projectListbox" vflex="1">
+                            <listhead>
+                                <listheader/>
+                                <listheader hflex="min"/>
+                                <listheader hflex="min"/>
+                                <listheader hflex="min"/>
+                            </listhead>
+                            <template name="model">
+                                <listitem value="${each}">
+                                    <listcell>
+                                        <label value="${each.titulo}"/>
+                                    </listcell>
+                                    <listcell>
+                                    	<image src="/img/check.png" if="${(sessionScope.activeProject.idSelectedProject == each.id)}" height= "15px" width="15px"/>
+                                    </listcell>
+                              		<listcell>
+                                    	<button forward="onClick=projectListbox.onProjectEdit" image="/img/edit.png" width="36px"/>
+                                    </listcell>
+                                    <listcell>
+                                        <button forward="onClick=projectListbox.onProjectDelete" image="/img/cross.png" width="36px"/>
+                                    </listcell>
+                                </listitem>
+                            </template>
+                        </listbox>
+                    </vlayout>
+                 </center>
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

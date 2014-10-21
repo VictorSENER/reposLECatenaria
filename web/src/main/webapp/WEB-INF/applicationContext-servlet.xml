@@ -1,0 +1,75 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:util="http://www.springframework.org/schema/util"
+ xmlns:mvc="http://www.springframework.org/schema/mvc"
+ xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd  
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd  
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+    <!-- Database properties file -->
+    <context:property-placeholder location="classpath:database/database.properties" />
+    <mvc:annotation-driven />
+
+    <!-- Database configuration -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${database.driver}" />
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.user}" />
+        <property name="password" value="${database.password}" />
+    </bean>
+
+    <!-- Hibernate session factory configuration -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.sener.sireca.web.bean.User</value>
+                <value>com.sener.sireca.web.bean.Project</value>
+                <value>com.sener.sireca.web.bean.Catenaria</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.archive.autodetection">${hibernate.archive.autodetection}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Translation post processor -->
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+    <!-- Resources management -->
+    <mvc:resources location="/images/" mapping="/img/**" />
+    <mvc:resources location="/stylesheets/" mapping="/style/**" />
+
+    <!-- Views name resolver -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+        <property name="suffix">
+            <value></value>
+        </property>
+    </bean>
+
+    <!-- Spring application context  -->
+    <bean id="springApplicationContext" class="com.sener.sireca.web.util.SpringApplicationContext"/>
+
+    <!-- Spring controllers package -->
+    <context:component-scan base-package="com.sener.sireca.web.controller" />
+
+    <!-- DAO beans -->
+    <context:component-scan base-package="com.sener.sireca.web.dao" />
+
+    <!-- Service beans -->
+    <context:component-scan base-package="com.sener.sireca.web.service" />
+
+</beans>

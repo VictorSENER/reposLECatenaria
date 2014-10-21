@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Planos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.DibujoNewPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/replanteo.png" sclass="fn-caption" label="Planos de Replanteo"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+	                <hlayout>
+						<grid hflex="1">
+							<auxhead>
+	            				<auxheader label="Nueva revisión de planos de replanteo" colspan="2" rowspan="2" />
+	        				</auxhead>
+	                     	<columns>
+	                        	<column align="left" />
+	                        	<column />
+	                        </columns>
+	                        <rows>
+	                        	<row>
+	                            	<cell sclass="row-title"> Eje de Trazado: </cell>
+	                            </row>
+	                        	<row>
+	                                <cell>
+	                                    <textbox id="fileToUpload" width="227px" disabled="true" />
+	                                </cell>
+	                                <cell>
+	                                    <button id="uploadFile" label="Subir" upload="true" width="65px" />
+	            					</cell>
+	                            </row>
+	                            <row>
+	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" width="50px" /> </cell>
+	                            </row>
+	                            <row>
+									 <cell sclass="row-title" colspan="2" >  PK Final : &#160; <textbox id="pkFinal" width="50px" /></cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title" colspan="2">
+	                                	Versión:&#160;&#160;
+	                                    <combobox id="versionList" width="150px" >
+	                                    	<comboitem value="${each}" />
+	                                    </combobox>
+	            					</cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title" colspan="2">
+	                                	Revisión:
+	                                	<combobox id="revisionList" width="150px" >
+	                                    	<comboitem value="${each}" />
+	                                    </combobox>
+	            					</cell>
+	                            </row>
+	                            <row>
+	                            	<cell sclass="row-title" colspan="2" > Configuración tipo entidades del plano de replanteo: </cell>
+	                            </row>
+	                            <row>
+	                                <cell colspan="2">
+	                                	<radiogroup id="rg">
+	                                    	<radio label="Replanteo" selected="true"/>
+	                                    	<separator></separator>
+                							<radio label="HDC"/>
+                							<separator></separator>
+              						    	<radio label="Custom"/>
+              						    </radiogroup>
+	            					</cell>
+	                            </row>
+	                            <row>
+	                            	<cell colspan="2">
+		                            	<hlayout >
+		                   					<button id="dibujoReplanteo" label="Dibujar" width="65px"/>
+		                   					<button id="volver" label="Volver" width="65px"/>
+		                   				</hlayout>
+	                   				</cell>
+	                            </row>
+                            </rows>
+                        </grid>
+                        <grid hflex="1">
+                            <auxhead>
+	            				<auxheader label="Configuración tipo entidades del plano de replanteo" colspan="3" rowspan="3" />
+	        				</auxhead>
+	                     	<columns>
+	                        	<column align="left" hflex="min"/>
+	                        </columns>
+	                        <rows>
+                                <row sclass="row-title" >
+									<checkbox id="geoPost"/> Geometría de los postes
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="etiPost"/>  Etiquetas de los postes que muestra su numeración
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="datPost"/> Datos de los postes que muestran su ubicación UTM
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="vanos"/> Vanos
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="flechas"/> Flechas
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="descentramientos"/> Descentramientos
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="implantacion"/> Implantacion
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="altHilo"/> Altura del hilo de contacto
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="distCant"/> La distribución de los cantones
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="conexiones"/> Conexiones
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="protecciones"/> Protecciones
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="pendolado"/> Pendolado
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="altCat"/> Altura de catenaria
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="puntSing"/> Puntos singulares
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="cableado"/> Cableado
+								</row>
+								<row sclass="row-title" >
+									<checkbox id="datTraz"/>  Datos del trazado
+								</row>
+								<row>
+	                            	<cell colspan="2">
+		                            	<hlayout >
+		                   					<button id="checkAll" label="Seleccionar todo" width="125px"/>
+		                   					<button id="unCheckAll" label="Restablecer" width="125px"/>
+		                   				</hlayout>
+	                   				</cell>
+	                            </row>
+	                        </rows>
+	                   	</grid>
+              		</hlayout>  
+            	</center>
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

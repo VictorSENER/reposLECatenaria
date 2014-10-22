@@ -13,16 +13,16 @@ Public inicio As Double
 Public r_re As Double
 Public pol As Integer
 Public strDB As String
-'Public catenaria As String
 
 '//////////////////////////////////////////////////////////////////////////////
 '// FASE 1: CÁLCULO DEL CUADERNO DE REPLANTEO
 '//////////////////////////////////////////////////////////////////////////////
 
-Sub calculoReplanteo( pkIni As Long, pkFin As Long, catenaria As String )
+Sub calculoReplanteo( pkIni As Double, _
+					  pkFin As Double, _
+					  catenaria As String )
 	
 	Dim i As Integer
-	Dim cont_ As Integer
 	Dim cont_carp As Integer
 	Dim b As Integer
 	Dim a As Integer
@@ -40,13 +40,10 @@ Sub calculoReplanteo( pkIni As Long, pkFin As Long, catenaria As String )
 	Set a_text = CreateObject("Scripting.fileSystemObject")
 	
 	i  = 1
-	cont_ = 1
 	
-	While Mid(Application.ActiveWorkbook.Name, i, 1) <> "_" Or cont_ <= 2
+	While Mid(Application.ActiveWorkbook.Name, i, 1) <> "." 
 		i = i + 1
-		If Mid(Application.ActiveWorkbook.Name, i, 1) = "_" Then
-			cont_ = cont_ + 1
-		End If
+
 	Wend
 	
 	nom_archivo = Mid(Application.ActiveWorkbook.Name, 1, i - 1)
@@ -199,7 +196,23 @@ End Function
 '// FASE 2: DIBUJADO DEL PLANO DE REPLANTEO
 '//////////////////////////////////////////////////////////////////////////////
 
-Function AutoCAD(geoPost As Boolean, etiPost As Boolean, datPost As Boolean, vanos As Boolean, flechas As Boolean, descentramientos As Boolean, implantacion As Boolean, altHilo As Boolean, distCant As Boolean, conexiones As Boolean, protecciones As Boolean,  pendolado As Boolean, altCat As Boolean,  puntSing As Boolean,  cableado As Boolean,  datTraz As Boolean, ruta_autocad As String ) As Long
+Function dibujoReplanteo( geoPost As Boolean, _ 
+				  etiPost As Boolean, _
+				  datPost As Boolean, _ 
+				  vanos As Boolean, _ 
+				  flechas As Boolean, _ 
+				  descentramientos As Boolean, _ 
+				  implantacion As Boolean, _ 
+				  altHilo As Boolean, _ 
+				  distCant As Boolean, _ 
+				  conexiones As Boolean, _ 
+				  protecciones As Boolean, _ 
+				  pendolado As Boolean, _ 
+				  altCat As Boolean, _ 
+				  puntSing As Boolean, _
+				  cableado As Boolean, _
+				  datTraz As Boolean, _ 
+				  ruta_autocad As String ) As Long
 				  
 	catenariaVB = Sheets("Replanteo").Cells(1, 1).Value
 	cadena_ruta = dibujar.seleccionar_polilinea(ruta_autocad)
@@ -208,53 +221,69 @@ Function AutoCAD(geoPost As Boolean, etiPost As Boolean, datPost As Boolean, van
 	Call cargar.datos_lac(catenariaVB)
 	Call dibujar_trazado.Dibujar_PK
 	Call Obtener_excel_pks
+	
 	If pos = True Then
 		Call dibujar.dibujar_postes(cadena_ruta)
 		Call dibujar.borrar("E-AUX")
 	End If
+	
 	If eti = True Then
 		Call dibujar.dibujar_etiquetas(cadena_ruta)
 	End If
+	
 	If va = True Then
 		Call dibujar.dibujar_vanos(cadena_ruta)
 	End If
+	
 	If fle = True Then
 		Call dibujar.dibujar_vanos(cadena_ruta)
 	End If
+	
 	If fle = True Then
 		Call dibujar.dibujar_flechas(cadena_ruta)
 	End If
+	
 	If des = True Then
 		Call dibujar.dibujar_descentramientos(cadena_ruta)
 	End If
+	
 	If impl = True Then
 		Call dibujar.dibujar_implantacion(cadena_ruta)
 	End If
+	
 	If alt = True Then
 		Call dibujar.dibujar_alturaHC(cadena_ruta)
 	End If
+	
 	If can = True Then
 		Call dibujar.dibujar_cantones(cadena_ruta)
 		Call dibujar.borrar("E-AUX")
 	End If
+	
 	If dat = True Then
 		Call dibujar.dibujar_datos_poste(cadena_ruta)
 	End If
+	
 	If con = True Then
 		Call dibujar.dibujar_conexion(cadena_ruta)
 	End If
+	
 	If pro = True Then
 		Call dibujar.teccion(cadena_ruta)
 	End If
+	
 	If pen = True Then
 		Call dibujar.dibujar_pendola(cadena_ruta)
 	End If
+	
 	If alt_cat = True Then
 		Call dibujar.dibujar_alt_cat(cadena_ruta)
 	End If
+	
 	If sin = True Then
 		Call dibujar.dibujar_singular(cadena_ruta)
 	End If
+	
 	If lin = True Then
 		Call dibujar.dibujar_linea
 	End If

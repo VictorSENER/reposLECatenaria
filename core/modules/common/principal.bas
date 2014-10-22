@@ -211,9 +211,9 @@ Function dibujoReplanteo( geoPost As Boolean, _
 				  altCat As Boolean, _ 
 				  puntSing As Boolean, _
 				  cableado As Boolean, _
-				  datTraz As Boolean, _ 
-				  ruta_autocad As String ) As Long
-				  
+				  datTraz As Boolean ) As Long
+	Dim ruta_autocad As String
+		  
 	catenariaVB = Sheets("Replanteo").Cells(1, 1).Value
 	cadena_ruta = dibujar.seleccionar_polilinea(ruta_autocad)
 	Call dibujar.Obtener_datos_Excel(fila_ini, fila_fin)

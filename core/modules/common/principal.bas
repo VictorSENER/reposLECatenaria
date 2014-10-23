@@ -197,97 +197,99 @@ End Function
 '//////////////////////////////////////////////////////////////////////////////
 
 Function dibujoReplanteo( geoPost As Boolean, _ 
-				  etiPost As Boolean, _
-				  datPost As Boolean, _ 
-				  vanos As Boolean, _ 
-				  flechas As Boolean, _ 
-				  descentramientos As Boolean, _ 
-				  implantacion As Boolean, _ 
-				  altHilo As Boolean, _ 
-				  distCant As Boolean, _ 
-				  conexiones As Boolean, _ 
-				  protecciones As Boolean, _ 
-				  pendolado As Boolean, _ 
-				  altCat As Boolean, _ 
-				  puntSing As Boolean, _
-				  cableado As Boolean, _
-				  datTraz As Boolean ) As Long
+						  etiPost As Boolean, _
+						  datPost As Boolean, _ 
+						  vanos As Boolean, _ 
+						  flechas As Boolean, _ 
+						  descentramientos As Boolean, _ 
+						  implantacion As Boolean, _ 
+						  altHilo As Boolean, _ 
+						  distCant As Boolean, _ 
+						  conexiones As Boolean, _ 
+						  protecciones As Boolean, _ 
+						  pendolado As Boolean, _ 
+						  altCat As Boolean, _ 
+						  puntSing As Boolean, _
+						  cableado As Boolean, _
+						  datTraz As Boolean ) As Long
 	Dim ruta_autocad As String
+	
+	strDB = Environ("SIRECA_HOME") & "\database\db.Accdb"
 		  
 	catenariaVB = Sheets("Replanteo").Cells(1, 1).Value
 	cadena_ruta = dibujar.seleccionar_polilinea(ruta_autocad)
 	Call dibujar.Obtener_datos_Excel(fila_ini, fila_fin)
 	Call dibujar.Encontrar_coordenadas_pk
 	Call cargar.datos_lac(catenariaVB)
-	Call dibujar_trazado.Dibujar_PK
+	Call dibujar.Dibujar_PK
 	Call Obtener_excel_pks
 	
-	If pos = True Then
+	If geoPost = True Then
 		Call dibujar.dibujar_postes(cadena_ruta)
 		Call dibujar.borrar("E-AUX")
 	End If
 	
-	If eti = True Then
+	If etiPost = True Then
 		Call dibujar.dibujar_etiquetas(cadena_ruta)
 	End If
 	
-	If va = True Then
+	If datPost = True Then
+		Call dibujar.dibujar_datos_poste(cadena_ruta)
+	End If
+	
+	If vanos = True Then
 		Call dibujar.dibujar_vanos(cadena_ruta)
 	End If
 	
-	If fle = True Then
-		Call dibujar.dibujar_vanos(cadena_ruta)
-	End If
-	
-	If fle = True Then
+	If flechas = True Then
 		Call dibujar.dibujar_flechas(cadena_ruta)
 	End If
 	
-	If des = True Then
+	If descentramientos = True Then
 		Call dibujar.dibujar_descentramientos(cadena_ruta)
 	End If
 	
-	If impl = True Then
+	If implantacion = True Then
 		Call dibujar.dibujar_implantacion(cadena_ruta)
 	End If
 	
-	If alt = True Then
+	If altHilo = True Then
 		Call dibujar.dibujar_alturaHC(cadena_ruta)
 	End If
 	
-	If can = True Then
+	If distCant = True Then
 		Call dibujar.dibujar_cantones(cadena_ruta)
 		Call dibujar.borrar("E-AUX")
 	End If
 	
-	If dat = True Then
-		Call dibujar.dibujar_datos_poste(cadena_ruta)
-	End If
-	
-	If con = True Then
+	If conexiones = True Then
 		Call dibujar.dibujar_conexion(cadena_ruta)
 	End If
 	
-	If pro = True Then
-		Call dibujar.teccion(cadena_ruta)
+	If protecciones = True Then
+		Call dibujar.dibujar_proteccion(cadena_ruta)
 	End If
 	
-	If pen = True Then
+	If pendolado = True Then
 		Call dibujar.dibujar_pendola(cadena_ruta)
 	End If
 	
-	If alt_cat = True Then
+	If altCat = True Then
 		Call dibujar.dibujar_alt_cat(cadena_ruta)
 	End If
 	
-	If sin = True Then
+	If puntSing = True Then
 		Call dibujar.dibujar_singular(cadena_ruta)
 	End If
 	
-	If lin = True Then
+	If cableado = True Then
 		Call dibujar.dibujar_linea
 	End If
-
+	
+	If datTraz = True Then
+		Call dibujar.dibujar_datos_trazado()
+	End If
+	
 	acaddoc.Documents.Close
 	acaddoc.Quit
 	

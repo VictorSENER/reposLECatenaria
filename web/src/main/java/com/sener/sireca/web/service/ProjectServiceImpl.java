@@ -14,7 +14,8 @@ import org.zkoss.lang.Strings;
 import org.zkoss.zk.ui.util.Clients;
 
 import com.sener.sireca.web.bean.DibujoVersion;
-import com.sener.sireca.web.bean.Globals;
+import com.sener.sireca.web.bean.MontajeVersion;
+import com.sener.sireca.web.bean.PendoladoVersion;
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.dao.ProjectDao;
@@ -29,28 +30,28 @@ public class ProjectServiceImpl implements ProjectService
     @Autowired
     ProjectDao projectDao;
 
+    FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+
     @Override
     public int insertProject(Project project)
     {
-
         int id = projectDao.insertProject(project);
-        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
         String ruta = System.getenv("SIRECA_HOME");
-
-        // int id = getProjectByTitle(project.getTitulo()).getId(); // Chapuza
 
         if (!IsJUnit.isJunitRunning())
             ruta += "/projects/";
         else
             ruta += "/projectTest/";
+
         ruta += id;
 
         // Crear carpetas
         fileService.addDirectory(ruta + ReplanteoVersion.CALCULO_REPLANTEO
                 + "/1");
         fileService.addDirectory(ruta + DibujoVersion.DIBUJO_REPLANTEO + "/1");
-        fileService.addDirectory(ruta + Globals.FICHAS_MONTAJE + "/1");
-        fileService.addDirectory(ruta + Globals.FICHAS_PENDOLADO + "/1");
+        fileService.addDirectory(ruta + MontajeVersion.FICHAS_MONTAJE + "/1");
+        fileService.addDirectory(ruta + PendoladoVersion.FICHAS_PENDOLADO
+                + "/1");
 
         return id;
     }
@@ -136,14 +137,13 @@ public class ProjectServiceImpl implements ProjectService
     @Override
     public int deleteProject(int id)
     {
-        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-
         String ruta = System.getenv("SIRECA_HOME");
 
         if (!IsJUnit.isJunitRunning())
             ruta += "/projects/";
         else
             ruta += "/projectTest/";
+
         ruta += id;
 
         fileService.deleteDirectory(ruta);

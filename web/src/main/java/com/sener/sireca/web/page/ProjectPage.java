@@ -113,7 +113,7 @@ public class ProjectPage extends SelectorComposer<Component>
     public void doProjectDelete(final ForwardEvent evt)
     {
         // Ask for project confirmation.
-        Messagebox.show("Está seguro que quiere borrar este proyecto?",
+        Messagebox.show("Está seguro de que quiere eliminar este proyecto?",
                 "Confirmación", Messagebox.OK | Messagebox.CANCEL,
                 Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
@@ -140,7 +140,7 @@ public class ProjectPage extends SelectorComposer<Component>
                                 selectedProject = null;
 
                             // Show confirmation.
-                            Clients.showNotification("Proyecto borrado correctamente");
+                            Clients.showNotification("Proyecto eliminado correctamente");
 
                         }
                     }
@@ -173,7 +173,7 @@ public class ProjectPage extends SelectorComposer<Component>
     private String buildNewProjectTitle()
     {
         // Check if base project title isn't used.
-        String baseProjecttitle = "Nuevo proyecto";
+        String baseProjecttitle = "Nuevo proyecto ";
 
         if (projectService.getProjectByTitle(baseProjecttitle) == null)
             return baseProjecttitle;
@@ -188,6 +188,6 @@ public class ProjectPage extends SelectorComposer<Component>
             sequential++;
         }
 
-        return "nuevo";
+        return "Nuevo proyecto";
     }
 }

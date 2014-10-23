@@ -89,7 +89,7 @@ public class UserPage extends SelectorComposer<Component>
     public void doUserDelete(final ForwardEvent evt)
     {
         // Ask for user confirmation.
-        Messagebox.show("Está seguro que quiere borrar a este usuario?",
+        Messagebox.show("Está seguro de que quiere eliminar este usuario?",
                 "Confirmación", Messagebox.OK | Messagebox.CANCEL,
                 Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
@@ -118,7 +118,7 @@ public class UserPage extends SelectorComposer<Component>
                             }
 
                             // Show confirmation.
-                            Clients.showNotification("Usuario borrado correctamente");
+                            Clients.showNotification("Usuario eliminado correctamente");
                         }
                     }
                 });
@@ -141,7 +141,7 @@ public class UserPage extends SelectorComposer<Component>
     public void doCancelClick()
     {
 
-        Messagebox.show("Está seguro que quiere cancelar?", "Confirmación",
+        Messagebox.show("Está seguro de que quiere cancelar?", "Confirmación",
                 Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION,
                 new org.zkoss.zk.ui.event.EventListener<Event>()
                 {
@@ -210,7 +210,7 @@ public class UserPage extends SelectorComposer<Component>
     private String buildNewUsername()
     {
         // Check if base username isn't used.
-        String baseUsername = "nuevo";
+        String baseUsername = "Nuevo usuario ";
         UserService userService = (UserService) SpringApplicationContext.getBean("userService");
         if (userService.getUserByUsername(baseUsername) == null)
             return baseUsername;
@@ -225,6 +225,6 @@ public class UserPage extends SelectorComposer<Component>
             sequential++;
         }
 
-        return "nuevo";
+        return "Nuevo usuario";
     }
 }

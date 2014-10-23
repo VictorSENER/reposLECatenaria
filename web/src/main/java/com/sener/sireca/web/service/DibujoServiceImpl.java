@@ -5,17 +5,20 @@
 package com.sener.sireca.web.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
+import com.jacob.com.Variant;
+import com.sener.sireca.web.bean.DibujoConfTipologia;
 import com.sener.sireca.web.bean.DibujoRevision;
 import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Project;
+import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
@@ -112,15 +115,20 @@ public class DibujoServiceImpl implements DibujoService
             dibujoRevisionAux.setRepRev(replanteoService.getRevision(
                     replanteoVersionAux, Integer.parseInt(parameters[2])));
 
-            if (parameters[3].equals("E.dwg"))
+            if (parameters[3].equals("E.xlsx"))
                 dibujoRevisionAux.setError(true);
-            else
-                dibujoRevisionAux.setError(false);
 
-            if (parameters[3].equals("C.dwg"))
+            else if (parameters[3].equals("C.xlsx"))
                 dibujoRevisionAux.setCalculated(true);
-            else
-                dibujoRevisionAux.setCalculated(false);
+
+            else if (parameters[3].equals("CW.xlsx"))
+            {
+                dibujoRevisionAux.setCalculated(true);
+                dibujoRevisionAux.setWarning(true);
+            }
+
+            if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
+                dibujoRevisionAux.setNotes(true);
 
             dibujoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
                     + fileName));
@@ -158,11 +166,8 @@ public class DibujoServiceImpl implements DibujoService
         File[] ficheros = fileService.getDirectory(ruta);
 
         for (int i = 0; i < ficheros.length; i++)
-        {
-            // TODO: Buscar cual va a ser el fichero principal
             if (fileService.getFileExtension(ficheros[i]).equals("dwg"))
                 revisionList.add(ficheros[i].getName());
-        }
 
         return revisionList;
     }
@@ -182,7 +187,8 @@ public class DibujoServiceImpl implements DibujoService
 
     // Creates a new revision of the specific version of a project.
     @Override
-    public DibujoRevision createRevision(DibujoVersion version, int type)
+    public DibujoRevision createRevision(DibujoVersion version,
+            ReplanteoRevision repRev, String comment)
     {
         int lastRevision = 0;
 
@@ -197,39 +203,141 @@ public class DibujoServiceImpl implements DibujoService
         lastDibujoRevision.setIdProject(version.getIdProject());
         lastDibujoRevision.setNumVersion(version.getNumVersion());
         lastDibujoRevision.setNumRevision(lastRevision + 1);
+        lastDibujoRevision.setRepRev(repRev);
 
-        if (type == 0)
-            lastDibujoRevision.setCalculated(false);
-        else
-            lastDibujoRevision.setCalculated(true);
-
-        lastDibujoRevision.setDate(new Date());
-
-        lastDibujoRevision.setFileSize(fileService.getFileSize(lastDibujoRevision.getAutoCadPath()));
+        if (!comment.equals(""))
+            fileService.writeFile(lastDibujoRevision.getNotesFilePath(),
+                    comment);
 
         return lastDibujoRevision;
-
     }
 
     @Override
-    public void calculateRevision(DibujoRevision revision)
+    public void calculateRevision(DibujoRevision revision,
+            DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
+            int repVersion, int repRevision)
     {
-        // TODO: 1) Crea el fichero de progreso: está en blanco
-        // 2) Carga los módulos VB sobre el Excel
-        // 3) Ejecuta el cálculo VB
+        JACOBService jacobService = (JACOBService) SpringApplicationContext.getBean("jacobService");
+
+        String path = revision.getBasePath();
+
+        List<Variant> parameter = new ArrayList<Variant>();
+
+        parameter.add(new Variant(dibConfTip.isGeoPost()));
+        parameter.add(new Variant(dibConfTip.isEtiPost()));
+        parameter.add(new Variant(dibConfTip.isDatPost()));
+        parameter.add(new Variant(dibConfTip.isVanos()));
+        parameter.add(new Variant(dibConfTip.isFlechas()));
+        parameter.add(new Variant(dibConfTip.isDescentramientos()));
+        parameter.add(new Variant(dibConfTip.isImplantacion()));
+        parameter.add(new Variant(dibConfTip.isAltHilo()));
+        parameter.add(new Variant(dibConfTip.isDistCant()));
+        parameter.add(new Variant(dibConfTip.isConexiones()));
+        parameter.add(new Variant(dibConfTip.isProtecciones()));
+        parameter.add(new Variant(dibConfTip.isPendolado()));
+        parameter.add(new Variant(dibConfTip.isAltCat()));
+        parameter.add(new Variant(dibConfTip.isPuntSing()));
+        parameter.add(new Variant(dibConfTip.isCableado()));
+        parameter.add(new Variant(dibConfTip.isDatTraz()));
+
+        File preAutoCad = new File(revision.getAutoCadPath());
+        File preError = new File(revision.getErrorFilePath());
+        File preComment = new File(revision.getNotesFilePath());
+
+        String auxExcelPath = revision.getBasePath() + ".xlsx";
+
+        fileService.fileCopy(revision.getRepRev().getExcelPath(), auxExcelPath);
+
+        if (jacobService.executeCoreCommand(path, "dibujo-replanteo", parameter))
+        {
+            fileService.deleteFile(revision.getProgressFilePath());
+            // fileService.deleteFile(auxExcelPath);
+            revision.setCalculated(true);
+        }
+
+        if (fileService.fileExists(preError.getAbsolutePath()))
+        {
+            ArrayList<String[]> errorLog = null;
+
+            try
+            {
+                errorLog = fileService.getErrorFileContent(path + ".error");
+
+                revision.setWarning(true);
+                for (int i = 0; i < errorLog.size(); i++)
+                    if (errorLog.get(i)[0].equals("Error"))
+                    {
+                        revision.setError(true);
+                        revision.setWarning(false);
+                        break;
+                    }
+            }
+            catch (IOException e)
+            {
+
+            }
+
+        }
+
+        revision.changeState(preAutoCad, preError, preComment);
+
     }
 
     // Delete the specific revision of the specific version of the specific
     // project and the progress file.
     @Override
-    public void deleteRevision(Project project, int numVersion, int numRevision)
+    public boolean deleteRevision(Project project, int numVersion,
+            int numRevision)
     {
         DibujoVersion version = getVersion(project, numVersion);
         DibujoRevision revision = getRevision(version, numRevision);
 
-        fileService.deleteFile(revision.getAutoCadPath());
-        fileService.deleteFile(revision.getProgressFilePath());
+        try
+        {
+            if (!revision.getCalculated())
+                return false;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
 
+        if (fileService.fileExists(revision.getProgressFilePath()))
+            fileService.deleteFile(revision.getProgressFilePath());
+
+        if (fileService.fileExists(revision.getErrorFilePath()))
+            fileService.deleteFile(revision.getErrorFilePath());
+
+        if (fileService.fileExists(revision.getNotesFilePath()))
+            fileService.deleteFile(revision.getNotesFilePath());
+
+        return fileService.deleteFile(revision.getAutoCadPath());
+
+    }
+
+    @Override
+    public String[] getProgressInfo(DibujoRevision revision) throws IOException
+    {
+        String[] valores = { "0", "?", "Ejecutando funcionalidad desconocida.",
+                "0", "?" };
+
+        return fileService.getProgressFileContent(
+                revision.getProgressFilePath(), valores);
+
+    }
+
+    @Override
+    public ArrayList<String> getNotes(DibujoRevision revision)
+            throws IOException
+    {
+        return fileService.getFileContent(revision.getNotesFilePath());
+    }
+
+    @Override
+    public ArrayList<String[]> getErrorLog(DibujoRevision revision)
+            throws IOException
+    {
+        return fileService.getErrorFileContent(revision.getErrorFilePath());
     }
 
 }

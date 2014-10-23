@@ -10,33 +10,33 @@ public class ActiveProject implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    int idSelectedProject = 0;
-    String selectedProject;
+    Integer idActiveProject = 0;
+    String titleActiveProject = "";
 
-    public ActiveProject(int idProj, String titleProj)
+    public ActiveProject(Integer idProj, String titleProj)
     {
-        this.idSelectedProject = idProj;
-        this.selectedProject = titleProj;
+        this.idActiveProject = idProj;
+        this.titleActiveProject = titleProj;
     }
 
-    public int getIdSelectedProject()
+    public Integer getIdSelectedProject()
     {
-        return idSelectedProject;
+        return idActiveProject;
     }
 
-    public void setIdSelectedProject(int idSelectedProject)
+    public void setIdSelectedProject(Integer idSelectedProject)
     {
-        this.idSelectedProject = idSelectedProject;
+        this.idActiveProject = idSelectedProject;
     }
 
     public String getSelectedProject()
     {
-        return selectedProject;
+        return titleActiveProject;
     }
 
     public void setSelectedProject(String selectedProject)
     {
-        this.selectedProject = selectedProject;
+        this.titleActiveProject = selectedProject;
     }
 
 }

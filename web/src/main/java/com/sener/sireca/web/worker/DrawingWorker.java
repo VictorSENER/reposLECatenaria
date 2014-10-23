@@ -4,6 +4,7 @@
 
 package com.sener.sireca.web.worker;
 
+import com.sener.sireca.web.bean.DibujoConfTipologia;
 import com.sener.sireca.web.bean.DibujoRevision;
 import com.sener.sireca.web.service.DibujoServiceImpl;
 
@@ -11,18 +12,23 @@ public class DrawingWorker extends Thread
 {
     // Revisión de la cual calcular el dibujo de replanteo
     private DibujoRevision revision;
+    private DibujoConfTipologia dibConfTip;
+    private double pkIni;
+    private double pkFin;
+    private int repVersion;
+    private int repRevision;
 
-    // private String catenaria;
-    // private long pkIni;
-    // private long pkFin;
-
-    public DrawingWorker(DibujoRevision revision)
+    public DrawingWorker(DibujoRevision revision,
+            DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
+            int repVersion, int repRevision)
     {
         super();
         this.revision = revision;
-        // this.catenaria = catenaria;
-        // this.pkIni = pkIni;
-        // this.pkFin = pkFin;
+        this.dibConfTip = dibConfTip;
+        this.pkIni = pkIni;
+        this.pkFin = pkFin;
+        this.repVersion = repVersion;
+        this.repRevision = repRevision;
     }
 
     @Override
@@ -30,7 +36,8 @@ public class DrawingWorker extends Thread
     {
 
         DibujoServiceImpl service = new DibujoServiceImpl();
-        service.calculateRevision(revision);
+        service.calculateRevision(revision, dibConfTip, pkIni, pkFin,
+                repVersion, repRevision);
 
     }
 }

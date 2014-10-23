@@ -5,21 +5,21 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
 <zk xmlns:n="native">
     <hbox self="@define(content)" hflex="1" vflex="1">
-        <window apply="com.sener.sireca.web.page.ReplanteoErrorPage" 
+        <window apply="com.sener.sireca.web.page.ReplanteoNotesPage" 
         	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
             <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
             <borderlayout>
 	        	<center autoscroll="true" border="none">
 					<vlayout>
-						<grid id="errorList" >
-	                   		<auxhead>
-								<auxheader label="Informe de Errores" colspan= "5000" rowspan="2"/>
-							</auxhead>
+						<grid id="notesList" height="400px">
 	                     	<columns>
-								<column hflex="min" />
-								<column hflex="min" />
-								<column />
+								<column label="Notas Revisión" />
 	                        </columns>
+	                        <rows>
+	                        	<row>
+	                        		<div id="notesContent"></div>
+	                        	</row>
+	                        </rows>   
 	                	</grid>
 	                	<hlayout>
 	                   		<button id="goBack" label="Volver" width="65px"/>

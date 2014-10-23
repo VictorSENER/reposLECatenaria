@@ -7,7 +7,6 @@ package com.sener.sireca.web.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -26,7 +25,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
 {
     FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
     VerService verService = (VerService) SpringApplicationContext.getBean("verService");
-    JACOBService jacobService = (JACOBService) SpringApplicationContext.getBean("jacobService");
 
     // Return a list of the versions of the specific project.
     @Override
@@ -112,9 +110,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
                 if (parameters[2].equals("E.xlsx"))
                     replanteoRevisionAux.setError(true);
 
-                else if (parameters[2].equals("W.xlsx"))
-                    replanteoRevisionAux.setWarning(true);
-
                 else if (parameters[2].equals("C.xlsx"))
                     replanteoRevisionAux.setCalculated(true);
 
@@ -123,8 +118,9 @@ public class ReplanteoServiceImpl implements ReplanteoService
                     replanteoRevisionAux.setCalculated(true);
                     replanteoRevisionAux.setWarning(true);
                 }
-                else
-                    replanteoRevisionAux.setCalculated(false);
+
+                if (fileService.fileExists(replanteoRevisionAux.getNotesFilePath()))
+                    replanteoRevisionAux.setNotes(true);
 
                 replanteoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
                         + fileName));
@@ -206,8 +202,8 @@ public class ReplanteoServiceImpl implements ReplanteoService
     }
 
     // Creates a new revision of the specific version of a project.
-    @Override
-    public ReplanteoRevision createRevision(ReplanteoVersion version, int type)
+    public ReplanteoRevision createRevision(ReplanteoVersion version, int type,
+            String comment)
     {
 
         int lastRevision = getLastRevision(version);
@@ -223,17 +219,20 @@ public class ReplanteoServiceImpl implements ReplanteoService
         else
             lastReplanteoRevision.setCalculated(true);
 
-        lastReplanteoRevision.setDate(new Date());
-        lastReplanteoRevision.setFileSize(fileService.getFileSize(lastReplanteoRevision.getExcelPath()));
+        if (!comment.equals(""))
+            fileService.writeFile(lastReplanteoRevision.getNotesFilePath(),
+                    comment);
 
         return lastReplanteoRevision;
 
     }
 
     @Override
-    public void calculateRevision(ReplanteoRevision revision, long pkIni,
-            long pkFin, String catenaria)
+    public void calculateRevision(ReplanteoRevision revision, double pkIni,
+            double pkFin, String catenaria)
     {
+
+        JACOBService jacobService = (JACOBService) SpringApplicationContext.getBean("jacobService");
 
         String path = revision.getBasePath();
 
@@ -243,38 +242,44 @@ public class ReplanteoServiceImpl implements ReplanteoService
         parameter.add(new Variant(pkFin));
         parameter.add(new Variant(catenaria));
 
-        File file = new File(revision.getExcelPath());
+        File preExcel = new File(revision.getExcelPath());
+        File preError = new File(revision.getErrorFilePath());
+        File preComment = new File(revision.getNotesFilePath());
 
-        if (jacobService.executeCoreCommand(path + "_P", "calculo-replanteo",
+        if (jacobService.executeCoreCommand(path, "calculo-replanteo",
                 parameter))
-            revision.setCalculated(true);
+        {
+            // if (fileService.fileExists(revision.getProgressFilePath()))
+            fileService.deleteFile(revision.getProgressFilePath());
 
+            revision.setCalculated(true);
+        }
         if (fileService.fileExists(path + ".error"))
         {
-            ArrayList<String> errorLog = null;
+            ArrayList<String[]> errorLog = null;
 
             try
             {
                 errorLog = fileService.getErrorFileContent(path + ".error");
+
+                revision.setWarning(true);
+                for (int i = 0; i < errorLog.size(); i++)
+                    if (errorLog.get(i)[0].equals("Error"))
+                    {
+                        revision.setError(true);
+                        revision.setWarning(false);
+                        break;
+                    }
             }
             catch (IOException e)
             {
 
             }
 
-            if (errorLog.contains("Error"))
-                revision.setError(true);
-            else
-                revision.setWarning(true);
-
         }
 
-        File newFile = new File(revision.getExcelPath());
+        revision.changeState(preExcel, preError, preComment);
 
-        file.renameTo(newFile);
-
-        if (fileService.fileExists(revision.getProgressFilePath()))
-            fileService.deleteFile(revision.getProgressFilePath());
     }
 
     // Delete the specific revision of the specific version of the specific
@@ -303,21 +308,35 @@ public class ReplanteoServiceImpl implements ReplanteoService
         if (fileService.fileExists(revision.getProgressFilePath()))
             fileService.deleteFile(revision.getProgressFilePath());
 
+        if (fileService.fileExists(revision.getNotesFilePath()))
+            fileService.deleteFile(revision.getNotesFilePath());
+
         return fileService.deleteFile(revision.getExcelPath());
 
     }
 
     @Override
-    public String[] getProgressInfo(ReplanteoRevision replanteoRevision)
+    public String[] getProgressInfo(ReplanteoRevision revision)
             throws IOException
     {
-        return fileService.getProgressFileContent(replanteoRevision.getProgressFilePath());
+        String[] valores = { "0", "?", "Ejecutando funcionalidad desconocida.",
+                "0", "?" };
+
+        return fileService.getProgressFileContent(
+                revision.getProgressFilePath(), valores);
+
     }
 
     @Override
-    public ArrayList<String> getErrorLog(ReplanteoRevision replanteoRevision)
+    public ArrayList<String[]> getErrorLog(ReplanteoRevision revision)
             throws IOException
     {
-        return fileService.getErrorFileContent(replanteoRevision.getErrorFilePath());
+        return fileService.getErrorFileContent(revision.getErrorFilePath());
+    }
+
+    public ArrayList<String> getNotes(ReplanteoRevision revision)
+            throws IOException
+    {
+        return fileService.getFileContent(revision.getNotesFilePath());
     }
 }

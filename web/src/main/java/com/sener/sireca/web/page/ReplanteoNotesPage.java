@@ -14,12 +14,8 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Cell;
-import org.zkoss.zul.Grid;
-import org.zkoss.zul.Image;
-import org.zkoss.zul.Label;
-import org.zkoss.zul.Row;
-import org.zkoss.zul.Rows;
+import org.zkoss.zul.Div;
+import org.zkoss.zul.Html;
 
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoRevision;
@@ -29,7 +25,7 @@ import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoErrorPage extends SelectorComposer<Component>
+public class ReplanteoNotesPage extends SelectorComposer<Component>
 {
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +35,7 @@ public class ReplanteoErrorPage extends SelectorComposer<Component>
 
     // Dialog components
     @Wire
-    Grid errorList;
+    Div notesContent;
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
@@ -64,52 +60,22 @@ public class ReplanteoErrorPage extends SelectorComposer<Component>
         ReplanteoRevision revision = replanteoService.getRevision(version,
                 numRevision);
 
-        ArrayList<String[]> errorLog = replanteoService.getErrorLog(revision);
+        ArrayList<String> notes = replanteoService.getNotes(revision);
 
-        String path = "/img/";
+        String show = "";
 
-        Rows rows = new Rows();
-        rows.setParent(errorList);
+        Html html;
+        html = new Html();
 
-        for (int i = 0; i < errorLog.size(); i++)
-        {
-
-            Row row = new Row();
-            Label idLabel;
-
-            Cell cell0 = new Cell();
-            if (errorLog.get(i)[0].equals("Error"))
-            {
-                Image imgError = new Image(path + "fatalerror.png");
-                imgError.setWidth("15px");
-                imgError.setHeight("15px");
-                imgError.setParent(cell0);
-            }
-
+        for (int i = 0; i < notes.size(); i++)
+            if (i != 0)
+                show += "<br>" + notes.get(i);
             else
-            {
-                Image imgWar = new Image(path + "warning.png");
-                imgWar.setWidth("12px");
-                imgWar.setHeight("12px");
-                imgWar.setParent(cell0);
-            }
+                show += notes.get(i);
 
-            Cell cell1 = new Cell();
-            idLabel = new Label(errorLog.get(i)[0]);
-            idLabel.setParent(cell1);
+        html.setContent(show);
 
-            Cell cell2 = new Cell();
-            idLabel = new Label(errorLog.get(i)[1]);
-            idLabel.setParent(cell2);
-
-            cell0.setParent(row);
-            cell1.setParent(row);
-            cell2.setParent(row);
-
-            row.setParent(rows);
-
-        }
-
+        html.setParent(notesContent);
     }
 
     @Listen("onClick = #goBack")

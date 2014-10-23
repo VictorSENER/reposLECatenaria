@@ -21,15 +21,15 @@ import org.zkoss.zul.Label;
 import org.zkoss.zul.Row;
 import org.zkoss.zul.Rows;
 
+import com.sener.sireca.web.bean.DibujoRevision;
+import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Project;
-import com.sener.sireca.web.bean.ReplanteoRevision;
-import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
+import com.sener.sireca.web.service.DibujoService;
 import com.sener.sireca.web.service.ProjectService;
-import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoErrorPage extends SelectorComposer<Component>
+public class DibujoErrorPage extends SelectorComposer<Component>
 {
     private static final long serialVersionUID = 1L;
 
@@ -46,7 +46,7 @@ public class ReplanteoErrorPage extends SelectorComposer<Component>
 
     // Services
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
-    ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
+    DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
     @Override
@@ -59,12 +59,12 @@ public class ReplanteoErrorPage extends SelectorComposer<Component>
         numRevision = (Integer) Executions.getCurrent().getAttribute(
                 "numRevision");
         Project project = projectService.getProjectById(actProj.getIdActive(session));
-        ReplanteoVersion version = replanteoService.getVersion(project,
-                numVersion);
-        ReplanteoRevision revision = replanteoService.getRevision(version,
+        DibujoVersion version = dibujoService.getVersion(project, numVersion);
+        DibujoRevision revision = dibujoService.getRevision(version,
                 numRevision);
 
-        ArrayList<String[]> errorLog = replanteoService.getErrorLog(revision);
+        // TODO: Cambiar según formato.
+        ArrayList<String[]> errorLog = dibujoService.getErrorLog(revision);
 
         String path = "/img/";
 

@@ -6,7 +6,7 @@
         <west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
             <include src="layout/sidebar.zul"/>
         </west>
-        <center id="mainContent" autoscroll="true" border="none" self="@insert(content)">
+        <center id="mainContent" border="none" self="@insert(content)">
             <!-- the main content will be insert to here -->
         </center>
         <south height="60px" border="none">

@@ -16,6 +16,6 @@ public class BannerComponent extends SelectorComposer<Component>
     @Listen("onClick=#logout")
     public void doLogout()
     {
-        Executions.sendRedirect("logout");
+        Executions.sendRedirect("/logout");
     }
 }

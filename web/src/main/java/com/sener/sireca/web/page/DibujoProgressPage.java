@@ -20,15 +20,15 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Progressmeter;
 import org.zkoss.zul.Timer;
 
+import com.sener.sireca.web.bean.DibujoRevision;
+import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Project;
-import com.sener.sireca.web.bean.ReplanteoRevision;
-import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
+import com.sener.sireca.web.service.DibujoService;
 import com.sener.sireca.web.service.ProjectService;
-import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoProgressPage extends SelectorComposer<Component>
+public class DibujoProgressPage extends SelectorComposer<Component>
 {
     private static final long serialVersionUID = 1L;
 
@@ -56,15 +56,15 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
 
     private Project project;
 
-    ReplanteoVersion ver;
-    ReplanteoRevision rev;
+    DibujoVersion ver;
+    DibujoRevision rev;
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
 
     // Services
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
-    ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
+    DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
     @Override
@@ -78,8 +78,8 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
                 "numRevision");
 
         project = projectService.getProjectById(actProj.getIdActive(session));
-        ver = replanteoService.getVersion(project, numVersion);
-        rev = replanteoService.getRevision(ver, numRevision);
+        ver = dibujoService.getVersion(project, numVersion);
+        rev = dibujoService.getRevision(ver, numRevision);
 
         version.setValue("Version: " + numVersion);
         revision.setValue("Revision: " + numRevision);
@@ -90,14 +90,36 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
 
     }
 
+    // TODO: Cambiar dependiendo del formato
     public void refreshGrid() throws Exception
     {
 
-        rev = replanteoService.getRevision(ver, numRevision);
+        String valores[] = dibujoService.getProgressInfo(rev);
+        double percentage;
+
+        progressLabel.setValue(valores[0] + "/" + valores[1] + " : "
+                + valores[2]);
+
+        funcLabel.setValue(valores[3] + "/" + valores[4]);
+
+        if (valores[1].equals("?"))
+            percentage = 0;
+        else
+            percentage = (Double.parseDouble(valores[0]) / Double.parseDouble(valores[1])) * 100;
+
+        postes.setValue((int) percentage);
+
+        if (valores[4].equals("?"))
+            percentage = 0;
+        else
+            percentage = (Double.parseDouble(valores[3]) / Double.parseDouble(valores[4])) * 100;
+
+        function.setValue((int) percentage);
+
+        rev = dibujoService.getRevision(ver, numRevision);
         if (rev.getCalculated())
         {
             timer.stop();
-
             Messagebox.show("Revisión " + numRevision + " de la versión "
                     + numVersion + " completada.", "Información",
                     Messagebox.OK, Messagebox.INFORMATION,
@@ -111,33 +133,12 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
                             {
                                 // Redirect back
                                 Executions.getCurrent().sendRedirect(
-                                        "/replanteo/");
+                                        "/drawing/");
                             }
 
                         }
                     });
         }
-
-        String valores[] = replanteoService.getProgressInfo(rev);
-        double percentage;
-
-        funcLabel.setValue(valores[0] + "/" + valores[1] + " : " + valores[2]);
-
-        progressLabel.setValue(valores[3] + "/" + valores[4]);
-
-        if (valores[1].equals("?"))
-            percentage = 0;
-        else
-            percentage = (Double.parseDouble(valores[0]) / Double.parseDouble(valores[1])) * 100;
-
-        function.setValue((int) percentage);
-
-        if (valores[4].equals("?"))
-            percentage = 0;
-        else
-            percentage = (Double.parseDouble(valores[3]) / Double.parseDouble(valores[4])) * 100;
-
-        postes.setValue((int) percentage);
 
     }
 
@@ -151,7 +152,7 @@ public class ReplanteoProgressPage extends SelectorComposer<Component>
     public void doBackClick()
     {
         // Go back
-        Executions.getCurrent().sendRedirect("/replanteo");
+        Executions.getCurrent().sendRedirect("/drawing/");
 
     }
 

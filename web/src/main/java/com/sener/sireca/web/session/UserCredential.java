@@ -14,9 +14,7 @@ public class UserCredential implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    int idUser;
-    int idSelectedProject = 0;
-    String selectedProject;
+    Integer idUser;
     String username;
     String password;
     Set<String> roles = new HashSet<String>();
@@ -33,12 +31,12 @@ public class UserCredential implements Serializable
         return username;
     }
 
-    public int getIdUser()
+    public Integer getIdUser()
     {
         return idUser;
     }
 
-    public void setIdUser(int idUser)
+    public void setIdUser(Integer idUser)
     {
         this.idUser = idUser;
     }

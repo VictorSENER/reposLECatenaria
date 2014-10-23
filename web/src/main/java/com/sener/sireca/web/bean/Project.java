@@ -99,18 +99,6 @@ public class Project
         this.idCatenaria = idCatenaria;
     }
 
-    private String getBasePath()
-    {
-        String basePath = System.getenv("SIRECA_HOME");
-
-        if (!IsJUnit.isJunitRunning())
-            basePath += "/projects/";
-        else
-            basePath += "/projectTest/";
-
-        return basePath + id;
-    }
-
     public String getCalcReplanteoBasePath()
     {
         return getBasePath() + ReplanteoVersion.CALCULO_REPLANTEO;
@@ -123,12 +111,24 @@ public class Project
 
     public String getMonReplanteoBasePath()
     {
-        return getBasePath() + Globals.FICHAS_MONTAJE;
+        return getBasePath() + MontajeVersion.FICHAS_MONTAJE;
     }
 
     public String getPenReplanteoBasePath()
     {
-        return getBasePath() + Globals.FICHAS_PENDOLADO;
+        return getBasePath() + PendoladoVersion.FICHAS_PENDOLADO;
+    }
+
+    private String getBasePath()
+    {
+        String basePath = System.getenv("SIRECA_HOME");
+
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
+
+        return basePath + id;
     }
 
 }

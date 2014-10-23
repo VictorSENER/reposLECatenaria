@@ -16,7 +16,7 @@ public class ReplanteoVersion
     private Integer idProject;
 
     // Número de versión.
-    private Integer numVersion;
+    private int numVersion;
 
     // Lista auxiliar para el .zul
     // private ArrayList<ModelReplanteoGrid> modelList;
@@ -49,12 +49,12 @@ public class ReplanteoVersion
         this.idProject = idProject;
     }
 
-    public Integer getNumVersion()
+    public int getNumVersion()
     {
         return numVersion;
     }
 
-    public void setNumVersion(Integer numVersion)
+    public void setNumVersion(int numVersion)
     {
         this.numVersion = numVersion;
     }

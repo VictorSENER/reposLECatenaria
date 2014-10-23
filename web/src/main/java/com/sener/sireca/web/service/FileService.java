@@ -29,13 +29,18 @@ public interface FileService
 
     public void fileCopy(String initPath, String finalPath);
 
-    public String[] getProgressFileContent(String path) throws IOException;
-
-    public ArrayList<String> getErrorFileContent(String path)
+    public String[] getProgressFileContent(String path, String valores[])
             throws IOException;
 
-    public String getFileContent(String path) throws IOException;
+    public ArrayList<String[]> getErrorFileContent(String path)
+            throws IOException;
+
+    public ArrayList<String> getFileContent(String path) throws IOException;
 
     public boolean fileExists(String path);
+
+    public void rename(File from, File to);
+
+    public void writeFile(String path, String content);
 
 }

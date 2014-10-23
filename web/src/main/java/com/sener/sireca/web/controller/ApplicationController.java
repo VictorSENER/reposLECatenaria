@@ -95,9 +95,9 @@ public class ApplicationController
 
     private boolean isThereAnActiveProject(HttpSession session)
     {
-
         if (actProj.getIdActive(session) != 0)
             return true;
+
         return false;
     }
 
@@ -105,7 +105,6 @@ public class ApplicationController
     public String replanteo(@PathVariable String action, Model model,
             HttpServletRequest request, HttpSession session)
     {
-
         if (isThereAnActiveProject(session))
             return "replanteo.zul";
 
@@ -166,7 +165,6 @@ public class ApplicationController
                         throw new RuntimeException("IOError writing file to output stream");
                     }
                 }
-
             }
             else if (action.equals("progress"))
                 return "replanteoProgress.zul";
@@ -174,15 +172,19 @@ public class ApplicationController
             else if (action.equals("error"))
                 return "replanteoError.zul";
 
+            else if (action.equals("notes"))
+                return "replanteoNotes.zul";
+
             return "replanteo.zul";
         }
+
         return "nonActiveProject.zul";
 
     }
 
     @RequestMapping(value = "drawing{action}", method = RequestMethod.GET)
-    public String drawing(Model model, HttpServletRequest request,
-            HttpSession session)
+    public String drawing(@PathVariable String action, Model model,
+            HttpServletRequest request, HttpSession session)
     {
         if (isThereAnActiveProject(session))
             return "drawing.zul";
@@ -243,13 +245,19 @@ public class ApplicationController
                         throw new RuntimeException("IOError writing file to output stream");
                     }
                 }
-
             }
             else if (action.equals("progress"))
-                return "replanteoProgress.zul";
+                return "drawingProgress.zul";
+
+            else if (action.equals("error"))
+                return "drawingError.zul";
+
+            else if (action.equals("notes"))
+                return "drawingNotes.zul";
 
             return "drawing.zul";
         }
+
         return "nonActiveProject.zul";
 
     }

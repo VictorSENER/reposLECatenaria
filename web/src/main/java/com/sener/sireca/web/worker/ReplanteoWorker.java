@@ -12,11 +12,11 @@ public class ReplanteoWorker extends Thread
     // Revisión de la cual calcular el cuaderno de replanteo
     private ReplanteoRevision revision;
     private String catenaria;
-    private long pkIni;
-    private long pkFin;
+    private double pkIni;
+    private double pkFin;
 
-    public ReplanteoWorker(ReplanteoRevision revision, long pkIni, long pkFin,
-            String catenaria)
+    public ReplanteoWorker(ReplanteoRevision revision, double pkIni,
+            double pkFin, String catenaria)
     {
         super();
         this.revision = revision;

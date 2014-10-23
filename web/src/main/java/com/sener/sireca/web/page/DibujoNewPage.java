@@ -4,10 +4,13 @@
 
 package com.sener.sireca.web.page;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.zkoss.io.Files;
 import org.zkoss.util.media.Media;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -26,7 +29,10 @@ import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Textbox;
 
 import com.sener.sireca.web.bean.DibujoConfTipologia;
+import com.sener.sireca.web.bean.DibujoRevision;
+import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Project;
+import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.DibujoService;
@@ -34,6 +40,7 @@ import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.service.VerService;
 import com.sener.sireca.web.util.SpringApplicationContext;
+import com.sener.sireca.web.worker.DrawingWorker;
 
 public class DibujoNewPage extends SelectorComposer<Component>
 {
@@ -56,6 +63,8 @@ public class DibujoNewPage extends SelectorComposer<Component>
     Textbox pkInicial;
     @Wire
     Textbox pkFinal;
+    @Wire
+    Textbox notes;
     @Wire
     Checkbox geoPost;
     @Wire
@@ -107,6 +116,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
     VerService verService = (VerService) SpringApplicationContext.getBean("verService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void doAfterCompose(Component comp) throws Exception
     {
@@ -142,6 +152,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
                 });
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Listen("onChange = #versionList")
     public void fillRevisions()
     {
@@ -150,32 +161,77 @@ public class DibujoNewPage extends SelectorComposer<Component>
         revisionList.setModel(new ListModelList(rList));
     }
 
-    @Listen("onClick = #dibujoReplanteo")
-    public void doDraw()
+    @Listen("onClick = #dibujoReplanteo; onOK=#drawingNewWin")
+    public void doDraw() throws IOException
     {
-        int numVersion = versionList.getSelectedItem().getValue();
-        int numRevision = revisionList.getSelectedItem().getValue();
-        long pkIni = Integer.parseInt(pkInicial.getValue());
-        long pkFin = Integer.parseInt(pkFinal.getValue());
-        DibujoConfTipologia confTipo = new DibujoConfTipologia();
 
-        confTipo.setGeoPost(geoPost.isChecked());
-        confTipo.setEtiPost(etiPost.isChecked());
-        confTipo.setDatPost(datPost.isChecked());
-        confTipo.setVanos(vanos.isChecked());
-        confTipo.setFlechas(flechas.isChecked());
-        confTipo.setDescentramientos(descentramientos.isChecked());
-        confTipo.setImplantacion(implantacion.isChecked());
-        confTipo.setAltHilo(altHilo.isChecked());
-        confTipo.setDistCant(distCant.isChecked());
-        confTipo.setConexiones(conexiones.isChecked());
-        confTipo.setProtecciones(protecciones.isChecked());
-        confTipo.setPendolado(pendolado.isChecked());
-        confTipo.setAltCat(altCat.isChecked());
-        confTipo.setPuntSing(puntSing.isChecked());
-        confTipo.setCableado(cableado.isChecked());
-        confTipo.setDatTraz(datTraz.isChecked());
+        if (fileToUpload.getValue().equals(""))
+            Clients.showNotification("No ha seleccionado ningun archivo.");
 
+        else if (pkInicial.getValue().equals(""))
+            Clients.showNotification("Debe introducir PK Inicial.");
+
+        else if (pkFinal.getValue().equals(""))
+            Clients.showNotification("Debe introducir PK Final.");
+
+        else if (versionList.getValue().equals("Escoja Versión"))
+            Clients.showNotification("Debe seleccionar una Version.");
+
+        else if (revisionList.getValue().equals("Escoja Revisión"))
+            Clients.showNotification("Debe seleccionar una Revisión.");
+
+        else
+        {
+
+            Project project = projectService.getProjectById(actProj.getIdActive(session));
+            int numVersion = dibujoService.getLastVersion(project);
+            int repVersion = versionList.getSelectedItem().getValue();
+            int repRevision = revisionList.getSelectedItem().getValue();
+            double pkIni = Double.parseDouble(pkInicial.getValue());
+            double pkFin = Double.parseDouble(pkFinal.getValue());
+
+            ReplanteoVersion replanteoVersion = replanteoService.getVersion(
+                    project, repVersion);
+            ReplanteoRevision replanteoRevision = replanteoService.getRevision(
+                    replanteoVersion, repRevision);
+
+            DibujoVersion dibujoVersion = dibujoService.getVersion(project,
+                    numVersion);
+            DibujoRevision dibujoRevision = dibujoService.createRevision(
+                    dibujoVersion, replanteoRevision, notes.getValue());
+
+            String ruta = dibujoRevision.getAutoCadPath();
+
+            File dest = new File(ruta);
+            Files.copy(dest, media.getStreamData());
+
+            DibujoConfTipologia confTipo = new DibujoConfTipologia();
+
+            confTipo.setGeoPost(geoPost.isChecked());
+            confTipo.setEtiPost(etiPost.isChecked());
+            confTipo.setDatPost(datPost.isChecked());
+            confTipo.setVanos(vanos.isChecked());
+            confTipo.setFlechas(flechas.isChecked());
+            confTipo.setDescentramientos(descentramientos.isChecked());
+            confTipo.setImplantacion(implantacion.isChecked());
+            confTipo.setAltHilo(altHilo.isChecked());
+            confTipo.setDistCant(distCant.isChecked());
+            confTipo.setConexiones(conexiones.isChecked());
+            confTipo.setProtecciones(protecciones.isChecked());
+            confTipo.setPendolado(pendolado.isChecked());
+            confTipo.setAltCat(altCat.isChecked());
+            confTipo.setPuntSing(puntSing.isChecked());
+            confTipo.setCableado(cableado.isChecked());
+            confTipo.setDatTraz(datTraz.isChecked());
+
+            DrawingWorker dw = new DrawingWorker(dibujoRevision, confTipo, pkIni, pkFin, repVersion, repRevision);
+
+            dw.start();
+
+            Executions.getCurrent().sendRedirect(
+                    "/drawing/progress/" + numVersion + "/"
+                            + dibujoRevision.getNumRevision());
+        }
     }
 
     @Listen("onClick = #volver")

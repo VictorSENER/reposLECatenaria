@@ -27,7 +27,7 @@ public class DibujoConfTipologia
     // Implantacion
     private boolean implantacion;
 
-    // Altura del hilo de contacto;
+    // Altura del hilo de contacto
     private boolean altHilo;
 
     // La distribución de los cantones

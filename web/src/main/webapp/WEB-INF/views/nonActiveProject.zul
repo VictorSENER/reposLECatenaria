@@ -9,7 +9,7 @@
                 <caption src="/img/drawing.png" sclass="fn-caption" label="Planos de Replanteo"/>
                 <borderlayout>
                     <center autoscroll="true" border="none">
-                        <vlayout style="position:absolute;padding:2px;left:40%;right:35%;text-align:center;top:300px;">
+                        <vlayout style="position:absolute;padding:2px;left:40%;right:35%;text-align:center;top:265px;">
                         	<label style="font-weight:bold;">Por favor, seleccione un proyecto activo.</label>
                    			<a style="font-weight:bold;" href="/project" label="(Ir a proyectos)" />
                    		</vlayout>

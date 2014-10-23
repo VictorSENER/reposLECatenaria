@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Cuadernos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.DibujoProgressPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/drawing.png" sclass="fn-caption" label="Planos de Replanteo"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+             		<vlayout hflex="1" vflex="1">
+				        <grid id="info" hflex="1">
+	                        <rows>
+	                        	<row>
+	                        		<cell hflex="min">
+	                        			<progressmeter id="postes" width="500px" />
+			            			</cell>
+			            			<cell>
+				            			<label id="progressLabel" value="" />
+	                        		</cell>
+	                            </row>
+	                            <row>
+	                        		<cell hflex="min">
+	                        			<progressmeter id="function" width="500px" />
+			            			</cell>
+			            			<cell>
+				            			<label id="funcLabel" value="" />
+	                        		</cell>
+	                            </row>
+	                            <row>
+	                                <cell colspan="2">
+	                                    <label id="version" />
+	                                </cell>
+	                            </row>
+	                            <row>
+	                                 <cell colspan="2">
+	                                    <label id="revision" />
+	                                </cell>
+	                            </row>
+	                            <row>
+	                                  <cell colspan="2">
+	                                    <label id="fecha" />
+	                                </cell>
+	                            </row>
+	                        </rows>
+                   		</grid>
+                   		
+                   		<!-- refresh content every 5 seconds -->
+   						<timer id="timer" delay="5000" repeats="true" /> 
+					<hlayout>
+                   		<button id="goBack" label="Volver" width="65px"/>
+                   	</hlayout>
+                	</vlayout>  
+                </center>
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

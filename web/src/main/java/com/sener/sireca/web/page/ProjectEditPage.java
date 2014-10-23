@@ -48,7 +48,7 @@ public class ProjectEditPage extends SelectorComposer<Component>
     ListModelList<Project> projectListModel;
 
     // Project currently selected.
-    Project selectedProject;
+    Project project;
 
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
     CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
@@ -65,16 +65,19 @@ public class ProjectEditPage extends SelectorComposer<Component>
         selectedProjectCatenaria.setModel(new ListModelList(vList));
 
         int id = (Integer) Executions.getCurrent().getAttribute("id");
-        selectedProject = projectService.getProjectById(id);
+        project = projectService.getProjectById(id);
 
-        selectedProjectTitle.setValue(selectedProject.getTitulo());
-        selectedProjectClient.setValue(selectedProject.getCliente());
+        if (project == null)
+            Executions.getCurrent().sendRedirect("/project");
+
+        selectedProjectTitle.setValue(project.getTitulo());
+        selectedProjectClient.setValue(project.getCliente());
         selectedProjectUser.setValue(userService.getUserById(
-                (selectedProject.getIdUsuario())).getUsername());
-        selectedProjectReference.setValue(selectedProject.getReferencia());
+                (project.getIdUsuario())).getUsername());
+        selectedProjectReference.setValue(project.getReferencia());
 
         selectedProjectCatenaria.setValue(catenariaService.getCatenariaById(
-                selectedProject.getIdCatenaria()).getNomCatenaria());
+                project.getIdCatenaria()).getNomCatenaria());
 
     }
 
@@ -83,14 +86,14 @@ public class ProjectEditPage extends SelectorComposer<Component>
     {
 
         // Set new data to selected user.
-        selectedProject.setTitulo(selectedProjectTitle.getValue());
-        selectedProject.setCliente(selectedProjectClient.getValue());
-        selectedProject.setReferencia(selectedProjectReference.getValue());
-        selectedProject.setIdCatenaria(catenariaService.getCatenariaByTitle(
+        project.setTitulo(selectedProjectTitle.getValue());
+        project.setCliente(selectedProjectClient.getValue());
+        project.setReferencia(selectedProjectReference.getValue());
+        project.setIdCatenaria(catenariaService.getCatenariaByTitle(
                 selectedProjectCatenaria.getSelectedItem().getValue().toString()).getId());
 
         // Save new data into DB.
-        if (projectService.updateProject(selectedProject) != 0)
+        if (projectService.updateProject(project) != 0)
             // Show message for user.
             Clients.showNotification("Proyecto guardado correctamente");
 
@@ -108,12 +111,9 @@ public class ProjectEditPage extends SelectorComposer<Component>
                     public void onEvent(Event e) throws Exception
                     {
                         if (e.getName().equals("onOK"))
-                        {
-                            selectedProject = null;
-
                             // Go back
                             Executions.getCurrent().sendRedirect("/project");
-                        }
+
                     }
                 });
 

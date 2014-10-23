@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
+import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -19,6 +20,7 @@ import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Messagebox;
 
 import com.sener.sireca.web.bean.DibujoRevision;
 import com.sener.sireca.web.bean.DibujoVersion;
@@ -55,9 +57,7 @@ public class DibujoPage extends SelectorComposer<Component>
 
     // Services
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
-
     DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
-
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
     final Project project = projectService.getProjectById(actProj.getIdActive(session));
@@ -69,125 +69,95 @@ public class DibujoPage extends SelectorComposer<Component>
 
         String action = (String) Executions.getCurrent().getAttribute("action");
 
-        // if (!action.equals(""))
-        // {
-        //
-        // final int numVersion = (Integer)
-        // Executions.getCurrent().getAttribute(
-        // "numVersion");
-        // final int numRevision = (Integer)
-        // Executions.getCurrent().getAttribute(
-        // "numRevision");
-        //
-        // if (action.equals("delete"))
-        // {
-        // Messagebox.show(
-        // "Está seguro que quiere eliminar esta revisión?",
-        // "Confirmación", Messagebox.OK | Messagebox.CANCEL,
-        // Messagebox.QUESTION,
-        // new org.zkoss.zk.ui.event.EventListener<Event>()
-        // {
-        // public void onEvent(Event e) throws Exception
-        // {
-        // if (e.getName().equals("onOK"))
-        // {
-        // try
-        // {
-        //
-        // if (!replanteoService.getRevision(
-        // replanteoService.getVersion(
-        // project, numVersion),
-        // numRevision).getCalculated())
-        // throw new Exception();
-        //
-        // replanteoService.deleteRevision(
-        // project, numVersion,
-        // numRevision);
-        //
-        // Messagebox.show(
-        // "Revisión "
-        // + numRevision
-        // + " de la versión "
-        // + numVersion
-        // + " eliminada correctamente.",
-        // "Información",
-        // Messagebox.OK,
-        // Messagebox.INFORMATION,
-        // new org.zkoss.zk.ui.event.EventListener<Event>()
-        // {
-        // public void onEvent(Event e)
-        // throws Exception
-        // {
-        //
-        // if (e.getName().equals(
-        // "onOK"))
-        // {
-        // // Redirect back
-        // Executions.getCurrent().sendRedirect(
-        // "/drawing/");
-        // }
-        //
-        // }
-        // });
-        //
-        // }
-        // catch (Exception e1)
-        // {
-        //
-        // Messagebox.show(
-        // "Fallo al eliminar la revisión "
-        // + numRevision
-        // + " de la versión "
-        // + numVersion
-        // + " eliminada correctamente.",
-        // "Información",
-        // Messagebox.OK,
-        // Messagebox.INFORMATION,
-        // new org.zkoss.zk.ui.event.EventListener<Event>()
-        // {
-        // public void onEvent(Event e)
-        // throws Exception
-        // {
-        // if (e.getName().equals(
-        // "onOK"))
-        // {
-        // // Redirect back
-        // Executions.getCurrent().sendRedirect(
-        // "/drawing/");
-        // }
-        // }
-        // });
-        // }
-        //
-        // }
-        // else
-        // // Redirect back
-        // Executions.getCurrent().sendRedirect(
-        // "/drawing/");
-        // }
-        // });
-        // }
-        //
-        // else if (action.equals("show"))
-        // {
-        // Messagebox.show("Revisión " + numRevision + " de la versión "
-        // + numVersion + " importada correctamente.",
-        // "Información", Messagebox.OK, Messagebox.INFORMATION,
-        // new org.zkoss.zk.ui.event.EventListener<Event>()
-        // {
-        // public void onEvent(Event e) throws Exception
-        // {
-        //
-        // if (e.getName().equals("onOK"))
-        // // Redirect back
-        // Executions.getCurrent().sendRedirect(
-        // "/drawing/");
-        // }
-        // });
-        // }
-        // else
-        // Executions.getCurrent().sendRedirect("/drawing/");
-        // }
+        if (!action.equals(""))
+        {
+
+            final int numVersion = (Integer) Executions.getCurrent().getAttribute(
+                    "numVersion");
+            final int numRevision = (Integer) Executions.getCurrent().getAttribute(
+                    "numRevision");
+
+            if (action.equals("delete"))
+            {
+                Messagebox.show(
+                        "Está seguro que quiere eliminar esta revisión?",
+                        "Confirmación", Messagebox.OK | Messagebox.CANCEL,
+                        Messagebox.QUESTION,
+                        new org.zkoss.zk.ui.event.EventListener<Event>()
+                        {
+                            @Override
+                            public void onEvent(Event e) throws Exception
+                            {
+                                if (e.getName().equals("onOK"))
+                                {
+
+                                    if (dibujoService.deleteRevision(project,
+                                            numVersion, numRevision))
+
+                                        Messagebox.show(
+                                                "Revisión "
+                                                        + numRevision
+                                                        + " de la versión "
+                                                        + numVersion
+                                                        + " eliminada correctamente.",
+                                                "Información",
+                                                Messagebox.OK,
+                                                Messagebox.INFORMATION,
+                                                new org.zkoss.zk.ui.event.EventListener<Event>()
+                                                {
+                                                    @Override
+                                                    public void onEvent(Event e)
+                                                            throws Exception
+                                                    {
+
+                                                        if (e.getName().equals(
+                                                                "onOK"))
+                                                        {
+                                                            // Redirect back
+                                                            Executions.getCurrent().sendRedirect(
+                                                                    "/drawing/");
+                                                        }
+
+                                                    }
+                                                });
+
+                                    else
+
+                                        Messagebox.show(
+                                                "Fallo al eliminar la revisión "
+                                                        + numRevision
+                                                        + " de la versión "
+                                                        + numVersion + ".",
+                                                "Información",
+                                                Messagebox.OK,
+                                                Messagebox.INFORMATION,
+                                                new org.zkoss.zk.ui.event.EventListener<Event>()
+                                                {
+                                                    @Override
+                                                    public void onEvent(Event e)
+                                                            throws Exception
+                                                    {
+                                                        if (e.getName().equals(
+                                                                "onOK"))
+                                                        {
+                                                            // Redirect back
+                                                            Executions.getCurrent().sendRedirect(
+                                                                    "/drawing/");
+                                                        }
+                                                    }
+                                                });
+
+                                }
+                                else
+                                    // Redirect back
+                                    Executions.getCurrent().sendRedirect(
+                                            "/drawing/");
+                            }
+                        });
+            }
+            else
+                Executions.getCurrent().sendRedirect("/drawing/");
+        }
 
         List<DibujoVersion> dibujoVerList = dibujoService.getVersions(project);
 

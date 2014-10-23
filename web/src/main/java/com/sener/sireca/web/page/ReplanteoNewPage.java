@@ -52,6 +52,8 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
     @Wire
     Textbox pkFinal;
     @Wire
+    Textbox notes;
+    @Wire
     Checkbox calcularImportar;
 
     // Session data
@@ -96,11 +98,14 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
         {
             pkInicial.setDisabled(false);
             pkFinal.setDisabled(false);
+            calculoReplanteo.setLabel("Calcular");
+
         }
         else
         {
             pkInicial.setDisabled(true);
             pkFinal.setDisabled(true);
+            calculoReplanteo.setLabel("Importar");
         }
     }
 
@@ -111,51 +116,62 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
         Executions.getCurrent().sendRedirect("/replanteo");
     }
 
-    @Listen("onClick = #calculoReplanteo")
+    @Listen("onClick = #calculoReplanteo; onOK=#replanteoNewWin")
     public void doCalculateReplanteo() throws IOException
     {
-        Project project = projectService.getProjectById(actProj.getIdActive(session));
-        int numVersion = replanteoService.getLastVersion(project);
-        ReplanteoVersion replanteoVersion = replanteoService.getVersion(
-                project, numVersion);
-
-        ReplanteoRevision replanteoRevision;
 
         if (fileToUpload.getValue().equals(""))
             Clients.showNotification("No ha seleccionado ningun archivo.");
+
         else
         {
+            Project project = projectService.getProjectById(actProj.getIdActive(session));
+            int numVersion = replanteoService.getLastVersion(project);
+            ReplanteoVersion replanteoVersion = replanteoService.getVersion(
+                    project, numVersion);
+
+            ReplanteoRevision replanteoRevision;
 
             if (calcularImportar.isChecked())
             {
-                replanteoRevision = replanteoService.createRevision(
-                        replanteoVersion, 0);
+                if (pkInicial.getValue().equals(""))
+                    Clients.showNotification("Debe introducir PK Inicial.");
 
-                String ruta = replanteoRevision.getExcelPath();
+                else if (pkFinal.getValue().equals(""))
+                    Clients.showNotification("Debe introducir PK Final.");
 
-                File dest = new File(ruta);
-                Files.copy(dest, media.getStreamData());
+                else
+                {
 
-                int idCatenaria = project.getIdCatenaria();
-                long pkIni = Integer.parseInt(pkInicial.getValue());
-                long pkFin = Integer.parseInt(pkFinal.getValue());
+                    replanteoRevision = replanteoService.createRevision(
+                            replanteoVersion, 0, notes.getValue());
 
-                String catenaria = catenariaService.getCatenariaById(
-                        idCatenaria).getNomCatenaria();
+                    String ruta = replanteoRevision.getExcelPath();
 
-                ReplanteoWorker rw = new ReplanteoWorker(replanteoRevision, pkIni, pkFin, catenaria);
+                    File dest = new File(ruta);
+                    Files.copy(dest, media.getStreamData());
 
-                rw.start();
+                    int idCatenaria = project.getIdCatenaria();
+                    double pkIni = Double.parseDouble(pkInicial.getValue());
+                    double pkFin = Double.parseDouble(pkFinal.getValue());
 
-                // TODO: Calculate Revision
-                Executions.getCurrent().sendRedirect(
-                        "/replanteo/progress/" + numVersion + "/"
-                                + replanteoRevision.getNumRevision());
+                    String catenaria = catenariaService.getCatenariaById(
+                            idCatenaria).getNomCatenaria();
+
+                    ReplanteoWorker rw = new ReplanteoWorker(replanteoRevision, pkIni, pkFin, catenaria);
+
+                    rw.start();
+
+                    Executions.getCurrent().sendRedirect(
+                            "/replanteo/progress/" + numVersion + "/"
+                                    + replanteoRevision.getNumRevision());
+                }
+
             }
             else
             {
                 replanteoRevision = replanteoService.createRevision(
-                        replanteoVersion, 1);
+                        replanteoVersion, 1, notes.getValue());
 
                 String ruta = replanteoRevision.getExcelPath();
 
@@ -168,6 +184,5 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
 
             }
         }
-
     }
 }

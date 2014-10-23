@@ -4,16 +4,14 @@
 
 package com.sener.sireca.web.bean;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class DibujoRevision
+public class MontajeRevision
 {
 
     // Identificador del proyecto al que pertenece la versión.
@@ -21,12 +19,6 @@ public class DibujoRevision
 
     // Número de versión.
     private int numVersion;
-
-    // Revisión del cuaderno de replanteo usada
-    private ReplanteoRevision repRev;
-
-    // Revisión del cuaderno de replanteo usada
-    private DibujoConfTipologia confTipo;
 
     // Número de revisión.
     private int numRevision;
@@ -39,9 +31,6 @@ public class DibujoRevision
 
     // Indica si la revisión tiene warnings o no.
     private boolean warning;
-
-    // Indica si la revisión tiene comentarios o no.
-    private boolean notes;
 
     // Fecha de creación de la revisión.
     private Date date;
@@ -109,16 +98,6 @@ public class DibujoRevision
         this.warning = warning;
     }
 
-    public boolean getNotes()
-    {
-        return notes;
-    }
-
-    public void setNotes(boolean notes)
-    {
-        this.notes = notes;
-    }
-
     public Date getDate()
     {
         return date;
@@ -139,79 +118,51 @@ public class DibujoRevision
         this.fileSize = fileSize;
     }
 
-    public ReplanteoRevision getRepRev()
-    {
-        return repRev;
-    }
-
-    public void setRepRev(ReplanteoRevision repRev)
-    {
-        this.repRev = repRev;
-    }
-
-    public DibujoConfTipologia getConfTipo()
-    {
-        return confTipo;
-    }
-
-    public void setConfTipo(DibujoConfTipologia confTipo)
-    {
-        this.confTipo = confTipo;
-    }
-
-    public void changeState(File preAutoCad, File preError, File preComment)
-    {
-        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-
-        File postAutoCad = new File(getAutoCadPath());
-        File postError = new File(getErrorFilePath());
-        File postComment = new File(getNotesFilePath());
-
-        fileService.rename(preAutoCad, postAutoCad);
-        fileService.rename(preError, postError);
-        fileService.rename(preComment, postComment);
-    }
-
-    private String getState()
-    {
-        if (calculated && warning)
-            return "_CW";
-
-        else if (error)
-            return "_E";
-
-        else if (calculated)
-            return "_C";
-
-        else
-            return "_P";
-    }
-
     public String getAutoCadPath()
     {
-        return getBasePath() + ".dwg";
 
-    }
+        if (calculated && warning)
+            return getBasePath() + "_CW.dwg";
 
-    public String getAutoCadName()
-    {
-        return getBaseName() + ".dwg";
+        else if (error)
+            return getBasePath() + "_E.dwg";
 
+        else if (calculated)
+            return getBasePath() + "_C.dwg";
+
+        else
+            return getBasePath() + "_P.dwg";
     }
 
     public String getProgressFilePath()
     {
-        return getBasePath() + ".progress";
+        if (!calculated)
+            return getBasePath() + ".progress";
+
+        return "";
     }
 
     public String getErrorFilePath()
     {
-        return getBasePath() + ".error";
+        if (error || warning)
+            return getBasePath() + ".error";
+
+        return "";
     }
 
-    public String getNotesFilePath()
+    public String getAutoCadName()
     {
-        return getBasePath() + ".comment";
+        if (calculated && warning)
+            return getBaseName() + "_CW.dwg";
+
+        else if (error)
+            return getBaseName() + "_E.dwg";
+
+        else if (calculated)
+            return getBaseName() + "_C.dwg";
+
+        else
+            return getBaseName() + "_P.dwg";
     }
 
     public String getRUser()
@@ -240,18 +191,18 @@ public class DibujoRevision
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    public String getBasePath()
+    private String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
-        return basePath + idProject + DibujoVersion.DIBUJO_REPLANTEO
+        return basePath + idProject + MontajeVersion.FICHAS_MONTAJE
                 + numVersion + "/" + getBaseName();
     }
 
     private String getBaseName()
     {
-        return numRevision + "_" + repRev.getNumVersion() + "_"
-                + repRev.getNumRevision() + getState();
+        // TODO: Completar BaseName
+        return "";
     }
 
 }

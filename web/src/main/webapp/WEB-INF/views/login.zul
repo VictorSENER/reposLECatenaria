@@ -8,10 +8,10 @@
           pack="center" spacing="20px">
         <vlayout>
             <window id="loginWin" title="Login" mode="modal" position="center,center"
-                    border="normal" hflex="min"
+                    border="normal" hflex="1"
                     apply="com.sener.sireca.web.page.LoginPage">
                 <vbox hflex="min" align="center">
-                    <grid hflex="min">
+                    <grid hflex="min"  >
                         <columns>
                             <column hflex="min" align="right" />
                             <column />
@@ -26,6 +26,9 @@
                                 <textbox id="password" type="password"
                                     width="200px" />
                             </row>
+                            <row>
+                        		<separator></separator>
+                        	</row>
                         </rows>
                     </grid>
                     <label id="message" class="warn" value="&#160;" />

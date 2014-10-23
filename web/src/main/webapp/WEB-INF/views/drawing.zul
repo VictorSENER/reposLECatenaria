@@ -27,37 +27,46 @@
                                 	<listcell>
  										<grid hflex="1" >
 	                                   		<auxhead>
-	            								<auxheader label="Versión ${each.numVersion}" colspan="4" />
-	        									<auxheader label="Acciones" align="center" colspan="3" />
+	            								<auxheader label="Versión ${each.numVersion}" colspan="6" />
 	        								</auxhead>
 					                     	<columns>
 												<column label="Revisión" />
 	            								<column label="Usuario" />
 	            								<column label="Fecha Creación" />
 	            								<column label="Tamaño" />
-	            								<column hflex="min" label="&#160;&#160; E &#160;&#160;" align="center"/>
-	            								<column hflex="min" label="&#160;&#160; C &#160;&#160;" align="center"/>
-	            								<column hflex="min" label="&#160;&#160; P &#160;&#160;" align="center"/>
+	            								<column label="Acciones" hflex="min" />
 					                        </columns>
 					                        <rows>
-					                        <row forEach="${each.modelList}">
+					                        	<row forEach="${each.modelList}">
 					                            	
 					        	                    <cell sclass="row-title"> ${each.numRevision}  </cell>
 													<cell sclass="row-title"> ${each.RUser} </cell>
 													<cell sclass="row-title"> ${each.RDate}  </cell>
 													<cell sclass="row-title"> ${each.RFileSize}  </cell>
-													<cell> 
-														<button if="${each.error or each.warning}" image="/img/error.png" width="36px" href="/drawing/error/${each.numVersion}/${each.numRevision}"/>
-													</cell>
-													<cell>	
-														<button if="${each.calculated and each.error == false}" image="/img/cross.png" width="36px" href="/drawing/delete/${each.numVersion}/${each.numRevision}"/>
-														
-														<separator orient="vertical"></separator>
-														
-														<button if="${each.calculated and each.error == false}" image="/img/download.png" width="36px" href="/drawing/download/${each.numVersion}/${each.numRevision}"/>
-													</cell> 
-													<cell>	
+													
+													<cell align="end">
+
+														<separator if="${each.error or each.warning}" orient="vertical"></separator>
+													
+														<button if="${each.error or each.warning}" image="/img/warning.png" width="36px" href="/drawing/error/${each.numVersion}/${each.numRevision}"/>
+		
+														<separator if="${each.calculated == false and each.error == false }" orient="vertical"></separator>
+																						
 														<button if="${each.calculated == false and each.error == false }" image="/img/progreso.png" width="36px" href="/drawing/progress/${each.numVersion}/${each.numRevision}"/>
+														
+														<separator if="${each.notes}" orient="vertical"></separator>
+														
+														<button  if="${each.notes}" image="/img/notes.png" width="36px" href="/drawing/notes/${each.numVersion}/${each.numRevision}"/>
+														
+														<separator if="${each.calculated and each.error == false}" orient="vertical"></separator>
+														
+														<button if="${each.calculated and each.error == false}" image="/img/download.png" width="36px" href="/drawing/download/${each.numVersion}/${each.numRevision}"/>	
+														
+														<separator if="${each.calculated and each.error == false}" orient="vertical"></separator>
+														
+														<button if="${each.calculated and each.error == false}" image="/img/cross.png" width="36px" href="/drawing/delete/${each.numVersion}/${each.numRevision}"/>
+													
+														<separator orient="vertical"></separator>
 													</cell>
 					                            </row>
 					                        </rows>

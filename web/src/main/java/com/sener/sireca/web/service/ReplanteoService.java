@@ -33,10 +33,11 @@ public interface ReplanteoService
     public ReplanteoRevision getRevision(ReplanteoVersion version,
             int numRevision);
 
-    public ReplanteoRevision createRevision(ReplanteoVersion version, int type);
+    public ReplanteoRevision createRevision(ReplanteoVersion version, int type,
+            String comment);
 
-    public void calculateRevision(ReplanteoRevision revision, long pkIni,
-            long pkFin, String catenaria);
+    public void calculateRevision(ReplanteoRevision revision, double pkIni,
+            double pkFin, String catenaria);
 
     public boolean deleteRevision(Project project, int numVersion,
             int numRevision);
@@ -46,6 +47,9 @@ public interface ReplanteoService
 
     public int getLastVersion(Project project);
 
-    public ArrayList<String> getErrorLog(ReplanteoRevision replanteoRevision)
+    public ArrayList<String[]> getErrorLog(ReplanteoRevision revision)
+            throws IOException;
+
+    public ArrayList<String> getNotes(ReplanteoRevision revision)
             throws IOException;
 }

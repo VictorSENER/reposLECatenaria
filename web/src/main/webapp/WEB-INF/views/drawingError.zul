@@ -5,9 +5,9 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
 <zk xmlns:n="native">
     <hbox self="@define(content)" hflex="1" vflex="1">
-        <window apply="com.sener.sireca.web.page.ReplanteoErrorPage" 
+        <window apply="com.sener.sireca.web.page.DibujoErrorPage" 
         	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
-            <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
+            <caption src="/img/drawing.png" sclass="fn-caption" label="Planos de Replanteo"/>
             <borderlayout>
 	        	<center autoscroll="true" border="none">
 					<vlayout>

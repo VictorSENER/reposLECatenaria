@@ -4,11 +4,15 @@
 
 package com.sener.sireca.web.service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.sener.sireca.web.bean.DibujoConfTipologia;
 import com.sener.sireca.web.bean.DibujoRevision;
 import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.Project;
+import com.sener.sireca.web.bean.ReplanteoRevision;
 
 public interface DibujoService
 {
@@ -16,23 +20,34 @@ public interface DibujoService
 
     public DibujoVersion getVersion(Project project, int numVersion);
 
+    public List<Integer> getVersionList(Project project);
+
     public DibujoVersion createVersion(Project project);
 
     public void deleteVersion(Project project, int numVersion);
 
     public List<DibujoRevision> getRevisions(DibujoVersion version);
 
+    public List<Integer> getRevisionList(DibujoVersion version);
+
     public DibujoRevision getRevision(DibujoVersion version, int numRevision);
 
-    public DibujoRevision createRevision(DibujoVersion version, int type);
+    public DibujoRevision createRevision(DibujoVersion version,
+            ReplanteoRevision repRev, String comment);
 
-    public void calculateRevision(DibujoRevision revision);
+    void calculateRevision(DibujoRevision revision,
+            DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
+            int repVersion, int repRevision);
 
-    public void deleteRevision(Project project, int numVersion, int numRevision);
+    public boolean deleteRevision(Project project, int numVersion,
+            int numRevision);
 
     public int getLastVersion(Project project);
 
-    public List<Integer> getRevisionList(DibujoVersion version);
+    String[] getProgressInfo(DibujoRevision revision) throws IOException;
 
-    public List<Integer> getVersionList(Project project);
+    ArrayList<String[]> getErrorLog(DibujoRevision revision) throws IOException;
+
+    ArrayList<String> getNotes(DibujoRevision revision) throws IOException;
+
 }

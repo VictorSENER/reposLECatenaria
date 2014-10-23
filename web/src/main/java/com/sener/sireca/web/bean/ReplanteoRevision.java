@@ -4,9 +4,11 @@
 
 package com.sener.sireca.web.bean;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.IsJUnit;
@@ -16,7 +18,7 @@ public class ReplanteoRevision
 {
 
     // Identificador del proyecto al que pertenece la versión.
-    private int idProject;
+    private Integer idProject;
 
     // Número de versión.
     private int numVersion;
@@ -37,18 +39,21 @@ public class ReplanteoRevision
     // Indica si la revisión tiene warnings o no.
     private boolean warning;
 
+    // Indica si la revisión tiene comentarios o no.
+    private boolean notes;
+
     // Fecha de creación de la revisión.
     private Date date;
 
     // Tamaño del fichero de la revisión (en bytes).
     private long fileSize;
 
-    public int getIdProject()
+    public Integer getIdProject()
     {
         return idProject;
     }
 
-    public void setIdProject(int idProject)
+    public void setIdProject(Integer idProject)
     {
         this.idProject = idProject;
     }
@@ -113,6 +118,16 @@ public class ReplanteoRevision
         this.warning = warning;
     }
 
+    public boolean getNotes()
+    {
+        return notes;
+    }
+
+    public void setNotes(boolean notes)
+    {
+        this.notes = notes;
+    }
+
     public Date getDate()
     {
         return date;
@@ -133,6 +148,42 @@ public class ReplanteoRevision
         this.fileSize = fileSize;
     }
 
+    public void changeState(File preExcel, File preError, File preComment)
+    {
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+
+        File postExcel = new File(getExcelPath());
+        File postError = new File(getErrorFilePath());
+        File postComment = new File(getNotesFilePath());
+
+        fileService.rename(preExcel, postExcel);
+        fileService.rename(preError, postError);
+        fileService.rename(preComment, postComment);
+
+    }
+
+    private String getState()
+    {
+
+        if (calculated && warning)
+            return "_CW";
+
+        else if (error)
+            return "_E";
+
+        else if (calculated)
+            return "_C";
+
+        else
+            return "_P";
+
+    }
+
+    public String getExcelPath()
+    {
+        return getBasePath() + ".xlsx";
+    }
+
     public String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME");
@@ -149,61 +200,29 @@ public class ReplanteoRevision
     private String getBaseName()
     {
 
-        return numRevision + "_" + type;
-    }
-
-    public String getExcelPath()
-    {
-        if (calculated && warning)
-            return getBasePath() + "_CW.xlsx";
-
-        else if (error)
-            return getBasePath() + "_E.xlsx";
-
-        else if (warning)
-            return getBasePath() + "_W.xlsx";
-
-        else if (calculated)
-            return getBasePath() + "_C.xlsx";
-
-        else
-            return getBasePath() + "_P.xlsx";
+        return numRevision + "_" + type + getState();
     }
 
     public String getProgressFilePath()
     {
-
-        if (!calculated)
-            return getBasePath() + ".progress";
-
-        return "";
+        return getBasePath() + ".progress";
     }
 
     public String getErrorFilePath()
     {
-        if (error || warning)
-            return getBasePath() + ".error";
 
-        return "";
+        return getBasePath() + ".error";
+
+    }
+
+    public String getNotesFilePath()
+    {
+        return getBasePath() + ".comment";
     }
 
     public String getExcelName()
     {
-        if (calculated && warning)
-            return getBaseName() + "_CW.xlsx";
-
-        else if (error)
-            return getBaseName() + "_E.xlsx";
-
-        else if (warning)
-            return getBaseName() + "_W.xlsx";
-
-        else if (calculated)
-            return getBaseName() + "_C.xlsx";
-
-        else
-            return getBaseName() + "_P.xlsx";
-
+        return getBaseName() + ".xlsx";
     }
 
     public String getRUser()

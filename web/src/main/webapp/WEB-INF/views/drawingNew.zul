@@ -5,9 +5,9 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
 <zk xmlns:n="native">
     <hbox self="@define(content)" hflex="1" vflex="1">
-        <window apply="com.sener.sireca.web.page.DibujoNewPage" 
+        <window id="drawingNewWin" apply="com.sener.sireca.web.page.DibujoNewPage" 
         	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
-            <caption src="/img/replanteo.png" sclass="fn-caption" label="Planos de Replanteo"/>
+            <caption src="/img/drawing.png" sclass="fn-caption" label="Planos de Replanteo"/>
             <borderlayout>
                 <center autoscroll="true" border="none">
 	                <hlayout>
@@ -67,6 +67,15 @@
               						    </radiogroup>
 	            					</cell>
 	                            </row>
+	                            <row>
+	                            	<cell sclass="row-title"> Notas de Revisón: </cell>
+	                            </row>
+	                            <row>
+	                               <cell>
+	                                    <textbox id="notes" style="resize:none;" rows="2" height="100px" width="200px" />
+	                                </cell>
+	                            </row>
+	                            
 	                            <row>
 	                            	<cell colspan="2">
 		                            	<hlayout >
@@ -137,7 +146,7 @@
 	                            	<cell colspan="2">
 		                            	<hlayout >
 		                   					<button id="checkAll" label="Seleccionar todo" width="125px"/>
-		                   					<button id="unCheckAll" label="Restablecer" width="125px"/>
+		                   					<button id="unCheckAll" label="Deseleccionar" width="125px"/>
 		                   				</hlayout>
 	                   				</cell>
 	                            </row>

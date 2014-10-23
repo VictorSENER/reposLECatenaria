@@ -5,7 +5,7 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
 <zk xmlns:n="native">
     <hbox self="@define(content)" hflex="1" vflex="1">
-        <window apply="com.sener.sireca.web.page.ReplanteoNewPage" 
+        <window id="replanteoNewWin" apply="com.sener.sireca.web.page.ReplanteoNewPage" 
         	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
             <caption src="/img/replanteo.png" sclass="fn-caption" label="Cuadernos de Replanteo"/>
             <borderlayout>
@@ -42,10 +42,18 @@
 	                            <row>
 									 <cell sclass="row-title" colspan="2" > PK Final : &#160; <textbox id="pkFinal" disabled="true" width="50px" /></cell>
 	                            </row>
+	                            <row>
+	                            	<cell sclass="row-title"> Notas de Revisón: </cell>
+	                            </row>
+	                            <row>
+	                                <cell>
+	                                    <textbox id="notes" style="resize:none;" rows="2" height="100px" width="200px" />
+	                                </cell>
+	                            </row>
 	                        </rows>
 	                   	</grid>
 	               		<hlayout>
-	                   		<button id="calculoReplanteo" label="Calcular" width="65px"/>
+	                   		<button id="calculoReplanteo" label="Importar" width="65px"/>
 	                   		<button id="volver" label="Volver" width="65px"/>
 	                   	</hlayout>
               		</vlayout>  

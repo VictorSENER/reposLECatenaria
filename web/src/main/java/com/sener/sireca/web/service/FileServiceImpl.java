@@ -13,13 +13,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.ArrayUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -187,12 +187,9 @@ public class FileServiceImpl implements FileService
         }
     }
 
-    public String[] getProgressFileContent(String path) throws IOException
+    public String[] getProgressFileContent(String path, String valores[])
+            throws IOException
     {
-        String firstLine[] = { "0", "?",
-                "Ejecutando funcionalidad desconocida." };
-
-        String secondLine[] = { "0", "?" };
 
         BufferedReader br = null;
 
@@ -204,13 +201,8 @@ public class FileServiceImpl implements FileService
             {
                 String line = br.readLine();
 
-                if (line != null)
-                    firstLine = line.split("/");
-
-                line = br.readLine();
-
-                if (line != null)
-                    secondLine = line.split("/");
+                if (line != null && line != "")
+                    valores = line.split("/");
             }
             finally
             {
@@ -222,17 +214,15 @@ public class FileServiceImpl implements FileService
             // Ignore
         }
 
-        String[] valores = (String[]) ArrayUtils.addAll(firstLine, secondLine);
-
         return valores;
 
     }
 
-    public ArrayList<String> getErrorFileContent(String path)
+    public ArrayList<String[]> getErrorFileContent(String path)
             throws IOException
     {
 
-        ArrayList<String> errorLog = new ArrayList<String>();
+        ArrayList<String[]> errorLog = new ArrayList<String[]>();
 
         BufferedReader br = null;
 
@@ -242,14 +232,14 @@ public class FileServiceImpl implements FileService
 
             try
             {
+
                 String line = br.readLine();
 
-                while (line != null)
+                while (line != null && line != "")
                 {
-                    errorLog.add(line);
+                    errorLog.add(line.split("/"));
                     line = br.readLine();
                 }
-
             }
             finally
             {
@@ -265,24 +255,57 @@ public class FileServiceImpl implements FileService
 
     }
 
-    @Override
-    public String getFileContent(String path) throws IOException
+    public ArrayList<String> getFileContent(String path) throws IOException
     {
+        ArrayList<String> notes = new ArrayList<String>();
 
-        FileInputStream inputStream = new FileInputStream(path);
-        String everything;
+        BufferedReader br = null;
+
         try
         {
-            everything = IOUtils.toString(inputStream);
+            br = new BufferedReader(new FileReader(path));
+
+            try
+            {
+
+                String line = br.readLine();
+
+                while (line != null)
+                {
+                    notes.add(line);
+                    line = br.readLine();
+                }
+            }
+            finally
+            {
+                br.close();
+            }
         }
-        finally
+        catch (FileNotFoundException e)
         {
-            inputStream.close();
+            // Ignore
         }
 
-        return everything;
-
+        return notes;
     }
+
+    // public String getFileContent(String path) throws IOException
+    // {
+    //
+    // FileInputStream inputStream = new FileInputStream(path);
+    // String everything;
+    // try
+    // {
+    // everything = IOUtils.toString(inputStream);
+    // }
+    // finally
+    // {
+    // inputStream.close();
+    // }
+    //
+    // return everything;
+    //
+    // }
 
     public boolean fileExists(String path)
     {
@@ -299,7 +322,6 @@ public class FileServiceImpl implements FileService
             }
             catch (IOException e)
             {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
 
@@ -310,6 +332,31 @@ public class FileServiceImpl implements FileService
         }
 
         return true;
+
+    }
+
+    public void rename(File from, File to)
+    {
+        from.renameTo(to);
+    }
+
+    @Override
+    public void writeFile(String path, String content)
+    {
+        PrintWriter writer = null;
+        try
+        {
+            writer = new PrintWriter(path, "UTF-8");
+            writer.println(content);
+        }
+        catch (FileNotFoundException | UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            writer.close();
+        }
 
     }
 }

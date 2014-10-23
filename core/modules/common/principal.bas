@@ -211,7 +211,8 @@ Function dibujoReplanteo( geoPost As Boolean, _
 						  altCat As Boolean, _ 
 						  puntSing As Boolean, _
 						  cableado As Boolean, _
-						  datTraz As Boolean ) As Long
+						  datTraz As Boolean, _
+						  HDC As Boolean) As Long
 	Dim ruta_autocad As String
 	
 	strDB = Environ("SIRECA_HOME") & "\database\db.Accdb"
@@ -223,6 +224,17 @@ Function dibujoReplanteo( geoPost As Boolean, _
 	Call cargar.datos_lac(catenariaVB)
 	Call dibujar.Dibujar_PK
 	Call Obtener_excel_pks
+	
+	
+	If HDC = True Then
+			
+		' SI ES HDC HAZ LO QUE TENGA QUE HACER
+	
+	Else
+	
+		'SI ES PIQUETAJE O CUSTOM HAZ LO QUE TENGA QUE HACER
+	
+	End If
 	
 	If geoPost = True Then
 		Call dibujar.dibujar_postes(cadena_ruta)

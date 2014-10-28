@@ -4,9 +4,11 @@
 
 package com.sener.sireca.web.bean;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.SpringApplicationContext;
@@ -22,6 +24,9 @@ public class PendoladoRevision
 
     // Número de revisión.
     private int numRevision;
+
+    // Revisión del cuaderno de replanteo usada
+    private ReplanteoRevision repRev;
 
     // Indica si la revisión ha sido calculada o si aún se está calculando.
     private boolean calculated;
@@ -118,51 +123,59 @@ public class PendoladoRevision
         this.fileSize = fileSize;
     }
 
-    public String getAutoCadPath()
+    public void changeState(File prePDF, File preError, File preComment)
     {
+        FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
 
+        File postPDF = new File(getPDFPath());
+        File postError = new File(getErrorFilePath());
+        File postComment = new File(getNotesFilePath());
+
+        fileService.rename(prePDF, postPDF);
+        fileService.rename(preError, postError);
+        fileService.rename(preComment, postComment);
+    }
+
+    private String getState()
+    {
         if (calculated && warning)
-            return getBasePath() + "_CW.dwg";
+            return "_CW";
 
         else if (error)
-            return getBasePath() + "_E.dwg";
+            return "_E";
 
         else if (calculated)
-            return getBasePath() + "_C.dwg";
+            return "_C";
 
         else
-            return getBasePath() + "_P.dwg";
+            return "_P";
+    }
+
+    public String getPDFPath()
+    {
+        return getBasePath() + ".pdf";
+
+    }
+
+    public String getPDFName()
+    {
+        return getBaseName() + ".pdf";
+
     }
 
     public String getProgressFilePath()
     {
-        if (!calculated)
-            return getBasePath() + ".progress";
-
-        return "";
+        return getBasePath() + ".progress";
     }
 
     public String getErrorFilePath()
     {
-        if (error || warning)
-            return getBasePath() + ".error";
-
-        return "";
+        return getBasePath() + ".error";
     }
 
-    public String getAutoCadName()
+    public String getNotesFilePath()
     {
-        if (calculated && warning)
-            return getBaseName() + "_CW.dwg";
-
-        else if (error)
-            return getBaseName() + "_E.dwg";
-
-        else if (calculated)
-            return getBaseName() + "_C.dwg";
-
-        else
-            return getBaseName() + "_P.dwg";
+        return getBasePath() + ".comment";
     }
 
     public String getRUser()
@@ -191,7 +204,7 @@ public class PendoladoRevision
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    private String getBasePath()
+    public String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";
 
@@ -201,8 +214,8 @@ public class PendoladoRevision
 
     private String getBaseName()
     {
-        // TODO: Completar BaseName
-        return "";
+        return numRevision + "_" + repRev.getNumVersion() + "_"
+                + repRev.getNumRevision() + getState();
     }
 
 }

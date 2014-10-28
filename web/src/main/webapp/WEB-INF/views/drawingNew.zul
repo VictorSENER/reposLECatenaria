@@ -39,7 +39,7 @@
 	                            </row>
 	                            <row>
 	                                <cell sclass="row-title" colspan="2">
-	                                	Versión:&#160;&#160;
+	                                	Versión:&#160;&#160;&#160;&#160;
 	                                    <combobox id="versionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
@@ -47,7 +47,7 @@
 	                            </row>
 	                            <row>
 	                                <cell sclass="row-title" colspan="2">
-	                                	Revisión:
+	                                	Revisión:&#160;&#160;
 	                                	<combobox id="revisionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>

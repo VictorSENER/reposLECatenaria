@@ -35,6 +35,7 @@ import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.bean.ReplanteoRevision;
 import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
+import com.sener.sireca.web.service.CatenariaService;
 import com.sener.sireca.web.service.DibujoService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
@@ -104,9 +105,10 @@ public class DibujoNewPage extends SelectorComposer<Component>
     @Wire
     Combobox revisionList;
 
-    List<ReplanteoVersion> verList;
+    private List<ReplanteoVersion> verList;
 
-    Media media = null;
+    private Media media = null;
+    private boolean bHDC;
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
@@ -115,6 +117,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
     DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
     VerService verService = (VerService) SpringApplicationContext.getBean("verService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+    CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
@@ -187,8 +190,11 @@ public class DibujoNewPage extends SelectorComposer<Component>
             int numVersion = dibujoService.getLastVersion(project);
             int repVersion = versionList.getSelectedItem().getValue();
             int repRevision = revisionList.getSelectedItem().getValue();
+            int idCatenaria = project.getIdCatenaria();
             double pkIni = Double.parseDouble(pkInicial.getValue());
             double pkFin = Double.parseDouble(pkFinal.getValue());
+
+            String catenaria = catenariaService.getCatenariaById(idCatenaria).getNomCatenaria();
 
             ReplanteoVersion replanteoVersion = replanteoService.getVersion(
                     project, repVersion);
@@ -224,7 +230,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
             confTipo.setCableado(cableado.isChecked());
             confTipo.setDatTraz(datTraz.isChecked());
 
-            DrawingWorker dw = new DrawingWorker(dibujoRevision, confTipo, pkIni, pkFin, repVersion, repRevision);
+            DrawingWorker dw = new DrawingWorker(dibujoRevision, confTipo, pkIni, pkFin, repVersion, repRevision, bHDC, catenaria);
 
             dw.start();
 
@@ -310,7 +316,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
             puntSing.setChecked(true);
             cableado.setChecked(true);
             datTraz.setChecked(false);
-
+            bHDC = false;
         }
         else if (type.equals("HDC"))
         {
@@ -331,10 +337,13 @@ public class DibujoNewPage extends SelectorComposer<Component>
             puntSing.setChecked(true);
             cableado.setChecked(true);
             datTraz.setChecked(false);
+            bHDC = true;
         }
         else
+        {
             enableCheckBoxs();
-
+            bHDC = false;
+        }
     }
 
     private void enableCheckBoxs()

@@ -43,10 +43,10 @@
 									 <cell sclass="row-title" colspan="2" > PK Final : &#160; <textbox id="pkFinal" disabled="true" width="50px" /></cell>
 	                            </row>
 	                            <row>
-	                            	<cell sclass="row-title"> Notas de Revisón: </cell>
+	                            	<cell sclass="row-title" colspan="2"> Notas de Revisón: </cell>
 	                            </row>
 	                            <row>
-	                                <cell>
+	                                <cell colspan="2">
 	                                    <textbox id="notes" style="resize:none;" rows="2" height="100px" width="200px" />
 	                                </cell>
 	                            </row>

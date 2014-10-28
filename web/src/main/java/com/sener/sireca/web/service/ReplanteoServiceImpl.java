@@ -249,9 +249,7 @@ public class ReplanteoServiceImpl implements ReplanteoService
         if (jacobService.executeCoreCommand(path, "calculo-replanteo",
                 parameter))
         {
-            // if (fileService.fileExists(revision.getProgressFilePath()))
             fileService.deleteFile(revision.getProgressFilePath());
-
             revision.setCalculated(true);
         }
         if (fileService.fileExists(path + ".error"))

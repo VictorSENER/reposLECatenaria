@@ -17,10 +17,12 @@ public class DrawingWorker extends Thread
     private double pkFin;
     private int repVersion;
     private int repRevision;
+    private boolean bHDC;
+    private String catenaria;
 
     public DrawingWorker(DibujoRevision revision,
             DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
-            int repVersion, int repRevision)
+            int repVersion, int repRevision, boolean bHDC, String catenaria)
     {
         super();
         this.revision = revision;
@@ -29,6 +31,8 @@ public class DrawingWorker extends Thread
         this.pkFin = pkFin;
         this.repVersion = repVersion;
         this.repRevision = repRevision;
+        this.bHDC = bHDC;
+        this.catenaria = catenaria;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class DrawingWorker extends Thread
 
         DibujoServiceImpl service = new DibujoServiceImpl();
         service.calculateRevision(revision, dibConfTip, pkIni, pkFin,
-                repVersion, repRevision);
+                repVersion, repRevision, bHDC, catenaria);
 
     }
 }

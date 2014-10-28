@@ -215,7 +215,7 @@ public class DibujoServiceImpl implements DibujoService
     @Override
     public void calculateRevision(DibujoRevision revision,
             DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
-            int repVersion, int repRevision)
+            int repVersion, int repRevision, boolean bHDC, String catenaria)
     {
         JACOBService jacobService = (JACOBService) SpringApplicationContext.getBean("jacobService");
 
@@ -223,6 +223,9 @@ public class DibujoServiceImpl implements DibujoService
 
         List<Variant> parameter = new ArrayList<Variant>();
 
+        parameter.add(new Variant(pkIni));
+        parameter.add(new Variant(pkFin));
+        parameter.add(new Variant(catenaria));
         parameter.add(new Variant(dibConfTip.isGeoPost()));
         parameter.add(new Variant(dibConfTip.isEtiPost()));
         parameter.add(new Variant(dibConfTip.isDatPost()));
@@ -239,6 +242,7 @@ public class DibujoServiceImpl implements DibujoService
         parameter.add(new Variant(dibConfTip.isPuntSing()));
         parameter.add(new Variant(dibConfTip.isCableado()));
         parameter.add(new Variant(dibConfTip.isDatTraz()));
+        parameter.add(new Variant(bHDC));
 
         File preAutoCad = new File(revision.getAutoCadPath());
         File preError = new File(revision.getErrorFilePath());
@@ -251,7 +255,7 @@ public class DibujoServiceImpl implements DibujoService
         if (jacobService.executeCoreCommand(path, "dibujo-replanteo", parameter))
         {
             fileService.deleteFile(revision.getProgressFilePath());
-            // fileService.deleteFile(auxExcelPath);
+            fileService.deleteFile(auxExcelPath);
             revision.setCalculated(true);
         }
 

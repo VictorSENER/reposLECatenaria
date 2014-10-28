@@ -202,7 +202,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
     public void doDownloadTemplate() throws FileNotFoundException
     {
         java.io.InputStream is = new FileInputStream(System.getenv("SIRECA_HOME")
-                + "/templates/INPUTS_template.xlsx");
+                + "/templates/Calculo_Replanteo_Template.xlsx");
         Filedownload.save(is, "application/xlsx", "INPUTS_template.xlsx");
 
     }

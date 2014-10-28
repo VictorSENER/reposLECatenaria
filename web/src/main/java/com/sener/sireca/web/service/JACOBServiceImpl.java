@@ -158,7 +158,7 @@ public class JACOBServiceImpl implements JACOBService
                         parameters.get(2), parameters.get(3));
                 break;
 
-            case 16:
+            case 20:
                 Dispatch.call(excel, "Run", new Variant(excelName + "!"
                         + macroName), parameters.get(0), parameters.get(1),
                         parameters.get(2), parameters.get(3),
@@ -167,7 +167,9 @@ public class JACOBServiceImpl implements JACOBService
                         parameters.get(8), parameters.get(9),
                         parameters.get(10), parameters.get(11),
                         parameters.get(12), parameters.get(13),
-                        parameters.get(14), parameters.get(15));
+                        parameters.get(14), parameters.get(15),
+                        parameters.get(16), parameters.get(17),
+                        parameters.get(18), parameters.get(19));
                 break;
 
         }

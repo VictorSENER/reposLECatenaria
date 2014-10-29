@@ -62,6 +62,10 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
         aloc = aloc + 1
     Wend
     End If
+    Set text = a_text.CreateTextFile(dir_progress)
+    text.WriteLine "4" & "/" & "14" & "/" & "Puntos singulares del trazado" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+    text.Close
+    
 '//
 '// Incrementar fila del replanteo
 '//
@@ -193,7 +197,9 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
     'ElseIf Sheets("Replanteo").Cells(z, 56).Value <> "" And cont_est = 2 Then
         'cont_est = 0
     End If
-    
+Set text = a_text.CreateTextFile(dir_progress)
+text.WriteLine "7" & "/" & "14" & "/" & "Conexiones eléctricas" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+text.Close
     
 '//
 '// Incrementar fila del replanteo
@@ -282,6 +288,10 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
         Sheets("Replanteo").Cells(z, 21).Value = Sheets("Extra").Cells(cont, 7).Value
         End If
     End If
+    
+    Set text = a_text.CreateTextFile(dir_progress)
+    text.WriteLine "8" & "/" & "14" & "/" & "Implantaciones" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+    text.Close
     z = z + 2
 
 Wend

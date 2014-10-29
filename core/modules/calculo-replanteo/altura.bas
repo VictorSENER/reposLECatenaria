@@ -222,6 +222,10 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
     Else
         Sheets("Replanteo").Cells(z, 10).Value = alt_nom
     End If
+    Set text = a_text.CreateTextFile(dir_progress)
+    text.WriteLine "9" & "/" & "14" & "/" & "Altura Hilo" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+    text.Close
+
 '//
 '// Incrementar una fila del replanteo
 '//

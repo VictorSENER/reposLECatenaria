@@ -11,7 +11,9 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value)
     'Else
         Sheets("Replanteo").Cells(h, 30).Value = Sheets("Extra").Cells(a, 3).Value
     'End If
-    
+    Set text = a_text.CreateTextFile(dir_progress)
+    text.WriteLine "2" & "/" & "14" & "/" & "Posición del poste" & "/" & Sheets("Replanteo").Cells(h, 33).Value & "/" & final
+    text.Close
     h = h + 2
 Wend
 End Sub

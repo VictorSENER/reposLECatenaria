@@ -494,6 +494,10 @@ If IsEmpty(Sheets("Replanteo").Cells(z, 8).Value) Then
     algo = 0
     
 End If
+Set text = a_text.CreateTextFile(dir_progress)
+text.WriteLine "6" & "/" & "14" & "/" & "Descentramiento" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+text.Close
+
 '//
 '// Incrementar fila del replanteo
 '//

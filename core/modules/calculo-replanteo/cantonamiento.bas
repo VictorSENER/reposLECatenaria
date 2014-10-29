@@ -83,7 +83,7 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value) And Not IsEmpty(Sheets
     '//
     '// Calcular y escoger el Pk final del seccionamiento
     '//
-    aplus = 3
+    aplus = 4
     If Sheets("Punto singular").Cells(a, 22).Value = "OUT" Then
         While Not IsEmpty(Sheets("Replanteo").Cells(beta, 16).Value)
             beta = beta + 2
@@ -479,6 +479,9 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value) And Not IsEmpty(Sheets
                 Sheets("Replanteo").Range(Sheets("Replanteo").Cells(hini, 26), Sheets("Replanteo").Cells(hini, 26)).Interior.ColorIndex = 6
             End If
         End If
+        Set text = a_text.CreateTextFile(dir_progress)
+        text.WriteLine "5" & "/" & "14" & "/" & "Distribución de los cantones" & "/" & Sheets("Replanteo").Cells(h, 33).Value & "/" & final
+        text.Close
         h = h + 2
     Wend
 Wend

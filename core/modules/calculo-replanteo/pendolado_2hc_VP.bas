@@ -2925,7 +2925,7 @@ Dim longueur As Double
 Dim primero As String, primero2 As String, segundo As String, tercero As String, cuatro As String, segundo2 As String, tercero2 As String, cuarto As String, cuarto2 As String
 Dim normal As Boolean, cas_tun As Boolean
 Dim algo As Variant
-dim tip_1 as String, tip_pf_1 as string, tip_0 as String, tip_pf_0 as string, tip_2 as String, tip_pf_2 as string
+Dim tip_1 As String, tip_pf_1 As String, tip_0 As String, tip_pf_0 As String, tip_2 As String, tip_pf_2 As String
 z = 10
 Call cargar.datos_lac(nombre_catVB)
 While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
@@ -3677,6 +3677,11 @@ ElseIf primero = "S" And segundo = "S" Then
 ElseIf primero2 = "S" And segundo2 = "S" Then
     Sheets("Replanteo").Cells(z + 1, 55).Value = 4.5
 End If
+
+Set text = a_text.CreateTextFile(dir_progress)
+text.WriteLine "10" & "/" & "14" & "/" & "Codificación pendolado" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+text.Close
+
 z = z + 2
 Wend
 End Sub

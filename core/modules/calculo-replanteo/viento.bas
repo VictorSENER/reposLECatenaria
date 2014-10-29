@@ -5,6 +5,7 @@ Dim ventoso() As Variant
 '///recolectar los tramos ventosos o no ventosos
 '///
 aloc = 3
+pol = 0
 While Not IsEmpty(Sheets("Extra").Cells(aloc, 11).Value)
     pol = pol + 3
     ReDim Preserve ventoso(1 To pol)

@@ -152,6 +152,9 @@ While Not IsEmpty(Sheets("Replanteo").Cells(z, 33).Value)
             w = w + 1
         End If
     End If
+Set text = a_text.CreateTextFile(dir_progress)
+text.WriteLine "14" & "/" & "14" & "/" & "Numeración postes" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
+text.Close
     '//
     '// Incrementar fila del replanteo
     '//

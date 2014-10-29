@@ -130,11 +130,11 @@ Function dibujoReplanteo(pkini As Double, _
             ruta_autocad = Environ("SIRECA_HOME") & "\core\blocks\HDC.dwg"
         Else
             i = 1
-            While Mid(Application.ActiveWorkbook.Name, i, 1) <> "."
+            While Mid(Application.ActiveWorkbook.FullName, i, 1) <> "."
                     i = i + 1
             Wend
             
-            ruta_autocad = Mid(Application.ActiveWorkbook.Name, 1, i - 1) & ".dwg"
+            ruta_autocad = Mid(Application.ActiveWorkbook.FullName, 1, i - 1) & ".dwg"
 
         End If
         

@@ -67,8 +67,8 @@ public class DibujoServiceImpl implements DibujoService
     {
         int idLastversion = verService.getLastVersion(project.getDibReplanteoBasePath());
         idLastversion++;
-
-        fileService.addDirectory(project.getCalcReplanteoBasePath()
+        // TODO:Aquí hay un cambio, probar!!!!!
+        fileService.addDirectory(project.getDibReplanteoBasePath()
                 + idLastversion);
 
         return new DibujoVersion(project.getId(), idLastversion);
@@ -115,13 +115,13 @@ public class DibujoServiceImpl implements DibujoService
             dibujoRevisionAux.setRepRev(replanteoService.getRevision(
                     replanteoVersionAux, Integer.parseInt(parameters[2])));
 
-            if (parameters[3].equals("E.xlsx"))
+            if (parameters[3].equals("E.dwg"))
                 dibujoRevisionAux.setError(true);
 
-            else if (parameters[3].equals("C.xlsx"))
+            else if (parameters[3].equals("C.dwg"))
                 dibujoRevisionAux.setCalculated(true);
 
-            else if (parameters[3].equals("CW.xlsx"))
+            else if (parameters[3].equals("CW.dwg"))
             {
                 dibujoRevisionAux.setCalculated(true);
                 dibujoRevisionAux.setWarning(true);
@@ -215,7 +215,7 @@ public class DibujoServiceImpl implements DibujoService
     @Override
     public void calculateRevision(DibujoRevision revision,
             DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
-            int repVersion, int repRevision, boolean bHDC, String catenaria)
+            boolean bHDC, String catenaria)
     {
         JACOBService jacobService = (JACOBService) SpringApplicationContext.getBean("jacobService");
 

@@ -174,7 +174,7 @@ public class DibujoPage extends SelectorComposer<Component>
     }
 
     @Listen("onClick = #newDibujo")
-    public void doReplanteoAdd()
+    public void doDibujoAdd()
     {
         Executions.getCurrent().sendRedirect("/drawing/new/");
     }

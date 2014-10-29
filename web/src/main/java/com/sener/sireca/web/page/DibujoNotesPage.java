@@ -67,12 +67,6 @@ public class DibujoNotesPage extends SelectorComposer<Component>
 
         String show = "";
 
-        // Rows rows = new Rows();
-        // rows.setParent(notesList);
-        // Row row = new Row();
-        // Cell cell = new Cell();
-        // cell.setColspan(2);
-
         Html html;
         html = new Html();
 
@@ -85,8 +79,6 @@ public class DibujoNotesPage extends SelectorComposer<Component>
         html.setContent(show);
 
         html.setParent(notesContent);
-        // cell.setParent(row);
-        // row.setParent(rows);
 
     }
 

@@ -37,6 +37,9 @@ public class PendoladoRevision
     // Indica si la revisión tiene warnings o no.
     private boolean warning;
 
+    // Indica si la revisión tiene comentarios o no.
+    private boolean notes;
+
     // Fecha de creación de la revisión.
     private Date date;
 
@@ -103,6 +106,16 @@ public class PendoladoRevision
         this.warning = warning;
     }
 
+    public boolean getNotes()
+    {
+        return notes;
+    }
+
+    public void setNotes(boolean notes)
+    {
+        this.notes = notes;
+    }
+
     public Date getDate()
     {
         return date;
@@ -121,6 +134,16 @@ public class PendoladoRevision
     public void setFileSize(long fileSize)
     {
         this.fileSize = fileSize;
+    }
+
+    public ReplanteoRevision getRepRev()
+    {
+        return repRev;
+    }
+
+    public void setRepRev(ReplanteoRevision repRev)
+    {
+        this.repRev = repRev;
     }
 
     public void changeState(File prePDF, File preError, File preComment)

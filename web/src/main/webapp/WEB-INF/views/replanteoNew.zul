@@ -37,10 +37,10 @@
 									</cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" disabled="true" width="50px" /> </cell>
+	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" disabled="true" width="50px" /> &#160; m. </cell>
 	                            </row>
 	                            <row>
-									 <cell sclass="row-title" colspan="2" > PK Final : &#160; <textbox id="pkFinal" disabled="true" width="50px" /></cell>
+									 <cell sclass="row-title" colspan="2" > PK Final : &#160; <textbox id="pkFinal" disabled="true" width="50px" /> &#160; m. </cell>
 	                            </row>
 	                            <row>
 	                            	<cell sclass="row-title" colspan="2"> Notas de Revisón: </cell>

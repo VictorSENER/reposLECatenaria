@@ -116,7 +116,7 @@ public class DibujoErrorPage extends SelectorComposer<Component>
     public void doBackClick()
     {
         // Go back
-        Executions.getCurrent().sendRedirect("/replanteo");
+        Executions.getCurrent().sendRedirect("/drawing");
 
     }
 

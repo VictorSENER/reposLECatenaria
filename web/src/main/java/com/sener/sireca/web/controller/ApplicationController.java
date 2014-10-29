@@ -24,6 +24,8 @@ import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.AuthenticationService;
 import com.sener.sireca.web.service.DibujoService;
+import com.sener.sireca.web.service.MontajeService;
+import com.sener.sireca.web.service.PendoladoService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.session.UserCredential;
@@ -159,6 +161,7 @@ public class ApplicationController
                         org.apache.commons.io.IOUtils.copy(is,
                                 response.getOutputStream());
                         response.flushBuffer();
+
                     }
                     catch (IOException ex)
                     {
@@ -262,21 +265,164 @@ public class ApplicationController
 
     }
 
-    @RequestMapping(value = "pendolado", method = RequestMethod.GET)
-    public String pendolado(Model mode, HttpServletRequest request,
-            HttpSession session)
+    @RequestMapping(value = "pendolado{action}", method = RequestMethod.GET)
+    public String pendolado(@PathVariable String action, Model mode,
+            HttpServletRequest request, HttpSession session)
     {
         if (isThereAnActiveProject(session))
             return "pendolado.zul";
         return "nonActiveProject.zul";
     }
 
-    @RequestMapping(value = "montaje", method = RequestMethod.GET)
-    public String montaje(Model model, HttpServletRequest request,
-            HttpSession session)
+    @RequestMapping(value = "pendolado/new", method = RequestMethod.GET)
+    public String newPendolado(Model model)
+    {
+        return "pendoladoNew.zul";
+    }
+
+    @RequestMapping(value = "pendolado/{action}/{numVersion}/{numRevision}", method = RequestMethod.GET)
+    public String deleteShowPen(@PathVariable Integer numVersion,
+            @PathVariable Integer numRevision, @PathVariable String action,
+            Model model, HttpServletResponse response, HttpSession session)
+    {
+        if (isThereAnActiveProject(session))
+        {
+            if (action.equals("download"))
+            {
+
+                ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
+                PendoladoService pendoladoService = (PendoladoService) SpringApplicationContext.getBean("pendoladoService");
+                ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+
+                Project project = projectService.getProjectById(actProj.getIdActive(session));
+
+                if (pendoladoService.getRevision(
+                        pendoladoService.getVersion(project, numVersion),
+                        numRevision).getCalculated())
+                {
+                    try
+                    {
+
+                        String path = pendoladoService.getRevision(
+                                pendoladoService.getVersion(project, numVersion),
+                                numRevision).getPDFPath();
+
+                        String fileName = pendoladoService.getRevision(
+                                pendoladoService.getVersion(project, numVersion),
+                                numRevision).getPDFName();
+
+                        // Get file as InputStream
+                        InputStream is = new FileInputStream(path);
+
+                        // Set file name
+                        response.setHeader("Content-Disposition", "filename="
+                                + fileName);
+
+                        // Copy it to response's OutputStream
+                        org.apache.commons.io.IOUtils.copy(is,
+                                response.getOutputStream());
+                        response.flushBuffer();
+                    }
+                    catch (IOException ex)
+                    {
+                        throw new RuntimeException("IOError writing file to output stream");
+                    }
+                }
+            }
+            else if (action.equals("progress"))
+                return "pendoladoProgress.zul";
+
+            else if (action.equals("error"))
+                return "pendoladoError.zul";
+
+            else if (action.equals("notes"))
+                return "pendoladoNotes.zul";
+
+            return "pendolado.zul";
+        }
+
+        return "nonActiveProject.zul";
+
+    }
+
+    @RequestMapping(value = "montaje{action}", method = RequestMethod.GET)
+    public String montaje(@PathVariable String action, Model model,
+            HttpServletRequest request, HttpSession session)
     {
         if (isThereAnActiveProject(session))
             return "montaje.zul";
         return "nonActiveProject.zul";
     }
+
+    @RequestMapping(value = "montaje/new", method = RequestMethod.GET)
+    public String newMontaje(Model model)
+    {
+        return "montajeNew.zul";
+    }
+
+    @RequestMapping(value = "montaje/{action}/{numVersion}/{numRevision}", method = RequestMethod.GET)
+    public String deleteShowMon(@PathVariable Integer numVersion,
+            @PathVariable Integer numRevision, @PathVariable String action,
+            Model model, HttpServletResponse response, HttpSession session)
+    {
+        if (isThereAnActiveProject(session))
+        {
+            if (action.equals("download"))
+            {
+
+                ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
+                MontajeService montajeService = (MontajeService) SpringApplicationContext.getBean("montajeService");
+                ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
+
+                Project project = projectService.getProjectById(actProj.getIdActive(session));
+
+                if (montajeService.getRevision(
+                        montajeService.getVersion(project, numVersion),
+                        numRevision).getCalculated())
+                {
+                    try
+                    {
+                        // TODO: Pensar como hacer para descargar .pdf o .dwg
+                        String path = montajeService.getRevision(
+                                montajeService.getVersion(project, numVersion),
+                                numRevision).getPDFPath();
+
+                        String fileName = montajeService.getRevision(
+                                montajeService.getVersion(project, numVersion),
+                                numRevision).getPDFName();
+
+                        // Get file as InputStream
+                        InputStream is = new FileInputStream(path);
+
+                        // Set file name
+                        response.setHeader("Content-Disposition", "filename="
+                                + fileName);
+
+                        // Copy it to response's OutputStream
+                        org.apache.commons.io.IOUtils.copy(is,
+                                response.getOutputStream());
+                        response.flushBuffer();
+                    }
+                    catch (IOException ex)
+                    {
+                        throw new RuntimeException("IOError writing file to output stream");
+                    }
+                }
+            }
+            else if (action.equals("progress"))
+                return "montajeProgress.zul";
+
+            else if (action.equals("error"))
+                return "montajeError.zul";
+
+            else if (action.equals("notes"))
+                return "montajeNotes.zul";
+
+            return "montaje.zul";
+        }
+
+        return "nonActiveProject.zul";
+
+    }
+
 }

@@ -254,4 +254,10 @@ public class DibujoRevision
                 + repRev.getNumRevision() + getState();
     }
 
+    public String getHDCTemplatePath()
+    {
+        return System.getenv("SIRECA_HOME") + "/templates/"
+                + DibujoVersion.DIBUJO_REPLANTEO + "/HDC.dwg";
+    }
+
 }

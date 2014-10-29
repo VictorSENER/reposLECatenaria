@@ -21,6 +21,18 @@
 	                        </columns>
 	                        <rows>
 	                        	<row>
+	                            	<cell sclass="row-title" colspan="2" > Configuración tipo entidades del plano de replanteo: </cell>
+	                            </row>
+	                        	<row>
+	                                <cell colspan="2">
+	                                	<radiogroup id="rg">
+	                                		<radio label="HDC" selected="true"/>
+	                                    	<separator></separator>
+                							<radio label="Replanteo"/>
+              						    </radiogroup>
+	            					</cell>
+	                            </row>
+	                        	<row>
 	                            	<cell sclass="row-title"> Eje de Trazado: </cell>
 	                            </row>
 	                        	<row>
@@ -32,10 +44,10 @@
 	            					</cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" width="50px" /> </cell>
+	                                 <cell sclass="row-title" colspan="2" > PK Inicial : <textbox id="pkInicial" width="50px" /> &#160; m. </cell>
 	                            </row>
 	                            <row>
-									 <cell sclass="row-title" colspan="2" >  PK Final : &#160; <textbox id="pkFinal" width="50px" /></cell>
+									 <cell sclass="row-title" colspan="2" >  PK Final : &#160; <textbox id="pkFinal" width="50px" /> &#160; m. </cell>
 	                            </row>
 	                            <row>
 	                                <cell sclass="row-title" colspan="2">
@@ -51,20 +63,6 @@
 	                                	<combobox id="revisionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
-	            					</cell>
-	                            </row>
-	                            <row>
-	                            	<cell sclass="row-title" colspan="2" > Configuración tipo entidades del plano de replanteo: </cell>
-	                            </row>
-	                            <row>
-	                                <cell colspan="2">
-	                                	<radiogroup id="rg">
-	                                    	<radio label="Replanteo" selected="true"/>
-	                                    	<separator></separator>
-                							<radio label="HDC"/>
-                							<separator></separator>
-              						    	<radio label="Custom"/>
-              						    </radiogroup>
 	            					</cell>
 	                            </row>
 	                            <row>

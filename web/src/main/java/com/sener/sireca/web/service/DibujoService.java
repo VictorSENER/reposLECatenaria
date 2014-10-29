@@ -35,9 +35,9 @@ public interface DibujoService
     public DibujoRevision createRevision(DibujoVersion version,
             ReplanteoRevision repRev, String comment);
 
-    void calculateRevision(DibujoRevision revision,
+    public void calculateRevision(DibujoRevision revision,
             DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
-            int repVersion, int repRevision, boolean bHDC, String catenaria);
+            boolean bHDC, String catenaria);
 
     public boolean deleteRevision(Project project, int numVersion,
             int numRevision);

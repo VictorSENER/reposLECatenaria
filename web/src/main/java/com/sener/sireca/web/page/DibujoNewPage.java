@@ -37,6 +37,7 @@ import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.CatenariaService;
 import com.sener.sireca.web.service.DibujoService;
+import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
 import com.sener.sireca.web.service.VerService;
@@ -112,6 +113,8 @@ public class DibujoNewPage extends SelectorComposer<Component>
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
+
+    // Services
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
     ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
     DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
@@ -168,7 +171,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
     public void doDraw() throws IOException
     {
 
-        if (fileToUpload.getValue().equals(""))
+        if (!bHDC & fileToUpload.getValue().equals(""))
             Clients.showNotification("No ha seleccionado ningun archivo.");
 
         else if (pkInicial.getValue().equals(""))
@@ -185,14 +188,31 @@ public class DibujoNewPage extends SelectorComposer<Component>
 
         else
         {
+            double pkIni = 0;
+            double pkFin = 0;
+
+            try
+            {
+                pkIni = Double.parseDouble(pkInicial.getValue().replace(',',
+                        '.'));
+                pkFin = Double.parseDouble(pkFinal.getValue().replace(',', '.'));
+            }
+            catch (Exception e)
+            {
+                return;
+            }
+
+            if (pkIni >= pkFin)
+            {
+                Clients.showNotification("El PK Inicial debe ser que el PK Final.");
+                return;
+            }
 
             Project project = projectService.getProjectById(actProj.getIdActive(session));
             int numVersion = dibujoService.getLastVersion(project);
             int repVersion = versionList.getSelectedItem().getValue();
             int repRevision = revisionList.getSelectedItem().getValue();
             int idCatenaria = project.getIdCatenaria();
-            double pkIni = Double.parseDouble(pkInicial.getValue());
-            double pkFin = Double.parseDouble(pkFinal.getValue());
 
             String catenaria = catenariaService.getCatenariaById(idCatenaria).getNomCatenaria();
 
@@ -208,8 +228,17 @@ public class DibujoNewPage extends SelectorComposer<Component>
 
             String ruta = dibujoRevision.getAutoCadPath();
 
-            File dest = new File(ruta);
-            Files.copy(dest, media.getStreamData());
+            if (bHDC)
+            {
+
+                FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
+                fileService.fileCopy(ruta, dibujoRevision.getHDCTemplatePath());
+            }
+            else
+            {
+                File dest = new File(ruta);
+                Files.copy(dest, media.getStreamData());
+            }
 
             DibujoConfTipologia confTipo = new DibujoConfTipologia();
 
@@ -230,7 +259,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
             confTipo.setCableado(cableado.isChecked());
             confTipo.setDatTraz(datTraz.isChecked());
 
-            DrawingWorker dw = new DrawingWorker(dibujoRevision, confTipo, pkIni, pkFin, repVersion, repRevision, bHDC, catenaria);
+            DrawingWorker dw = new DrawingWorker(dibujoRevision, confTipo, pkIni, pkFin, bHDC, catenaria);
 
             dw.start();
 
@@ -299,7 +328,6 @@ public class DibujoNewPage extends SelectorComposer<Component>
     {
         if (type.equals("Replanteo"))
         {
-            disableCheckBoxs();
             geoPost.setChecked(true);
             etiPost.setChecked(true);
             datPost.setChecked(false);
@@ -320,7 +348,6 @@ public class DibujoNewPage extends SelectorComposer<Component>
         }
         else if (type.equals("HDC"))
         {
-            disableCheckBoxs();
             geoPost.setChecked(true);
             etiPost.setChecked(true);
             datPost.setChecked(false);
@@ -339,59 +366,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
             datTraz.setChecked(false);
             bHDC = true;
         }
-        else
-        {
-            enableCheckBoxs();
-            bHDC = false;
-        }
-    }
 
-    private void enableCheckBoxs()
-    {
-
-        unCheckAll.setDisabled(false);
-        checkAll.setDisabled(false);
-
-        geoPost.setDisabled(false);
-        etiPost.setDisabled(false);
-        datPost.setDisabled(false);
-        vanos.setDisabled(false);
-        flechas.setDisabled(false);
-        descentramientos.setDisabled(false);
-        implantacion.setDisabled(false);
-        altHilo.setDisabled(false);
-        distCant.setDisabled(false);
-        conexiones.setDisabled(false);
-        protecciones.setDisabled(false);
-        pendolado.setDisabled(false);
-        altCat.setDisabled(false);
-        puntSing.setDisabled(false);
-        cableado.setDisabled(false);
-        datTraz.setDisabled(false);
-    }
-
-    private void disableCheckBoxs()
-    {
-
-        unCheckAll.setDisabled(true);
-        checkAll.setDisabled(true);
-
-        geoPost.setDisabled(true);
-        etiPost.setDisabled(true);
-        datPost.setDisabled(true);
-        vanos.setDisabled(true);
-        flechas.setDisabled(true);
-        descentramientos.setDisabled(true);
-        implantacion.setDisabled(true);
-        altHilo.setDisabled(true);
-        distCant.setDisabled(true);
-        conexiones.setDisabled(true);
-        protecciones.setDisabled(true);
-        pendolado.setDisabled(true);
-        altCat.setDisabled(true);
-        puntSing.setDisabled(true);
-        cableado.setDisabled(true);
-        datTraz.setDisabled(true);
     }
 
 }

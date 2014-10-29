@@ -58,6 +58,8 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
+
+    // Services
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
     ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
@@ -134,6 +136,7 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
 
             if (calcularImportar.isChecked())
             {
+
                 if (pkInicial.getValue().equals(""))
                     Clients.showNotification("Debe introducir PK Inicial.");
 
@@ -142,6 +145,27 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
 
                 else
                 {
+                    double pkIni = 0;
+                    double pkFin = 0;
+
+                    try
+                    {
+                        pkIni = Double.parseDouble(pkInicial.getValue().replace(
+                                ',', '.'));
+                        pkFin = Double.parseDouble(pkFinal.getValue().replace(
+                                ',', '.'));
+                    }
+                    catch (Exception e)
+                    {
+                        return;
+                    }
+
+                    if (pkIni >= pkFin)
+                    {
+
+                        Clients.showNotification("El PK Inicial debe ser que el PK Final.");
+                        return;
+                    }
 
                     replanteoRevision = replanteoService.createRevision(
                             replanteoVersion, 0, notes.getValue());
@@ -152,8 +176,6 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
                     Files.copy(dest, media.getStreamData());
 
                     int idCatenaria = project.getIdCatenaria();
-                    double pkIni = Double.parseDouble(pkInicial.getValue());
-                    double pkFin = Double.parseDouble(pkFinal.getValue());
 
                     String catenaria = catenariaService.getCatenariaById(
                             idCatenaria).getNomCatenaria();

@@ -132,6 +132,7 @@ polyarray() As Double
 End Type
 Public pol_canton(0 To 1) As canton
 Public qua As Integer
+Public acaddoc As AcadApplication
 
 Sub parametros_iniciales_SIRECA()
 Sireca.TextBox2.Value = 80
@@ -177,6 +178,7 @@ Else
         GetObject(, "Autocad.Application").ActiveDocument.Linetypes.Load "ACAD_ISO06W100", "acad.lin"
         GetObject(, "Autocad.Application").ActiveDocument.Linetypes.Load "LÍNEAS_OCULTAS", "acadiso.lin"
     End If
+    
 End If
 
 For Each AcadLayer In GetObject(, "Autocad.Application").ActiveDocument.Layers

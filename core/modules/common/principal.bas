@@ -126,9 +126,9 @@ Function dibujoReplanteo(pkini As Double, _
         Dim ruta_autocad As String
         
         strDB = Environ("SIRECA_HOME") & "\database\db.Accdb"
-        If HDC = True Then
-            ruta_autocad = Environ("SIRECA_HOME") & "\core\blocks\HDC.dwg"
-        Else
+        'If HDC = True Then
+            'ruta_autocad = Environ("SIRECA_HOME") & "\core\blocks\HDC.dwg"
+        'Else
             i = 1
             While Mid(Application.ActiveWorkbook.FullName, i, 1) <> "."
                     i = i + 1
@@ -136,7 +136,7 @@ Function dibujoReplanteo(pkini As Double, _
             
             ruta_autocad = Mid(Application.ActiveWorkbook.FullName, 1, i - 1) & ".dwg"
 
-        End If
+        'End If
         
         cadena_ruta = dibujar.seleccionar_polilinea(ruta_autocad)
         Call dibujar.Obtener_datos_Excel(pkini, pkfin)
@@ -210,7 +210,10 @@ Function dibujoReplanteo(pkini As Double, _
         If datTraz = True Then
                 Call dibujar.dibujar_datos_trazado
         End If
-               
+
+        acaddoc.Documents.Close
+        acaddoc.Quit
+        Set acaddoc = Nothing
 End Function
 
 '//////////////////////////////////////////////////////////////////////////////

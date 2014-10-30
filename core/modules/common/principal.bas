@@ -66,7 +66,7 @@ Sub calculoReplanteo(pkini As Double, _
         
         ventoso = viento.viento
         
-        Call postes.ubicacion_postes(pkini, pkfin, catenaria, ventoso)
+        Call postes.ubicacion_postes(catenaria, ventoso)
         
         Call revisar_agujas.revisar_agujas
 
@@ -80,7 +80,7 @@ Sub calculoReplanteo(pkini As Double, _
         Call comentarios.puntos_singulares
 
         '//Distribución de los cantones de catenaria
-        Call cantonamiento.canton_final(catenaria, pkfin)
+        Call cantonamiento.canton_final(catenaria)
         
         '//Elige el descentramiento de cada poste
         Call descentramiento.desc(catenaria)
@@ -100,7 +100,7 @@ Sub calculoReplanteo(pkini As Double, _
 End Sub
 
 '//////////////////////////////////////////////////////////////////////////////
-'// FASE 2: DIBUJADO DEL PLANO DE REPLANTEO
+'// FASE 3: DIBUJADO DEL PLANO DE REPLANTEO
 '//////////////////////////////////////////////////////////////////////////////
 
 Function dibujoReplanteo(pkini As Double, _

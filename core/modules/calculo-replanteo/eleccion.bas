@@ -122,9 +122,8 @@ X:
             Sheets("Replanteo").Cells(fila, 18).Value = "X3" & algo
         End If
     End If
-Set text = a_text.CreateTextFile(dir_progress)
-text.WriteLine "12" & "/" & "14" & "/" & "Elección poste" & "/" & Sheets("Replanteo").Cells(fila, 33).Value & "/" & final
-text.Close
+Call txt.progress("12", "14", "Elección poste", Sheets("Replanteo").Cells(fila, 33).Value - inicio, final - inicio)
+
     If CAD = True Then
         GoTo acad
     Else
@@ -338,9 +337,8 @@ X:
         Sheets("Replanteo").Cells(z, 22) = tip_mac
         Sheets("Replanteo").Cells(z, 23) = vol_tot_mac
         End If
-Set text = a_text.CreateTextFile(dir_progress)
-text.WriteLine "13" & "/" & "14" & "/" & "Elección cimentaciones" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
-text.Close
+Call txt.progress("13", "14", "Elección cimentaciones", Sheets("Replanteo").Cells(z, 33).Value - inicio, final - inicio)
+
     If CAD = True Then
         GoTo fin
     Else

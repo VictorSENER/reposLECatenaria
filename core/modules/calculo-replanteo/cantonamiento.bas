@@ -2,7 +2,7 @@ Attribute VB_Name = "cantonamiento"
 '//
 '// Rutina destinada a realizar el cantonamiento al final del replanteo
 '//
-Sub canton_final(nombre_cat, fin)
+Sub canton_final(nombre_cat)
 Dim total As Double, ncanton As Double, lcanton As Double, corte As Double, prin As Double, error As Double
 Dim a As Integer, h As Integer, hini As Integer, contador As Integer
 Dim algo As Double
@@ -169,7 +169,7 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value) And Not IsEmpty(Sheets
         '//
         '// Calcular el incremento de distancia en los seccionamientos
         '//
-        While Sheets("Replanteo").Cells(z, 33).Value <= final2 And Sheets("Replanteo").Cells(z, 33).Value < fin
+        While Sheets("Replanteo").Cells(z, 33).Value <= final2 And Sheets("Replanteo").Cells(z, 33).Value < final
             If Val(corte) < Val(Sheets("Replanteo").Cells(z, 33).Value) Then
                 If Sheets("Replanteo").Cells(z - 1, 4).Value > 54 And Sheets("Replanteo").Cells(z - 3, 4).Value >= 54 And Sheets("Replanteo").Cells(z - 5, 4).Value >= 54 Then
                     total = total + (Sheets("Replanteo").Cells(z - 2, 33).Value - Sheets("Replanteo").Cells(z - 8, 33).Value) + (Sheets("Replanteo").Cells(z, 33).Value - corte) + 10
@@ -203,7 +203,7 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value) And Not IsEmpty(Sheets
     '//
     '// Avanzar hasta llegar al final del seccionamiento o final del tramo
     '//
-    While Sheets("Replanteo").Cells(h, 33).Value <= final2 And Sheets("Replanteo").Cells(h, 33).Value < fin
+    While Sheets("Replanteo").Cells(h, 33).Value <= final2 And Sheets("Replanteo").Cells(h, 33).Value < final
         '//
         '// Seccionamientos
         '//
@@ -479,9 +479,8 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value) And Not IsEmpty(Sheets
                 Sheets("Replanteo").Range(Sheets("Replanteo").Cells(hini, 26), Sheets("Replanteo").Cells(hini, 26)).Interior.ColorIndex = 6
             End If
         End If
-        Set text = a_text.CreateTextFile(dir_progress)
-        text.WriteLine "5" & "/" & "14" & "/" & "Distribución de los cantones" & "/" & Sheets("Replanteo").Cells(h, 33).Value & "/" & final
-        text.Close
+        Call txt.progress("5", "14", "Distribución de los cantones", Sheets("Replanteo").Cells(h, 33).Value - inicio, final - inicio)
+
         h = h + 2
     Wend
 Wend

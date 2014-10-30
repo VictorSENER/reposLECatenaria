@@ -78,10 +78,8 @@ While Not IsEmpty(Sheets("Replanteo").Cells(h, 33).Value)
     If Sheets("Replanteo").Cells(h, 33).Value > pk_nolineal(pola + 1) And pola + 2 < polil Then
         pola = pola + 3
     End If
-    
-    Set text = a_text.CreateTextFile(dir_progress)
-    text.WriteLine "3" & "/" & "14" & "/" & "Convertir el PK lineal a PK de trazado" & "/" & Sheets("Replanteo").Cells(h, 33).Value & "/" & final
-    text.Close
+    Call txt.progress("3", "14", "Convertir el PK lineal a PK de trazado", Sheets("Replanteo").Cells(h, 33).Value - inicio, final - inicio)
+
 '///
 '/// incrementar fila repanteo
 '///

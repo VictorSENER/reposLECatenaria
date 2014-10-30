@@ -1,6 +1,6 @@
 Attribute VB_Name = "postes"
 Public pol As Integer
-Sub ubicacion_postes(pkini As Double, pkfin As Double, catenaria As String, ventoso)
+Sub ubicacion_postes(catenaria As String, ventoso)
 
 Dim a As Integer, h As Integer
 
@@ -9,7 +9,7 @@ pol = 3
 Call formato.lenguaje(idioma)
 a = 4
 h = 10
-While Sheets("Replanteo").Cells(h, 33).Value < pkfin
+While Sheets("Replanteo").Cells(h, 33).Value < final
 
     marcador = 0
     On Error Resume Next
@@ -31,7 +31,7 @@ aqui:
     '// Inicializar variable al inicio de la rutina
     '//
     If h = 10 Then
-        Sheets("Replanteo").Cells(h, 33) = pkini
+        Sheets("Replanteo").Cells(h, 33) = inicio
     End If
     '//
     '// Rutina general del programa
@@ -60,10 +60,9 @@ aqui:
     Call punto_singular.sing1(h, a, marcador, 0)
     h = h + 2
     Sheets("Replanteo").Cells(h, 33).Value = Sheets("Replanteo").Cells(h - 1, 4) + Sheets("Replanteo").Cells(h - 2, 33)
-         
-    Set text = a_text.CreateTextFile(dir_progress)
-    text.Write "1" & "/" & "14" & "/" & "Replanteo de los postes" & "/" & Sheets("Replanteo").Cells(h, 33).Value & "/" & pkfin
-    text.Close
+    
+    Call txt.progress("1", "14", "Replanteo de los postes", Sheets("Replanteo").Cells(h, 33).Value - inicio, final - inicio)
+
 Wend
 
 End Sub

@@ -38,6 +38,19 @@ aqui:
     While pk0 > Sheets("Punto singular").Cells(aloc, 21).Value
         aloc = aloc + 1
     Wend
+    
+    If Sheets("Punto singular").Cells(aloc - 1, 1).Value = "Aguja" And aguja_ok = False Then
+        Sheets("Errores").Cells(bloc, 2).Value = "Aguja: " & Sheets("Punto singular").Cells(aloc - 1, 3).Value & " No instalada correctamente"
+        Sheets("Errores").Cells(bloc, 3).Value = pk0
+        Sheets("Errores").Cells(bloc, 4).Value = z
+        Sheets("Errores").Cells(bloc, 5).Value = 33
+        
+        bloc = bloc + 1
+        Call txt.error("Warning", "Error en la colocación de la aguja - PK: " & pk0 & " - Fila: " & z & " - Columna: 33 - PK correcto: " & Sheets("Punto singular").Cells(aloc - 1, 2).Value)
+
+        aguja_ok = True
+    End If
+    
     ' calcular el radio
 
 While contador <> 2
@@ -180,6 +193,7 @@ End If
     ' verificación de las variaciones del vano
     If ((vano0 - dist_va_max) > vano1 Or (vano0 + dist_va_max) < vano1) And z > 10 Then
         Sheets("Replanteo").Cells(z + 1, 4).Font.Color = vbRed
+        Call txt.error("Warning", "Error en la verificación de la diferencia entre vanos - PK: " & pk0 & " - Fila: " & z + 1 & " - Columna: 4")
         Sheets("Errores").Cells(bloc, 1).Value = d
         Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación de la diferencia entre vanos"
         Sheets("Errores").Cells(bloc, 3).Value = pk0
@@ -190,6 +204,7 @@ End If
     ' verificación del incremento del pk
     If pk1 <> (pk0 + vano1) Then
         Sheets("Replanteo").Cells(z + 2, 33).Font.Color = vbRed
+        Call txt.error("Warning", "Error en la verificación del incremento del PK - PK: " & pk0 & " - Fila: " & z & " - Columna: 33")
         Sheets("Errores").Cells(bloc, 1).Value = d
         Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación del incremento del PK"
         Sheets("Errores").Cells(bloc, 3).Value = pk0
@@ -203,6 +218,7 @@ End If
         Case Is = "PuenteXL", "Puente", "P.S. > 7 m", "7 > P.S. > 5,2 m", "Conducto", "P.N.", "P.I.", "Drenaje"
             If pk0 > Sheets("Punto singular").Cells(aloc, 2).Value And pk0 < Sheets("Punto singular").Cells(aloc, 21).Value Then
                 Sheets("Replanteo").Cells(z, 33).Font.Color = vbBlue
+                Call txt.error("Warning", "Error en la verificación de la ubicación sobre puntos singulares - PK: " & pk0 & " - Fila: " & z & " - Columna: 33")
                 Sheets("Errores").Cells(bloc, 1).Value = d
                 Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación de la ubicación sobre puntos singulares"
                 Sheets("Errores").Cells(bloc, 3).Value = pk0
@@ -213,17 +229,21 @@ End If
                 d = d + 1
             End If
         Case Is = "Aguja"
-            
+
             If Round(pk0, 4) = Round(Sheets("Punto singular").Cells(aloc, 2).Value, 4) Then
-                Sheets("Errores").Cells(bloc, 2).Value = "Aguja: " & Sheets("Punto singular").Cells(aloc, 3).Value & " instalada correctamente"
+                aguja_ok = True
+                
                 bloc = bloc + 1
+            Else
+                aguja_ok = False
             End If
     End Select
     'verificación del vano
     If vanox < Sheets("Replanteo").Cells(z + 1, 4).Value Then
         Sheets("Replanteo").Cells(z + 1, 4).Font.Color = vbBlue
+        Call txt.error("Warning", "Error en la verificación del vano respecto a su radio - PK: " & pk0 & " - Fila: " & z + 1 & " - Columna: 4 - Vano máximo: " & vanox)
         Sheets("Errores").Cells(bloc, 1).Value = d
-        Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación del vano respecto aloc su radio"
+        Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación del vano respecto a su radio"
         Sheets("Errores").Cells(bloc, 3).Value = pk0
         Sheets("Errores").Cells(bloc, 4).Value = z + 1
         Sheets("Errores").Cells(bloc, 5).Value = 4
@@ -252,8 +272,9 @@ End If
     End If
     If radioC <> Sheets("Replanteo").Cells(z, 6).Value Then
         Sheets("Replanteo").Cells(z, 6).Font.Color = vbRed
+        Call txt.error("Warning", "Error en la verificación del radio respecto a su PK - PK: " & pk0 & " - Fila: " & z & " - Columna: 6 - Radio adecuado: " & radioC)
         Sheets("Errores").Cells(bloc, 1).Value = d
-        Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación del radio respecto aloc su PK"
+        Sheets("Errores").Cells(bloc, 2).Value = "Error en la verificación del radio respecto a su PK"
         Sheets("Errores").Cells(bloc, 3).Value = pk0
         Sheets("Errores").Cells(bloc, 4).Value = z
         Sheets("Errores").Cells(bloc, 5).Value = 6

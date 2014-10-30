@@ -874,9 +874,8 @@ If Sheets("Replanteo").Cells(fila, 38).Value <> "Tunel" And Sheets("Replanteo").
 
     Sheets("Replanteo").Cells(fila, 19) = mom_tot
 End If
-Set text = a_text.CreateTextFile(dir_progress)
-text.WriteLine "11" & "/" & "14" & "/" & "Calculo momento" & "/" & Sheets("Replanteo").Cells(fila, 33).Value & "/" & final
-text.Close
+Call txt.progress("11", "14", "Calculo momento", Sheets("Replanteo").Cells(fila, 33).Value - inicio, final - inicio)
+
 
 If CAD = True Then
     GoTo fin

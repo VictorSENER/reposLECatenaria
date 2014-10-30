@@ -3677,10 +3677,7 @@ ElseIf primero = "S" And segundo = "S" Then
 ElseIf primero2 = "S" And segundo2 = "S" Then
     Sheets("Replanteo").Cells(z + 1, 55).Value = 4.5
 End If
-
-Set text = a_text.CreateTextFile(dir_progress)
-text.WriteLine "10" & "/" & "14" & "/" & "Codificación pendolado" & "/" & Sheets("Replanteo").Cells(z, 33).Value & "/" & final
-text.Close
+Call txt.progress("10", "14", "Codificación pendolado", Sheets("Replanteo").Cells(z, 33).Value - inicio, final - inicio)
 
 z = z + 2
 Wend

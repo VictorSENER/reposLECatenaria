@@ -27,10 +27,11 @@
                             	<listcell>
 									<grid hflex="1" >
                                    		<auxhead>
-            								<auxheader label="Versión ${each.numVersion}" colspan="6" />
+            								<auxheader label="Versión ${each.numVersion}" colspan="7" />
         								</auxhead>
 				                     	<columns>
 											<column label="Revisión" />
+											<column label="Cuaderno Replanteo" />
             								<column label="Usuario" />
             								<column label="Fecha Creación" />
             								<column label="Tamaño" />
@@ -40,6 +41,7 @@
 				                        	<row forEach="${each.modelList}">
 				                            	
 				        	                    <cell sclass="row-title"> ${each.numRevision}  </cell>
+												<cell sclass="row-title"> ${each.RDRepVerRev}  </cell>
 												<cell sclass="row-title"> ${each.RUser} </cell>
 												<cell sclass="row-title"> ${each.RDate}  </cell>
 												<cell sclass="row-title"> ${each.RFileSize}  </cell>

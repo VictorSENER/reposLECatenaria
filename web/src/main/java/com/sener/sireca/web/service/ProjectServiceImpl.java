@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.zkoss.lang.Strings;
-import org.zkoss.zk.ui.util.Clients;
 
 import com.sener.sireca.web.bean.DibujoVersion;
 import com.sener.sireca.web.bean.MontajeVersion;
@@ -83,53 +82,36 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public int updateProject(Project project)
+    public int updateProject(Project project) throws Exception
     {
 
         // Check if title is empty.
         if (Strings.isBlank(project.getTitulo()))
-        {
-            Clients.showNotification("El título del proyecto no puede estar vacío.");
-            return 0;
-        }
+            throw new Exception("El título del proyecto no puede estar vacío.");
+
         // Check if title is too long.
         else if (project.getTitulo().length() > 100)
-        {
-            Clients.showNotification("El título del proyecto no puede ser tan largo. (Máximo 100 carácteres)");
-            return 0;
-        }
-        else if (getProjectByTitle(project.getTitulo()) != null)
-        {
-            Clients.showNotification("El título del proyecto ya existe.");
-            return 0;
-        }
+            throw new Exception("El título del proyecto no puede ser tan largo. (Máximo 100 carácteres)");
+
+        else if (getProjectByTitle(project.getTitulo()) != null
+                && getProjectByTitle(project.getTitulo()).getId() != project.getId())
+            throw new Exception("El título del proyecto ya existe.");
 
         // Check if client name is empty.
         if (Strings.isBlank(project.getCliente()))
-        {
-            Clients.showNotification("El nombre del cliente no puede estar vacío.");
-            return 0;
-        }
+            throw new Exception("El nombre del cliente no puede estar vacío.");
 
         // Check if client name is too long.
         else if (project.getCliente().length() > 50)
-        {
-            Clients.showNotification("El nombre del cliente no puede ser tan largo. (Máximo 50 carácteres)");
-            return 0;
-        }
+            throw new Exception("El nombre del cliente no puede ser tan largo. (Máximo 50 carácteres)");
 
         // Check if reference is empty.
         if (Strings.isBlank(project.getReferencia()))
-        {
-            Clients.showNotification("La referencia no puede estar vacía.");
-            return 0;
-        }
+            throw new Exception("La referencia no puede estar vacía.");
+
         // Check if reference is too long.
         else if (project.getReferencia().length() > 20)
-        {
-            Clients.showNotification("La referencia no puede ser tan larga. (Máximo 20 carácteres)");
-            return 0;
-        }
+            throw new Exception("La referencia no puede ser tan larga. (Máximo 20 carácteres)");
 
         return projectDao.updateProject(project);
     }

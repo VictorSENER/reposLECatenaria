@@ -92,10 +92,15 @@ public class ProjectEditPage extends SelectorComposer<Component>
         project.setIdCatenaria(catenariaService.getCatenariaByTitle(
                 selectedProjectCatenaria.getSelectedItem().getValue().toString()).getId());
 
-        // Save new data into DB.
-        if (projectService.updateProject(project) != 0)
-            // Show message for user.
+        try
+        {
+            projectService.updateProject(project);
             Clients.showNotification("Proyecto guardado correctamente");
+        }
+        catch (Exception ex)
+        {
+            Clients.showNotification(ex.getMessage());
+        }
 
     }
 

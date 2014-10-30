@@ -13,7 +13,7 @@
 	                <hlayout>
 						<grid hflex="1">
 							<auxhead>
-	            				<auxheader label="Nueva revisión de planos de replanteo" colspan="2" rowspan="2" />
+	            				<auxheader label="Nueva revisión de planos de replanteo" colspan="1000" rowspan="2" />
 	        				</auxhead>
 	                     	<columns>
 	                        	<column align="left" />
@@ -21,7 +21,7 @@
 	                        </columns>
 	                        <rows>
 	                        	<row>
-	                            	<cell sclass="row-title" colspan="2" > Configuración tipo entidades del plano de replanteo: </cell>
+	                            	<cell sclass="row-title" colspan="2" > Tipo de eje de trazado: </cell>
 	                            </row>
 	                        	<row>
 	                                <cell colspan="2">
@@ -86,7 +86,7 @@
                         </grid>
                         <grid hflex="1">
                             <auxhead>
-	            				<auxheader label="Configuración tipo entidades del plano de replanteo" colspan="3" rowspan="3" />
+	            				<auxheader label="Configuración tipo entidades del plano de replanteo" colspan="500" rowspan="3" />
 	        				</auxhead>
 	                     	<columns>
 	                        	<column align="left" hflex="min"/>

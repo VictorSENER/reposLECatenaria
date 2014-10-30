@@ -18,7 +18,7 @@ public interface ProjectService
 
     public Project getProjectByTitle(String title);
 
-    public int updateProject(Project project);
+    public int updateProject(Project project) throws Exception;
 
     public int deleteProject(int id);
 

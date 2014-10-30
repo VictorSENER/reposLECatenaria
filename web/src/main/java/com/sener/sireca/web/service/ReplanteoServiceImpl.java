@@ -252,7 +252,11 @@ public class ReplanteoServiceImpl implements ReplanteoService
             fileService.deleteFile(revision.getProgressFilePath());
             revision.setCalculated(true);
         }
-        if (fileService.fileExists(path + ".error"))
+        else
+            revision.setError(true);
+
+        if (fileService.fileExists(preError.getAbsolutePath())
+                && !revision.getError())
         {
             ArrayList<String[]> errorLog = null;
 
@@ -260,7 +264,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
             {
                 errorLog = fileService.getErrorFileContent(path + ".error");
 
-                revision.setWarning(true);
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
                     {
@@ -268,6 +271,8 @@ public class ReplanteoServiceImpl implements ReplanteoService
                         revision.setWarning(false);
                         break;
                     }
+                    else
+                        revision.setWarning(true);
             }
             catch (IOException e)
             {
@@ -286,20 +291,23 @@ public class ReplanteoServiceImpl implements ReplanteoService
     public boolean deleteRevision(Project project, int numVersion,
             int numRevision)
     {
-
         ReplanteoVersion version = getVersion(project, numVersion);
-        ReplanteoRevision revision = getRevision(version, numRevision);
-
-        try
-        {
-            if (!revision.getCalculated())
-                return false;
-        }
-        catch (Exception e)
-        {
+        if (version == null)
             return false;
-        }
 
+        ReplanteoRevision revision = getRevision(version, numRevision);
+        if (revision == null)
+            return false;
+
+        if (!revision.getCalculated())
+            return false;
+
+        // Check if revision has dependencies.
+        // checkDibujoDependencies();
+        // checkPendoladoDependencies();
+        // checkMontajeDependencies();
+
+        // Delete revision
         if (fileService.fileExists(revision.getErrorFilePath()))
             fileService.deleteFile(revision.getErrorFilePath());
 
@@ -310,7 +318,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
             fileService.deleteFile(revision.getNotesFilePath());
 
         return fileService.deleteFile(revision.getExcelPath());
-
     }
 
     @Override

@@ -49,7 +49,7 @@
                    		
                    		<!-- refresh content every 5 seconds -->
    						<timer id="timer" delay="5000" repeats="true" /> 
-						<hlayout>
+	                	<hlayout>
 	                   		<button id="goBack" label="Volver" width="65px"/>
 	                   	</hlayout>
                 	</vlayout>  

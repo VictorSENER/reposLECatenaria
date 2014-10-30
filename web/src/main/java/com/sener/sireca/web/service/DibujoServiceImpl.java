@@ -112,33 +112,39 @@ public class DibujoServiceImpl implements DibujoService
 
             ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
                     project, Integer.parseInt(parameters[1]));
-            dibujoRevisionAux.setRepRev(replanteoService.getRevision(
-                    replanteoVersionAux, Integer.parseInt(parameters[2])));
-
-            if (parameters[3].equals("E.dwg"))
-                dibujoRevisionAux.setError(true);
-
-            else if (parameters[3].equals("C.dwg"))
-                dibujoRevisionAux.setCalculated(true);
-
-            else if (parameters[3].equals("CW.dwg"))
+            if (replanteoVersionAux != null)
             {
-                dibujoRevisionAux.setCalculated(true);
-                dibujoRevisionAux.setWarning(true);
+                ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
+                        replanteoVersionAux, Integer.parseInt(parameters[2]));
+                if (replanteoRevAux != null)
+                {
+
+                    dibujoRevisionAux.setRepRev(replanteoRevAux);
+
+                    if (parameters[3].equals("E.dwg"))
+                        dibujoRevisionAux.setError(true);
+
+                    else if (parameters[3].equals("C.dwg"))
+                        dibujoRevisionAux.setCalculated(true);
+
+                    else if (parameters[3].equals("CW.dwg"))
+                    {
+                        dibujoRevisionAux.setCalculated(true);
+                        dibujoRevisionAux.setWarning(true);
+                    }
+
+                    if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
+                        dibujoRevisionAux.setNotes(true);
+
+                    dibujoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                            + fileName));
+                    dibujoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                            + fileName));
+
+                    dibujoRevision.add(dibujoRevisionAux);
+                }
             }
-
-            if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
-                dibujoRevisionAux.setNotes(true);
-
-            dibujoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
-                    + fileName));
-            dibujoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
-                    + fileName));
-
-            dibujoRevision.add(dibujoRevisionAux);
-
         }
-
         return dibujoRevision;
     }
 
@@ -258,8 +264,11 @@ public class DibujoServiceImpl implements DibujoService
             fileService.deleteFile(auxExcelPath);
             revision.setCalculated(true);
         }
+        else
+            revision.setError(true);
 
-        if (fileService.fileExists(preError.getAbsolutePath()))
+        if (fileService.fileExists(preError.getAbsolutePath())
+                && !revision.getError())
         {
             ArrayList<String[]> errorLog = null;
 
@@ -267,7 +276,6 @@ public class DibujoServiceImpl implements DibujoService
             {
                 errorLog = fileService.getErrorFileContent(path + ".error");
 
-                revision.setWarning(true);
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
                     {
@@ -275,6 +283,8 @@ public class DibujoServiceImpl implements DibujoService
                         revision.setWarning(false);
                         break;
                     }
+                    else
+                        revision.setWarning(true);
             }
             catch (IOException e)
             {

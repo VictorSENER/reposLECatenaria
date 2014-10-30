@@ -112,7 +112,8 @@ public class DibujoProgressPage extends SelectorComposer<Component>
         if (valores[4].equals("?"))
             percentage = 0;
         else
-            percentage = (Double.parseDouble(valores[3]) / Double.parseDouble(valores[4])) * 100;
+            percentage = (Double.parseDouble(valores[3].replace(',', '.')) / Double.parseDouble(valores[4].replace(
+                    ',', '.'))) * 100;
 
         function.setValue((int) percentage);
 

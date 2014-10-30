@@ -242,6 +242,11 @@ public class MontajeRevision
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
+    public String getRDRepVerRev()
+    {
+        return "V" + repRev.getNumVersion() + "." + repRev.getNumRevision();
+    }
+
     public String getBasePath()
     {
         String basePath = System.getenv("SIRECA_HOME") + "/projects/";

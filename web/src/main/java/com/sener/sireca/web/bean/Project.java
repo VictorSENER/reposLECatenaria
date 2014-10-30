@@ -131,4 +131,9 @@ public class Project
         return basePath + id;
     }
 
+    public String getTemplatePath(String faseAndName)
+    {
+        return System.getenv("SIRECA_HOME") + "/templates/" + faseAndName;
+    }
+
 }

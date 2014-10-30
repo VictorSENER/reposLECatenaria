@@ -173,7 +173,7 @@ public class ProjectPage extends SelectorComposer<Component>
     private String buildNewProjectTitle()
     {
         // Check if base project title isn't used.
-        String baseProjecttitle = "Nuevo proyecto ";
+        String baseProjecttitle = "Nuevo proyecto";
 
         if (projectService.getProjectByTitle(baseProjecttitle) == null)
             return baseProjecttitle;
@@ -181,7 +181,7 @@ public class ProjectPage extends SelectorComposer<Component>
         int sequential = 1;
         while (sequential < 100)
         {
-            String seqProjectname = baseProjecttitle + sequential;
+            String seqProjectname = baseProjecttitle + " " + sequential;
             if (projectService.getProjectByTitle(seqProjectname) == null)
                 return seqProjectname;
 

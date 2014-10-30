@@ -5,6 +5,7 @@
 package com.sener.sireca.web.page;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -37,10 +38,8 @@ import com.sener.sireca.web.bean.ReplanteoVersion;
 import com.sener.sireca.web.service.ActiveProjectService;
 import com.sener.sireca.web.service.CatenariaService;
 import com.sener.sireca.web.service.DibujoService;
-import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.ReplanteoService;
-import com.sener.sireca.web.service.VerService;
 import com.sener.sireca.web.util.SpringApplicationContext;
 import com.sener.sireca.web.worker.DrawingWorker;
 
@@ -109,7 +108,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
     private List<ReplanteoVersion> verList;
 
     private Media media = null;
-    private boolean bHDC;
+    private boolean bHDC = true;
 
     // Session data
     HttpSession session = (HttpSession) Sessions.getCurrent().getNativeSession();
@@ -118,7 +117,6 @@ public class DibujoNewPage extends SelectorComposer<Component>
     ActiveProjectService actProj = (ActiveProjectService) SpringApplicationContext.getBean("actProj");
     ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
     DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
-    VerService verService = (VerService) SpringApplicationContext.getBean("verService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
     CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
 
@@ -127,7 +125,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
     public void doAfterCompose(Component comp) throws Exception
     {
         super.doAfterCompose(comp);
-        fillConf("Replanteo");
+        fillConf("HDC");
 
         Project project = projectService.getProjectById(actProj.getIdActive(session));
 
@@ -138,6 +136,8 @@ public class DibujoNewPage extends SelectorComposer<Component>
         versionList.setModel(new ListModelList(vList));
         versionList.setValue("Escoja Versión");
         revisionList.setValue("Escoja Revisión");
+
+        uploadFile.setDisabled(bHDC);
 
         uploadFile.setUpload("true");
 
@@ -228,17 +228,16 @@ public class DibujoNewPage extends SelectorComposer<Component>
 
             String ruta = dibujoRevision.getAutoCadPath();
 
-            if (bHDC)
-            {
+            File dest = new File(ruta);
 
-                FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
-                fileService.fileCopy(ruta, dibujoRevision.getHDCTemplatePath());
-            }
+            if (bHDC)
+                Files.copy(
+                        dest,
+                        new FileInputStream(project.getTemplatePath(DibujoVersion.DIBUJO_REPLANTEO
+                                + "HDC.dwg")));
+
             else
-            {
-                File dest = new File(ruta);
                 Files.copy(dest, media.getStreamData());
-            }
 
             DibujoConfTipologia confTipo = new DibujoConfTipologia();
 
@@ -366,6 +365,8 @@ public class DibujoNewPage extends SelectorComposer<Component>
             datTraz.setChecked(false);
             bHDC = true;
         }
+
+        uploadFile.setDisabled(bHDC);
 
     }
 

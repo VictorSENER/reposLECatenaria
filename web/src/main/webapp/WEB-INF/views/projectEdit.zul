@@ -16,38 +16,38 @@
 	            				<auxheader label="Editar proyecto" colspan="2" rowspan="3" />
 	        				</auxhead>
 	                     	<columns>
-	                        	<column align="right" hflex="min"/>
+	                        	<column align="end" hflex="min"/>
 	                            <column/>
 	                        </columns>
 	                        <rows>
 	                            <row>
-	        	                    <cell sclass="row-title">Nombre del Proyecto :</cell>
+	        	                    <cell sclass="row-title">Nombre del Proyecto:</cell>
 	                                <cell>
 	                                    <textbox id="selectedProjectTitle" width="200px" />
 	                                </cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title">Usuario Propietario :</cell>
+	                                 <cell sclass="row-title">Usuario Propietario:</cell>
 	                                 <cell>
 	                                    <textbox id="selectedProjectUser" width="200px" disabled="true" />
 	                                 </cell>
 	                            </row>
 	                            <row>
-	                                 <cell sclass="row-title"> Cliente :</cell>
+	                                 <cell sclass="row-title"> Cliente:</cell>
 	                                 <cell>
 	                                     <textbox id="selectedProjectClient" width="200px" />
 	                                 </cell>
 	                            </row>
 	                            <row>
-	                                <cell sclass="row-title"> Referencia :</cell>
+	                                <cell sclass="row-title"> Referencia:</cell>
 	                                <cell>
 	                                    <textbox id="selectedProjectReference" width="200px" />
 	                                </cell>
 	                            </row>
 	                            <row>
-	                                <cell sclass="row-title"> Catenaria :</cell>
+	                                <cell sclass="row-title"> Catenaria:</cell>
 	                                <cell>
-	                                 	<combobox id="selectedProjectCatenaria" width="200px" >
+	                                 	<combobox readonly="true" id="selectedProjectCatenaria" width="200px" >
 	                                    	<comboitem value="${each.nomCatenaria}" />
 	                                    </combobox>
 	                                </cell>

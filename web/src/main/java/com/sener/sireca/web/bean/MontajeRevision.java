@@ -11,6 +11,7 @@ import java.util.Date;
 import com.sener.sireca.web.service.FileService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
+import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
 public class MontajeRevision
@@ -249,7 +250,12 @@ public class MontajeRevision
 
     public String getBasePath()
     {
-        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+        String basePath = System.getenv("SIRECA_HOME");
+
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
 
         return basePath + idProject + MontajeVersion.FICHAS_MONTAJE
                 + numVersion + "/" + getBaseName();

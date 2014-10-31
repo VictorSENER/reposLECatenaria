@@ -50,4 +50,6 @@ public interface DibujoService
 
     ArrayList<String> getNotes(DibujoRevision revision) throws IOException;
 
+    int getLastRevision(DibujoVersion version);
+
 }

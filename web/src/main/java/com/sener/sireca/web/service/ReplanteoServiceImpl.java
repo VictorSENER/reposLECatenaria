@@ -288,24 +288,32 @@ public class ReplanteoServiceImpl implements ReplanteoService
     // Delete the specific revision of the specific version of the specific
     // project and the progress file.
     @Override
-    public boolean deleteRevision(Project project, int numVersion,
-            int numRevision)
+    public void deleteRevision(Project project, int numVersion, int numRevision)
+            throws Exception
     {
         ReplanteoVersion version = getVersion(project, numVersion);
         if (version == null)
-            return false;
+            throw new Exception("Fallo al eliminar" + numRevision
+                    + " de la versión " + numVersion + ".");
 
         ReplanteoRevision revision = getRevision(version, numRevision);
-        if (revision == null)
-            return false;
-
-        if (!revision.getCalculated())
-            return false;
+        if (revision == null || !revision.getCalculated())
+            throw new Exception("Fallo al eliminar" + numRevision
+                    + " de la versión " + numVersion + ".");
 
         // Check if revision has dependencies.
         // checkDibujoDependencies();
+        // throw new Exception("La" + numRevision
+        // + " de la versión " + numVersion +
+        // " tiene dependencias con Planos de replanteo.");
         // checkPendoladoDependencies();
+        // throw new Exception("La" + numRevision
+        // + " de la versión " + numVersion +
+        // " tiene dependencias con Fichas de pendolado.");
         // checkMontajeDependencies();
+        // throw new Exception("La" + numRevision
+        // + " de la versión " + numVersion +
+        // " tiene dependencias con Fichas de montaje.");
 
         // Delete revision
         if (fileService.fileExists(revision.getErrorFilePath()))
@@ -317,7 +325,9 @@ public class ReplanteoServiceImpl implements ReplanteoService
         if (fileService.fileExists(revision.getNotesFilePath()))
             fileService.deleteFile(revision.getNotesFilePath());
 
-        return fileService.deleteFile(revision.getExcelPath());
+        if (fileService.deleteFile(revision.getExcelPath()))
+            throw new Exception("Fallo al eliminar" + numRevision
+                    + " de la versión " + numVersion + ".");
     }
 
     @Override

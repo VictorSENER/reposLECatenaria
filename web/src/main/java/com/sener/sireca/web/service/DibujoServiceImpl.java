@@ -28,7 +28,6 @@ public class DibujoServiceImpl implements DibujoService
 {
     FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
     VerService verService = (VerService) SpringApplicationContext.getBean("verService");
-
     ReplanteoService replanteoService = (ReplanteoService) SpringApplicationContext.getBean("replanteoService");
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
 
@@ -67,7 +66,7 @@ public class DibujoServiceImpl implements DibujoService
     {
         int idLastversion = verService.getLastVersion(project.getDibReplanteoBasePath());
         idLastversion++;
-        // TODO:Aquí hay un cambio, probar!!!!!
+
         fileService.addDirectory(project.getDibReplanteoBasePath()
                 + idLastversion);
 
@@ -84,9 +83,8 @@ public class DibujoServiceImpl implements DibujoService
     @Override
     public void deleteVersion(Project project, int numVersion)
     {
-        if (verService.getVersion(project.getCalcReplanteoBasePath(),
-                numVersion))
-            fileService.deleteDirectory(project.getCalcReplanteoBasePath()
+        if (verService.getVersion(project.getDibReplanteoBasePath(), numVersion))
+            fileService.deleteDirectory(project.getDibReplanteoBasePath()
                     + numVersion);
     }
 
@@ -191,10 +189,8 @@ public class DibujoServiceImpl implements DibujoService
         return null;
     }
 
-    // Creates a new revision of the specific version of a project.
     @Override
-    public DibujoRevision createRevision(DibujoVersion version,
-            ReplanteoRevision repRev, String comment)
+    public int getLastRevision(DibujoVersion version)
     {
         int lastRevision = 0;
 
@@ -203,6 +199,16 @@ public class DibujoServiceImpl implements DibujoService
         for (int i = 0; i < dibujoRevision.size(); i++)
             if (dibujoRevision.get(i).getNumRevision() > lastRevision)
                 lastRevision = dibujoRevision.get(i).getNumRevision();
+
+        return lastRevision;
+    }
+
+    // Creates a new revision of the specific version of a project.
+    @Override
+    public DibujoRevision createRevision(DibujoVersion version,
+            ReplanteoRevision repRev, String comment)
+    {
+        int lastRevision = getLastRevision(version);
 
         DibujoRevision lastDibujoRevision = new DibujoRevision();
 

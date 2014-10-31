@@ -289,24 +289,6 @@ public class FileServiceImpl implements FileService
         return notes;
     }
 
-    // public String getFileContent(String path) throws IOException
-    // {
-    //
-    // FileInputStream inputStream = new FileInputStream(path);
-    // String everything;
-    // try
-    // {
-    // everything = IOUtils.toString(inputStream);
-    // }
-    // finally
-    // {
-    // inputStream.close();
-    // }
-    //
-    // return everything;
-    //
-    // }
-
     public boolean fileExists(String path)
     {
 

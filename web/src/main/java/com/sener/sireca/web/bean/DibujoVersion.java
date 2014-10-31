@@ -6,6 +6,8 @@ package com.sener.sireca.web.bean;
 
 import java.util.List;
 
+import com.sener.sireca.web.util.IsJUnit;
+
 public class DibujoVersion
 {
     public static final String DIBUJO_REPLANTEO = "/dibujo-replanteo/";
@@ -59,7 +61,12 @@ public class DibujoVersion
     public String getFolderPath()
     {
 
-        String basePath = System.getenv("SIRECA_HOME") + "/projects/";
+        String basePath = System.getenv("SIRECA_HOME");
+
+        if (!IsJUnit.isJunitRunning())
+            basePath += "/projects/";
+        else
+            basePath += "/projectTest/";
 
         return basePath + idProject + DIBUJO_REPLANTEO + "/" + numVersion + "/";
 

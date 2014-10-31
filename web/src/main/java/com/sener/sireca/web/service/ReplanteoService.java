@@ -39,8 +39,8 @@ public interface ReplanteoService
     public void calculateRevision(ReplanteoRevision revision, double pkIni,
             double pkFin, String catenaria);
 
-    public boolean deleteRevision(Project project, int numVersion,
-            int numRevision);
+    public void deleteRevision(Project project, int numVersion, int numRevision)
+            throws Exception;
 
     public String[] getProgressInfo(ReplanteoRevision revision)
             throws IOException;

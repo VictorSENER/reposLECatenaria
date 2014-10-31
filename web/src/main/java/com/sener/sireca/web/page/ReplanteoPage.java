@@ -96,9 +96,11 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                 if (e.getName().equals("onOK"))
                                 {
 
-                                    if (replanteoService.deleteRevision(
-                                            project, numVersion, numRevision))
-
+                                    try
+                                    {
+                                        replanteoService.deleteRevision(
+                                                project, numVersion,
+                                                numRevision);
                                         Messagebox.show(
                                                 "Revisión "
                                                         + numRevision
@@ -126,13 +128,11 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                     }
                                                 });
 
-                                    else
-
+                                    }
+                                    catch (Exception ex)
+                                    {
                                         Messagebox.show(
-                                                "Fallo al eliminar la revisión "
-                                                        + numRevision
-                                                        + " de la versión "
-                                                        + numVersion + ".",
+                                                ex.getMessage(),
                                                 "Información",
                                                 Messagebox.OK,
                                                 Messagebox.INFORMATION,
@@ -151,6 +151,8 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                         }
                                                     }
                                                 });
+
+                                    }
 
                                 }
                                 else

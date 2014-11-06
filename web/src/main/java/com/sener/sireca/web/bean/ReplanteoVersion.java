@@ -18,15 +18,19 @@ public class ReplanteoVersion
     // Número de versión.
     private int numVersion;
 
+    // Indica si es eliminable
+    private boolean canDelete;
+
     // Lista auxiliar para el .zul
     // private ArrayList<ModelReplanteoGrid> modelList;
     private List<ReplanteoRevision> modelList;
 
-    public ReplanteoVersion(Integer idProject, Integer numVersion)
+    public ReplanteoVersion(Integer idProject, int numVersion, boolean canDelete)
     {
         super();
         this.idProject = idProject;
         this.numVersion = numVersion;
+        this.canDelete = canDelete;
     }
 
     public List<ReplanteoRevision> getModelList()
@@ -57,6 +61,16 @@ public class ReplanteoVersion
     public void setNumVersion(int numVersion)
     {
         this.numVersion = numVersion;
+    }
+
+    public boolean getCanDelete()
+    {
+        return canDelete;
+    }
+
+    public void setCanDelete(boolean canDelete)
+    {
+        this.canDelete = canDelete;
     }
 
     public String getFolderPath()

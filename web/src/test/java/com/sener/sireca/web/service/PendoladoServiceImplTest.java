@@ -75,10 +75,9 @@ public class PendoladoServiceImplTest
 
         for (int i = 0; i < 4; i++)
         {
-            System.out.println("|-------> Crea la revisión " + (i + 1));
             penRev = pendoladoService.createRevision(penVer, repRev, "Comment");
             penRev.setCalculated(true);
-            fileService.addFile(penRev.getPDFPath());
+            fileService.addFile(penRev.getZipPath());
         }
 
     }
@@ -252,7 +251,7 @@ public class PendoladoServiceImplTest
         PendoladoRevision penRev = pendoladoService.createRevision(penVer,
                 repRev, "Comment");
 
-        fileService.addFile(penRev.getPDFPath());
+        fileService.addFile(penRev.getZipPath());
 
         assertTrue(penRev.getNumRevision() == pendoladoService.getLastRevision(penVer));
         try
@@ -264,7 +263,7 @@ public class PendoladoServiceImplTest
         {
         }
 
-        fileService.deleteFile(penRev.getPDFPath());
+        fileService.deleteFile(penRev.getZipPath());
 
     }
 
@@ -282,7 +281,7 @@ public class PendoladoServiceImplTest
         PendoladoRevision penRev = pendoladoService.createRevision(penVer,
                 repRev, "Comment");
 
-        fileService.addFile(penRev.getPDFPath());
+        fileService.addFile(penRev.getZipPath());
 
         try
         {
@@ -293,7 +292,7 @@ public class PendoladoServiceImplTest
         {
         }
 
-        fileService.deleteFile(penRev.getPDFPath());
+        fileService.deleteFile(penRev.getZipPath());
 
         assertNull(pendoladoService.getRevision(penVer, 5));
 

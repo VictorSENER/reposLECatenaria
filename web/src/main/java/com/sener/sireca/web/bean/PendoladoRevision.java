@@ -147,15 +147,15 @@ public class PendoladoRevision
         this.repRev = repRev;
     }
 
-    public void changeState(File prePDF, File preError, File preComment)
+    public void changeState(File preFolder, File preError, File preComment)
     {
         FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
 
-        File postPDF = new File(getPDFPath());
+        File postZip = new File(getZipPath());
         File postError = new File(getErrorFilePath());
         File postComment = new File(getNotesFilePath());
 
-        fileService.rename(prePDF, postPDF);
+        fileService.rename(preFolder, postZip);
         fileService.rename(preError, postError);
         fileService.rename(preComment, postComment);
     }
@@ -175,16 +175,9 @@ public class PendoladoRevision
             return "_P";
     }
 
-    public String getPDFPath()
+    public String getZipPath()
     {
-        return getBasePath() + ".pdf";
-
-    }
-
-    public String getPDFName()
-    {
-        return getBaseName() + ".pdf";
-
+        return getFolderPath() + ".zip";
     }
 
     public String getProgressFilePath()
@@ -230,10 +223,10 @@ public class PendoladoRevision
 
     public String getRDRepVerRev()
     {
-        return "V" + repRev.getNumVersion() + "." + repRev.getNumRevision();
+        return "" + repRev.getNumVersion() + "." + repRev.getNumRevision();
     }
 
-    public String getBasePath()
+    public String getFolderPath()
     {
         String basePath = System.getenv("SIRECA_HOME");
 
@@ -244,6 +237,11 @@ public class PendoladoRevision
 
         return basePath + idProject + PendoladoVersion.FICHAS_PENDOLADO
                 + numVersion + "/" + getBaseName();
+    }
+
+    public String getBasePath()
+    {
+        return getFolderPath() + "/" + getBaseName();
     }
 
     private String getBaseName()

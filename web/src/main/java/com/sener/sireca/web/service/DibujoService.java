@@ -39,8 +39,8 @@ public interface DibujoService
             DibujoConfTipologia dibConfTip, double pkIni, double pkFin,
             boolean bHDC, String catenaria);
 
-    public boolean deleteRevision(Project project, int numVersion,
-            int numRevision);
+    public void deleteRevision(Project project, int numVersion, int numRevision)
+            throws Exception;
 
     public int getLastVersion(Project project);
 
@@ -50,6 +50,9 @@ public interface DibujoService
 
     ArrayList<String> getNotes(DibujoRevision revision) throws IOException;
 
-    int getLastRevision(DibujoVersion version);
+    public int getLastRevision(DibujoVersion version);
+
+    public boolean hasDibujoDependencies(Project project, int numVersion,
+            int numRevision);
 
 }

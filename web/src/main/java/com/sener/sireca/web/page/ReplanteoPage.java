@@ -82,7 +82,10 @@ public class ReplanteoPage extends SelectorComposer<Component>
             final int numRevision = (Integer) Executions.getCurrent().getAttribute(
                     "numRevision");
 
-            if (action.equals("delete"))
+            if (action.equals("deleteVer"))
+                replanteoService.deleteVersion(project, numVersion);
+
+            else if (action.equals("delete"))
             {
                 Messagebox.show(
                         "Está seguro que quiere eliminar esta revisión?",
@@ -114,7 +117,6 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                 {
                                                     @Override
                                                     public void onEvent(Event e)
-                                                            throws Exception
                                                     {
 
                                                         if (e.getName().equals(
@@ -140,7 +142,6 @@ public class ReplanteoPage extends SelectorComposer<Component>
                                                 {
                                                     @Override
                                                     public void onEvent(Event e)
-                                                            throws Exception
                                                     {
                                                         if (e.getName().equals(
                                                                 "onOK"))
@@ -205,6 +206,7 @@ public class ReplanteoPage extends SelectorComposer<Component>
     {
         java.io.InputStream is = new FileInputStream(project.getTemplatePath(ReplanteoVersion.CALCULO_REPLANTEO
                 + "Calculo_Replanteo_Template.xlsx"));
+
         Filedownload.save(is, "application/xlsx",
                 "Calculo_Replanteo_Template.xlsx");
 

@@ -146,9 +146,9 @@ public class ApplicationController
                                 replanteoService.getVersion(project, numVersion),
                                 numRevision).getExcelPath();
 
-                        String fileName = replanteoService.getRevision(
-                                replanteoService.getVersion(project, numVersion),
-                                numRevision).getExcelName();
+                        String fileName = project.getTitulo()
+                                + "_Cálculo del cuaderno de replanteo_"
+                                + numVersion + "_" + numRevision + ".xlsx";
 
                         // Get file as InputStream
                         InputStream is = new FileInputStream(path);
@@ -165,7 +165,8 @@ public class ApplicationController
                     }
                     catch (IOException ex)
                     {
-                        throw new RuntimeException("IOError writing file to output stream");
+                        // throw new
+                        // RuntimeException("IOError writing file to output stream");
                     }
                 }
             }
@@ -227,9 +228,9 @@ public class ApplicationController
                                 dibujoService.getVersion(project, numVersion),
                                 numRevision).getAutoCadPath();
 
-                        String fileName = dibujoService.getRevision(
-                                dibujoService.getVersion(project, numVersion),
-                                numRevision).getAutoCadName();
+                        String fileName = project.getTitulo()
+                                + "_Dibujado del plano de replanteo_"
+                                + numVersion + "_" + numRevision + ".dwg";
 
                         // Get file as InputStream
                         InputStream is = new FileInputStream(path);
@@ -245,7 +246,8 @@ public class ApplicationController
                     }
                     catch (IOException ex)
                     {
-                        throw new RuntimeException("IOError writing file to output stream");
+                        // throw new
+                        // RuntimeException("IOError writing file to output stream");
                     }
                 }
             }
@@ -305,11 +307,11 @@ public class ApplicationController
 
                         String path = pendoladoService.getRevision(
                                 pendoladoService.getVersion(project, numVersion),
-                                numRevision).getPDFPath();
+                                numRevision).getZipPath();
 
-                        String fileName = pendoladoService.getRevision(
-                                pendoladoService.getVersion(project, numVersion),
-                                numRevision).getPDFName();
+                        String fileName = project.getTitulo()
+                                + "_Generación de fichas de pendolado_"
+                                + numVersion + "_" + numRevision + ".zip";
 
                         // Get file as InputStream
                         InputStream is = new FileInputStream(path);
@@ -322,10 +324,12 @@ public class ApplicationController
                         org.apache.commons.io.IOUtils.copy(is,
                                 response.getOutputStream());
                         response.flushBuffer();
+
                     }
                     catch (IOException ex)
                     {
-                        throw new RuntimeException("IOError writing file to output stream");
+                        // throw new
+                        // RuntimeException("IOError writing file to output stream");
                     }
                 }
             }
@@ -382,14 +386,14 @@ public class ApplicationController
                 {
                     try
                     {
-                        // TODO: Pensar como hacer para descargar .pdf o .dwg
+
                         String path = montajeService.getRevision(
                                 montajeService.getVersion(project, numVersion),
-                                numRevision).getPDFPath();
+                                numRevision).getZipPath();
 
-                        String fileName = montajeService.getRevision(
-                                montajeService.getVersion(project, numVersion),
-                                numRevision).getPDFName();
+                        String fileName = project.getTitulo()
+                                + "_Generación de fichas de Montaje"
+                                + numVersion + "_" + numRevision + ".zip";
 
                         // Get file as InputStream
                         InputStream is = new FileInputStream(path);
@@ -405,7 +409,8 @@ public class ApplicationController
                     }
                     catch (IOException ex)
                     {
-                        throw new RuntimeException("IOError writing file to output stream");
+                        // throw new
+                        // RuntimeException("IOError writing file to output stream");
                     }
                 }
             }

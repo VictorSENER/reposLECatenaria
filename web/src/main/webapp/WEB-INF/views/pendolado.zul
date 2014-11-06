@@ -27,7 +27,12 @@
                                 	<listcell>
  										<grid hflex="1" >
 	                                   		<auxhead>
-	            								<auxheader label="Versión ${each.numVersion}" colspan="7" />
+	            								<auxheader if="${ each.canDelete == false }" label="Versión ${each.numVersion}" colspan="6"/>
+	            								<auxheader if="${ each.canDelete }" label="Versión ${each.numVersion}" colspan="1"/>
+	            								<auxheader if="${ each.canDelete }" label="Eliminar versión: &#160;" colspan="5" align="end">
+	            									<button image="/img/cross.png" width="36px" href="/pendolado/deleteVer/${each.numVersion}/${each.numVersion}"/>
+	            									 &#160;
+            									</auxheader>
 	        								</auxhead>
 					                     	<columns>
 												<column label="Revisión" />
@@ -52,21 +57,21 @@
 													
 														<button if="${each.error or each.warning}" image="/img/warning.png" width="36px" href="/pendolado/error/${each.numVersion}/${each.numRevision}"/>
 		
-														<separator if="${each.calculated == false and each.error == false }" orient="vertical"></separator>
-																						
-														<button if="${each.calculated == false and each.error == false }" image="/img/progreso.png" width="36px" href="/pendolado/progress/${each.numVersion}/${each.numRevision}"/>
-														
 														<separator if="${each.notes}" orient="vertical"></separator>
 														
 														<button  if="${each.notes}" image="/img/notes.png" width="36px" href="/pendolado/notes/${each.numVersion}/${each.numRevision}"/>
 														
+														<separator if="${each.calculated == false and each.error == false }" orient="vertical"></separator>
+															
+														<button if="${each.calculated == false and each.error == false }" image="/img/progreso.png" width="36px" href="/pendolado/progress/${each.numVersion}/${each.numRevision}"/>
+																												
 														<separator if="${each.calculated and each.error == false}" orient="vertical"></separator>
 														
 														<button if="${each.calculated and each.error == false}" image="/img/download.png" width="36px" href="/pendolado/download/${each.numVersion}/${each.numRevision}"/>	
 														
-														<separator if="${each.calculated and each.error == false}" orient="vertical"></separator>
+														<separator if="${each.calculated or each.error}" orient="vertical"></separator>
 														
-														<button if="${each.calculated and each.error == false}" image="/img/cross.png" width="36px" href="/pendolado/delete/${each.numVersion}/${each.numRevision}"/>
+														<button if="${each.calculated or each.error}" image="/img/cross.png" width="36px" href="/pendolado/delete/${each.numVersion}/${each.numRevision}"/>
 													
 														<separator orient="vertical"></separator>
 													</cell>

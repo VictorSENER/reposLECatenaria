@@ -44,10 +44,29 @@
 	                                    <textbox id="selectedProjectReference" width="200px" />
 	                                </cell>
 	                            </row>
+	                            <row sclass="row-title" >
+									<checkbox id="viaDoble"/> Via Doble
+								</row>
 	                            <row>
 	                                <cell sclass="row-title"> Catenaria:</cell>
 	                                <cell>
 	                                 	<combobox readonly="true" id="selectedProjectCatenaria" width="200px" >
+	                                    	<comboitem value="${each.nomCatenaria}" />
+	                                    </combobox>
+	                                </cell>
+	                            </row>
+	                             <row>
+	                                <cell sclass="row-title"> Plantilla pendolado:</cell>
+	                                <cell>
+	                                 	<combobox readonly="true" id="selectedPendoladoTemplate" width="200px" >
+	                                    	<comboitem value="${each.nomCatenaria}" />
+	                                    </combobox>
+	                                </cell>
+	                            </row>
+	                             <row>
+	                                <cell sclass="row-title"> Plantilla Montaje:</cell>
+	                                <cell>
+	                                 	<combobox readonly="true" id="selectedMontajeTemplate" width="200px" >
 	                                    	<comboitem value="${each.nomCatenaria}" />
 	                                    </combobox>
 	                                </cell>

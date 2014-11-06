@@ -147,18 +147,15 @@ public class MontajeRevision
         this.repRev = repRev;
     }
 
-    public void changeState(File preAutoCad, File preError, File preComment,
-            File prePDF)
+    public void changeState(File preFolder, File preError, File preComment)
     {
         FileService fileService = (FileService) SpringApplicationContext.getBean("fileService");
 
-        File postAutoCad = new File(getAutoCadPath());
-        File postPDF = new File(getPDFPath());
+        File postZip = new File(getZipPath());
         File postError = new File(getErrorFilePath());
         File postComment = new File(getNotesFilePath());
 
-        fileService.rename(prePDF, postPDF);
-        fileService.rename(preAutoCad, postAutoCad);
+        fileService.rename(preFolder, postZip);
         fileService.rename(preError, postError);
         fileService.rename(preComment, postComment);
     }
@@ -178,43 +175,29 @@ public class MontajeRevision
             return "_P";
     }
 
+    public String getZipPath()
+    {
+        return getFolderPath() + ".zip";
+    }
+
     public String getAutoCadPath()
     {
         return getBasePath() + ".dwg";
-
-    }
-
-    public String getAutoCadName()
-    {
-        return getBaseName() + ".dwg";
-
-    }
-
-    public String getPDFPath()
-    {
-        return getBasePath() + ".pdf";
-
-    }
-
-    public String getPDFName()
-    {
-        return getBaseName() + ".pdf";
-
     }
 
     public String getProgressFilePath()
     {
-        return getBasePath() + ".progress";
+        return getFolderPath() + ".progress";
     }
 
     public String getErrorFilePath()
     {
-        return getBasePath() + ".error";
+        return getFolderPath() + ".error";
     }
 
     public String getNotesFilePath()
     {
-        return getBasePath() + ".comment";
+        return getFolderPath() + ".comment";
     }
 
     public String getRUser()
@@ -245,10 +228,10 @@ public class MontajeRevision
 
     public String getRDRepVerRev()
     {
-        return "V" + repRev.getNumVersion() + "." + repRev.getNumRevision();
+        return repRev.getNumVersion() + "." + repRev.getNumRevision();
     }
 
-    public String getBasePath()
+    public String getFolderPath()
     {
         String basePath = System.getenv("SIRECA_HOME");
 
@@ -259,6 +242,11 @@ public class MontajeRevision
 
         return basePath + idProject + MontajeVersion.FICHAS_MONTAJE
                 + numVersion + "/" + getBaseName();
+    }
+
+    public String getBasePath()
+    {
+        return getFolderPath() + "/" + getBaseName();
     }
 
     private String getBaseName()

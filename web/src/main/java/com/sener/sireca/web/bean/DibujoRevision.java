@@ -194,12 +194,6 @@ public class DibujoRevision
 
     }
 
-    public String getAutoCadName()
-    {
-        return getBaseName() + ".dwg";
-
-    }
-
     public String getProgressFilePath()
     {
         return getBasePath() + ".progress";
@@ -243,7 +237,7 @@ public class DibujoRevision
 
     public String getRDRepVerRev()
     {
-        return "V" + repRev.getNumVersion() + "." + repRev.getNumRevision();
+        return "" + repRev.getNumVersion() + "." + repRev.getNumRevision();
     }
 
     public String getBasePath()

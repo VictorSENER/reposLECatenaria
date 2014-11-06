@@ -39,7 +39,10 @@ public class DibujoServiceImpl implements DibujoService
         ArrayList<DibujoVersion> dibujoVersion = new ArrayList<DibujoVersion>();
 
         for (int i = 0; i < versionList.size(); i++)
-            dibujoVersion.add(new DibujoVersion(project.getId(), versionList.get(i)));
+            if (i + 1 == versionList.size() && i != 0)
+                dibujoVersion.add(new DibujoVersion(project.getId(), versionList.get(i), true));
+            else
+                dibujoVersion.add(new DibujoVersion(project.getId(), versionList.get(i), false));
 
         return dibujoVersion;
     }
@@ -55,7 +58,7 @@ public class DibujoServiceImpl implements DibujoService
     public DibujoVersion getVersion(Project project, int numVersion)
     {
         if (verService.getVersion(project.getDibReplanteoBasePath(), numVersion))
-            return new DibujoVersion(project.getId(), numVersion);
+            return new DibujoVersion(project.getId(), numVersion, false);
 
         return null;
     }
@@ -70,7 +73,7 @@ public class DibujoServiceImpl implements DibujoService
         fileService.addDirectory(project.getDibReplanteoBasePath()
                 + idLastversion);
 
-        return new DibujoVersion(project.getId(), idLastversion);
+        return new DibujoVersion(project.getId(), idLastversion, true);
     }
 
     @Override
@@ -267,20 +270,24 @@ public class DibujoServiceImpl implements DibujoService
         if (jacobService.executeCoreCommand(path, "dibujo-replanteo", parameter))
         {
             fileService.deleteFile(revision.getProgressFilePath());
+            fileService.deleteFile(revision.getBasePath() + ".bak");
             fileService.deleteFile(auxExcelPath);
             revision.setCalculated(true);
         }
         else
+        {
+            fileService.writeFile(preError.getAbsolutePath(),
+                    "ERROR/Error en la ejecución del Core.");
             revision.setError(true);
+        }
 
-        if (fileService.fileExists(preError.getAbsolutePath())
-                && !revision.getError())
+        if (fileService.fileExists(preError.getAbsolutePath()))
         {
             ArrayList<String[]> errorLog = null;
 
             try
             {
-                errorLog = fileService.getErrorFileContent(path + ".error");
+                errorLog = fileService.getErrorFileContent(preError.getName());
 
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
@@ -296,42 +303,46 @@ public class DibujoServiceImpl implements DibujoService
             {
 
             }
-
         }
 
         revision.changeState(preAutoCad, preError, preComment);
+
+        if (revision.getError() != true && revision.getWarning() != true)
+            fileService.deleteFile(revision.getErrorFilePath());
 
     }
 
     // Delete the specific revision of the specific version of the specific
     // project and the progress file.
     @Override
-    public boolean deleteRevision(Project project, int numVersion,
-            int numRevision)
+    public void deleteRevision(Project project, int numVersion, int numRevision)
+            throws Exception
     {
-        DibujoVersion version = getVersion(project, numVersion);
-        DibujoRevision revision = getRevision(version, numRevision);
 
-        try
-        {
-            if (!revision.getCalculated())
-                return false;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        DibujoVersion version = getVersion(project, numVersion);
+
+        if (version == null)
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
+
+        DibujoRevision revision = getRevision(version, numRevision);
+        if (revision == null || !revision.getCalculated())
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
+
+        // Delete revision
+        if (fileService.fileExists(revision.getErrorFilePath()))
+            fileService.deleteFile(revision.getErrorFilePath());
 
         if (fileService.fileExists(revision.getProgressFilePath()))
             fileService.deleteFile(revision.getProgressFilePath());
 
-        if (fileService.fileExists(revision.getErrorFilePath()))
-            fileService.deleteFile(revision.getErrorFilePath());
-
         if (fileService.fileExists(revision.getNotesFilePath()))
             fileService.deleteFile(revision.getNotesFilePath());
 
-        return fileService.deleteFile(revision.getAutoCadPath());
+        if (!fileService.deleteFile(revision.getAutoCadPath()))
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
 
     }
 
@@ -360,4 +371,22 @@ public class DibujoServiceImpl implements DibujoService
         return fileService.getErrorFileContent(revision.getErrorFilePath());
     }
 
+    public boolean hasDibujoDependencies(Project project, int numVersion,
+            int numRevision)
+    {
+
+        List<DibujoVersion> dibujoVersion = getVersions(project);
+
+        for (int i = 0; i < dibujoVersion.size(); i++)
+        {
+            List<DibujoRevision> dibujoRevision = getRevisions(dibujoVersion.get(i));
+
+            for (int j = 0; j < dibujoRevision.size(); j++)
+                if (dibujoRevision.get(i).getRepRev().getNumVersion() == numVersion
+                        && dibujoRevision.get(i).getRepRev().getNumRevision() == numRevision)
+                    return true;
+
+        }
+        return false;
+    }
 }

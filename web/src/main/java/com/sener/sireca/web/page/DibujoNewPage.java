@@ -199,6 +199,7 @@ public class DibujoNewPage extends SelectorComposer<Component>
             }
             catch (Exception e)
             {
+                Clients.showNotification("El PK debe ser menor un valor numérico.");
                 return;
             }
 

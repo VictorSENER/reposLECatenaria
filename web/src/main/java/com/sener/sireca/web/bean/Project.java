@@ -44,6 +44,18 @@ public class Project
     @Column(name = "idCatenaria")
     private int idCatenaria;
 
+    // Es vía doble?
+    @Column(name = "viaDoble")
+    private boolean viaDoble;
+
+    // Nombre plantilla de Pendolado
+    @Column(name = "pendolado")
+    private String pendolado;
+
+    // Nombre plantilla de Montaje
+    @Column(name = "montaje")
+    private String montaje;
+
     public Integer getId()
     {
         return id;
@@ -99,6 +111,36 @@ public class Project
         this.idCatenaria = idCatenaria;
     }
 
+    public boolean getViaDoble()
+    {
+        return viaDoble;
+    }
+
+    public void setViaDoble(boolean viaDoble)
+    {
+        this.viaDoble = viaDoble;
+    }
+
+    public String getMontaje()
+    {
+        return montaje;
+    }
+
+    public void setMontaje(String montaje)
+    {
+        this.montaje = montaje;
+    }
+
+    public String getPendolado()
+    {
+        return pendolado;
+    }
+
+    public void setPendolado(String pendolado)
+    {
+        this.pendolado = pendolado;
+    }
+
     public String getCalcReplanteoBasePath()
     {
         return getBasePath() + ReplanteoVersion.CALCULO_REPLANTEO;
@@ -131,9 +173,20 @@ public class Project
         return basePath + id;
     }
 
-    public String getTemplatePath(String faseAndName)
+    public String getTemplatePath(String fase)
     {
-        return System.getenv("SIRECA_HOME") + "/templates/" + faseAndName;
+
+        return System.getenv("SIRECA_HOME") + "/templates" + fase;
+    }
+
+    public String getTemplate(String fase)
+    {
+
+        if (fase.equals("/fichas-pendolado/"))
+            return getTemplatePath(fase) + pendolado;
+        else
+            return getTemplatePath(fase) + montaje;
+
     }
 
 }

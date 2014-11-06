@@ -90,7 +90,6 @@ public class DibujoProgressPage extends SelectorComposer<Component>
 
     }
 
-    // TODO: Cambiar dependiendo del formato
     public void refreshGrid() throws Exception
     {
 

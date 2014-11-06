@@ -50,9 +50,12 @@
 									 <cell sclass="row-title" colspan="2" >  PK Final : &#160; <textbox id="pkFinal" width="50px" /> &#160; m. </cell>
 	                            </row>
 	                            <row>
+									 <cell sclass="row-title"> Cuaderno de Replanteo: </cell>
+	                            </row>
+	                            <row>
 	                                <cell sclass="row-title" colspan="2">
 	                                	Versión:&#160;&#160;&#160;&#160;
-	                                    <combobox id="versionList" width="150px" >
+	                                    <combobox readonly="true" id="versionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
 	            					</cell>
@@ -60,17 +63,17 @@
 	                            <row>
 	                                <cell sclass="row-title" colspan="2">
 	                                	Revisión:&#160;&#160;
-	                                	<combobox id="revisionList" width="150px" >
+	                                	<combobox readonly="true" id="revisionList" width="150px" >
 	                                    	<comboitem value="${each}" />
 	                                    </combobox>
 	            					</cell>
 	                            </row>
 	                            <row>
-	                            	<cell sclass="row-title"> Notas de Revisón: </cell>
+	                            	<cell sclass="row-title" colspan="2"> Notas de Revisón: </cell>
 	                            </row>
 	                            <row>
-	                               <cell>
-	                                    <textbox id="notes" style="resize:none;" rows="2" height="100px" width="200px" />
+	                               <cell colspan="2">
+	                                    <textbox id="notes" style="max-width:98.3%;" rows="2" height="100px" width="210px" />
 	                                </cell>
 	                            </row>
 	                            
@@ -146,6 +149,7 @@
 		                   					<button id="checkAll" label="Seleccionar todo" width="125px"/>
 		                   					<button id="unCheckAll" label="Deseleccionar" width="125px"/>
 		                   				</hlayout>
+										<separator orient="vertical"></separator>
 	                   				</cell>
 	                            </row>
 	                        </rows>

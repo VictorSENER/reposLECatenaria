@@ -77,7 +77,10 @@ public class DibujoPage extends SelectorComposer<Component>
             final int numRevision = (Integer) Executions.getCurrent().getAttribute(
                     "numRevision");
 
-            if (action.equals("delete"))
+            if (action.equals("deleteVer"))
+                dibujoService.deleteVersion(project, numVersion);
+
+            else if (action.equals("delete"))
             {
                 Messagebox.show(
                         "Está seguro que quiere eliminar esta revisión?",
@@ -90,9 +93,11 @@ public class DibujoPage extends SelectorComposer<Component>
                             {
                                 if (e.getName().equals("onOK"))
                                 {
+                                    try
+                                    {
 
-                                    if (dibujoService.deleteRevision(project,
-                                            numVersion, numRevision))
+                                        dibujoService.deleteRevision(project,
+                                                numVersion, numRevision);
 
                                         Messagebox.show(
                                                 "Revisión "
@@ -120,14 +125,11 @@ public class DibujoPage extends SelectorComposer<Component>
 
                                                     }
                                                 });
-
-                                    else
-
+                                    }
+                                    catch (Exception ex)
+                                    {
                                         Messagebox.show(
-                                                "Fallo al eliminar la revisión "
-                                                        + numRevision
-                                                        + " de la versión "
-                                                        + numVersion + ".",
+                                                ex.getMessage(),
                                                 "Información",
                                                 Messagebox.OK,
                                                 Messagebox.INFORMATION,
@@ -146,7 +148,7 @@ public class DibujoPage extends SelectorComposer<Component>
                                                         }
                                                     }
                                                 });
-
+                                    }
                                 }
                                 else
                                     // Redirect back

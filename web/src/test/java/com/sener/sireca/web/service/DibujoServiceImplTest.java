@@ -56,6 +56,8 @@ public class DibujoServiceImplTest
         project.setCliente(cliente);
         project.setReferencia(referencia);
         project.setIdCatenaria(1);
+        project.setPendolado("HOLA");
+        // project.setViaDoble(true);
 
         // Store new project into DB.
         int id = projectService.insertProject(project);

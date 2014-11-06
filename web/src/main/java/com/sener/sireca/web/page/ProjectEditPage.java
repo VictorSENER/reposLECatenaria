@@ -14,6 +14,7 @@ import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Messagebox;
@@ -21,6 +22,8 @@ import org.zkoss.zul.Textbox;
 
 import com.sener.sireca.web.bean.Project;
 import com.sener.sireca.web.service.CatenariaService;
+import com.sener.sireca.web.service.MontajeService;
+import com.sener.sireca.web.service.PendoladoService;
 import com.sener.sireca.web.service.ProjectService;
 import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.SpringApplicationContext;
@@ -43,6 +46,12 @@ public class ProjectEditPage extends SelectorComposer<Component>
     Button updateSelectedProject;
     @Wire
     Combobox selectedProjectCatenaria;
+    @Wire
+    Combobox selectedPendoladoTemplate;
+    @Wire
+    Combobox selectedMontajeTemplate;
+    @Wire
+    Checkbox viaDoble;
 
     // Projects list
     ListModelList<Project> projectListModel;
@@ -52,6 +61,8 @@ public class ProjectEditPage extends SelectorComposer<Component>
 
     ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");
     CatenariaService catenariaService = (CatenariaService) SpringApplicationContext.getBean("catenariaService");
+    PendoladoService pendoladoService = (PendoladoService) SpringApplicationContext.getBean("pendoladoService");
+    MontajeService montajeService = (MontajeService) SpringApplicationContext.getBean("montajeService");
     UserService userService = (UserService) SpringApplicationContext.getBean("userService");
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -60,24 +71,31 @@ public class ProjectEditPage extends SelectorComposer<Component>
     {
         super.doAfterCompose(comp);
 
-        List<String> vList = catenariaService.getListCatenarias();
-
-        selectedProjectCatenaria.setModel(new ListModelList(vList));
-
         int id = (Integer) Executions.getCurrent().getAttribute("id");
         project = projectService.getProjectById(id);
 
         if (project == null)
             Executions.getCurrent().sendRedirect("/project");
+        List<String> vList = catenariaService.getListCatenarias();
+        List<String> tPList = pendoladoService.getTemplatesList(project);
+        List<String> tMList = montajeService.getTemplatesList(project);
+
+        selectedProjectCatenaria.setModel(new ListModelList(vList));
+        selectedPendoladoTemplate.setModel(new ListModelList(tPList));
+        selectedMontajeTemplate.setModel(new ListModelList(tMList));
 
         selectedProjectTitle.setValue(project.getTitulo());
         selectedProjectClient.setValue(project.getCliente());
         selectedProjectUser.setValue(userService.getUserById(
                 (project.getIdUsuario())).getUsername());
-        selectedProjectReference.setValue(project.getReferencia());
 
+        selectedProjectReference.setValue(project.getReferencia());
         selectedProjectCatenaria.setValue(catenariaService.getCatenariaById(
                 project.getIdCatenaria()).getNomCatenaria());
+
+        selectedPendoladoTemplate.setValue(project.getPendolado());
+        selectedMontajeTemplate.setValue(project.getMontaje());
+        viaDoble.setChecked(project.getViaDoble());
 
     }
 
@@ -92,8 +110,13 @@ public class ProjectEditPage extends SelectorComposer<Component>
         project.setIdCatenaria(catenariaService.getCatenariaByTitle(
                 selectedProjectCatenaria.getSelectedItem().getValue().toString()).getId());
 
+        project.setPendolado(selectedPendoladoTemplate.getValue().toString());
+        project.setMontaje(selectedMontajeTemplate.getValue().toString());
+        project.setViaDoble(viaDoble.isChecked());
+
         try
         {
+
             projectService.updateProject(project);
             Clients.showNotification("Proyecto guardado correctamente");
         }

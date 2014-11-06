@@ -63,7 +63,6 @@ public class DibujoErrorPage extends SelectorComposer<Component>
         DibujoRevision revision = dibujoService.getRevision(version,
                 numRevision);
 
-        // TODO: Cambiar según formato.
         ArrayList<String[]> errorLog = dibujoService.getErrorLog(revision);
 
         String path = "/img/";

@@ -34,7 +34,10 @@ public class ReplanteoServiceImpl implements ReplanteoService
         ArrayList<ReplanteoVersion> replanteoVersion = new ArrayList<ReplanteoVersion>();
 
         for (int i = 0; i < versionList.size(); i++)
-            replanteoVersion.add(new ReplanteoVersion(project.getId(), versionList.get(i)));
+            if (i == versionList.size() - 1 && i != 0)
+                replanteoVersion.add(new ReplanteoVersion(project.getId(), versionList.get(i), true));
+            else
+                replanteoVersion.add(new ReplanteoVersion(project.getId(), versionList.get(i), false));
 
         return replanteoVersion;
     }
@@ -51,7 +54,7 @@ public class ReplanteoServiceImpl implements ReplanteoService
     {
         if (verService.getVersion(project.getCalcReplanteoBasePath(),
                 numVersion))
-            return new ReplanteoVersion(project.getId(), numVersion);
+            return new ReplanteoVersion(project.getId(), numVersion, false);
 
         return null;
     }
@@ -66,7 +69,7 @@ public class ReplanteoServiceImpl implements ReplanteoService
         fileService.addDirectory(project.getCalcReplanteoBasePath()
                 + idLastversion);
 
-        return new ReplanteoVersion(project.getId(), idLastversion);
+        return new ReplanteoVersion(project.getId(), idLastversion, true);
     }
 
     @Override
@@ -253,16 +256,18 @@ public class ReplanteoServiceImpl implements ReplanteoService
             revision.setCalculated(true);
         }
         else
+        {
+            fileService.writeFile(preError.getAbsolutePath(),
+                    "ERROR/Error en la ejecución del Core.");
             revision.setError(true);
-
-        if (fileService.fileExists(preError.getAbsolutePath())
-                && !revision.getError())
+        }
+        if (fileService.fileExists(preError.getAbsolutePath()))
         {
             ArrayList<String[]> errorLog = null;
 
             try
             {
-                errorLog = fileService.getErrorFileContent(path + ".error");
+                errorLog = fileService.getErrorFileContent(preError.getName());
 
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
@@ -283,6 +288,9 @@ public class ReplanteoServiceImpl implements ReplanteoService
 
         revision.changeState(preExcel, preError, preComment);
 
+        if (revision.getError() != true && revision.getWarning() != true)
+            fileService.deleteFile(revision.getErrorFilePath());
+
     }
 
     // Delete the specific revision of the specific version of the specific
@@ -292,28 +300,37 @@ public class ReplanteoServiceImpl implements ReplanteoService
             throws Exception
     {
         ReplanteoVersion version = getVersion(project, numVersion);
+
         if (version == null)
-            throw new Exception("Fallo al eliminar" + numRevision
-                    + " de la versión " + numVersion + ".");
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
 
         ReplanteoRevision revision = getRevision(version, numRevision);
         if (revision == null || !revision.getCalculated())
-            throw new Exception("Fallo al eliminar" + numRevision
-                    + " de la versión " + numVersion + ".");
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
 
         // Check if revision has dependencies.
-        // checkDibujoDependencies();
-        // throw new Exception("La" + numRevision
-        // + " de la versión " + numVersion +
-        // " tiene dependencias con Planos de replanteo.");
-        // checkPendoladoDependencies();
-        // throw new Exception("La" + numRevision
-        // + " de la versión " + numVersion +
-        // " tiene dependencias con Fichas de pendolado.");
-        // checkMontajeDependencies();
-        // throw new Exception("La" + numRevision
-        // + " de la versión " + numVersion +
-        // " tiene dependencias con Fichas de montaje.");
+        DibujoService dibujoService = (DibujoService) SpringApplicationContext.getBean("dibujoService");
+        if (dibujoService.hasDibujoDependencies(project, numVersion,
+                numRevision))
+            throw new Exception("Error: La revisión " + numRevision
+                    + " de la versión " + numVersion
+                    + " tiene dependencias con Planos de replanteo.");
+
+        PendoladoService pendoladoService = (PendoladoService) SpringApplicationContext.getBean("pendoladoService");
+        if (pendoladoService.hasPendoladoDependencies(project, numVersion,
+                numRevision))
+            throw new Exception("Error: La revisión " + numRevision
+                    + " de la versión " + numVersion
+                    + " tiene dependencias con Fichas de pendolado.");
+
+        MontajeService montajeService = (MontajeService) SpringApplicationContext.getBean("montajeService");
+        if (montajeService.hasMontajeDependencies(project, numVersion,
+                numRevision))
+            throw new Exception("Error: La revisión " + numRevision
+                    + " de la versión " + numVersion
+                    + " tiene dependencias con Fichas de montaje.");
 
         // Delete revision
         if (fileService.fileExists(revision.getErrorFilePath()))
@@ -325,9 +342,9 @@ public class ReplanteoServiceImpl implements ReplanteoService
         if (fileService.fileExists(revision.getNotesFilePath()))
             fileService.deleteFile(revision.getNotesFilePath());
 
-        if (fileService.deleteFile(revision.getExcelPath()))
-            throw new Exception("Fallo al eliminar" + numRevision
-                    + " de la versión " + numVersion + ".");
+        if (!fileService.deleteFile(revision.getExcelPath()))
+            throw new Exception("Error: No se ha podido eliminar la revisión "
+                    + numRevision + " de la versión " + numVersion + ".");
     }
 
     @Override

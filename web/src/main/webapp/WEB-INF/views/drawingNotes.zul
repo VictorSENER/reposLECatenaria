@@ -11,7 +11,7 @@
             <borderlayout>
 	        	<center autoscroll="true" border="none">
 		        	<vlayout>
-		        		<grid id="notesList" height="400px">
+		        		<grid id="notesList" height="550px">
 	                     	<columns>
 								<column label="Notas Revisión" />
 	                        </columns>
@@ -21,7 +21,8 @@
 	                        	</row>
 	                        </rows>   
 	                	</grid>
-	                	<hlayout>
+	                	<separator></separator>
+	                	<hlayout>	
 	                   		<button id="goBack" label="Volver" width="65px"/>
 	                   	</hlayout>
                 	</vlayout>

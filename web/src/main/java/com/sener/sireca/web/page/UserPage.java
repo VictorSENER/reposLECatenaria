@@ -169,19 +169,24 @@ public class UserPage extends SelectorComposer<Component>
         selectedUser.setPassword(selectedUserPassword.getValue());
 
         // Save new data into DB.
-        if (userService.updateUser(selectedUser) != 0)
+        try
         {
 
-            // Update user into listbox.
-            userListModel.set(userListModel.indexOf(selectedUser), selectedUser);
+            userService.updateUser(selectedUser);
 
             // Show message for user.
             Clients.showNotification("Usuario guardado correctamente");
 
+            // Update user into listbox.
+            userListModel.set(userListModel.indexOf(selectedUser), selectedUser);
             selectedUser = null;
 
             // Refresh view according to new selection.
             refreshDetailView();
+        }
+        catch (Exception ex)
+        {
+            Clients.showNotification(ex.getMessage());
         }
 
     }

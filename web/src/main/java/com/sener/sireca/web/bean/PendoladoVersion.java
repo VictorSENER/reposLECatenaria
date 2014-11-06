@@ -18,14 +18,19 @@ public class PendoladoVersion
     // Número de versión.
     private Integer numVersion;
 
+    // Indica si es eliminable
+    private boolean canDelete;
+
     // Lista auxiliar para el .zul
     private List<PendoladoRevision> modelList;
 
-    public PendoladoVersion(Integer idProject, Integer numVersion)
+    public PendoladoVersion(Integer idProject, Integer numVersion,
+            boolean canDelete)
     {
         super();
         this.idProject = idProject;
         this.numVersion = numVersion;
+        this.canDelete = canDelete;
     }
 
     public List<PendoladoRevision> getModelList()
@@ -56,6 +61,16 @@ public class PendoladoVersion
     public void setNumVersion(Integer numVersion)
     {
         this.numVersion = numVersion;
+    }
+
+    public boolean getCanDelete()
+    {
+        return canDelete;
+    }
+
+    public void setCanDelete(boolean canDelete)
+    {
+        this.canDelete = canDelete;
     }
 
     public String getFolderPath()

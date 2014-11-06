@@ -104,7 +104,14 @@ public class UserServiceImplTest extends TestCase
         user.setUsername(username);
         user.setPassword(password);
 
-        userService.updateUser(user);
+        try
+        {
+            userService.updateUser(user);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         user = userService.getUserById(id);
 

@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.zkoss.lang.Strings;
-import org.zkoss.zk.ui.util.Clients;
 
 import com.sener.sireca.web.bean.User;
 import com.sener.sireca.web.dao.UserDao;
@@ -58,39 +57,25 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public int updateUser(User user)
+    public int updateUser(User user) throws Exception
     {
 
         // Checks if username is empty.
         if (Strings.isBlank(user.getUsername()))
-        {
-            Clients.showNotification("El nombre de usuario no puede estar vacío.");
-            return 0;
-        }
+            throw new Exception("El nombre de usuario no puede estar vacío.");
 
         else if (user.getUsername().length() > 50)
-        {
-            Clients.showNotification("El nombre de usuario no puede ser tan largo. (Máximo 50 carácteres)");
-            return 0;
-        }
+            throw new Exception("El nombre de usuario no puede ser tan largo. (Máximo 50 carácteres)");
+
         else if (getUserByUsername(user.getUsername()) != null)
-        {
-            Clients.showNotification("El nombre de usuario ya existe.");
-            return 0;
-        }
+            throw new Exception("El nombre de usuario ya existe.");
 
         // Checks if password is empty.
         if (Strings.isBlank(user.getPassword()))
-        {
-            Clients.showNotification("El password no puede estar vacío.");
-            return 0;
-        }
+            throw new Exception("El password no puede estar vacío.");
 
         else if (user.getPassword().length() > 50)
-        {
-            Clients.showNotification("El password no puede ser tan largo. (Máximo 50 carácteres)");
-            return 0;
-        }
+            throw new Exception("El password no puede ser tan largo. (Máximo 50 carácteres)");
 
         return userDao.updateUser(user);
     }

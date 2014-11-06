@@ -220,11 +220,6 @@ public class ReplanteoRevision
         return getBasePath() + ".comment";
     }
 
-    public String getExcelName()
-    {
-        return getBaseName() + ".xlsx";
-    }
-
     public String getRUser()
     {
         ProjectService projectService = (ProjectService) SpringApplicationContext.getBean("projectService");

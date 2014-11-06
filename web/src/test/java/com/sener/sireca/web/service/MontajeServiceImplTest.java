@@ -65,7 +65,7 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.getVersion(project, 1);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "Comment");
+                "");
         fileService.addFile(repRev.getExcelPath());
 
         for (int i = 0; i < 4; i++)
@@ -75,9 +75,9 @@ public class MontajeServiceImplTest
 
         for (int i = 0; i < 4; i++)
         {
-            monRev = montajeService.createRevision(monVer, repRev, "Comment");
+            monRev = montajeService.createRevision(monVer, repRev, "");
             monRev.setCalculated(true);
-            fileService.addFile(monRev.getAutoCadPath());
+            fileService.addDirectory(monRev.getBasePath());
         }
 
     }
@@ -245,13 +245,13 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.createVersion(project);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "Comment");
+                "");
         fileService.addFile(repRev.getExcelPath());
 
         MontajeRevision monRev = montajeService.createRevision(monVer, repRev,
-                "Comment");
+                "");
 
-        fileService.addFile(monRev.getAutoCadPath());
+        fileService.addDirectory(monRev.getBasePath());
 
         assertTrue(monRev.getNumRevision() == montajeService.getLastRevision(monVer));
         try
@@ -263,7 +263,7 @@ public class MontajeServiceImplTest
         {
         }
 
-        fileService.deleteFile(monRev.getAutoCadPath());
+        fileService.deleteDirectory(monRev.getBasePath());
 
     }
 
@@ -277,11 +277,11 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.createVersion(project);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "Comment");
+                "");
         MontajeRevision monRev = montajeService.createRevision(monVer, repRev,
-                "Comment");
+                "");
 
-        fileService.addFile(monRev.getAutoCadPath());
+        fileService.addDirectory(monRev.getBasePath());
 
         try
         {
@@ -292,7 +292,7 @@ public class MontajeServiceImplTest
         {
         }
 
-        fileService.deleteFile(monRev.getAutoCadPath());
+        fileService.deleteDirectory(monRev.getBasePath());
 
         assertNull(montajeService.getRevision(monVer, 5));
 

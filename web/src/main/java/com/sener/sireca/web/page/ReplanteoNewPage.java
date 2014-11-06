@@ -163,7 +163,7 @@ public class ReplanteoNewPage extends SelectorComposer<Component>
                     if (pkIni >= pkFin)
                     {
 
-                        Clients.showNotification("El PK Inicial debe ser que el PK Final.");
+                        Clients.showNotification("El PK Inicial debe ser menor que el PK Final.");
                         return;
                     }
 

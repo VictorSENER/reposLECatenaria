@@ -102,48 +102,54 @@ public class DibujoServiceImpl implements DibujoService
 
         for (int i = 0; i < revisionList.size(); i++)
         {
-
-            String fileName = revisionList.get(i);
-            String[] parameters = fileName.split("_");
-
-            DibujoRevision dibujoRevisionAux = new DibujoRevision();
-            dibujoRevisionAux.setIdProject(version.getIdProject());
-            dibujoRevisionAux.setNumVersion(version.getNumVersion());
-            dibujoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
-
-            ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
-                    project, Integer.parseInt(parameters[1]));
-            if (replanteoVersionAux != null)
+            try
             {
-                ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
-                        replanteoVersionAux, Integer.parseInt(parameters[2]));
-                if (replanteoRevAux != null)
+                String fileName = revisionList.get(i);
+                String[] parameters = fileName.split("_");
+
+                DibujoRevision dibujoRevisionAux = new DibujoRevision();
+                dibujoRevisionAux.setIdProject(version.getIdProject());
+                dibujoRevisionAux.setNumVersion(version.getNumVersion());
+                dibujoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
+
+                ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
+                        project, Integer.parseInt(parameters[1]));
+                if (replanteoVersionAux != null)
                 {
-
-                    dibujoRevisionAux.setRepRev(replanteoRevAux);
-
-                    if (parameters[3].equals("E.dwg"))
-                        dibujoRevisionAux.setError(true);
-
-                    else if (parameters[3].equals("C.dwg"))
-                        dibujoRevisionAux.setCalculated(true);
-
-                    else if (parameters[3].equals("CW.dwg"))
+                    ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
+                            replanteoVersionAux,
+                            Integer.parseInt(parameters[2]));
+                    if (replanteoRevAux != null)
                     {
-                        dibujoRevisionAux.setCalculated(true);
-                        dibujoRevisionAux.setWarning(true);
+
+                        dibujoRevisionAux.setRepRev(replanteoRevAux);
+
+                        if (parameters[3].equals("E.dwg"))
+                            dibujoRevisionAux.setError(true);
+
+                        else if (parameters[3].equals("C.dwg"))
+                            dibujoRevisionAux.setCalculated(true);
+
+                        else if (parameters[3].equals("CW.dwg"))
+                        {
+                            dibujoRevisionAux.setCalculated(true);
+                            dibujoRevisionAux.setWarning(true);
+                        }
+
+                        if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
+                            dibujoRevisionAux.setNotes(true);
+
+                        dibujoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                                + fileName));
+                        dibujoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                                + fileName));
+
+                        dibujoRevision.add(dibujoRevisionAux);
                     }
-
-                    if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
-                        dibujoRevisionAux.setNotes(true);
-
-                    dibujoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
-                            + fileName));
-                    dibujoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
-                            + fileName));
-
-                    dibujoRevision.add(dibujoRevisionAux);
                 }
+            }
+            catch (Exception e)
+            {
             }
         }
         return dibujoRevision;

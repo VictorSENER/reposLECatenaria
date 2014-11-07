@@ -18,7 +18,7 @@ public class DibujoRevision
 {
 
     // Identificador del proyecto al que pertenece la versión.
-    private int idProject;
+    private Integer idProject;
 
     // Número de versión.
     private int numVersion;
@@ -50,12 +50,12 @@ public class DibujoRevision
     // Tamaño del fichero de la revisión (en bytes).
     private long fileSize;
 
-    public int getIdProject()
+    public Integer getIdProject()
     {
         return idProject;
     }
 
-    public void setIdProject(int idProject)
+    public void setIdProject(Integer idProject)
     {
         this.idProject = idProject;
     }

@@ -18,7 +18,7 @@ public class PendoladoRevision
 {
 
     // Identificador del proyecto al que pertenece la versión.
-    private int idProject;
+    private Integer idProject;
 
     // Número de versión.
     private int numVersion;
@@ -47,12 +47,12 @@ public class PendoladoRevision
     // Tamaño del fichero de la revisión (en bytes).
     private long fileSize;
 
-    public int getIdProject()
+    public Integer getIdProject()
     {
         return idProject;
     }
 
-    public void setIdProject(int idProject)
+    public void setIdProject(Integer idProject)
     {
         this.idProject = idProject;
     }
@@ -182,17 +182,17 @@ public class PendoladoRevision
 
     public String getProgressFilePath()
     {
-        return getBasePath() + ".progress";
+        return getFolderPath() + ".progress";
     }
 
     public String getErrorFilePath()
     {
-        return getBasePath() + ".error";
+        return getFolderPath() + ".error";
     }
 
     public String getNotesFilePath()
     {
-        return getBasePath() + ".comment";
+        return getFolderPath() + ".comment";
     }
 
     public String getRUser()
@@ -221,7 +221,7 @@ public class PendoladoRevision
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    public String getRDRepVerRev()
+    public String getRPRepVerRev()
     {
         return "" + repRev.getNumVersion() + "." + repRev.getNumRevision();
     }

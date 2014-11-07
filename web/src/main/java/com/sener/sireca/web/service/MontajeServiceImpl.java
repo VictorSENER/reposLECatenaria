@@ -101,54 +101,60 @@ public class MontajeServiceImpl implements MontajeService
 
         for (int i = 0; i < revisionList.size(); i++)
         {
-
-            String fileName = revisionList.get(i);
-            String[] parameters = fileName.split("_");
-
-            MontajeRevision montajeRevisionAux = new MontajeRevision();
-            montajeRevisionAux.setIdProject(version.getIdProject());
-            montajeRevisionAux.setNumVersion(version.getNumVersion());
-            montajeRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
-
-            ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
-                    project, Integer.parseInt(parameters[1]));
-            if (replanteoVersionAux != null)
+            try
             {
-                ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
-                        replanteoVersionAux, Integer.parseInt(parameters[2]));
-                if (replanteoRevAux != null)
+                String fileName = revisionList.get(i);
+                String[] parameters = fileName.split("_");
+
+                MontajeRevision montajeRevisionAux = new MontajeRevision();
+                montajeRevisionAux.setIdProject(version.getIdProject());
+                montajeRevisionAux.setNumVersion(version.getNumVersion());
+                montajeRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
+
+                ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
+                        project, Integer.parseInt(parameters[1]));
+                if (replanteoVersionAux != null)
                 {
-                    montajeRevisionAux.setRepRev(replanteoRevAux);
-
-                    // Son carpetas y archivos .zip
-                    if (parameters[3].equals("E.zip")
-                            || parameters[3].equals("E"))
-                        montajeRevisionAux.setError(true);
-
-                    else if (parameters[3].equals("C.zip"))
-                        montajeRevisionAux.setCalculated(true);
-
-                    else if (parameters[3].equals("CW.zip"))
+                    ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
+                            replanteoVersionAux,
+                            Integer.parseInt(parameters[2]));
+                    if (replanteoRevAux != null)
                     {
-                        montajeRevisionAux.setCalculated(true);
-                        montajeRevisionAux.setWarning(true);
+                        montajeRevisionAux.setRepRev(replanteoRevAux);
+
+                        // Son carpetas y archivos .zip
+                        if (parameters[3].equals("E.zip")
+                                || parameters[3].equals("E"))
+                            montajeRevisionAux.setError(true);
+
+                        else if (parameters[3].equals("C.zip"))
+                            montajeRevisionAux.setCalculated(true);
+
+                        else if (parameters[3].equals("CW.zip"))
+                        {
+                            montajeRevisionAux.setCalculated(true);
+                            montajeRevisionAux.setWarning(true);
+                        }
+                        else if (parameters[3].equals("P"))
+                            montajeRevisionAux.setCalculated(false);
+
+                        else
+                            continue;
+
+                        if (fileService.fileExists(montajeRevisionAux.getNotesFilePath()))
+                            montajeRevisionAux.setNotes(true);
+
+                        montajeRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                                + fileName));
+                        montajeRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                                + fileName));
+
+                        montajeRevision.add(montajeRevisionAux);
                     }
-                    else if (parameters[3].equals("P"))
-                        montajeRevisionAux.setCalculated(false);
-
-                    else
-                        break;
-
-                    if (fileService.fileExists(montajeRevisionAux.getNotesFilePath()))
-                        montajeRevisionAux.setNotes(true);
-
-                    montajeRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
-                            + fileName));
-                    montajeRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
-                            + fileName));
-
-                    montajeRevision.add(montajeRevisionAux);
                 }
+            }
+            catch (Exception e)
+            {
             }
         }
 
@@ -179,7 +185,9 @@ public class MontajeServiceImpl implements MontajeService
         File[] ficheros = fileService.getDirectory(ruta);
 
         for (int i = 0; i < ficheros.length; i++)
-            revisionList.add(ficheros[i].getName());
+            if (ficheros[i].isDirectory()
+                    || fileService.getFileExtension(ficheros[i]).equals("zip"))
+                revisionList.add(ficheros[i].getName());
 
         return revisionList;
     }

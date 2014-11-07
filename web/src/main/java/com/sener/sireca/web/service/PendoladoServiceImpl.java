@@ -100,55 +100,61 @@ public class PendoladoServiceImpl implements PendoladoService
         Project project = projectService.getProjectById(version.getIdProject());
         for (int i = 0; i < revisionList.size(); i++)
         {
-
-            String fileName = revisionList.get(i);
-            String[] parameters = fileName.split("_");
-
-            PendoladoRevision pendoladoRevisionAux = new PendoladoRevision();
-            pendoladoRevisionAux.setIdProject(version.getIdProject());
-            pendoladoRevisionAux.setNumVersion(version.getNumVersion());
-            pendoladoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
-
-            ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
-                    project, Integer.parseInt(parameters[1]));
-
-            if (replanteoVersionAux != null)
+            try
             {
-                ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
-                        replanteoVersionAux, Integer.parseInt(parameters[2]));
-                if (replanteoRevAux != null)
+                String fileName = revisionList.get(i);
+                String[] parameters = fileName.split("_");
+
+                PendoladoRevision pendoladoRevisionAux = new PendoladoRevision();
+                pendoladoRevisionAux.setIdProject(version.getIdProject());
+                pendoladoRevisionAux.setNumVersion(version.getNumVersion());
+                pendoladoRevisionAux.setNumRevision(Integer.parseInt(parameters[0]));
+
+                ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
+                        project, Integer.parseInt(parameters[1]));
+
+                if (replanteoVersionAux != null)
                 {
-
-                    pendoladoRevisionAux.setRepRev(replanteoRevAux);
-
-                    if (parameters[3].equals("E.zip")
-                            || parameters[3].equals("E"))
-                        pendoladoRevisionAux.setError(true);
-
-                    else if (parameters[3].equals("C.zip"))
-                        pendoladoRevisionAux.setCalculated(true);
-
-                    else if (parameters[3].equals("CW.zip"))
+                    ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
+                            replanteoVersionAux,
+                            Integer.parseInt(parameters[2]));
+                    if (replanteoRevAux != null)
                     {
-                        pendoladoRevisionAux.setCalculated(true);
-                        pendoladoRevisionAux.setWarning(true);
+
+                        pendoladoRevisionAux.setRepRev(replanteoRevAux);
+
+                        if (parameters[3].equals("E.zip")
+                                || parameters[3].equals("E"))
+                            pendoladoRevisionAux.setError(true);
+
+                        else if (parameters[3].equals("C.zip"))
+                            pendoladoRevisionAux.setCalculated(true);
+
+                        else if (parameters[3].equals("CW.zip"))
+                        {
+                            pendoladoRevisionAux.setCalculated(true);
+                            pendoladoRevisionAux.setWarning(true);
+                        }
+                        else if (parameters[3].equals("P"))
+                            pendoladoRevisionAux.setCalculated(false);
+
+                        else
+                            continue;
+
+                        if (fileService.fileExists(pendoladoRevisionAux.getNotesFilePath()))
+                            pendoladoRevisionAux.setNotes(true);
+
+                        pendoladoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
+                                + fileName));
+                        pendoladoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
+                                + fileName));
+
+                        pendoladoRevision.add(pendoladoRevisionAux);
                     }
-                    else if (parameters[3].equals("P"))
-                        pendoladoRevisionAux.setCalculated(false);
-
-                    else
-                        break;
-
-                    if (fileService.fileExists(pendoladoRevisionAux.getNotesFilePath()))
-                        pendoladoRevisionAux.setNotes(true);
-
-                    pendoladoRevisionAux.setDate(fileService.getFileDate(version.getFolderPath()
-                            + fileName));
-                    pendoladoRevisionAux.setFileSize(fileService.getFileSize(version.getFolderPath()
-                            + fileName));
-
-                    pendoladoRevision.add(pendoladoRevisionAux);
                 }
+            }
+            catch (Exception e)
+            {
             }
         }
         return pendoladoRevision;
@@ -178,7 +184,9 @@ public class PendoladoServiceImpl implements PendoladoService
         File[] ficheros = fileService.getDirectory(ruta);
 
         for (int i = 0; i < ficheros.length; i++)
-            revisionList.add(ficheros[i].getName());
+            if (ficheros[i].isDirectory()
+                    || fileService.getFileExtension(ficheros[i]).equals("zip"))
+                revisionList.add(ficheros[i].getName());
 
         return revisionList;
     }

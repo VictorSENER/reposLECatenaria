@@ -226,7 +226,7 @@ public class MontajeRevision
         return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    public String getRDRepVerRev()
+    public String getRMRepVerRev()
     {
         return repRev.getNumVersion() + "." + repRev.getNumRevision();
     }

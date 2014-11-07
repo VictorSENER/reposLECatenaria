@@ -97,11 +97,10 @@ public class ReplanteoServiceImpl implements ReplanteoService
 
         for (int i = 0; i < revisionList.size(); i++)
         {
-
-            String fileName = revisionList.get(i);
-            String[] parameters = fileName.split("_");
             try
             {
+                String fileName = revisionList.get(i);
+                String[] parameters = fileName.split("_");
 
                 ReplanteoRevision replanteoRevisionAux = new ReplanteoRevision();
 

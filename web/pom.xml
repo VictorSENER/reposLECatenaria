@@ -9,6 +9,7 @@
   <url>http://www.sener.es</url>
   
   <properties>
+  	<jetty.version>7.0.0pre2</jetty.version>
     <spring.version>3.1.2.RELEASE</spring.version>
     <hibernate.version>4.3.5.Final</hibernate.version>
     <log4j.version>1.2.17</log4j.version>
@@ -195,6 +196,12 @@
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
+    
+     <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jsp-2.1</artifactId>
+        <version>${jetty.version}</version>
+    </dependency>     
 
   </dependencies>
   <build>
@@ -203,9 +210,14 @@
 
        <!-- Run with Jetty -->
        <plugin>
-         <groupId>org.mortbay.jetty</groupId>
+       
+       <!--   <groupId>org.mortbay.jetty</groupId>
          <artifactId>maven-jetty-plugin</artifactId>
-         <version>6.1.10</version>
+         <version>6.1.10</version> -->
+       
+      	<groupId>org.mortbay.jetty</groupId>
+      		<artifactId>maven-jetty-plugin</artifactId>
+          <version>${jetty.version}</version>
          <configuration>
            <scanIntervalSeconds>5</scanIntervalSeconds>
            <stopKey>foo</stopKey>

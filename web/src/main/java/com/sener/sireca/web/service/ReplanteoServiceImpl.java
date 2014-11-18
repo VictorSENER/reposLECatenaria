@@ -166,6 +166,8 @@ public class ReplanteoServiceImpl implements ReplanteoService
         ArrayList<String> revisionList = new ArrayList<String>();
         File[] ficheros = fileService.getDirectory(ruta);
 
+        System.out.println(ruta);
+
         for (int i = 0; i < ficheros.length; i++)
         {
             if (fileService.getFileExtension(ficheros[i]).equals("xlsx"))

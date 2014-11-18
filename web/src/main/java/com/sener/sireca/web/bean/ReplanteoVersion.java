@@ -83,8 +83,7 @@ public class ReplanteoVersion
         else
             basePath += "/projectTest/";
 
-        return basePath + idProject + CALCULO_REPLANTEO + "/" + numVersion
-                + "/";
+        return basePath + idProject + CALCULO_REPLANTEO + numVersion + "/";
 
     }
 }

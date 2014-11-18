@@ -83,7 +83,7 @@ public class PendoladoVersion
         else
             basePath += "/projectTest/";
 
-        return basePath + idProject + FICHAS_PENDOLADO + "/" + numVersion + "/";
+        return basePath + idProject + FICHAS_PENDOLADO + numVersion + "/";
 
     }
 }

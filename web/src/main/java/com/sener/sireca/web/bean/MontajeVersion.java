@@ -83,7 +83,7 @@ public class MontajeVersion
         else
             basePath += "/projectTest/";
 
-        return basePath + idProject + FICHAS_MONTAJE + "/" + numVersion + "/";
+        return basePath + idProject + FICHAS_MONTAJE + numVersion + "/";
 
     }
 }

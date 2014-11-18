@@ -10,7 +10,7 @@
 
 
     <!-- Database properties file -->
-    <context:property-placeholder location="classpath:database/database.properties" />
+   
     <mvc:annotation-driven />
 
     <!-- Database configuration -->
@@ -21,6 +21,8 @@
         <property name="username" value="${database.user}" />
         <property name="password" value="${database.password}" />
     </bean>
+    
+    <context:property-placeholder location="classpath:database/database.properties"/>
 
     <!-- Hibernate session factory configuration -->
     <bean id="sessionFactory"

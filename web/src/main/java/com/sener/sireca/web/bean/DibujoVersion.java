@@ -83,7 +83,7 @@ public class DibujoVersion
         else
             basePath += "/projectTest/";
 
-        return basePath + idProject + DIBUJO_REPLANTEO + "/" + numVersion + "/";
+        return basePath + idProject + DIBUJO_REPLANTEO + numVersion + "/";
 
     }
 }

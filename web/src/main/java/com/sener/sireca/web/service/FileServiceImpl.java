@@ -96,7 +96,7 @@ public class FileServiceImpl implements FileService
         File directory = new File(path);
         File[] ficheros = directory.listFiles();
 
-        sortDirectory(ficheros);
+        // sortDirectory(ficheros);
 
         return ficheros;
     }

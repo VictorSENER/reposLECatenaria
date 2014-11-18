@@ -1770,6 +1770,8 @@ ancho_cuadrado = 1
 escala_poste = 1
 cont = 0
 For iposte = 1 To num_postes_total
+
+    Call txt.progress("1", "1", "Dibujado de postes", poste(iposte).pk_global - poste(1).pk_global, poste(num_postes_total).pk_global - poste(1).pk_global)
     '///
     '/// Variar la escala en estaciones
     '///

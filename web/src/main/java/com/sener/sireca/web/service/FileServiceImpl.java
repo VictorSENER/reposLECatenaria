@@ -17,8 +17,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -96,46 +94,7 @@ public class FileServiceImpl implements FileService
         File directory = new File(path);
         File[] ficheros = directory.listFiles();
 
-        sortDirectory(ficheros);
-
         return ficheros;
-    }
-
-    private void sortDirectory(File[] files)
-    {
-        ArrayList<File> filesList = new ArrayList<File>();
-        for (int i = 0; i < files.length; i++)
-            filesList.add(files[i]);
-
-        Collections.sort(filesList, new Comparator<File>()
-        {
-            public int compare(File o1, File o2)
-            {
-                int n1 = extractNumber(o1.getName());
-                int n2 = extractNumber(o2.getName());
-                return n1 - n2;
-            }
-
-            private int extractNumber(String name)
-            {
-                int i = 0;
-                try
-                {
-                    int s = 0;
-                    int e = name.indexOf('_');
-                    String number = name.substring(s, e);
-                    i = Integer.parseInt(number);
-                }
-                catch (Exception e)
-                {
-                    i = 0;
-                }
-                return i;
-            }
-        });
-
-        for (int j = 0; j < filesList.size(); j++)
-            files[j] = filesList.get(j);
     }
 
     // Returns the date of an specific file.

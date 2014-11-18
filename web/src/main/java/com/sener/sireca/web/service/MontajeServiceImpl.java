@@ -7,6 +7,7 @@ package com.sener.sireca.web.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -91,6 +92,7 @@ public class MontajeServiceImpl implements MontajeService
     }
 
     // Return a list of the revisions of a specific project.
+    @SuppressWarnings("unchecked")
     @Override
     public List<MontajeRevision> getRevisions(MontajeVersion version)
     {
@@ -157,6 +159,8 @@ public class MontajeServiceImpl implements MontajeService
             {
             }
         }
+
+        Collections.sort(montajeRevision);
 
         return montajeRevision;
     }

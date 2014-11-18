@@ -14,7 +14,8 @@ import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class PendoladoRevision
+@SuppressWarnings("rawtypes")
+public class PendoladoRevision implements Comparable
 {
 
     // Identificador del proyecto al que pertenece la versión.
@@ -145,6 +146,14 @@ public class PendoladoRevision
     public void setRepRev(ReplanteoRevision repRev)
     {
         this.repRev = repRev;
+    }
+
+    @Override
+    public int compareTo(Object arg0)
+    {
+        int compareRev = ((PendoladoRevision) arg0).getNumRevision();
+
+        return this.numRevision - compareRev;
     }
 
     public void changeState(File preFolder, File preError, File preComment)

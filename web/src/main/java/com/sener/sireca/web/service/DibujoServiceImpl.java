@@ -7,6 +7,7 @@ package com.sener.sireca.web.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -92,6 +93,7 @@ public class DibujoServiceImpl implements DibujoService
     }
 
     // Return a list of the revisions of a specific project.
+    @SuppressWarnings("unchecked")
     @Override
     public List<DibujoRevision> getRevisions(DibujoVersion version)
     {
@@ -152,6 +154,9 @@ public class DibujoServiceImpl implements DibujoService
             {
             }
         }
+
+        Collections.sort(dibujoRevision);
+
         return dibujoRevision;
     }
 

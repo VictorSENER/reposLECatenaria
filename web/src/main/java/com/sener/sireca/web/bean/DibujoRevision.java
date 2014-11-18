@@ -14,7 +14,8 @@ import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class DibujoRevision
+@SuppressWarnings("rawtypes")
+public class DibujoRevision implements Comparable
 {
 
     // Identificador del proyecto al que pertenece la versión.
@@ -158,6 +159,14 @@ public class DibujoRevision
     public void setConfTipo(DibujoConfTipologia confTipo)
     {
         this.confTipo = confTipo;
+    }
+
+    @Override
+    public int compareTo(Object arg0)
+    {
+        int compareRev = ((DibujoRevision) arg0).getNumRevision();
+
+        return this.numRevision - compareRev;
     }
 
     public void changeState(File preAutoCad, File preError, File preComment)

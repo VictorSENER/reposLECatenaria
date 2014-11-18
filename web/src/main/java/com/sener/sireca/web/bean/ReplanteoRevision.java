@@ -14,7 +14,8 @@ import com.sener.sireca.web.service.UserService;
 import com.sener.sireca.web.util.IsJUnit;
 import com.sener.sireca.web.util.SpringApplicationContext;
 
-public class ReplanteoRevision
+@SuppressWarnings("rawtypes")
+public class ReplanteoRevision implements Comparable
 {
 
     // Identificador del proyecto al que pertenece la versión.
@@ -146,6 +147,14 @@ public class ReplanteoRevision
     public void setFileSize(long fileSize)
     {
         this.fileSize = fileSize;
+    }
+
+    @Override
+    public int compareTo(Object arg0)
+    {
+        int compareRev = ((ReplanteoRevision) arg0).getNumRevision();
+
+        return this.numRevision - compareRev;
     }
 
     public void changeState(File preExcel, File preError, File preComment)

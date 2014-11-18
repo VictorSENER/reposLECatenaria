@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 import org.springframework.context.annotation.Scope;
@@ -96,14 +96,18 @@ public class FileServiceImpl implements FileService
         File directory = new File(path);
         File[] ficheros = directory.listFiles();
 
-        //sortDirectory(ficheros);
+        sortDirectory(ficheros);
 
         return ficheros;
     }
 
     private void sortDirectory(File[] files)
     {
-        Arrays.sort(files, new Comparator<File>()
+        ArrayList<File> filesList = new ArrayList<File>();
+        for (int i = 0; i < files.length; i++)
+            filesList.add(files[i]);
+
+        Collections.sort(filesList, new Comparator<File>()
         {
             public int compare(File o1, File o2)
             {
@@ -130,6 +134,8 @@ public class FileServiceImpl implements FileService
             }
         });
 
+        for (int j = 0; j < filesList.size(); j++)
+            files[j] = filesList.get(j);
     }
 
     // Returns the date of an specific file.

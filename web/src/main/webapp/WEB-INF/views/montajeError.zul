@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Cuadernos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+        <window apply="com.sener.sireca.web.page.MontajeErrorPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/ficha-montaje.png" sclass="fn-caption" style="height:40px;" label="Fichas de Montaje"/>
+            <borderlayout>
+	        	<center autoscroll="true" border="none">
+					<vlayout>
+						<grid id="errorList" >
+	                   		<auxhead>
+								<auxheader label="Informe de Errores" colspan= "5000" rowspan="2"/>
+							</auxhead>
+	                     	<columns>
+								<column hflex="min" />
+								<column hflex="min" />
+								<column />
+	                        </columns>
+	                	</grid>
+	                	<hlayout>
+	                   		<button id="goBack" label="Volver" width="65px"/>
+	                   	</hlayout>
+                	</vlayout>
+                </center> 	
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

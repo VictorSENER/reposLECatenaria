@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?page title="SIRECA - Planos de Replanteo" ?>
+<?link rel="stylesheet" type="text/css" href="/style/style.css"?>
+<?init class="com.sener.sireca.web.controller.AuthenticationInit"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="layout/template.zul"?>
+<zk xmlns:n="native">
+    <hbox self="@define(content)" hflex="1" vflex="1">
+    	<window id="pendoladoNewWin" apply="com.sener.sireca.web.page.PendoladoNewPage" 
+        	border="normal" hflex="1" vflex="1" contentStyle="overflow:auto">
+            <caption src="/img/ficha-pendolado.png" sclass="fn-caption" style="height:40px;" label="Fichas de Pendolado"/>
+            <borderlayout>
+                <center autoscroll="true" border="none">
+	                <hlayout>
+						<grid hflex="1">
+							<auxhead>
+	            				<auxheader label="Nueva revisión de fichas de pendolado" rowspan="2" />
+	        				</auxhead>
+	                     	<columns>
+	                        	<column align="left" />
+	                        </columns>
+	                        <rows>
+	                        	<row>
+	                                 <cell sclass="row-title"> PK Inicial : <textbox id="pkInicial" width="50px" /> &#160; m. </cell>
+	                            </row>
+	                            <row>
+									 <cell sclass="row-title"> PK Final : &#160; <textbox id="pkFinal" width="50px" /> &#160; m. </cell>
+	                            </row>
+	                            <row>
+									 <cell sclass="row-title"> Cuaderno de Replanteo: </cell>
+	                            </row>
+	                            <row>
+	                                <cell sclass="row-title">
+	                                	Versión:&#160;&#160;&#160;&#160;
+	                                    <combobox readonly="true" id="versionList" width="150px" >
+	                                    	<comboitem value="${each}" />
+	                                    </combobox>
+	            					</cell>
+								</row>
+	                            <row>
+	                                <cell sclass="row-title">
+	                                	Revisión:&#160;&#160;
+	                                	<combobox readonly="true" id="revisionList" width="150px" >
+	                                    	<comboitem value="${each}" />
+	                                    </combobox>
+	            					</cell>
+	                            </row>
+	                           	<row>
+	                            	<cell sclass="row-title" > Notas de Revisón: </cell>
+	                            </row>
+	                            <row>
+	                               <cell>
+	                                    <textbox id="notes" style="max-width:99%;" rows="2" height="100px" width="210px" />
+	                                </cell>
+	                            </row>
+	                            <row>
+	                            	<cell>
+		                            	<hlayout >
+		                   					<button id="fichaPendolado" label="Calcular" width="65px"/>
+		                   					<button id="volver" label="Volver" width="65px"/>
+		                   				</hlayout>
+	                   				</cell>
+	                            </row>
+                            </rows>
+                        </grid>
+              		</hlayout>  
+            	</center>
+            </borderlayout>
+        </window>
+    </hbox>
+</zk>

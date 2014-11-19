@@ -299,7 +299,7 @@ public class PendoladoServiceImpl implements PendoladoService
 
             try
             {
-                errorLog = fileService.getErrorFileContent(preError.getName());
+                errorLog = fileService.getErrorFileContent(preError.getAbsolutePath());
 
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
@@ -418,6 +418,5 @@ public class PendoladoServiceImpl implements PendoladoService
                 templatesList.add(templates[i].getName().split("-")[0]);
 
         return templatesList;
-
     }
 }

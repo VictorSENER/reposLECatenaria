@@ -298,7 +298,7 @@ public class DibujoServiceImpl implements DibujoService
 
             try
             {
-                errorLog = fileService.getErrorFileContent(preError.getName());
+                errorLog = fileService.getErrorFileContent(preError.getAbsolutePath());
 
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))

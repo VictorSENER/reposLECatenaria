@@ -264,27 +264,27 @@ public class ReplanteoServiceImpl implements ReplanteoService
                     "ERROR/Error en la ejecución del Core.");
             revision.setError(true);
         }
+
         if (fileService.fileExists(preError.getAbsolutePath()))
         {
             ArrayList<String[]> errorLog = null;
 
             try
             {
-                errorLog = fileService.getErrorFileContent(preError.getName());
+                errorLog = fileService.getErrorFileContent(preError.getAbsolutePath());
 
                 for (int i = 0; i < errorLog.size(); i++)
                     if (errorLog.get(i)[0].equals("Error"))
                     {
                         revision.setError(true);
                         revision.setWarning(false);
-                        break;
+                        i = errorLog.size();
                     }
                     else
                         revision.setWarning(true);
             }
             catch (IOException e)
             {
-
             }
 
         }
@@ -359,7 +359,6 @@ public class ReplanteoServiceImpl implements ReplanteoService
 
         return fileService.getProgressFileContent(
                 revision.getProgressFilePath(), valores);
-
     }
 
     @Override

@@ -116,6 +116,7 @@ public class DibujoServiceImpl implements DibujoService
 
                 ReplanteoVersion replanteoVersionAux = replanteoService.getVersion(
                         project, Integer.parseInt(parameters[1]));
+
                 if (replanteoVersionAux != null)
                 {
                     ReplanteoRevision replanteoRevAux = replanteoService.getRevision(
@@ -136,7 +137,13 @@ public class DibujoServiceImpl implements DibujoService
                         {
                             dibujoRevisionAux.setCalculated(true);
                             dibujoRevisionAux.setWarning(true);
+
                         }
+                        else if (parameters[3].equals("P.dwg"))
+                            dibujoRevisionAux.setCalculated(false);
+
+                        else
+                            continue;
 
                         if (fileService.fileExists(dibujoRevisionAux.getNotesFilePath()))
                             dibujoRevisionAux.setNotes(true);

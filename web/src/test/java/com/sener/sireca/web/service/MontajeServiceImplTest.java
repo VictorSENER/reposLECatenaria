@@ -56,6 +56,9 @@ public class MontajeServiceImplTest
         project.setCliente(cliente);
         project.setReferencia(referencia);
         project.setIdCatenaria(1);
+        project.setMontaje("HOLA");
+        project.setMontaje("ADIOS");
+        project.setViaDoble(true);
 
         // Store new project into DB.
         int id = projectService.insertProject(project);
@@ -65,7 +68,7 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.getVersion(project, 1);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "");
+                "Comment");
         fileService.addFile(repRev.getExcelPath());
 
         for (int i = 0; i < 4; i++)
@@ -75,9 +78,9 @@ public class MontajeServiceImplTest
 
         for (int i = 0; i < 4; i++)
         {
-            monRev = montajeService.createRevision(monVer, repRev, "");
+            monRev = montajeService.createRevision(monVer, repRev, "Comment");
             monRev.setCalculated(true);
-            fileService.addDirectory(monRev.getBasePath());
+            fileService.addFile(monRev.getZipPath());
         }
 
     }
@@ -245,13 +248,13 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.createVersion(project);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "");
+                "Comment");
         fileService.addFile(repRev.getExcelPath());
 
         MontajeRevision monRev = montajeService.createRevision(monVer, repRev,
-                "");
+                "Comment");
 
-        fileService.addDirectory(monRev.getBasePath());
+        fileService.addFile(monRev.getZipPath());
 
         assertTrue(monRev.getNumRevision() == montajeService.getLastRevision(monVer));
         try
@@ -263,7 +266,7 @@ public class MontajeServiceImplTest
         {
         }
 
-        fileService.deleteDirectory(monRev.getBasePath());
+        fileService.deleteFile(monRev.getZipPath());
 
     }
 
@@ -277,11 +280,11 @@ public class MontajeServiceImplTest
         MontajeVersion monVer = montajeService.createVersion(project);
         ReplanteoVersion repVer = replanteoService.createVersion(project);
         ReplanteoRevision repRev = replanteoService.createRevision(repVer, 1,
-                "");
+                "Comment");
         MontajeRevision monRev = montajeService.createRevision(monVer, repRev,
-                "");
+                "Comment");
 
-        fileService.addDirectory(monRev.getBasePath());
+        fileService.addFile(monRev.getZipPath());
 
         try
         {
@@ -292,7 +295,7 @@ public class MontajeServiceImplTest
         {
         }
 
-        fileService.deleteDirectory(monRev.getBasePath());
+        fileService.deleteFile(monRev.getZipPath());
 
         assertNull(montajeService.getRevision(monVer, 5));
 

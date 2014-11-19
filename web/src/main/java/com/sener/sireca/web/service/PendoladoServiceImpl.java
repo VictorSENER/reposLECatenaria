@@ -100,6 +100,7 @@ public class PendoladoServiceImpl implements PendoladoService
         ArrayList<PendoladoRevision> pendoladoRevision = new ArrayList<PendoladoRevision>();
 
         Project project = projectService.getProjectById(version.getIdProject());
+
         for (int i = 0; i < revisionList.size(); i++)
         {
             try
@@ -137,7 +138,8 @@ public class PendoladoServiceImpl implements PendoladoService
                             pendoladoRevisionAux.setCalculated(true);
                             pendoladoRevisionAux.setWarning(true);
                         }
-                        else if (parameters[3].equals("P"))
+                        else if (parameters[3].equals("P")
+                                || parameters[3].equals("P.zip"))
                             pendoladoRevisionAux.setCalculated(false);
 
                         else

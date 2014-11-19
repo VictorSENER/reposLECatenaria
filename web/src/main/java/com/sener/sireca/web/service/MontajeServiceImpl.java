@@ -137,7 +137,8 @@ public class MontajeServiceImpl implements MontajeService
                             montajeRevisionAux.setCalculated(true);
                             montajeRevisionAux.setWarning(true);
                         }
-                        else if (parameters[3].equals("P"))
+                        else if (parameters[3].equals("P")
+                                || parameters[3].equals("P.zip"))
                             montajeRevisionAux.setCalculated(false);
 
                         else

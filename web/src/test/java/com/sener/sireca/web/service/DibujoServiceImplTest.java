@@ -57,7 +57,8 @@ public class DibujoServiceImplTest
         project.setReferencia(referencia);
         project.setIdCatenaria(1);
         project.setPendolado("HOLA");
-        // project.setViaDoble(true);
+        project.setMontaje("ADIOS");
+        project.setViaDoble(true);
 
         // Store new project into DB.
         int id = projectService.insertProject(project);
@@ -77,11 +78,9 @@ public class DibujoServiceImplTest
 
         for (int i = 0; i < 4; i++)
         {
-
             dibRev = dibujoService.createRevision(dibVer, repRev, "Comment");
             dibRev.setCalculated(true);
             fileService.addFile(dibRev.getAutoCadPath());
-
         }
 
     }
@@ -257,7 +256,6 @@ public class DibujoServiceImplTest
 
         fileService.addFile(dibRev.getAutoCadPath());
 
-        assertTrue(dibRev.getNumRevision() == dibujoService.getLastRevision(dibVer));
         try
         {
             dibujoService.deleteRevision(project, dibRev.getNumVersion(),
